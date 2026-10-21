@@ -726,4 +726,3 @@ Nessun ricollocamento o modifica al mondo.
 `SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD"`
 
 > You talk to the cabbie.
-

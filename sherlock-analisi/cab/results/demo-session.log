@@ -1,16 +1,16 @@
-OPEN YOUR DOOR [2 -> 3] You open your door. 
-WEST [3 -> 4] You go west. You are in a hall. To the east there is your door. Below there is the stairway. 
-DOWN [4 -> 6] You go down. You are in an entrance hallway. Above there is the stairway. To the south there is the front door. 
-OPEN FRONT DOOR [6 -> 7] You open the front door. 
-SOUTH [7 -> 9] You go south. You are on Baker Street. To the north there is the front door. 
-HAIL CAB [9 -> 10] You hail the hansom cab. The cabbie says to you" Good morning guv'nor.". 
-GET INTO CAB [10 -> 12] You get into the hansom cab. 
-SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD" [12 -> 13] You talk to the cabbie. You are in a hansom cab with the cabbie. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face. 
-WAIT [13 -> 18] You wait. 
-WAIT [18 -> 23] You wait. 
-WAIT [23 -> 28] You wait. You are in a hansom cab. The hansom cab is in Buckingham Palace Road. Visible exits are east. The cabbie remarks to you" Right guv'nor that will be 8d." 
-GET OUT OF CAB [28 -> 30] You get out of the hansom cab. The cabbie, who now appears to be getting quite agitated, says" What about me money guv'nor?". 
-PAY 1/- TO CABBIE [30 -> 31] You pay 1/- to the cabbie. The cabbie pays 4d. To you. 
+OPEN YOUR DOOR [2 -> 3] You open your door.
+WEST [3 -> 4] You go west. You are in a hall. To the east there is your door. Below there is the stairway.
+DOWN [4 -> 6] You go down. You are in an entrance hallway. Above there is the stairway. To the south there is the front door.
+OPEN FRONT DOOR [6 -> 7] You open the front door.
+SOUTH [7 -> 9] You go south. You are on Baker Street. To the north there is the front door.
+HAIL CAB [9 -> 10] You hail the hansom cab. The cabbie says to you" Good morning guv'nor.".
+GET INTO CAB [10 -> 12] You get into the hansom cab.
+SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD" [12 -> 13] You talk to the cabbie. You are in a hansom cab with the cabbie. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.
+WAIT [13 -> 18] You wait.
+WAIT [18 -> 23] You wait.
+WAIT [23 -> 28] You wait. You are in a hansom cab. The hansom cab is in Buckingham Palace Road. Visible exits are east. The cabbie remarks to you" Right guv'nor that will be 8d."
+GET OUT OF CAB [28 -> 30] You get out of the hansom cab. The cabbie, who now appears to be getting quite agitated, says" What about me money guv'nor?".
+PAY 1/- TO CABBIE [30 -> 31] You pay 1/- to the cabbie. The cabbie pays 4d. To you.
 Motore Z80 originale, NPC attivi. :state mostra lo stato; :quit esce. Si parte dal prompt originale alle 08:01am. Buon viaggio.
 > {
   "tick": 31,
@@ -103,4 +103,4 @@ Motore Z80 originale, NPC attivi. :state mostra lo stato; :quit esce. Si parte d
     }
   ]
 }
-> 
+>

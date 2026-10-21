@@ -32,7 +32,7 @@ def run(q,commands):
     rows=[]
     for c in commands:
         r=q.command(c);rows.append(r)
-        print(f"{c} [{r['before']['tick']} -> {r['after']['tick']}] {r['upper']} {r['lower']}",flush=True)
+        print(f"{c} [{r['before']['tick']} -> {r['after']['tick']}] {r['upper']} {r['lower']}".rstrip(),flush=True)
         if r['stop']!='prompt':raise RuntimeError(f"{c}: {r['stop']}")
     return rows
 NATURAL=['OPEN YOUR DOOR','WEST','DOWN','OPEN FRONT DOOR','SOUTH','HAIL CAB','GET INTO CAB']
@@ -93,7 +93,7 @@ def write_report(cases,output):
         for r in case['commands']:
             if r['upper'] and r['upper']!='You wait.':lines+=['`'+r['command']+'`', '', '> '+r['upper'],'']
             if r['lower']:lines+=['Canale inferiore: '+r['lower'],'']
-    (output/'PROVE.md').write_text('\n'.join(lines)+'\n')
+    (output/'PROVE.md').write_text('\n'.join(lines).rstrip()+'\n')
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',type=Path,default=Path(__file__).resolve().parents[2]);ap.add_argument('--output',type=Path,default=Path(__file__).resolve().parent/'results');ap.add_argument('--suite',action='store_true');ap.add_argument('--interactive',action='store_true');ap.add_argument('--demo',action='store_true',help='Corsa naturale completa con pagamento e resto.');ap.add_argument('--command',action='append',default=[]);a=ap.parse_args();a.output.mkdir(parents=True,exist_ok=True)
