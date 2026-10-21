@@ -17,13 +17,17 @@ Le cinque righe conservano i comandi recenti e le risposte del canale inferiore.
 
 ## Scrittura, scroll e MORE
 
-All’avvio della modalità e dopo **Ricomincia**, lo schermo superiore è vuoto e il quadratino lampeggiante attende un tasto. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio comincia due colonne più a destra rispetto alla versione precedente: x=16 pixel virtuali, con passo di sette pixel.
+All’avvio della modalità e dopo **Riavvia**, lo schermo superiore è vuoto e il quadratino lampeggiante attende un tasto. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio appare subito al primo tasto alle **Mon 08:00am** e resta alle 08:00am dopo la descrizione iniziale. Comincia due colonne più a destra rispetto alla versione precedente: x=16 pixel virtuali, con passo di sette pixel.
 
-L’uscita superiore viene composta per parole, con intervallo di presentazione di circa 65 ms. Le parole che non entrano nella riga passano alla successiva. Le sequenze più lunghe della riga vengono spezzate per garantire che il testo avanzi sempre.
+L’uscita superiore viene composta per parole, con intervallo di presentazione di circa 32,5 ms (il doppio della velocità precedente). Le parole che non entrano nella riga passano alla successiva. Le sequenze più lunghe della riga vengono spezzate per garantire che il testo avanzi sempre.
 
 Prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. Nella cella destra della barra di stato lampeggia un quadratino. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
 
 La pausa e la velocità di scrittura sono gestite dalla presentazione JavaScript. L’orologio riceve i valori dal motore esistente e non avanza per i timer grafici né per il tasto MORE. Durante l’uscita non si possono inviare altri comandi. Disattivare la modalità sblocca un eventuale MORE pendente e restituisce la normale interfaccia.
+
+Il pulsante **Riavvia ↺**, sopra il video, ricrea la partita da zero: locazione iniziale, oggetti, stato del parser, comandi e orologio. Resta disponibile anche durante la scrittura e le pause MORE. Annulla l’uscita precedente; se una richiesta è già in corso, ne attende la fine prima di sostituire la partita, evitando che una risposta vecchia alteri il nuovo avvio. Le preferenze grafiche restano memorizzate.
+
+L’avvio gratuito è una scelta dell’esploratore richiesta dall’utente. Il riferimento Z80 del primo prompt resta alle 08:01am nelle analisi originali. `Game` riporta il calendario alle 08:00am e arretra insieme tick globale e scadenza del giocatore di un’unità, preservando gli intervalli delle azioni successive; `NativeWorld` e gli snapshot di ricerca restano invariati.
 
 ## Immagini
 
@@ -48,9 +52,10 @@ L’interruttore **Immagini** mostra/nasconde anche la grafica della modalità c
 | `spectrum-assets.json` | Asset estratti, hash delle fonti e PNG originali incorporati. |
 | `app.js` | Bundle generato da terminale, asset e interfaccia. |
 | `verify_compatibility.cjs` | Controlli della griglia, dell’impaginazione e degli asset. |
+| `verify_restart.py` | Avvio alle 08:00am, costi nativi e ripristino della partita. |
 | `verify_terminal.cjs` | Controlli della coda reale, della tastiera e della cancellazione del MORE. |
 
-**Per modificare l’interfaccia, lavorare su `explorer-ui.js` e `spectrum.js`, quindi ricostruire `app.js`.** Il bundle rende la funzione disponibile anche al server già aperto, che conosceva solo le route HTML/CSS/JS precedenti. Non occorre riavviarlo né perdere le sessioni.
+**Per modificare l’interfaccia, lavorare su `explorer-ui.js` e `spectrum.js`, quindi ricostruire `app.js`.** Il bundle rende la funzione disponibile anche al server già aperto, che conosceva solo le route HTML/CSS/JS precedenti. Per modifiche statiche non occorre riavviarlo né perdere le sessioni. Le modifiche Python richiedono invece il riavvio del server locale.
 
 Dalla cartella Sherlock rebuild:
 
@@ -58,6 +63,7 @@ Dalla cartella Sherlock rebuild:
 python3 -B sherlock-analisi/locazioni/build_compat_assets.py
 node sherlock-analisi/locazioni/verify_compatibility.cjs
 node sherlock-analisi/locazioni/verify_terminal.cjs
+python3 -B sherlock-analisi/locazioni/verify_restart.py
 ```
 
 Dopo modifiche statiche, ricaricare la pagina. Entrare nella modalità ricompone la descrizione della locazione corrente; la scelta della modalità non esegue LOOK né aggiunge il suo costo temporale.

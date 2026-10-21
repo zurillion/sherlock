@@ -1,5 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
+let operationEpoch=0,restarting=false;
+const pendingRequests=new Set();
 let data,state,busy=false,history=[],historyAt=0,view=[-15,-15,805,675],drag=null,moved=false;
 const rooms=new Map(),nodes=new Map(),edgeEls=[];
 const spectrum=new SpectrumTerminal({canvas:$('spectrum-screen'),input:$('spectrum-input'),upper:$('spectrum-upper'),lower:$('spectrum-lower'),status:$('spectrum-status'),onCommand:text=>command(text)});
@@ -13,7 +15,7 @@ displayCompatibility(preference('sherlock-compatibility','false')==='true');
 $('compatibility').onchange=async()=>{
  const enabled=$('compatibility').checked;if(busy&&enabled){$('compatibility').checked=spectrum.active;return;}
  displayCompatibility(enabled);if(!enabled){focusCommand();return;}if(!data||!state)return;
- spectrum.reset();setBusy(true);try{const current=await api('/api/state');update(current);await spectrum.writeMessages([{kind:'narrative',text:current.initial,image_room:current.room}]);}catch(error){append('error',error.message);}finally{setBusy(false);focusCommand();}
+ const epoch=++operationEpoch;spectrum.reset();setBusy(true);try{const current=await api('/api/state');if(epoch!==operationEpoch)return;update(current);await spectrum.writeMessages([{kind:'narrative',text:current.initial,image_room:current.room}]);}catch(error){if(epoch===operationEpoch)append('error',error.message);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}
 };
 $('compat-picture-mode').onchange=()=>{savePreference('sherlock-compat-picture-mode',$('compat-picture-mode').value);spectrum.setPictureMode($('compat-picture-mode').value);};
 $('compat-scale').onchange=()=>{savePreference('sherlock-compat-scale',$('compat-scale').value);spectrum.setScale($('compat-scale').value);};
@@ -35,8 +37,11 @@ function appendScene(message){
 function setPictures(enabled){spectrum.setPictures(enabled);$('pictures').checked=enabled;document.body.classList.toggle('pictures-off',!enabled);try{localStorage.setItem('sherlock-pictures',String(enabled));}catch{}}
 let picturesEnabled=true;try{picturesEnabled=localStorage.getItem('sherlock-pictures')!=='false';}catch{}
 setPictures(picturesEnabled);$('pictures').onchange=()=>setPictures($('pictures').checked);
-async function api(path,body){const options=body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)};const res=await fetch(path,options);const value=await res.json();if(!res.ok)throw new Error(value.error||'Richiesta non riuscita');return value;}
-function setBusy(value){busy=value;$('command').disabled=value;$('submit').disabled=value;$('reset').disabled=value;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);}
+async function api(path,body){
+ const request=(async()=>{const options=body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)};const res=await fetch(path,options);const value=await res.json();if(!res.ok)throw new Error(value.error||'Richiesta non riuscita');return value;})();
+ pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}
+}
+function setBusy(value){busy=value;$('command').disabled=value;$('submit').disabled=value;$('reset').disabled=restarting||!data;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);}
 function update(s){state=s;spectrum.setRoom(s.room);spectrum.setClock(s.clock.label);$('clock').textContent=s.clock.label;$('ticks').textContent=`Tick ${s.clock.tick} · ${s.visited.length} luoghi esplorati`;$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
@@ -44,7 +49,7 @@ function update(s){state=s;spectrum.setRoom(s.room);spectrum.setClock(s.clock.la
  $('exits').replaceChildren();for(const e of s.exits){const row=el('div',undefined,'exit'),button=el('button',e.direction),desc=el('div',`${String(e.target).padStart(3,'0')} ${e.target_name||'destinazione non attiva'}`);button.title='Esegui il movimento, rispettando gli ostacoli';button.onclick=()=>command(e.direction);desc.append(el('small',`${e.gate_name?e.gate_name+' · ':''}${e.status}`));row.append(button,desc);$('exits').append(row);}if(!s.exits.length)$('exits').append(el('span','Nessuna uscita direzionale.'));
  $('objects').replaceChildren();for(const o of s.visible){const item=el('span',o.name,'entity');item.title=`Entità ${o.id}${s.objects.some(x=>x.id===o.id)?' · elencata nella scena':''}`;$('objects').append(item);}if(!s.visible.length)$('objects').append(el('span',s.dark?'È buio: nessun elenco visivo disponibile.':'Nessuna entità percepibile.'));
  if(s.analysis){const a=s.analysis;$('analysis').textContent=JSON.stringify({esito:a.outcome,riga:a.normalised,unita:a.units,controlli:a.controls},null,2);}}
-async function perform(path,body,focus=true){if(busy)return;setBusy(true);try{const r=await api(path,body);update(r.state);await showMessages(r.messages);}catch(error){await showMessages([{kind:'system',text:error.message}]);}finally{setBusy(false);if(focus||spectrum.active)focusCommand();}}
+async function perform(path,body,focus=true){if(busy)return;const epoch=++operationEpoch;setBusy(true);try{const r=await api(path,body);if(epoch!==operationEpoch)return;update(r.state);await showMessages(r.messages);}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){setBusy(false);if(focus||spectrum.active)focusCommand();}}}
 async function command(text){if(busy||!text.trim())return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('/api/command',{command:text});}
 async function teleport(id){if(busy)return;$('search-results').hidden=true;$('search').value='';await perform('/api/teleport',{room:id},false);}
 function applyView(){$('map').setAttribute('viewBox',view.join(' '));}
@@ -106,7 +111,19 @@ function buildGraph(){
 $('command-form').addEventListener('submit',e=>{e.preventDefault();command($('command').value);});
 $('command').addEventListener('keydown',e=>{if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();historyAt=Math.max(0,Math.min(history.length,historyAt+(e.key==='ArrowUp'?-1:1)));$('command').value=history[historyAt]||'';}});
 for(const b of document.querySelectorAll('[data-command]'))b.onclick=()=>command(b.dataset.command);
-$('reset').onclick=async()=>{if(busy)return;$('transcript').replaceChildren();spectrum.reset();history=[];historyAt=0;await perform('/api/reset',{});};
+$('reset').onclick=async()=>{
+ if(restarting||!data)return;const epoch=++operationEpoch;restarting=true;
+ spectrum.reset();$('transcript').replaceChildren();$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
+ $('search').value='';$('search-results').hidden=true;setBusy(true);
+ try{
+  // Let an already submitted action finish before replacing its session.
+  await Promise.allSettled([...pendingRequests]);
+  const r=await api('/api/reset',{});if(epoch!==operationEpoch)return;
+  update(r.state);centerRoom(r.state.room);restarting=false;setBusy(true);
+  await showMessages(r.messages);
+ }catch(error){if(epoch===operationEpoch)append('error',error.message);}
+ finally{if(epoch===operationEpoch){restarting=false;setBusy(false);focusCommand();}}
+};
 $('about').onclick=()=>$('help').showModal();$('close-help').onclick=()=>$('help').close();
 $('labels').onchange=()=>$('map').classList.toggle('show-labels',$('labels').checked);
 $('fit').onclick=fitGraph;$('center').onclick=()=>centerRoom();$('zoom-in').onclick=()=>zoom(.75);$('zoom-out').onclick=()=>zoom(1.333);
@@ -116,4 +133,4 @@ $('map').addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-d
 window.addEventListener('pointerup',()=>{drag=null;$('map').classList.remove('dragging');});
 $('map').addEventListener('pointercancel',()=>{drag=null;$('map').classList.remove('dragging');});
 $('search').addEventListener('input',()=>{const q=$('search').value.trim().toLowerCase(),list=$('search-results');list.replaceChildren();list.hidden=!q;if(!q)return;const found=data.rooms.filter(r=>r.id&&(r.name_hint.toLowerCase().includes(q)||String(r.id).padStart(3,'0').includes(q))).slice(0,18);for(const r of found){const b=el('button',`${String(r.id).padStart(3,'0')} · ${r.name_hint} →`);b.onclick=()=>{centerRoom(r.id);teleport(r.id);};list.append(b);}if(!found.length)list.append(el('p','Nessun luogo corrispondente.'));});
-(async()=>{setBusy(true);try{data=await api('/api/data');spectrum.configure(SPECTRUM_ASSETS,data.pictures,SPECTRUM_ASSETS.pixels);buildGraph();state=await api('/api/state');update(state);centerRoom(state.room);await showMessages([{kind:'narrative',text:state.initial,image_room:state.room}]);}catch(error){append('error',`Start the Python server to use the explorer. ${error.message}`);}finally{setBusy(false);focusCommand();}})();
+(async()=>{const epoch=++operationEpoch;setBusy(true);try{data=await api('/api/data');spectrum.configure(SPECTRUM_ASSETS,data.pictures,SPECTRUM_ASSETS.pixels);buildGraph();const initialState=await api('/api/state');if(epoch!==operationEpoch)return;update(initialState);centerRoom(state.room);setBusy(true);await showMessages([{kind:'narrative',text:state.initial,image_room:state.room}]);}catch(error){if(epoch===operationEpoch)append('error',`Start the Python server to use the explorer. ${error.message}`);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}})();

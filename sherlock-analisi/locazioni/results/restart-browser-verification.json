@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:8766/",
+  "checks": [
+    "Startup pauses with blank upper text and hidden clock; Riavvia remains enabled",
+    "Riavvia works during initial MORE and ordinary MORE",
+    "First key immediately shows Mon 08:00am and starts writing at the bottom",
+    "Completed initial description remains at Mon 08:00am",
+    "User LOOK advances to Mon 08:01am",
+    "Riavvia during word output cancels old text and returns to a blank startup pause",
+    "Fresh startup restores room 008, clears command history and ends at Mon 08:00am",
+    "No browser console errors"
+  ],
+  "final_state": {
+    "room": 8,
+    "clock": "Mon 08:00am",
+    "processing": false,
+    "waiting": false,
+    "prompt": "+"
+  },
+  "screenshot": "anteprima-riavvio.png"
+}

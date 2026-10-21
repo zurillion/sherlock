@@ -26,6 +26,11 @@ def perceived(m,ident,actor=None):
 class Game:
     def __init__(self,project,data):
         self.data=data;self.world=NativeWorld(project);self.parser=self.world.engine
+        # Web presentation starts before the snapshot's first paid LOOK.
+        # Shift both scheduler counters together; subsequent action costs stay native.
+        self.parser.put(self.world.sim,0x9fdd,1)
+        self.parser.put(self.world.sim,0x9866,0)
+        self.world.m[0x9fdf:0x9fe3]=[0,8,0,97]
         self.rooms={x['id']:x for x in data['rooms']};self.entities={x['id']:x for x in data['entities']}
         self.explored={8};self.last_listed=[];self.last_analysis=None
         scene=self.world.scene();self.last_listed=scene['listed'];self.initial=scene['text']

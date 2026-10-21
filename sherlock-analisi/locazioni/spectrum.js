@@ -21,7 +21,7 @@ function spectrumTokens(text){return text.replace(/\r\n?/g,'\n').trim().match(/\
 function spectrumWrap(text,columns=36){const lines=[''];for(const c of text){if(c==='\n'||lines[lines.length-1].length===columns)lines.push('');if(c!=='\n')lines[lines.length-1]+=c;}return lines;}
 class SpectrumTerminal {
  constructor({canvas,input,upper,lower,status,onCommand}){
-  Object.assign(this,{canvas,input,upper,lower,status,onCommand});this.model=new SpectrumBuffer();this.active=false;this.busy=false;this.processing=false;this.waiting=false;this.waitingReason=null;this.startupPending=true;this.epoch=0;this.draft='';this.lowerHistory=[];this.lowerLine='';this.clock='Mon 08:01am';this.scale=2;this.pictureMode='svg';this.pictures=true;this.picture=null;this.pictureTop=0;this.pictureNarrow=false;this.cache=new Map();this.delay=65;
+  Object.assign(this,{canvas,input,upper,lower,status,onCommand});this.model=new SpectrumBuffer();this.active=false;this.busy=false;this.processing=false;this.waiting=false;this.waitingReason=null;this.startupPending=true;this.epoch=0;this.draft='';this.lowerHistory=[];this.lowerLine='';this.clock='Mon 08:00am';this.clockVisible=false;this.scale=2;this.pictureMode='svg';this.pictures=true;this.picture=null;this.pictureTop=0;this.pictureNarrow=false;this.cache=new Map();this.delay=32.5;
   input.addEventListener('keydown',e=>this.key(e));input.addEventListener('beforeinput',e=>{e.preventDefault();if(this.busy||this.processing||this.waiting)return;if(e.inputType==='insertText'&&e.data)for(const c of e.data)this.type(c);else if(e.inputType==='deleteContentBackward')this.backspace();});
   for(const event of ['paste','drop','cut'])input.addEventListener(event,e=>e.preventDefault());
   input.addEventListener('input',()=>{input.value=this.draft;});
@@ -38,7 +38,7 @@ class SpectrumTerminal {
  setRoom(room){if(this.room!==undefined&&room!==this.room)this.clearPicture();this.room=room;}
  async setPictureMode(value){this.pictureMode=value==='pixel'?'pixel':'svg';if(this.picture)await this.loadPicture(this.picture.room,false);this.render();}
  clearPicture(){this.picture=null;this.pictureNarrow=false;this.model.columns=36;this.render();}
- reset(){this.cancel();this.startupPending=true;this.model.clear();this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
+ reset(){this.cancel();this.clock='Mon 08:00am';this.clockVisible=false;this.startupPending=true;this.model.clear();this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
  cancel(){this.epoch++;this.waiting=false;this.waitingReason=null;this.processing=false;if(this.resume){this.resume(false);this.resume=null;}this.render();}
  focus(){if(this.active)this.input.focus({preventScroll:true});}
  type(character){if(!/^[ -~£]$/.test(character)||this.draft.length>=70)return;this.draft+=character.toUpperCase();this.input.value=this.draft;this.render();}
@@ -50,7 +50,7 @@ class SpectrumTerminal {
   if(e.key==='Backspace')this.backspace();else if(e.key==='Enter'){if(this.draft.trim())this.onCommand(this.draft);}else if(e.key.length===1)this.type(e.key);
  }
  commit(text){this.lowerHistory.push(...spectrumWrap(text.toUpperCase()));this.lowerHistory=this.lowerHistory.slice(-40);this.draft='';this.input.value='';this.render();}
- more(){if(!this.waiting)return;if(this.waitingReason==='startup')this.model.startPage();else{this.model.more();if(this.picture&&this.pictureNarrow)this.picture.scrollOrigin=this.model.scrolls;this.pictureNarrow=false;this.model.columns=36;}this.waiting=false;this.waitingReason=null;const resolve=this.resume;this.resume=null;this.render();if(resolve)resolve(true);}
+ more(){if(!this.waiting)return;if(this.waitingReason==='startup'){this.clockVisible=true;this.model.startPage();}else{this.model.more();if(this.picture&&this.pictureNarrow)this.picture.scrollOrigin=this.model.scrolls;this.pictureNarrow=false;this.model.columns=36;}this.waiting=false;this.waitingReason=null;const resolve=this.resume;this.resume=null;this.render();if(resolve)resolve(true);}
  async pause(reason='more'){this.waiting=true;this.waitingReason=reason;this.status.textContent='Premi un tasto qualsiasi per continuare.';this.render();return new Promise(resolve=>{this.resume=resolve;});}
  async line(epoch){while(!this.model.newline()){if(!await this.pause()||epoch!==this.epoch)return false;}return epoch===this.epoch;}
  async loadPicture(room,fresh=true){
@@ -89,7 +89,7 @@ class SpectrumTerminal {
  lowerRows(){const rows=[...this.lowerHistory];if(this.lowerLine)rows.push(this.lowerLine);const draft=spectrumWrap(this.draft+(!this.busy&&!this.processing?'+':''));rows.push(...draft);return [...Array(Math.max(0,5-rows.length)).fill(''),...rows.slice(-5)].map(line=>line.padEnd(36,' '));}
  render(){
   const upper=this.model.visible(),lower=this.lowerRows();this.upper.textContent=upper.join('\n');this.lower.textContent=lower.join('\n');
-  this.canvas.setAttribute('aria-label',`Schermo ZX Spectrum · ${this.clock}. 36 colonne, 18 righe di testo, una riga di stato, 5 righe di comando.`);this.canvas.dataset.waiting=String(this.waiting);this.canvas.dataset.waitingReason=this.waitingReason||'';this.canvas.dataset.clockX='16';this.canvas.dataset.processing=String(this.processing);this.canvas.dataset.columns=String(this.model.columns);this.canvas.dataset.scrolls=String(this.model.scrolls);this.canvas.dataset.picture=this.picture&&this.pictures?String(this.picture.room):'';this.canvas.dataset.pictureMode=this.pictureMode;
+  this.canvas.setAttribute('aria-label',`Schermo ZX Spectrum${this.clockVisible?' · '+this.clock:''}. 36 colonne, 18 righe di testo, una riga di stato, 5 righe di comando.`);this.canvas.dataset.waiting=String(this.waiting);this.canvas.dataset.waitingReason=this.waitingReason||'';this.canvas.dataset.clockX='16';this.canvas.dataset.clockVisible=String(this.clockVisible);this.canvas.dataset.clock=this.clockVisible?this.clock:'';this.canvas.dataset.processing=String(this.processing);this.canvas.dataset.columns=String(this.model.columns);this.canvas.dataset.scrolls=String(this.model.scrolls);this.canvas.dataset.picture=this.picture&&this.pictures?String(this.picture.room):'';this.canvas.dataset.pictureMode=this.pictureMode;
   if(!this.assets)return;
   const scale=this.scale,dpr=window.devicePixelRatio||1,w=256*scale,h=192*scale;
   if(this.canvas.width!==Math.round(w*dpr)||this.canvas.height!==Math.round(h*dpr)){this.canvas.width=Math.round(w*dpr);this.canvas.height=Math.round(h*dpr);}
@@ -99,7 +99,7 @@ class SpectrumTerminal {
   for(let row=0;row<18;row++)this.drawText(ctx,upper[row],2,row*8);ctx.restore();
   ctx.fillStyle='#fff';ctx.fillRect(0,144,256,8);ctx.fillStyle='#000';
   for(let row=0;row<6;row++)for(let x=0;x<256;x++)if(this.assets.divider[row*4+Math.floor(x/8)%4]&(128>>(x%8)))ctx.fillRect(x,145+row,1,1);
-  ctx.fillStyle='#fff';ctx.fillRect(14,144,this.clock.length*7+6,8);this.drawText(ctx,this.clock,16,144);
+  if(this.clockVisible){ctx.fillStyle='#fff';ctx.fillRect(14,144,this.clock.length*7+6,8);this.drawText(ctx,this.clock,16,144);}
   if(this.waiting){ctx.fillStyle='#fff';ctx.fillRect(247,144,9,8);if(Math.floor(Date.now()/320)%2===0){ctx.fillStyle='#000';ctx.fillRect(249,145,6,6);}}
   for(let row=0;row<5;row++)this.drawText(ctx,lower[row],2,152+row*8);
  }
