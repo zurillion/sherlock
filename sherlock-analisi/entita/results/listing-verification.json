@@ -1,0 +1,151 @@
+{
+  "instructions": 1580,
+  "bytes_roundtripped": 6419,
+  "regions": [
+    {
+      "start": "8259",
+      "end_exclusive": "840B",
+      "kind": "data"
+    },
+    {
+      "start": "8B6F",
+      "end_exclusive": "956A",
+      "kind": "data"
+    },
+    {
+      "start": "A419",
+      "end_exclusive": "A476",
+      "kind": "code"
+    },
+    {
+      "start": "A4CD",
+      "end_exclusive": "A536",
+      "kind": "code"
+    },
+    {
+      "start": "AA71",
+      "end_exclusive": "AAA1",
+      "kind": "data"
+    },
+    {
+      "start": "B16D",
+      "end_exclusive": "B191",
+      "kind": "data"
+    },
+    {
+      "start": "B191",
+      "end_exclusive": "B39C",
+      "kind": "code"
+    },
+    {
+      "start": "B39C",
+      "end_exclusive": "B39D",
+      "kind": "data"
+    },
+    {
+      "start": "B39D",
+      "end_exclusive": "B4A2",
+      "kind": "code"
+    },
+    {
+      "start": "B4A2",
+      "end_exclusive": "B4A3",
+      "kind": "data"
+    },
+    {
+      "start": "B4A3",
+      "end_exclusive": "B549",
+      "kind": "code"
+    },
+    {
+      "start": "B549",
+      "end_exclusive": "B54A",
+      "kind": "data"
+    },
+    {
+      "start": "B54A",
+      "end_exclusive": "B5FC",
+      "kind": "code"
+    },
+    {
+      "start": "C45E",
+      "end_exclusive": "C471",
+      "kind": "code"
+    },
+    {
+      "start": "C493",
+      "end_exclusive": "C4D1",
+      "kind": "code"
+    },
+    {
+      "start": "C628",
+      "end_exclusive": "C9FB",
+      "kind": "code"
+    },
+    {
+      "start": "D04F",
+      "end_exclusive": "D05A",
+      "kind": "code"
+    },
+    {
+      "start": "D1DC",
+      "end_exclusive": "D224",
+      "kind": "code"
+    },
+    {
+      "start": "D237",
+      "end_exclusive": "D29D",
+      "kind": "code"
+    },
+    {
+      "start": "D2ED",
+      "end_exclusive": "D33C",
+      "kind": "code"
+    },
+    {
+      "start": "D349",
+      "end_exclusive": "D448",
+      "kind": "code"
+    },
+    {
+      "start": "D495",
+      "end_exclusive": "D590",
+      "kind": "code"
+    },
+    {
+      "start": "D5C9",
+      "end_exclusive": "D5D3",
+      "kind": "data"
+    },
+    {
+      "start": "D5D3",
+      "end_exclusive": "D5EF",
+      "kind": "code"
+    },
+    {
+      "start": "DF2E",
+      "end_exclusive": "DF40",
+      "kind": "code"
+    },
+    {
+      "start": "DF49",
+      "end_exclusive": "DF7E",
+      "kind": "code"
+    },
+    {
+      "start": "E31C",
+      "end_exclusive": "E328",
+      "kind": "code"
+    },
+    {
+      "start": "E32C",
+      "end_exclusive": "E345",
+      "kind": "code"
+    },
+    {
+      "start": "E38F",
+      "end_exclusive": "E3B8",
+      "kind": "code"
+    }
+  ]
+}

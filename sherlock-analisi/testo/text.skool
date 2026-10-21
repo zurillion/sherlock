@@ -1,0 +1,1186 @@
+; Indice alfabetico e limite dell'area dizionario
+;
+; Word little-endian. Il decoder usa le entrate a partire dal codice $60; a-z
+; corrispondono a $5D82-$5DB5. I valori sono offset relativi a $5DBF. La word a
+; $5DBE contiene $09F8, che conduce a $67B7.
+w$5D80 DEFW $0000
+ $5D82 DEFW $0001
+ $5D84 DEFW $00A7
+ $5D86 DEFW $0164
+ $5D88 DEFW $020D
+ $5D8A DEFW $0280
+ $5D8C DEFW $02DD
+ $5D8E DEFW $036A
+ $5D90 DEFW $03BA
+ $5D92 DEFW $042D
+ $5D94 DEFW $048B
+ $5D96 DEFW $0494
+ $5D98 DEFW $04B0
+ $5D9A DEFW $0532
+ $5D9C DEFW $0599
+ $5D9E DEFW $05E8
+ $5DA0 DEFW $0636
+ $5DA2 DEFW $06EB
+ $5DA4 DEFW $06F9
+ $5DA6 DEFW $075A
+ $5DA8 DEFW $0882
+ $5DAA DEFW $090C
+ $5DAC DEFW $094B
+ $5DAE DEFW $095A
+ $5DB0 DEFW $09DF
+ $5DB2 DEFW $09E3
+ $5DB4 DEFW $09F5
+ $5DB6 DEFW $0000
+ $5DB8 DEFW $0000
+ $5DBA DEFW $0000
+ $5DBC DEFW $0000
+ $5DBE DEFW $09F8
+
+i$5DC0
+
+; Tabella delle 32 parole frequenti
+;
+; I token $60-$7F selezionano una word a questa base. Il risultato e un offset
+; nel dizionario; $A840 aggiunge il contesto $5000, cioe senza suffisso.
+w$67B7 DEFW $089D
+ $67B9 DEFW $08DB
+ $67BB DEFW $0001
+ $67BD DEFW $005D
+ $67BF DEFW $09EE
+ $67C1 DEFW $05EC
+ $67C3 DEFW $0899
+ $67C5 DEFW $0485
+ $67C7 DEFW $0450
+ $67C9 DEFW $096A
+ $67CB DEFW $009A
+ $67CD DEFW $042D
+ $67CF DEFW $0488
+ $67D1 DEFW $05D5
+ $67D3 DEFW $03DF
+ $67D5 DEFW $0263
+ $67D7 DEFW $0986
+ $67D9 DEFW $094B
+ $67DB DEFW $09BF
+ $67DD DEFW $03FC
+ $67DF DEFW $0794
+ $67E1 DEFW $015E
+ $67E3 DEFW $03E3
+ $67E5 DEFW $05FF
+ $67E7 DEFW $007A
+ $67E9 DEFW $0620
+ $67EB DEFW $0351
+ $67ED DEFW $05E0
+ $67EF DEFW $00C0
+ $67F1 DEFW $0996
+ $67F3 DEFW $0414
+ $67F5 DEFW $0594
+
+i$67F7
+
+; Frase verificata: I do not know the word seguito da virgoletta
+;
+; Eseguita in isolamento con il codice Z80 originale e stampa bitmap reale. Non
+; sono istruzioni CPU: e il linguaggio dei testi interpretato da $A5CD.
+b$6859 DEFB $6B,$6F,$6D     ; Token frequenti: i, do, not.
+ $685C DEFB $D4,$AD         ; Token lungo: contesto $50, offset $4AD = know.
+ $685E DEFB $60             ; Token frequente: the.
+ $685F DEFB $20             ; Spazio letterale.
+ $6860 DEFB $43,$BB,$E4,$40 ; Conteggio $43: quattro caratteri a 5 bit; $BB $E4
+                            ; $40 = word.
+ $6864 DEFB $22             ; Virgoletta letterale.
+ $6865 DEFB $1F             ; Comando $1F: termina senza punto o ritorno a
+                            ; capo.
+
+i$6866
+
+; Tabella dispatch dei 32 comandi del linguaggio dei testi
+w$A55D DEFW $A65D
+ $A55F DEFW $A66C
+ $A561 DEFW $A679
+ $A563 DEFW $A702
+ $A565 DEFW $A709
+ $A567 DEFW $A711
+ $A569 DEFW $A720
+ $A56B DEFW $A72C
+ $A56D DEFW $A736
+ $A56F DEFW $A73B
+ $A571 DEFW $A6D3
+ $A573 DEFW $A75B
+ $A575 DEFW $A780
+ $A577 DEFW $A63A
+ $A579 DEFW $A78E
+ $A57B DEFW $A68C
+ $A57D DEFW $A793
+ $A57F DEFW $A7AC
+ $A581 DEFW $A65C
+ $A583 DEFW $A7B4
+ $A585 DEFW $A694
+ $A587 DEFW $A69C
+ $A589 DEFW $A6A4
+ $A58B DEFW $A6AC
+ $A58D DEFW $A360
+ $A58F DEFW $A771
+ $A591 DEFW $A684
+ $A593 DEFW $A852
+ $A595 DEFW $A682
+ $A597 DEFW $A63F
+ $A599 DEFW $A643
+ $A59B DEFW $A65A
+
+; Puntatore agli argomenti sullo stack
+b$A59D DEFB $00,$00
+
+; Interprete pubblico con argomenti sullo stack
+;
+; Preserva BC, DE, IX, AF; usa HL per l'indirizzo del testo. Memorizza in $A59D
+; la posizione degli argomenti oltre l'indirizzo di ritorno. Alla fine
+; ripristina i registri, recupera il ritorno e aggiusta SP per consumare gli
+; argomenti. La convenzione completa dei singoli comandi resta da documentare.
+c$A59F PUSH BC       ;
+ $A5A0 PUSH DE       ;
+ $A5A1 PUSH IX       ;
+ $A5A3 PUSH AF       ;
+ $A5A4 PUSH HL       ;
+ $A5A5 LD HL,$000C   ;
+ $A5A8 ADD HL,SP     ;
+ $A5A9 LD ($A59D),HL ;
+ $A5AC POP HL        ;
+ $A5AD LD A,($A00B)  ;
+ $A5B0 AND A         ;
+ $A5B1 JR NZ,$A5B6   ;
+ $A5B3 LD ($A00C),A  ;
+*$A5B6 CALL $A5C4    ;
+ $A5B9 POP AF        ;
+ $A5BA POP IX        ;
+ $A5BC POP DE        ;
+ $A5BD POP BC        ;
+ $A5BE POP HL        ;
+ $A5BF LD SP,($A59D) ;
+
+; Salto indiretto tramite HL
+;
+; Used by the routine at #R$A5CD.
+c$A5C3 JP (HL)       ;
+
+; Interpreta una sequenza di token con inizio in HL
+;
+; IX diventa il cursore. Ripete $A5CD finche Z e zero; un comando terminale
+; restituisce Z impostato. Per sequenze senza argomenti dinamici e utilizzabile
+; direttamente, come nella prova a $6859.
+c$A5C4 PUSH HL       ;
+ $A5C5 POP IX        ;
+*$A5C7 CALL $A5CD    ;
+ $A5CA JR NZ,$A5C7   ;
+ $A5CC RET           ;
+
+; Decodifica e dispatch di un token
+;
+; Con bit 7 impostato: token lungo a due byte; D=primo byte AND $7F, E=secondo
+; byte. I 12 bit bassi sono l'offset del dizionario, i bit 12-14 selezionano il
+; contesto. I contesti $20/$30/$60 terminano la sequenza dopo la parola e
+; passano da $A647.
+c$A5CD LD A,(IX+$00) ;
+ $A5D0 BIT 7,A       ;
+ $A5D2 JR Z,$A5F2    ;
+ $A5D4 AND $7F       ;
+ $A5D6 LD D,A        ;
+ $A5D7 LD E,(IX+$01) ;
+ $A5DA INC IX        ;
+ $A5DC AND $F0       ;
+ $A5DE CP $30        ;
+ $A5E0 JR Z,$A647    ;
+ $A5E2 CP $20        ;
+ $A5E4 JR Z,$A647    ;
+ $A5E6 CP $60        ;
+ $A5E8 JR Z,$A647    ;
+; This entry point is used by the routine at #R$A83A.
+*$A5EA CALL $A887    ;
+*$A5ED INC IX        ;
+ $A5EF OR $01        ;
+ $A5F1 RET           ;
+*$A5F2 CP $20        ; {Token sotto $20: comando tramite tabella $A55D.
+ $A5F4 JR C,$A621    ; }
+ $A5F6 CP $60        ; {Token $60-$7F: parola frequente tramite $A83A/$A840.
+ $A5F8 JP NC,$A83A   ; }
+ $A5FB CP $40        ; {Token $40-$5F: (token AND $1F)+1 caratteri a 5 bit
+ $A5FD JR C,$A61C    ; immediatamente successivi.
+ $A5FF AND $1F       ;
+ $A601 INC A         ;
+ $A602 LD B,A        ;
+ $A603 PUSH IX       ;
+ $A605 POP HL        ;
+ $A606 INC HL        ;
+ $A607 LD C,$00      ; }
+*$A609 CALL $A990    ; {Legge un carattere a 5 bit e lo invia al buffer di
+ $A60C CALL $A9B7    ; uscita.
+ $A60F DJNZ $A609    ; }
+ $A611 PUSH HL       ; {Aggiorna IX dopo i byte compatti, tenendo conto
+ $A612 POP IX        ; dell'allineamento.
+ $A614 LD A,C        ;
+ $A615 AND A         ;
+ $A616 JR NZ,$A5ED   ;
+ $A618 DEC IX        ;
+ $A61A JR $A5ED      ; }
+*$A61C CALL $A9B7    ; {Token $20-$3F: carattere letterale.
+ $A61F JR $A5ED      ; }
+*$A621 PUSH DE       ; {Selezione della routine del comando (2 byte per
+ $A622 LD E,A        ; indirizzo).
+ $A623 LD D,$00      ;
+ $A625 LD HL,$A55D   ;
+ $A628 ADD HL,DE     ;
+ $A629 ADD HL,DE     ;
+ $A62A LD E,(HL)     ;
+ $A62B INC HL        ;
+ $A62C LD D,(HL)     ;
+ $A62D EX DE,HL      ;
+ $A62E POP DE        ; }
+ $A62F CP $1D        ; {Comandi $1D-$1F sono terminali e ricevono un salto
+ $A631 JR NC,$A5C3   ; diretto; gli altri vengono chiamati.
+ $A633 CALL $A5C3    ;
+ $A636 JR Z,$A5ED    ;
+ $A638 JR $A5EA      ; }
+
+; Comando che emette A e restituisce Z impostato
+c$A63A CALL $A9B7    ;
+ $A63D XOR A         ;
+ $A63E RET           ;
+
+; Terminazione con ritorno a capo (contesto $60)
+c$A63F LD D,$60      ;
+ $A641 JR $A64A      ;
+
+; Terminazione con punto e ritorno a capo (contesto $30)
+c$A643 LD D,$30      ;
+ $A645 JR $A64A      ;
+
+; Stampa la parola finale e applica la terminazione
+;
+; $20: solo fine; $30: punto e CR; $60: CR. I comandi $1D e $1E entrano
+; rispettivamente da $A63F e $A643, senza stampare una parola.
+c$A647 CALL $A887    ;
+; This entry point is used by the routines at #R$A63F and #R$A643.
+*$A64A LD A,$2E      ;
+ $A64C BIT 6,D       ;
+ $A64E JR NZ,$A657   ;
+ $A650 BIT 4,D       ;
+ $A652 CALL NZ,$A9B7 ;
+ $A655 BIT 4,D       ;
+*$A657 CALL NZ,$A2A2 ;
+ $A65A XOR A         ;
+ $A65B RET           ;
+
+i$A65C
+
+; Token compatto di parola frequente
+;
+; Used by the routine at #R$A5CD.
+c$A83A CALL $A840    ;
+ $A83D JP $A5EA      ;
+
+; Risoluzione della parola frequente
+;
+; A-$60 seleziona una delle 32 word a $67B7. Restituisce DE con offset e
+; contesto $5000. Questo ingresso da solo non stampa.
+c$A840 SUB $60       ;
+ $A842 LD E,A        ;
+ $A843 LD D,$00      ;
+ $A845 LD HL,$67B7   ;
+ $A848 ADD HL,DE     ;
+ $A849 ADD HL,DE     ;
+ $A84A LD E,(HL)     ;
+ $A84B INC HL        ;
+ $A84C LD A,(HL)     ;
+ $A84D ADD A,$50     ;
+ $A84F LD D,A        ;
+ $A850 RET           ;
+
+; Stato di forzatura delle maiuscole
+b$A851 DEFB $00
+
+; Alterna $A851 tra 0 e 1
+c$A852 LD A,($A851)  ;
+ $A855 XOR $01       ;
+ $A857 LD ($A851),A  ;
+ $A85A XOR A         ;
+ $A85B RET           ;
+
+; Nove suffissi da quattro byte ciascuno
+;
+; S, ES, IES, backspace+IES, D, ING, ED, backspace+ING, LY. Gli zeri sono
+; riempimento. $08 viene interpretato come arretramento nel buffer parola da
+; $A9B7.
+b$A85C DEFB $53,$00,$00,$00
+ $A860 DEFB $45,$53,$00,$00
+ $A864 DEFB $49,$45,$53,$00
+ $A868 DEFB $08,$49,$45,$53
+ $A86C DEFB $44,$00,$00,$00
+ $A870 DEFB $49,$4E,$47,$00
+ $A874 DEFB $45,$44,$00,$00
+ $A878 DEFB $08,$49,$4E,$47
+ $A87C DEFB $4C,$59,$00,$00
+
+; Legge un riferimento dal puntatore HL e azzera il nibble di contesto
+;
+; Legge prima il byte basso, poi quello alto; avanza HL di due. A887 riceve
+; solo i 12 bit bassi del riferimento.
+c$A880 LD E,(HL)     ;
+ $A881 INC HL        ;
+ $A882 LD A,(HL)     ;
+ $A883 INC HL        ;
+ $A884 AND $0F       ;
+ $A886 LD D,A        ;
+
+; Ricostruisce ed emette una voce del dizionario
+;
+; Non emette nulla se $5C3C e zero o l'offset e zero. Conserva IX, HL, BC, DE
+; sul percorso normale. Inserisce uno spazio prima della voce. Trova il gruppo
+; alfabetico nell'indice $5D80, emette l'iniziale implicita e decodifica
+; sequenzialmente i record del gruppo fino all'offset richiesto. Applica poi
+; l'eventuale suffisso e invia il resto della parola a $A9B7.
+;
+; DE Offset a 12 bit e contesto nel nibble alto.
+c$A887 LD A,($5C3C)  ;
+ $A88A AND A         ;
+ $A88B RET Z         ;
+ $A88C LD ($A022),DE ;
+ $A890 LD A,D        ;
+ $A891 AND $0F       ;
+ $A893 OR E          ;
+ $A894 RET Z         ;
+ $A895 PUSH IX       ;
+ $A897 PUSH HL       ;
+ $A898 PUSH BC       ;
+ $A899 PUSH DE       ;
+ $A89A LD A,$20      ;
+ $A89C CALL $A9B7    ;
+ $A89F LD A,D        ;
+ $A8A0 AND $F0       ;
+ $A8A2 LD C,A        ;
+ $A8A3 CP $70        ; {Contesto $70: imposta $A026 per rendere maiuscola la
+ $A8A5 LD A,$01      ; prossima lettera.
+ $A8A7 JR NZ,$A8AC   ;
+ $A8A9 LD ($A026),A  ;
+*$A8AC LD A,D        ;
+ $A8AD AND $0F       ;
+ $A8AF LD D,A        ;
+ $A8B0 EX DE,HL      ;
+ $A8B1 PUSH HL       ;
+ $A8B2 LD A,H        ;
+ $A8B3 OR C          ;
+ $A8B4 LD H,A        ;
+ $A8B5 LD ($A022),HL ;
+ $A8B8 POP HL        ;
+ $A8B9 PUSH BC       ; }
+ $A8BA LD IX,$5D80   ; {Indice alfabetico, confrontato con l'offset richiesto.
+ $A8BE LD B,$5F      ;
+*$A8C0 INC B         ;
+ $A8C1 LD A,(IX+$01) ;
+ $A8C4 CP H          ;
+ $A8C5 JR C,$A8CF    ;
+ $A8C7 JR NZ,$A8D9   ;
+ $A8C9 LD A,(IX+$00) ;
+ $A8CC CP L          ;
+ $A8CD JR NC,$A8D9   ;
+*$A8CF INC IX        ;
+ $A8D1 INC IX        ;
+ $A8D3 LD A,B        ;
+ $A8D4 CP $7B        ;
+ $A8D6 JR NZ,$A8C0   ;
+ $A8D8 INC B         ;
+*$A8D9 JR Z,$A8E0    ;
+*$A8DB DEC IX        ;
+ $A8DD DEC IX        ;
+ $A8DF DEC B         ;
+*$A8E0 LD E,(IX+$00) ;
+ $A8E3 LD D,(IX+$01) ;
+ $A8E6 LD A,D        ;
+ $A8E7 OR E          ;
+ $A8E8 JR Z,$A8DB    ; }
+ $A8EA LD A,B        ; {Emette l'iniziale ricostruita dal numero del gruppo.
+ $A8EB CALL $A9B7    ; }
+ $A8EE LD BC,$5DBF   ; {Base relativa $5DBF: converte offset in indirizzi RAM.
+ $A8F1 ADD HL,BC     ;
+ $A8F2 PUSH HL       ;
+ $A8F3 EX DE,HL      ;
+ $A8F4 ADD HL,BC     ; }
+*$A8F5 PUSH HL       ; {Decodifica record successivi finche arriva al record
+ $A8F6 AND A         ; richiesto.
+ $A8F7 SBC HL,DE     ;
+ $A8F9 POP HL        ;
+ $A8FA PUSH AF       ;
+ $A8FB CALL $A95B    ;
+ $A8FE POP AF        ;
+ $A8FF JR NZ,$A8F5   ;
+ $A901 POP HL        ;
+ $A902 POP BC        ; }
+ $A903 LD A,C        ; {Contesto $50: nessuna desinenza; $40: desinenza
+ $A904 CP $50        ; obbligatoria; $10: dipende da $A034; gli altri dipendono
+ $A906 JR Z,$A91C    ; da $A036.
+ $A908 CP $40        ;
+ $A90A JR Z,$A919    ;
+ $A90C CP $10        ;
+ $A90E LD A,($A034)  ;
+ $A911 JR Z,$A916    ;
+ $A913 LD A,($A036)  ;
+*$A916 AND A         ;
+ $A917 JR Z,$A91C    ;
+*$A919 CALL $A92F    ; }
+*$A91C LD HL,$5C42   ; {Emette il buffer terminato da zero a $5C42.
+*$A91F LD A,(HL)     ;
+ $A920 AND A         ;
+ $A921 JR Z,$A929    ;
+ $A923 CALL $A9B7    ;
+ $A926 INC HL        ;
+ $A927 JR $A91F      ;
+*$A929 POP DE        ;
+ $A92A POP BC        ;
+ $A92B POP HL        ;
+ $A92C POP IX        ;
+ $A92E RET           ; }
+
+; Appende il suffisso indicato dal record
+;
+; HL punta al primo byte del record e IX alla fine del buffer. Nibble basso $F:
+; nessun suffisso. Altrimenti usa quattro byte da $A85C+4*nibble e aggiunge un
+; terminatore zero. Nel dizionario presente gli indici sono soltanto 0-8 oppure
+; $F.
+c$A92F LD A,(HL)     ;
+ $A930 AND $0F       ;
+ $A932 CP $0F        ;
+ $A934 RET Z         ;
+ $A935 RLCA          ;
+ $A936 RLCA          ;
+ $A937 LD L,A        ;
+ $A938 LD H,$00      ;
+ $A93A LD BC,$A85C   ;
+ $A93D ADD HL,BC     ;
+ $A93E LD B,$04      ;
+*$A940 LD A,(HL)     ;
+ $A941 INC HL        ;
+ $A942 LD (IX+$00),A ;
+ $A945 INC IX        ;
+ $A947 DJNZ $A940    ;
+ $A949 LD (IX+$00),B ;
+ $A94C RET           ;
+
+; Decodifica un record e applica il suo suffisso
+c$A94D PUSH IX       ;
+ $A94F PUSH HL       ;
+ $A950 CALL $A95B    ;
+ $A953 EX (SP),HL    ;
+ $A954 CALL $A92F    ;
+ $A957 POP HL        ;
+ $A958 POP IX        ;
+ $A95A RET           ;
+
+; Decodifica il resto di una voce con riuso di prefisso
+;
+; Usa il buffer precedente a $5C42. Byte 1: bit 7 fa saltare due byte
+; aggiuntivi; bit 4-6 indicano quanti caratteri precedenti conservare; bit 0-3
+; indicano quanti nuovi caratteri a 5 bit leggere. La prima lettera del gruppo
+; non e nel buffer. Restituisce HL al record successivo e IX sul terminatore.
+; Conserva BC. La natura dei due byte aggiuntivi non e ancora identificata.
+;
+; HL Indirizzo del primo byte del record.
+c$A95B PUSH BC         ;
+ $A95C LD IX,$5C42     ;
+ $A960 INC HL          ; Salta il byte 0, contenente fra l'altro l'indice di
+                       ; suffisso.
+ $A961 LD A,(HL)       ; {Legge il descrittore del record.
+ $A962 BIT 7,A         ;
+ $A964 INC HL          ;
+ $A965 JR Z,$A969      ;
+ $A967 INC HL          ;
+ $A968 INC HL          ; }
+*$A969 PUSH AF         ; {Conserva il prefisso del buffer precedente facendo
+ $A96A AND $70         ; avanzare IX.
+ $A96C JR Z,$A974      ;
+*$A96E INC IX          ;
+ $A970 SUB $10         ;
+ $A972 JR NZ,$A96E     ; }
+*$A974 LD C,$00        ; {C e il cursore di bit, inizialmente zero.
+ $A976 POP AF          ;
+ $A977 AND $0F         ;
+ $A979 JR Z,$A986      ;
+ $A97B LD B,A          ; }
+*$A97C CALL $A990      ; {Estrae i nuovi caratteri e li scrive nel buffer.
+ $A97F LD (IX+$00),A   ;
+ $A982 INC IX          ;
+ $A984 DJNZ $A97C      ; }
+*$A986 LD (IX+$00),$00 ; {Terminatore zero.
+ $A98A LD A,C          ;
+ $A98B POP BC          ; }
+ $A98C AND A           ; {Se restano bit parziali, avanza al byte successivo.
+ $A98D RET Z           ;
+ $A98E INC HL          ;
+ $A98F RET             ; }
+
+; Estrae un carattere da un flusso a 5 bit
+;
+; Legge una finestra di due byte, la allinea al cursore C, prende cinque bit e
+; aggiunge $60. A restituisce il carattere. HL e C avanzano di cinque bit; DE
+; viene preservato.
+;
+; HL Puntatore al byte corrente.
+; C Offset di bit nel byte (0-7), MSB per primo.
+c$A990 PUSH DE       ;
+ $A991 LD D,(HL)     ;
+ $A992 INC HL        ;
+ $A993 LD E,(HL)     ;
+ $A994 DEC HL        ;
+ $A995 LD A,C        ;
+ $A996 AND A         ;
+ $A997 JR Z,$A9A0    ;
+*$A999 SLA E         ;
+ $A99B RL D          ;
+ $A99D DEC A         ;
+ $A99E JR NZ,$A999   ;
+*$A9A0 LD A,C        ;
+ $A9A1 ADD A,$05     ;
+ $A9A3 CP $08        ;
+ $A9A5 JR C,$A9AA    ;
+ $A9A7 SUB $08       ;
+ $A9A9 INC HL        ;
+*$A9AA LD C,A        ;
+ $A9AB LD A,D        ;
+ $A9AC POP DE        ;
+ $A9AD RRCA          ;
+ $A9AE RRCA          ;
+ $A9AF RRCA          ;
+ $A9B0 AND $1F       ;
+ $A9B2 ADD A,$60     ;
+ $A9B4 RET           ;
+
+; Puntatore corrente del buffer parola (base $5C0B)
+w$A9B5 DEFW $5C0B
+
+; Buffer parola e a capo senza spezzare le parole
+;
+; Con $A027 diverso da zero salta direttamente a $C1E1. Nel percorso normale
+; accoda il carattere; $08 arretra il puntatore. Spazio, CR e virgoletta
+; svuotano il buffer: confronta la lunghezza con le colonne rimaste in $C1F5 ed
+; eventualmente emette prima un CR. Poi invia i caratteri e il delimitatore a
+; $AA14.
+;
+; A Carattere da accodare.
+c$A9B7 PUSH AF       ;
+ $A9B8 LD A,($A027)  ;
+ $A9BB AND A         ;
+ $A9BC JR NZ,$AA10   ;
+ $A9BE POP AF        ;
+ $A9BF PUSH AF       ;
+ $A9C0 PUSH HL       ;
+ $A9C1 LD HL,($A9B5) ;
+ $A9C4 CP $20        ;
+ $A9C6 JR Z,$A9DF    ;
+ $A9C8 CP $0D        ;
+ $A9CA JR Z,$A9DF    ;
+ $A9CC CP $22        ;
+ $A9CE JR Z,$A9DF    ;
+ $A9D0 CP $08        ;
+ $A9D2 JR NZ,$A9D7   ;
+ $A9D4 DEC HL        ;
+ $A9D5 JR $A9D9      ;
+*$A9D7 LD (HL),A     ;
+ $A9D8 INC HL        ;
+*$A9D9 LD ($A9B5),HL ;
+ $A9DC POP HL        ;
+ $A9DD POP AF        ;
+ $A9DE RET           ;
+*$A9DF PUSH DE       ;
+ $A9E0 LD DE,$5C0B   ;
+ $A9E3 AND A         ;
+ $A9E4 SBC HL,DE     ;
+ $A9E6 JR Z,$AA0B    ;
+ $A9E8 LD A,($C1F5)  ;
+ $A9EB CP L          ;
+ $A9EC PUSH AF       ;
+ $A9ED JR NC,$A9F4   ;
+ $A9EF LD A,$0D      ;
+ $A9F1 CALL $AA14    ;
+*$A9F4 PUSH BC       ;
+ $A9F5 LD B,L        ;
+ $A9F6 LD HL,$5C0B   ;
+ $A9F9 LD ($A9B5),HL ;
+*$A9FC LD A,(HL)     ;
+ $A9FD CALL $AA14    ;
+ $AA00 INC HL        ;
+ $AA01 DJNZ $A9FC    ;
+ $AA03 POP BC        ;
+ $AA04 POP AF        ;
+ $AA05 JR NZ,$AA0B   ;
+ $AA07 XOR A         ;
+ $AA08 LD ($A025),A  ;
+*$AA0B POP DE        ;
+ $AA0C POP HL        ;
+ $AA0D POP AF        ;
+ $AA0E JR $AA14      ;
+*$AA10 POP AF        ;
+ $AA11 JP $C1E1      ;
+
+; Normalizzazione, spazi iniziali e maiuscole
+;
+; Converte inizialmente A-Z in a-z, sopprime lo spazio se $A025 e zero,
+; aggiorna lo stato di riga. Punto e virgoletta impostano $A026. Una lettera
+; diventa maiuscola se $A026 o $A851 e attivo. Infine salta a $C1E1.
+c$AA14 CP $41        ;
+ $AA16 JR C,$AA1E    ;
+ $AA18 CP $5B        ;
+ $AA1A JR NC,$AA1E   ;
+ $AA1C OR $20        ;
+*$AA1E PUSH AF       ;
+ $AA1F LD A,($A025)  ;
+ $AA22 AND A         ;
+ $AA23 JR NZ,$AA2A   ;
+ $AA25 POP AF        ;
+ $AA26 CP $20        ;
+ $AA28 RET Z         ;
+ $AA29 PUSH AF       ;
+*$AA2A LD A,$01      ;
+ $AA2C LD ($A025),A  ;
+ $AA2F POP AF        ;
+ $AA30 PUSH AF       ;
+ $AA31 CP $0D        ;
+ $AA33 JR NZ,$AA3B   ;
+ $AA35 XOR A         ;
+ $AA36 LD ($A025),A  ;
+ $AA39 JR $AA6D      ;
+*$AA3B CP $22        ;
+ $AA3D JR NZ,$AA46   ;
+ $AA3F LD A,$20      ;
+ $AA41 CALL $C1E1    ;
+ $AA44 JR $AA4A      ;
+*$AA46 CP $2E        ;
+ $AA48 JR NZ,$AA51   ;
+*$AA4A LD A,$01      ;
+ $AA4C LD ($A026),A  ;
+ $AA4F JR $AA6D      ;
+*$AA51 CP $61        ;
+ $AA53 JR C,$AA6D    ;
+ $AA55 CP $7B        ;
+ $AA57 JR NC,$AA6D   ;
+ $AA59 LD A,($A851)  ;
+ $AA5C AND A         ;
+ $AA5D JR NZ,$AA65   ;
+ $AA5F LD A,($A026)  ;
+ $AA62 AND A         ;
+ $AA63 JR Z,$AA6D    ;
+*$AA65 XOR A         ;
+ $AA66 LD ($A026),A  ;
+ $AA69 POP AF        ;
+ $AA6A AND $5F       ;
+ $AA6C PUSH AF       ;
+*$AA6D POP AF        ;
+ $AA6E JP $C1E1      ;
+
+i$AA71
+
+; Pulisce lo schermo e imposta bordo bianco
+;
+; Used by the routine at #R$C14A.
+c$C10F LD A,$07      ;
+ $C111 OUT ($FE),A   ;
+ $C113 LD HL,$4000   ;
+ $C116 LD DE,$4001   ;
+ $C119 LD BC,$1800   ;
+ $C11C LD (HL),$00   ;
+ $C11E LDIR          ;
+ $C120 LD BC,$02FF   ;
+ $C123 LD (HL),$38   ;
+ $C125 LDIR          ;
+ $C127 RET           ;
+
+; Stato di larghezza della finestra narrativa
+b$C128 DEFB $00
+
+; Imposta modo a 18 colonne
+c$C129 XOR A         ;
+ $C12A LD ($A019),A  ;
+ $C12D INC A         ;
+ $C12E LD ($C128),A  ;
+ $C131 LD A,$12      ;
+; This entry point is used by the routine at #R$C142.
+*$C133 LD ($C1F5),A  ;
+ $C136 LD HL,$5020   ;
+ $C139 LD ($C1F8),HL ;
+ $C13C LD A,$02      ;
+ $C13E LD ($C1FA),A  ;
+ $C141 RET           ;
+
+; Imposta modo a 36 colonne
+;
+; Used by the routines at #R$C14A and #R$C306.
+c$C142 XOR A         ;
+ $C143 LD ($C128),A  ;
+ $C146 LD A,$24      ;
+ $C148 JR $C133      ;
+
+; Inizializza i due cursori e il motivo grafico
+c$C14A CALL $C10F    ;
+ $C14D LD A,$24      ;
+ $C14F LD ($C1F4),A  ;
+ $C152 LD HL,$50E0   ;
+ $C155 LD ($C1F6),HL ;
+ $C158 LD A,$02      ;
+ $C15A LD ($C1FB),A  ;
+ $C15D CALL $C142    ;
+ $C160 LD HL,$5140   ;
+ $C163 LD DE,$C190   ;
+ $C166 LD B,$06      ;
+*$C168 LD C,$08      ;
+ $C16A PUSH BC       ;
+ $C16B PUSH HL       ;
+*$C16C LD B,$04      ;
+ $C16E PUSH DE       ;
+*$C16F LD A,(DE)     ;
+ $C170 LD (HL),A     ;
+ $C171 INC DE        ;
+ $C172 INC L         ;
+ $C173 DJNZ $C16F    ;
+ $C175 POP DE        ;
+ $C176 DEC C         ;
+ $C177 JR NZ,$C16C   ;
+ $C179 INC DE        ;
+ $C17A INC DE        ;
+ $C17B INC DE        ;
+ $C17C INC DE        ;
+ $C17D POP HL        ;
+ $C17E POP BC        ;
+ $C17F INC H         ;
+ $C180 DJNZ $C168    ;
+ $C182 LD HL,$5A40   ;
+ $C185 LD DE,$5A41   ;
+ $C188 LD BC,$001F   ;
+ $C18B LD (HL),$78   ;
+ $C18D LDIR          ;
+ $C18F RET           ;
+
+; Motivo grafico di 24 byte
+b$C190 DEFB $00,$3F,$C1,$C0
+ $C194 DEFB $20,$FE,$01,$C4
+ $C198 DEFB $81,$E8,$0D,$81
+ $C19C DEFB $41,$B0,$17,$82
+ $C1A0 DEFB $83,$80,$7F,$01
+ $C1A4 DEFB $23,$83,$FC,$04
+
+; Stampa una stringa di lunghezza B a posizione fissa
+;
+; Stringa in HL. Imposta destinazione video $5041 e offset zero, emette uno
+; spazio, B caratteri e uno spazio direttamente tramite $C388. Usata dalla
+; visualizzazione dell'orologio a $BF79.
+c$C1A8 LD DE,$5041   ;
+ $C1AB EX DE,HL      ;
+ $C1AC LD C,$00      ;
+ $C1AE LD A,$20      ;
+ $C1B0 CALL $C388    ;
+*$C1B3 LD A,(DE)     ;
+ $C1B4 CALL $C388    ;
+ $C1B7 INC DE        ;
+ $C1B8 DJNZ $C1B3    ;
+ $C1BA LD A,$20      ;
+ $C1BC CALL $C388    ;
+ $C1BF RET           ;
+
+; Stampa stringa, attende un tasto e va a capo
+;
+; Used by the routine at #R$C1D8.
+c$C1C0 CALL $C1CB    ;
+ $C1C3 CALL $C415    ;
+ $C1C6 LD A,$0D      ;
+ $C1C8 JP $C1FD      ;
+
+; Stampa stringa non compressa con bit 7 di fine
+;
+; HL punta alla stringa. Emette ogni byte AND $7F tramite $C1FD e termina
+; quando il byte sorgente ha bit 7 impostato. Non e il formato del dizionario
+; compresso.
+c$C1CB LD A,(HL)     ;
+ $C1CC AND $7F       ;
+ $C1CE CALL $C1FD    ;
+ $C1D1 BIT 7,(HL)    ;
+ $C1D3 RET NZ        ;
+ $C1D4 INC HL        ;
+ $C1D5 JR $C1CB      ;
+
+; RET isolato
+c$C1D7 RET           ;
+
+; Messaggio e salto a $A0EB
+c$C1D8 LD HL,$13C5   ;
+ $C1DB CALL $C1C0    ;
+ $C1DE JP $A0EB      ;
+
+; Selezione del canale di uscita
+;
+; Se $5C3C e zero, scarta il carattere. Altrimenti $A027=0 seleziona $C2BA;
+; $A027 diverso da zero seleziona $C1FD.
+c$C1E1 PUSH AF       ;
+ $C1E2 LD A,($5C3C)  ;
+ $C1E5 AND A         ;
+ $C1E6 JR NZ,$C1EA   ;
+ $C1E8 POP AF        ;
+ $C1E9 RET           ;
+*$C1EA LD A,($A027)  ;
+ $C1ED AND A         ;
+ $C1EE JR NZ,$C1FC   ;
+ $C1F0 POP AF        ;
+ $C1F1 JP $C2BA      ;
+
+; Stato dei due cursori video
+b$C1F4 DEFB $00,$00  ; Colonne rimaste: canale inferiore e superiore.
+ $C1F6 DEFW $0000    ; {Indirizzi bitmap: canale inferiore e superiore.
+ $C1F8 DEFW $0000    ; }
+ $C1FA DEFB $00,$00  ; Offset orizzontali in bit: superiore e inferiore.
+
+; Ripristina AF prima di entrare nel canale inferiore
+;
+; Used by the routine at #R$C1E1.
+c$C1FC POP AF        ;
+
+; Canale inferiore con cursore e gestione backspace
+;
+; Usa $C1F4/$C1F6/$C1FB. Gestisce CR e backspace; converte le lettere in
+; maiuscolo. Disegna un segno + come cursore. Usa $C388 per i glifi.
+c$C1FD PUSH HL       ;
+ $C1FE PUSH BC       ;
+ $C1FF PUSH AF       ;
+ $C200 LD A,($C1FB)  ;
+ $C203 LD C,A        ;
+ $C204 POP AF        ;
+ $C205 PUSH AF       ;
+ $C206 LD HL,($C1F6) ;
+ $C209 CP $0D        ;
+ $C20B JR NZ,$C214   ;
+ $C20D LD A,$20      ;
+ $C20F CALL $C388    ;
+ $C212 JR $C224      ;
+*$C214 CP $08        ;
+ $C216 JR Z,$C249    ;
+ $C218 CALL $C240    ;
+ $C21B CALL $C388    ;
+ $C21E LD A,($C1F4)  ;
+ $C221 DEC A         ;
+ $C222 JR NZ,$C22D   ;
+*$C224 LD L,$E0      ;
+ $C226 LD C,$02      ;
+ $C228 CALL $C271    ;
+ $C22B LD A,$24      ;
+; This entry point is used by the routine at #R$C249.
+*$C22D LD ($C1F4),A  ;
+ $C230 LD A,C        ;
+ $C231 LD ($C1FB),A  ;
+ $C234 LD ($C1F6),HL ;
+ $C237 LD A,$2B      ;
+ $C239 CALL $C388    ;
+ $C23C POP AF        ;
+ $C23D POP BC        ;
+ $C23E POP HL        ;
+ $C23F RET           ;
+
+; Conversione ASCII a-z in A-Z
+;
+; Used by the routine at #R$C1FD.
+c$C240 CP $61        ;
+ $C242 RET C         ;
+ $C243 CP $7B        ;
+ $C245 RET NC        ;
+ $C246 AND $5F       ;
+ $C248 RET           ;
+
+; Gestione backspace del canale inferiore
+;
+; Used by the routine at #R$C1FD.
+c$C249 LD A,$20      ;
+ $C24B CALL $C388    ;
+ $C24E CALL $C267    ;
+ $C251 CALL $C267    ;
+ $C254 LD A,($C1F4)  ;
+ $C257 INC A         ;
+ $C258 CP $25        ;
+ $C25A JR NZ,$C22D   ;
+ $C25C LD L,$FE      ;
+ $C25E LD C,$07      ;
+ $C260 CALL $C29C    ;
+ $C263 LD A,$01      ;
+ $C265 JR $C22D      ;
+
+; Arretra il cursore di sette pixel
+;
+; Used by the routine at #R$C249.
+c$C267 LD A,C        ;
+ $C268 SUB $07       ;
+ $C26A LD C,A        ;
+ $C26B RET NC        ;
+ $C26C DEC L         ;
+ $C26D ADD A,$08     ;
+ $C26F LD C,A        ;
+ $C270 RET           ;
+
+; Scorrimento verso l'alto del canale inferiore
+;
+; Used by the routine at #R$C1FD.
+c$C271 PUSH HL       ;
+ $C272 PUSH DE       ;
+ $C273 PUSH BC       ;
+ $C274 LD HL,$5080   ;
+ $C277 LD DE,$5060   ;
+ $C27A LD A,$08      ;
+*$C27C PUSH HL       ;
+ $C27D PUSH DE       ;
+ $C27E LD BC,$0080   ;
+ $C281 LDIR          ;
+ $C283 POP DE        ;
+ $C284 POP HL        ;
+ $C285 INC H         ;
+ $C286 INC D         ;
+ $C287 DEC A         ;
+ $C288 JR NZ,$C27C   ;
+ $C28A LD HL,$50E0   ;
+; This entry point is used by the routine at #R$C29C.
+*$C28D LD B,$24      ;
+ $C28F LD C,$01      ;
+ $C291 LD A,$20      ;
+*$C293 CALL $C388    ;
+ $C296 DJNZ $C293    ;
+ $C298 POP BC        ;
+ $C299 POP DE        ;
+ $C29A POP HL        ;
+ $C29B RET           ;
+
+; Scorrimento inverso del canale inferiore
+;
+; Used by the routine at #R$C249.
+c$C29C PUSH HL       ;
+ $C29D PUSH DE       ;
+ $C29E PUSH BC       ;
+ $C29F LD HL,$50DF   ;
+ $C2A2 LD DE,$50FF   ;
+ $C2A5 LD A,$08      ;
+*$C2A7 PUSH HL       ;
+ $C2A8 PUSH DE       ;
+ $C2A9 LD BC,$0080   ;
+ $C2AC LDDR          ;
+ $C2AE POP DE        ;
+ $C2AF POP HL        ;
+ $C2B0 INC H         ;
+ $C2B1 INC D         ;
+ $C2B2 DEC A         ;
+ $C2B3 JR NZ,$C2A7   ;
+ $C2B5 LD HL,$5060   ;
+ $C2B8 JR $C28D      ;
+
+; Canale superiore del testo narrativo
+;
+; Usa $C1F5/$C1F8/$C1FA. CR oppure esaurimento delle colonne attivano lo
+; scorrimento $C316. Dopo un contatore di righe, $C306 attende un tasto. Il
+; renderer e sempre $C388.
+c$C2BA PUSH HL       ;
+ $C2BB PUSH BC       ;
+ $C2BC PUSH AF       ;
+ $C2BD LD HL,($C1F8) ;
+ $C2C0 LD A,($C1FA)  ;
+ $C2C3 LD C,A        ;
+ $C2C4 POP AF        ;
+ $C2C5 PUSH AF       ;
+ $C2C6 CP $0D        ;
+ $C2C8 JR NZ,$C2EE   ;
+*$C2CA LD A,($A019)  ;
+ $C2CD CP $0F        ;
+ $C2CF JR NZ,$C2D6   ;
+ $C2D1 CALL $C306    ;
+ $C2D4 LD A,$FF      ;
+*$C2D6 INC A         ;
+ $C2D7 LD ($A019),A  ;
+ $C2DA LD HL,$5020   ;
+ $C2DD LD C,$02      ;
+ $C2DF CALL $C316    ;
+ $C2E2 LD A,($C128)  ;
+ $C2E5 AND A         ;
+ $C2E6 LD A,$24      ;
+ $C2E8 JR Z,$C2F8    ;
+ $C2EA LD A,$12      ;
+ $C2EC JR $C2F8      ;
+*$C2EE CALL $C388    ;
+ $C2F1 LD A,($C1F5)  ;
+ $C2F4 DEC A         ;
+ $C2F5 JP Z,$C2CA    ;
+*$C2F8 LD ($C1F5),A  ;
+ $C2FB LD ($C1F8),HL ;
+ $C2FE LD A,C        ;
+ $C2FF LD ($C1FA),A  ;
+ $C302 POP AF        ;
+ $C303 POP BC        ;
+ $C304 POP HL        ;
+ $C305 RET           ;
+
+; Pausa di paginazione e ripristino del modo largo
+;
+; Used by the routine at #R$C2BA.
+c$C306 PUSH HL       ;
+ $C307 LD HL,$5A5F   ;
+ $C30A SET 7,(HL)    ;
+ $C30C CALL $C415    ;
+ $C30F RES 7,(HL)    ;
+ $C311 CALL $C142    ;
+ $C314 POP HL        ;
+ $C315 RET           ;
+
+; Scorrimento della finestra superiore
+;
+; Used by the routine at #R$C2BA.
+c$C316 LD A,($C128)  ;
+ $C319 AND A         ;
+ $C31A CALL Z,$C3E4  ;
+ $C31D PUSH BC       ;
+ $C31E PUSH HL       ;
+ $C31F PUSH DE       ;
+ $C320 LD HL,$4020   ;
+ $C323 LD DE,$4000   ;
+ $C326 LD BC,$0011   ;
+ $C329 LD A,($C128)  ;
+ $C32C AND A         ;
+ $C32D LD A,$20      ;
+ $C32F JR Z,$C333    ;
+ $C331 LD A,$10      ;
+*$C333 PUSH HL       ;
+ $C334 PUSH DE       ;
+ $C335 PUSH BC       ;
+ $C336 LD C,$08      ;
+*$C338 PUSH HL       ;
+ $C339 PUSH DE       ;
+ $C33A PUSH BC       ;
+ $C33B LD C,A        ;
+ $C33C LDIR          ;
+ $C33E POP BC        ;
+ $C33F POP DE        ;
+ $C340 POP HL        ;
+ $C341 INC H         ;
+ $C342 INC D         ;
+ $C343 DEC C         ;
+ $C344 JR NZ,$C338   ;
+ $C346 POP BC        ;
+ $C347 POP DE        ;
+ $C348 POP HL        ;
+ $C349 PUSH AF       ;
+ $C34A CALL $C37D    ;
+ $C34D CALL $C37D    ;
+ $C350 POP AF        ;
+ $C351 DEC C         ;
+ $C352 JR NZ,$C333   ;
+ $C354 CP $10        ;
+ $C356 JR Z,$C363    ;
+ $C358 LD HL,$5820   ;
+ $C35B LD DE,$5800   ;
+ $C35E LD BC,$0220   ;
+ $C361 LDIR          ;
+*$C363 LD A,($C128)  ;
+ $C366 AND A         ;
+ $C367 LD B,$24      ;
+ $C369 JR Z,$C36D    ;
+ $C36B LD B,$12      ;
+*$C36D LD HL,$5020   ;
+ $C370 LD C,$02      ;
+ $C372 LD A,$20      ;
+*$C374 CALL $C388    ;
+ $C377 DJNZ $C374    ;
+ $C379 POP DE        ;
+ $C37A POP HL        ;
+ $C37B POP BC        ;
+ $C37C RET           ;
+
+; Avanzamento di una riga carattere nella bitmap Spectrum
+;
+; Used by the routine at #R$C316.
+c$C37D EX DE,HL      ;
+ $C37E LD A,L        ;
+ $C37F ADD A,$20     ;
+ $C381 LD L,A        ;
+ $C382 RET NC        ;
+ $C383 LD A,H        ;
+ $C384 ADD A,$08     ;
+ $C386 LD H,A        ;
+ $C387 RET           ;
+
+; Disegna un glifo ROM alla posizione indicata
+;
+; Indirizzo font=$3C00+8*A. Legge otto righe e le combina tramite maschere con
+; uno o due byte dello schermo. INC H passa alla riga pixel seguente. Alla fine
+; HL/C avanzano di SETTE pixel, non otto. Preserva A, B e DE; modifica i flag.
+; Non invoca la routine PRINT della ROM.
+;
+; A Codice carattere.
+; HL Indirizzo bitmap della prima riga del glifo.
+; C Offset orizzontale in bit (0-7).
+c$C388 PUSH AF       ;
+ $C389 PUSH BC       ;
+ $C38A PUSH DE       ;
+ $C38B PUSH HL       ;
+ $C38C LD L,A        ; {Calcola 8*A.
+ $C38D LD H,$00      ;
+ $C38F ADD HL,HL     ;
+ $C390 ADD HL,HL     ;
+ $C391 ADD HL,HL     ; }
+ $C392 LD DE,$3C00   ; {Base per la tabella caratteri ROM.
+ $C395 ADD HL,DE     ;
+ $C396 EX DE,HL      ;
+ $C397 POP HL        ;
+ $C398 PUSH HL       ; }
+ $C399 LD B,$08      ; Otto righe per glifo.
+*$C39B LD A,(DE)     ; {Allinea e unisce la prima porzione di riga al byte
+ $C39C PUSH BC       ; video.
+ $C39D PUSH AF       ;
+ $C39E DEC C         ;
+ $C39F INC C         ;
+ $C3A0 LD B,$FF      ;
+ $C3A2 JR Z,$C3AB    ;
+*$C3A4 SRL A         ;
+ $C3A6 SRL B         ;
+ $C3A8 DEC C         ;
+ $C3A9 JR NZ,$C3A4   ;
+*$C3AB LD C,A        ;
+ $C3AC LD A,B        ;
+ $C3AD CPL           ;
+ $C3AE AND (HL)      ;
+ $C3AF OR C          ;
+ $C3B0 LD (HL),A     ;
+ $C3B1 POP AF        ;
+ $C3B2 POP BC        ; }
+ $C3B3 DEC C         ; {Se C non e zero, unisce anche la porzione nel byte
+ $C3B4 INC C         ; successivo.
+ $C3B5 JR Z,$C3D0    ;
+ $C3B7 PUSH BC       ;
+ $C3B8 PUSH AF       ;
+ $C3B9 LD A,$08      ;
+ $C3BB SUB C         ;
+ $C3BC LD C,A        ;
+ $C3BD POP AF        ;
+ $C3BE LD B,$FF      ;
+*$C3C0 SLA A         ;
+ $C3C2 SLA B         ;
+ $C3C4 DEC C         ;
+ $C3C5 JR NZ,$C3C0   ;
+ $C3C7 LD C,A        ;
+ $C3C8 LD A,B        ;
+ $C3C9 CPL           ;
+ $C3CA INC HL        ;
+ $C3CB AND (HL)      ;
+ $C3CC OR C          ;
+ $C3CD LD (HL),A     ;
+ $C3CE DEC HL        ;
+ $C3CF POP BC        ;
+*$C3D0 INC DE        ;
+ $C3D1 INC H         ;
+ $C3D2 DJNZ $C39B    ;
+ $C3D4 POP HL        ;
+ $C3D5 POP DE        ;
+ $C3D6 POP BC        ; }
+ $C3D7 LD A,C        ; {Avanzamento orizzontale di sette pixel.
+ $C3D8 ADD A,$07     ;
+ $C3DA CP $08        ;
+ $C3DC JR C,$C3E1    ;
+ $C3DE SUB $08       ;
+ $C3E0 INC L         ;
+*$C3E1 LD C,A        ;
+ $C3E2 POP AF        ;
+ $C3E3 RET           ; }
+

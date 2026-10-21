@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:8766/",
+  "observed_checks": [
+    "pagina caricata senza errori console",
+    "OPEN DOR: errore originale, orologio invariato",
+    "OPEN YOUR DOOR poi WEST: stanza7 e avanzamento orologio",
+    "clic nodo74: stanza74, orologio invariato",
+    "ricerca074 e clic risultato",
+    "reload: stanza74 e descrizione corretta conservate",
+    "reset finale: stanza8, tick2, ore08:01"
+  ],
+  "final_state": "stanza iniziale, server dalla cartella canonica",
+  "screenshot": "anteprima.png"
+}

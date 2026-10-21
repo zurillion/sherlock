@@ -1,0 +1,1158 @@
+{
+  "lookup_cases": 110,
+  "rule_cases": 141,
+  "matching_cases": 990,
+  "cash_cases": [
+    {
+      "packed": "0000",
+      "pence": 0
+    },
+    {
+      "packed": "0001",
+      "pence": 1
+    },
+    {
+      "packed": "007F",
+      "pence": 127
+    },
+    {
+      "packed": "0100",
+      "pence": 128
+    },
+    {
+      "packed": "0960",
+      "pence": 1248
+    },
+    {
+      "packed": "4000",
+      "pence": 8192
+    },
+    {
+      "packed": "7F7F",
+      "pence": 16383
+    },
+    {
+      "packed": "FF7F",
+      "pence": -1
+    },
+    {
+      "packed": "F620",
+      "pence": -1248
+    },
+    {
+      "packed": "8000",
+      "pence": -16384
+    }
+  ],
+  "record_checks": [
+    {
+      "id": 0,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 1,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 2,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 3,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 4,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 5,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 6,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 7,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 8,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 9,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 10,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 11,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 3
+    },
+    {
+      "id": 12,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 13,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 3
+    },
+    {
+      "id": 14,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 15,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 16,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 17,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 18,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 19,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 20,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 21,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 22,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 23,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 5
+    },
+    {
+      "id": 24,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 5
+    },
+    {
+      "id": 25,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 26,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 27,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 1
+    },
+    {
+      "id": 28,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 1
+    },
+    {
+      "id": 29,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 30,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 6
+    },
+    {
+      "id": 31,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 32,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 33,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 6
+    },
+    {
+      "id": 34,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 35,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 36,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 37,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 38,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 39,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 40,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 41,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 42,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 43,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    },
+    {
+      "id": 44,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 45,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 46,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 47,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 48,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 49,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 50,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 51,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 52,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 53,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 54,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 55,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 56,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 57,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 58,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 59,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 1
+    },
+    {
+      "id": 60,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 5
+    },
+    {
+      "id": 61,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 62,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 3
+    },
+    {
+      "id": 63,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 64,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 65,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 66,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 1
+    },
+    {
+      "id": 67,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 68,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 69,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 70,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 71,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 72,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 73,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 74,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 75,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 76,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 77,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 78,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 79,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 80,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 1
+    },
+    {
+      "id": 81,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 82,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 83,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 84,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 85,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 3
+    },
+    {
+      "id": 86,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 87,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 88,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 89,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 90,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 91,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 92,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 93,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 94,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 95,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 3
+    },
+    {
+      "id": 96,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 97,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 98,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 99,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 100,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 101,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 102,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 103,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 2
+    },
+    {
+      "id": 104,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 105,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 106,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 107,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 108,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 0
+    },
+    {
+      "id": 109,
+      "lookup": "ok",
+      "person_bit": "ok",
+      "location": "ok",
+      "local_rules": 4
+    }
+  ],
+  "matching": [
+    {
+      "query_words": [
+        "007E",
+        "0000",
+        "0000"
+      ],
+      "matched_ids": [
+        23,
+        24
+      ]
+    },
+    {
+      "query_words": [
+        "007E",
+        "0975",
+        "0000"
+      ],
+      "matched_ids": [
+        24
+      ]
+    },
+    {
+      "query_words": [
+        "026E",
+        "03ED",
+        "05E8"
+      ],
+      "matched_ids": [
+        48
+      ]
+    },
+    {
+      "query_words": [
+        "026E",
+        "05E8",
+        "03ED"
+      ],
+      "matched_ids": [
+        48
+      ]
+    },
+    {
+      "query_words": [
+        "026E",
+        "0000",
+        "0000"
+      ],
+      "matched_ids": [
+        19,
+        21,
+        29,
+        45,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        68,
+        69,
+        70,
+        74,
+        91,
+        103
+      ]
+    },
+    {
+      "query_words": [
+        "0846",
+        "0000",
+        "0000"
+      ],
+      "matched_ids": []
+    },
+    {
+      "query_words": [
+        "0000",
+        "09F2",
+        "0000"
+      ],
+      "matched_ids": [
+        17,
+        18,
+        21,
+        23,
+        27
+      ]
+    },
+    {
+      "query_words": [
+        "1370",
+        "0000",
+        "0000"
+      ],
+      "matched_ids": [
+        8
+      ]
+    },
+    {
+      "query_words": [
+        "0000",
+        "0000",
+        "0000"
+      ],
+      "matched_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ]
+    }
+  ],
+  "payload_vs_prompt": [
+    {
+      "id": 2,
+      "name": "inspector lestrade",
+      "changes": [
+        {
+          "offset": "0F",
+          "payload": 11,
+          "prompt": 10
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "watson",
+      "changes": [
+        {
+          "offset": "06",
+          "payload": 0,
+          "prompt": 128
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "oil lamp",
+      "changes": [
+        {
+          "offset": "06",
+          "payload": 0,
+          "prompt": 128
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "your armchair",
+      "changes": [
+        {
+          "offset": "06",
+          "payload": 0,
+          "prompt": 128
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "watsons armchair",
+      "changes": [
+        {
+          "offset": "06",
+          "payload": 0,
+          "prompt": 128
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "daily chronicle",
+      "changes": [
+        {
+          "offset": "06",
+          "payload": 0,
+          "prompt": 128
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "money",
+      "changes": [
+        {
+          "offset": "0F",
+          "payload": 11,
+          "prompt": 10
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "steam train",
+      "changes": [
+        {
+          "offset": "05",
+          "payload": 52,
+          "prompt": 180
+        },
+        {
+          "offset": "0F",
+          "payload": 2,
+          "prompt": 16
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "name": "gun",
+      "changes": [
+        {
+          "offset": "0F",
+          "payload": 11,
+          "prompt": 10
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "name": "large rock",
+      "changes": [
+        {
+          "offset": "0F",
+          "payload": 11,
+          "prompt": 10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,955 @@
+
+=== 005 baker street | $FF47..$FFFF ===
+$FF47  08 2e 9f                           MOVE     x=46 (video 174), y=159 (riga 16)
+$FF4A  90 cb                              LINE     direzione=0, periodo=12, pixel=12
+$FF4C  87 d0                              LINE     direzione=7, periodo=4, pixel=17
+$FF4E  08 3f 48                           MOVE     x=63 (video 191), y=72 (riga 103)
+$FF51  d1 27                              LINE     direzione=1, periodo=41, pixel=40
+$FF53  80 07                              LINE     direzione=0, periodo=1, pixel=8
+$FF55  90 07                              LINE     direzione=0, periodo=9, pixel=8
+$FF57  82 07                              LINE     direzione=2, periodo=1, pixel=8
+$FF59  cb e7                              LINE     direzione=3, periodo=40, pixel=40
+$FF5B  08 5f 48                           MOVE     x=95 (video 223), y=72 (riga 103)
+$FF5E  cd 64                              LINE     direzione=5, periodo=38, pixel=37
+$FF60  85 4d                              LINE     direzione=5, periodo=2, pixel=14
+$FF62  84 8d                              LINE     direzione=4, periodo=3, pixel=14
+$FF64  86 8c                              LINE     direzione=6, periodo=3, pixel=13
+$FF66  87 4a                              LINE     direzione=7, periodo=2, pixel=11
+$FF68  08 57 68                           MOVE     x=87 (video 215), y=104 (riga 71)
+$FF6B  ae d7                              LINE     direzione=6, periodo=24, pixel=24
+$FF6D  40 50 6f                           FILL     x=80 (video 208), y=111 (riga 64), INK=0
+$FF70  08 40 af                           MOVE     x=64 (video 192), y=175 (riga 0)
+$FF73  bb df                              LINE     direzione=3, periodo=32, pixel=32
+$FF75  ea f7                              LINE     direzione=2, periodo=56, pixel=56
+$FF77  08 57 af                           MOVE     x=87 (video 215), y=175 (riga 0)
+$FF7A  bf 1d                              LINE     direzione=7, periodo=29, pixel=30
+$FF7C  a4 92                              LINE     direzione=4, periodo=19, pixel=19
+$FF7E  b9 df                              LINE     direzione=1, periodo=32, pixel=32
+$FF80  08 1c 7b                           MOVE     x=28 (video 156), y=123 (riga 52)
+$FF83  a0 51                              LINE     direzione=0, periodo=18, pixel=18
+$FF85  08 22 6e                           MOVE     x=34 (video 162), y=110 (riga 65)
+$FF88  90 cb                              LINE     direzione=0, periodo=12, pixel=12
+$FF8A  08 1b 5a                           MOVE     x=27 (video 155), y=90 (riga 85)
+$FF8D  a0 d3                              LINE     direzione=0, periodo=20, pixel=20
+$FF8F  08 53 82                           MOVE     x=83 (video 211), y=130 (riga 45)
+$FF92  a8 14                              LINE     direzione=0, periodo=21, pixel=21
+$FF94  08 64 6f                           MOVE     x=100 (video 228), y=111 (riga 64)
+$FF97  90 8a                              LINE     direzione=0, periodo=11, pixel=11
+$FF99  08 62 64                           MOVE     x=98 (video 226), y=100 (riga 75)
+$FF9C  a0 d3                              LINE     direzione=0, periodo=20, pixel=20
+$FF9E  08 29 5a                           MOVE     x=41 (video 169), y=90 (riga 85)
+$FFA1  97 8a                              LINE     direzione=7, periodo=11, pixel=11
+$FFA3  08 20 74                           MOVE     x=32 (video 160), y=116 (riga 59)
+$FFA6  97 08                              LINE     direzione=7, periodo=9, pixel=9
+$FFA8  08 62 7f                           MOVE     x=98 (video 226), y=127 (riga 48)
+$FFAB  97 08                              LINE     direzione=7, periodo=9, pixel=9
+$FFAD  08 6f 63                           MOVE     x=111 (video 239), y=99 (riga 76)
+$FFB0  97 08                              LINE     direzione=7, periodo=9, pixel=9
+$FFB2  08 70 88                           MOVE     x=112 (video 240), y=136 (riga 39)
+$FFB5  dc 6d                              LINE     direzione=4, periodo=46, pixel=46
+$FFB7  20 59 af 1f 02 1d 02 3b 00 11 00 17 ff PAPER    PAPER=0, indirizzo=$59BF, run=3:8 2:1 1:8 2:1 3:15 0:1 1:5 0:1 3:6
+$FFC4  08 31 8f                           MOVE     x=49 (video 177), y=143 (riga 32)
+$FFC7  85 d0                              LINE     direzione=5, periodo=4, pixel=17
+$FFC9  80 06                              LINE     direzione=0, periodo=1, pixel=7
+$FFCB  83 08                              LINE     direzione=3, periodo=1, pixel=9
+$FFCD  87 8e                              LINE     direzione=7, periodo=3, pixel=15
+$FFCF  40 48 99                           FILL     x=72 (video 200), y=153 (riga 22), INK=0
+$FFD2  08 67 51                           MOVE     x=103 (video 231), y=81 (riga 94)
+$FFD5  90 8a                              LINE     direzione=0, periodo=11, pixel=11
+$FFD7  26 58 46 06 ff                     PAPER    PAPER=6, indirizzo=$5856, run=2:2
+$FFDC  22 59 28 05 0a 07 04 01 06 ff      PAPER    PAPER=2, indirizzo=$5938, run=1:2 2:3 3:2 0:2 1:1 2:2
+$FFE6  24 58 85 05 03 2a ff               PAPER    PAPER=4, indirizzo=$5895, run=1:2 3:1 2:11
+$FFED  44 33 a1                           FILL     x=51 (video 179), y=161 (riga 14), INK=4
+$FFF0  08 09 88                           MOVE     x=9 (video 137), y=136 (riga 39)
+$FFF3  e8 db                              LINE     direzione=0, periodo=56, pixel=28
+$FFF5  08 11 64                           MOVE     x=17 (video 145), y=100 (riga 75)
+$FFF8  a0 10                              LINE     direzione=0, periodo=17, pixel=17
+$FFFA  08 00 8f                           MOVE     x=0 (video 128), y=143 (riga 32)
+$FFFD  b8 1b                              LINE     direzione=0, periodo=29, pixel=28
+$FFFF  00                                 END      
+
+=== 006 entrance hallway | $F928..$F9EF ===
+$F928  08 7f 57                           MOVE     x=127 (video 255), y=87 (riga 88)
+$F92B  cf e6                              LINE     direzione=7, periodo=40, pixel=39
+$F92D  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F92F  fc fe                              LINE     direzione=4, periodo=64, pixel=63
+$F931  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F933  08 00 90                           MOVE     x=0 (video 128), y=144 (riga 31)
+$F936  b2 17                              LINE     direzione=2, periodo=25, pixel=24
+$F938  83 fe                              LINE     direzione=3, periodo=4, pixel=63
+$F93A  83 db                              LINE     direzione=3, periodo=4, pixel=28
+$F93C  88 e1                              LINE     direzione=0, periodo=8, pixel=34
+$F93E  84 48                              LINE     direzione=4, periodo=2, pixel=9
+$F940  08 3f af                           MOVE     x=63 (video 191), y=175 (riga 0)
+$F943  87 06                              LINE     direzione=7, periodo=1, pixel=7
+$F945  b4 17                              LINE     direzione=4, periodo=25, pixel=24
+$F947  b3 17                              LINE     direzione=3, periodo=25, pixel=24
+$F949  83 fe                              LINE     direzione=3, periodo=4, pixel=63
+$F94B  83 d4                              LINE     direzione=3, periodo=4, pixel=21
+$F94D  90 52                              LINE     direzione=0, periodo=10, pixel=19
+$F94F  f1 b9                              LINE     direzione=1, periodo=59, pixel=58
+$F951  84 52                              LINE     direzione=4, periodo=2, pixel=19
+$F953  86 45                              LINE     direzione=6, periodo=2, pixel=6
+$F955  08 25 a8                           MOVE     x=37 (video 165), y=168 (riga 7)
+$F958  83 fe                              LINE     direzione=3, periodo=4, pixel=63
+$F95A  83 07                              LINE     direzione=3, periodo=1, pixel=8
+$F95C  90 8a                              LINE     direzione=0, periodo=11, pixel=11
+$F95E  08 2b 90                           MOVE     x=43 (video 171), y=144 (riga 31)
+$F961  d8 6c                              LINE     direzione=0, periodo=46, pixel=45
+$F963  81 20                              LINE     direzione=1, periodo=1, pixel=33
+$F965  08 38 af                           MOVE     x=56 (video 184), y=175 (riga 0)
+$F968  bb de                              LINE     direzione=3, periodo=32, pixel=31
+$F96A  81 20                              LINE     direzione=1, periodo=1, pixel=33
+$F96C  40 45 95                           FILL     x=69 (video 197), y=149 (riga 26), INK=0
+$F96F  40 3c 71                           FILL     x=60 (video 188), y=113 (riga 62), INK=0
+$F972  20 58 60 08 05 0a 03 08 ff         PAPER    PAPER=0, indirizzo=$5870, run=0:3 1:2 2:3 3:1 0:3
+$F97B  08 2f 8f                           MOVE     x=47 (video 175), y=143 (riga 32)
+$F97E  9b 8e                              LINE     direzione=3, periodo=15, pixel=15
+$F980  42 2d 8e                           FILL     x=45 (video 173), y=142 (riga 33), INK=2
+$F983  22 58 86 06 01 04 01 0e 01 06 14 01 16 11 24 03 22 0b 1c 05 1a 03 18 ff PAPER    PAPER=2, indirizzo=$5896, run=2:2 1:1 0:2 1:1 2:4 1:1 2:2 0:6 1:1 2:6 1:5 0:10 3:1 2:9 3:3 0:8 1:2 2:7 3:1 0:7
+$F99B  08 57 8e                           MOVE     x=87 (video 215), y=142 (riga 33)
+$F99E  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$F9A0  9c cf                              LINE     direzione=4, periodo=16, pixel=16
+$F9A2  08 58 4f                           MOVE     x=88 (video 216), y=79 (riga 96)
+$F9A5  8a 26                              LINE     direzione=2, periodo=5, pixel=39
+$F9A7  08 00 38                           MOVE     x=0 (video 128), y=56 (riga 119)
+$F9AA  d8 2c                              LINE     direzione=0, periodo=45, pixel=45
+$F9AC  44 62 38                           FILL     x=98 (video 226), y=56 (riga 119), INK=4
+$F9AF  08 00 3f                           MOVE     x=0 (video 128), y=63 (riga 112)
+$F9B2  a8 2a                              LINE     direzione=0, periodo=21, pixel=43
+$F9B4  08 00 48                           MOVE     x=0 (video 128), y=72 (riga 103)
+$F9B7  a8 28                              LINE     direzione=0, periodo=21, pixel=41
+$F9B9  08 00 50                           MOVE     x=0 (video 128), y=80 (riga 95)
+$F9BC  a8 27                              LINE     direzione=0, periodo=21, pixel=40
+$F9BE  08 00 58                           MOVE     x=0 (video 128), y=88 (riga 87)
+$F9C1  c8 65                              LINE     direzione=0, periodo=38, pixel=38
+$F9C3  08 00 60                           MOVE     x=0 (video 128), y=96 (riga 79)
+$F9C6  c0 e3                              LINE     direzione=0, periodo=36, pixel=36
+$F9C8  08 00 68                           MOVE     x=0 (video 128), y=104 (riga 71)
+$F9CB  c0 20                              LINE     direzione=0, periodo=33, pixel=33
+$F9CD  08 00 6f                           MOVE     x=0 (video 128), y=111 (riga 64)
+$F9D0  b8 df                              LINE     direzione=0, periodo=32, pixel=32
+$F9D2  08 00 76                           MOVE     x=0 (video 128), y=118 (riga 57)
+$F9D5  b8 9e                              LINE     direzione=0, periodo=31, pixel=31
+$F9D7  08 00 7e                           MOVE     x=0 (video 128), y=126 (riga 49)
+$F9DA  b0 db                              LINE     direzione=0, periodo=28, pixel=28
+$F9DC  08 00 85                           MOVE     x=0 (video 128), y=133 (riga 42)
+$F9DF  b0 9a                              LINE     direzione=0, periodo=27, pixel=27
+$F9E1  08 00 8b                           MOVE     x=0 (video 128), y=139 (riga 36)
+$F9E4  b0 18                              LINE     direzione=0, periodo=25, pixel=25
+$F9E6  42 3b af                           FILL     x=59 (video 187), y=175 (riga 0), INK=2
+$F9E9  22 58 43 04 0d ff                  PAPER    PAPER=2, indirizzo=$5853, run=0:2 1:4
+$F9EF  00                                 END      
+
+=== 011 scotland yard | $FAAA..$FB6D ===
+$FAAA  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$FAAD  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FAAF  ff 7c                              LINE     direzione=7, periodo=62, pixel=61
+$FAB1  87 c2                              LINE     direzione=7, periodo=4, pixel=3
+$FAB3  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FAB5  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FAB7  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FAB9  22 58 0f ff                        PAPER    PAPER=2, indirizzo=$581F, run=
+$FABD  22 58 0c 09 06 ff                  PAPER    PAPER=2, indirizzo=$581C, run=1:3 2:2
+$FAC3  22 58 00 19 07 02 13 02 09 03 02 07 02 05 02 01 0b 02 09 03 02 07 02 05 02 01 0b 02 09 03 02 07 02 05 02 01 06 0b 04 01 02 05 ff PAPER    PAPER=2, indirizzo=$5810, run=1:7 3:2 2:1 3:5 2:1 1:3 3:1 2:1 3:2 2:1 1:2 2:1 1:1 3:3 2:1 1:3 3:1 2:1 3:2 2:1 1:2 2:1 1:1 3:3 2:1 1:3 3:1 2:1 3:2 2:1 1:2 2:1 1:1 2:2 3:3 0:2 1:1 2:1 1:2
+$FAEE  08 7f 87                           MOVE     x=127 (video 255), y=135 (riga 40)
+$FAF1  84 0e                              LINE     direzione=4, periodo=1, pixel=15
+$FAF3  a4 22                              LINE     direzione=4, periodo=17, pixel=35
+$FAF5  96 1c                              LINE     direzione=6, periodo=9, pixel=29
+$FAF7  87 4f                              LINE     direzione=7, periodo=2, pixel=16
+$FAF9  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$FAFB  af 55                              LINE     direzione=7, periodo=22, pixel=22
+$FAFD  08 76 90                           MOVE     x=118 (video 246), y=144 (riga 31)
+$FB00  b6 7a                              LINE     direzione=6, periodo=26, pixel=59
+$FB02  87 51                              LINE     direzione=7, periodo=2, pixel=18
+$FB04  cf 65                              LINE     direzione=7, periodo=38, pixel=38
+$FB06  98 0c                              LINE     direzione=0, periodo=13, pixel=13
+$FB08  82 50                              LINE     direzione=2, periodo=2, pixel=17
+$FB0A  e9 f7                              LINE     direzione=1, periodo=56, pixel=56
+$FB0C  82 4b                              LINE     direzione=2, periodo=2, pixel=12
+$FB0E  eb b6                              LINE     direzione=3, periodo=55, pixel=55
+$FB10  86 a8                              LINE     direzione=6, periodo=3, pixel=41
+$FB12  9b 0c                              LINE     direzione=3, periodo=13, pixel=13
+$FB14  08 40 56                           MOVE     x=64 (video 192), y=86 (riga 89)
+$FB17  e1 30                              LINE     direzione=1, periodo=49, pixel=49
+$FB19  9a 4d                              LINE     direzione=2, periodo=14, pixel=14
+$FB1B  08 5d 7f                           MOVE     x=93 (video 221), y=127 (riga 48)
+$FB1E  92 08                              LINE     direzione=2, periodo=9, pixel=9
+$FB20  82 88                              LINE     direzione=2, periodo=3, pixel=9
+$FB22  c3 1f                              LINE     direzione=3, periodo=33, pixel=32
+$FB24  8c c7                              LINE     direzione=4, periodo=8, pixel=8
+$FB26  c5 a2                              LINE     direzione=5, periodo=35, pixel=35
+$FB28  08 7f 48                           MOVE     x=127 (video 255), y=72 (riga 103)
+$FB2B  bc e2                              LINE     direzione=4, periodo=32, pixel=35
+$FB2D  08 78 48                           MOVE     x=120 (video 248), y=72 (riga 103)
+$FB30  9d 0e                              LINE     direzione=5, periodo=13, pixel=15
+$FB32  9e 4e                              LINE     direzione=6, periodo=14, pixel=15
+$FB34  9b 4d                              LINE     direzione=3, periodo=14, pixel=14
+$FB36  08 77 54                           MOVE     x=119 (video 247), y=84 (riga 91)
+$FB39  8e ca                              LINE     direzione=6, periodo=8, pixel=11
+$FB3B  8b ca                              LINE     direzione=3, periodo=8, pixel=11
+$FB3D  40 6b 55                           FILL     x=107 (video 235), y=85 (riga 90), INK=0
+$FB40  40 6b 6b                           FILL     x=107 (video 235), y=107 (riga 68), INK=0
+$FB43  40 52 4b                           FILL     x=82 (video 210), y=75 (riga 100), INK=0
+$FB46  26 59 a8 19 06 23 00 21 ff         PAPER    PAPER=6, indirizzo=$59B8, run=1:7 2:2 3:9 0:1 1:9
+$FB4F  08 7e 88                           MOVE     x=126 (video 254), y=136 (riga 39)
+$FB52  8c 85                              LINE     direzione=4, periodo=7, pixel=6
+$FB54  8d 45                              LINE     direzione=5, periodo=6, pixel=6
+$FB56  45 7a 8a                           FILL     x=122 (video 250), y=138 (riga 37), INK=5
+$FB59  25 59 66 18 1d 12 01 0c 13 09 02 04 17 1e ff PAPER    PAPER=5, indirizzo=$5976, run=0:7 1:8 2:5 1:1 0:4 3:5 1:3 2:1 0:2 3:6 2:8
+$FB68  08 7f 5f                           MOVE     x=127 (video 255), y=95 (riga 80)
+$FB6B  9c cf                              LINE     direzione=4, periodo=16, pixel=16
+$FB6D  00                                 END      
+
+=== 012 slater street | $F638..$F6EC ===
+$F638  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$F63B  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$F63D  ff 7c                              LINE     direzione=7, periodo=62, pixel=61
+$F63F  87 c2                              LINE     direzione=7, periodo=4, pixel=3
+$F641  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F643  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F645  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F647  08 27 af                           MOVE     x=39 (video 167), y=175 (riga 0)
+$F64A  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$F64C  e7 2f                              LINE     direzione=7, periodo=49, pixel=48
+$F64E  82 ae                              LINE     direzione=2, periodo=3, pixel=47
+$F650  08 27 40                           MOVE     x=39 (video 167), y=64 (riga 111)
+$F653  81 10                              LINE     direzione=1, periodo=1, pixel=17
+$F655  08 37 af                           MOVE     x=55 (video 183), y=175 (riga 0)
+$F658  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$F65A  c7 1f                              LINE     direzione=7, periodo=33, pixel=32
+$F65C  8a 70                              LINE     direzione=2, periodo=6, pixel=49
+$F65E  08 67 9f                           MOVE     x=103 (video 231), y=159 (riga 16)
+$F661  9c ce                              LINE     direzione=4, periodo=16, pixel=15
+$F663  a5 10                              LINE     direzione=5, periodo=17, pixel=17
+$F665  08 58 9f                           MOVE     x=88 (video 216), y=159 (riga 16)
+$F668  80 10                              LINE     direzione=0, periodo=1, pixel=17
+$F66A  08 47 af                           MOVE     x=71 (video 199), y=175 (riga 0)
+$F66D  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$F66F  a7 0f                              LINE     direzione=7, periodo=17, pixel=16
+$F671  8a 61                              LINE     direzione=2, periodo=6, pixel=34
+$F673  40 18 55                           FILL     x=24 (video 152), y=85 (riga 90), INK=0
+$F676  08 4f 62                           MOVE     x=79 (video 207), y=98 (riga 77)
+$F679  f9 fe                              LINE     direzione=1, periodo=64, pixel=63
+$F67B  9d ce                              LINE     direzione=5, periodo=16, pixel=15
+$F67D  08 68 30                           MOVE     x=104 (video 232), y=48 (riga 127)
+$F680  f9 fe                              LINE     direzione=1, periodo=64, pixel=63
+$F682  d9 ef                              LINE     direzione=1, periodo=48, pixel=48
+$F684  80 55                              LINE     direzione=0, periodo=2, pixel=22
+$F686  40 67 a3                           FILL     x=103 (video 231), y=163 (riga 12), INK=0
+$F689  08 36 4f                           MOVE     x=54 (video 182), y=79 (riga 96)
+$F68C  8c 85                              LINE     direzione=4, periodo=7, pixel=6
+$F68E  8b 05                              LINE     direzione=3, periodo=5, pixel=6
+$F690  46 32 4d                           FILL     x=50 (video 178), y=77 (riga 98), INK=6
+$F693  08 2e 47                           MOVE     x=46 (video 174), y=71 (riga 104)
+$F696  8c 44                              LINE     direzione=4, periodo=6, pixel=5
+$F698  8f 45                              LINE     direzione=7, periodo=6, pixel=6
+$F69A  46 2b 46                           FILL     x=43 (video 171), y=70 (riga 105), INK=6
+$F69D  22 58 0b 0d 3a 03 34 0b 05 3a ff   PAPER    PAPER=2, indirizzo=$581B, run=1:4 2:15 3:1 0:14 3:3 1:2 2:15
+$F6A8  08 50 87                           MOVE     x=80 (video 208), y=135 (riga 40)
+$F6AB  88 ce                              LINE     direzione=0, periodo=8, pixel=15
+$F6AD  8d 87                              LINE     direzione=5, periodo=7, pixel=8
+$F6AF  84 c8                              LINE     direzione=4, periodo=4, pixel=9
+$F6B1  86 45                              LINE     direzione=6, periodo=2, pixel=6
+$F6B3  26 58 0a 13 2e 00 01 24 0d 06 05 12 0b 02 0c 09 08 0b 0a ff PAPER    PAPER=6, indirizzo=$581A, run=3:5 2:12 0:1 1:1 0:10 1:4 2:2 1:2 2:5 3:3 2:1 0:4 1:3 0:3 3:3 2:3
+$F6C7  08 47 60                           MOVE     x=71 (video 199), y=96 (riga 79)
+$F6CA  80 97                              LINE     direzione=0, periodo=3, pixel=24
+$F6CC  ad 97                              LINE     direzione=5, periodo=23, pixel=24
+$F6CE  84 86                              LINE     direzione=4, periodo=3, pixel=7
+$F6D0  86 87                              LINE     direzione=6, periodo=3, pixel=8
+$F6D2  41 57 74                           FILL     x=87 (video 215), y=116 (riga 59), INK=1
+$F6D5  40 42 5f                           FILL     x=66 (video 194), y=95 (riga 80), INK=0
+$F6D8  08 5a 8e                           MOVE     x=90 (video 218), y=142 (riga 33)
+$F6DB  86 c7                              LINE     direzione=6, periodo=4, pixel=8
+$F6DD  08 54 8f                           MOVE     x=84 (video 212), y=143 (riga 32)
+$F6E0  83 45                              LINE     direzione=3, periodo=2, pixel=6
+$F6E2  08 55 8f                           MOVE     x=85 (video 213), y=143 (riga 32)
+$F6E5  83 45                              LINE     direzione=3, periodo=2, pixel=6
+$F6E7  08 5b 8b                           MOVE     x=91 (video 219), y=139 (riga 36)
+$F6EA  83 41                              LINE     direzione=3, periodo=2, pixel=2
+$F6EC  00                                 END      
+
+=== 054 platform one | $FB6E..$FC39 ===
+$FB6E  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$FB71  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FB73  ff 7c                              LINE     direzione=7, periodo=62, pixel=61
+$FB75  87 c2                              LINE     direzione=7, periodo=4, pixel=3
+$FB77  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FB79  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FB7B  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FB7D  08 00 94                           MOVE     x=0 (video 128), y=148 (riga 27)
+$FB80  82 78                              LINE     direzione=2, periodo=2, pixel=57
+$FB82  98 0c                              LINE     direzione=0, periodo=13, pixel=13
+$FB84  80 4b                              LINE     direzione=0, periodo=2, pixel=12
+$FB86  9a 0c                              LINE     direzione=2, periodo=13, pixel=13
+$FB88  b7 59                              LINE     direzione=7, periodo=26, pixel=26
+$FB8A  87 8c                              LINE     direzione=7, periodo=3, pixel=13
+$FB8C  ac 13                              LINE     direzione=4, periodo=21, pixel=20
+$FB8E  87 66                              LINE     direzione=7, periodo=2, pixel=39
+$FB90  08 44 79                           MOVE     x=68 (video 196), y=121 (riga 54)
+$FB93  84 39                              LINE     direzione=4, periodo=1, pixel=58
+$FB95  08 52 81                           MOVE     x=82 (video 210), y=129 (riga 46)
+$FB98  e5 b4                              LINE     direzione=5, periodo=51, pixel=53
+$FB9A  08 5f 7f                           MOVE     x=95 (video 223), y=127 (riga 48)
+$FB9D  81 1f                              LINE     direzione=1, periodo=1, pixel=32
+$FB9F  08 49 57                           MOVE     x=73 (video 201), y=87 (riga 88)
+$FBA2  80 15                              LINE     direzione=0, periodo=1, pixel=22
+$FBA4  08 51 5f                           MOVE     x=81 (video 209), y=95 (riga 80)
+$FBA7  94 3e                              LINE     direzione=4, periodo=9, pixel=63
+$FBA9  84 d2                              LINE     direzione=4, periodo=4, pixel=19
+$FBAB  08 49 5f                           MOVE     x=73 (video 201), y=95 (riga 80)
+$FBAE  86 7e                              LINE     direzione=6, periodo=2, pixel=63
+$FBB0  86 4b                              LINE     direzione=6, periodo=2, pixel=12
+$FBB2  08 4f 7e                           MOVE     x=79 (video 207), y=126 (riga 49)
+$FBB5  8b 85                              LINE     direzione=3, periodo=7, pixel=6
+$FBB7  9c 0b                              LINE     direzione=4, periodo=13, pixel=12
+$FBB9  45 4c 7b                           FILL     x=76 (video 204), y=123 (riga 52), INK=5
+$FBBC  08 7f 88                           MOVE     x=127 (video 255), y=136 (riga 39)
+$FBBF  86 46                              LINE     direzione=6, periodo=2, pixel=7
+$FBC1  d7 28                              LINE     direzione=7, periodo=41, pixel=41
+$FBC3  87 4b                              LINE     direzione=7, periodo=2, pixel=12
+$FBC5  98 8e                              LINE     direzione=0, periodo=15, pixel=15
+$FBC7  08 71 4f                           MOVE     x=113 (video 241), y=79 (riga 96)
+$FBCA  84 96                              LINE     direzione=4, periodo=3, pixel=23
+$FBCC  40 7b 6a                           FILL     x=123 (video 251), y=106 (riga 69), INK=0
+$FBCF  08 60 78                           MOVE     x=96 (video 224), y=120 (riga 55)
+$FBD2  84 4e                              LINE     direzione=4, periodo=2, pixel=15
+$FBD4  82 90                              LINE     direzione=2, periodo=3, pixel=17
+$FBD6  08 75 7d                           MOVE     x=117 (video 245), y=125 (riga 50)
+$FBD9  84 62                              LINE     direzione=4, periodo=2, pixel=35
+$FBDB  82 a3                              LINE     direzione=2, periodo=3, pixel=36
+$FBDD  08 5f 65                           MOVE     x=95 (video 223), y=101 (riga 74)
+$FBE0  8a 56                              LINE     direzione=2, periodo=6, pixel=23
+$FBE2  ad 95                              LINE     direzione=5, periodo=23, pixel=22
+$FBE4  86 d7                              LINE     direzione=6, periodo=4, pixel=24
+$FBE6  42 6b 6b                           FILL     x=107 (video 235), y=107 (riga 68), INK=2
+$FBE9  44 32 5f                           FILL     x=50 (video 178), y=95 (riga 80), INK=4
+$FBEC  26 59 89 15 0a 17 04 11 02 13 ff   PAPER    PAPER=6, indirizzo=$5999, run=1:6 2:3 3:6 0:2 1:5 2:1 3:5
+$FBF7  20 59 49 0b 02 05 02 0f 00 01 07 02 03 02 11 02 1b 00 01 03 06 19 ff PAPER    PAPER=0, indirizzo=$5959, run=3:3 2:1 1:2 2:1 3:4 0:1 1:1 3:2 2:1 3:1 2:1 1:5 2:1 3:7 0:1 1:1 3:1 2:2 1:7
+$FC0E  08 37 78                           MOVE     x=55 (video 183), y=120 (riga 55)
+$FC11  ec fa                              LINE     direzione=4, periodo=56, pixel=59
+$FC13  25 58 cb 0a 2b 04 25 00 06 27 ff   PAPER    PAPER=5, indirizzo=$58DB, run=2:3 3:11 0:2 1:10 0:1 2:2 3:10
+$FC1E  08 6c 50                           MOVE     x=108 (video 236), y=80 (riga 95)
+$FC21  ce 64                              LINE     direzione=6, periodo=38, pixel=37
+$FC23  c7 20                              LINE     direzione=7, periodo=33, pixel=33
+$FC25  46 4c 53                           FILL     x=76 (video 204), y=83 (riga 92), INK=6
+$FC28  44 5a 61                           FILL     x=90 (video 218), y=97 (riga 78), INK=4
+$FC2B  08 00 95                           MOVE     x=0 (video 128), y=149 (riga 26)
+$FC2E  b1 99                              LINE     direzione=1, periodo=27, pixel=26
+$FC30  fa fe                              LINE     direzione=2, periodo=64, pixel=63
+$FC32  fa fe                              LINE     direzione=2, periodo=64, pixel=63
+$FC34  82 40                              LINE     direzione=2, periodo=2, pixel=1
+$FC36  45 16 7a                           FILL     x=22 (video 150), y=122 (riga 53), INK=5
+$FC39  00                                 END      
+
+=== 055 platform two | $FB6E..$FC39 ===
+$FB6E  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$FB71  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FB73  ff 7c                              LINE     direzione=7, periodo=62, pixel=61
+$FB75  87 c2                              LINE     direzione=7, periodo=4, pixel=3
+$FB77  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FB79  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FB7B  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FB7D  08 00 94                           MOVE     x=0 (video 128), y=148 (riga 27)
+$FB80  82 78                              LINE     direzione=2, periodo=2, pixel=57
+$FB82  98 0c                              LINE     direzione=0, periodo=13, pixel=13
+$FB84  80 4b                              LINE     direzione=0, periodo=2, pixel=12
+$FB86  9a 0c                              LINE     direzione=2, periodo=13, pixel=13
+$FB88  b7 59                              LINE     direzione=7, periodo=26, pixel=26
+$FB8A  87 8c                              LINE     direzione=7, periodo=3, pixel=13
+$FB8C  ac 13                              LINE     direzione=4, periodo=21, pixel=20
+$FB8E  87 66                              LINE     direzione=7, periodo=2, pixel=39
+$FB90  08 44 79                           MOVE     x=68 (video 196), y=121 (riga 54)
+$FB93  84 39                              LINE     direzione=4, periodo=1, pixel=58
+$FB95  08 52 81                           MOVE     x=82 (video 210), y=129 (riga 46)
+$FB98  e5 b4                              LINE     direzione=5, periodo=51, pixel=53
+$FB9A  08 5f 7f                           MOVE     x=95 (video 223), y=127 (riga 48)
+$FB9D  81 1f                              LINE     direzione=1, periodo=1, pixel=32
+$FB9F  08 49 57                           MOVE     x=73 (video 201), y=87 (riga 88)
+$FBA2  80 15                              LINE     direzione=0, periodo=1, pixel=22
+$FBA4  08 51 5f                           MOVE     x=81 (video 209), y=95 (riga 80)
+$FBA7  94 3e                              LINE     direzione=4, periodo=9, pixel=63
+$FBA9  84 d2                              LINE     direzione=4, periodo=4, pixel=19
+$FBAB  08 49 5f                           MOVE     x=73 (video 201), y=95 (riga 80)
+$FBAE  86 7e                              LINE     direzione=6, periodo=2, pixel=63
+$FBB0  86 4b                              LINE     direzione=6, periodo=2, pixel=12
+$FBB2  08 4f 7e                           MOVE     x=79 (video 207), y=126 (riga 49)
+$FBB5  8b 85                              LINE     direzione=3, periodo=7, pixel=6
+$FBB7  9c 0b                              LINE     direzione=4, periodo=13, pixel=12
+$FBB9  45 4c 7b                           FILL     x=76 (video 204), y=123 (riga 52), INK=5
+$FBBC  08 7f 88                           MOVE     x=127 (video 255), y=136 (riga 39)
+$FBBF  86 46                              LINE     direzione=6, periodo=2, pixel=7
+$FBC1  d7 28                              LINE     direzione=7, periodo=41, pixel=41
+$FBC3  87 4b                              LINE     direzione=7, periodo=2, pixel=12
+$FBC5  98 8e                              LINE     direzione=0, periodo=15, pixel=15
+$FBC7  08 71 4f                           MOVE     x=113 (video 241), y=79 (riga 96)
+$FBCA  84 96                              LINE     direzione=4, periodo=3, pixel=23
+$FBCC  40 7b 6a                           FILL     x=123 (video 251), y=106 (riga 69), INK=0
+$FBCF  08 60 78                           MOVE     x=96 (video 224), y=120 (riga 55)
+$FBD2  84 4e                              LINE     direzione=4, periodo=2, pixel=15
+$FBD4  82 90                              LINE     direzione=2, periodo=3, pixel=17
+$FBD6  08 75 7d                           MOVE     x=117 (video 245), y=125 (riga 50)
+$FBD9  84 62                              LINE     direzione=4, periodo=2, pixel=35
+$FBDB  82 a3                              LINE     direzione=2, periodo=3, pixel=36
+$FBDD  08 5f 65                           MOVE     x=95 (video 223), y=101 (riga 74)
+$FBE0  8a 56                              LINE     direzione=2, periodo=6, pixel=23
+$FBE2  ad 95                              LINE     direzione=5, periodo=23, pixel=22
+$FBE4  86 d7                              LINE     direzione=6, periodo=4, pixel=24
+$FBE6  42 6b 6b                           FILL     x=107 (video 235), y=107 (riga 68), INK=2
+$FBE9  44 32 5f                           FILL     x=50 (video 178), y=95 (riga 80), INK=4
+$FBEC  26 59 89 15 0a 17 04 11 02 13 ff   PAPER    PAPER=6, indirizzo=$5999, run=1:6 2:3 3:6 0:2 1:5 2:1 3:5
+$FBF7  20 59 49 0b 02 05 02 0f 00 01 07 02 03 02 11 02 1b 00 01 03 06 19 ff PAPER    PAPER=0, indirizzo=$5959, run=3:3 2:1 1:2 2:1 3:4 0:1 1:1 3:2 2:1 3:1 2:1 1:5 2:1 3:7 0:1 1:1 3:1 2:2 1:7
+$FC0E  08 37 78                           MOVE     x=55 (video 183), y=120 (riga 55)
+$FC11  ec fa                              LINE     direzione=4, periodo=56, pixel=59
+$FC13  25 58 cb 0a 2b 04 25 00 06 27 ff   PAPER    PAPER=5, indirizzo=$58DB, run=2:3 3:11 0:2 1:10 0:1 2:2 3:10
+$FC1E  08 6c 50                           MOVE     x=108 (video 236), y=80 (riga 95)
+$FC21  ce 64                              LINE     direzione=6, periodo=38, pixel=37
+$FC23  c7 20                              LINE     direzione=7, periodo=33, pixel=33
+$FC25  46 4c 53                           FILL     x=76 (video 204), y=83 (riga 92), INK=6
+$FC28  44 5a 61                           FILL     x=90 (video 218), y=97 (riga 78), INK=4
+$FC2B  08 00 95                           MOVE     x=0 (video 128), y=149 (riga 26)
+$FC2E  b1 99                              LINE     direzione=1, periodo=27, pixel=26
+$FC30  fa fe                              LINE     direzione=2, periodo=64, pixel=63
+$FC32  fa fe                              LINE     direzione=2, periodo=64, pixel=63
+$FC34  82 40                              LINE     direzione=2, periodo=2, pixel=1
+$FC36  45 16 7a                           FILL     x=22 (video 150), y=122 (riga 53), INK=5
+$FC39  00                                 END      
+
+=== 061 basils bedroom | $F6ED..$F7BD ===
+$F6ED  08 1d 2f                           MOVE     x=29 (video 157), y=47 (riga 128)
+$F6F0  8e 03                              LINE     direzione=6, periodo=5, pixel=4
+$F6F2  08 00 5e                           MOVE     x=0 (video 128), y=94 (riga 81)
+$F6F5  83 d9                              LINE     direzione=3, periodo=4, pixel=26
+$F6F7  89 4d                              LINE     direzione=1, periodo=6, pixel=14
+$F6F9  82 4e                              LINE     direzione=2, periodo=2, pixel=15
+$F6FB  8b 9b                              LINE     direzione=3, periodo=7, pixel=28
+$F6FD  08 1d 30                           MOVE     x=29 (video 157), y=48 (riga 127)
+$F700  91 13                              LINE     direzione=1, periodo=9, pixel=20
+$F702  80 98                              LINE     direzione=0, periodo=3, pixel=25
+$F704  83 ce                              LINE     direzione=3, periodo=4, pixel=15
+$F706  89 52                              LINE     direzione=1, periodo=6, pixel=19
+$F708  80 85                              LINE     direzione=0, periodo=3, pixel=6
+$F70A  95 08                              LINE     direzione=5, periodo=9, pixel=9
+$F70C  84 43                              LINE     direzione=4, periodo=2, pixel=4
+$F70E  85 c7                              LINE     direzione=5, periodo=4, pixel=8
+$F710  96 08                              LINE     direzione=6, periodo=9, pixel=9
+$F712  85 1b                              LINE     direzione=5, periodo=1, pixel=28
+$F714  9e 8e                              LINE     direzione=6, periodo=15, pixel=15
+$F716  83 47                              LINE     direzione=3, periodo=2, pixel=8
+$F718  86 8a                              LINE     direzione=6, periodo=3, pixel=11
+$F71A  83 4e                              LINE     direzione=3, periodo=2, pixel=15
+$F71C  86 4e                              LINE     direzione=6, periodo=2, pixel=15
+$F71E  08 3f 56                           MOVE     x=63 (video 191), y=86 (riga 89)
+$F721  86 9c                              LINE     direzione=6, periodo=3, pixel=29
+$F723  84 44                              LINE     direzione=4, periodo=2, pixel=5
+$F725  80 9a                              LINE     direzione=0, periodo=3, pixel=27
+$F727  82 87                              LINE     direzione=2, periodo=3, pixel=8
+$F729  08 28 66                           MOVE     x=40 (video 168), y=102 (riga 73)
+$F72C  83 48                              LINE     direzione=3, periodo=2, pixel=9
+$F72E  86 c9                              LINE     direzione=6, periodo=4, pixel=10
+$F730  85 88                              LINE     direzione=5, periodo=3, pixel=9
+$F732  80 c9                              LINE     direzione=0, periodo=4, pixel=10
+$F734  40 17 64                           FILL     x=23 (video 151), y=100 (riga 75), INK=0
+$F737  08 43 8b                           MOVE     x=67 (video 195), y=139 (riga 36)
+$F73A  87 1a                              LINE     direzione=7, periodo=1, pixel=27
+$F73C  f1 37                              LINE     direzione=1, periodo=57, pixel=56
+$F73E  e2 2f                              LINE     direzione=2, periodo=49, pixel=48
+$F740  ff 7e                              LINE     direzione=7, periodo=62, pixel=63
+$F742  8b da                              LINE     direzione=3, periodo=8, pixel=27
+$F744  89 4e                              LINE     direzione=1, periodo=6, pixel=15
+$F746  82 86                              LINE     direzione=2, periodo=3, pixel=7
+$F748  8b 90                              LINE     direzione=3, periodo=7, pixel=17
+$F74A  89 d1                              LINE     direzione=1, periodo=8, pixel=18
+$F74C  80 44                              LINE     direzione=0, periodo=2, pixel=5
+$F74E  8b 4e                              LINE     direzione=3, periodo=6, pixel=15
+$F750  ad 54                              LINE     direzione=5, periodo=22, pixel=21
+$F752  84 8b                              LINE     direzione=4, periodo=3, pixel=12
+$F754  80 d4                              LINE     direzione=0, periodo=4, pixel=21
+$F756  85 50                              LINE     direzione=5, periodo=2, pixel=17
+$F758  87 15                              LINE     direzione=7, periodo=1, pixel=22
+$F75A  a6 91                              LINE     direzione=6, periodo=19, pixel=18
+$F75C  a7 10                              LINE     direzione=7, periodo=17, pixel=17
+$F75E  08 48 68                           MOVE     x=72 (video 200), y=104 (riga 71)
+$F761  8d 87                              LINE     direzione=5, periodo=7, pixel=8
+$F763  bc 9e                              LINE     direzione=4, periodo=31, pixel=31
+$F765  08 36 a7                           MOVE     x=54 (video 182), y=167 (riga 8)
+$F768  83 7e                              LINE     direzione=3, periodo=2, pixel=63
+$F76A  08 6f 7b                           MOVE     x=111 (video 239), y=123 (riga 52)
+$F76D  86 0e                              LINE     direzione=6, periodo=1, pixel=15
+$F76F  86 c3                              LINE     direzione=6, periodo=4, pixel=4
+$F771  40 67 6c                           FILL     x=103 (video 231), y=108 (riga 67), INK=0
+$F774  41 45 75                           FILL     x=69 (video 197), y=117 (riga 58), INK=1
+$F777  22 59 05 09 02 05 06 03 00 03 00 07 05 06 00 07 ff PAPER    PAPER=2, indirizzo=$5915, run=1:3 2:1 1:2 2:2 3:1 0:1 3:1 0:1 3:2 1:2 2:2 0:1 3:2
+$F788  24 59 4b 0d 12 3b 10 01 0e 31 08 0b 02 17 02 0b 00 02 29 00 07 ff PAPER    PAPER=4, indirizzo=$595B, run=1:4 2:5 3:15 0:5 1:1 2:4 1:13 0:3 3:3 2:1 3:6 2:1 3:3 0:1 2:1 1:11 0:1 3:2
+$F79E  23 59 20 01 00 03 1c 39 22 0b 00 05 18 03 16 03 14 03 1e 20 1b 1a 03 14 07 12 01 10 16 07 ff PAPER    PAPER=3, indirizzo=$5930, run=1:1 0:1 3:1 0:8 1:15 2:9 3:3 0:1 1:2 0:7 3:1 2:6 3:1 0:6 3:1 2:8 0:9 3:7 2:7 3:1 0:6 3:2 2:5 1:1 0:5 2:6 3:2
+$F7BD  00                                 END      
+
+=== 062 browns front gate | $F9F0..$FAA9 ===
+$F9F0  08 7f 4f                           MOVE     x=127 (video 255), y=79 (riga 96)
+$F9F3  bf de                              LINE     direzione=7, periodo=32, pixel=31
+$F9F5  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F9F7  fc fe                              LINE     direzione=4, periodo=64, pixel=63
+$F9F9  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F9FB  08 7f 50                           MOVE     x=127 (video 255), y=80 (riga 95)
+$F9FE  8c b6                              LINE     direzione=4, periodo=7, pixel=55
+$FA00  d4 b0                              LINE     direzione=4, periodo=43, pixel=49
+$FA02  84 97                              LINE     direzione=4, periodo=3, pixel=24
+$FA04  08 4f 57                           MOVE     x=79 (video 207), y=87 (riga 88)
+$FA07  8d c8                              LINE     direzione=5, periodo=8, pixel=9
+$FA09  84 03                              LINE     direzione=4, periodo=1, pixel=4
+$FA0B  87 04                              LINE     direzione=7, periodo=1, pixel=5
+$FA0D  93 08                              LINE     direzione=3, periodo=9, pixel=9
+$FA0F  8e a2                              LINE     direzione=6, periodo=7, pixel=35
+$FA11  82 91                              LINE     direzione=2, periodo=3, pixel=18
+$FA13  96 b8                              LINE     direzione=6, periodo=11, pixel=57
+$FA15  08 4f 56                           MOVE     x=79 (video 207), y=86 (riga 89)
+$FA18  86 d6                              LINE     direzione=6, periodo=4, pixel=23
+$FA1A  82 d8                              LINE     direzione=2, periodo=4, pixel=25
+$FA1C  86 75                              LINE     direzione=6, periodo=2, pixel=54
+$FA1E  08 79 51                           MOVE     x=121 (video 249), y=81 (riga 94)
+$FA21  8d 86                              LINE     direzione=5, periodo=7, pixel=7
+$FA23  84 05                              LINE     direzione=4, periodo=1, pixel=6
+$FA25  99 4c                              LINE     direzione=1, periodo=14, pixel=13
+$FA27  85 0a                              LINE     direzione=5, periodo=1, pixel=11
+$FA29  86 88                              LINE     direzione=6, periodo=3, pixel=9
+$FA2B  bd 5d                              LINE     direzione=5, periodo=30, pixel=30
+$FA2D  84 05                              LINE     direzione=4, periodo=1, pixel=6
+$FA2F  87 08                              LINE     direzione=7, periodo=1, pixel=9
+$FA31  a7 d3                              LINE     direzione=7, periodo=20, pixel=20
+$FA33  84 c3                              LINE     direzione=4, periodo=4, pixel=4
+$FA35  9d cf                              LINE     direzione=5, periodo=16, pixel=16
+$FA37  85 07                              LINE     direzione=5, periodo=1, pixel=8
+$FA39  87 04                              LINE     direzione=7, periodo=1, pixel=5
+$FA3B  9d 0b                              LINE     direzione=5, periodo=13, pixel=12
+$FA3D  8e 44                              LINE     direzione=6, periodo=6, pixel=5
+$FA3F  bf 9d                              LINE     direzione=7, periodo=31, pixel=30
+$FA41  86 9f                              LINE     direzione=6, periodo=3, pixel=32
+$FA43  8f c9                              LINE     direzione=7, periodo=8, pixel=10
+$FA45  9e 9e                              LINE     direzione=6, periodo=15, pixel=31
+$FA47  08 46 87                           MOVE     x=70 (video 198), y=135 (riga 40)
+$FA4A  94 49                              LINE     direzione=4, periodo=10, pixel=10
+$FA4C  93 8a                              LINE     direzione=3, periodo=11, pixel=11
+$FA4E  92 08                              LINE     direzione=2, periodo=9, pixel=9
+$FA50  91 8a                              LINE     direzione=1, periodo=11, pixel=11
+$FA52  21 58 00 39 2a 03 24 37 1e 01 18 2d 16 03 10 27 12 01 0c 1d 0a 03 04 03 06 13 04 05 02 07 ff PAPER    PAPER=1, indirizzo=$5810, run=1:15 2:11 3:1 0:10 3:14 2:8 1:1 0:7 1:12 2:6 3:1 0:5 3:10 2:5 1:1 0:4 1:8 2:3 3:1 0:2 3:1 2:2 3:5 0:2 1:2 2:1 3:2
+$FA71  26 58 a7 01 02 03 0a 05 02 07 ff   PAPER    PAPER=6, indirizzo=$58B7, run=1:1 2:1 3:1 2:3 1:2 2:1 3:2
+$FA7C  24 59 40 09 02 0b 0e 39 08 03 00 33 02 31 06 23 00 25 ff PAPER    PAPER=4, indirizzo=$5950, run=1:3 2:1 3:3 2:4 1:15 0:3 3:1 0:1 3:13 2:1 1:13 2:2 3:9 0:1 1:10
+$FA8F  40 5a 8c                           FILL     x=90 (video 218), y=140 (riga 35), INK=0
+$FA92  08 41 7d                           MOVE     x=65 (video 193), y=125 (riga 50)
+$FA95  91 49                              LINE     direzione=1, periodo=10, pixel=10
+$FA97  08 3c 82                           MOVE     x=60 (video 188), y=130 (riga 45)
+$FA9A  90 89                              LINE     direzione=0, periodo=11, pixel=10
+$FA9C  08 4a 57                           MOVE     x=74 (video 202), y=87 (riga 88)
+$FA9F  99 4d                              LINE     direzione=1, periodo=14, pixel=14
+$FAA1  08 45 5c                           MOVE     x=69 (video 197), y=92 (riga 83)
+$FAA4  90 8a                              LINE     direzione=0, periodo=11, pixel=11
+$FAA6  42 45 4a                           FILL     x=69 (video 197), y=74 (riga 101), INK=2
+$FAA9  00                                 END      
+
+=== 071 browns library | $FDA8..$FE81 ===
+$FDA8  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$FDAB  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FDAD  ff 3b                              LINE     direzione=7, periodo=61, pixel=60
+$FDAF  8f 03                              LINE     direzione=7, periodo=5, pixel=4
+$FDB1  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FDB3  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FDB5  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FDB7  08 06 30                           MOVE     x=6 (video 134), y=48 (riga 127)
+$FDBA  a5 0f                              LINE     direzione=5, periodo=17, pixel=16
+$FDBC  d0 ea                              LINE     direzione=0, periodo=44, pixel=43
+$FDBE  a7 10                              LINE     direzione=7, periodo=17, pixel=17
+$FDC0  08 37 30                           MOVE     x=55 (video 183), y=48 (riga 127)
+$FDC3  a1 0f                              LINE     direzione=1, periodo=17, pixel=16
+$FDC5  80 49                              LINE     direzione=0, periodo=2, pixel=10
+$FDC7  ab 14                              LINE     direzione=3, periodo=21, pixel=21
+$FDC9  08 00 4c                           MOVE     x=0 (video 128), y=76 (riga 99)
+$FDCC  82 8d                              LINE     direzione=2, periodo=3, pixel=14
+$FDCE  ca a5                              LINE     direzione=2, periodo=39, pixel=38
+$FDD0  80 92                              LINE     direzione=0, periodo=3, pixel=19
+$FDD2  84 93                              LINE     direzione=4, periodo=3, pixel=20
+$FDD4  ce a5                              LINE     direzione=6, periodo=39, pixel=38
+$FDD6  86 8d                              LINE     direzione=6, periodo=3, pixel=14
+$FDD8  fa fe                              LINE     direzione=2, periodo=64, pixel=63
+$FDDA  08 47 4e                           MOVE     x=71 (video 199), y=78 (riga 97)
+$FDDD  bb 9e                              LINE     direzione=3, periodo=31, pixel=31
+$FDDF  08 58 30                           MOVE     x=88 (video 216), y=48 (riga 127)
+$FDE2  b9 df                              LINE     direzione=1, periodo=32, pixel=32
+$FDE4  80 4a                              LINE     direzione=0, periodo=2, pixel=11
+$FDE6  82 92                              LINE     direzione=2, periodo=3, pixel=19
+$FDE8  c9 a7                              LINE     direzione=1, periodo=39, pixel=40
+$FDEA  80 86                              LINE     direzione=0, periodo=3, pixel=7
+$FDEC  40 78 45                           FILL     x=120 (video 248), y=69 (riga 106), INK=0
+$FDEF  40 44 45                           FILL     x=68 (video 196), y=69 (riga 106), INK=0
+$FDF2  08 1f 55                           MOVE     x=31 (video 159), y=85 (riga 90)
+$FDF5  c5 a1                              LINE     direzione=5, periodo=35, pixel=34
+$FDF7  c2 e2                              LINE     direzione=2, periodo=36, pixel=35
+$FDF9  82 1e                              LINE     direzione=2, periodo=1, pixel=31
+$FDFB  81 0e                              LINE     direzione=1, periodo=1, pixel=15
+$FDFD  84 17                              LINE     direzione=4, periodo=1, pixel=24
+$FDFF  b4 db                              LINE     direzione=4, periodo=28, pixel=28
+$FE01  08 21 78                           MOVE     x=33 (video 161), y=120 (riga 55)
+$FE04  80 4d                              LINE     direzione=0, periodo=2, pixel=14
+$FE06  8b c7                              LINE     direzione=3, periodo=8, pixel=8
+$FE08  42 2b 7a                           FILL     x=43 (video 171), y=122 (riga 53), INK=2
+$FE0B  08 43 78                           MOVE     x=67 (video 195), y=120 (riga 55)
+$FE0E  80 94                              LINE     direzione=0, periodo=3, pixel=21
+$FE10  af d6                              LINE     direzione=7, periodo=24, pixel=23
+$FE12  ba 9e                              LINE     direzione=2, periodo=31, pixel=31
+$FE14  42 61 6d                           FILL     x=97 (video 225), y=109 (riga 66), INK=2
+$FE17  08 36 87                           MOVE     x=54 (video 182), y=135 (riga 40)
+$FE1A  87 89                              LINE     direzione=7, periodo=3, pixel=10
+$FE1C  82 84                              LINE     direzione=2, periodo=3, pixel=5
+$FE1E  80 84                              LINE     direzione=0, periodo=3, pixel=5
+$FE20  85 8a                              LINE     direzione=5, periodo=3, pixel=11
+$FE22  8c 44                              LINE     direzione=4, periodo=6, pixel=5
+$FE24  84 45                              LINE     direzione=4, periodo=2, pixel=6
+$FE26  81 8b                              LINE     direzione=1, periodo=3, pixel=12
+$FE28  92 49                              LINE     direzione=2, periodo=10, pixel=10
+$FE2A  83 8b                              LINE     direzione=3, periodo=3, pixel=12
+$FE2C  86 86                              LINE     direzione=6, periodo=3, pixel=7
+$FE2E  40 36 80                           FILL     x=54 (video 182), y=128 (riga 47), INK=0
+$FE31  44 36 8f                           FILL     x=54 (video 182), y=143 (riga 32), INK=4
+$FE34  24 59 c0 09 02 0f ff               PAPER    PAPER=4, indirizzo=$59D0, run=1:3 2:1 3:4
+$FE3B  24 59 60 09 00 0f ff               PAPER    PAPER=4, indirizzo=$5970, run=1:3 0:1 3:4
+$FE42  23 59 23 0b 0c 39 0a 0b 00 05 00 0b 00 17 02 0f 06 05 00 07 ff PAPER    PAPER=3, indirizzo=$5933, run=3:3 0:4 1:15 2:3 3:3 0:1 1:2 0:1 3:3 0:1 3:6 2:1 3:4 2:2 1:2 0:1 3:2
+$FE57  22 58 c6 0d 0a 0d 16 27 04 11 14 13 0e 21 02 0b 06 13 1d 0c 1f 04 09 02 0f ff PAPER    PAPER=2, indirizzo=$58D6, run=1:4 2:3 1:4 2:6 3:10 0:2 1:5 0:6 3:5 2:4 1:9 2:1 3:3 2:2 3:5 1:8 0:4 3:8 0:2 1:3 2:1 3:4
+$FE71  21 58 8f 3b 0c 39 0a 37 04 31 02 33 ff PAPER    PAPER=1, indirizzo=$589F, run=3:15 0:4 1:15 2:3 3:14 0:2 1:13 2:1 3:13
+$FE7E  47 2f 51                           FILL     x=47 (video 175), y=81 (riga 94), INK=7
+$FE81  00                                 END      
+
+=== 074 daphnes room | $FE82..$FF40 ===
+$FE82  08 7f 85                           MOVE     x=127 (video 255), y=133 (riga 42)
+$FE85  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FE87  af 55                              LINE     direzione=7, periodo=22, pixel=22
+$FE89  08 20 af                           MOVE     x=32 (video 160), y=175 (riga 0)
+$FE8C  92 7e                              LINE     direzione=2, periodo=10, pixel=63
+$FE8E  8a 07                              LINE     direzione=2, periodo=5, pixel=8
+$FE90  87 d8                              LINE     direzione=7, periodo=4, pixel=25
+$FE92  87 58                              LINE     direzione=7, periodo=2, pixel=25
+$FE94  90 51                              LINE     direzione=0, periodo=10, pixel=18
+$FE96  82 90                              LINE     direzione=2, periodo=3, pixel=17
+$FE98  fd bd                              LINE     direzione=5, periodo=63, pixel=62
+$FE9A  86 4e                              LINE     direzione=6, periodo=2, pixel=15
+$FE9C  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$FE9E  8b c6                              LINE     direzione=3, periodo=8, pixel=7
+$FEA0  83 15                              LINE     direzione=3, periodo=1, pixel=22
+$FEA2  08 7f 7f                           MOVE     x=127 (video 255), y=127 (riga 48)
+$FEA5  8c 86                              LINE     direzione=4, periodo=7, pixel=7
+$FEA7  08 6c a8                           MOVE     x=108 (video 236), y=168 (riga 7)
+$FEAA  8b 9b                              LINE     direzione=3, periodo=7, pixel=28
+$FEAC  83 d3                              LINE     direzione=3, periodo=4, pixel=20
+$FEAE  84 88                              LINE     direzione=4, periodo=3, pixel=9
+$FEB0  cd 24                              LINE     direzione=5, periodo=37, pixel=37
+$FEB2  08 57 79                           MOVE     x=87 (video 215), y=121 (riga 54)
+$FEB5  90 4d                              LINE     direzione=0, periodo=10, pixel=14
+$FEB7  b9 df                              LINE     direzione=1, periodo=32, pixel=32
+$FEB9  08 69 63                           MOVE     x=105 (video 233), y=99 (riga 76)
+$FEBC  8e fe                              LINE     direzione=6, periodo=8, pixel=63
+$FEBE  8e eb                              LINE     direzione=6, periodo=8, pixel=44
+$FEC0  08 00 7f                           MOVE     x=0 (video 128), y=127 (riga 48)
+$FEC3  c2 1f                              LINE     direzione=2, periodo=33, pixel=32
+$FEC5  f3 fa                              LINE     direzione=3, periodo=60, pixel=59
+$FEC7  88 7e                              LINE     direzione=0, periodo=6, pixel=63
+$FEC9  a5 53                              LINE     direzione=5, periodo=18, pixel=20
+$FECB  84 54                              LINE     direzione=4, periodo=2, pixel=21
+$FECD  8d 0a                              LINE     direzione=5, periodo=5, pixel=11
+$FECF  f5 38                              LINE     direzione=5, periodo=57, pixel=57
+$FED1  08 20 80                           MOVE     x=32 (video 160), y=128 (riga 47)
+$FED4  91 07                              LINE     direzione=1, periodo=9, pixel=8
+$FED6  ca a6                              LINE     direzione=2, periodo=39, pixel=39
+$FED8  08 20 6b                           MOVE     x=32 (video 160), y=107 (riga 68)
+$FEDB  8a d9                              LINE     direzione=2, periodo=8, pixel=26
+$FEDD  80 ce                              LINE     direzione=0, periodo=4, pixel=15
+$FEDF  08 5f 4e                           MOVE     x=95 (video 223), y=78 (riga 97)
+$FEE2  9f 8d                              LINE     direzione=7, periodo=15, pixel=14
+$FEE4  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FEE6  85 c3                              LINE     direzione=5, periodo=4, pixel=4
+$FEE8  08 21 76                           MOVE     x=33 (video 161), y=118 (riga 57)
+$FEEB  88 54                              LINE     direzione=0, periodo=6, pixel=21
+$FEED  8a 10                              LINE     direzione=2, periodo=5, pixel=17
+$FEEF  9a 4d                              LINE     direzione=2, periodo=14, pixel=14
+$FEF1  47 3d af                           FILL     x=61 (video 189), y=175 (riga 0), INK=7
+$FEF4  42 0d 71                           FILL     x=13 (video 141), y=113 (riga 62), INK=2
+$FEF7  42 51 71                           FILL     x=81 (video 209), y=113 (riga 62), INK=2
+$FEFA  42 6d 71                           FILL     x=109 (video 237), y=113 (riga 62), INK=2
+$FEFD  41 5f 80                           FILL     x=95 (video 223), y=128 (riga 47), INK=1
+$FF00  41 6f 80                           FILL     x=111 (video 239), y=128 (riga 47), INK=1
+$FF03  44 58 44                           FILL     x=88 (video 216), y=68 (riga 107), INK=4
+$FF06  23 59 a4 19 00 1b 14 0d 02 0b 0e 15 08 13 06 0d 00 0f ff PAPER    PAPER=3, indirizzo=$59B4, run=1:7 0:1 3:7 0:6 1:4 2:1 3:3 2:4 1:6 0:3 3:5 2:2 1:4 0:1 3:4
+$FF19  26 58 08 12 07 14 12 07 10 16 07 14 16 07 14 16 ff PAPER    PAPER=6, indirizzo=$5818, run=2:5 3:2 0:6 2:5 3:2 0:5 2:6 3:2 0:6 2:6 3:2 0:6 2:6
+$FF2A  24 59 ef 3b 10 09 02 07 02 05 02 07 02 35 10 0b 0e 05 08 03 0a ff PAPER    PAPER=4, indirizzo=$59FF, run=3:15 0:5 1:3 2:1 3:2 2:1 1:2 2:1 3:2 2:1 1:14 0:5 3:3 2:4 1:2 0:3 3:1 2:3
+$FF40  00                                 END      
+
+=== 088 east side | $FC3A..$FCEC ===
+$FC3A  08 7f 9b                           MOVE     x=127 (video 255), y=155 (riga 20)
+$FC3D  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FC3F  af 95                              LINE     direzione=7, periodo=23, pixel=22
+$FC41  be 5d                              LINE     direzione=6, periodo=30, pixel=30
+$FC43  82 5e                              LINE     direzione=2, periodo=2, pixel=31
+$FC45  08 4a 31                           MOVE     x=74 (video 202), y=49 (riga 126)
+$FC48  85 90                              LINE     direzione=5, periodo=3, pixel=17
+$FC4A  8e 67                              LINE     direzione=6, periodo=6, pixel=40
+$FC4C  85 0c                              LINE     direzione=5, periodo=1, pixel=13
+$FC4E  86 d2                              LINE     direzione=6, periodo=4, pixel=19
+$FC50  08 00 50                           MOVE     x=0 (video 128), y=80 (riga 95)
+$FC53  d8 ee                              LINE     direzione=0, periodo=48, pixel=47
+$FC55  80 07                              LINE     direzione=0, periodo=1, pixel=8
+$FC57  a9 d6                              LINE     direzione=1, periodo=24, pixel=23
+$FC59  84 0f                              LINE     direzione=4, periodo=1, pixel=16
+$FC5B  96 08                              LINE     direzione=6, periodo=9, pixel=9
+$FC5D  87 07                              LINE     direzione=7, periodo=1, pixel=8
+$FC5F  9c 8d                              LINE     direzione=4, periodo=15, pixel=14
+$FC61  af 96                              LINE     direzione=7, periodo=23, pixel=23
+$FC63  08 21 7e                           MOVE     x=33 (video 161), y=126 (riga 49)
+$FC66  83 0e                              LINE     direzione=3, periodo=1, pixel=15
+$FC68  a4 0f                              LINE     direzione=4, periodo=17, pixel=16
+$FC6A  bf df                              LINE     direzione=7, periodo=32, pixel=32
+$FC6C  08 37 6f                           MOVE     x=55 (video 183), y=111 (riga 64)
+$FC6F  92 07                              LINE     direzione=2, periodo=9, pixel=8
+$FC71  83 17                              LINE     direzione=3, periodo=1, pixel=24
+$FC73  82 94                              LINE     direzione=2, periodo=3, pixel=21
+$FC75  a0 92                              LINE     direzione=0, periodo=19, pixel=19
+$FC77  08 3e 6f                           MOVE     x=62 (video 190), y=111 (riga 64)
+$FC7A  91 07                              LINE     direzione=1, periodo=9, pixel=8
+$FC7C  81 07                              LINE     direzione=1, periodo=1, pixel=8
+$FC7E  8a c6                              LINE     direzione=2, periodo=8, pixel=7
+$FC80  83 0e                              LINE     direzione=3, periodo=1, pixel=15
+$FC82  aa 54                              LINE     direzione=2, periodo=22, pixel=21
+$FC84  82 45                              LINE     direzione=2, periodo=2, pixel=6
+$FC86  bb 1c                              LINE     direzione=3, periodo=29, pixel=29
+$FC88  08 77 6c                           MOVE     x=119 (video 247), y=108 (riga 67)
+$FC8B  8e c7                              LINE     direzione=6, periodo=8, pixel=8
+$FC8D  08 46 7f                           MOVE     x=70 (video 198), y=127 (riga 48)
+$FC90  83 06                              LINE     direzione=3, periodo=1, pixel=7
+$FC92  08 7e 7a                           MOVE     x=126 (video 254), y=122 (riga 53)
+$FC95  be 1b                              LINE     direzione=6, periodo=29, pixel=28
+$FC97  82 dc                              LINE     direzione=2, periodo=4, pixel=29
+$FC99  08 00 60                           MOVE     x=0 (video 128), y=96 (riga 79)
+$FC9C  c0 20                              LINE     direzione=0, periodo=33, pixel=33
+$FC9E  21 59 40 09 02 0f ff               PAPER    PAPER=1, indirizzo=$5950, run=1:3 2:1 3:4
+$FCA5  24 59 81 01 02 07 02 39 00 33 06 07 31 ff PAPER    PAPER=4, indirizzo=$5991, run=1:1 2:1 3:2 2:1 1:15 0:1 3:13 2:2 3:2 1:13
+$FCB3  08 00 98                           MOVE     x=0 (video 128), y=152 (riga 23)
+$FCB6  80 4a                              LINE     direzione=0, periodo=2, pixel=11
+$FCB8  8a 12                              LINE     direzione=2, periodo=5, pixel=19
+$FCBA  80 58                              LINE     direzione=0, periodo=2, pixel=25
+$FCBC  8a 9f                              LINE     direzione=2, periodo=7, pixel=32
+$FCBE  83 56                              LINE     direzione=3, periodo=2, pixel=23
+$FCC0  8a 0a                              LINE     direzione=2, periodo=5, pixel=11
+$FCC2  80 11                              LINE     direzione=0, periodo=1, pixel=18
+$FCC4  08 1d 60                           MOVE     x=29 (video 157), y=96 (riga 79)
+$FCC7  a5 10                              LINE     direzione=5, periodo=17, pixel=17
+$FCC9  81 03                              LINE     direzione=1, periodo=1, pixel=4
+$FCCB  83 05                              LINE     direzione=3, periodo=1, pixel=6
+$FCCD  40 21 72                           FILL     x=33 (video 161), y=114 (riga 61), INK=0
+$FCD0  08 7f 5f                           MOVE     x=127 (video 255), y=95 (riga 80)
+$FCD3  8e c7                              LINE     direzione=6, periodo=8, pixel=8
+$FCD5  21 59 6f 14 03 06 03 00 03 ff      PAPER    PAPER=1, indirizzo=$597F, run=0:6 3:1 2:2 3:1 0:1 3:1
+$FCDF  44 7c 67                           FILL     x=124 (video 252), y=103 (riga 72), INK=4
+$FCE2  08 7f 36                           MOVE     x=127 (video 255), y=54 (riga 121)
+$FCE5  8f 85                              LINE     direzione=7, periodo=7, pixel=6
+$FCE7  ee 34                              LINE     direzione=6, periodo=53, pixel=53
+$FCE9  46 55 3a                           FILL     x=85 (video 213), y=58 (riga 117), INK=6
+$FCEC  00                                 END      
+
+=== 089 west side | $FCED..$FDA7 ===
+$FCED  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$FCF0  fb fe                              LINE     direzione=3, periodo=64, pixel=63
+$FCF2  ff 7c                              LINE     direzione=7, periodo=62, pixel=61
+$FCF4  87 c2                              LINE     direzione=7, periodo=4, pixel=3
+$FCF6  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FCF8  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FCFA  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$FCFC  08 7f 62                           MOVE     x=127 (video 255), y=98 (riga 77)
+$FCFF  86 7e                              LINE     direzione=6, periodo=2, pixel=63
+$FD01  86 65                              LINE     direzione=6, periodo=2, pixel=38
+$FD03  08 7f 68                           MOVE     x=127 (video 255), y=104 (riga 71)
+$FD06  86 bd                              LINE     direzione=6, periodo=3, pixel=62
+$FD08  86 84                              LINE     direzione=6, periodo=3, pixel=5
+$FD0A  84 51                              LINE     direzione=4, periodo=2, pixel=18
+$FD0C  86 ed                              LINE     direzione=6, periodo=4, pixel=46
+$FD0E  44 55 3f                           FILL     x=85 (video 213), y=63 (riga 112), INK=4
+$FD11  08 00 3f                           MOVE     x=0 (video 128), y=63 (riga 112)
+$FD14  80 a8                              LINE     direzione=0, periodo=3, pixel=41
+$FD16  84 58                              LINE     direzione=4, periodo=2, pixel=25
+$FD18  b9 9e                              LINE     direzione=1, periodo=31, pixel=31
+$FD1A  98 8d                              LINE     direzione=0, periodo=15, pixel=14
+$FD1C  8b 04                              LINE     direzione=3, periodo=5, pixel=5
+$FD1E  82 c8                              LINE     direzione=2, periodo=4, pixel=9
+$FD20  80 cf                              LINE     direzione=0, periodo=4, pixel=16
+$FD22  81 82                              LINE     direzione=1, periodo=3, pixel=3
+$FD24  9a 4c                              LINE     direzione=2, periodo=14, pixel=13
+$FD26  93 89                              LINE     direzione=3, periodo=11, pixel=10
+$FD28  82 c8                              LINE     direzione=2, periodo=4, pixel=9
+$FD2A  80 8e                              LINE     direzione=0, periodo=3, pixel=15
+$FD2C  95 07                              LINE     direzione=5, periodo=9, pixel=8
+$FD2E  9c ce                              LINE     direzione=4, periodo=16, pixel=15
+$FD30  80 48                              LINE     direzione=0, periodo=2, pixel=9
+$FD32  82 4e                              LINE     direzione=2, periodo=2, pixel=15
+$FD34  9f 0c                              LINE     direzione=7, periodo=13, pixel=13
+$FD36  ee f7                              LINE     direzione=6, periodo=56, pixel=56
+$FD38  9f 8e                              LINE     direzione=7, periodo=15, pixel=15
+$FD3A  80 fe                              LINE     direzione=0, periodo=4, pixel=63
+$FD3C  80 d1                              LINE     direzione=0, periodo=4, pixel=18
+$FD3E  21 59 2c 17 02 0d ff               PAPER    PAPER=1, indirizzo=$593C, run=3:6 2:1 1:4
+$FD45  41 17 62                           FILL     x=23 (video 151), y=98 (riga 77), INK=1
+$FD48  40 59 79                           FILL     x=89 (video 217), y=121 (riga 54), INK=0
+$FD4B  44 12 52                           FILL     x=18 (video 146), y=82 (riga 93), INK=4
+$FD4E  44 3c 57                           FILL     x=60 (video 188), y=87 (riga 88), INK=4
+$FD51  08 00 73                           MOVE     x=0 (video 128), y=115 (riga 60)
+$FD54  88 0e                              LINE     direzione=0, periodo=5, pixel=15
+$FD56  84 4f                              LINE     direzione=4, periodo=2, pixel=16
+$FD58  44 05 76                           FILL     x=5 (video 133), y=118 (riga 57), INK=4
+$FD5B  21 58 e1 0e 03 10 ff               PAPER    PAPER=1, indirizzo=$58F1, run=2:4 3:1 0:5
+$FD62  08 1f 80                           MOVE     x=31 (video 159), y=128 (riga 47)
+$FD65  9c 8e                              LINE     direzione=4, periodo=15, pixel=15
+$FD67  80 46                              LINE     direzione=0, periodo=2, pixel=7
+$FD69  82 48                              LINE     direzione=2, periodo=2, pixel=9
+$FD6B  40 18 81                           FILL     x=24 (video 152), y=129 (riga 46), INK=0
+$FD6E  08 38 86                           MOVE     x=56 (video 184), y=134 (riga 41)
+$FD71  93 ca                              LINE     direzione=3, periodo=12, pixel=11
+$FD73  80 8e                              LINE     direzione=0, periodo=3, pixel=15
+$FD75  84 4f                              LINE     direzione=4, periodo=2, pixel=16
+$FD77  86 4f                              LINE     direzione=6, periodo=2, pixel=16
+$FD79  a2 10                              LINE     direzione=2, periodo=17, pixel=17
+$FD7B  40 33 85                           FILL     x=51 (video 179), y=133 (riga 42), INK=0
+$FD7E  44 3b 7f                           FILL     x=59 (video 187), y=127 (riga 48), INK=4
+$FD81  21 58 c8 07 ff                     PAPER    PAPER=1, indirizzo=$58D8, run=3:2
+$FD86  20 58 c6 03 02 0d ff               PAPER    PAPER=0, indirizzo=$58D6, run=3:1 2:1 1:4
+$FD8D  20 58 eb 03 02 05 ff               PAPER    PAPER=0, indirizzo=$58FB, run=3:1 2:1 1:2
+$FD94  08 00 8b                           MOVE     x=0 (video 128), y=139 (riga 36)
+$FD97  8a cc                              LINE     direzione=2, periodo=8, pixel=13
+$FD99  80 4f                              LINE     direzione=0, periodo=2, pixel=16
+$FD9B  92 7e                              LINE     direzione=2, periodo=10, pixel=63
+$FD9D  82 62                              LINE     direzione=2, periodo=2, pixel=35
+$FD9F  20 58 c2 05 ff                     PAPER    PAPER=0, indirizzo=$58D2, run=1:2
+$FDA4  45 68 9c                           FILL     x=104 (video 232), y=156 (riga 19), INK=5
+$FDA7  00                                 END      
+
+=== 092 jones front gate | $F868..$F926 ===
+$F868  08 7f 64                           MOVE     x=127 (video 255), y=100 (riga 75)
+$F86B  df ef                              LINE     direzione=7, periodo=48, pixel=48
+$F86D  08 00 4e                           MOVE     x=0 (video 128), y=78 (riga 97)
+$F870  b0 b3                              LINE     direzione=0, periodo=27, pixel=52
+$F872  80 5f                              LINE     direzione=0, periodo=2, pixel=32
+$F874  88 ab                              LINE     direzione=0, periodo=7, pixel=44
+$F876  08 35 4f                           MOVE     x=53 (video 181), y=79 (riga 96)
+$F879  83 0b                              LINE     direzione=3, periodo=1, pixel=12
+$F87B  8a 3e                              LINE     direzione=2, periodo=5, pixel=63
+$F87D  08 4e 2f                           MOVE     x=78 (video 206), y=47 (riga 128)
+$F880  84 65                              LINE     direzione=4, periodo=2, pixel=38
+$F882  85 0c                              LINE     direzione=5, periodo=1, pixel=13
+$F884  b9 1b                              LINE     direzione=1, periodo=29, pixel=28
+$F886  81 a4                              LINE     direzione=1, periodo=3, pixel=37
+$F888  82 9e                              LINE     direzione=2, periodo=3, pixel=31
+$F88A  9b ce                              LINE     direzione=3, periodo=16, pixel=15
+$F88C  92 48                              LINE     direzione=2, periodo=10, pixel=9
+$F88E  91 cb                              LINE     direzione=1, periodo=12, pixel=12
+$F890  82 88                              LINE     direzione=2, periodo=3, pixel=9
+$F892  80 91                              LINE     direzione=0, periodo=3, pixel=18
+$F894  83 55                              LINE     direzione=3, periodo=2, pixel=22
+$F896  ac d6                              LINE     direzione=4, periodo=24, pixel=23
+$F898  81 56                              LINE     direzione=1, periodo=2, pixel=23
+$F89A  af 95                              LINE     direzione=7, periodo=23, pixel=22
+$F89C  08 1c 6d                           MOVE     x=28 (video 156), y=109 (riga 66)
+$F89F  80 9d                              LINE     direzione=0, periodo=3, pixel=30
+$F8A1  cf 65                              LINE     direzione=7, periodo=38, pixel=38
+$F8A3  08 2b 8f                           MOVE     x=43 (video 171), y=143 (riga 32)
+$F8A6  83 56                              LINE     direzione=3, periodo=2, pixel=23
+$F8A8  82 d3                              LINE     direzione=2, periodo=4, pixel=20
+$F8AA  87 0f                              LINE     direzione=7, periodo=1, pixel=16
+$F8AC  80 da                              LINE     direzione=0, periodo=4, pixel=27
+$F8AE  97 49                              LINE     direzione=7, periodo=10, pixel=10
+$F8B0  08 63 68                           MOVE     x=99 (video 227), y=104 (riga 71)
+$F8B3  85 4e                              LINE     direzione=5, periodo=2, pixel=15
+$F8B5  87 4e                              LINE     direzione=7, periodo=2, pixel=15
+$F8B7  9a 4d                              LINE     direzione=2, periodo=14, pixel=14
+$F8B9  8b 85                              LINE     direzione=3, periodo=7, pixel=6
+$F8BB  40 54 72                           FILL     x=84 (video 212), y=114 (riga 61), INK=0
+$F8BE  08 29 8f                           MOVE     x=41 (video 169), y=143 (riga 32)
+$F8C1  bb 5c                              LINE     direzione=3, periodo=30, pixel=29
+$F8C3  08 2e 4f                           MOVE     x=46 (video 174), y=79 (riga 96)
+$F8C6  c5 1f                              LINE     direzione=5, periodo=33, pixel=32
+$F8C8  08 37 75                           MOVE     x=55 (video 183), y=117 (riga 58)
+$F8CB  cf 25                              LINE     direzione=7, periodo=37, pixel=38
+$F8CD  08 37 70                           MOVE     x=55 (video 183), y=112 (riga 63)
+$F8D0  86 98                              LINE     direzione=6, periodo=3, pixel=25
+$F8D2  08 1f 6d                           MOVE     x=31 (video 159), y=109 (riga 66)
+$F8D5  bb 5d                              LINE     direzione=3, periodo=30, pixel=30
+$F8D7  08 25 6a                           MOVE     x=37 (video 165), y=106 (riga 69)
+$F8DA  b7 9a                              LINE     direzione=7, periodo=27, pixel=27
+$F8DC  08 37 61                           MOVE     x=55 (video 183), y=97 (riga 78)
+$F8DF  86 d7                              LINE     direzione=6, periodo=4, pixel=24
+$F8E1  42 1d 67                           FILL     x=29 (video 157), y=103 (riga 72), INK=2
+$F8E4  40 34 72                           FILL     x=52 (video 180), y=114 (riga 61), INK=0
+$F8E7  08 5c 76                           MOVE     x=92 (video 220), y=118 (riga 57)
+$F8EA  9b 8d                              LINE     direzione=3, periodo=15, pixel=14
+$F8EC  44 3b 4e                           FILL     x=59 (video 187), y=78 (riga 97), INK=4
+$F8EF  22 59 67 0c 01 0e 01 18 12 01 02 05 04 05 02 07 ff PAPER    PAPER=2, indirizzo=$5977, run=0:4 1:1 2:4 1:1 0:7 2:5 1:1 2:1 1:2 0:2 1:2 2:1 3:2
+$F900  08 60 68                           MOVE     x=96 (video 224), y=104 (riga 71)
+$F903  89 45                              LINE     direzione=1, periodo=6, pixel=6
+$F905  47 61 69                           FILL     x=97 (video 225), y=105 (riga 70), INK=7
+$F908  42 33 57                           FILL     x=51 (video 179), y=87 (riga 88), INK=2
+$F90B  42 22 57                           FILL     x=34 (video 162), y=87 (riga 88), INK=2
+$F90E  20 59 ef 23 00 1d 00 2b 00 05 04 06 09 ff PAPER    PAPER=0, indirizzo=$59FF, run=3:9 0:1 1:8 0:1 3:11 0:1 1:2 0:2 2:2 1:3
+$F91C  08 00 30                           MOVE     x=0 (video 128), y=48 (riga 127)
+$F91F  f8 fe                              LINE     direzione=0, periodo=64, pixel=63
+$F921  98 8e                              LINE     direzione=0, periodo=15, pixel=15
+$F923  44 39 36                           FILL     x=57 (video 185), y=54 (riga 121), INK=4
+$F926  00                                 END      
+
+=== 095 small room | $F7BE..$F866 ===
+$F7BE  08 7f af                           MOVE     x=127 (video 255), y=175 (riga 0)
+$F7C1  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$F7C3  ff bd                              LINE     direzione=7, periodo=63, pixel=62
+$F7C5  87 81                              LINE     direzione=7, periodo=3, pixel=2
+$F7C7  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F7C9  fe fe                              LINE     direzione=6, periodo=64, pixel=63
+$F7CB  08 5f 58                           MOVE     x=95 (video 223), y=88 (riga 87)
+$F7CE  dc ee                              LINE     direzione=4, periodo=48, pixel=47
+$F7D0  c9 e6                              LINE     direzione=1, periodo=40, pixel=39
+$F7D2  d8 ee                              LINE     direzione=0, periodo=48, pixel=47
+$F7D4  cb a6                              LINE     direzione=3, periodo=39, pixel=39
+$F7D6  08 5f 7f                           MOVE     x=95 (video 223), y=127 (riga 48)
+$F7D9  80 20                              LINE     direzione=0, periodo=1, pixel=33
+$F7DB  08 07 30                           MOVE     x=7 (video 135), y=48 (riga 127)
+$F7DE  80 08                              LINE     direzione=0, periodo=1, pixel=9
+$F7E0  f9 fe                              LINE     direzione=1, periodo=64, pixel=63
+$F7E2  c9 e6                              LINE     direzione=1, periodo=40, pixel=39
+$F7E4  85 26                              LINE     direzione=5, periodo=1, pixel=39
+$F7E6  08 30 7e                           MOVE     x=48 (video 176), y=126 (riga 49)
+$F7E9  85 0f                              LINE     direzione=5, periodo=1, pixel=16
+$F7EB  ff fe                              LINE     direzione=7, periodo=64, pixel=63
+$F7ED  8b c6                              LINE     direzione=3, periodo=8, pixel=7
+$F7EF  81 10                              LINE     direzione=1, periodo=1, pixel=17
+$F7F1  08 20 8e                           MOVE     x=32 (video 160), y=142 (riga 33)
+$F7F4  9c cf                              LINE     direzione=4, periodo=16, pixel=16
+$F7F6  08 04 30                           MOVE     x=4 (video 132), y=48 (riga 127)
+$F7F9  8c c8                              LINE     direzione=4, periodo=8, pixel=9
+$F7FB  42 04 5c                           FILL     x=4 (video 132), y=92 (riga 83), INK=2
+$F7FE  08 20 48                           MOVE     x=32 (video 160), y=72 (riga 103)
+$F801  a4 0f                              LINE     direzione=4, periodo=17, pixel=16
+$F803  42 2a 60                           FILL     x=42 (video 170), y=96 (riga 79), INK=2
+$F806  08 20 47                           MOVE     x=32 (video 160), y=71 (riga 104)
+$F809  88 fe                              LINE     direzione=0, periodo=8, pixel=63
+$F80B  08 5f 4f                           MOVE     x=95 (video 223), y=79 (riga 96)
+$F80E  88 c7                              LINE     direzione=0, periodo=8, pixel=8
+$F810  ad d6                              LINE     direzione=5, periodo=24, pixel=23
+$F812  88 07                              LINE     direzione=0, periodo=5, pixel=8
+$F814  c3 1f                              LINE     direzione=3, periodo=33, pixel=32
+$F816  82 10                              LINE     direzione=2, periodo=1, pixel=17
+$F818  08 5f 58                           MOVE     x=95 (video 223), y=88 (riga 87)
+$F81B  82 08                              LINE     direzione=2, periodo=1, pixel=9
+$F81D  08 6f 48                           MOVE     x=111 (video 239), y=72 (riga 103)
+$F820  8e 7e                              LINE     direzione=6, periodo=6, pixel=63
+$F822  08 30 3d                           MOVE     x=48 (video 176), y=61 (riga 114)
+$F825  8e 5f                              LINE     direzione=6, periodo=6, pixel=32
+$F827  20 58 00 39 3a 37 01 00 2d 30 33 02 2d 16 03 10 27 05 02 19 02 1b 02 1d 1a 01 23 00 19 14 02 13 0e 03 11 08 0b 06 05 04 02 07 ff PAPER    PAPER=0, indirizzo=$5810, run=1:15 2:15 3:14 1:1 0:1 1:12 0:13 3:13 2:1 1:12 2:6 3:1 0:5 3:10 1:2 2:1 1:7 2:1 3:7 2:1 1:8 2:7 1:1 3:9 0:1 1:7 0:6 2:1 3:5 2:4 3:1 1:5 0:3 3:3 2:2 1:2 0:2 2:1 3:2
+$F852  47 42 47                           FILL     x=66 (video 194), y=71 (riga 104), INK=7
+$F855  08 54 3e                           MOVE     x=84 (video 212), y=62 (riga 113)
+$F858  82 c7                              LINE     direzione=2, periodo=4, pixel=8
+$F85A  86 8a                              LINE     direzione=6, periodo=3, pixel=11
+$F85C  84 c8                              LINE     direzione=4, periodo=4, pixel=9
+$F85E  08 49 3c                           MOVE     x=73 (video 201), y=60 (riga 115)
+$F861  80 ca                              LINE     direzione=0, periodo=4, pixel=11
+$F863  42 52 3c                           FILL     x=82 (video 210), y=60 (riga 115), INK=2
+$F866  00                                 END      

@@ -1,0 +1,50 @@
+{
+  "source": "Foggy London/Dictionary.txt",
+  "records": 592,
+  "stem_and_alias_mismatches": 0,
+  "labels_by_native_class": {
+    "80": [
+      "ARTICLE_MISC"
+    ],
+    "D0": [
+      "MISC_13"
+    ],
+    "70": [
+      "PREPOSITION"
+    ],
+    "60": [
+      "MISC_06"
+    ],
+    "50": [
+      "NOUN_ETC"
+    ],
+    "30": [
+      "VERB_ETC"
+    ],
+    "90": [
+      "SYSTEM_PRONOUN"
+    ],
+    "A0": [
+      "AND"
+    ],
+    "E0": [
+      "MISC_14"
+    ],
+    "00": [
+      "ADJECTIVE_ADVERB_ETC"
+    ],
+    "40": [
+      "GO_RUN"
+    ],
+    "20": [
+      "MOVE_DIR"
+    ],
+    "10": [
+      "IN_INTO"
+    ],
+    "B0": [
+      "THEN"
+    ]
+  },
+  "suffix_warning": "CARRY-[BS]IESD nel dump include D del suffisso successivo. Il suffisso originale 3 occupa quattro byte: 08 49 45 53."
+}

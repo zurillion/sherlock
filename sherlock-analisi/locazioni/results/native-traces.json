@@ -1,0 +1,389 @@
+[
+  {
+    "case": "LOOK iniziale",
+    "room": 8,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 132,
+    "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "a": 255,
+    "z": false,
+    "carry": false,
+    "listed": [
+      22,
+      23,
+      24,
+      3,
+      25
+    ],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 34
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      },
+      {
+        "pc": "D102",
+        "a": 8
+      }
+    ],
+    "steps": 1106497,
+    "cost": 1
+  },
+  {
+    "case": "ovest porta chiusa",
+    "room": 8,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 132,
+    "text": "",
+    "a": 0,
+    "z": true,
+    "carry": false,
+    "listed": [],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 4
+      },
+      {
+        "pc": "DCD2",
+        "a": 1
+      },
+      {
+        "pc": "DD35",
+        "a": 21
+      },
+      {
+        "pc": "D078",
+        "a": 1
+      }
+    ],
+    "steps": 49247,
+    "cost": 0
+  },
+  {
+    "case": "apri porta",
+    "room": 8,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 132,
+    "text": "You open your door.",
+    "a": 1,
+    "z": false,
+    "carry": false,
+    "listed": [],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 6
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      }
+    ],
+    "steps": 71270,
+    "cost": 1
+  },
+  {
+    "case": "ovest nuovo",
+    "room": 7,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 196,
+    "text": "You go west.\n You are in a hall. To the east there is your door. Below there is the stairway.",
+    "a": 1,
+    "z": false,
+    "carry": false,
+    "listed": [],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 4
+      },
+      {
+        "pc": "DCD2",
+        "a": 1
+      },
+      {
+        "pc": "DD35",
+        "a": 21
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      },
+      {
+        "pc": "CA9E",
+        "a": 0
+      },
+      {
+        "pc": "D102",
+        "a": 7
+      }
+    ],
+    "steps": 311133,
+    "cost": 2
+  },
+  {
+    "case": "est primo rientro",
+    "room": 8,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 196,
+    "text": "You go east.\n The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "a": 1,
+    "z": false,
+    "carry": false,
+    "listed": [
+      22,
+      23,
+      24,
+      3,
+      25
+    ],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 3
+      },
+      {
+        "pc": "DCD2",
+        "a": 1
+      },
+      {
+        "pc": "DD35",
+        "a": 21
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      },
+      {
+        "pc": "CA9E",
+        "a": 0
+      },
+      {
+        "pc": "D102",
+        "a": 8
+      }
+    ],
+    "steps": 1147215,
+    "cost": 2
+  },
+  {
+    "case": "ovest rivisita",
+    "room": 7,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 196,
+    "text": "You go west.\n You are in a hall.",
+    "a": 1,
+    "z": false,
+    "carry": false,
+    "listed": [],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 4
+      },
+      {
+        "pc": "DCD2",
+        "a": 1
+      },
+      {
+        "pc": "DD35",
+        "a": 21
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      },
+      {
+        "pc": "CA9E",
+        "a": 0
+      },
+      {
+        "pc": "D1B2",
+        "a": 7
+      },
+      {
+        "pc": "D078",
+        "a": 46
+      }
+    ],
+    "steps": 191528,
+    "cost": 2
+  },
+  {
+    "case": "est rivisita",
+    "room": 8,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 196,
+    "text": "You go east.\n You are in Your Room. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "a": 1,
+    "z": false,
+    "carry": false,
+    "listed": [
+      22,
+      23,
+      24,
+      3,
+      25
+    ],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 3
+      },
+      {
+        "pc": "DCD2",
+        "a": 1
+      },
+      {
+        "pc": "DD35",
+        "a": 21
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      },
+      {
+        "pc": "CA9E",
+        "a": 0
+      },
+      {
+        "pc": "D1B2",
+        "a": 8
+      },
+      {
+        "pc": "D078",
+        "a": 46
+      }
+    ],
+    "steps": 615504,
+    "cost": 2
+  },
+  {
+    "case": "LOOK dopo rivisita",
+    "room": 8,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "room_flag": 196,
+    "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "a": 255,
+    "z": false,
+    "carry": false,
+    "listed": [
+      22,
+      23,
+      24,
+      3,
+      25
+    ],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 34
+      },
+      {
+        "pc": "D078",
+        "a": 0
+      },
+      {
+        "pc": "D102",
+        "a": 8
+      }
+    ],
+    "steps": 1106516,
+    "cost": 1
+  },
+  {
+    "case": "LOOK esterno notte senza luce",
+    "room": 5,
+    "clock": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 10,
+      "day": 0,
+      "period": "pm",
+      "label": "Lunedì · 10:01 pm"
+    },
+    "room_flag": 70,
+    "text": "",
+    "a": 0,
+    "z": true,
+    "carry": false,
+    "listed": [],
+    "events": [
+      {
+        "pc": "D078",
+        "a": 34
+      }
+    ],
+    "steps": 71920,
+    "cost": 0
+  }
+]

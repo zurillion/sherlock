@@ -1,0 +1,7 @@
+Stopped at $C42B: 1000000 operations
+Z80 execution time: 4159751 T-states (1.189s)
+Instructions executed: 1000000
+Simulation time: 0.953s (x1.25)
+Wrote outputs/sherlock-analisi-01/startup.map
+Wrote outputs/sherlock-analisi-01/startup.z80
+Wrote outputs/sherlock-analisi-01/startup.png

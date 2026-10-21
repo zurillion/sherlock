@@ -1,0 +1,950 @@
+[
+  {
+    "reply": "YOUR",
+    "prototype_question": "WHICH DOOR ?",
+    "prototype_answer": "You open your door.",
+    "original_lower": "OPEN DOOR.\n which door ?> ",
+    "original_upper": "\nYou open your door.\n",
+    "tick": 3
+  },
+  {
+    "reply": "YOUR DOOR",
+    "prototype_question": "WHICH DOOR ?",
+    "prototype_answer": "You open your door.",
+    "original_lower": "OPEN DOOR.\n which door ?> ",
+    "original_upper": "\nYou open your door.\n",
+    "tick": 3
+  },
+  {
+    "input": "OPEN DOOR",
+    "output": "WHICH DOOR ?",
+    "analysis": {
+      "input": "OPEN DOOR",
+      "normalised": "OPEN DOOR",
+      "outcome": "clarification",
+      "continuation_slot": 8,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "060B",
+                "offset": "060B",
+                "word": "open",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": {
+                    "raw": "026E",
+                    "offset": "026E",
+                    "word": "door",
+                    "unresolved_bits": "0000"
+                  },
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": []
+    },
+    "room": 8,
+    "tick": 2
+  },
+  {
+    "input": "LOOK",
+    "output": "\nThe sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "analysis": {
+      "input": "LOOK",
+      "normalised": "LOOK",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9808",
+              "raw": "23 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "0523",
+                "offset": "0523",
+                "word": "look",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 34,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 3
+  },
+  {
+    "input": "GO TO HALL",
+    "output": "I SEE NO HALL THAT YOU CAN GO TO",
+    "analysis": {
+      "input": "GO TO HALL",
+      "normalised": "GO TO HALL",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "8d 03 00 00 db 08 00 00 c2 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "038D",
+                "offset": "038D",
+                "word": "go",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [
+                    {
+                      "raw": "08DB",
+                      "offset": "08DB",
+                      "word": "to",
+                      "unresolved_bits": "0000"
+                    }
+                  ],
+                  "referent": {
+                    "raw": "03C2",
+                    "offset": "03C2",
+                    "word": "hall",
+                    "unresolved_bits": "0000"
+                  },
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": []
+    },
+    "room": 8,
+    "tick": 3
+  },
+  {
+    "input": "WEST",
+    "output": "YOU CANNOT GO WEST.",
+    "analysis": {
+      "input": "WEST",
+      "normalised": "WEST",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "92 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "0992",
+                "offset": "0992",
+                "word": "west",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": []
+    },
+    "room": 8,
+    "tick": 3
+  },
+  {
+    "input": "OPEN YOUR DOOR",
+    "output": "You open your door.",
+    "analysis": {
+      "input": "OPEN YOUR DOOR",
+      "normalised": "OPEN YOUR DOOR",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "0b 06 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "060B",
+                "offset": "060B",
+                "word": "open",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": {
+                    "raw": "026E",
+                    "offset": "026E",
+                    "word": "door",
+                    "unresolved_bits": "0000"
+                  },
+                  "qualifiers": [
+                    {
+                      "raw": "09F2",
+                      "offset": "09F2",
+                      "word": "your",
+                      "unresolved_bits": "0000"
+                    }
+                  ]
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 36,
+          "arguments": [
+            21,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 4
+  },
+  {
+    "input": "WEST",
+    "output": "You go west.\n\nYou are in a hall. To the east there is your door. Below there is the stairway.",
+    "analysis": {
+      "input": "WEST",
+      "normalised": "WEST",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "92 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "0992",
+                "offset": "0992",
+                "word": "west",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 4,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 7,
+    "tick": 5
+  },
+  {
+    "input": "EAST",
+    "output": "You go east.\n The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "analysis": {
+      "input": "EAST",
+      "normalised": "EAST",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "84 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "0284",
+                "offset": "0284",
+                "word": "east",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 3,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 7
+  },
+  {
+    "input": "OPEN DOOR",
+    "output": "WHICH DOOR ?",
+    "analysis": {
+      "input": "OPEN DOOR",
+      "normalised": "OPEN DOOR",
+      "outcome": "clarification",
+      "continuation_slot": 8,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "060B",
+                "offset": "060B",
+                "word": "open",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": {
+                    "raw": "026E",
+                    "offset": "026E",
+                    "word": "door",
+                    "unresolved_bits": "0000"
+                  },
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": []
+    },
+    "room": 8,
+    "tick": 7
+  },
+  {
+    "input": "PLAIN",
+    "output": "You open the plain door.",
+    "analysis": {
+      "input": "PLAIN",
+      "normalised": "PLAIN",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "0b 06 00 00 00 00 00 00 6e 02 99 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "060B",
+                "offset": "060B",
+                "word": "open",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": {
+                    "raw": "026E",
+                    "offset": "026E",
+                    "word": "door",
+                    "unresolved_bits": "0000"
+                  },
+                  "qualifiers": [
+                    {
+                      "raw": "0699",
+                      "offset": "0699",
+                      "word": "plain",
+                      "unresolved_bits": "0000"
+                    }
+                  ]
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 36,
+          "arguments": [
+            50,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 8
+  },
+  {
+    "input": "NORTH",
+    "output": "You go north.\n\nYou are in a small closet. To the south there is a plain door. You can see a china mans disguise and an old mans disguise.",
+    "analysis": {
+      "input": "NORTH",
+      "normalised": "NORTH",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "c3 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "05C3",
+                "offset": "05C3",
+                "word": "north",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 1,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 9,
+    "tick": 10
+  },
+  {
+    "input": "SOUTH",
+    "output": "You go south.\n You are in Your Room. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "analysis": {
+      "input": "SOUTH",
+      "normalised": "SOUTH",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "1a 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "081A",
+                "offset": "081A",
+                "word": "south",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 2,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 12
+  },
+  {
+    "input": "LOOK",
+    "output": "\nThe sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "analysis": {
+      "input": "LOOK",
+      "normalised": "LOOK",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "23 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "0523",
+                "offset": "0523",
+                "word": "look",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 34,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 13
+  },
+  {
+    "input": "OPEN DOR",
+    "output": "I DO NOT KNOW THE WORD\"DOR \"",
+    "analysis": {
+      "input": "OPEN DOR",
+      "normalised": "OPEN DOR",
+      "outcome": "lexical_error",
+      "continuation_slot": 0,
+      "units": [],
+      "actions": []
+    },
+    "room": 8,
+    "tick": 13
+  },
+  {
+    "input": "PICK THE NOTE UP",
+    "output": "WHAT ?",
+    "analysis": {
+      "input": "PICK THE NOTE UP",
+      "normalised": "PICK THE NOTE UP",
+      "outcome": "syntax_error",
+      "continuation_slot": 0,
+      "units": [],
+      "actions": []
+    },
+    "room": 8,
+    "tick": 13
+  },
+  {
+    "input": "TAKE LAMP",
+    "output": "You take the oil lamp.",
+    "analysis": {
+      "input": "TAKE LAMP",
+      "normalised": "TAKE LAMP",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "87 08 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "0887",
+                "offset": "0887",
+                "word": "take",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": {
+                    "raw": "04B9",
+                    "offset": "04B9",
+                    "word": "lamp",
+                    "unresolved_bits": "0000"
+                  },
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 41,
+          "arguments": [
+            22,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 14
+  },
+  {
+    "input": "INVENTORY",
+    "output": "You are carrying an oil lamp and your money.",
+    "analysis": {
+      "input": "INVENTORY",
+      "normalised": "INVENTORY",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "7a 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "047A",
+                "offset": "047A",
+                "word": "inventory",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 33,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 15
+  },
+  {
+    "input": "WAIT",
+    "output": "You wait.",
+    "analysis": {
+      "input": "WAIT",
+      "normalised": "WAIT",
+      "outcome": "ok",
+      "continuation_slot": 0,
+      "units": [
+        {
+          "mode": 1,
+          "nodes": [
+            {
+              "address": "9829",
+              "raw": "5e 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+              "verb": {
+                "raw": "095E",
+                "offset": "095E",
+                "word": "wait",
+                "unresolved_bits": "0000"
+              },
+              "verb_modifier": null,
+              "all": false,
+              "exclusion": false,
+              "groups": [
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                },
+                {
+                  "relations": [],
+                  "referent": null,
+                  "qualifiers": []
+                }
+              ],
+              "subject": {
+                "referent": null,
+                "qualifiers": [],
+                "he_flag": false,
+                "it_they_flag": false
+              }
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": 49,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    "room": 8,
+    "tick": 20
+  }
+]

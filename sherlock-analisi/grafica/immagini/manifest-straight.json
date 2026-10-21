@@ -1,0 +1,142 @@
+[
+  {
+    "location": 5,
+    "name": "baker street",
+    "file": "005-baker-street-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 74,
+    "name": "daphnes room",
+    "file": "074-daphnes-room-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 71,
+    "name": "browns library",
+    "file": "071-browns-library-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 89,
+    "name": "west side",
+    "file": "089-west-side-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 88,
+    "name": "east side",
+    "file": "088-east-side-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 54,
+    "name": "platform one",
+    "file": "054-platform-one-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 55,
+    "name": "platform two",
+    "file": "055-platform-two-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 11,
+    "name": "scotland yard",
+    "file": "011-scotland-yard-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 62,
+    "name": "browns front gate",
+    "file": "062-browns-front-gate-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 6,
+    "name": "entrance hallway",
+    "file": "006-entrance-hallway-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 92,
+    "name": "jones front gate",
+    "file": "092-jones-front-gate-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 95,
+    "name": "small room",
+    "file": "095-small-room-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 61,
+    "name": "basils bedroom",
+    "file": "061-basils-bedroom-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  },
+  {
+    "location": 12,
+    "name": "slater street",
+    "file": "012-slater-street-straight.png",
+    "size": [
+      1024,
+      1408
+    ],
+    "notes": []
+  }
+]

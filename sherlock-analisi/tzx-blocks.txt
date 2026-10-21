@@ -1,0 +1,76 @@
+Version: 1.12
+1: Archive info (0x32)
+  Full title: Sherlock (Version 2.0)
+  Software house/publisher: Beam Software/Melbourne House
+  Author(s): Phillip Mitchell
+  Year of publication: 1984
+  Language: English
+  Game/utility type: Adventure: Illustration
+  Price: 14.95
+  Protection scheme/loader: None
+  Origin: Original
+  Comment(s): TZxed by Andrew Barker
+2: Hardware type (0x33)
+  - Type: Computer
+    Name: ZX Spectrum 48K Plus
+    Info: Runs on this machine, but may not use its special features
+3: Standard speed data (0x10)
+  Pause: 1011ms
+  Type: Header block
+  Program: SHERLOCK  
+  LINE: 5
+  Length: 19
+  Data: 0, 0, 83, 72, 69, 82, 76 ... 23, 0, 5, 0, 23, 0, 2
+4: Standard speed data (0x10)
+  Pause: 3053ms
+  Type: Data block
+  Length: 25
+  Data: 255, 0, 5, 19, 0, 239, 34 ... 0, 0, 0, 128, 0, 13, 29
+5: Standard speed data (0x10)
+  Pause: 996ms
+  Type: Header block
+  Bytes: sherlock  
+  CODE: 32768,256
+  Length: 19
+  Data: 0, 3, 115, 104, 101, 114, 108 ... 0, 1, 0, 128, 0, 128, 5
+6: Standard speed data (0x10)
+  Pause: 3408ms
+  Type: Data block
+  Length: 258
+  Data: 255, 243, 49, 128, 93, 33, 0 ... 0, 0, 0, 0, 0, 0, 132
+7: Standard speed data (0x10)
+  Pause: 1004ms
+  Type: Header block
+  Bytes: SHD V2.0  
+  CODE: 33803,7188
+  Length: 19
+  Data: 0, 3, 83, 72, 68, 32, 86 ... 20, 28, 11, 132, 0, 128, 1
+8: Standard speed data (0x10)
+  Pause: 3377ms
+  Type: Data block
+  Length: 7190
+  Data: 255, 225, 132, 235, 132, 245, 132 ... 0, 0, 0, 0, 0, 0, 130
+9: Standard speed data (0x10)
+  Pause: 992ms
+  Type: Header block
+  Bytes: s         
+  CODE: 32768,6912
+  Length: 19
+  Data: 0, 3, 115, 32, 32, 32, 32 ... 0, 27, 0, 128, 0, 128, 75
+10: Standard speed data (0x10)
+  Pause: 2708ms
+  Type: Data block
+  Length: 6914
+  Data: 255, 0, 0, 0, 0, 0, 0 ... 56, 56, 56, 56, 56, 56, 107
+11: Standard speed data (0x10)
+  Pause: 991ms
+  Type: Header block
+  Bytes: p         
+  CODE: 23936,41600
+  Length: 19
+  Data: 0, 3, 112, 32, 32, 32, 32 ... 128, 162, 128, 93, 0, 128, 44
+12: Standard speed data (0x10)
+  Pause: 0ms
+  Type: Data block
+  Length: 41602
+  Data: 255, 0, 0, 1, 0, 167, 0 ... 8, 0, 143, 184, 27, 0, 119

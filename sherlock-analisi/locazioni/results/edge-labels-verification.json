@@ -1,0 +1,6 @@
+{
+  "implicit_directions_checked": 8,
+  "explicit_exceptions_checked": 11,
+  "parallel_exit_label_preserved": true,
+  "all_passed": true
+}

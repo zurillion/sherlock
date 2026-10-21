@@ -1,0 +1,9 @@
+{
+  "svg_locations": 14,
+  "first_visit": true,
+  "repeat_visit_no_new_picture": true,
+  "successful_look": true,
+  "syntax_error_no_picture": true,
+  "directional_arrival": true,
+  "compound_command_correct_room": true
+}

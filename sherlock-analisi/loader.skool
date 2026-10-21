@@ -1,0 +1,122 @@
+; Copia del bootstrap: eseguito originariamente a $8000
+;
+; Questa vista mostra i 256 byte del blocco 4 TAP alla destinazione della
+; copia. Le istruzioni $5B00-$5B0F sono eseguite a $8000-$800F, non a questi
+; indirizzi nel percorso normale.
+c$5B00 DI            ;
+ $5B01 LD SP,$5D80   ; {Stack iniziale a $5D80; cresce verso indirizzi
+ $5B04 LD HL,$8000   ; inferiori.
+ $5B07 LD DE,$5B00   ;
+ $5B0A LD BC,$0100   ; }
+ $5B0D LDIR          ; Copia $0100 byte da $8000 a $5B00.
+ $5B0F JP $5B12      ; Prosegue nella copia a $5B12.
+
+; Sequenza principale di caricamento
+;
+; Used by the routine at #R$5B00.
+c$5B12 CALL $5B30    ; Carica SHD V2.0 usando indirizzo e lunghezza
+                     ; dell'header.
+ $5B15 CALL $5B62    ; Carica lo schermo forzando destinazione $4000 e
+                     ; lunghezza $1B00.
+ $5B18 CALL $5B30    ; Carica p usando indirizzo e lunghezza dell'header.
+ $5B1B JP $A040      ; Trasferisce il controllo al programma a $A040.
+
+; Buffer header di 17 byte, poi stato di caricamento
+;
+; Contenuto iniziale: tipo 3, nome MELBHOUSE seguito da spazio, lunghezza
+; $4A00, indirizzo $B600, parametro 2 $B600. I 17 byte $5B1E-$5B2E vengono
+; sovrascritti a ogni lettura di header; $5B2F contiene lo stato restituito dal
+; wrapper.
+b$5B1E DEFB $03          ; Tipo del blocco.
+ $5B1F DEFM "MELBHOUSE " ; Nome iniziale; dati, non istruzioni.
+ $5B29 DEFW $4A00        ; {Lunghezza e due parametri dell'header.
+ $5B2B DEFW $B600        ;
+ $5B2D DEFW $B600        ; }
+ $5B2F DEFB $00          ; Stato: 1 successo; 2 mancato carry al ritorno dalla
+                         ; ROM.
+
+; Carica un blocco CODE secondo il suo header
+;
+; Legge un header di 17 byte con flag 0; richiede successo e tipo 3. Carica poi
+; il payload con flag $FF all'indirizzo e per la lunghezza dell'header. Salta a
+; $0000 in caso di errore. Modifica AF, DE, IX e altri registri tramite ROM;
+; contratto completo della ROM ancora da documentare.
+c$5B30 LD IX,$5B1E   ; {Destinazione dell'header.
+ $5B34 LD DE,$0011   ;
+ $5B37 XOR A         ;
+ $5B38 SCF           ; }
+ $5B39 CALL $5B8B    ; {Wrapper della lettura nastro.
+ $5B3C LD A,($5B2F)  ;
+ $5B3F DEC A         ; }
+ $5B40 JP NZ,$0000   ; {Reset in caso di stato diverso da 1.
+ $5B43 LD A,($5B1E)  ;
+ $5B46 CP $03        ; }
+ $5B48 JP NZ,$0000   ; Reset se il tipo dell'header non e 3.
+ $5B4B LD IX,($5B2B) ; IX = indirizzo destinazione dall'header.
+ $5B4F LD DE,($5B29) ; DE = lunghezza dall'header.
+ $5B53 LD A,$FF      ; {Flag atteso per il payload.
+ $5B55 SCF           ;
+ $5B56 CALL $5B8B    ;
+ $5B59 DI            ;
+ $5B5A LD A,($5B2F)  ;
+ $5B5D DEC A         ; }
+ $5B5E JP NZ,$0000   ; {Reset se il caricamento non e riuscito.
+ $5B61 RET           ; }
+
+; Carica lo schermo ignorando la destinazione dell'header
+;
+; Consuma e verifica la lettura dell'header, poi legge esattamente 6912 byte a
+; $4000. Non esegue qui il controllo del tipo 3 effettuato da $5B30.
+c$5B62 LD IX,$5B1E   ;
+ $5B66 LD DE,$0011   ;
+ $5B69 XOR A         ;
+ $5B6A SCF           ;
+ $5B6B CALL $5B8B    ;
+ $5B6E LD A,($5B2F)  ;
+ $5B71 DEC A         ;
+ $5B72 JP NZ,$0000   ;
+ $5B75 LD IX,$4000   ; Destinazione effettiva dello schermo, diversa da $8000
+                     ; dichiarato sul nastro.
+ $5B79 LD DE,$1B00   ; {6144 byte bitmap e 768 attributi.
+ $5B7C LD A,$FF      ;
+ $5B7E SCF           ;
+ $5B7F CALL $5B8B    ;
+ $5B82 DI            ;
+ $5B83 LD A,($5B2F)  ;
+ $5B86 DEC A         ;
+ $5B87 JP NZ,$0000   ;
+ $5B8A RET           ; }
+
+; Wrapper per la routine di lettura nella ROM
+;
+; Used by the routines at #R$5B30 and #R$5B62.
+;
+; A Flag atteso: 0 header, $FF payload.
+; IX Destinazione.
+; DE Numero di byte.
+; F Il chiamante imposta carry con SCF per la lettura.
+c$5B8B INC D         ; {INC D / EX AF,AF' / DEC D prepara i flag e salva A e
+ $5B8C EX AF,AF'     ; carry nel banco alternativo prima di entrare nella ROM a
+ $5B8D DEC D         ; $0562.
+ $5B8E DI            ; }
+ $5B8F LD A,$0F      ; {Valore per porta $FE: bordo bianco e bit 3 attivo.
+ $5B91 OUT ($FE),A   ; }
+ $5B93 LD HL,$5B9A   ; {Prepara sullo stack il ritorno a $5B9A.
+ $5B96 PUSH HL       ; }
+ $5B97 JP $0562      ; Entra nella ROM; non e una CALL convenzionale.
+
+; Ritorno dalla ROM e registrazione dell'esito
+c$5B9A PUSH AF       ; {Conserva AF mentre ripristina la porta $FE a 7.
+ $5B9B LD A,$07      ;
+ $5B9D OUT ($FE),A   ;
+ $5B9F POP AF        ; }
+ $5BA0 LD A,$01      ; {Esito 1 se carry impostato, 2 altrimenti.
+ $5BA2 JR C,$5BA5    ;
+ $5BA4 INC A         ; }
+*$5BA5 LD ($5B2F),A  ; {Salva l'esito fuori dal buffer header.
+ $5BA8 DI            ;
+ $5BA9 RET           ; }
+
+; Riempimento iniziale di 86 byte a zero
+s$5BAA DEFS $56
+

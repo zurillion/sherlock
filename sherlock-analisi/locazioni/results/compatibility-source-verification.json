@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "glyphs_equal_to_rom": 96,
+  "divider_bytes_equal_to_payload": 24,
+  "raster_files_byte_identical": 14,
+  "bundle_reproducible": true
+}

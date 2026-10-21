@@ -1,0 +1,1737 @@
+[
+  {
+    "room": 1,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 1
+      },
+      {
+        "pc": "D102",
+        "a": 1
+      }
+    ]
+  },
+  {
+    "room": 2,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are travelling along the London underground railway in a steam train.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 2
+      },
+      {
+        "pc": "D102",
+        "a": 2
+      }
+    ]
+  },
+  {
+    "room": 3,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are riding in a steam train through the picturesque English countryside.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 3
+      },
+      {
+        "pc": "D102",
+        "a": 3
+      }
+    ]
+  },
+  {
+    "room": 4,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are riding in a steam train being shunted between platforms.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 4
+      },
+      {
+        "pc": "D102",
+        "a": 4
+      }
+    ]
+  },
+  {
+    "room": 5,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on Baker Street. To the north there is the front door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 5
+      },
+      {
+        "pc": "D102",
+        "a": 5
+      }
+    ]
+  },
+  {
+    "room": 6,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in an entrance hallway. Above there is the stairway. To the south there is the front door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 6
+      },
+      {
+        "pc": "D102",
+        "a": 6
+      }
+    ]
+  },
+  {
+    "room": 7,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a hall. To the east there is your door. Below there is the stairway.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 7
+      },
+      {
+        "pc": "D102",
+        "a": 7
+      }
+    ]
+  },
+  {
+    "room": 8,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+    "listed": [
+      22,
+      23,
+      24,
+      3,
+      25
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 8
+      },
+      {
+        "pc": "D102",
+        "a": 8
+      }
+    ]
+  },
+  {
+    "room": 9,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a small closet. To the south there is a plain door. You can see a china mans disguise and an old mans disguise.",
+    "listed": [
+      14,
+      101
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 9
+      },
+      {
+        "pc": "D102",
+        "a": 9
+      }
+    ]
+  },
+  {
+    "room": 10,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on Parliament Street. Visible exits are east. You can see Inspector Lestrade. Inspector Lestrade is carrying some money.",
+    "listed": [
+      2,
+      28
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 10
+      },
+      {
+        "pc": "D102",
+        "a": 10
+      }
+    ]
+  },
+  {
+    "room": 11,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Scotland Yard. Visible exits are west.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 11
+      },
+      {
+        "pc": "D102",
+        "a": 11
+      }
+    ]
+  },
+  {
+    "room": 12,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on Slater Street. To the north there is a hidden door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 12
+      },
+      {
+        "pc": "D102",
+        "a": 12
+      }
+    ]
+  },
+  {
+    "room": 13,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a disgusting opium den. Visible exits are south.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 13
+      },
+      {
+        "pc": "D102",
+        "a": 13
+      }
+    ]
+  },
+  {
+    "room": 14,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Aldergate Street. Visible exits are northwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 14
+      },
+      {
+        "pc": "D102",
+        "a": 14
+      }
+    ]
+  },
+  {
+    "room": 15,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Aldergate Station. Visible exits are southeast northwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 15
+      },
+      {
+        "pc": "D102",
+        "a": 15
+      }
+    ]
+  },
+  {
+    "room": 16,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform one of Aldergate station. Visible exits are southeast northwest. You can see a steam train.",
+    "listed": [
+      36
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 16
+      },
+      {
+        "pc": "D102",
+        "a": 16
+      }
+    ]
+  },
+  {
+    "room": 17,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform two of Aldergate station. Visible exits are southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 17
+      },
+      {
+        "pc": "D102",
+        "a": 17
+      }
+    ]
+  },
+  {
+    "room": 18,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Kings Cross Road. Visible exits are northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 18
+      },
+      {
+        "pc": "D102",
+        "a": 18
+      }
+    ]
+  },
+  {
+    "room": 19,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Kings Cross Station. Visible exits are southwest northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 19
+      },
+      {
+        "pc": "D102",
+        "a": 19
+      }
+    ]
+  },
+  {
+    "room": 20,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform one of Kings cross station. Visible exits are southwest northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 20
+      },
+      {
+        "pc": "D102",
+        "a": 20
+      }
+    ]
+  },
+  {
+    "room": 21,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform two of Kings cross station. Visible exits are southwest northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 21
+      },
+      {
+        "pc": "D102",
+        "a": 21
+      }
+    ]
+  },
+  {
+    "room": 22,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform three of Kings cross station. Visible exits are southwest northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 22
+      },
+      {
+        "pc": "D102",
+        "a": 22
+      }
+    ]
+  },
+  {
+    "room": 23,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform four of Kings cross station. Visible exits are southwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 23
+      },
+      {
+        "pc": "D102",
+        "a": 23
+      }
+    ]
+  },
+  {
+    "room": 24,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Bishops Road. Visible exits are southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 24
+      },
+      {
+        "pc": "D102",
+        "a": 24
+      }
+    ]
+  },
+  {
+    "room": 25,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Paddington Station. Visible exits are northwest southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 25
+      },
+      {
+        "pc": "D102",
+        "a": 25
+      }
+    ]
+  },
+  {
+    "room": 26,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform one of Paddington station. Visible exits are northwest southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 26
+      },
+      {
+        "pc": "D102",
+        "a": 26
+      }
+    ]
+  },
+  {
+    "room": 27,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform two of Paddington station. Visible exits are northwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 27
+      },
+      {
+        "pc": "D102",
+        "a": 27
+      }
+    ]
+  },
+  {
+    "room": 28,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Buckingham Palace Road. Visible exits are east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 28
+      },
+      {
+        "pc": "D102",
+        "a": 28
+      }
+    ]
+  },
+  {
+    "room": 29,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Victoria Station. Visible exits are west east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 29
+      },
+      {
+        "pc": "D102",
+        "a": 29
+      }
+    ]
+  },
+  {
+    "room": 30,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform one of Victoria station. Visible exits are west east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 30
+      },
+      {
+        "pc": "D102",
+        "a": 30
+      }
+    ]
+  },
+  {
+    "room": 31,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform two of Victoria station. Visible exits are west.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 31
+      },
+      {
+        "pc": "D102",
+        "a": 31
+      }
+    ]
+  },
+  {
+    "room": 32,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Camden Street. To the northeast there is the front door. Visible exits are east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 32
+      },
+      {
+        "pc": "D102",
+        "a": 32
+      }
+    ]
+  },
+  {
+    "room": 33,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in an entrance hall. To the southwest there is the front door. To the southeast there is a large oak door. Visible exits are northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 33
+      },
+      {
+        "pc": "D102",
+        "a": 33
+      }
+    ]
+  },
+  {
+    "room": 34,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a passage. To the northeast there is a plain door. To the northwest there is the diningroom door. To the southeast there is the thick heavy door. Visible exits are southwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 34
+      },
+      {
+        "pc": "D102",
+        "a": 34
+      }
+    ]
+  },
+  {
+    "room": 35,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Bedroom. To the northwest there is a large oak door. To the southwest there is the window. You can see the fireplace.",
+    "listed": [
+      84
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 35
+      },
+      {
+        "pc": "D102",
+        "a": 35
+      }
+    ]
+  },
+  {
+    "room": 36,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Kitchen. To the southwest there is a plain door. To the northeast there is the back door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 36
+      },
+      {
+        "pc": "D102",
+        "a": 36
+      }
+    ]
+  },
+  {
+    "room": 37,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Dining Room. To the southeast there is the diningroom door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 37
+      },
+      {
+        "pc": "D102",
+        "a": 37
+      }
+    ]
+  },
+  {
+    "room": 38,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Library. To the northwest there is the thick heavy door. You can see a small rubbish bin. In the small rubbish bin there is a ripped coded note.",
+    "listed": [
+      82,
+      83
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 38
+      },
+      {
+        "pc": "D102",
+        "a": 38
+      }
+    ]
+  },
+  {
+    "room": 39,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Yard. To the southwest there is the back door. You can see a trash pile.",
+    "listed": [
+      80
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 39
+      },
+      {
+        "pc": "D102",
+        "a": 39
+      }
+    ]
+  },
+  {
+    "room": 40,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Sidmouth Street. To the northwest there is a heavy oak door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 40
+      },
+      {
+        "pc": "D102",
+        "a": 40
+      }
+    ]
+  },
+  {
+    "room": 41,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the main passage. To the southeast there is a heavy oak door. To the northeast there is the thick heavy door. Above there is the stairway.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 41
+      },
+      {
+        "pc": "D102",
+        "a": 41
+      }
+    ]
+  },
+  {
+    "room": 42,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the reading lounge. To the southwest there is the thick heavy door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 42
+      },
+      {
+        "pc": "D102",
+        "a": 42
+      }
+    ]
+  },
+  {
+    "room": 43,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the passage. Below there is the stairway. To the northeast there is a heavy oak door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 43
+      },
+      {
+        "pc": "D102",
+        "a": 43
+      }
+    ]
+  },
+  {
+    "room": 44,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Major Ffoulkes room in the boarding house. It is small and somewhat crowded. Indian artifacts, many very strange, litter the room. To the southwest there is a heavy oak door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 44
+      },
+      {
+        "pc": "D102",
+        "a": 44
+      }
+    ]
+  },
+  {
+    "room": 45,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Portman Street. To the south there is tricias front door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 45
+      },
+      {
+        "pc": "D102",
+        "a": 45
+      }
+    ]
+  },
+  {
+    "room": 46,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Tricias Entrance Hall. To the north there is tricias front door. To the south there is the thick heavy door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 46
+      },
+      {
+        "pc": "D102",
+        "a": 46
+      }
+    ]
+  },
+  {
+    "room": 47,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Tricias Lounge. To the north there is the thick heavy door. To the south there is a plain door. To the east there is an ornate door. You can see a wall safe.",
+    "listed": [
+      86
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 47
+      },
+      {
+        "pc": "D102",
+        "a": 47
+      }
+    ]
+  },
+  {
+    "room": 48,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Tricias Kitchen. To the north there is a plain door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 48
+      },
+      {
+        "pc": "D102",
+        "a": 48
+      }
+    ]
+  },
+  {
+    "room": 49,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Tricias Bedroom. To the west there is an ornate door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 49
+      },
+      {
+        "pc": "D102",
+        "a": 49
+      }
+    ]
+  },
+  {
+    "room": 50,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the main street. Visible exits are north west east south northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 50
+      },
+      {
+        "pc": "D102",
+        "a": 50
+      }
+    ]
+  },
+  {
+    "room": 51,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the cobden lane. To the east there is the front door. Visible exits are north south.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 51
+      },
+      {
+        "pc": "D102",
+        "a": 51
+      }
+    ]
+  },
+  {
+    "room": 52,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the small lane. To the east there is the back gate. To the west there is a thick hedge. Visible exits are north.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 52
+      },
+      {
+        "pc": "D102",
+        "a": 52
+      }
+    ]
+  },
+  {
+    "room": 53,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at the leatherhead station. Visible exits are south north. You can see Chief Constable Straker.",
+    "listed": [
+      4
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 53
+      },
+      {
+        "pc": "D102",
+        "a": 53
+      }
+    ]
+  },
+  {
+    "room": 54,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform one of Leather Head station. Visible exits are south north.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 54
+      },
+      {
+        "pc": "D102",
+        "a": 54
+      }
+    ]
+  },
+  {
+    "room": 55,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at platform two of Leather Head station. Visible exits are south.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 55
+      },
+      {
+        "pc": "D102",
+        "a": 55
+      }
+    ]
+  },
+  {
+    "room": 56,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in an entrance hall. To the west there is the front door. To the east there is the sittingroom door. Above there is the stairway.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 56
+      },
+      {
+        "pc": "D102",
+        "a": 56
+      }
+    ]
+  },
+  {
+    "room": 57,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a lounge room. To the west there is the sittingroom door. To the east there is a plain door. Visible exits are south.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 57
+      },
+      {
+        "pc": "D102",
+        "a": 57
+      }
+    ]
+  },
+  {
+    "room": 58,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Library. Visible exits are north. You can see a wall safe.",
+    "listed": [
+      89
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 58
+      },
+      {
+        "pc": "D102",
+        "a": 58
+      }
+    ]
+  },
+  {
+    "room": 59,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Kitchen. To the west there is a plain door. To the south there is the back door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 59
+      },
+      {
+        "pc": "D102",
+        "a": 59
+      }
+    ]
+  },
+  {
+    "room": 60,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the small yard. To the north there is the back door. To the west there is the back gate.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 60
+      },
+      {
+        "pc": "D102",
+        "a": 60
+      }
+    ]
+  },
+  {
+    "room": 61,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a large lavishly decorated bedroom, a broad window overlooks a small lane leading north. Below there is the stairway. To the east there is the window. You can see basils bed, basils piano, a gramaphone and the window.",
+    "listed": [
+      76,
+      77,
+      78,
+      102
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 61
+      },
+      {
+        "pc": "D102",
+        "a": 61
+      }
+    ]
+  },
+  {
+    "room": 62,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Browns Front Gate. To the south there is a local police man. Visible exits are east. You can see a local police man.",
+    "listed": [
+      12
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 62
+      },
+      {
+        "pc": "D102",
+        "a": 62
+      }
+    ]
+  },
+  {
+    "room": 63,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Browns Front Door. To the south there is a large oak door. Visible exits are north.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 63
+      },
+      {
+        "pc": "D102",
+        "a": 63
+      }
+    ]
+  },
+  {
+    "room": 64,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in an entrance hall. To the east there is a heavy oak door. To the north there is a large oak door. To the south there is a wide stairway.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 64
+      },
+      {
+        "pc": "D102",
+        "a": 64
+      }
+    ]
+  },
+  {
+    "room": 65,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a large kitchen. To the east there is a plain door. Visible exits are west. You can see the gardener, the cook and the maid.",
+    "listed": [
+      8,
+      9,
+      10
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 65
+      },
+      {
+        "pc": "D102",
+        "a": 65
+      }
+    ]
+  },
+  {
+    "room": 66,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a pantry. Visible exits are east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 66
+      },
+      {
+        "pc": "D102",
+        "a": 66
+      }
+    ]
+  },
+  {
+    "room": 67,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the sitting room. To the west there is a heavy oak door. To the south there is the diningroom door. You can see Daphne Strachan, Basil Phipps and a plush sofa.",
+    "listed": [
+      5,
+      6,
+      60
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 67
+      },
+      {
+        "pc": "D102",
+        "a": 67
+      }
+    ]
+  },
+  {
+    "room": 68,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the dining room. To the west there is a plain door. To the north there is the diningroom door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 68
+      },
+      {
+        "pc": "D102",
+        "a": 68
+      }
+    ]
+  },
+  {
+    "room": 69,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a long passage. Below there is a wide stairway. To the south there is daphnes door. To the west there is the wooden door. To the north there is a wide stairway. Visible exits are east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 69
+      },
+      {
+        "pc": "D102",
+        "a": 69
+      }
+    ]
+  },
+  {
+    "room": 70,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a long passage. To the north there is an ornate door. To the south there is the bedroom door. To the east there is the thick heavy door. Visible exits are west.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 70
+      },
+      {
+        "pc": "D102",
+        "a": 70
+      }
+    ]
+  },
+  {
+    "room": 71,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the browns library. To the west there is the thick heavy door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 71
+      },
+      {
+        "pc": "D102",
+        "a": 71
+      }
+    ]
+  },
+  {
+    "room": 72,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the browns study. To the east there is the wooden door. To the northeast there is the side door. You can see a large desk. In the large desk there is the drawer.",
+    "listed": [
+      61,
+      62
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 72
+      },
+      {
+        "pc": "D102",
+        "a": 72
+      }
+    ]
+  },
+  {
+    "room": 73,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the master bed room. To the west there is the side door. To the south there is an ornate door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 73
+      },
+      {
+        "pc": "D102",
+        "a": 73
+      }
+    ]
+  },
+  {
+    "room": 74,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Daphnes Room. To the north there is daphnes door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 74
+      },
+      {
+        "pc": "D102",
+        "a": 74
+      }
+    ]
+  },
+  {
+    "room": 75,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the guest room. To the north there is the bedroom door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 75
+      },
+      {
+        "pc": "D102",
+        "a": 75
+      }
+    ]
+  },
+  {
+    "room": 76,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a garden path. Visible exits are north south southwest east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 76
+      },
+      {
+        "pc": "D102",
+        "a": 76
+      }
+    ]
+  },
+  {
+    "room": 77,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are northeast south.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 77
+      },
+      {
+        "pc": "D102",
+        "a": 77
+      }
+    ]
+  },
+  {
+    "room": 78,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are north southwest southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 78
+      },
+      {
+        "pc": "D102",
+        "a": 78
+      }
+    ]
+  },
+  {
+    "room": 79,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. To the east there is a deep stream. Visible exits are northwest southeast northeast southwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 79
+      },
+      {
+        "pc": "D102",
+        "a": 79
+      }
+    ]
+  },
+  {
+    "room": 80,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are southeast west northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 80
+      },
+      {
+        "pc": "D102",
+        "a": 80
+      }
+    ]
+  },
+  {
+    "room": 81,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. To the west there is a thick hedge. Visible exits are southwest north south northwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 81
+      },
+      {
+        "pc": "D102",
+        "a": 81
+      }
+    ]
+  },
+  {
+    "room": 82,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are northeast west southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 82
+      },
+      {
+        "pc": "D102",
+        "a": 82
+      }
+    ]
+  },
+  {
+    "room": 83,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are north northwest southwest southeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 83
+      },
+      {
+        "pc": "D102",
+        "a": 83
+      }
+    ]
+  },
+  {
+    "room": 84,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are northwest south.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 84
+      },
+      {
+        "pc": "D102",
+        "a": 84
+      }
+    ]
+  },
+  {
+    "room": 85,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are north east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 85
+      },
+      {
+        "pc": "D102",
+        "a": 85
+      }
+    ]
+  },
+  {
+    "room": 86,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. Visible exits are west southeast east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 86
+      },
+      {
+        "pc": "D102",
+        "a": 86
+      }
+    ]
+  },
+  {
+    "room": 87,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on a winding garden path. To the south there is a deep stream. Visible exits are west east.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 87
+      },
+      {
+        "pc": "D102",
+        "a": 87
+      }
+    ]
+  },
+  {
+    "room": 88,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on the east side. To the west there is a sandstone bridge. To the north there is a deep stream. Visible exits are southeast. You can see a female corpse. On the female corpse there is a crumpled note.",
+    "listed": [
+      46,
+      47
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 88
+      },
+      {
+        "pc": "D102",
+        "a": 88
+      }
+    ]
+  },
+  {
+    "room": 89,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on the west side. To the east there is a sandstone bridge. To the northwest there is a deep stream. Visible exits are north northeast.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 89
+      },
+      {
+        "pc": "D102",
+        "a": 89
+      }
+    ]
+  },
+  {
+    "room": 90,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on the south side. To the north there is a footbridge. To the southeast there is a deep stream. Visible exits are west.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 90
+      },
+      {
+        "pc": "D102",
+        "a": 90
+      }
+    ]
+  },
+  {
+    "room": 91,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on the north side. To the south there is a footbridge. To the northeast there is a deep stream. Visible exits are northwest north.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 91
+      },
+      {
+        "pc": "D102",
+        "a": 91
+      }
+    ]
+  },
+  {
+    "room": 92,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Jones Front Gate. To the south there is a local police man. Visible exits are west. You can see a local police man.",
+    "listed": [
+      11
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 92
+      },
+      {
+        "pc": "D102",
+        "a": 92
+      }
+    ]
+  },
+  {
+    "room": 93,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are at Jones Front Door. To the south there is the front door. Visible exits are north.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 93
+      },
+      {
+        "pc": "D102",
+        "a": 93
+      }
+    ]
+  },
+  {
+    "room": 94,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a library. To the west there is a bookcase. To the north there is a solid door. You can see a bloodstained sofa. On the bloodstained sofa there is a body.",
+    "listed": [
+      71,
+      72
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 94
+      },
+      {
+        "pc": "D102",
+        "a": 94
+      }
+    ]
+  },
+  {
+    "room": 95,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a small room. To the east there is a bookcase. You can see some bloodstained clothes.",
+    "listed": [
+      67
+    ],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 95
+      },
+      {
+        "pc": "D102",
+        "a": 95
+      }
+    ]
+  },
+  {
+    "room": 96,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Jones Entrance Hall. To the north there is the front door. To the southeast there is the diningroom door. To the west there is the sittingroom door. Above there is the stairway.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 96
+      },
+      {
+        "pc": "D102",
+        "a": 96
+      }
+    ]
+  },
+  {
+    "room": 97,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the sitting room. To the south there is a solid door. To the east there is the sittingroom door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 97
+      },
+      {
+        "pc": "D102",
+        "a": 97
+      }
+    ]
+  },
+  {
+    "room": 98,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a kitchen. To the south there is a plain door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 98
+      },
+      {
+        "pc": "D102",
+        "a": 98
+      }
+    ]
+  },
+  {
+    "room": 99,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the dining room. To the north there is a plain door. To the northwest there is the diningroom door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 99
+      },
+      {
+        "pc": "D102",
+        "a": 99
+      }
+    ]
+  },
+  {
+    "room": 100,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a small passage. Below there is the stairway. To the west there is the northern door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 100
+      },
+      {
+        "pc": "D102",
+        "a": 100
+      }
+    ]
+  },
+  {
+    "room": 101,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Mrs Jones Room. To the east there is the northern door.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 101
+      },
+      {
+        "pc": "D102",
+        "a": 101
+      }
+    ]
+  },
+  {
+    "room": 102,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in Basils Front Yard. To the northeast there is the window. Visible exits are west.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 102
+      },
+      {
+        "pc": "D102",
+        "a": 102
+      }
+    ]
+  },
+  {
+    "room": 103,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are on the old mill road.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 103
+      },
+      {
+        "pc": "D102",
+        "a": 103
+      }
+    ]
+  },
+  {
+    "room": 104,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in the leatherhead police station. Visible exits are southwest.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 104
+      },
+      {
+        "pc": "D102",
+        "a": 104
+      }
+    ]
+  },
+  {
+    "room": 105,
+    "fixture": "Holmes trasferito; mondo fermo al primo prompt",
+    "text": "You are in a cab travelling madly along rough country roads.",
+    "listed": [],
+    "events": [
+      {
+        "pc": "CA9E",
+        "a": 105
+      },
+      {
+        "pc": "D102",
+        "a": 105
+      }
+    ]
+  }
+]

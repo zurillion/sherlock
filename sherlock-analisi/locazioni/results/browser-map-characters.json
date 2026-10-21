@@ -1,0 +1,16 @@
+{
+  "character_legend_count": 18,
+  "clock": "Mon 08:01am",
+  "clock_left_gap": 0,
+  "direction_labels": 53,
+  "legend_did_not_teleport": true,
+  "off_map_count": 7,
+  "overlapping_nodes": [],
+  "parallel_69_64": [
+    "DOWN",
+    "N"
+  ],
+  "player_after_teleport": "9",
+  "watson_unchanged": "8",
+  "console_errors": []
+}

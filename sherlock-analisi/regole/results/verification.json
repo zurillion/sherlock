@@ -1,0 +1,5241 @@
+{
+  "header_cases": [
+    {
+      "flags": "00",
+      "execute": 0,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "00",
+      "execute": 1,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "10",
+      "execute": 0,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "10",
+      "execute": 1,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "20",
+      "execute": 0,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "20",
+      "execute": 1,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "30",
+      "execute": 0,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "30",
+      "execute": 1,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "40",
+      "execute": 0,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "40",
+      "execute": 1,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "50",
+      "execute": 0,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "50",
+      "execute": 1,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "60",
+      "execute": 0,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "60",
+      "execute": 1,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "70",
+      "execute": 0,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "70",
+      "execute": 1,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "80",
+      "execute": 0,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "80",
+      "execute": 1,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "90",
+      "execute": 0,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "90",
+      "execute": 1,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "A0",
+      "execute": 0,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "A0",
+      "execute": 1,
+      "body": "5B02",
+      "ok": true
+    },
+    {
+      "flags": "B0",
+      "execute": 0,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "B0",
+      "execute": 1,
+      "body": "5B07",
+      "ok": true
+    },
+    {
+      "flags": "C0",
+      "execute": 0,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "C0",
+      "execute": 1,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "D0",
+      "execute": 0,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "D0",
+      "execute": 1,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "E0",
+      "execute": 0,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "E0",
+      "execute": 1,
+      "body": "5B04",
+      "ok": true
+    },
+    {
+      "flags": "F0",
+      "execute": 0,
+      "body": "5B09",
+      "ok": true
+    },
+    {
+      "flags": "F0",
+      "execute": 1,
+      "body": "5B09",
+      "ok": true
+    }
+  ],
+  "mask_cases": 720,
+  "mask_results": [
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 0,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 1,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 8,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 16,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 32,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 33,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 64,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 128,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 160,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 2,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 0,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 1,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 8,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 16,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 32,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 33,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 64,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 128,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 0,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 0,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 1,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 1,
+      "execute": 1,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 2,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 2,
+      "execute": 1,
+      "accepted": false
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 3,
+      "execute": 0,
+      "accepted": true
+    },
+    {
+      "attrs": 255,
+      "mask": 255,
+      "mode": 3,
+      "execute": 1,
+      "accepted": false
+    }
+  ],
+  "trace_cases": 21,
+  "assertions": "effetti, fasi, comandi NPC, script, durata e confine I/O verificati"
+}

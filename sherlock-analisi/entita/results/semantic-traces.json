@@ -1,0 +1,6205 @@
+[
+  {
+    "input": "EXAMINE ARMCHAIR",
+    "steps": 108968,
+    "lower": "EXAMINE ARMCHAIR.\n which armchair ?> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 66048,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B5E2",
+        "args": [
+          24,
+          255
+        ],
+        "steps_end": 82215,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          2,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "rules",
+        "args": [
+          23,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 76432
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          24,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 78481
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 24
+      }
+    ],
+    "continuation_slot": 8
+  },
+  {
+    "input": "EXAMINE YOUR ARMCHAIR",
+    "steps": 315181,
+    "lower": "EXAMINE YOUR ARMCHAIR.\n> ",
+    "upper": "\nYou examine your armchair.\nYou see your armchair.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 74003,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 7e 00 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "09F2",
+                    "offset": "09F2",
+                    "word": "your",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "DF2E",
+        "args": [
+          23,
+          255
+        ],
+        "steps_end": 89139,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "rules",
+        "args": [
+          23,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 83901
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 23
+      },
+      {
+        "kind": "rules",
+        "args": [
+          23,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 89138
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 23
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE WATSONS ARMCHAIR",
+    "steps": 324561,
+    "lower": "EXAMINE WATSONS ARMCHAIR.\n> ",
+    "upper": "\nYou examine watsons armchair.\nYou see watsons armchair.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 79062,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 7e 00 75 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "0975",
+                    "offset": "0975",
+                    "word": "watsons",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "DF2E",
+        "args": [
+          24,
+          255
+        ],
+        "steps_end": 94296,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          24,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 89116
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          24,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 94295
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 24
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "TAKE ARMCHAIR",
+    "steps": 202888,
+    "lower": "TAKE ARMCHAIR.\n i see no armchair that you can take\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 57027,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 08 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          0,
+          255
+        ],
+        "steps_end": 93301,
+        "action": 41,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "rules",
+        "args": [
+          23,
+          255
+        ],
+        "action": 41,
+        "a00b": 0,
+        "z": true,
+        "hl": "0000",
+        "steps_end": 75770
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 9,
+        "id": 23
+      },
+      {
+        "kind": "capacity",
+        "container_id": 0,
+        "object_id": 23,
+        "z": true,
+        "hl": "DCC1",
+        "args": [
+          23,
+          255
+        ],
+        "steps_end": 75732
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          24,
+          255
+        ],
+        "action": 41,
+        "a00b": 0,
+        "z": true,
+        "hl": "0000",
+        "steps_end": 89576
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 9,
+        "id": 24
+      },
+      {
+        "kind": "capacity",
+        "container_id": 0,
+        "object_id": 24,
+        "z": true,
+        "hl": "DCC1",
+        "args": [
+          24,
+          255
+        ],
+        "steps_end": 89538
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE BOOK",
+    "steps": 157397,
+    "lower": "EXAMINE BOOK.\n i see no book that you can examine\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 59376,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "011B",
+                  "offset": "011B",
+                  "word": "book",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 67251,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE LAMP",
+    "steps": 284218,
+    "lower": "EXAMINE LAMP.\n> ",
+    "upper": "\nYou examine the oil lamp.\nYou see an oil lamp.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 49546,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "04B9",
+                  "offset": "04B9",
+                  "word": "lamp",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "DF2E",
+        "args": [
+          22,
+          255
+        ],
+        "steps_end": 64386,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 59229
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 22
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 64385
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 22
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "TAKE LAMP",
+    "steps": 247778,
+    "lower": "TAKE LAMP.\n> ",
+    "upper": "\nYou take the oil lamp.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 39753,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 08 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "04B9",
+                  "offset": "04B9",
+                  "word": "lamp",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "A034",
+        "args": [
+          22,
+          255
+        ],
+        "steps_end": 70917,
+        "action": 41,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          255
+        ],
+        "action": 41,
+        "a00b": 0,
+        "z": false,
+        "hl": "A034",
+        "steps_end": 58222
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 9,
+        "id": 22
+      },
+      {
+        "kind": "capacity",
+        "container_id": 0,
+        "object_id": 22,
+        "z": false,
+        "hl": "DCC1",
+        "args": [
+          22,
+          255
+        ],
+        "steps_end": 57750
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          255
+        ],
+        "action": 41,
+        "a00b": 0,
+        "z": false,
+        "hl": "A034",
+        "steps_end": 70916
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 9,
+        "id": 22
+      },
+      {
+        "kind": "capacity",
+        "container_id": 0,
+        "object_id": 22,
+        "z": false,
+        "hl": "DCC1",
+        "args": [
+          22,
+          255
+        ],
+        "steps_end": 70444
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "GIVE LAMP TO WATSON",
+    "steps": 151078,
+    "lower": "GIVE LAMP TO WATSON.\n you cannot give the lamp\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 64795,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "89 03 00 00 00 00 00 00 b9 04 00 00 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0389",
+              "offset": "0389",
+              "word": "give",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "04B9",
+                  "offset": "04B9",
+                  "word": "lamp",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [
+                  {
+                    "raw": "08DB",
+                    "offset": "08DB",
+                    "word": "to",
+                    "unresolved_bits": "0000"
+                  }
+                ],
+                "referent": {
+                  "raw": "0971",
+                  "offset": "0971",
+                  "word": "watson",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          0,
+          0
+        ],
+        "steps_end": 89110,
+        "action": 26,
+        "classes": [
+          7,
+          7
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          3
+        ],
+        "action": 26,
+        "a00b": 0,
+        "z": true,
+        "hl": "0000",
+        "steps_end": 80674
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 10,
+        "id": 22
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "TELL WATSON \"LOOK\"",
+    "steps": 333943,
+    "lower": "TELL WATSON \"LOOK.\".\n i see no watson that you can tell\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 65268,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "8f 08 00 00 00 00 00 00 71 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "088F",
+              "offset": "088F",
+              "word": "tell",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "0971",
+                  "offset": "0971",
+                  "word": "watson",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          0,
+          109
+        ],
+        "steps_end": 250409,
+        "action": 47,
+        "classes": [
+          7,
+          7
+        ],
+        "counts": [
+          0,
+          110
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 0
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 1
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 2
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 4
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 5
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 6
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 7
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 8
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 9
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 10
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 11
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 12
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 13
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 14
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 15
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 16
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 17
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 18
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 19
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 20
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 21
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 24
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 25
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 26
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 27
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 28
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 29
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 30
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 31
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 32
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 33
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 34
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 35
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 36
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 37
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 38
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 39
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 40
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 41
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 42
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 43
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 44
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 45
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 46
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 47
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 48
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 49
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 50
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 51
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 52
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 53
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 54
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 55
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 56
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 57
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 58
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 59
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 60
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 61
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 62
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 63
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 64
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 65
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 66
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 67
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 68
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 69
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 70
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 71
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 72
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 73
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 74
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 75
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 76
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 77
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 78
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 79
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 80
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 81
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 82
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 83
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 84
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 85
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 86
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 87
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 88
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 89
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 90
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 91
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 92
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 93
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 94
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 95
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 96
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 97
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 98
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 99
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 100
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 101
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 102
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 103
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 104
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 105
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 106
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 107
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 108
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 109
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 0
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          0
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 87236
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 0
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 1
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          1
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 88312
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 1
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 2
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          2
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 89395
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 2
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          3
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 90485
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 4
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          4
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 91582
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 4
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 5
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          5
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 92686
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 5
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 6
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          6
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 93797
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 6
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 7
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          7
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 94915
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 7
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 8
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          8
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 96040
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 8
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 9
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          9
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 97172
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 9
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 10
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          10
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 98311
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 10
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 11
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          11
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 99457
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 11
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 12
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          12
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 100610
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 12
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 13
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          13
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 101770
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 13
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 14
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          14
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 102937
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 14
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 15
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          15
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 104111
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 15
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 16
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          16
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 105292
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 16
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 17
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          17
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 106480
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 17
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 18
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          18
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 107675
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 18
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 19
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          19
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 108877
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 19
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 20
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          20
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 110086
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 20
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 21
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          21
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 111302
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 21
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 22
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          22
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 112525
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 23
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          23
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 113755
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          24
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 114992
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 24
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 25
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          25
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 116236
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 25
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 26
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          26
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 117487
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 26
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 27
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          27
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 118745
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 27
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 28
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          28
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 120010
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 28
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 29
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          29
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 121282
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 29
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 30
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          30
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 122561
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 30
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 31
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          31
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 123847
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 31
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 32
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          32
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 125140
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 32
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 33
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          33
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 126440
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 33
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 34
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          34
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 127747
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 34
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 35
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          35
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 129061
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 35
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 36
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          36
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 130382
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 36
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 37
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          37
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 131710
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 37
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 38
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          38
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 133045
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 38
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 39
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          39
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 134387
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 39
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 40
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          40
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 135736
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 40
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 41
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          41
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 137092
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 41
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 42
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          42
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 138455
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 42
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 43
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          43
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 139825
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 43
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 44
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          44
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 141202
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 44
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 45
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          45
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 142586
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 45
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 46
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          46
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 143977
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 46
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 47
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          47
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 145375
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 47
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 48
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          48
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 146780
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 48
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 49
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          49
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 148192
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 49
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 50
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          50
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 149611
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 50
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 51
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          51
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 151037
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 51
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 52
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          52
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 152470
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 52
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 53
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          53
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 153910
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 53
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 54
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          54
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 155357
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 54
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 55
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          55
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 156811
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 55
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 56
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          56
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 158272
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 56
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 57
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          57
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 159740
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 57
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 58
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          58
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 161215
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 58
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 59
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          59
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 162697
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 59
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 60
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          60
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 164186
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 60
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 61
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          61
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 165682
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 61
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 62
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          62
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 167185
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 62
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 63
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          63
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 168695
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 63
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 64
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          64
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 170212
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 64
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 65
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          65
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 171736
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 65
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 66
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          66
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 173267
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 66
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 67
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          67
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 174805
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 67
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 68
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          68
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 176350
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 68
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 69
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          69
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 177902
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 69
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 70
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          70
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 179461
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 70
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 71
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          71
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 181027
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 71
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 72
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          72
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 182600
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 72
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 73
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          73
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 184180
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 73
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 74
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          74
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 185767
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 74
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 75
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          75
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 187361
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 75
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 76
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          76
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 188962
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 76
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 77
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          77
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 190570
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 77
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 78
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          78
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 192185
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 78
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 79
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          79
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 193807
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 79
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 80
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          80
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 195436
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 80
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 81
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          81
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 197072
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 81
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 82
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          82
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 198715
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 82
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 83
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          83
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 200365
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 83
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 84
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          84
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 202022
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 84
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 85
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          85
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 203686
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 85
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 86
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          86
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 205357
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 86
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 87
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          87
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 207035
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 87
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 88
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          88
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 208720
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 88
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 89
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          89
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 210412
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 89
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 90
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          90
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 212111
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 90
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 91
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          91
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 213817
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 91
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 92
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          92
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 215530
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 92
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 93
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          93
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 217250
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 93
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 94
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          94
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 218977
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 94
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 95
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          95
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 220711
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 95
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 96
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          96
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 222452
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 96
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 97
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          97
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 224200
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 97
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 98
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          98
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 225955
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 98
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 99
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          99
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 227717
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 99
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 100
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          100
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 229486
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 100
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 101
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          101
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 231262
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 101
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 102
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          102
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 233045
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 102
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 103
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          103
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 234835
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 103
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 104
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          104
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 236632
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 104
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 105
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          105
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 238436
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 105
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 106
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          106
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 240247
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 106
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 107
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          107
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 242065
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 107
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 108
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          108
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 243890
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 108
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 109
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          109
+        ],
+        "action": 47,
+        "a00b": 0,
+        "z": false,
+        "hl": "E1D6",
+        "steps_end": 245722
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 7,
+        "id": 109
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE HEAVY OAK DOOR",
+    "steps": 205375,
+    "lower": "EXAMINE HEAVY OAK DOOR.\n i see no heavy oak door that you can examine\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 74743,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 6e 02 ed 03 e8 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "026E",
+                  "offset": "026E",
+                  "word": "door",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "03ED",
+                    "offset": "03ED",
+                    "word": "heavy",
+                    "unresolved_bits": "0000"
+                  },
+                  {
+                    "raw": "05E8",
+                    "offset": "05E8",
+                    "word": "oak",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 82814,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE OAK HEAVY DOOR",
+    "steps": 205395,
+    "lower": "EXAMINE OAK HEAVY DOOR.\n i see no oak heavy door that you can examine\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 74743,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 6e 02 e8 05 ed 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "026E",
+                  "offset": "026E",
+                  "word": "door",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "05E8",
+                    "offset": "05E8",
+                    "word": "oak",
+                    "unresolved_bits": "0000"
+                  },
+                  {
+                    "raw": "03ED",
+                    "offset": "03ED",
+                    "word": "heavy",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 82834,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "OPEN DOOR",
+    "steps": 122097,
+    "lower": "OPEN DOOR.\n which door ?> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 49541,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "060B",
+              "offset": "060B",
+              "word": "open",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "026E",
+                  "offset": "026E",
+                  "word": "door",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B5E2",
+        "args": [
+          50,
+          255
+        ],
+        "steps_end": 100981,
+        "action": 36,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          2,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 21
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 50
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 21
+      },
+      {
+        "kind": "rules",
+        "args": [
+          21,
+          255
+        ],
+        "action": 36,
+        "a00b": 0,
+        "z": false,
+        "hl": "0021",
+        "steps_end": 77981
+      },
+      {
+        "kind": "local_rule",
+        "address": "8E50",
+        "pair": [
+          36,
+          6
+        ]
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 21
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 50
+      },
+      {
+        "kind": "rules",
+        "args": [
+          50,
+          255
+        ],
+        "action": 36,
+        "a00b": 0,
+        "z": false,
+        "hl": "0021",
+        "steps_end": 85106
+      },
+      {
+        "kind": "local_rule",
+        "address": "90E5",
+        "pair": [
+          36,
+          6
+        ]
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 50
+      }
+    ],
+    "continuation_slot": 8
+  },
+  {
+    "input": "NORTH",
+    "steps": 90906,
+    "lower": "NORTH.\n you cannot go north.\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 36921,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "c3 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "05C3",
+              "offset": "05C3",
+              "word": "north",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B863",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 37966,
+        "action": 1,
+        "classes": [
+          0,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "rules",
+        "args": [
+          255,
+          255
+        ],
+        "action": 1,
+        "a00b": 0,
+        "z": true,
+        "hl": "0000",
+        "steps_end": 37963
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE ALIBI",
+    "steps": 171594,
+    "lower": "EXAMINE ALIBI.\n i see no alibi that you can examine\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 55407,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "0038",
+                  "offset": "0038",
+                  "word": "alibi",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 62136,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "COUNT MONEY",
+    "steps": 293287,
+    "lower": "COUNT MONEY.\n> ",
+    "upper": "\nYou count your money.\nIt totals  `5 4/-\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 60283,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "f7 01 00 00 00 00 00 00 75 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "01F7",
+              "offset": "01F7",
+              "word": "count",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "0575",
+                  "offset": "0575",
+                  "word": "money",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "E31C",
+        "args": [
+          27,
+          255
+        ],
+        "steps_end": 79598,
+        "action": 15,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 27
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 27
+      },
+      {
+        "kind": "rules",
+        "args": [
+          27,
+          255
+        ],
+        "action": 15,
+        "a00b": 0,
+        "z": false,
+        "hl": "E31C",
+        "steps_end": 72418
+      },
+      {
+        "kind": "local_rule",
+        "address": "8ECE",
+        "pair": [
+          15,
+          10
+        ]
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 10,
+        "id": 27
+      },
+      {
+        "kind": "rules",
+        "args": [
+          27,
+          255
+        ],
+        "action": 15,
+        "a00b": 0,
+        "z": false,
+        "hl": "E31C",
+        "steps_end": 79597
+      },
+      {
+        "kind": "local_rule",
+        "address": "8ECE",
+        "pair": [
+          15,
+          10
+        ]
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 10,
+        "id": 27
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "SAY TO WATSON \"LOOK\"",
+    "steps": 260226,
+    "lower": "SAY TO WATSON \"LOOK.\".\n> ",
+    "upper": "\nYou talk to Watson.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 77089,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "8b 08 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "088B",
+              "offset": "088B",
+              "word": "talk",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [
+                  {
+                    "raw": "08DB",
+                    "offset": "08DB",
+                    "word": "to",
+                    "unresolved_bits": "0000"
+                  }
+                ],
+                "referent": {
+                  "raw": "0971",
+                  "offset": "0971",
+                  "word": "watson",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "DD9E",
+        "args": [
+          3,
+          255
+        ],
+        "steps_end": 92319,
+        "action": 46,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      },
+      {
+        "kind": "semantic",
+        "step": 192436,
+        "actor_id": 3,
+        "nodes": [],
+        "z": false,
+        "hl": "DC7B",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 194942,
+        "action": 34,
+        "classes": [
+          0,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          255
+        ],
+        "action": 46,
+        "a00b": 0,
+        "z": false,
+        "hl": "DD9E",
+        "steps_end": 86874
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          3,
+          255
+        ],
+        "action": 46,
+        "a00b": 0,
+        "z": false,
+        "hl": "DD9E",
+        "steps_end": 92318
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          255,
+          255
+        ],
+        "action": 34,
+        "a00b": 0,
+        "z": false,
+        "hl": "DC7B",
+        "steps_end": 194941
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "EXAMINE DAILY CHRONICLE",
+    "steps": 204569,
+    "lower": "EXAMINE DAILY CHRONICLE.\n i see no daily chronicle that you can examine\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 69409,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 ab 01 11 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "01AB",
+                  "offset": "01AB",
+                  "word": "chronicle",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "0211",
+                    "offset": "0211",
+                    "word": "daily",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          0,
+          255
+        ],
+        "steps_end": 83995,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 25
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 25
+      },
+      {
+        "kind": "rules",
+        "args": [
+          25,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": true,
+        "hl": "0000",
+        "steps_end": 80283
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 25
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "TAKE YOUR ARMCHAIR",
+    "steps": 201955,
+    "lower": "TAKE YOUR ARMCHAIR.\n i see no your armchair that you can take\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 64210,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 08 00 00 00 00 00 00 7e 00 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "09F2",
+                    "offset": "09F2",
+                    "word": "your",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B65F",
+        "args": [
+          0,
+          255
+        ],
+        "steps_end": 86285,
+        "action": 41,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 23
+      },
+      {
+        "kind": "rules",
+        "args": [
+          23,
+          255
+        ],
+        "action": 41,
+        "a00b": 0,
+        "z": true,
+        "hl": "0000",
+        "steps_end": 82467
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 9,
+        "id": 23
+      },
+      {
+        "kind": "capacity",
+        "container_id": 0,
+        "object_id": 23,
+        "z": true,
+        "hl": "DCC1",
+        "args": [
+          23,
+          255
+        ],
+        "steps_end": 82429
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "OPEN YOUR DOOR",
+    "steps": 243402,
+    "lower": "OPEN YOUR DOOR.\n> ",
+    "upper": "\nYou open your door.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 57496,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "0b 06 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "060B",
+              "offset": "060B",
+              "word": "open",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "026E",
+                  "offset": "026E",
+                  "word": "door",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "09F2",
+                    "offset": "09F2",
+                    "word": "your",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "0021",
+        "args": [
+          21,
+          255
+        ],
+        "steps_end": 74266,
+        "action": 36,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 21
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 21
+      },
+      {
+        "kind": "rules",
+        "args": [
+          21,
+          255
+        ],
+        "action": 36,
+        "a00b": 0,
+        "z": false,
+        "hl": "0021",
+        "steps_end": 68622
+      },
+      {
+        "kind": "local_rule",
+        "address": "8E50",
+        "pair": [
+          36,
+          6
+        ]
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 21
+      },
+      {
+        "kind": "rules",
+        "args": [
+          21,
+          255
+        ],
+        "action": 36,
+        "a00b": 0,
+        "z": false,
+        "hl": "0021",
+        "steps_end": 74265
+      },
+      {
+        "kind": "local_rule",
+        "address": "8E50",
+        "pair": [
+          36,
+          6
+        ]
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 21
+      }
+    ],
+    "continuation_slot": 0
+  },
+  {
+    "input": "PICK THE NOTE UP",
+    "steps": 101880,
+    "lower": "PICK THE NOTE UP.\n what ?\n> ",
+    "upper": "",
+    "semantic": [],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "PICK UP THE NOTE",
+    "steps": 144959,
+    "lower": "PICK UP THE NOTE.\n i do not know the verb\" up carry\"\n> ",
+    "upper": "",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 69704,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "8b 01 3c 09 00 00 00 00 d8 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "018B",
+              "offset": "018B",
+              "word": "carry",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": {
+              "raw": "093C",
+              "offset": "093C",
+              "word": "up",
+              "unresolved_bits": "0000"
+            },
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "05D8",
+                  "offset": "05D8",
+                  "word": "note",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": true,
+        "hl": "B84C",
+        "args": [
+          255,
+          255
+        ],
+        "steps_end": 71764,
+        "action": 255,
+        "classes": [
+          0,
+          0
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "slots": [
+          0,
+          0
+        ],
+        "a00b": 1
+      }
+    ],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "ATTACK WATSON",
+    "steps": 112746,
+    "lower": "ATTACK WATSON.\n i do not know the word\"ATTACK \"\n> ",
+    "upper": "",
+    "semantic": [],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "DRIVE CAB",
+    "steps": 104060,
+    "lower": "DRIVE CAB.\n i do not know the word\"DRIVE \"\n> ",
+    "upper": "",
+    "semantic": [],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "OPEN DOR",
+    "steps": 102075,
+    "lower": "OPEN DOR.\n i do not know the word\"DOR \"\n> ",
+    "upper": "",
+    "semantic": [],
+    "events": [],
+    "continuation_slot": 0
+  },
+  {
+    "input": "WATSONS",
+    "steps": 284199,
+    "lower": "WATSONS.\n> ",
+    "upper": "\nYou examine watsons armchair.\nYou see watsons armchair.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 38700,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 7e 00 75 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "0975",
+                    "offset": "0975",
+                    "word": "watsons",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "DF2E",
+        "args": [
+          24,
+          255
+        ],
+        "steps_end": 53934,
+        "action": 19,
+        "classes": [
+          7,
+          0
+        ],
+        "counts": [
+          1,
+          0
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          24,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 48754
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 24
+      },
+      {
+        "kind": "rules",
+        "args": [
+          24,
+          255
+        ],
+        "action": 19,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF2E",
+        "steps_end": 53933
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 8,
+        "id": 24
+      }
+    ],
+    "continuation_slot": 0,
+    "after": "EXAMINE ARMCHAIR"
+  },
+  {
+    "input": "GIVE LAMP TO WATSON",
+    "steps": 293682,
+    "lower": "GIVE LAMP TO WATSON.\n> ",
+    "upper": "\nYou give the oil lamp to Watson.\n",
+    "semantic": [
+      {
+        "kind": "semantic",
+        "step": 65625,
+        "actor_id": 0,
+        "nodes": [
+          {
+            "address": "97E8",
+            "raw": "89 03 00 00 00 00 00 00 b9 04 00 00 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0389",
+              "offset": "0389",
+              "word": "give",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "04B9",
+                  "offset": "04B9",
+                  "word": "lamp",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [
+                  {
+                    "raw": "08DB",
+                    "offset": "08DB",
+                    "word": "to",
+                    "unresolved_bits": "0000"
+                  }
+                ],
+                "referent": {
+                  "raw": "0971",
+                  "offset": "0971",
+                  "word": "watson",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "z": false,
+        "hl": "DF24",
+        "args": [
+          22,
+          3
+        ],
+        "steps_end": 120776,
+        "action": 26,
+        "classes": [
+          7,
+          7
+        ],
+        "counts": [
+          1,
+          1
+        ],
+        "slots": [
+          8,
+          18
+        ],
+        "a00b": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "candidate",
+        "slot": 1,
+        "id": 22
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          3
+        ],
+        "action": 26,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF24",
+        "steps_end": 89271
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 10,
+        "id": 22
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "capacity",
+        "container_id": 3,
+        "object_id": 22,
+        "z": false,
+        "hl": "DF24",
+        "args": [
+          22,
+          3
+        ],
+        "steps_end": 89255
+      },
+      {
+        "kind": "candidate",
+        "slot": 2,
+        "id": 3
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          3
+        ],
+        "action": 26,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF24",
+        "steps_end": 107253
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 10,
+        "id": 22
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "capacity",
+        "container_id": 3,
+        "object_id": 22,
+        "z": false,
+        "hl": "DF24",
+        "args": [
+          22,
+          3
+        ],
+        "steps_end": 107237
+      },
+      {
+        "kind": "rules",
+        "args": [
+          22,
+          3
+        ],
+        "action": 26,
+        "a00b": 0,
+        "z": false,
+        "hl": "DF24",
+        "steps_end": 120775
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 10,
+        "id": 22
+      },
+      {
+        "kind": "argument_constraint",
+        "class": 13,
+        "id": 3
+      },
+      {
+        "kind": "capacity",
+        "container_id": 3,
+        "object_id": 22,
+        "z": false,
+        "hl": "DF24",
+        "args": [
+          22,
+          3
+        ],
+        "steps_end": 120759
+      }
+    ],
+    "continuation_slot": 0,
+    "after": "TAKE LAMP"
+  }
+]

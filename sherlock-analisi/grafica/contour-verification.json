@@ -1,0 +1,103 @@
+{
+  "method": "Contorni prima della semplificazione: rasterizzazione 2x e confronto dei centri di tutti i 22528 pixel per locazione.",
+  "results": [
+    {
+      "location": 5,
+      "original_contours": 52,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1446,
+      "simplified_vertices": 231
+    },
+    {
+      "location": 6,
+      "original_contours": 48,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 2372,
+      "simplified_vertices": 285
+    },
+    {
+      "location": 11,
+      "original_contours": 4,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1486,
+      "simplified_vertices": 98
+    },
+    {
+      "location": 12,
+      "original_contours": 15,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1760,
+      "simplified_vertices": 139
+    },
+    {
+      "location": 54,
+      "original_contours": 104,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 2306,
+      "simplified_vertices": 599
+    },
+    {
+      "location": 55,
+      "original_contours": 104,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 2306,
+      "simplified_vertices": 599
+    },
+    {
+      "location": 61,
+      "original_contours": 31,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1420,
+      "simplified_vertices": 244
+    },
+    {
+      "location": 62,
+      "original_contours": 10,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1146,
+      "simplified_vertices": 124
+    },
+    {
+      "location": 71,
+      "original_contours": 56,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1562,
+      "simplified_vertices": 305
+    },
+    {
+      "location": 74,
+      "original_contours": 31,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1828,
+      "simplified_vertices": 208
+    },
+    {
+      "location": 88,
+      "original_contours": 23,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1330,
+      "simplified_vertices": 163
+    },
+    {
+      "location": 89,
+      "original_contours": 3,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1624,
+      "simplified_vertices": 233
+    },
+    {
+      "location": 92,
+      "original_contours": 32,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1520,
+      "simplified_vertices": 215
+    },
+    {
+      "location": 95,
+      "original_contours": 54,
+      "exact_contour_roundtrip_errors": 0,
+      "original_vertices": 1760,
+      "simplified_vertices": 266
+    }
+  ]
+}

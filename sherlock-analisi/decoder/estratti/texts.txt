@@ -1,0 +1,874 @@
+SHERLOCK — testi e frammenti. ⟦...⟧ = annotazione del decoder, non testo originale.
+Contiene spoiler. Non è una trascrizione di una partita.
+
+[$67F7] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧
+
+[$67FF] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ "
+
+[$6804] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ To ⟦nome referente $A034⟧ "
+
+[$680B] decoded
+Only an idiot would try that.
+
+
+[$6817] symbolic
+⟦nome referente $A034⟧ Is
+
+[$681A] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " Sorry, I cannot do that now. "
+
+
+[$682A] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ To ⟦nome referente $A034⟧ " ⟦composizione da $A360⟧ ".
+
+
+[$6830] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ To ⟦nome referente $A034⟧ " ⟦testo da argomento stack⟧ ".
+
+
+[$6836] decoded
+It totals 
+
+[$683F] decoded
+You do not have enough.
+
+
+[$6845] decoded
+Don't be silly.
+
+[$6855] decoded
+Don't be silly.
+
+
+[$6859] decoded
+I do not know the word "
+
+[$6866] decoded
+What ?
+
+
+[$686A] symbolic
+I do not know the verb " ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ "
+
+
+[$687C] symbolic
+⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦nome da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ What ?
+
+[$6888] symbolic
+Which ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ?
+
+[$6894] symbolic
+I see ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ that you can ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧
+
+
+[$68A2] symbolic
+You cannot ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ the ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧ ⟦parola da argomento stack⟧
+
+
+[$68AD] symbolic
+⟦nome $A036 + is/are⟧ Carrying
+
+[$68B1] symbolic
+⟦nome da argomento + is/are⟧ Carrying
+
+[$68B5] decoded
+What
+
+
+[$68B7] symbolic
+⟦nome $A036 + is/are⟧ Carrying ⟦nome referente $A034⟧.
+
+
+[$68BC] decoded
+To the
+
+[$68BF] decoded
+What
+
+
+[$68C1] decoded
+It is too dark to see much else.
+
+
+[$68D1] decoded
+Sorry it is too dark.
+
+
+[$68D9] symbolic
+There ⟦parola da argomento stack⟧
+
+[$68DD] symbolic
+⟦nome $A036 + is/are⟧ " "
+
+[$68E1] symbolic
+⟦nome referente $A036⟧ See
+
+[$68E4] symbolic
+⟦nome referente $A036⟧ Can see
+
+[$68E9] decoded
+There is
+
+[$68ED] symbolic
+⟦nome da argomento stack⟧ Enters.
+
+
+[$68F1] decoded
+Visible exits are
+
+[$6900] decoded
+Nothing
+
+
+[$6902] symbolic
+Good ⟦se classe temporale=5⟧ morning ⟦fine condizione⟧ ⟦se classe temporale=4⟧ morning ⟦fine condizione⟧ ⟦se classe temporale=3⟧ afternoon ⟦fine condizione⟧ ⟦se classe temporale=2⟧ afternoon ⟦fine condizione⟧ ⟦se classe temporale=1⟧ evening ⟦fine condizione⟧ 
+
+[$6915] decoded
+Hi.
+
+
+[$6918] symbolic
+⟦scelta: hello / call @$691C⟧
+
+[$6920] symbolic
+⟦nome referente $A036⟧  ⟦say | says: dipende da $A036⟧ " ⟦scelta: hello / call @$691C⟧ ".
+
+
+[$6923] symbolic
+ " ⟦scelta: hello / call @$691C⟧ ".
+
+
+[$6929] symbolic
+⟦nome referente $A036⟧  ⟦say | says: dipende da $A036⟧ To ⟦nome referente $A034⟧ " ⟦scelta: hello / call @$691C⟧ ".
+
+
+[$6931] decoded
+
+
+
+
+
+
+
+
+
+
+[$693A] decoded
+
+
+
+
+
+
+
+
+I do not think you are doing too well, surely Sherlock Holmes could do a better job than you have done so far. Perhaps you should try again.
+
+
+[$696C] decoded
+Perhaps you should try again.
+
+
+[$6975] decoded
+
+
+
+
+
+
+
+
+As the Major enters Lestrade attempts to arrest him. The Major draws a gun and fires wildly at Lestrade, who pulls his revolver and kills Major Ffoulkes with a single shot.
+
+
+[$69BF] decoded
+
+
+
+
+
+
+
+
+Inspector Lestrade says to you " Well Holmes that wraps up this case, sorry you were not of more help but you cannot solve them all you know. ". Despite his assurances you cannot help feeling there should be more to this case. Perhaps you should try again.
+
+
+[$69C6] decoded
+Says to you " Well Holmes that wraps up this case, sorry you were not of more help but you cannot solve them all you know. ". Despite his assurances you cannot help feeling there should be more to this case. Perhaps you should try again.
+
+
+[$6A26] decoded
+
+
+
+
+
+
+
+
+Inspector Lestrade enters and says to you " Well Holmes that wraps up this case, sorry you were not of more help but you cannot solve them all you know. ". Despite his assurances you cannot help feeling there should be more to this case. Perhaps you should try again.
+
+
+[$6A33] decoded
+
+
+
+
+
+
+
+
+Not only have you failed to solve the crimes at hand but the morning papers carry a report of Mr Browns lost plans being found and sold to a foreign power. Since this means disaster for the free world it seems that you and Inspector Lestrade are disgraced for letting this happen. Perhaps you should try again.
+
+
+[$6A4C] decoded
+But the morning papers carry a report of Mr Browns lost plans being found and sold to a foreign power. Since this means disaster for the free world it seems that you and Inspector Lestrade are disgraced for letting this happen. Perhaps you should try again.
+
+
+[$6ABD] decoded
+
+
+
+
+
+
+
+
+You have done extremely well to solve the case at hand but the morning papers carry a report of Mr Browns lost plans being found and sold to a foreign power. Since this means disaster for the free world it seems that you and Inspector Lestrade are disgraced for letting this happen. Perhaps you should try again.
+
+
+[$6ADB] decoded
+
+
+
+
+
+
+
+
+As Basil enters he sees you and pulls a gun.
+
+[$6AF3] decoded
+
+
+
+
+
+
+
+
+As Basil enters he sees you and pulls a gun. With suprising agility Watson pushes you out of the way of Basils first shot allowing Lestrade time to pull his gun and capture the culprits. As incredible as it may seem you have solved this case. You truly deserve the title of worlds greatest detective.
+
+
+[$6B79] decoded
+
+
+
+
+
+
+
+
+As Basil enters he sees you and pulls a gun. With his usual skill his first shot disposes of you. Perhaps you should try again.
+
+
+[$6B9C] decoded
+What
+
+
+[$6B9E] decoded
+You have to get into the cab first.
+
+[$6BAC] symbolic
+⟦scelta: hello / call @$691C⟧ Guv'nor.
+
+[$6BB7] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ To ⟦nome referente $A034⟧ " Right guv'nor that will be
+
+[$6BC7] symbolic
+⟦nome referente $A036⟧, Who now appears to be getting quite agitated, says " What about me money guv'nor? ".
+
+
+[$6BF6] symbolic
+With a practised flick of the reins, ⟦nome referente $A036⟧ moves on down the street in search of other fares.
+
+
+[$6C1B] decoded
+Well are we goin' anywhere guv'nor?
+
+[$6C34] symbolic
+⟦nome referente $A036⟧ Replies " Sorry guv'nor I cannot get there from'ere ".
+
+
+[$6C54] symbolic
+⟦nome referente $A036⟧ Shouts " You bloody snob, watch out if we ever meet again ".
+
+
+[$6C76] decoded
+What
+
+
+[$6C78] decoded
+Well Holmes you have found out my shameful secret, I am addicted to this vile opium and I confess, this is where I was last night.
+
+[$6CB9] decoded
+Upon seeing the body Major Ffoulkes turns deathly pale, then, recovering, turns and says " Inspector Lestrade, do you know who did this yet? ".
+
+
+[$6CF5] decoded
+Please let me past officer, I must see
+
+[$6D06] decoded
+You cannot block my way officer, I am a close friend of
+
+[$6D20] symbolic
+⟦scelta: call @$6D22 / call @$6D25⟧ Mrs Jones.
+
+[$6D2E] symbolic
+Inspector I am ⟦nome referente $A036⟧ a very close aquaintance of Mrs Jones and I demand to see her at once.
+
+[$6D5B] decoded
+What
+
+
+[$6D5D] symbolic
+⟦nome referente $A036⟧ Knocks the police man unconscious from behind.
+
+
+[$6D6A] symbolic
+Seeing the unconscious police man, ⟦nome referente $A036⟧ attempts to revive him. As he comes to he says " It was the Major, he came from behind. ".
+
+
+[$6D9A] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ To ⟦nome referente $A034⟧ " I am sorry sir but I have my orders, no one is to get by. ".
+
+
+[$6DBF] decoded
+Inspector, this gentleman insists he knows Mrs Jones and wishes to enter the house.
+
+[$6DE9] decoded
+What
+
+
+[$6DEB] decoded
+Watson looks up from the paper and says " Good morning Holmes. "
+
+
+[$6E02] symbolic
+With an excited look on his face ⟦nome referente $A036⟧ says " Well here is a case that may interest you, it seems that two close friends, a Mrs Brown and a Mrs Jones, were murdered last night in separate incidents although apparently with the same weapon. The crimes occurred at their respective homes in the township of Leather Head and, because of the lack of murder weapon and apparent motive, the local police are completely baffled. They have called upon Scotland Yard for assistance and it appears that the famed detective Inspector Giles Lestrade has taken an interest in the case and will be going to the scene this morning. "
+
+
+[$6E17] decoded
+Here is a case that may interest you, it seems that two close friends, a Mrs Brown and a Mrs Jones, were murdered last night in separate incidents although apparently with the same weapon. The crimes occurred at their respective homes in the township of Leather Head and, because of the lack of murder weapon and apparent motive, the local police are completely baffled. They have called upon Scotland Yard for assistance and it appears that the famed detective Inspector Giles Lestrade has taken an interest in the case and will be going to the scene this morning. "
+
+
+[$6EFC] symbolic
+⟦nome referente $A036⟧ Looks up as you enter saying " Hello there Holmes, just a minute now- here is a case that may interest you, it seems that two close friends, a Mrs Brown and a Mrs Jones, were murdered last night in separate incidents although apparently with the same weapon. The crimes occurred at their respective homes in the township of Leather Head and, because of the lack of murder weapon and apparent motive, the local police are completely baffled. They have called upon Scotland Yard for assistance and it appears that the famed detective Inspector Giles Lestrade has taken an interest in the case and will be going to the scene this morning. "
+
+
+[$6F22] decoded
+That is brilliant Holmes
+
+[$6F29] decoded
+That is brilliant Holmes, I do not know how you do it
+
+[$6F2C] decoded
+, I do not know how you do it
+
+[$6F39] symbolic
+Why do you think that ⟦relazione da argomento stack⟧
+
+[$6F41] symbolic
+That ⟦relazione da argomento stack⟧
+
+[$6F44] symbolic
+How did you ever deduce that ⟦relazione da argomento stack⟧
+
+[$6F54] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " ⟦scelta: call @$6F59 / call @$6F5C⟧. ".
+
+
+[$6F62] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " Well do you think there is some connection between ⟦nome da argomento stack⟧ and ⟦nome da argomento stack⟧? ".
+
+
+[$6F80] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " ⟦scelta: call @$6F85 / call @$6F88⟧? ".
+
+
+[$6F8E] decoded
+What
+
+
+[$6F90] decoded
+Keep me posted on any new events.
+
+[$6FAB] decoded
+So Mrs Brown killed herself, excellent Holmes, another brilliant conclusion.
+
+[$6FCA] decoded
+Brilliant Holmes, I do not know how you do it. ". He calls for a constable who leads the very distressed Mrs Jones out of the room into the depths of Scotland yard.
+
+[$7008] decoded
+Well it looks as though the Major is our man.
+
+[$7020] decoded
+Well it looks as though the Major is our man. My men are out looking for him now.
+
+[$7034] decoded
+Well then constable I shall return to the Yard and apprehend this Major Ffoulkes. You may remove the bodies now and tell the others they are free to go.
+
+[$706D] decoded
+Are free to go.
+
+[$7075] decoded
+You are free to go.
+
+[$7079] decoded
+Right then Holmes we must hurry if we are to catch them.
+
+[$7099] decoded
+Very good Holmes, Basil will likely try to sell them, we must find where the sale location is.
+
+[$70B6] decoded
+Where the sale location is.
+
+[$70C0] decoded
+Have you found where the sale location is.
+
+[$70C7] decoded
+I am afraid that Basil has eluded us Holmes.
+
+[$70E3] decoded
+I do not see the importance of that Holmes.
+
+[$70F0] decoded
+Very good Holmes, I shall return to Leather head tomorrow to have another look around.
+
+[$7112] decoded
+What is going on here constable?
+
+[$711D] decoded
+Come with me please.
+
+[$7126] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " I would like you to remain here please. "
+
+
+[$7139] decoded
+Make sure the Major does not leave constable.
+
+[$7150] decoded
+Have your men searched the river for the gun yet?
+
+[$7163] decoded
+Now what seems to be the problem here?
+
+[$7175] decoded
+Well then show me to the Brown's estate please.
+
+[$7189] decoded
+Right then Constable will you show me to Miss Strachan and Mr Phipps please.
+
+[$71A4] decoded
+Chief Constable I will see the staff now.
+
+[$71B7] decoded
+Well I must say this is all very confusing, perhaps I should visit the estate of Mrs Jones now.
+
+[$71E0] decoded
+Well, Holmes fancy seeing you here.
+
+[$71ED] symbolic
+⟦nome referente $A036⟧ With a surprised look on his face, says " Well, Holmes fancy seeing you here. ".
+
+
+[$7207] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " ⟦nome referente $A034⟧ I would like you to meet Mr Sherlock Holmes, Holmes this is ⟦nome referente $A034⟧ ".
+
+
+[$720A] symbolic
+⟦nome referente $A034⟧ I would like you to meet Mr Sherlock Holmes, Holmes this is ⟦nome referente $A034⟧ ".
+
+
+[$7224] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " Well, Holmes fancy seeing you here. ⟦nome referente $A034⟧ I would like you to meet Mr Sherlock Holmes, Holmes this is ⟦nome referente $A034⟧ ".
+
+
+[$722D] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " Well can you prove that ⟦relazione da argomento stack⟧ yet, Holmes ? ".
+
+
+[$7243] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " What ".
+
+
+[$7249] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " That may well be, Holmes, I will think about it
+
+[$725F] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " That may well be, Holmes, I will think about it. "
+
+
+[$7265] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " That may well be, Holmes, I will think about it, but I have other cases to solve right now. "
+
+
+[$727E] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " Thats fine Holmes but what does it prove ".
+
+
+[$7295] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " What proof do you have that ⟦relazione da argomento stack⟧ ".
+
+
+[$72A3] symbolic
+⟦relazione da argomento stack⟧ ".
+
+
+[$72A6] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " I do not believe that you have the evidence to prove that ⟦relazione da argomento stack⟧ ".
+
+
+[$72BD] symbolic
+⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ " That is well and good, but I do not see how it proves that ⟦relazione da argomento stack⟧ ".
+
+
+[$72D6] decoded
+One thing at a time Holmes
+
+[$72E1] symbolic
+I cannot accept that ⟦relazione da argomento stack⟧.
+
+[$72EE] decoded
+What
+
+
+[$72F0] decoded
+Inspector I would like you to meet Basil Phipps and Daphne Strachan. Basil, Daphne this is Inspector Lestrade from Scotland Yard.
+
+[$7319] decoded
+Yes Inspector, unfortunately nothing was found.
+
+[$7329] decoded
+Hello Inspector, good of you to come so quickly.
+
+[$733B] decoded
+ " Meet me by the bridge at
+
+[$7347] decoded
+ " Meet me by the bridge at half past twelve. I have some very important news.  Signed. P. F. ".
+
+[$7371] decoded
+Damned sticky business this, we recieved a report early this morning from the gardener up at the Brown's estate that Mrs Brown had been murdered. Well I'll tell you I have been police chief here for many a year now and I have never seen as nasty a piece of work as this. Clearly she was shot from close range, the bullet entering the right temple and exiting from the left side. I would say that she was dead before her body hit the ground. The only clue so far is a note reading " Meet me by the bridge at half past twelve. I have some very important news.  Signed. P. F. ". As if all this was not bad enough, when I went round to Mrs Jones house to break the news to her, they were very close friends you know, I was forced to break into the house, not being able to rouse anyone. Imagine my shock when I entered the library to find Mrs Jones lying dead on the couch, her face all but blown away by what appears to be the same gun that killed Mrs Brown. At the present the only people who seem to be involved are the gardener and his wife, the cook, and the maid along with Mrs Brown's niece Daphne Strachan and her fiancee Basil Phipps. I have asked them all to remain at the house for the present.
+
+[$7552] symbolic
+⟦nome referente $A036⟧ Seems at a loss, looking forlorn and crying quietly to herself.
+
+
+[$7571] decoded
+What
+
+
+[$7573] symbolic
+As you enter ⟦nome referente $A036⟧ whips his horses into action and speeds off down the road.
+
+
+[$759C] decoded
+Basil enters and says " Holmes, your interference is becoming annoying. ". Pulling a gun he shoots you. Perhaps you should try again.
+
+
+[$75A1] decoded
+Says " Holmes, your interference is becoming annoying. ". Pulling a gun he shoots you. Perhaps you should try again.
+
+
+[$75D2] decoded
+Basil says " Holmes, your interference is becoming annoying. ". Pulling a gun he shoots you. Perhaps you should try again.
+
+
+[$75D7] decoded
+A messenger arrives at the door,
+
+[$75E8] decoded
+A messenger arrives at the door, takes a note from Basil and dissapears down the street.
+
+
+[$75F1] decoded
+Basil and dissapears down the street.
+
+
+[$7603] decoded
+A messenger arrives at the door, gives a note to Basil and dissapears down the street.
+
+
+[$760F] decoded
+What
+
+
+[$7611] decoded
+The train pulls out of the station.
+
+
+[$761B] decoded
+What
+
+
+[$761D] decoded
+I am sorry I cannot help you with that.
+
+[$762D] decoded
+Tricia was blackmailing Mrs Brown about something.
+
+[$7644] decoded
+Tricia was blackmailing Mrs Brown about something. I just could not let her hurt my friend like that so I planned to get rid of her. I had no idea that she had already killed poor Sarah.
+
+[$7687] decoded
+Oh my god, you found out, I am really Mrs Jones. Tricia was blackmailing Mrs Brown about something. I just could not let her hurt my friend like that so I planned to get rid of her. I had no idea that she had already killed poor Sarah.
+
+[$76A4] decoded
+She was Mr Browns secretary before he died, I think she was single then and I do not think she ever married. It's funny you should mention her, we always used to say how alike she and poor Mrs Jones were. As far as I know she lives in Portman street in London.
+
+[$7722] decoded
+I live in Sidmouth street.
+
+[$772C] decoded
+In London I live in Camden street. At Leather head I stay at a rented house in Cobden lane.
+
+[$774F] decoded
+Mrs Brown's husband was killed about five years ago, he was a top scientist working on some secret project. Apparently there was some mystery involved in his death but nothing was ever discovered and I hear the plans for his project were never seen again. She was very well liked by the people around here.
+
+[$77C9] decoded
+Mrs Jones was a widow, her husband having died about eight years ago. At the time she came here to live near her lifelong friend Mrs Brown.
+
+[$780C] decoded
+I am sorry but I am not at liberty to say what I was doing at the time of the murder but I can tell you that I was in London all that night.
+
+[$7846] decoded
+I was asleep last night when the sound of a gun shot woke me, when I went out to the garden I found her lying there. My wife here had risen when I came back into the house and the commotion had woken the maid. When things had calmed down a bit we sent the maid around to the police station and the constable knows the rest.
+
+[$78D4] decoded
+He was a good friend of poor Mrs Jones, an ex Indian army man I believe.
+
+[$78F8] decoded
+I always thought that he was such a nice fellow, but last week I was doing some work over at Mrs Jones and I could not help overhear her and the Major fighting. I do not know what it was all about but it sounded very nasty.
+
+[$794F] decoded
+I was woken last night as my husband arose and left the room, being a very heavy sleeper I did not hear the gun. When he returned and told me what had happened well I just could not believe it, I just cannot imagine who would want to hurt such a sweet lady like Mrs Brown.
+
+[$79C4] decoded
+Well I do not like to speak ill of anyone but I did overhear Basil and Daphne arguing very strongly about Mrs Browns will. It seems that because of Daphne's alliance with Basil Mrs Brown had cut her out of the will, I do not think she thought very well of him.
+
+[$7A35] decoded
+I got woken by a lot of noise out in the hall and when I went out to see the gardener told me about Mrs Brown. I just bet that Basil's got something to do with this, I never did like him. " At this outburst the cook turns to her and says " Hush child, you should not say things like that.
+
+[$7AB9] decoded
+Well I was in my bedroom at the house I am renting down the road. I stayed up quite late playing Chopin on the piano, then went to bed.
+
+[$7AF6] decoded
+Unfortunately I do not know very much since the first I knew of this horrible deed was when the police arrived and Constable Straker knocked on my bedroom door. " At this Daphne breaks down and starts to cry sobbing " It is terrible just terrible.
+
+[$7B58] decoded
+What
+
+
+[$7B5A] decoded
+As you search the river Lestrade comes over to help. He stumbles and slides down the bank and notices a gleam in the water. Reaching in he pulls out a gun tied to a large rock and exclaims " Excellent Holmes, excellent. ".
+
+
+[$7BC2] decoded
+In one corner of the sheet is a very small tear.
+
+[$7BD7] decoded
+A very small piece of cloth is caught on the window frame.
+
+[$7BF7] decoded
+It has been swung away from the wall revealing a small room behind.
+
+[$7C02] decoded
+Away from the wall revealing a small room behind.
+
+[$7C13] decoded
+As you run your hands over the books you touch a hidden spring and with a lot of creaking the bookcase swings away from the wall revealing a small room behind.
+
+[$7C4A] decoded
+Examination of the right hand reveals dark speckled markings that resemble powder burns.
+
+[$7C77] decoded
+Strangely there are no signs of rings or jewellery on either hand.
+
+[$7C9E] decoded
+Close inspection reveals a small chip in the stone work that is evidently quite new. It looks like a heavy metallic object has struck it.
+
+
+[$7CE7] decoded
+Careful examination shows that the drawer has a false bottom.
+
+[$7CFA] decoded
+What
+
+
+[$7CFC] decoded
+The two broad windows in
+
+[$7D05] decoded
+The first rays of light filter their way through the two broad windows in
+
+[$7D1F] decoded
+The sun streams in the two broad windows in
+
+[$7D2B] decoded
+Two broad windows illuminate
+
+[$7D3B] decoded
+The sunlight fades through the two broad windows in
+
+[$7D4E] decoded
+You can see the light of a flickering gas lamp through the two broad windows in
+
+[$7D62] symbolic
+⟦se classe temporale=5⟧ The first rays of light filter their way through the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=4⟧ the sun streams in the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=3⟧ two broad windows illuminate ⟦fine condizione⟧ ⟦se classe temporale=2⟧ the sunlight fades through the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=1⟧ you can see the light of a flickering gas lamp through the two broad windows in ⟦fine condizione⟧ your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner.
+
+[$7DC1] decoded
+Flickering gas lamps provide enough light to cast shadows.
+
+[$7DE1] symbolic
+⟦nome $A036 + is/are⟧ Travelling the streets of London in a hansom cab, ⟦se classe temporale=1⟧ flickering gas lamps provide enough light to cast shadows. ⟦fine condizione⟧ The sun shines through the windows onto your face.
+
+[$7E0B] symbolic
+⟦nome $A036 + is/are⟧ In a cab travelling madly along rough country roads.
+
+[$7E27] symbolic
+⟦nome $A036 + is/are⟧ Travelling along the London underground railway in a steam train.
+
+[$7E45] symbolic
+⟦nome $A036 + is/are⟧ Riding in a steam train through the picturesque English countryside.
+
+[$7E65] symbolic
+⟦nome $A036 + is/are⟧ Riding in a steam train being shunted between platforms.
+
+[$7E7F] symbolic
+⟦nome $A036 + is/are⟧ In Major Ffoulkes room in the boarding house. It is small and somewhat crowded. Indian artifacts, many very strange, litter the room.
+
+[$7EB7] symbolic
+⟦nome $A036 + is/are⟧ In a large lavishly decorated bedroom, a broad window overlooks a small lane leading north.
+
+[$7EEA] symbolic
+⟦nome $A036 + is/are⟧ At platform one of
+
+[$7EF2] symbolic
+⟦nome $A036 + is/are⟧ At platform two of
+
+[$7EFA] symbolic
+⟦nome $A036 + is/are⟧ At platform one of Aldergate station.
+
+[$7EFD] decoded
+Aldergate station.
+
+[$7F03] symbolic
+⟦nome $A036 + is/are⟧ At platform two of Aldergate station.
+
+[$7F09] symbolic
+⟦nome $A036 + is/are⟧ At platform one of Kings cross station.
+
+[$7F0C] decoded
+Kings cross station.
+
+[$7F14] symbolic
+⟦nome $A036 + is/are⟧ At platform two of Kings cross station.
+
+[$7F1A] symbolic
+⟦nome $A036 + is/are⟧ At platform three of Kings cross station.
+
+[$7F24] symbolic
+⟦nome $A036 + is/are⟧ At platform four of Kings cross station.
+
+[$7F2E] symbolic
+⟦nome $A036 + is/are⟧ At platform one of Paddington station.
+
+[$7F31] decoded
+Paddington station.
+
+[$7F37] symbolic
+⟦nome $A036 + is/are⟧ At platform two of Paddington station.
+
+[$7F3D] symbolic
+⟦nome $A036 + is/are⟧ At platform one of Victoria station.
+
+[$7F40] decoded
+Victoria station.
+
+[$7F46] symbolic
+⟦nome $A036 + is/are⟧ At platform two of Victoria station.
+
+[$7F4C] symbolic
+⟦nome $A036 + is/are⟧ At platform one of Leather Head station.
+
+[$7F4F] decoded
+Leather Head station.
+
+[$7F57] symbolic
+⟦nome $A036 + is/are⟧ At platform two of Leather Head station.
+
+[$7F5D] decoded
+What
+
+
+[$7F5F] decoded
+What
+
+
+[$7F61] decoded
+They are to Mrs Brown from Tricia and appear to be blackmail letters.
+
+[$7F77] decoded
+They are labelled " Tricia. Fender. ".
+
+[$7F89] decoded
+The bed is unmade and one sheet is crumpled up on top.
+
+[$7FA2] decoded
+The music on the piano is Baroque.
+
+[$7FB2] decoded
+On the gramaphone is a record of Chopin Nocturnes.
+
+[$7FC5] decoded
+It is addressed to Mrs Brown and reads " Meet me by the bridge at... ".
+
+[$7FDA] decoded
+The folder is empty but the label reads " Top Secret. Military plans. ".
+
+[$7FF9] decoded
+Apart from a fairly new and unused blotting pad the desk top is empty.
+
+[$801D] decoded
+While the balance in the account is very high the entries in the book indicate that substantial and regular withdrawals have been made recently. The account name is Mrs Brown.
+
+[$807A] decoded
+Dear Sherlock, I have gone back to the practice to see a few patients. Will be back later.      Watson.
+
+[$80AB] decoded
+S. V.
+A BLV SNIH USH YWNBK. XLET YTAQH AK NQQHYUNRWH. WHU FH MBLV VSHTH XLE 
+
+[$80F8] decoded
+VAKS USH KNWH UL UNMH YWNQH. UNMH QNTH FTK RTLVBK GHNUS SNK KUNTUHG USH YLWAQH BLKABP NTLEBG.       Rnkaw.
+
+[$8158] decoded
+DSWYP.
+GSUV CUVKSUP CSUX GSIC PPYA GPI UVK KS ZKCYVK ILK KS WXSPO UVK ZRD PPYL Y.      V. L.
+
+[$81B7] decoded
+The note reads " I have some news of vital importance that I would like to discuss with you at your convenience. Signed. Tricia Fender. "
+
+[$81F5] decoded
+You see the body of a middle aged woman. Her face is streaked with dried blood.
+
+[$8220] decoded
+It reads " Meet me by the bridge at half past twelve. I have some very important news.  Signed. P. F. ".
+
+[$8227] decoded
+You see the body of a woman who was shot in the head. The face is now mutilated beyond recognition.

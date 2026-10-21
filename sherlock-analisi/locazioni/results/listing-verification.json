@@ -1,0 +1,131 @@
+{
+  "instructions": 844,
+  "bytes_roundtripped": 3689,
+  "regions": [
+    {
+      "start": "840B",
+      "end_exclusive": "8B6F",
+      "kind": "data"
+    },
+    {
+      "start": "C00C",
+      "end_exclusive": "C03B",
+      "kind": "code"
+    },
+    {
+      "start": "C821",
+      "end_exclusive": "C898",
+      "kind": "code"
+    },
+    {
+      "start": "CA7F",
+      "end_exclusive": "CAAE",
+      "kind": "code"
+    },
+    {
+      "start": "D045",
+      "end_exclusive": "D05A",
+      "kind": "code"
+    },
+    {
+      "start": "D05A",
+      "end_exclusive": "D078",
+      "kind": "data"
+    },
+    {
+      "start": "D078",
+      "end_exclusive": "D0DC",
+      "kind": "code"
+    },
+    {
+      "start": "D0DC",
+      "end_exclusive": "D0DD",
+      "kind": "data"
+    },
+    {
+      "start": "D0DD",
+      "end_exclusive": "D1DB",
+      "kind": "code"
+    },
+    {
+      "start": "D224",
+      "end_exclusive": "D275",
+      "kind": "code"
+    },
+    {
+      "start": "D33C",
+      "end_exclusive": "D349",
+      "kind": "code"
+    },
+    {
+      "start": "D39B",
+      "end_exclusive": "D5C9",
+      "kind": "code"
+    },
+    {
+      "start": "D5C9",
+      "end_exclusive": "D5D3",
+      "kind": "data"
+    },
+    {
+      "start": "D5D3",
+      "end_exclusive": "D6B8",
+      "kind": "code"
+    },
+    {
+      "start": "DC20",
+      "end_exclusive": "DC57",
+      "kind": "code"
+    },
+    {
+      "start": "DC57",
+      "end_exclusive": "DC5B",
+      "kind": "data"
+    },
+    {
+      "start": "DC5B",
+      "end_exclusive": "DC7B",
+      "kind": "code"
+    },
+    {
+      "start": "DC7B",
+      "end_exclusive": "DC7D",
+      "kind": "data"
+    },
+    {
+      "start": "DC7D",
+      "end_exclusive": "DC8D",
+      "kind": "code"
+    },
+    {
+      "start": "DCD2",
+      "end_exclusive": "DCFF",
+      "kind": "code"
+    },
+    {
+      "start": "DCFF",
+      "end_exclusive": "DD03",
+      "kind": "data"
+    },
+    {
+      "start": "DD03",
+      "end_exclusive": "DD07",
+      "kind": "data"
+    },
+    {
+      "start": "DD07",
+      "end_exclusive": "DD52",
+      "kind": "code"
+    },
+    {
+      "start": "DD52",
+      "end_exclusive": "DD65",
+      "kind": "data"
+    },
+    {
+      "start": "DD65",
+      "end_exclusive": "DD84",
+      "kind": "code"
+    }
+  ]
+}

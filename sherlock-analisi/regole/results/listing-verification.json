@@ -1,0 +1,201 @@
+{
+  "instructions": 785,
+  "bytes_roundtripped": 1849,
+  "regions": [
+    {
+      "start": "9C6A",
+      "end_exclusive": "9C85",
+      "kind": "code"
+    },
+    {
+      "start": "9C85",
+      "end_exclusive": "9CA2",
+      "kind": "data"
+    },
+    {
+      "start": "9CA2",
+      "end_exclusive": "9CCE",
+      "kind": "code"
+    },
+    {
+      "start": "A093",
+      "end_exclusive": "A0D8",
+      "kind": "code"
+    },
+    {
+      "start": "BFD9",
+      "end_exclusive": "C00C",
+      "kind": "code"
+    },
+    {
+      "start": "C4D1",
+      "end_exclusive": "C571",
+      "kind": "code"
+    },
+    {
+      "start": "C628",
+      "end_exclusive": "C821",
+      "kind": "code"
+    },
+    {
+      "start": "C9BF",
+      "end_exclusive": "CAAE",
+      "kind": "code"
+    },
+    {
+      "start": "CB28",
+      "end_exclusive": "CB2C",
+      "kind": "data"
+    },
+    {
+      "start": "CB2C",
+      "end_exclusive": "CB41",
+      "kind": "code"
+    },
+    {
+      "start": "CC0E",
+      "end_exclusive": "CC29",
+      "kind": "code"
+    },
+    {
+      "start": "CC82",
+      "end_exclusive": "CCF3",
+      "kind": "code"
+    },
+    {
+      "start": "CD0A",
+      "end_exclusive": "CD17",
+      "kind": "code"
+    },
+    {
+      "start": "CE3B",
+      "end_exclusive": "CE6A",
+      "kind": "code"
+    },
+    {
+      "start": "CE8F",
+      "end_exclusive": "CF43",
+      "kind": "code"
+    },
+    {
+      "start": "CFCF",
+      "end_exclusive": "D008",
+      "kind": "code"
+    },
+    {
+      "start": "DCA2",
+      "end_exclusive": "DCC1",
+      "kind": "code"
+    },
+    {
+      "start": "DCC1",
+      "end_exclusive": "DCC5",
+      "kind": "data"
+    },
+    {
+      "start": "DCC5",
+      "end_exclusive": "DCD2",
+      "kind": "code"
+    },
+    {
+      "start": "DD9E",
+      "end_exclusive": "DDA0",
+      "kind": "data"
+    },
+    {
+      "start": "DDA0",
+      "end_exclusive": "DDB4",
+      "kind": "code"
+    },
+    {
+      "start": "DE9D",
+      "end_exclusive": "DEA4",
+      "kind": "data"
+    },
+    {
+      "start": "DEA4",
+      "end_exclusive": "DEAF",
+      "kind": "code"
+    },
+    {
+      "start": "DEAF",
+      "end_exclusive": "DEB6",
+      "kind": "data"
+    },
+    {
+      "start": "DEB6",
+      "end_exclusive": "DEC1",
+      "kind": "code"
+    },
+    {
+      "start": "DF02",
+      "end_exclusive": "DF06",
+      "kind": "data"
+    },
+    {
+      "start": "DF06",
+      "end_exclusive": "DF2E",
+      "kind": "code"
+    },
+    {
+      "start": "DF7E",
+      "end_exclusive": "DF80",
+      "kind": "data"
+    },
+    {
+      "start": "DF80",
+      "end_exclusive": "DF8B",
+      "kind": "data"
+    },
+    {
+      "start": "DF8B",
+      "end_exclusive": "DF8D",
+      "kind": "data"
+    },
+    {
+      "start": "DF8D",
+      "end_exclusive": "DFA7",
+      "kind": "code"
+    },
+    {
+      "start": "DFA7",
+      "end_exclusive": "DFAB",
+      "kind": "data"
+    },
+    {
+      "start": "DFAB",
+      "end_exclusive": "DFB6",
+      "kind": "data"
+    },
+    {
+      "start": "DFB6",
+      "end_exclusive": "DFB8",
+      "kind": "data"
+    },
+    {
+      "start": "DFB8",
+      "end_exclusive": "DFCA",
+      "kind": "code"
+    },
+    {
+      "start": "DFCA",
+      "end_exclusive": "DFCC",
+      "kind": "data"
+    },
+    {
+      "start": "DFCC",
+      "end_exclusive": "DFE3",
+      "kind": "code"
+    },
+    {
+      "start": "DFFD",
+      "end_exclusive": "E003",
+      "kind": "code"
+    },
+    {
+      "start": "E01C",
+      "end_exclusive": "E022",
+      "kind": "code"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "address": "C0A5",
+    "text": "REWIND TAPE.",
+    "format": "C1CB: bit 7 finale"
+  },
+  {
+    "address": "C0B1",
+    "text": "TAPE ERROR.",
+    "format": "C1CB: bit 7 finale"
+  },
+  {
+    "address": "C0BC",
+    "text": "PLAY SAVED GAME TAPE TO BE LOADED\n.",
+    "format": "C1CB: bit 7 finale"
+  }
+]

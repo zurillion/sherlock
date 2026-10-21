@@ -1,0 +1,60 @@
+Sherlock> EXAMINE ARMCHAIR
+Sintassi accettata. Nessuna azione del gioco eseguita.
+Riga normalizzata: EXAMINE ARMCHAIR.
+Riconoscimento:
+  'EXAMINE' → EXAMINE [verbo]
+  'ARMCHAIR' → ARMCHAIR [nome/referente]
+  '.' → — [fine frase]
+Unità 1: modo finale 1 (comandi), esito parser 0.
+  Verbo/predicato: EXAMINE
+    Gruppo nominale 1: ARMCHAIR
+Da risolvere nel gioco: identità degli oggetti/pronomi, disponibilità, destinatari e possibilità di eseguire l’azione.
+
+Sherlock> /continua 1 WATSONS
+Sintassi accettata. Nessuna azione del gioco eseguita.
+Riga normalizzata: WATSONS.
+Continuazione simulata del gruppo 1 di: EXAMINE ARMCHAIR.
+Riconoscimento:
+  'WATSONS' → WATSONS [qualificatore]
+  '.' → — [fine frase]
+Unità 1: modo finale 1 (comandi), esito parser 0.
+  Verbo/predicato: EXAMINE
+    Gruppo nominale 1: ARMCHAIR; qualificatori: WATSONS
+Da risolvere nel gioco: identità degli oggetti/pronomi, disponibilità, destinatari e possibilità di eseguire l’azione.
+
+Sherlock> TELL WATSON "WATSON KILLED YOU"
+Sintassi accettata. Nessuna azione del gioco eseguita.
+Riga normalizzata: TELL WATSON "WATSON KILLED YOU.".
+Riconoscimento:
+  'TELL' → TELL [verbo]
+  'WATSON' → WATSON [nome/referente]
+  '"' → — [speciale]
+  'WATSON' → WATSON [nome/referente]
+  'KILLED' → KILLED [verbo di affermazione]
+  'YOU' → YOU [nome/referente]
+  '.' → — [fine frase]
+  '"' → — [speciale]
+  '.' → — [fine frase]
+Unità 1: modo finale 1 (comandi), esito parser 0.
+  Verbo/predicato: TELL
+    Gruppo nominale 1: WATSON
+  Citazione 1: accettata, modo finale 2.
+    Verifica anticipata del contenuto che il gioco analizza in seguito.
+    Verbo/predicato: KILLED
+      Soggetto: WATSON
+      Gruppo nominale 1: YOU
+Da risolvere nel gioco: identità degli oggetti/pronomi, disponibilità, destinatari e possibilità di eseguire l’azione.
+
+Sherlock> LOOK. THE
+Errore sintattico: WHAT ?
+Riga normalizzata: LOOK. THE.
+Riconoscimento:
+  'LOOK' → LOOK [verbo]
+  '.' → — [fine frase]
+  'THE' → THE [articolo/ausiliare]
+  '.' → — [fine frase]
+Unità 1: modo finale 1 (comandi), esito parser 0.
+  Verbo/predicato: LOOK
+Unità 2: modo finale 1 (comandi), esito parser 1.
+  WHAT ? — questa unità non è accettata.
+Le strutture mostrate prima dell’errore sono risultati parziali; non è stata eseguita alcuna azione.

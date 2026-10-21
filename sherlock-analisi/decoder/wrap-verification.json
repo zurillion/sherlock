@@ -1,0 +1,38 @@
+[
+  {
+    "address": "6859",
+    "match": true,
+    "z80": "I do not know the word \"",
+    "python": "I do not know the word \""
+  },
+  {
+    "address": "680B",
+    "match": true,
+    "z80": "Only an idiot would try that.\n",
+    "python": "Only an idiot would try that.\n"
+  },
+  {
+    "address": "693A",
+    "match": true,
+    "z80": "\n\n\n\n\n\n\n\nI do not think you are doing too \nwell, surely Sherlock Holmes could \ndo a better job than you have done \nso far. Perhaps you should try \nagain.\n",
+    "python": "\n\n\n\n\n\n\n\nI do not think you are doing too \nwell, surely Sherlock Holmes could \ndo a better job than you have done \nso far. Perhaps you should try \nagain.\n"
+  },
+  {
+    "address": "81B7",
+    "match": true,
+    "z80": "The note reads \" I have some news of\nvital importance that I would like \nto discuss with you at your \nconvenience. Signed. Tricia Fender. \n\"",
+    "python": "The note reads \" I have some news of\nvital importance that I would like \nto discuss with you at your \nconvenience. Signed. Tricia Fender. \n\""
+  },
+  {
+    "address": "807A",
+    "match": true,
+    "z80": "Dear Sherlock, I have gone back to \nthe practice to see a few patients. \nWill be back later.      Watson.",
+    "python": "Dear Sherlock, I have gone back to \nthe practice to see a few patients. \nWill be back later.      Watson."
+  },
+  {
+    "address": "7D62",
+    "match": true,
+    "z80": "The sun streams in the two broad \nwindows in your sitting room. There \nis a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and \ndiagrams fill another. An acid \nstained table sits in the corner.",
+    "python": "The sun streams in the two broad \nwindows in your sitting room. There \nis a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and \ndiagrams fill another. An acid \nstained table sits in the corner."
+  }
+]

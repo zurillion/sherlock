@@ -1,0 +1,445 @@
+[
+  {
+    "command": "OPEN DOR",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "messages": [
+      {
+        "kind": "error",
+        "text": "I DO NOT KNOW THE WORD\"DOR \""
+      }
+    ],
+    "outcome": "lexical_error"
+  },
+  {
+    "command": "PICK THE NOTE UP",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "messages": [
+      {
+        "kind": "error",
+        "text": "WHAT ?"
+      }
+    ],
+    "outcome": "syntax_error"
+  },
+  {
+    "command": "WEST",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "messages": [
+      {
+        "kind": "error",
+        "text": "YOU CANNOT GO WEST."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "SAVE",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "outcome": "tool_limit"
+  },
+  {
+    "command": "OPEN YOUR DOOR",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 2,
+      "due": 1,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:01 am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 2,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:02 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You open your door."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "WEST",
+    "room_before": 8,
+    "room_after": 7,
+    "clock_before": {
+      "tick": 3,
+      "due": 2,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:02 am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:03 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You go west."
+      },
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 7
+      },
+      {
+        "kind": "narrative",
+        "text": "You are in a hall. To the east there is your door. Below there is the stairway."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "EAST",
+    "room_before": 7,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:03 am"
+    },
+    "clock_after": {
+      "tick": 6,
+      "due": 6,
+      "minute": 5,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:05 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You go east.\n The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "WEST",
+    "room_before": 8,
+    "room_after": 7,
+    "clock_before": {
+      "tick": 6,
+      "due": 6,
+      "minute": 5,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:05 am"
+    },
+    "clock_after": {
+      "tick": 8,
+      "due": 8,
+      "minute": 7,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:07 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You go west.\n You are in a hall."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "EAST",
+    "room_before": 7,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 8,
+      "due": 8,
+      "minute": 7,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:07 am"
+    },
+    "clock_after": {
+      "tick": 10,
+      "due": 10,
+      "minute": 9,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:09 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You go east.\n You are in Your Room. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "LOOK",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 10,
+      "due": 10,
+      "minute": 9,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:09 am"
+    },
+    "clock_after": {
+      "tick": 11,
+      "due": 11,
+      "minute": 10,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:10 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "WAIT",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 11,
+      "due": 11,
+      "minute": 10,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:10 am"
+    },
+    "clock_after": {
+      "tick": 16,
+      "due": 16,
+      "minute": 15,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:15 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You wait."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "GO INTO HALL",
+    "room_before": 8,
+    "room_after": 7,
+    "clock_before": {
+      "tick": 16,
+      "due": 16,
+      "minute": 15,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:15 am"
+    },
+    "clock_after": {
+      "tick": 18,
+      "due": 18,
+      "minute": 17,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:17 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You go west.\n You are in a hall."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "GO THROUGH YOUR DOOR",
+    "room_before": 7,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 18,
+      "due": 18,
+      "minute": 17,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:17 am"
+    },
+    "clock_after": {
+      "tick": 20,
+      "due": 20,
+      "minute": 19,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:19 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You go through your door.\n You are in Your Room. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "outcome": "ok"
+  },
+  {
+    "command": "LOOK. N",
+    "room_before": 8,
+    "room_after": 8,
+    "clock_before": {
+      "tick": 20,
+      "due": 20,
+      "minute": 19,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:19 am"
+    },
+    "clock_after": {
+      "tick": 21,
+      "due": 21,
+      "minute": 20,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Lunedì · 08:20 am"
+    },
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      },
+      {
+        "kind": "error",
+        "text": "YOU CANNOT GO NORTH."
+      }
+    ],
+    "outcome": "ok"
+  }
+]

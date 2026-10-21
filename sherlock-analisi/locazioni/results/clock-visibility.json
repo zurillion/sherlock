@@ -1,0 +1,11 @@
+{
+  "position": "right side of divider between narration and user commands",
+  "header_clock_removed": true,
+  "clock": "Luned\u00ec \u00b7 08:05 am",
+  "clock_right_gap_px": 0,
+  "clock_top_px": 343.1953125,
+  "divider_top_px": 342.1953125,
+  "divider_bottom_px": 372.1953125,
+  "game_time_unchanged": true,
+  "screenshot": "orologio-striscia.png"
+}

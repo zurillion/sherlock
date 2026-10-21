@@ -1,0 +1,781 @@
+SHERLOCK — CATALOGO COMPLETO DEI RECORD DELLE LOCAZIONI
+106 slot: 105 con nome, 20 con descrizione specifica.
+I nomi provengono dai campi lessicali: articoli e grammatica possono essere incompleti.
+⟦...⟧ indica una parte dinamica, non testo presente nel gioco.
+Fascia oraria non selezionata: le alternative sono annotate.
+
+========================================================================================
+SLOT 000 — [record senza nome]
+Record: $84E1
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Slot incluso per completezza; non classificato come luogo visitabile.
+
+========================================================================================
+LOCAZIONE 001 — hansom cab
+Record: $84EB
+----------------------------------------------------------------------------------------
+Descrizione: $7DE1
+
+⟦nome $A036 + is/are⟧ Travelling the streets of London in a hansom cab, ⟦se classe
+temporale=1⟧ flickering gas lamps provide enough light to cast shadows. ⟦fine
+condizione⟧ The sun shines through the windows onto your face.
+
+========================================================================================
+LOCAZIONE 002 — steam train
+Record: $84F5
+----------------------------------------------------------------------------------------
+Descrizione: $7E27
+
+⟦nome $A036 + is/are⟧ Travelling along the London underground railway in a steam train.
+
+========================================================================================
+LOCAZIONE 003 — steam train
+Record: $84FF
+----------------------------------------------------------------------------------------
+Descrizione: $7E45
+
+⟦nome $A036 + is/are⟧ Riding in a steam train through the picturesque English
+countryside.
+
+========================================================================================
+LOCAZIONE 004 — steam train
+Record: $8509
+----------------------------------------------------------------------------------------
+Descrizione: $7E65
+
+⟦nome $A036 + is/are⟧ Riding in a steam train being shunted between platforms.
+
+========================================================================================
+LOCAZIONE 005 — baker street
+Record: $8513
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 006 — entrance hallway
+Record: $8520
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 007 — hall
+Record: $8530
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 008 — your room
+Record: $8540
+----------------------------------------------------------------------------------------
+Descrizione: $7D62
+
+⟦se classe temporale=5⟧ The first rays of light filter their way through the two broad
+windows in ⟦fine condizione⟧ ⟦se classe temporale=4⟧ the sun streams in the two broad
+windows in ⟦fine condizione⟧ ⟦se classe temporale=3⟧ two broad windows illuminate ⟦fine
+condizione⟧ ⟦se classe temporale=2⟧ the sunlight fades through the two broad windows in
+⟦fine condizione⟧ ⟦se classe temporale=1⟧ you can see the light of a flickering gas lamp
+through the two broad windows in ⟦fine condizione⟧ your sitting room. There is a pipe
+rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts
+and diagrams fill another. An acid stained table sits in the corner.
+
+========================================================================================
+LOCAZIONE 009 — small closet
+Record: $8550
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 010 — parliament street
+Record: $855D
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 011 — scotland yard
+Record: $856A
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 012 — slater street
+Record: $8577
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 013 — disgust opium den
+Record: $8584
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 014 — aldergate street
+Record: $8591
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 015 — aldergate station
+Record: $859E
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 016 — platform one
+Record: $85AE
+----------------------------------------------------------------------------------------
+Descrizione: $7EFA
+
+⟦nome $A036 + is/are⟧ At platform one of Aldergate station.
+
+========================================================================================
+LOCAZIONE 017 — platform two
+Record: $85BE
+----------------------------------------------------------------------------------------
+Descrizione: $7F03
+
+⟦nome $A036 + is/are⟧ At platform two of Aldergate station.
+
+========================================================================================
+LOCAZIONE 018 — kings cross road
+Record: $85CB
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 019 — kings cross station
+Record: $85D8
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 020 — platform one
+Record: $85E8
+----------------------------------------------------------------------------------------
+Descrizione: $7F09
+
+⟦nome $A036 + is/are⟧ At platform one of Kings cross station.
+
+========================================================================================
+LOCAZIONE 021 — platform two
+Record: $85F8
+----------------------------------------------------------------------------------------
+Descrizione: $7F14
+
+⟦nome $A036 + is/are⟧ At platform two of Kings cross station.
+
+========================================================================================
+LOCAZIONE 022 — platform three
+Record: $8608
+----------------------------------------------------------------------------------------
+Descrizione: $7F1A
+
+⟦nome $A036 + is/are⟧ At platform three of Kings cross station.
+
+========================================================================================
+LOCAZIONE 023 — platform four
+Record: $8618
+----------------------------------------------------------------------------------------
+Descrizione: $7F24
+
+⟦nome $A036 + is/are⟧ At platform four of Kings cross station.
+
+========================================================================================
+LOCAZIONE 024 — bishops road
+Record: $8625
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 025 — paddington station
+Record: $8632
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 026 — platform one
+Record: $8642
+----------------------------------------------------------------------------------------
+Descrizione: $7F2E
+
+⟦nome $A036 + is/are⟧ At platform one of Paddington station.
+
+========================================================================================
+LOCAZIONE 027 — platform two
+Record: $8652
+----------------------------------------------------------------------------------------
+Descrizione: $7F37
+
+⟦nome $A036 + is/are⟧ At platform two of Paddington station.
+
+========================================================================================
+LOCAZIONE 028 — buckingham palace road
+Record: $865F
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 029 — victoria station
+Record: $866C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 030 — platform one
+Record: $867C
+----------------------------------------------------------------------------------------
+Descrizione: $7F3D
+
+⟦nome $A036 + is/are⟧ At platform one of Victoria station.
+
+========================================================================================
+LOCAZIONE 031 — platform two
+Record: $868C
+----------------------------------------------------------------------------------------
+Descrizione: $7F46
+
+⟦nome $A036 + is/are⟧ At platform two of Victoria station.
+
+========================================================================================
+LOCAZIONE 032 — camden street
+Record: $8699
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 033 — entrance hall
+Record: $86A9
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 034 — passage
+Record: $86BC
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 035 — basils bedroom
+Record: $86D2
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 036 — basils kitchen
+Record: $86E2
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 037 — basils dining room
+Record: $86F2
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 038 — basils library
+Record: $86FF
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 039 — basils yard
+Record: $870C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 040 — sidmouth street
+Record: $8719
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 041 — main passage
+Record: $8726
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 042 — reading lounge
+Record: $8739
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 043 — passage
+Record: $8746
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 044 — major ffoulkes room
+Record: $8756
+----------------------------------------------------------------------------------------
+Descrizione: $7E7F
+
+⟦nome $A036 + is/are⟧ In Major Ffoulkes room in the boarding house. It is small and
+somewhat crowded. Indian artifacts, many very strange, litter the room.
+
+========================================================================================
+LOCAZIONE 045 — portman street
+Record: $8763
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 046 — tricias entrance hall
+Record: $8770
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 047 — tricias lounge
+Record: $8780
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 048 — tricias kitchen
+Record: $8793
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 049 — tricias bedroom
+Record: $87A0
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 050 — main street
+Record: $87AD
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 051 — cobden lane
+Record: $87C6
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 052 — small lane
+Record: $87D9
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 053 — leatherhead station
+Record: $87EC
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 054 — platform one
+Record: $87FC
+----------------------------------------------------------------------------------------
+Descrizione: $7F4C
+
+⟦nome $A036 + is/are⟧ At platform one of Leather Head station.
+
+========================================================================================
+LOCAZIONE 055 — platform two
+Record: $880C
+----------------------------------------------------------------------------------------
+Descrizione: $7F57
+
+⟦nome $A036 + is/are⟧ At platform two of Leather Head station.
+
+========================================================================================
+LOCAZIONE 056 — entrance hall
+Record: $8819
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 057 — lounge room
+Record: $882C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 058 — basils library
+Record: $883F
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 059 — basils kitchen
+Record: $884C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 060 — small yard
+Record: $885C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 061 — basils bedroom
+Record: $886C
+----------------------------------------------------------------------------------------
+Descrizione: $7EB7
+
+⟦nome $A036 + is/are⟧ In a large lavishly decorated bedroom, a broad window overlooks a
+small lane leading north.
+
+========================================================================================
+LOCAZIONE 062 — browns front gate
+Record: $887C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 063 — browns front door
+Record: $888C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 064 — entrance hall
+Record: $889C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 065 — large kitchen
+Record: $88AF
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 066 — pantry
+Record: $88BF
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 067 — sitting room
+Record: $88CC
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 068 — dining room
+Record: $88DC
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 069 — long passage
+Record: $88EC
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 070 — long passage
+Record: $8905
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 071 — browns library
+Record: $891B
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 072 — browns study
+Record: $8928
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 073 — master bed room
+Record: $8938
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 074 — daphnes room
+Record: $8948
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 075 — guest room
+Record: $8955
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 076 — garden path
+Record: $8962
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 077 — winding garden path
+Record: $8978
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 078 — winding garden path
+Record: $8988
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 079 — winding garden path
+Record: $899B
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 080 — winding garden path
+Record: $89B4
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 081 — winding garden path
+Record: $89C7
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 082 — winding garden path
+Record: $89E0
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 083 — winding garden path
+Record: $89F3
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 084 — winding garden path
+Record: $8A09
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 085 — winding garden path
+Record: $8A19
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 086 — winding garden path
+Record: $8A29
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 087 — winding garden path
+Record: $8A3C
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 088 — east side
+Record: $8A4F
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 089 — west side
+Record: $8A62
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 090 — south side
+Record: $8A78
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 091 — north side
+Record: $8A8B
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 092 — jones front gate
+Record: $8AA1
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 093 — jones front door
+Record: $8AB1
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 094 — library
+Record: $8AC1
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 095 — small room
+Record: $8AD1
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 096 — jones entrance hall
+Record: $8ADE
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 097 — sitting room
+Record: $8AF4
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 098 — kitchen
+Record: $8B04
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 099 — dining room
+Record: $8B11
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 100 — small passage
+Record: $8B21
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 101 — mrs jones room
+Record: $8B31
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 102 — basils front yard
+Record: $8B3E
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 103 — old mill road
+Record: $8B4E
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 104 — leatherhead police station
+Record: $8B58
+----------------------------------------------------------------------------------------
+Nessuna descrizione specifica: il puntatore nel record è zero.
+Il gioco può comporre il testo con il nome e le routine generiche.
+
+========================================================================================
+LOCAZIONE 105 — police cab
+Record: $8B65
+----------------------------------------------------------------------------------------
+Descrizione: $7E0B
+
+⟦nome $A036 + is/are⟧ In a cab travelling madly along rough country roads.
+
+========================================================================================

@@ -1,0 +1,38 @@
+[
+  {
+    "input": "TELL WATSON \"LOOK\"",
+    "actual": {
+      "site": "B8C1",
+      "a": 0,
+      "z": true,
+      "mode": 1,
+      "cursor": "5B8E",
+      "last_token": "5B8D"
+    },
+    "predicted": "ok"
+  },
+  {
+    "input": "TELL WATSON \"THE\"",
+    "actual": {
+      "site": "B8C1",
+      "a": 1,
+      "z": false,
+      "mode": 1,
+      "cursor": "5B8B",
+      "last_token": "5B8A"
+    },
+    "predicted": "syntax_error"
+  },
+  {
+    "input": "TELL WATSON \"WATSON KILLED YOU\"",
+    "actual": {
+      "site": "B8C1",
+      "a": 0,
+      "z": true,
+      "mode": 2,
+      "cursor": "5B94",
+      "last_token": "5B93"
+    },
+    "predicted": "ok"
+  }
+]

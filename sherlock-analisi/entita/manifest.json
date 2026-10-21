@@ -1,0 +1,15 @@
+{
+  "LEGGIMI-ENTITA.md": "84d97a7636afb70d6112bbe5df06a991f48d92390ae695309b46be29753b3fac",
+  "MANUALE-E-INGLISH.md": "e5abf3ead098757877f0a37b6032bd9550e447c6226a84c493130505de1de5dd",
+  "build_entities_listing.py": "a9c91c2c6d708d5e2fb6a5ca4e2de3e81cab854df6a036ead765717d2d01c093",
+  "results/CATALOGO.md": "be2c039b9cec8bab1f8b235f9173b422f9e1e0ed1b1235be71e791a8ce190c8d",
+  "results/entities-semantics.asm": "c974b24764ba27e0fb1117ff6047087ca72a302ccc6999909013ba427e762341",
+  "results/entities.json": "44c3c14eb0d32e112d06e37ee43ea366caa6e647fc4c125461e65d18bd0ed91b",
+  "results/listing-verification.json": "d8a11bf14f7266761deb79a1ef3c5539c0c0232a4c6c197517d9ccd41b42720b",
+  "results/manual-probes.json": "d8c93f0b7ec53a928300c7250b51684a1a07a90bd49a5f4bc31a28644f2a9f69",
+  "results/semantic-traces.json": "201a87361e063b0ee653aac7810f022d87f1161679e3c6b7d4a0ab2f87f30518",
+  "results/verification.json": "4ee826139ef3fcb59dccaa3dc53b0f6ee48317323391a45c29a57e1e7a2f7a31",
+  "sherlock_entities.py": "a1ea6361e2dcb72e437f7c90873c01b2b37c8315a53e6785455c6c606f7f2177",
+  "trace_semantics.py": "83d67484977118e5c77362e14f1ffc2d2c816bf5c539b94ac8c16bbf175778e9",
+  "verify_entities.py": "fcb415e8fa6ceb5758ce17004d4458cc799120a03b606cc30d13cf234ae9bdc7"
+}

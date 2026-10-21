@@ -1,0 +1,1572 @@
+[
+  {
+    "id": 0,
+    "record": "84E1",
+    "name_hint": "",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 1,
+    "record": "84EB",
+    "name_hint": "hansom cab",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7DE1",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7DE1",
+      "text": "⟦nome $A036 + is/are⟧ Travelling the streets of London in a hansom cab, ⟦se classe temporale=1⟧ flickering gas lamps provide enough light to cast shadows. ⟦fine condizione⟧ The sun shines through the windows onto your face.",
+      "unresolved": [
+        {
+          "address": "7DE1",
+          "reason": "nome $A036 + is/are"
+        },
+        {
+          "address": "7DF1",
+          "reason": "se classe temporale=1"
+        },
+        {
+          "address": "7DF1",
+          "reason": "fine condizione"
+        }
+      ],
+      "token_addresses": [
+        "7DE1",
+        "7DE2",
+        "7DE4",
+        "7DE5",
+        "7DE7",
+        "7DE8",
+        "7DEA",
+        "7DEB",
+        "7DEC",
+        "7DEE",
+        "7DF0",
+        "7DF1",
+        "7DF2",
+        "7DC1",
+        "7DC3",
+        "7DC5",
+        "7DC7",
+        "7DC9",
+        "7DCB",
+        "7DCE",
+        "7DD0",
+        "7DD2",
+        "7DD3",
+        "7DD4",
+        "7DD8",
+        "7DD9",
+        "7DDF",
+        "7DE0",
+        "7DF5",
+        "7DF6",
+        "7DF8",
+        "7DF9",
+        "7DFE",
+        "7E00",
+        "7E01",
+        "7E03",
+        "7E05",
+        "7E07",
+        "7E09",
+        "7E0A"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 2,
+    "record": "84F5",
+    "name_hint": "steam train",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7E27",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7E27",
+      "text": "⟦nome $A036 + is/are⟧ Travelling along the London underground railway in a steam train.",
+      "unresolved": [
+        {
+          "address": "7E27",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7E27",
+        "7E28",
+        "7E2A",
+        "7E2C",
+        "7E2D",
+        "7E2F",
+        "7E31",
+        "7E36",
+        "7E37",
+        "7E3D",
+        "7E3E",
+        "7E3F",
+        "7E41",
+        "7E43",
+        "7E44"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 3,
+    "record": "84FF",
+    "name_hint": "steam train",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7E45",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7E45",
+      "text": "⟦nome $A036 + is/are⟧ Riding in a steam train through the picturesque English countryside.",
+      "unresolved": [
+        {
+          "address": "7E45",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7E45",
+        "7E46",
+        "7E48",
+        "7E49",
+        "7E4A",
+        "7E4C",
+        "7E4E",
+        "7E50",
+        "7E51",
+        "7E52",
+        "7E5A",
+        "7E5C",
+        "7E5E",
+        "7E63",
+        "7E64"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 4,
+    "record": "8509",
+    "name_hint": "steam train",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7E65",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7E65",
+      "text": "⟦nome $A036 + is/are⟧ Riding in a steam train being shunted between platforms.",
+      "unresolved": [
+        {
+          "address": "7E65",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7E65",
+        "7E66",
+        "7E68",
+        "7E69",
+        "7E6A",
+        "7E6C",
+        "7E6E",
+        "7E70",
+        "7E71",
+        "7E77",
+        "7E79",
+        "7E7B",
+        "7E7D",
+        "7E7E"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 5,
+    "record": "8513",
+    "name_hint": "baker street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 6,
+    "record": "8520",
+    "name_hint": "entrance hallway",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 7,
+    "record": "8530",
+    "name_hint": "hall",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 8,
+    "record": "8540",
+    "name_hint": "your room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7D62",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7D62",
+      "text": "⟦se classe temporale=5⟧ The first rays of light filter their way through the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=4⟧ the sun streams in the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=3⟧ two broad windows illuminate ⟦fine condizione⟧ ⟦se classe temporale=2⟧ the sunlight fades through the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=1⟧ you can see the light of a flickering gas lamp through the two broad windows in ⟦fine condizione⟧ your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner.",
+      "unresolved": [
+        {
+          "address": "7D62",
+          "reason": "se classe temporale=5"
+        },
+        {
+          "address": "7D62",
+          "reason": "fine condizione"
+        },
+        {
+          "address": "7D66",
+          "reason": "se classe temporale=4"
+        },
+        {
+          "address": "7D66",
+          "reason": "fine condizione"
+        },
+        {
+          "address": "7D6A",
+          "reason": "se classe temporale=3"
+        },
+        {
+          "address": "7D6A",
+          "reason": "fine condizione"
+        },
+        {
+          "address": "7D6E",
+          "reason": "se classe temporale=2"
+        },
+        {
+          "address": "7D6E",
+          "reason": "fine condizione"
+        },
+        {
+          "address": "7D72",
+          "reason": "se classe temporale=1"
+        },
+        {
+          "address": "7D72",
+          "reason": "fine condizione"
+        }
+      ],
+      "token_addresses": [
+        "7D62",
+        "7D63",
+        "7D05",
+        "7D06",
+        "7D08",
+        "7D09",
+        "7D0D",
+        "7D0E",
+        "7D10",
+        "7D11",
+        "7D16",
+        "7D18",
+        "7D1A",
+        "7D1C",
+        "7CFC",
+        "7CFD",
+        "7CFF",
+        "7D01",
+        "7D03",
+        "7D04",
+        "7D66",
+        "7D67",
+        "7D1F",
+        "7D20",
+        "7D22",
+        "7D24",
+        "7D26",
+        "7D27",
+        "7CFC",
+        "7CFD",
+        "7CFF",
+        "7D01",
+        "7D03",
+        "7D04",
+        "7D2A",
+        "7D6A",
+        "7D6B",
+        "7D2B",
+        "7D2D",
+        "7D2F",
+        "7D31",
+        "7D32",
+        "7D3A",
+        "7D6E",
+        "7D6F",
+        "7D3B",
+        "7D3C",
+        "7D3D",
+        "7D43",
+        "7D44",
+        "7D49",
+        "7D4B",
+        "7CFC",
+        "7CFD",
+        "7CFF",
+        "7D01",
+        "7D03",
+        "7D04",
+        "7D72",
+        "7D73",
+        "7D4E",
+        "7D4F",
+        "7D51",
+        "7D52",
+        "7D53",
+        "7D55",
+        "7D56",
+        "7D57",
+        "7D59",
+        "7D5B",
+        "7D5D",
+        "7D5F",
+        "7CFC",
+        "7CFD",
+        "7CFF",
+        "7D01",
+        "7D03",
+        "7D04",
+        "7D76",
+        "7D78",
+        "7D7A",
+        "7D7C",
+        "7D7D",
+        "7D7F",
+        "7D80",
+        "7D81",
+        "7D83",
+        "7D85",
+        "7D86",
+        "7D87",
+        "7D89",
+        "7D8A",
+        "7D8B",
+        "7D8D",
+        "7D8E",
+        "7D90",
+        "7D92",
+        "7D94",
+        "7D95",
+        "7D96",
+        "7D97",
+        "7D9D",
+        "7D9E",
+        "7DA0",
+        "7DA2",
+        "7DA3",
+        "7DA4",
+        "7DA6",
+        "7DA7",
+        "7DA9",
+        "7DAA",
+        "7DAE",
+        "7DB0",
+        "7DB1",
+        "7DB3",
+        "7DB5",
+        "7DB7",
+        "7DB9",
+        "7DBB",
+        "7DBC",
+        "7DBD",
+        "7DBF",
+        "7DC0"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 9,
+    "record": "8550",
+    "name_hint": "small closet",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 10,
+    "record": "855D",
+    "name_hint": "parliament street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 11,
+    "record": "856A",
+    "name_hint": "scotland yard",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 12,
+    "record": "8577",
+    "name_hint": "slater street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 13,
+    "record": "8584",
+    "name_hint": "disgust opium den",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 14,
+    "record": "8591",
+    "name_hint": "aldergate street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 15,
+    "record": "859E",
+    "name_hint": "aldergate station",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 16,
+    "record": "85AE",
+    "name_hint": "platform one",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7EFA",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7EFA",
+      "text": "⟦nome $A036 + is/are⟧ At platform one of Aldergate station.",
+      "unresolved": [
+        {
+          "address": "7EEA",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7EFA",
+        "7EEA",
+        "7EEB",
+        "7EEC",
+        "7EEE",
+        "7EF0",
+        "7EF1",
+        "7EFD",
+        "7EFF",
+        "7F01",
+        "7F02"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 17,
+    "record": "85BE",
+    "name_hint": "platform two",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F03",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F03",
+      "text": "⟦nome $A036 + is/are⟧ At platform two of Aldergate station.",
+      "unresolved": [
+        {
+          "address": "7EF2",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F03",
+        "7EF2",
+        "7EF3",
+        "7EF4",
+        "7EF6",
+        "7EF8",
+        "7EF9",
+        "7F06",
+        "7EFD",
+        "7EFF",
+        "7F01",
+        "7F02"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 18,
+    "record": "85CB",
+    "name_hint": "kings cross road",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 19,
+    "record": "85D8",
+    "name_hint": "kings cross station",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 20,
+    "record": "85E8",
+    "name_hint": "platform one",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F09",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F09",
+      "text": "⟦nome $A036 + is/are⟧ At platform one of Kings cross station.",
+      "unresolved": [
+        {
+          "address": "7EEA",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F09",
+        "7EEA",
+        "7EEB",
+        "7EEC",
+        "7EEE",
+        "7EF0",
+        "7EF1",
+        "7F0C",
+        "7F0E",
+        "7F10",
+        "7F12",
+        "7F13"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 21,
+    "record": "85F8",
+    "name_hint": "platform two",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F14",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F14",
+      "text": "⟦nome $A036 + is/are⟧ At platform two of Kings cross station.",
+      "unresolved": [
+        {
+          "address": "7EF2",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F14",
+        "7EF2",
+        "7EF3",
+        "7EF4",
+        "7EF6",
+        "7EF8",
+        "7EF9",
+        "7F17",
+        "7F0C",
+        "7F0E",
+        "7F10",
+        "7F12",
+        "7F13"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 22,
+    "record": "8608",
+    "name_hint": "platform three",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F1A",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F1A",
+      "text": "⟦nome $A036 + is/are⟧ At platform three of Kings cross station.",
+      "unresolved": [
+        {
+          "address": "7F1A",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F1A",
+        "7F1B",
+        "7F1C",
+        "7F1E",
+        "7F20",
+        "7F21",
+        "7F0C",
+        "7F0E",
+        "7F10",
+        "7F12",
+        "7F13"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 23,
+    "record": "8618",
+    "name_hint": "platform four",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F24",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F24",
+      "text": "⟦nome $A036 + is/are⟧ At platform four of Kings cross station.",
+      "unresolved": [
+        {
+          "address": "7F24",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F24",
+        "7F25",
+        "7F26",
+        "7F28",
+        "7F2A",
+        "7F2B",
+        "7F0C",
+        "7F0E",
+        "7F10",
+        "7F12",
+        "7F13"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 24,
+    "record": "8625",
+    "name_hint": "bishops road",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 25,
+    "record": "8632",
+    "name_hint": "paddington station",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 26,
+    "record": "8642",
+    "name_hint": "platform one",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F2E",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F2E",
+      "text": "⟦nome $A036 + is/are⟧ At platform one of Paddington station.",
+      "unresolved": [
+        {
+          "address": "7EEA",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F2E",
+        "7EEA",
+        "7EEB",
+        "7EEC",
+        "7EEE",
+        "7EF0",
+        "7EF1",
+        "7F31",
+        "7F33",
+        "7F35",
+        "7F36"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 27,
+    "record": "8652",
+    "name_hint": "platform two",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F37",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F37",
+      "text": "⟦nome $A036 + is/are⟧ At platform two of Paddington station.",
+      "unresolved": [
+        {
+          "address": "7EF2",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F37",
+        "7EF2",
+        "7EF3",
+        "7EF4",
+        "7EF6",
+        "7EF8",
+        "7EF9",
+        "7F3A",
+        "7F31",
+        "7F33",
+        "7F35",
+        "7F36"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 28,
+    "record": "865F",
+    "name_hint": "buckingham palace road",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 29,
+    "record": "866C",
+    "name_hint": "victoria station",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 30,
+    "record": "867C",
+    "name_hint": "platform one",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F3D",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F3D",
+      "text": "⟦nome $A036 + is/are⟧ At platform one of Victoria station.",
+      "unresolved": [
+        {
+          "address": "7EEA",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F3D",
+        "7EEA",
+        "7EEB",
+        "7EEC",
+        "7EEE",
+        "7EF0",
+        "7EF1",
+        "7F40",
+        "7F42",
+        "7F44",
+        "7F45"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 31,
+    "record": "868C",
+    "name_hint": "platform two",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F46",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F46",
+      "text": "⟦nome $A036 + is/are⟧ At platform two of Victoria station.",
+      "unresolved": [
+        {
+          "address": "7EF2",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F46",
+        "7EF2",
+        "7EF3",
+        "7EF4",
+        "7EF6",
+        "7EF8",
+        "7EF9",
+        "7F49",
+        "7F40",
+        "7F42",
+        "7F44",
+        "7F45"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 32,
+    "record": "8699",
+    "name_hint": "camden street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 33,
+    "record": "86A9",
+    "name_hint": "entrance hall",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 34,
+    "record": "86BC",
+    "name_hint": "passage",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 35,
+    "record": "86D2",
+    "name_hint": "basils bedroom",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 36,
+    "record": "86E2",
+    "name_hint": "basils kitchen",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 37,
+    "record": "86F2",
+    "name_hint": "basils dining room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 38,
+    "record": "86FF",
+    "name_hint": "basils library",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 39,
+    "record": "870C",
+    "name_hint": "basils yard",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 40,
+    "record": "8719",
+    "name_hint": "sidmouth street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 41,
+    "record": "8726",
+    "name_hint": "main passage",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 42,
+    "record": "8739",
+    "name_hint": "reading lounge",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 43,
+    "record": "8746",
+    "name_hint": "passage",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 44,
+    "record": "8756",
+    "name_hint": "major ffoulkes room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7E7F",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7E7F",
+      "text": "⟦nome $A036 + is/are⟧ In Major Ffoulkes room in the boarding house. It is small and somewhat crowded. Indian artifacts, many very strange, litter the room.",
+      "unresolved": [
+        {
+          "address": "7E7F",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7E7F",
+        "7E80",
+        "7E81",
+        "7E83",
+        "7E85",
+        "7E87",
+        "7E88",
+        "7E89",
+        "7E8B",
+        "7E8D",
+        "7E8E",
+        "7E8F",
+        "7E90",
+        "7E92",
+        "7E93",
+        "7E95",
+        "7E99",
+        "7E9A",
+        "7EA0",
+        "7EA1",
+        "7EA3",
+        "7EA5",
+        "7EA6",
+        "7EA8",
+        "7EA9",
+        "7EAB",
+        "7EAC",
+        "7EAD",
+        "7EB2",
+        "7EB3",
+        "7EB5",
+        "7EB6"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 45,
+    "record": "8763",
+    "name_hint": "portman street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 46,
+    "record": "8770",
+    "name_hint": "tricias entrance hall",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 47,
+    "record": "8780",
+    "name_hint": "tricias lounge",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 48,
+    "record": "8793",
+    "name_hint": "tricias kitchen",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 49,
+    "record": "87A0",
+    "name_hint": "tricias bedroom",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 50,
+    "record": "87AD",
+    "name_hint": "main street",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 51,
+    "record": "87C6",
+    "name_hint": "cobden lane",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 52,
+    "record": "87D9",
+    "name_hint": "small lane",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 53,
+    "record": "87EC",
+    "name_hint": "leatherhead station",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 54,
+    "record": "87FC",
+    "name_hint": "platform one",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F4C",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F4C",
+      "text": "⟦nome $A036 + is/are⟧ At platform one of Leather Head station.",
+      "unresolved": [
+        {
+          "address": "7EEA",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F4C",
+        "7EEA",
+        "7EEB",
+        "7EEC",
+        "7EEE",
+        "7EF0",
+        "7EF1",
+        "7F4F",
+        "7F51",
+        "7F53",
+        "7F55",
+        "7F56"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 55,
+    "record": "880C",
+    "name_hint": "platform two",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7F57",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7F57",
+      "text": "⟦nome $A036 + is/are⟧ At platform two of Leather Head station.",
+      "unresolved": [
+        {
+          "address": "7EF2",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7F57",
+        "7EF2",
+        "7EF3",
+        "7EF4",
+        "7EF6",
+        "7EF8",
+        "7EF9",
+        "7F5A",
+        "7F4F",
+        "7F51",
+        "7F53",
+        "7F55",
+        "7F56"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 56,
+    "record": "8819",
+    "name_hint": "entrance hall",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 57,
+    "record": "882C",
+    "name_hint": "lounge room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 58,
+    "record": "883F",
+    "name_hint": "basils library",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 59,
+    "record": "884C",
+    "name_hint": "basils kitchen",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 60,
+    "record": "885C",
+    "name_hint": "small yard",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 61,
+    "record": "886C",
+    "name_hint": "basils bedroom",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7EB7",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7EB7",
+      "text": "⟦nome $A036 + is/are⟧ In a large lavishly decorated bedroom, a broad window overlooks a small lane leading north.",
+      "unresolved": [
+        {
+          "address": "7EB7",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7EB7",
+        "7EB8",
+        "7EB9",
+        "7EBA",
+        "7EBC",
+        "7EBD",
+        "7EC3",
+        "7EC4",
+        "7ECB",
+        "7ECD",
+        "7ECE",
+        "7ECF",
+        "7ED1",
+        "7ED3",
+        "7ED5",
+        "7EDA",
+        "7EDB",
+        "7EDD",
+        "7EDF",
+        "7EE0",
+        "7EE6",
+        "7EE8",
+        "7EE9"
+      ],
+      "status": "symbolic"
+    }
+  },
+  {
+    "id": 62,
+    "record": "887C",
+    "name_hint": "browns front gate",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 63,
+    "record": "888C",
+    "name_hint": "browns front door",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 64,
+    "record": "889C",
+    "name_hint": "entrance hall",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 65,
+    "record": "88AF",
+    "name_hint": "large kitchen",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 66,
+    "record": "88BF",
+    "name_hint": "pantry",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 67,
+    "record": "88CC",
+    "name_hint": "sitting room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 68,
+    "record": "88DC",
+    "name_hint": "dining room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 69,
+    "record": "88EC",
+    "name_hint": "long passage",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 70,
+    "record": "8905",
+    "name_hint": "long passage",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 71,
+    "record": "891B",
+    "name_hint": "browns library",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 72,
+    "record": "8928",
+    "name_hint": "browns study",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 73,
+    "record": "8938",
+    "name_hint": "master bed room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 74,
+    "record": "8948",
+    "name_hint": "daphnes room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 75,
+    "record": "8955",
+    "name_hint": "guest room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 76,
+    "record": "8962",
+    "name_hint": "garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 77,
+    "record": "8978",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 78,
+    "record": "8988",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 79,
+    "record": "899B",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 80,
+    "record": "89B4",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 81,
+    "record": "89C7",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 82,
+    "record": "89E0",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 83,
+    "record": "89F3",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 84,
+    "record": "8A09",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 85,
+    "record": "8A19",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 86,
+    "record": "8A29",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 87,
+    "record": "8A3C",
+    "name_hint": "winding garden path",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 88,
+    "record": "8A4F",
+    "name_hint": "east side",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 89,
+    "record": "8A62",
+    "name_hint": "west side",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 90,
+    "record": "8A78",
+    "name_hint": "south side",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 91,
+    "record": "8A8B",
+    "name_hint": "north side",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 92,
+    "record": "8AA1",
+    "name_hint": "jones front gate",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 93,
+    "record": "8AB1",
+    "name_hint": "jones front door",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 94,
+    "record": "8AC1",
+    "name_hint": "library",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 95,
+    "record": "8AD1",
+    "name_hint": "small room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 96,
+    "record": "8ADE",
+    "name_hint": "jones entrance hall",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 97,
+    "record": "8AF4",
+    "name_hint": "sitting room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 98,
+    "record": "8B04",
+    "name_hint": "kitchen",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 99,
+    "record": "8B11",
+    "name_hint": "dining room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 100,
+    "record": "8B21",
+    "name_hint": "small passage",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 101,
+    "record": "8B31",
+    "name_hint": "mrs jones room",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 102,
+    "record": "8B3E",
+    "name_hint": "basils front yard",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 103,
+    "record": "8B4E",
+    "name_hint": "old mill road",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 104,
+    "record": "8B58",
+    "name_hint": "leatherhead police station",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": null,
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F"
+  },
+  {
+    "id": 105,
+    "record": "8B65",
+    "name_hint": "police cab",
+    "name_note": "basi lessicali dei campi; articolo e grammatica non ricostruiti",
+    "description": "7E0B",
+    "evidence": "$D224 -> tabella $840B; $D16B legge +7/+8; $D182 -> $A59F",
+    "decoded": {
+      "address": "7E0B",
+      "text": "⟦nome $A036 + is/are⟧ In a cab travelling madly along rough country roads.",
+      "unresolved": [
+        {
+          "address": "7E0B",
+          "reason": "nome $A036 + is/are"
+        }
+      ],
+      "token_addresses": [
+        "7E0B",
+        "7E0C",
+        "7E0D",
+        "7E0E",
+        "7E10",
+        "7E12",
+        "7E14",
+        "7E16",
+        "7E17",
+        "7E1C",
+        "7E1E",
+        "7E21",
+        "7E23",
+        "7E25",
+        "7E26"
+      ],
+      "status": "symbolic"
+    }
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "source": "instrumented explorer before fix",
+  "fixture": "player teleported to location 9",
+  "commands": [
+    "TAKE DISGUISE",
+    "CHINA",
+    "WEAR DISGUISE",
+    "CHINA"
+  ],
+  "guard_instruction_limit": 9000000,
+  "pc_at_limit": "C3C4",
+  "player_entity_at_limit": 1,
+  "current_actor_at_limit": 1,
+  "global_tick_at_limit": 1260,
+  "player_deadline_at_limit": 3,
+  "scheduler_row_at_limit": "9920",
+  "root_cause": "player row skipped after active entity ID changed from 0 to 1"
+}

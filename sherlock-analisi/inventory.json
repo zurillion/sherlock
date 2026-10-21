@@ -1,0 +1,81 @@
+{
+  "files": {
+    "SHERLOCK.TAP": {
+      "bytes": 56104,
+      "sha256": "c51b909bde070de40ab9ad205b047fe6ccb737e07756d48dcb4ba7fec477c499"
+    },
+    "Sherlock v2.0.tzx": {
+      "bytes": 56313,
+      "sha256": "f08ae4ba77526d1171a650ce00837fe9a5686a8e387d1d1f8e087983132f07c1"
+    }
+  },
+  "all_tape_blocks_identical": true,
+  "warnings": [],
+  "blocks": [
+    {
+      "tap_header_block": 1,
+      "tap_data_block": 2,
+      "name": "SHERLOCK  ",
+      "type": 0,
+      "declared_length": 23,
+      "parameter1": 5,
+      "parameter2": 23,
+      "payload_length": 23,
+      "sha256": "fcd8b87a6c41db725a5af0694ffc04423d824993d6f7eb7ce7edfda360e680b0",
+      "header_checksum_ok": true,
+      "data_checksum_ok": true
+    },
+    {
+      "tap_header_block": 3,
+      "tap_data_block": 4,
+      "name": "sherlock  ",
+      "type": 3,
+      "declared_length": 256,
+      "parameter1": 32768,
+      "parameter2": 32768,
+      "payload_length": 256,
+      "sha256": "189679d90ca23d74b07181fa809f428c7076be66f81f54cf06fc78699aaa2b1c",
+      "header_checksum_ok": true,
+      "data_checksum_ok": true
+    },
+    {
+      "tap_header_block": 5,
+      "tap_data_block": 6,
+      "name": "SHD V2.0  ",
+      "type": 3,
+      "declared_length": 7188,
+      "parameter1": 33803,
+      "parameter2": 32768,
+      "payload_length": 7188,
+      "sha256": "37b5216a670f64b7c0830a5c8bcc44369851b5decdf1c747d32a2a5891e30d71",
+      "header_checksum_ok": true,
+      "data_checksum_ok": true
+    },
+    {
+      "tap_header_block": 7,
+      "tap_data_block": 8,
+      "name": "s         ",
+      "type": 3,
+      "declared_length": 6912,
+      "parameter1": 32768,
+      "parameter2": 32768,
+      "payload_length": 6912,
+      "sha256": "3be39604bdfb9d7ee28be21f76d3607028966af402b42c504b163ee18e4d7b03",
+      "header_checksum_ok": true,
+      "data_checksum_ok": true
+    },
+    {
+      "tap_header_block": 9,
+      "tap_data_block": 10,
+      "name": "p         ",
+      "type": 3,
+      "declared_length": 41600,
+      "parameter1": 23936,
+      "parameter2": 32768,
+      "payload_length": 41600,
+      "sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+      "header_checksum_ok": true,
+      "data_checksum_ok": true
+    }
+  ]
+}

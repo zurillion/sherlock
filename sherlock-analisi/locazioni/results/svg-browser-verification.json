@@ -1,0 +1,10 @@
+{
+  "first_visit_svg_loaded": true,
+  "repeat_visit_picture_count": 1,
+  "after_look_picture_count": 2,
+  "toggle_hide_show": true,
+  "preference_survives_reload": true,
+  "final_images_enabled": true,
+  "url": "http://127.0.0.1:8766/",
+  "screenshot": "anteprima-svg.png"
+}

@@ -1,0 +1,1453 @@
+[
+  {
+    "input": "PICK THE NOTE UP",
+    "outcome": "syntax_error",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B88",
+        "mode": 1,
+        "parser_code": 1,
+        "nodes": [],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 1,
+            "z": false,
+            "mode": 1,
+            "cursor": "5B88",
+            "last_token": "5B88"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "PICK THE NOTE UP.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "PICK",
+        "type": "30",
+        "value": "018B",
+        "canonical": {
+          "raw": "018B",
+          "offset": "018B",
+          "word": "carry",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 5,
+        "end": 8,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 9,
+        "end": 13,
+        "text": "NOTE",
+        "type": "50",
+        "value": "05D8",
+        "canonical": {
+          "raw": "05D8",
+          "offset": "05D8",
+          "word": "note",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 14,
+        "end": 16,
+        "text": "UP",
+        "type": "20",
+        "value": "093C",
+        "canonical": {
+          "raw": "093C",
+          "offset": "093C",
+          "word": "up",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 16,
+        "end": 17,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 17,
+        "end": 17,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "30",
+        "value": "018B",
+        "word": "carry",
+        "bytes": "30 01 8b"
+      },
+      {
+        "address": "5B84",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B85",
+        "type": "50",
+        "value": "05D8",
+        "word": "note",
+        "bytes": "50 05 d8"
+      },
+      {
+        "address": "5B88",
+        "type": "20",
+        "value": "093C",
+        "word": "up",
+        "bytes": "20 09 3c"
+      },
+      {
+        "address": "5B8B",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B8C",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> PICK THE NOTE UP.\r WHAT ?\r"
+  },
+  {
+    "input": "QUICKLY COUNT THE MONEY",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B8C",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "f7 01 63 03 00 00 00 00 75 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "01F7",
+              "offset": "01F7",
+              "word": "count",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": {
+              "raw": "0363",
+              "offset": "0363",
+              "word": "furiously",
+              "unresolved_bits": "0000"
+            },
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "0575",
+                  "offset": "0575",
+                  "word": "money",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B8C",
+            "last_token": "5B8B"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "QUICKLY COUNT THE MONEY.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 7,
+        "text": "QUICKLY",
+        "type": "00",
+        "value": "0363",
+        "canonical": {
+          "raw": "0363",
+          "offset": "0363",
+          "word": "furiously",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 8,
+        "end": 13,
+        "text": "COUNT",
+        "type": "30",
+        "value": "01F7",
+        "canonical": {
+          "raw": "01F7",
+          "offset": "01F7",
+          "word": "count",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 14,
+        "end": 17,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 18,
+        "end": 23,
+        "text": "MONEY",
+        "type": "50",
+        "value": "0575",
+        "canonical": {
+          "raw": "0575",
+          "offset": "0575",
+          "word": "money",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 23,
+        "end": 24,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 24,
+        "end": 24,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "00",
+        "value": "0363",
+        "word": "furiously",
+        "bytes": "00 03 63"
+      },
+      {
+        "address": "5B84",
+        "type": "30",
+        "value": "01F7",
+        "word": "count",
+        "bytes": "30 01 f7"
+      },
+      {
+        "address": "5B87",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B88",
+        "type": "50",
+        "value": "0575",
+        "word": "money",
+        "bytes": "50 05 75"
+      },
+      {
+        "address": "5B8B",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B8C",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> QUICKLY COUNT THE MONEY.\r"
+  },
+  {
+    "input": "ATTACK WATSON",
+    "outcome": "lexical_error",
+    "units": [],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "ATTACK WATSON.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "ATTACK",
+        "type": "D0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "lower_output": "> ATTACK WATSON.\r I DO NOT KNOW THE WORD\"ATTACK \"\r"
+  },
+  {
+    "input": "DRIVE CAB",
+    "outcome": "lexical_error",
+    "units": [],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "DRIVE CAB.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 5,
+        "text": "DRIVE",
+        "type": "D0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "lower_output": "> DRIVE CAB.\r I DO NOT KNOW THE WORD\"DRIVE \"\r"
+  },
+  {
+    "input": "SAY TO WATSON \"TELL ME ABOUT THE CASE\"",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B9F",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "8b 08 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "088B",
+              "offset": "088B",
+              "word": "talk",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [
+                  {
+                    "raw": "08DB",
+                    "offset": "08DB",
+                    "word": "to",
+                    "unresolved_bits": "0000"
+                  }
+                ],
+                "referent": {
+                  "raw": "0971",
+                  "offset": "0971",
+                  "word": "watson",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B9F",
+            "last_token": "5B9E"
+          }
+        ],
+        "quotes": [
+          {
+            "token_start": "5B8D",
+            "token_end": "5B9B",
+            "tokens": [
+              {
+                "address": "5B8D",
+                "bytes": "30 08 8f"
+              },
+              {
+                "address": "5B90",
+                "bytes": "50 09 ee"
+              },
+              {
+                "address": "5B93",
+                "bytes": "70 00 05"
+              },
+              {
+                "address": "5B96",
+                "bytes": "80"
+              },
+              {
+                "address": "5B97",
+                "bytes": "50 01 91"
+              },
+              {
+                "address": "5B9A",
+                "bytes": "b0"
+              }
+            ],
+            "deferred_in_game": true,
+            "outcome": "ok",
+            "parser_returns": [
+              {
+                "site": "B8C1",
+                "a": 0,
+                "z": true,
+                "mode": 1,
+                "cursor": "5B9B",
+                "last_token": "5B9A"
+              }
+            ],
+            "controls": [],
+            "mode": 1,
+            "nodes": [
+              {
+                "address": "9803",
+                "raw": "8f 08 00 00 00 00 00 00 ee 09 00 00 00 00 05 00 00 00 91 01 00 00 00 00 00 00 00 00 00 00",
+                "verb": {
+                  "raw": "088F",
+                  "offset": "088F",
+                  "word": "tell",
+                  "unresolved_bits": "0000"
+                },
+                "verb_modifier": null,
+                "all": false,
+                "exclusion": false,
+                "groups": [
+                  {
+                    "relations": [],
+                    "referent": {
+                      "raw": "09EE",
+                      "offset": "09EE",
+                      "word": "you",
+                      "unresolved_bits": "0000"
+                    },
+                    "qualifiers": []
+                  },
+                  {
+                    "relations": [
+                      {
+                        "raw": "0005",
+                        "offset": "0005",
+                        "word": "about",
+                        "unresolved_bits": "0000"
+                      }
+                    ],
+                    "referent": {
+                      "raw": "0191",
+                      "offset": "0191",
+                      "word": "case",
+                      "unresolved_bits": "0000"
+                    },
+                    "qualifiers": []
+                  }
+                ],
+                "subject": {
+                  "referent": null,
+                  "qualifiers": [],
+                  "he_flag": false,
+                  "it_they_flag": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "SAY TO WATSON \"TELL ME ABOUT THE CASE.\".",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "SAY",
+        "type": "30",
+        "value": "088B",
+        "canonical": {
+          "raw": "088B",
+          "offset": "088B",
+          "word": "talk",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 4,
+        "end": 6,
+        "text": "TO",
+        "type": "70",
+        "value": "08DB",
+        "canonical": {
+          "raw": "08DB",
+          "offset": "08DB",
+          "word": "to",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 7,
+        "end": 13,
+        "text": "WATSON",
+        "type": "50",
+        "value": "0971",
+        "canonical": {
+          "raw": "0971",
+          "offset": "0971",
+          "word": "watson",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 14,
+        "end": 15,
+        "text": "\"",
+        "type": "90",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 15,
+        "end": 19,
+        "text": "TELL",
+        "type": "30",
+        "value": "088F",
+        "canonical": {
+          "raw": "088F",
+          "offset": "088F",
+          "word": "tell",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "text": "ME",
+        "type": "50",
+        "value": "09EE",
+        "canonical": {
+          "raw": "09EE",
+          "offset": "09EE",
+          "word": "you",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 23,
+        "end": 28,
+        "text": "ABOUT",
+        "type": "70",
+        "value": "0005",
+        "canonical": {
+          "raw": "0005",
+          "offset": "0005",
+          "word": "about",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 29,
+        "end": 32,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 33,
+        "end": 37,
+        "text": "CASE",
+        "type": "50",
+        "value": "0191",
+        "canonical": {
+          "raw": "0191",
+          "offset": "0191",
+          "word": "case",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 37,
+        "end": 38,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 38,
+        "end": 39,
+        "text": "\"",
+        "type": "90",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 39,
+        "end": 40,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 40,
+        "end": 40,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "30",
+        "value": "088B",
+        "word": "talk",
+        "bytes": "30 08 8b"
+      },
+      {
+        "address": "5B84",
+        "type": "70",
+        "value": "08DB",
+        "word": "to",
+        "bytes": "70 08 db"
+      },
+      {
+        "address": "5B87",
+        "type": "50",
+        "value": "0971",
+        "word": "watson",
+        "bytes": "50 09 71"
+      },
+      {
+        "address": "5B8A",
+        "type": "90",
+        "value": "0000",
+        "bytes": "90 00 00"
+      },
+      {
+        "address": "5B8D",
+        "type": "30",
+        "value": "088F",
+        "word": "tell",
+        "bytes": "30 08 8f"
+      },
+      {
+        "address": "5B90",
+        "type": "50",
+        "value": "09EE",
+        "word": "you",
+        "bytes": "50 09 ee"
+      },
+      {
+        "address": "5B93",
+        "type": "70",
+        "value": "0005",
+        "word": "about",
+        "bytes": "70 00 05"
+      },
+      {
+        "address": "5B96",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B97",
+        "type": "50",
+        "value": "0191",
+        "word": "case",
+        "bytes": "50 01 91"
+      },
+      {
+        "address": "5B9A",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B9B",
+        "type": "90",
+        "value": "0000",
+        "bytes": "90 00 00"
+      },
+      {
+        "address": "5B9E",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B9F",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> SAY TO WATSON \"TELL ME ABOUT THE CASE.\".\r"
+  },
+  {
+    "input": "OPEN DOOR",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B88",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "060B",
+              "offset": "060B",
+              "word": "open",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "026E",
+                  "offset": "026E",
+                  "word": "door",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B88",
+            "last_token": "5B87"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "OPEN DOOR.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "OPEN",
+        "type": "30",
+        "value": "060B",
+        "canonical": {
+          "raw": "060B",
+          "offset": "060B",
+          "word": "open",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "text": "DOOR",
+        "type": "50",
+        "value": "026E",
+        "canonical": {
+          "raw": "026E",
+          "offset": "026E",
+          "word": "door",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 9,
+        "end": 10,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 10,
+        "end": 10,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "30",
+        "value": "060B",
+        "word": "open",
+        "bytes": "30 06 0b"
+      },
+      {
+        "address": "5B84",
+        "type": "50",
+        "value": "026E",
+        "word": "door",
+        "bytes": "50 02 6e"
+      },
+      {
+        "address": "5B87",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B88",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> OPEN DOOR.\r"
+  },
+  {
+    "input": "TAKE ALL EXCEPT THE LAMP",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B8F",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": true,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          },
+          {
+            "address": "9808",
+            "raw": "00 40 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": null,
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": true,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "04B9",
+                  "offset": "04B9",
+                  "word": "lamp",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B8F",
+            "last_token": "5B8E"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "TAKE ALL EXCEPT THE LAMP.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "TAKE",
+        "type": "30",
+        "value": "0887",
+        "canonical": {
+          "raw": "0887",
+          "offset": "0887",
+          "word": "take",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 5,
+        "end": 8,
+        "text": "ALL",
+        "type": "90",
+        "value": "0040",
+        "canonical": {
+          "raw": "0040",
+          "offset": "0040",
+          "word": "all",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 9,
+        "end": 15,
+        "text": "EXCEPT",
+        "type": "90",
+        "value": "015E",
+        "canonical": {
+          "raw": "015E",
+          "offset": "015E",
+          "word": "but",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 16,
+        "end": 19,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "text": "LAMP",
+        "type": "50",
+        "value": "04B9",
+        "canonical": {
+          "raw": "04B9",
+          "offset": "04B9",
+          "word": "lamp",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 24,
+        "end": 25,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 25,
+        "end": 25,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "30",
+        "value": "0887",
+        "word": "take",
+        "bytes": "30 08 87"
+      },
+      {
+        "address": "5B84",
+        "type": "90",
+        "value": "0040",
+        "word": "all",
+        "bytes": "90 00 40"
+      },
+      {
+        "address": "5B87",
+        "type": "90",
+        "value": "015E",
+        "word": "but",
+        "bytes": "90 01 5e"
+      },
+      {
+        "address": "5B8A",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B8B",
+        "type": "50",
+        "value": "04B9",
+        "word": "lamp",
+        "bytes": "50 04 b9"
+      },
+      {
+        "address": "5B8E",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B8F",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> TAKE ALL EXCEPT THE LAMP.\r"
+  },
+  {
+    "input": "GO THROUGH THE DOOR AND NORTH",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B8C",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "8d 03 00 00 ce 08 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "038D",
+              "offset": "038D",
+              "word": "go",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [
+                  {
+                    "raw": "08CE",
+                    "offset": "08CE",
+                    "word": "through",
+                    "unresolved_bits": "0000"
+                  }
+                ],
+                "referent": {
+                  "raw": "026E",
+                  "offset": "026E",
+                  "word": "door",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B8C",
+            "last_token": "5B8F"
+          }
+        ],
+        "quotes": []
+      },
+      {
+        "start": "5B8C",
+        "next": "5B90",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "c3 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "05C3",
+              "offset": "05C3",
+              "word": "north",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B90",
+            "last_token": "5B8F"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "GO THROUGH THE DOOR AND NORTH.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 2,
+        "text": "GO",
+        "type": "40",
+        "value": "038D",
+        "canonical": {
+          "raw": "038D",
+          "offset": "038D",
+          "word": "go",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 3,
+        "end": 10,
+        "text": "THROUGH",
+        "type": "70",
+        "value": "08CE",
+        "canonical": {
+          "raw": "08CE",
+          "offset": "08CE",
+          "word": "through",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 11,
+        "end": 14,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 15,
+        "end": 19,
+        "text": "DOOR",
+        "type": "50",
+        "value": "026E",
+        "canonical": {
+          "raw": "026E",
+          "offset": "026E",
+          "word": "door",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 20,
+        "end": 23,
+        "text": "AND",
+        "type": "A0",
+        "value": "005D",
+        "canonical": {
+          "raw": "005D",
+          "offset": "005D",
+          "word": "and",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 24,
+        "end": 29,
+        "text": "NORTH",
+        "type": "20",
+        "value": "05C3",
+        "canonical": {
+          "raw": "05C3",
+          "offset": "05C3",
+          "word": "north",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 29,
+        "end": 30,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 30,
+        "end": 30,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "40",
+        "value": "038D",
+        "word": "go",
+        "bytes": "40 03 8d"
+      },
+      {
+        "address": "5B84",
+        "type": "70",
+        "value": "08CE",
+        "word": "through",
+        "bytes": "70 08 ce"
+      },
+      {
+        "address": "5B87",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B88",
+        "type": "50",
+        "value": "026E",
+        "word": "door",
+        "bytes": "50 02 6e"
+      },
+      {
+        "address": "5B8B",
+        "type": "A0",
+        "bytes": "a0"
+      },
+      {
+        "address": "5B8C",
+        "type": "20",
+        "value": "05C3",
+        "word": "north",
+        "bytes": "20 05 c3"
+      },
+      {
+        "address": "5B8F",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B90",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> GO THROUGH THE DOOR AND NORTH.\r"
+  },
+  {
+    "input": "TAKE BEER IN BOTTLE",
+    "outcome": "lexical_error",
+    "units": [],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "TAKE BEER IN BOTTLE.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "TAKE",
+        "type": "30",
+        "value": "0887",
+        "canonical": {
+          "raw": "0887",
+          "offset": "0887",
+          "word": "take",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "text": "BEER",
+        "type": "D0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "lower_output": "> TAKE BEER IN BOTTLE.\r I DO NOT KNOW THE WORD\"BEER \"\r"
+  },
+  {
+    "input": "OPEN DOR",
+    "outcome": "lexical_error",
+    "units": [],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "normalised": "OPEN DOR.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "OPEN",
+        "type": "30",
+        "value": "060B",
+        "canonical": {
+          "raw": "060B",
+          "offset": "060B",
+          "word": "open",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 5,
+        "end": 8,
+        "text": "DOR",
+        "type": "D0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "lower_output": "> OPEN DOR.\r I DO NOT KNOW THE WORD\"DOR \"\r"
+  }
+]

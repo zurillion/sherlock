@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {SpectrumBuffer,spectrumTokens,spectrumWrap}=require('./spectrum.js');
+const checks=[];const check=(name,fn)=>{fn();checks.push(name);};
+check('36 columns: a word wraps upward from the bottom',()=>{const b=new SpectrumBuffer();b.startPage();assert.equal(b.word('A'.repeat(35)),35);assert.equal(b.word('BC'),2);assert.deepEqual(b.lines.slice(-2),['A'.repeat(35),'BC']);assert(b.lines.slice(0,-2).every(x=>x===''));});
+check('18 lines fill before any visible text is lost',()=>{const b=new SpectrumBuffer();b.startPage();for(let i=0;i<18;i++){assert.equal(b.word(String(i)),String(i).length);if(i<17)assert.equal(b.newline(),true);}const before=b.visible();assert.equal(b.newline(),false);assert.deepEqual(b.visible(),before);assert.equal(before[0].trim(),'0');assert.equal(before[17].trim(),'17');assert(before.every(line=>line.length===36));});
+check('MORE grants exactly 18 scrolling lines',()=>{const b=new SpectrumBuffer();b.more();for(let i=0;i<18;i++)assert(b.newline());assert.equal(b.scrolls,18);assert.equal(b.newline(),false);});
+check('illustrated text uses 18 columns beside a fixed picture',()=>{const b=new SpectrumBuffer(18);b.startPage();b.word('A'.repeat(18));b.word('B');assert.deepEqual(b.lines.slice(-2),['A'.repeat(18),'B']);b.columns=36;b.word('C'.repeat(33));assert.equal(b.lines.at(-1).length,35);});
+check('long words make progress within the grid',()=>{const b=new SpectrumBuffer();b.startPage();let remaining='X'.repeat(100);while(remaining){const count=b.word(remaining);assert(count>0);remaining=remaining.slice(count);}assert.deepEqual(b.lines.slice(-3).map(x=>x.length),[36,36,28]);});
+check('paragraphs survive tokenization',()=>assert.deepEqual(spectrumTokens(' A  B\r\n\r\nC '),['A','B','\n','\n','C']));
+check('commands reserve a cell for the plus cursor',()=>assert.deepEqual(spectrumWrap('A'.repeat(36)+'+'),['A'.repeat(36),'+']));
+check('clear leaves the entire screen blank with no scroll grant',()=>{const b=new SpectrumBuffer();b.more();b.word('OLD');b.clear();assert.equal(b.scrollAllowance,0);assert.equal(b.lines.length,18);assert(b.lines.every(x=>x===''));});
+const assets=JSON.parse(fs.readFileSync(path.join(__dirname,'spectrum-assets.json')));
+check('original assets: 96 glyphs, 6 divider rows, 14 native rasters',()=>{assert.equal(assets.glyphs.length,96);assert(assets.glyphs.every(x=>x.length===8));assert.equal(assets.divider.length,24);assert.equal(Object.keys(assets.pixels).length,14);for(const url of Object.values(assets.pixels)){const png=Buffer.from(url.split(',')[1],'base64');assert.equal(png.readUInt32BE(16),128);assert.equal(png.readUInt32BE(20),176);}});
+const output=process.argv[2]||path.join(__dirname,'results','compatibility-verification.json');fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify({passed:true,checks},null,2)+'\n');console.log('OK:',checks.length,'controlli su impaginazione e asset originali.');

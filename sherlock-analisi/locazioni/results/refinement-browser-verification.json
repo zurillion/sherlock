@@ -1,0 +1,14 @@
+{
+  "removed_requested_texts": true,
+  "native_question": "WHICH DOOR ?",
+  "YOUR": "You open your door.",
+  "YOUR_DOOR_after_reload": "You open your door.",
+  "rectangular_nodes": 105,
+  "overlapping_node_rectangles": 0,
+  "svg_white_grid_removed_visually": true,
+  "console_errors": [],
+  "screenshots": [
+    "anteprima-continuazioni-mappa.png",
+    "svg-senza-griglia.png"
+  ]
+}

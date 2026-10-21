@@ -1,0 +1,61 @@
+{
+  "clock": "Mon 08:09am",
+  "cursor_visible": true,
+  "lower_row_lengths": [
+    36,
+    36,
+    36,
+    36,
+    36
+  ],
+  "mode_enabled": true,
+  "picture_mode": "svg",
+  "picture_room": "5",
+  "ready": true,
+  "screen_css": {
+    "height": 384,
+    "width": 512
+  },
+  "upper_row_lengths": [
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36,
+    36
+  ],
+  "observed_interactions": {
+    "uppercase_and_end_only_backspace": true,
+    "arrows_and_delete_ignored": true,
+    "look_enter_executed": true,
+    "clarification_lower_pane": "WHICH DOOR ?",
+    "continuation_your": "You open your door.",
+    "more_key_consumed": true,
+    "illustrated_more_columns_before": 18,
+    "illustrated_more_columns_after": 36,
+    "illustrated_more_scrolls_after": 1,
+    "more_clock_before": "Mon 08:09am",
+    "more_clock_after": "Mon 08:09am",
+    "three_times_size": {
+      "width": 768,
+      "height": 576
+    },
+    "pixel_mode_shown": true,
+    "pictures_toggle_changes_columns": true,
+    "normal_mode_return_preserves_clock": true,
+    "preferences_survive_reload": true
+  },
+  "console_errors": []
+}

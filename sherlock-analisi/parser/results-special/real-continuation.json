@@ -1,0 +1,97 @@
+[
+  {
+    "event": "B5B6",
+    "a": 8
+  },
+  {
+    "event": "real_question",
+    "a01b": 8,
+    "lower": "EXAMINE ARMCHAIR.\r which armchair ?> ",
+    "pending": [
+      {
+        "address": "9829",
+        "raw": "ca 02 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+        "verb": {
+          "raw": "02CA",
+          "offset": "02CA",
+          "word": "examine",
+          "unresolved_bits": "0000"
+        },
+        "verb_modifier": null,
+        "all": false,
+        "exclusion": false,
+        "groups": [
+          {
+            "relations": [],
+            "referent": {
+              "raw": "007E",
+              "offset": "007E",
+              "word": "armchair",
+              "unresolved_bits": "0000"
+            },
+            "qualifiers": []
+          },
+          {
+            "relations": [],
+            "referent": null,
+            "qualifiers": []
+          }
+        ],
+        "subject": {
+          "referent": null,
+          "qualifiers": [],
+          "he_flag": false,
+          "it_they_flag": false
+        }
+      }
+    ]
+  },
+  {
+    "event": "merged_before_semantics",
+    "nodes": [
+      {
+        "address": "9829",
+        "raw": "ca 02 00 00 00 00 00 00 7e 00 75 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+        "verb": {
+          "raw": "02CA",
+          "offset": "02CA",
+          "word": "examine",
+          "unresolved_bits": "0000"
+        },
+        "verb_modifier": null,
+        "all": false,
+        "exclusion": false,
+        "groups": [
+          {
+            "relations": [],
+            "referent": {
+              "raw": "007E",
+              "offset": "007E",
+              "word": "armchair",
+              "unresolved_bits": "0000"
+            },
+            "qualifiers": [
+              {
+                "raw": "0975",
+                "offset": "0975",
+                "word": "watsons",
+                "unresolved_bits": "0000"
+              }
+            ]
+          },
+          {
+            "relations": [],
+            "referent": null,
+            "qualifiers": []
+          }
+        ],
+        "subject": {
+          "referent": null,
+          "qualifiers": [],
+          "he_flag": false,
+          "it_they_flag": false
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,1084 @@
+[
+  {
+    "input": "LOOK",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 41958
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 1248888,
+    "lower": "LOOK.\n> ",
+    "upper": "\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. You cansee an oil lamp, your armchair and \nwatsons armchair. In watsons \narmchair there is Watson. Watson is carrying the daily chronicle.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 8,
+    "room_flags_after": 132
+  },
+  {
+    "input": "WEST",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 37108
+      }
+    ],
+    "steps": 89898,
+    "lower": "WEST.\n you cannot go west.\n> ",
+    "upper": "",
+    "clock_before": 3,
+    "clock_after": 3,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 8,
+    "room_flags_after": 132
+  },
+  {
+    "input": "OPEN YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 58336
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 226651,
+    "lower": "OPEN YOUR DOOR.\n> ",
+    "upper": "\nYou open your door.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "name": "your door",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 128,
+            "after": 160
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 8,
+    "room_flags_after": 132
+  },
+  {
+    "input": "WEST",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 37098
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 3,
+        "clock": 4
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 3,
+        "clock": 4
+      }
+    ],
+    "steps": 416573,
+    "lower": "WEST.\n> ",
+    "upper": "\nYou go west.\nYou are in a hall. To the east thereis your door. Below there is the \nstairway.\n",
+    "clock_before": 4,
+    "clock_after": 5,
+    "entity_changes": [
+      {
+        "id": 0,
+        "name": "you",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "your money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 27
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 31
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 7,
+    "room_flags_after": 196
+  },
+  {
+    "input": "EAST",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 33660
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 5,
+        "clock": 5
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 4,
+        "clock": 5
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 5,
+        "clock": 6
+      }
+    ],
+    "steps": 1340017,
+    "lower": "EAST.\n> ",
+    "upper": "\nYou go east.\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. You cansee an oil lamp, your armchair and \nwatsons armchair. In watsons \narmchair there is Watson. Watson is carrying the daily chronicle.\n",
+    "clock_before": 5,
+    "clock_after": 7,
+    "entity_changes": [
+      {
+        "id": 0,
+        "name": "you",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 7,
+            "after": 8
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "your money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 7,
+            "after": 8
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "09",
+            "before": 0,
+            "after": 122
+          },
+          {
+            "offset": "0A",
+            "before": 0,
+            "after": 255
+          },
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 20
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 30,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 26,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 21,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 92,
+        "name": "gun",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      },
+      {
+        "id": 93,
+        "name": "large rock",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 1
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 8,
+    "room_flags_after": 196
+  },
+  {
+    "input": "WEST",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 37528
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 7,
+        "clock": 7
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 6,
+        "clock": 7
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 7,
+        "clock": 8
+      }
+    ],
+    "steps": 342710,
+    "lower": "WEST.\n> ",
+    "upper": "\nYou go west.\nYou are in a hall.\n",
+    "clock_before": 7,
+    "clock_after": 9,
+    "entity_changes": [
+      {
+        "id": 0,
+        "name": "you",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "your money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 17
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 27,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 31,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 7,
+    "room_flags_after": 196
+  },
+  {
+    "input": "EAST",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 33800
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 9,
+        "clock": 9
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 8,
+        "clock": 9
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 9,
+        "clock": 10
+      }
+    ],
+    "steps": 765048,
+    "lower": "EAST.\n> ",
+    "upper": "\nYou go east.\nYou are in Your Room. You can see anoil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the \ndaily chronicle.\n",
+    "clock_before": 9,
+    "clock_after": 11,
+    "entity_changes": [
+      {
+        "id": 0,
+        "name": "you",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 7,
+            "after": 8
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "your money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 7,
+            "after": 8
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 20,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 16
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 8,
+    "room_flags_after": 196
+  },
+  {
+    "input": "LOOK",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 42738
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 11,
+        "clock": 11
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 10,
+        "clock": 11
+      }
+    ],
+    "steps": 1219180,
+    "lower": "LOOK.\n> ",
+    "upper": "\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. You cansee an oil lamp, your armchair and \nwatsons armchair. In watsons \narmchair there is Watson. Watson is carrying the daily chronicle.\n",
+    "clock_before": 11,
+    "clock_after": 12,
+    "entity_changes": [
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 17,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "sequenza continua dal primo prompt",
+    "room_after": 8,
+    "room_flags_after": 196
+  },
+  {
+    "input": "GO TO HALL",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 53091
+      }
+    ],
+    "steps": 155336,
+    "lower": "GO TO HALL.\n i see no hall that you can go to\n> ",
+    "upper": "",
+    "clock_before": 3,
+    "clock_after": 3,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "dopo OPEN YOUR DOOR originale",
+    "room_after": 8,
+    "room_flags_after": 132
+  },
+  {
+    "input": "GO INTO HALL",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 55385
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 466229,
+    "lower": "GO INTO HALL.\n> ",
+    "upper": "\nYou go west.\nYou are in a hall. To the east thereis your door. Below there is the \nstairway.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 0,
+        "name": "you",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "your money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "dopo OPEN YOUR DOOR originale",
+    "room_after": 7,
+    "room_flags_after": 196
+  },
+  {
+    "input": "GO THROUGH YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 73281
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 498147,
+    "lower": "GO THROUGH YOUR DOOR.\n> ",
+    "upper": "\nYou go through your door.\nYou are in a hall. To the east thereis your door. Below there is the \nstairway.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 0,
+        "name": "you",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "your money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 8,
+            "after": 7
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "dopo OPEN YOUR DOOR originale",
+    "room_after": 7,
+    "room_flags_after": 196
+  },
+  {
+    "input": "LOOK THROUGH YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 82205
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 2,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 392691,
+    "lower": "LOOK THROUGH YOUR DOOR.\n> ",
+    "upper": "\nYou look through your door.\nYou can see a hall.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "dopo OPEN YOUR DOOR originale",
+    "room_after": 8,
+    "room_flags_after": 132
+  }
+]

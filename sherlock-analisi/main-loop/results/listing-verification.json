@@ -1,0 +1,76 @@
+{
+  "instructions": 299,
+  "bytes_roundtripped": 1021,
+  "regions": [
+    {
+      "start": "9860",
+      "end_exclusive": "9921",
+      "kind": "data"
+    },
+    {
+      "start": "9921",
+      "end_exclusive": "994D",
+      "kind": "data"
+    },
+    {
+      "start": "9C6A",
+      "end_exclusive": "9C85",
+      "kind": "code"
+    },
+    {
+      "start": "9C85",
+      "end_exclusive": "9CA2",
+      "kind": "data"
+    },
+    {
+      "start": "9FDD",
+      "end_exclusive": "A040",
+      "kind": "data"
+    },
+    {
+      "start": "A040",
+      "end_exclusive": "A0D8",
+      "kind": "code"
+    },
+    {
+      "start": "A0D8",
+      "end_exclusive": "A0DB",
+      "kind": "data"
+    },
+    {
+      "start": "A0DB",
+      "end_exclusive": "A0F7",
+      "kind": "code"
+    },
+    {
+      "start": "A536",
+      "end_exclusive": "A55D",
+      "kind": "code"
+    },
+    {
+      "start": "B0AC",
+      "end_exclusive": "B0FD",
+      "kind": "code"
+    },
+    {
+      "start": "BFD9",
+      "end_exclusive": "C00C",
+      "kind": "code"
+    },
+    {
+      "start": "C415",
+      "end_exclusive": "C45E",
+      "kind": "code"
+    },
+    {
+      "start": "CC0E",
+      "end_exclusive": "CC9B",
+      "kind": "code"
+    },
+    {
+      "start": "D008",
+      "end_exclusive": "D045",
+      "kind": "code"
+    }
+  ]
+}

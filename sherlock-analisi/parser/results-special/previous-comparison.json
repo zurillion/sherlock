@@ -1,0 +1,197 @@
+[
+  {
+    "input": "LOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "XYZZY",
+    "old": "lexical_error",
+    "new": "lexical_error"
+  },
+  {
+    "input": "TAKE XYZZY",
+    "old": "lexical_error",
+    "new": "lexical_error"
+  },
+  {
+    "input": "THE",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "BOOK",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "TAKE TAKE",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "TAKE THE THE BOOK",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "TAKE BOOK BOOK BOOK",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "THE TAKE BOOK",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "GO NORTH NORTH",
+    "old": "syntax_error",
+    "new": "syntax_error"
+  },
+  {
+    "input": "LOOK 60",
+    "old": "lexical_error",
+    "new": "lexical_error"
+  },
+  {
+    "input": "TELL WATSON \"XYZZY\"",
+    "old": "lexical_error",
+    "new": "lexical_error"
+  },
+  {
+    "input": "ABOVE",
+    "old": "lexical_error",
+    "new": "lexical_error"
+  },
+  {
+    "input": "ASKS",
+    "old": "lexical_error",
+    "new": "lexical_error"
+  },
+  {
+    "input": "TAKE BOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE BOOKS",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE THE",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE THE BOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE HEAVY BOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE BOOK GUN",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE 12:30",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE BOOK AND GUN",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE BOOK, DROP BOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "LOOK. THE",
+    "old": "before_semantics",
+    "new": "syntax_error"
+  },
+  {
+    "input": "GIVE BOOK TO WATSON",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE BOOK WITH GUN",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "LOOK AT BOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "LOOK NORTH",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "GO NORTH",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "NORTH",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "EXAMINE BOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TELL WATSON \"LOOK\"",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TELL WATSON \"LOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "IS LOOK",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "TAKE ALL",
+    "old": "before_semantics",
+    "new": "ok"
+  },
+  {
+    "input": "",
+    "old": "input_again",
+    "new": "empty"
+  },
+  {
+    "input": "QUIT",
+    "old": "control_command:load_or_quit",
+    "new": "ok"
+  },
+  {
+    "input": "SAVE",
+    "old": "control_command:save",
+    "new": "ok"
+  },
+  {
+    "input": "PAUSE",
+    "old": "control_command:pause_or_key_wait",
+    "new": "ok"
+  }
+]

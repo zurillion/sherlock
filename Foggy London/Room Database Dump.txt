@@ -1,0 +1,948 @@
+L84E1:  DB      #04                    ;Room 00: 0.0, IN
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #FF
+;
+L84EB:  DB      #84                    ;Room 01: 8.0, IN
+        DW      #1164                  ;[1] cab
+        DW      #03CE                  ;hansom
+        DW      #0000                  ;
+        DW      #7DE1                  ;[SUBJECT is/are] travell{conj} the street{conj} of london{Cap} in a hansom cab{noconj}, [Time 20-5?] [JR 7DC1]
+        DW      #FF
+;
+L84F5:  DB      #84                    ;Room 02: 8.0, IN
+        DW      #18EB                  ;[1] train
+        DW      #084C                  ;steam
+        DW      #0000                  ;
+        DW      #7E27                  ;[SUBJECT is/are] travell{conj} along the london{Cap} under{noconj}ground railway in a steam train.
+        DW      #FF
+;
+L84FF:  DB      #84                    ;Room 03: 8.0, IN
+        DW      #18EB                  ;[1] train
+        DW      #084C                  ;steam
+        DW      #0000                  ;
+        DW      #7E45                  ;[SUBJECT is/are] ride{conj} in a steam train through the picturesque english{Cap} count{noconj}ryside.
+        DW      #FF
+;
+L8509:  DB      #84                    ;Room 04: 8.0, IN
+        DW      #18EB                  ;[1] train
+        DW      #084C                  ;steam
+        DW      #0000                  ;
+        DW      #7E65                  ;[SUBJECT is/are] ride{conj} in a steam train be{conj} shunted between platform{noconj}s.
+        DW      #FF
+;
+L8513:  DB      #06                    ;Room 05: 0.0, ON
+        DW      #8861                  ;[8] street
+        DW      #00AB                  ;baker
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #13, #06          ;N  --13--> 06
+        DW      #FF
+;
+L8520:  DB      #84                    ;Room 06: 8.0, IN
+        DW      #23C6                  ;[2] hallway
+        DW      #029C                  ;entrance
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #09, #14, #07          ;UP --14--> 07
+        DB      #02, #13, #05          ;S  --13--> 05
+        DW      #FF
+;
+L8530:  DB      #84                    ;Room 07: 8.0, IN
+        DW      #13C2                  ;[1] hall
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #15, #08          ;E  --15--> 08
+        DB      #0A, #14, #06          ;DN --14--> 06
+        DW      #FF
+;
+L8540:  DB      #84                    ;Room 08: 8.0, IN
+        DW      #8747                  ;[8] room
+        DW      #09F2                  ;your
+        DW      #0000                  ;
+        DW      #7D62                  ;[Time 6?] [CALLR 7D05] [Time 7-12?] [CALLR 7D1F] [Time 13-18?] [CALLR 7D2B] [Time 19?] [CALLR 7D3B] [Time 20-5?] [CALLR 7D4E] your sitting room{noconj}. there is a pipe rack to the right of the sofa. bullet pock mark{conj} are the feature of one wall, and charts and diagrams fill another. an acid stained table sit{conj} in the corner.
+        DB      #04, #15, #07          ;W  --15--> 07
+        DB      #01, #32, #09          ;N  --32--> 09
+        DW      #FF
+;
+L8550:  DB      #84                    ;Room 09: 8.0, IN
+        DW      #11C2                  ;[1] closet
+        DW      #07F4                  ;small
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #02, #32, #08          ;S  --32--> 08
+        DW      #FF
+;
+L855D:  DB      #06                    ;Room 0A: 0.0, ON
+        DW      #8861                  ;[8] street
+        DW      #064C                  ;parliament
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #00, #0B          ;E  --00--> 0B
+        DW      #FF
+;
+L856A:  DB      #84                    ;Room 0B: 8.0, IN
+        DW      #89E3                  ;[8] yard
+        DW      #077E                  ;scotland
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #00, #0A          ;W  --00--> 0A
+        DW      #FF
+;
+L8577:  DB      #06                    ;Room 0C: 0.0, ON
+        DW      #8861                  ;[8] street
+        DW      #07EA                  ;slater
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #1D, #0D          ;N  --1D--> 0D
+        DW      #FF
+;
+L8584:  DB      #84                    ;Room 0D: 8.0, IN
+        DW      #1231                  ;[1] den
+        DW      #025F                  ;disgust
+        DW      #060F                  ;opium
+        DW      #0000                  ;
+        DB      #02, #00, #0C          ;S  --00--> 0C
+        DW      #FF
+;
+L8591:  DB      #04                    ;Room 0E: 0.0, IN
+        DW      #8861                  ;[8] street
+        DW      #0031                  ;aldergate
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #06, #00, #0F          ;NW --00--> 0F
+        DW      #FF
+;
+L859E:  DB      #88                    ;Room 0F: 8.0, AT
+        DW      #883E                  ;[8] station
+        DW      #0031                  ;aldergate
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #07, #00, #0E          ;SE --00--> 0E
+        DB      #06, #00, #10          ;NW --00--> 10
+        DW      #FF
+;
+L85AE:  DB      #86                    ;Room 10: 8.0, ON
+        DW      #8604                  ;[8] one
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7EFA                  ;[CALLR 7EEA] aldergate{Cap} station.
+        DB      #07, #00, #0F          ;SE --00--> 0F
+        DB      #06, #00, #11          ;NW --00--> 11
+        DW      #FF
+;
+L85BE:  DB      #86                    ;Room 11: 8.0, ON
+        DW      #8908                  ;[8] two
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F03                  ;[CALLR 7EF2] [JR 7EFD]
+        DB      #07, #00, #10          ;SE --00--> 10
+        DW      #FF
+;
+L85CB:  DB      #04                    ;Room 12: 0.0, IN
+        DW      #873F                  ;[8] road
+        DW      #049C                  ;kings
+        DW      #0200                  ;cross
+        DW      #0000                  ;
+        DB      #05, #00, #13          ;NE --00--> 13
+        DW      #FF
+;
+L85D8:  DB      #88                    ;Room 13: 8.0, AT
+        DW      #883E                  ;[8] station
+        DW      #049C                  ;kings
+        DW      #0200                  ;cross
+        DW      #0000                  ;
+        DB      #08, #00, #12          ;SW --00--> 12
+        DB      #05, #00, #14          ;NE --00--> 14
+        DW      #FF
+;
+L85E8:  DB      #86                    ;Room 14: 8.0, ON
+        DW      #8604                  ;[8] one
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F09                  ;[CALLR 7EEA] kings{Cap} cross station.
+        DB      #08, #00, #13          ;SW --00--> 13
+        DB      #05, #00, #15          ;NE --00--> 15
+        DW      #FF
+;
+L85F8:  DB      #86                    ;Room 15: 8.0, ON
+        DW      #8908                  ;[8] two
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F14                  ;[CALLR 7EF2] [JR 7F0C]
+        DB      #08, #00, #14          ;SW --00--> 14
+        DB      #05, #00, #16          ;NE --00--> 16
+        DW      #FF
+;
+L8608:  DB      #86                    ;Room 16: 8.0, ON
+        DW      #88CA                  ;[8] three
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F1A                  ;[SUBJECT is/are] at platform three of [JR 7F0C]
+        DB      #08, #00, #15          ;SW --00--> 15
+        DB      #05, #00, #17          ;NE --00--> 17
+        DW      #FF
+;
+L8618:  DB      #86                    ;Room 17: 8.0, ON
+        DW      #8345                  ;[8] four
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F24                  ;[SUBJECT is/are] at platform four of [JR 7F0C]
+        DB      #08, #00, #16          ;SW --00--> 16
+        DW      #FF
+;
+L8625:  DB      #04                    ;Room 18: 0.0, IN
+        DW      #873F                  ;[8] road
+        DW      #00F5                  ;bishops
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #07, #00, #19          ;SE --00--> 19
+        DW      #FF
+;
+L8632:  DB      #88                    ;Room 19: 8.0, AT
+        DW      #883E                  ;[8] station
+        DW      #0636                  ;paddington
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #06, #00, #18          ;NW --00--> 18
+        DB      #07, #00, #1A          ;SE --00--> 1A
+        DW      #FF
+;
+L8642:  DB      #86                    ;Room 1A: 8.0, ON
+        DW      #8604                  ;[8] one
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F2E                  ;[CALLR 7EEA] paddington{Cap} station.
+        DB      #06, #00, #19          ;NW --00--> 19
+        DB      #07, #00, #1B          ;SE --00--> 1B
+        DW      #FF
+;
+L8652:  DB      #86                    ;Room 1B: 8.0, ON
+        DW      #8908                  ;[8] two
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F37                  ;[CALLR 7EF2] [JR 7F31]
+        DB      #06, #00, #1A          ;NW --00--> 1A
+        DW      #FF
+;
+L865F:  DB      #04                    ;Room 1C: 0.0, IN
+        DW      #873F                  ;[8] road
+        DW      #014A                  ;buckingham
+        DW      #063E                  ;palace
+        DW      #0000                  ;
+        DB      #03, #00, #1D          ;E  --00--> 1D
+        DW      #FF
+;
+L866C:  DB      #88                    ;Room 1D: 8.0, AT
+        DW      #883E                  ;[8] station
+        DW      #094F                  ;victoria
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #00, #1C          ;W  --00--> 1C
+        DB      #03, #00, #1E          ;E  --00--> 1E
+        DW      #FF
+;
+L867C:  DB      #86                    ;Room 1E: 8.0, ON
+        DW      #8604                  ;[8] one
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F3D                  ;[CALLR 7EEA] victoria{Cap} station.
+        DB      #04, #00, #1D          ;W  --00--> 1D
+        DB      #03, #00, #1F          ;E  --00--> 1F
+        DW      #FF
+;
+L868C:  DB      #86                    ;Room 1F: 8.0, ON
+        DW      #8908                  ;[8] two
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F46                  ;[CALLR 7EF2] [JR 7F40]
+        DB      #04, #00, #1E          ;W  --00--> 1E
+        DW      #FF
+;
+L8699:  DB      #04                    ;Room 20: 0.0, IN
+        DW      #8861                  ;[8] street
+        DW      #0174                  ;camden
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #05, #5B, #21          ;NE --5B--> 21
+        DB      #03, #00, #66          ;E  --00--> 66
+        DW      #FF
+;
+L86A9:  DB      #04                    ;Room 21: 0.0, IN
+        DW      #23C2                  ;[2] hall
+        DW      #029C                  ;entrance
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #08, #5B, #20          ;SW --5B--> 20
+        DB      #05, #00, #22          ;NE --00--> 22
+        DB      #07, #2D, #23          ;SE --2D--> 23
+        DW      #FF
+;
+L86BC:  DB      #04                    ;Room 22: 0.0, IN
+        DW      #1653                  ;[1] passage
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #08, #00, #21          ;SW --00--> 21
+        DB      #05, #32, #24          ;NE --32--> 24
+        DB      #06, #31, #25          ;NW --31--> 25
+        DB      #07, #37, #26          ;SE --37--> 26
+        DW      #FF
+;
+L86D2:  DB      #04                    ;Room 23: 0.0, IN
+        DW      #80CE                  ;[8] bedroom
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #06, #2D, #21          ;NW --2D--> 21
+        DB      #08, #4F, #66          ;SW --4F--> 66
+        DW      #FF
+;
+L86E2:  DB      #04                    ;Room 24: 0.0, IN
+        DW      #84A0                  ;[8] kitchen
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #08, #32, #22          ;SW --32--> 22
+        DB      #05, #4A, #27          ;NE --4A--> 27
+        DW      #FF
+;
+L86F2:  DB      #04                    ;Room 25: 0.0, IN
+        DW      #8747                  ;[8] room
+        DW      #00BD                  ;basils
+        DW      #024F                  ;dining
+        DW      #0000                  ;
+        DB      #07, #31, #22          ;SE --31--> 22
+        DW      #FF
+;
+L86FF:  DB      #04                    ;Room 26: 0.0, IN
+        DW      #84EA                  ;[8] library
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #06, #37, #22          ;NW --37--> 22
+        DW      #FF
+;
+L870C:  DB      #04                    ;Room 27: 0.0, IN
+        DW      #89E3                  ;[8] yard
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #08, #4A, #24          ;SW --4A--> 24
+        DW      #FF
+;
+L8719:  DB      #04                    ;Room 28: 0.0, IN
+        DW      #8861                  ;[8] street
+        DW      #07C2                  ;sidmouth
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #06, #30, #29          ;NW --30--> 29
+        DW      #FF
+;
+L8726:  DB      #84                    ;Room 29: 8.0, IN
+        DW      #0653                  ;passage
+        DW      #053F                  ;main
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #07, #30, #28          ;SE --30--> 28
+        DB      #05, #37, #2A          ;NE --37--> 2A
+        DB      #09, #14, #2B          ;UP --14--> 2B
+        DW      #FF
+;
+L8739:  DB      #04                    ;Room 2A: 0.0, IN
+        DW      #052A                  ;lounge
+        DW      #0703                  ;reading
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #08, #37, #29          ;SW --37--> 29
+        DW      #FF
+;
+L8746:  DB      #84                    ;Room 2B: 8.0, IN
+        DW      #0653                  ;passage
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #0A, #14, #29          ;DN --14--> 29
+        DB      #05, #30, #2C          ;NE --30--> 2C
+        DW      #FF
+;
+L8756:  DB      #04                    ;Room 2C: 0.0, IN
+        DW      #8747                  ;[8] room
+        DW      #0542                  ;major
+        DW      #030A                  ;ffoulkes
+        DW      #7E7F                  ;[SUBJECT is/are] in major{Cap} ffoulkes{Cap} room{noconj} in the boarding house. it is small and some{noconj}what crowded. indian artifacts, many very strange{noconj}, litter the room{noconj}.
+        DB      #08, #30, #2B          ;SW --30--> 2B
+        DW      #FF
+;
+L8763:  DB      #04                    ;Room 2D: 0.0, IN
+        DW      #8861                  ;[8] street
+        DW      #06BE                  ;portman
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #02, #67, #2E          ;S  --67--> 2E
+        DW      #FF
+;
+L8770:  DB      #04                    ;Room 2E: 0.0, IN
+        DW      #83C2                  ;[8] hall
+        DW      #08FE                  ;tricias
+        DW      #029C                  ;entrance
+        DW      #0000                  ;
+        DB      #01, #67, #2D          ;N  --67--> 2D
+        DB      #02, #37, #2F          ;S  --37--> 2F
+        DW      #FF
+;
+L8780:  DB      #04                    ;Room 2F: 0.0, IN
+        DW      #852A                  ;[8] lounge
+        DW      #08FE                  ;tricias
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #37, #2E          ;N  --37--> 2E
+        DB      #02, #32, #30          ;S  --32--> 30
+        DB      #03, #33, #31          ;E  --33--> 31
+        DW      #FF
+;
+L8793:  DB      #04                    ;Room 30: 0.0, IN
+        DW      #84A0                  ;[8] kitchen
+        DW      #08FE                  ;tricias
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #32, #2F          ;N  --32--> 2F
+        DW      #FF
+;
+L87A0:  DB      #04                    ;Room 31: 0.0, IN
+        DW      #80CE                  ;[8] bedroom
+        DW      #08FE                  ;tricias
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #33, #2F          ;W  --33--> 2F
+        DW      #FF
+;
+L87AD:  DB      #04                    ;Room 32: 0.0, IN
+        DW      #0861                  ;street
+        DW      #053F                  ;main
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #00, #35          ;N  --00--> 35
+        DB      #04, #00, #3E          ;W  --00--> 3E
+        DB      #03, #00, #5C          ;E  --00--> 5C
+        DB      #02, #00, #33          ;S  --00--> 33
+        DB      #05, #00, #68          ;NE --00--> 68
+        DW      #FF
+;
+L87C6:  DB      #04                    ;Room 33: 0.0, IN
+        DW      #04BD                  ;lane
+        DW      #01CA                  ;cobden
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #00, #32          ;N  --00--> 32
+        DB      #02, #00, #34          ;S  --00--> 34
+        DB      #03, #13, #38          ;E  --13--> 38
+        DW      #FF
+;
+L87D9:  DB      #04                    ;Room 34: 0.0, IN
+        DW      #04BD                  ;lane
+        DW      #07F4                  ;small
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #00, #33          ;N  --00--> 33
+        DB      #03, #49, #3C          ;E  --49--> 3C
+        DB      #04, #4B, #51          ;W  --4B--> 51
+        DW      #FF
+;
+L87EC:  DB      #88                    ;Room 35: 8.0, AT
+        DW      #083E                  ;station
+        DW      #04D3                  ;leatherhead
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #02, #00, #32          ;S  --00--> 32
+        DB      #01, #00, #36          ;N  --00--> 36
+        DW      #FF
+;
+L87FC:  DB      #86                    ;Room 36: 8.0, ON
+        DW      #8604                  ;[8] one
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F4C                  ;[CALLR 7EEA] leather{Cap} head{Cap} station.
+        DB      #02, #00, #35          ;S  --00--> 35
+        DB      #01, #00, #37          ;N  --00--> 37
+        DW      #FF
+;
+L880C:  DB      #86                    ;Room 37: 8.0, ON
+        DW      #8908                  ;[8] two
+        DW      #06A2                  ;platform
+        DW      #0000                  ;
+        DW      #7F57                  ;[CALLR 7EF2] [JR 7F4F]
+        DB      #02, #00, #36          ;S  --00--> 36
+        DW      #FF
+;
+L8819:  DB      #84                    ;Room 38: 8.0, IN
+        DW      #23C2                  ;[2] hall
+        DW      #029C                  ;entrance
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #13, #33          ;W  --13--> 33
+        DB      #03, #45, #39          ;E  --45--> 39
+        DB      #09, #14, #3D          ;UP --14--> 3D
+        DW      #FF
+;
+L882C:  DB      #04                    ;Room 39: 0.0, IN
+        DW      #1747                  ;[1] room
+        DW      #052A                  ;lounge
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #45, #38          ;W  --45--> 38
+        DB      #03, #32, #3B          ;E  --32--> 3B
+        DB      #02, #00, #3A          ;S  --00--> 3A
+        DW      #FF
+;
+L883F:  DB      #04                    ;Room 3A: 0.0, IN
+        DW      #84EA                  ;[8] library
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #00, #39          ;N  --00--> 39
+        DW      #FF
+;
+L884C:  DB      #04                    ;Room 3B: 0.0, IN
+        DW      #84A0                  ;[8] kitchen
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #32, #39          ;W  --32--> 39
+        DB      #02, #4A, #3C          ;S  --4A--> 3C
+        DW      #FF
+;
+L885C:  DB      #04                    ;Room 3C: 0.0, IN
+        DW      #09E3                  ;yard
+        DW      #07F4                  ;small
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #4A, #3B          ;N  --4A--> 3B
+        DB      #04, #49, #34          ;W  --49--> 34
+        DW      #FF
+;
+L886C:  DB      #04                    ;Room 3D: 0.0, IN
+        DW      #80CE                  ;[8] bedroom
+        DW      #00BD                  ;basils
+        DW      #0000                  ;
+        DW      #7EB7                  ;[SUBJECT is/are] in a large lavishly decorated bedroom, a broad window{noconj} over{noconj}looks a small lane leading north.
+        DB      #0A, #14, #38          ;DN --14--> 38
+        DB      #03, #66, #00          ;E  --66--> 00
+        DW      #FF
+;
+L887C:  DB      #08                    ;Room 3E: 0.0, AT
+        DW      #8377                  ;[8] gate
+        DW      #0147                  ;browns
+        DW      #0355                  ;front
+        DW      #0000                  ;
+        DB      #02, #0C, #4C          ;S  --0C--> 4C
+        DB      #03, #00, #32          ;E  --00--> 32
+        DW      #FF
+;
+L888C:  DB      #08                    ;Room 3F: 0.0, AT
+        DW      #826E                  ;[8] door
+        DW      #0147                  ;browns
+        DW      #0355                  ;front
+        DW      #0000                  ;
+        DB      #02, #2D, #40          ;S  --2D--> 40
+        DB      #01, #00, #4C          ;N  --00--> 4C
+        DW      #FF
+;
+L889C:  DB      #84                    ;Room 40: 8.0, IN
+        DW      #23C2                  ;[2] hall
+        DW      #029C                  ;entrance
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #30, #43          ;E  --30--> 43
+        DB      #01, #2D, #3F          ;N  --2D--> 3F
+        DB      #02, #2C, #45          ;S  --2C--> 45
+        DW      #FF
+;
+L88AF:  DB      #84                    ;Room 41: 8.0, IN
+        DW      #14A0                  ;[1] kitchen
+        DW      #04C1                  ;large
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #00, #42          ;W  --00--> 42
+        DB      #03, #32, #44          ;E  --32--> 44
+        DW      #FF
+;
+L88BF:  DB      #04                    ;Room 42: 0.0, IN
+        DW      #1643                  ;[1] pantry
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #00, #41          ;E  --00--> 41
+        DW      #FF
+;
+L88CC:  DB      #04                    ;Room 43: 0.0, IN
+        DW      #0747                  ;room
+        DW      #07E0                  ;sitting
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #30, #40          ;W  --30--> 40
+        DB      #02, #31, #44          ;S  --31--> 44
+        DW      #FF
+;
+L88DC:  DB      #04                    ;Room 44: 0.0, IN
+        DW      #0747                  ;room
+        DW      #024F                  ;dining
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #32, #41          ;W  --32--> 41
+        DB      #01, #31, #43          ;N  --31--> 43
+        DW      #FF
+;
+L88EC:  DB      #84                    ;Room 45: 8.0, IN
+        DW      #1653                  ;[1] passage
+        DW      #0520                  ;long
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #0A, #2C, #40          ;DN --2C--> 40
+        DB      #02, #34, #4A          ;S  --34--> 4A
+        DB      #04, #36, #48          ;W  --36--> 48
+        DB      #03, #00, #46          ;E  --00--> 46
+        DB      #01, #2C, #40          ;N  --2C--> 40
+        DW      #FF
+;
+L8905:  DB      #84                    ;Room 46: 8.0, IN
+        DW      #1653                  ;[1] passage
+        DW      #0520                  ;long
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #00, #45          ;W  --00--> 45
+        DB      #01, #33, #49          ;N  --33--> 49
+        DB      #02, #35, #4B          ;S  --35--> 4B
+        DB      #03, #37, #47          ;E  --37--> 47
+        DW      #FF
+;
+L891B:  DB      #04                    ;Room 47: 0.0, IN
+        DW      #04EA                  ;library
+        DW      #0147                  ;browns
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #37, #46          ;W  --37--> 46
+        DW      #FF
+;
+L8928:  DB      #04                    ;Room 48: 0.0, IN
+        DW      #0865                  ;study
+        DW      #0147                  ;browns
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #36, #45          ;E  --36--> 45
+        DB      #05, #38, #49          ;NE --38--> 49
+        DW      #FF
+;
+L8938:  DB      #04                    ;Room 49: 0.0, IN
+        DW      #0747                  ;room
+        DW      #0553                  ;master
+        DW      #00CB                  ;bed
+        DW      #0000                  ;
+        DB      #04, #38, #48          ;W  --38--> 48
+        DB      #02, #33, #46          ;S  --33--> 46
+        DW      #FF
+;
+L8948:  DB      #04                    ;Room 4A: 0.0, IN
+        DW      #8747                  ;[8] room
+        DW      #021B                  ;daphnes
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #34, #45          ;N  --34--> 45
+        DW      #FF
+;
+L8955:  DB      #04                    ;Room 4B: 0.0, IN
+        DW      #0747                  ;room
+        DW      #03AA                  ;guest
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #35, #46          ;N  --35--> 46
+        DW      #FF
+;
+L8962:  DB      #06                    ;Room 4C: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #00, #3E          ;N  --00--> 3E
+        DB      #02, #00, #3F          ;S  --00--> 3F
+        DB      #08, #00, #4D          ;SW --00--> 4D
+        DB      #03, #00, #56          ;E  --00--> 56
+        DW      #FF
+;
+L8978:  DB      #06                    ;Room 4D: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #05, #00, #4C          ;NE --00--> 4C
+        DB      #02, #00, #4E          ;S  --00--> 4E
+        DW      #FF
+;
+L8988:  DB      #06                    ;Room 4E: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #01, #00, #4D          ;N  --00--> 4D
+        DB      #08, #00, #59          ;SW --00--> 59
+        DB      #07, #00, #4F          ;SE --00--> 4F
+        DW      #FF
+;
+L899B:  DB      #06                    ;Room 4F: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #06, #00, #4E          ;NW --00--> 4E
+        DB      #07, #00, #50          ;SE --00--> 50
+        DB      #05, #00, #52          ;NE --00--> 52
+        DB      #08, #00, #59          ;SW --00--> 59
+        DB      #03, #3B, #00          ;E  --3B--> 00
+        DW      #FF
+;
+L89B4:  DB      #06                    ;Room 50: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #07, #00, #5B          ;SE --00--> 5B
+        DB      #04, #00, #4F          ;W  --00--> 4F
+        DB      #05, #00, #51          ;NE --00--> 51
+        DW      #FF
+;
+L89C7:  DB      #06                    ;Room 51: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #08, #00, #50          ;SW --00--> 50
+        DB      #01, #00, #53          ;N  --00--> 53
+        DB      #02, #00, #5B          ;S  --00--> 5B
+        DB      #06, #00, #52          ;NW --00--> 52
+        DB      #04, #4B, #34          ;W  --4B--> 34
+        DW      #FF
+;
+L89E0:  DB      #06                    ;Room 52: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #05, #00, #53          ;NE --00--> 53
+        DB      #04, #00, #4F          ;W  --00--> 4F
+        DB      #07, #00, #51          ;SE --00--> 51
+        DW      #FF
+;
+L89F3:  DB      #06                    ;Room 53: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #01, #00, #54          ;N  --00--> 54
+        DB      #06, #00, #56          ;NW --00--> 56
+        DB      #08, #00, #52          ;SW --00--> 52
+        DB      #07, #00, #51          ;SE --00--> 51
+        DW      #FF
+;
+L8A09:  DB      #06                    ;Room 54: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #06, #00, #55          ;NW --00--> 55
+        DB      #02, #00, #53          ;S  --00--> 53
+        DW      #FF
+;
+L8A19:  DB      #06                    ;Room 55: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #01, #00, #56          ;N  --00--> 56
+        DB      #03, #00, #54          ;E  --00--> 54
+        DW      #FF
+;
+L8A29:  DB      #06                    ;Room 56: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #04, #00, #4C          ;W  --00--> 4C
+        DB      #07, #00, #53          ;SE --00--> 53
+        DB      #03, #00, #55          ;E  --00--> 55
+        DW      #FF
+;
+L8A3C:  DB      #06                    ;Room 57: 0.0, ON
+        DW      #165C                  ;[1] path
+        DW      #09B5                  ;winding
+        DW      #036A                  ;garden
+        DW      #0000                  ;
+        DB      #04, #00, #58          ;W  --00--> 58
+        DB      #03, #00, #5A          ;E  --00--> 5A
+        DB      #02, #3B, #00          ;S  --3B--> 00
+        DW      #FF
+;
+L8A4F:  DB      #06                    ;Room 58: 0.0, ON
+        DW      #07BE                  ;side
+        DW      #0284                  ;east
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #39, #59          ;W  --39--> 59
+        DB      #07, #00, #57          ;SE --00--> 57
+        DB      #01, #3B, #00          ;N  --3B--> 00
+        DW      #FF
+;
+L8A62:  DB      #06                    ;Room 59: 0.0, ON
+        DW      #07BE                  ;side
+        DW      #0992                  ;west
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #39, #58          ;E  --39--> 58
+        DB      #01, #00, #4E          ;N  --00--> 4E
+        DB      #05, #00, #4F          ;NE --00--> 4F
+        DB      #06, #3B, #00          ;NW --3B--> 00
+        DW      #FF
+;
+L8A78:  DB      #06                    ;Room 5A: 0.0, ON
+        DW      #07BE                  ;side
+        DW      #081A                  ;south
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #00, #57          ;W  --00--> 57
+        DB      #01, #3A, #5B          ;N  --3A--> 5B
+        DB      #07, #3B, #00          ;SE --3B--> 00
+        DW      #FF
+;
+L8A8B:  DB      #06                    ;Room 5B: 0.0, ON
+        DW      #07BE                  ;side
+        DW      #05C3                  ;north
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #02, #3A, #5A          ;S  --3A--> 5A
+        DB      #06, #00, #50          ;NW --00--> 50
+        DB      #01, #00, #51          ;N  --00--> 51
+        DB      #05, #3B, #00          ;NE --3B--> 00
+        DW      #FF
+;
+L8AA1:  DB      #08                    ;Room 5C: 0.0, AT
+        DW      #8377                  ;[8] gate
+        DW      #048B                  ;jones
+        DW      #0355                  ;front
+        DW      #0000                  ;
+        DB      #02, #0B, #5D          ;S  --0B--> 5D
+        DB      #04, #00, #32          ;W  --00--> 32
+        DW      #FF
+;
+L8AB1:  DB      #08                    ;Room 5D: 0.0, AT
+        DW      #826E                  ;[8] door
+        DW      #048B                  ;jones
+        DW      #0355                  ;front
+        DW      #0000                  ;
+        DB      #02, #13, #60          ;S  --13--> 60
+        DB      #01, #00, #5C          ;N  --00--> 5C
+        DW      #FF
+;
+L8AC1:  DB      #04                    ;Room 5E: 0.0, IN
+        DW      #14EA                  ;[1] library
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #04, #42, #5F          ;W  --42--> 5F
+        DB      #01, #44, #61          ;N  --44--> 61
+        DW      #FF
+;
+L8AD1:  DB      #04                    ;Room 5F: 0.0, IN
+        DW      #1747                  ;[1] room
+        DW      #07F4                  ;small
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #03, #42, #5E          ;E  --42--> 5E
+        DW      #FF
+;
+L8ADE:  DB      #84                    ;Room 60: 8.0, IN
+        DW      #83C2                  ;[8] hall
+        DW      #048B                  ;jones
+        DW      #029C                  ;entrance
+        DW      #0000                  ;
+        DB      #01, #13, #5D          ;N  --13--> 5D
+        DB      #07, #31, #63          ;SE --31--> 63
+        DB      #04, #45, #61          ;W  --45--> 61
+        DB      #09, #14, #64          ;UP --14--> 64
+        DW      #FF
+;
+L8AF4:  DB      #04                    ;Room 61: 0.0, IN
+        DW      #0747                  ;room
+        DW      #07E0                  ;sitting
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #02, #44, #5E          ;S  --44--> 5E
+        DB      #03, #45, #60          ;E  --45--> 60
+        DW      #FF
+;
+L8B04:  DB      #04                    ;Room 62: 0.0, IN
+        DW      #14A0                  ;[1] kitchen
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #02, #32, #63          ;S  --32--> 63
+        DW      #FF
+;
+L8B11:  DB      #04                    ;Room 63: 0.0, IN
+        DW      #0747                  ;room
+        DW      #024F                  ;dining
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #01, #32, #62          ;N  --32--> 62
+        DB      #06, #31, #60          ;NW --31--> 60
+        DW      #FF
+;
+L8B21:  DB      #84                    ;Room 64: 8.0, IN
+        DW      #1653                  ;[1] passage
+        DW      #07F4                  ;small
+        DW      #0000                  ;
+        DW      #0000                  ;
+        DB      #0A, #14, #60          ;DN --14--> 60
+        DB      #04, #46, #65          ;W  --46--> 65
+        DW      #FF
+;
+L8B31:  DB      #04                    ;Room 65: 0.0, IN
+        DW      #8747                  ;[8] room
+        DW      #0584                  ;mrs
+        DW      #048B                  ;jones
+        DW      #0000                  ;
+        DB      #03, #46, #64          ;E  --46--> 64
+        DW      #FF
+;
+L8B3E:  DB      #04                    ;Room 66: 0.0, IN
+        DW      #89E3                  ;[8] yard
+        DW      #00BD                  ;basils
+        DW      #0355                  ;front
+        DW      #0000                  ;
+        DB      #04, #00, #20          ;W  --00--> 20
+        DB      #05, #4F, #23          ;NE --4F--> 23
+        DW      #FF
+;
+L8B4E:  DB      #06                    ;Room 67: 0.0, ON
+        DW      #073F                  ;road
+        DW      #05FB                  ;old
+        DW      #0567                  ;mill
+        DW      #0000                  ;
+        DW      #FF
+;
+L8B58:  DB      #04                    ;Room 68: 0.0, IN
+        DW      #083E                  ;station
+        DW      #04D3                  ;leatherhead
+        DW      #06B5                  ;police
+        DW      #0000                  ;
+        DB      #08, #00, #32          ;SW --00--> 32
+        DW      #FF
+;
+L8B65:  DB      #84                    ;Room 69: 8.0, IN
+        DW      #1164                  ;[1] cab
+        DW      #06B5                  ;police
+        DW      #0000                  ;
+        DW      #7E0B                  ;[SUBJECT is/are] in a cab{noconj} travell{conj} mad{conj} along rough count{noconj}ry road{noconj}s.
+        DW      #FF
+;

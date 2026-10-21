@@ -1,0 +1,61 @@
+LOCAZIONI: campi +7/+8 dei record; nomi indicativi da basi lessicali.
+
+ID 1 — hansom cab — record $84EB — testo $7DE1
+⟦nome $A036 + is/are⟧ Travelling the streets of London in a hansom cab, ⟦se classe temporale=1⟧ flickering gas lamps provide enough light to cast shadows. ⟦fine condizione⟧ The sun shines through the windows onto your face.
+
+ID 2 — steam train — record $84F5 — testo $7E27
+⟦nome $A036 + is/are⟧ Travelling along the London underground railway in a steam train.
+
+ID 3 — steam train — record $84FF — testo $7E45
+⟦nome $A036 + is/are⟧ Riding in a steam train through the picturesque English countryside.
+
+ID 4 — steam train — record $8509 — testo $7E65
+⟦nome $A036 + is/are⟧ Riding in a steam train being shunted between platforms.
+
+ID 8 — your room — record $8540 — testo $7D62
+⟦se classe temporale=5⟧ The first rays of light filter their way through the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=4⟧ the sun streams in the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=3⟧ two broad windows illuminate ⟦fine condizione⟧ ⟦se classe temporale=2⟧ the sunlight fades through the two broad windows in ⟦fine condizione⟧ ⟦se classe temporale=1⟧ you can see the light of a flickering gas lamp through the two broad windows in ⟦fine condizione⟧ your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner.
+
+ID 16 — platform one — record $85AE — testo $7EFA
+⟦nome $A036 + is/are⟧ At platform one of Aldergate station.
+
+ID 17 — platform two — record $85BE — testo $7F03
+⟦nome $A036 + is/are⟧ At platform two of Aldergate station.
+
+ID 20 — platform one — record $85E8 — testo $7F09
+⟦nome $A036 + is/are⟧ At platform one of Kings cross station.
+
+ID 21 — platform two — record $85F8 — testo $7F14
+⟦nome $A036 + is/are⟧ At platform two of Kings cross station.
+
+ID 22 — platform three — record $8608 — testo $7F1A
+⟦nome $A036 + is/are⟧ At platform three of Kings cross station.
+
+ID 23 — platform four — record $8618 — testo $7F24
+⟦nome $A036 + is/are⟧ At platform four of Kings cross station.
+
+ID 26 — platform one — record $8642 — testo $7F2E
+⟦nome $A036 + is/are⟧ At platform one of Paddington station.
+
+ID 27 — platform two — record $8652 — testo $7F37
+⟦nome $A036 + is/are⟧ At platform two of Paddington station.
+
+ID 30 — platform one — record $867C — testo $7F3D
+⟦nome $A036 + is/are⟧ At platform one of Victoria station.
+
+ID 31 — platform two — record $868C — testo $7F46
+⟦nome $A036 + is/are⟧ At platform two of Victoria station.
+
+ID 44 — major ffoulkes room — record $8756 — testo $7E7F
+⟦nome $A036 + is/are⟧ In Major Ffoulkes room in the boarding house. It is small and somewhat crowded. Indian artifacts, many very strange, litter the room.
+
+ID 54 — platform one — record $87FC — testo $7F4C
+⟦nome $A036 + is/are⟧ At platform one of Leather Head station.
+
+ID 55 — platform two — record $880C — testo $7F57
+⟦nome $A036 + is/are⟧ At platform two of Leather Head station.
+
+ID 61 — basils bedroom — record $886C — testo $7EB7
+⟦nome $A036 + is/are⟧ In a large lavishly decorated bedroom, a broad window overlooks a small lane leading north.
+
+ID 105 — police cab — record $8B65 — testo $7E0B
+⟦nome $A036 + is/are⟧ In a cab travelling madly along rough country roads.

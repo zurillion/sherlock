@@ -1,0 +1,346 @@
+[
+  {
+    "case": "china continuation",
+    "command": "TAKE DISGUISE",
+    "messages": [
+      {
+        "kind": "error",
+        "text": "WHICH DISGUISE ?"
+      }
+    ],
+    "player_id": 0,
+    "room": 9,
+    "tick": 2,
+    "reference_player_id": 0,
+    "reference_room": 9,
+    "reference_tick": 2,
+    "reference_lower": "TAKE DISGUISE.\n which disguise ?> ",
+    "reference_upper": ""
+  },
+  {
+    "case": "china continuation",
+    "command": "CHINA",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You take the china mans disguise."
+      }
+    ],
+    "player_id": 0,
+    "room": 9,
+    "tick": 3,
+    "reference_player_id": 0,
+    "reference_room": 9,
+    "reference_tick": 3,
+    "reference_lower": "CHINA.\n> ",
+    "reference_upper": "\nYou take the china mans disguise.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "WEAR DISGUISE",
+    "messages": [
+      {
+        "kind": "error",
+        "text": "WHICH DISGUISE ?"
+      }
+    ],
+    "player_id": 0,
+    "room": 9,
+    "tick": 3,
+    "reference_player_id": 0,
+    "reference_room": 9,
+    "reference_tick": 3,
+    "reference_lower": "WEAR DISGUISE.\n which disguise ?> ",
+    "reference_upper": ""
+  },
+  {
+    "case": "china continuation",
+    "command": "CHINA",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You wear the china mans disguise."
+      }
+    ],
+    "player_id": 1,
+    "room": 9,
+    "tick": 4,
+    "reference_player_id": 1,
+    "reference_room": 9,
+    "reference_tick": 4,
+    "reference_lower": "CHINA.\n> ",
+    "reference_upper": "\nYou wear the china mans disguise.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "LOOK",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 9
+      },
+      {
+        "kind": "narrative",
+        "text": "The china man is in a small closet. To the south there is a plain door. The china man can see an old mans disguise."
+      }
+    ],
+    "player_id": 1,
+    "room": 9,
+    "tick": 5,
+    "reference_player_id": 1,
+    "reference_room": 9,
+    "reference_tick": 5,
+    "reference_lower": "LOOK.\n> ",
+    "reference_upper": "\nThe china man is in a small closet. To the south there is a plain door. The china man can see an old mans \ndisguise.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "INVENTORY",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The china man is carrying your money."
+      }
+    ],
+    "player_id": 1,
+    "room": 9,
+    "tick": 6,
+    "reference_player_id": 1,
+    "reference_room": 9,
+    "reference_tick": 6,
+    "reference_lower": "INVENTORY.\n> ",
+    "reference_upper": "\nThe china man is carrying your \nmoney.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "OPEN DOOR",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The china man opens the plain door."
+      }
+    ],
+    "player_id": 1,
+    "room": 9,
+    "tick": 7,
+    "reference_player_id": 1,
+    "reference_room": 9,
+    "reference_tick": 7,
+    "reference_lower": "OPEN DOOR.\n> ",
+    "reference_upper": "\nThe china man opens the plain door.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "SOUTH",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The china man goes south.\n The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. The china man can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "player_id": 1,
+    "room": 8,
+    "tick": 8,
+    "reference_player_id": 1,
+    "reference_room": 8,
+    "reference_tick": 8,
+    "reference_lower": "SOUTH.\n> ",
+    "reference_upper": "\nThe china man goes south.\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. The \nchina man can see an oil lamp, your armchair and watsons armchair. In \nwatsons armchair there is Watson. \nWatson is carrying the daily \nchronicle.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "TAKE OFF DISGUISE",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The china man takes off the china mans disguise."
+      }
+    ],
+    "player_id": 0,
+    "room": 8,
+    "tick": 9,
+    "reference_player_id": 0,
+    "reference_room": 8,
+    "reference_tick": 9,
+    "reference_lower": "TAKE OFF DISGUISE.\n> ",
+    "reference_upper": "\nThe china man takes off the china \nmans disguise.\n"
+  },
+  {
+    "case": "china continuation",
+    "command": "LOOK",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "player_id": 0,
+    "room": 8,
+    "tick": 10,
+    "reference_player_id": 0,
+    "reference_room": 8,
+    "reference_tick": 10,
+    "reference_lower": "LOOK.\n> ",
+    "reference_upper": "\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. You cansee an oil lamp, your armchair and \nwatsons armchair. In watsons \narmchair there is Watson. Watson is carrying the daily chronicle.\n"
+  },
+  {
+    "case": "old man",
+    "command": "TAKE OLD MANS DISGUISE",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You take the old mans disguise."
+      }
+    ],
+    "player_id": 0,
+    "room": 9,
+    "tick": 3,
+    "reference_player_id": 0,
+    "reference_room": 9,
+    "reference_tick": 3,
+    "reference_lower": "TAKE OLD MANS DISGUISE.\n> ",
+    "reference_upper": "\nYou take the old mans disguise.\n"
+  },
+  {
+    "case": "old man",
+    "command": "WEAR OLD MANS DISGUISE",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "You wear the old mans disguise."
+      }
+    ],
+    "player_id": 100,
+    "room": 9,
+    "tick": 4,
+    "reference_player_id": 100,
+    "reference_room": 9,
+    "reference_tick": 4,
+    "reference_lower": "WEAR OLD MANS DISGUISE.\n> ",
+    "reference_upper": "\nYou wear the old mans disguise.\n"
+  },
+  {
+    "case": "old man",
+    "command": "LOOK",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 9
+      },
+      {
+        "kind": "narrative",
+        "text": "An old man is in a small closet. To the south there is a plain door. An old man can see a china mans disguise."
+      }
+    ],
+    "player_id": 100,
+    "room": 9,
+    "tick": 5,
+    "reference_player_id": 100,
+    "reference_room": 9,
+    "reference_tick": 5,
+    "reference_lower": "LOOK.\n> ",
+    "reference_upper": "\nAn old man is in a small closet. To the south there is a plain door. An old man can see a china mans \ndisguise.\n"
+  },
+  {
+    "case": "old man",
+    "command": "INVENTORY",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "An old man is carrying your money."
+      }
+    ],
+    "player_id": 100,
+    "room": 9,
+    "tick": 6,
+    "reference_player_id": 100,
+    "reference_room": 9,
+    "reference_tick": 6,
+    "reference_lower": "INVENTORY.\n> ",
+    "reference_upper": "\nAn old man is carrying your money.\n"
+  },
+  {
+    "case": "old man",
+    "command": "OPEN DOOR",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The old man opens the plain door."
+      }
+    ],
+    "player_id": 100,
+    "room": 9,
+    "tick": 7,
+    "reference_player_id": 100,
+    "reference_room": 9,
+    "reference_tick": 7,
+    "reference_lower": "OPEN DOOR.\n> ",
+    "reference_upper": "\nThe old man opens the plain door.\n"
+  },
+  {
+    "case": "old man",
+    "command": "SOUTH",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The old man goes south.\n The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. An old man can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "player_id": 100,
+    "room": 8,
+    "tick": 8,
+    "reference_player_id": 100,
+    "reference_room": 8,
+    "reference_tick": 8,
+    "reference_lower": "SOUTH.\n> ",
+    "reference_upper": "\nThe old man goes south.\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. An old man can see an oil lamp, your \narmchair and watsons armchair. In \nwatsons armchair there is Watson. \nWatson is carrying the daily \nchronicle.\n"
+  },
+  {
+    "case": "old man",
+    "command": "TAKE OFF DISGUISE",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "The old man takes off the old mans disguise."
+      }
+    ],
+    "player_id": 0,
+    "room": 8,
+    "tick": 9,
+    "reference_player_id": 0,
+    "reference_room": 8,
+    "reference_tick": 9,
+    "reference_lower": "TAKE OFF DISGUISE.\n> ",
+    "reference_upper": "\nThe old man takes off the old mans \ndisguise.\n"
+  },
+  {
+    "case": "old man",
+    "command": "LOOK",
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "player_id": 0,
+    "room": 8,
+    "tick": 10,
+    "reference_player_id": 0,
+    "reference_room": 8,
+    "reference_tick": 10,
+    "reference_lower": "LOOK.\n> ",
+    "reference_upper": "\nThe sun streams in the two broad \nwindows in your sitting room. There is a pipe rack to the right of the \nsofa. Bullet pock marks are the \nfeature of one wall, and charts and diagrams fill another. An acid \nstained table sits in the corner. Tothe west there is your door. To the north there is a plain door. You cansee an oil lamp, your armchair and \nwatsons armchair. In watsons \narmchair there is Watson. Watson is carrying the daily chronicle.\n"
+  }
+]

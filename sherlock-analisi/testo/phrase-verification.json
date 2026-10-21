@@ -1,0 +1,46 @@
+{
+  "entry": "A5C4",
+  "template": "6859",
+  "source_bytes": "6b 6f 6d d4 ad 60 20 43 bb e4 40 22 1f",
+  "output": "I do not know the word \"",
+  "tokens_executed": [
+    {
+      "address": "6859",
+      "byte": "6B"
+    },
+    {
+      "address": "685A",
+      "byte": "6F"
+    },
+    {
+      "address": "685B",
+      "byte": "6D"
+    },
+    {
+      "address": "685C",
+      "byte": "D4"
+    },
+    {
+      "address": "685E",
+      "byte": "60"
+    },
+    {
+      "address": "685F",
+      "byte": "20"
+    },
+    {
+      "address": "6860",
+      "byte": "43"
+    },
+    {
+      "address": "6864",
+      "byte": "22"
+    },
+    {
+      "address": "6865",
+      "byte": "1F"
+    }
+  ],
+  "conditions": "A034=0 A036=0 A026=1 A027=0 5C3C=1; snapshot startup",
+  "scope": "Isolated original template; observational taps only; not an entire gameplay run."
+}

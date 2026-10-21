@@ -1,0 +1,67 @@
+{
+  "instructions": 480,
+  "bytes_roundtripped": 1148,
+  "mismatches": 0,
+  "regions": [
+    {
+      "start": "994D",
+      "end_exclusive": "9965",
+      "kind": "data"
+    },
+    {
+      "start": "AAB2",
+      "end_exclusive": "AB11",
+      "kind": "code"
+    },
+    {
+      "start": "ABF3",
+      "end_exclusive": "AC24",
+      "kind": "code"
+    },
+    {
+      "start": "AD6C",
+      "end_exclusive": "ADD4",
+      "kind": "code"
+    },
+    {
+      "start": "AF6B",
+      "end_exclusive": "AFB3",
+      "kind": "data"
+    },
+    {
+      "start": "AFB3",
+      "end_exclusive": "B16D",
+      "kind": "code"
+    },
+    {
+      "start": "B447",
+      "end_exclusive": "B468",
+      "kind": "code"
+    },
+    {
+      "start": "B5B6",
+      "end_exclusive": "B5D3",
+      "kind": "code"
+    },
+    {
+      "start": "B86A",
+      "end_exclusive": "B934",
+      "kind": "code"
+    },
+    {
+      "start": "BA20",
+      "end_exclusive": "BA60",
+      "kind": "code"
+    },
+    {
+      "start": "D99E",
+      "end_exclusive": "D9AC",
+      "kind": "code"
+    },
+    {
+      "start": "DDA0",
+      "end_exclusive": "DDB4",
+      "kind": "code"
+    }
+  ]
+}

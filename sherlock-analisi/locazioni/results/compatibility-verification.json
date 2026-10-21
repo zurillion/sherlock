@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "36 columns: a word wraps upward from the bottom",
+    "18 lines fill before any visible text is lost",
+    "MORE grants exactly 18 scrolling lines",
+    "illustrated text uses 18 columns beside a fixed picture",
+    "long words make progress within the grid",
+    "paragraphs survive tokenization",
+    "commands reserve a cell for the plus cursor",
+    "clear leaves the entire screen blank with no scroll grant",
+    "original assets: 96 glyphs, 6 divider rows, 14 native rasters"
+  ]
+}

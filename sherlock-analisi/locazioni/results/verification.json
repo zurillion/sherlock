@@ -1,0 +1,10 @@
+{
+  "room_slots": 106,
+  "directed_edges": 206,
+  "destination_zero_edges": 7,
+  "room_scenes_verified": 105,
+  "perception_comparisons": 1100,
+  "native_cases": 9,
+  "app_commands": 14,
+  "all_passed": true
+}

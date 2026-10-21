@@ -1,0 +1,4136 @@
+[
+  {
+    "input": "TAKE LAMP",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 39753
+      },
+      {
+        "kind": "rule",
+        "step_start": 49684,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 58216,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 57958,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 58206,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 62378,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 70910,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 70652,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 70900,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 71949,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": true,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 150496,
+        "entity_changes": [
+          {
+            "id": 22,
+            "name": "oil lamp",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 255,
+                "after": 0
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 80223,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": true,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 80471,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 150447,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": true,
+        "address": "DCC5",
+        "rule": "DCC1",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 150452,
+        "entity_changes": [
+          {
+            "id": 22,
+            "name": "oil lamp",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 255,
+                "after": 0
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 247778,
+    "lower": "TAKE LAMP.\n> ",
+    "upper": "\nYou take the oil lamp.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 22,
+        "name": "oil lamp",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 0
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "TAKE LAMP",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 40583
+      },
+      {
+        "kind": "rule",
+        "step_start": 50580,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": true,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 0,
+        "step_end": 61021,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 126134,
+    "lower": "TAKE LAMP.\n you cannot take the lamp\n> ",
+    "upper": "",
+    "clock_before": 3,
+    "clock_after": 3,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": [
+      "TAKE LAMP"
+    ]
+  },
+  {
+    "input": "GIVE LAMP TO WATSON",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 65625
+      },
+      {
+        "kind": "rule",
+        "step_start": 80824,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF02",
+        "label": "GIVE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 89265,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 82041,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF24",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 89255,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 98806,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF02",
+        "label": "GIVE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 107247,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 100023,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF24",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 107237,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 112328,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF02",
+        "label": "GIVE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 120769,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 113545,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF24",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 120759,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 122103,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": true,
+        "address": "DF02",
+        "label": "GIVE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DF06",
+        "duration_word": 1,
+        "step_end": 214161,
+        "entity_changes": [
+          {
+            "id": 22,
+            "name": "oil lamp",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 0,
+                "after": 3
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 123320,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": true,
+        "address": "DF24",
+        "z": false,
+        "carry": false,
+        "hl": "DF24",
+        "duration_word": 0,
+        "step_end": 130534,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 211766,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": true,
+        "address": "DF06",
+        "rule": "DF02",
+        "z": false,
+        "carry": false,
+        "hl": "DF06",
+        "duration_word": 1,
+        "step_end": 214117,
+        "entity_changes": [
+          {
+            "id": 22,
+            "name": "oil lamp",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 0,
+                "after": 3
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 293682,
+    "lower": "GIVE LAMP TO WATSON.\n> ",
+    "upper": "\nYou give the oil lamp to Watson.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "name": "oil lamp",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 0,
+            "after": 3
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": [
+      "TAKE LAMP",
+      "TAKE LAMP"
+    ]
+  },
+  {
+    "input": "GIVE LAMP TO WATSON",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 64795
+      },
+      {
+        "kind": "rule",
+        "step_start": 79928,
+        "actor": 0,
+        "action": 26,
+        "arguments": [
+          22,
+          3
+        ],
+        "execute": false,
+        "address": "DF02",
+        "label": "GIVE generale",
+        "z": true,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 0,
+        "step_end": 80654,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 151078,
+    "lower": "GIVE LAMP TO WATSON.\n you cannot give the lamp\n> ",
+    "upper": "",
+    "clock_before": 2,
+    "clock_after": 2,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "TAKE ARMCHAIR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 57027
+      },
+      {
+        "kind": "rule",
+        "step_start": 67631,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          23,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": true,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 0,
+        "step_end": 75750,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 76753,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          24,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": true,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 0,
+        "step_end": 89556,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 202888,
+    "lower": "TAKE ARMCHAIR.\n i see no armchair that you can take\n> ",
+    "upper": "",
+    "clock_before": 2,
+    "clock_after": 2,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "OPEN YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 57496
+      },
+      {
+        "kind": "rule",
+        "step_start": 67887,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 68616,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 73530,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 74259,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 75208,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": true,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "DEA4",
+        "duration_word": 1,
+        "step_end": 146120,
+        "entity_changes": [
+          {
+            "id": 21,
+            "name": "your door",
+            "changes": [
+              {
+                "offset": "05",
+                "before": 128,
+                "after": 160
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 146072,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": true,
+        "address": "DEA4",
+        "rule": "DE9D",
+        "z": false,
+        "carry": false,
+        "hl": "DEA4",
+        "duration_word": 1,
+        "step_end": 146076,
+        "entity_changes": [
+          {
+            "id": 21,
+            "name": "your door",
+            "changes": [
+              {
+                "offset": "05",
+                "before": 128,
+                "after": 160
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 243402,
+    "lower": "OPEN YOUR DOOR.\n> ",
+    "upper": "\nYou open your door.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 21,
+        "name": "your door",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 128,
+            "after": 160
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "OPEN YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 58326
+      },
+      {
+        "kind": "rule",
+        "step_start": 68717,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 69452,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 74366,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 75101,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 76218,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": true,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": true,
+        "carry": false,
+        "hl": "CB7B",
+        "duration_word": 0,
+        "step_end": 76935,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 129714,
+    "lower": "OPEN YOUR DOOR.\n your door is open\n> ",
+    "upper": "",
+    "clock_before": 3,
+    "clock_after": 3,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": [
+      "OPEN YOUR DOOR"
+    ]
+  },
+  {
+    "input": "CLOSE YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 63497
+      },
+      {
+        "kind": "rule",
+        "step_start": 72652,
+        "actor": 0,
+        "action": 14,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DEAF",
+        "label": "CLOSE ordinario (controllo complementare)",
+        "z": false,
+        "carry": false,
+        "hl": "0020",
+        "duration_word": 0,
+        "step_end": 73378,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 78301,
+        "actor": 0,
+        "action": 14,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DEAF",
+        "label": "CLOSE ordinario (controllo complementare)",
+        "z": false,
+        "carry": false,
+        "hl": "0020",
+        "duration_word": 0,
+        "step_end": 79027,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 80153,
+        "actor": 0,
+        "action": 14,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": true,
+        "address": "DEAF",
+        "label": "CLOSE ordinario (controllo complementare)",
+        "z": false,
+        "carry": false,
+        "hl": "DEB6",
+        "duration_word": 1,
+        "step_end": 153372,
+        "entity_changes": [
+          {
+            "id": 21,
+            "name": "your door",
+            "changes": [
+              {
+                "offset": "05",
+                "before": 160,
+                "after": 128
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 153324,
+        "actor": 0,
+        "action": 14,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": true,
+        "address": "DEB6",
+        "rule": "DEAF",
+        "z": false,
+        "carry": false,
+        "hl": "DEB6",
+        "duration_word": 1,
+        "step_end": 153328,
+        "entity_changes": [
+          {
+            "id": 21,
+            "name": "your door",
+            "changes": [
+              {
+                "offset": "05",
+                "before": 160,
+                "after": 128
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 232895,
+    "lower": "CLOSE YOUR DOOR.\n> ",
+    "upper": "\nYou close your door.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "name": "your door",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 160,
+            "after": 128
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": [
+      "OPEN YOUR DOOR",
+      "OPEN YOUR DOOR"
+    ]
+  },
+  {
+    "input": "OPEN LAMP",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 41989
+      }
+    ],
+    "steps": 117574,
+    "lower": "OPEN LAMP.\n you cannot open the lamp\n> ",
+    "upper": "",
+    "clock_before": 2,
+    "clock_after": 2,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "OPEN DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 49541
+      },
+      {
+        "kind": "rule",
+        "step_start": 77246,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 77975,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 83742,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          50,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 85100,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 122097,
+    "lower": "OPEN DOOR.\n which door ?> ",
+    "upper": "",
+    "clock_before": 2,
+    "clock_after": 2,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "SAY TO WATSON \"LOOK\"",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 77089
+      },
+      {
+        "kind": "rule",
+        "step_start": 86345,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 86868,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 91789,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 92312,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 93287,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 1,
+        "step_end": 164205,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 163280,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DDA0",
+        "rule": "DD9E",
+        "z": false,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 1,
+        "step_end": 164161,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "parse_quote",
+        "recipient": 3,
+        "step": 163453
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "semantic_entry",
+        "actor": 3,
+        "step": 192436
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 260226,
+    "lower": "SAY TO WATSON \"LOOK.\".\n> ",
+    "upper": "\nYou talk to Watson.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "\"LOOK\"",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 46178
+      },
+      {
+        "kind": "rule",
+        "step_start": 55414,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 55937,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 60858,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 61381,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 62539,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 1,
+        "step_end": 133456,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 132532,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DDA0",
+        "rule": "DD9E",
+        "z": false,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 1,
+        "step_end": 133412,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "parse_quote",
+        "recipient": 3,
+        "step": 132664
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "semantic_entry",
+        "actor": 3,
+        "step": 144009
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      }
+    ],
+    "steps": 211304,
+    "lower": "\"LOOK.\".\n> ",
+    "upper": "\nYou talk to Watson.\n",
+    "clock_before": 3,
+    "clock_after": 4,
+    "entity_changes": [
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": [
+      "SAY TO WATSON \"LOOK\""
+    ]
+  },
+  {
+    "input": "SAY TO WATSON \"TAKE LAMP\"",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 74771
+      },
+      {
+        "kind": "rule",
+        "step_start": 84027,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 84550,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 89471,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 89994,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 90969,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 1,
+        "step_end": 162027,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 160962,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DDA0",
+        "rule": "DD9E",
+        "z": false,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 1,
+        "step_end": 161983,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "parse_quote",
+        "recipient": 3,
+        "step": 161135
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "semantic_entry",
+        "actor": 3,
+        "step": 190258
+      },
+      {
+        "kind": "rule",
+        "step_start": 200633,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 209591,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 209114,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 209581,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 213753,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 222711,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 222234,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": false,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 222701,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 223347,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": true,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 279402,
+        "entity_changes": [
+          {
+            "id": 22,
+            "name": "oil lamp",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 255,
+                "after": 3
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 231828,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": true,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 232295,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 279343,
+        "actor": 3,
+        "action": 41,
+        "arguments": [
+          22,
+          255
+        ],
+        "execute": true,
+        "address": "DCC5",
+        "rule": "DCC1",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 279348,
+        "entity_changes": [
+          {
+            "id": 22,
+            "name": "oil lamp",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 255,
+                "after": 3
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 344039,
+    "lower": "SAY TO WATSON \"TAKE LAMP.\".\n> ",
+    "upper": "\nYou talk to Watson.\nWatson takes the oil lamp.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 22,
+        "name": "oil lamp",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 3
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "SAY TO WATSON \"THE\"",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 68815
+      },
+      {
+        "kind": "rule",
+        "step_start": 78071,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 78594,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 83515,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 84038,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 85013,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "5B8F",
+        "duration_word": 1,
+        "step_end": 155818,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 155006,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          3,
+          255
+        ],
+        "execute": true,
+        "address": "DDA0",
+        "rule": "DD9E",
+        "z": false,
+        "carry": false,
+        "hl": "5B8F",
+        "duration_word": 1,
+        "step_end": 155774,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "parse_quote",
+        "recipient": 3,
+        "step": 155179
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 253100,
+    "lower": "SAY TO WATSON \"THE.\".\n> ",
+    "upper": "\nYou talk to Watson.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "SAY TO ARMCHAIR \"LOOK\"",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 89859
+      },
+      {
+        "kind": "rule",
+        "step_start": 100877,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          23,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": true,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 0,
+        "step_end": 101613,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 102700,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          24,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": true,
+        "carry": false,
+        "hl": "0000",
+        "duration_word": 0,
+        "step_end": 103457,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 222787,
+    "lower": "SAY TO ARMCHAIR \"LOOK.\".\n i see no armchair that you can talk to\n> ",
+    "upper": "",
+    "clock_before": 2,
+    "clock_after": 2,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "prompt originale",
+    "previous": []
+  },
+  {
+    "input": "OPEN YOUR DOOR",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 57496
+      },
+      {
+        "kind": "rule",
+        "step_start": 67887,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 68622,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 73536,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": false,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "0021",
+        "duration_word": 0,
+        "step_end": 74271,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 75220,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          21,
+          255
+        ],
+        "execute": true,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": true,
+        "carry": false,
+        "hl": "CB7B",
+        "duration_word": 0,
+        "step_end": 75937,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      }
+    ],
+    "steps": 133354,
+    "lower": "OPEN YOUR DOOR.\n your door is locked\n> ",
+    "upper": "",
+    "clock_before": 2,
+    "clock_after": 2,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "fixture sintetica",
+    "fixture": "porta bloccata"
+  },
+  {
+    "input": "SAY TO MRS BROWN \"LOOK\"",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 99806
+      },
+      {
+        "kind": "rule",
+        "step_start": 115847,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          94,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 118080,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 119722,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          94,
+          255
+        ],
+        "execute": false,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "DD9E",
+        "duration_word": 0,
+        "step_end": 121955,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 123567,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          94,
+          255
+        ],
+        "execute": true,
+        "address": "DD9E",
+        "label": "SAY TO generale",
+        "z": false,
+        "carry": false,
+        "hl": "5B94",
+        "duration_word": 1,
+        "step_end": 205334,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 204884,
+        "actor": 0,
+        "action": 46,
+        "arguments": [
+          94,
+          255
+        ],
+        "execute": true,
+        "address": "DDA0",
+        "rule": "DD9E",
+        "z": false,
+        "carry": false,
+        "hl": "5B94",
+        "duration_word": 1,
+        "step_end": 205290,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      }
+    ],
+    "steps": 302616,
+    "lower": "SAY TO MRS BROWN \"LOOK.\".\n> ",
+    "upper": "\nYou talk to Mrs Brown.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "fixture sintetica",
+    "fixture": "Mrs Brown resa percepibile nella stanza iniziale"
+  },
+  {
+    "input": "TAKE NOTE",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 44811
+      },
+      {
+        "kind": "rule",
+        "step_start": 74598,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": false,
+        "address": "DF7E",
+        "label": "TAKE biglietto in fiamme",
+        "z": false,
+        "carry": false,
+        "hl": "DF7E",
+        "duration_word": 0,
+        "step_end": 76645,
+        "entity_changes": [],
+        "note_counter_before": 1,
+        "note_counter_after": 1
+      },
+      {
+        "kind": "rule",
+        "step_start": 80459,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": false,
+        "address": "DF7E",
+        "label": "TAKE biglietto in fiamme",
+        "z": false,
+        "carry": false,
+        "hl": "DF7E",
+        "duration_word": 0,
+        "step_end": 82506,
+        "entity_changes": [],
+        "note_counter_before": 1,
+        "note_counter_after": 1
+      },
+      {
+        "kind": "rule",
+        "step_start": 83903,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DF7E",
+        "label": "TAKE biglietto in fiamme",
+        "z": false,
+        "carry": true,
+        "hl": "DF80",
+        "duration_word": 0,
+        "step_end": 166545,
+        "entity_changes": [],
+        "note_counter_before": 1,
+        "note_counter_after": 1
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DF80",
+        "opcode": 7,
+        "actor": 0,
+        "step": 166930
+      },
+      {
+        "kind": "rule",
+        "step_start": 167649,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 181239,
+        "entity_changes": [
+          {
+            "id": 85,
+            "name": "burning note",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 84,
+                "after": 0
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 1,
+        "note_counter_after": 1
+      },
+      {
+        "kind": "predicate",
+        "step_start": 179823,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 181130,
+        "entity_changes": [],
+        "note_counter_before": 1,
+        "note_counter_after": 1
+      },
+      {
+        "kind": "native_body",
+        "step_start": 181190,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DCC5",
+        "rule": "DCC1",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 181195,
+        "entity_changes": [
+          {
+            "id": 85,
+            "name": "burning note",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 84,
+                "after": 0
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 1,
+        "note_counter_after": 1
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DF85",
+        "opcode": 7,
+        "actor": 0,
+        "step": 276689
+      },
+      {
+        "kind": "rule",
+        "step_start": 277408,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DF8B",
+        "label": "aggiornamento biglietto dopo TAKE",
+        "z": false,
+        "carry": false,
+        "hl": "DF8D",
+        "duration_word": 0,
+        "step_end": 278965,
+        "entity_changes": [],
+        "note_counter_before": 0,
+        "note_counter_after": 0
+      },
+      {
+        "kind": "native_body",
+        "step_start": 278916,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DF8D",
+        "rule": "DF8B",
+        "z": false,
+        "carry": false,
+        "hl": "DF8D",
+        "duration_word": 0,
+        "step_end": 278921,
+        "entity_changes": [],
+        "note_counter_before": 0,
+        "note_counter_after": 0
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DF8A",
+        "opcode": 11,
+        "actor": 0,
+        "step": 279473
+      }
+    ],
+    "steps": 283193,
+    "lower": "TAKE NOTE.\n> ",
+    "upper": "\nYou take the burning note.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "name": "burning note",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 84,
+            "after": 0
+          },
+          {
+            "offset": "09",
+            "before": 87,
+            "after": 91
+          },
+          {
+            "offset": "0D",
+            "before": 88,
+            "after": 0
+          },
+          {
+            "offset": "0E",
+            "before": 129,
+            "after": 0
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "fixture sintetica",
+    "fixture": "Holmes nella stanza35; nota85 resa visibile; timer9CA1=1"
+  },
+  {
+    "input": "TAKE NOTE",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 44811
+      },
+      {
+        "kind": "rule",
+        "step_start": 74598,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": false,
+        "address": "DF7E",
+        "label": "TAKE biglietto in fiamme",
+        "z": false,
+        "carry": false,
+        "hl": "DF7E",
+        "duration_word": 0,
+        "step_end": 76645,
+        "entity_changes": [],
+        "note_counter_before": 10,
+        "note_counter_after": 10
+      },
+      {
+        "kind": "rule",
+        "step_start": 80459,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": false,
+        "address": "DF7E",
+        "label": "TAKE biglietto in fiamme",
+        "z": false,
+        "carry": false,
+        "hl": "DF7E",
+        "duration_word": 0,
+        "step_end": 82506,
+        "entity_changes": [],
+        "note_counter_before": 10,
+        "note_counter_after": 10
+      },
+      {
+        "kind": "rule",
+        "step_start": 83903,
+        "actor": 0,
+        "action": 41,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DF7E",
+        "label": "TAKE biglietto in fiamme",
+        "z": false,
+        "carry": true,
+        "hl": "DF80",
+        "duration_word": 0,
+        "step_end": 166545,
+        "entity_changes": [],
+        "note_counter_before": 10,
+        "note_counter_after": 10
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DF80",
+        "opcode": 7,
+        "actor": 0,
+        "step": 166930
+      },
+      {
+        "kind": "rule",
+        "step_start": 167649,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DCC1",
+        "label": "TAKE generale",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 181239,
+        "entity_changes": [
+          {
+            "id": 85,
+            "name": "burning note",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 84,
+                "after": 0
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 10,
+        "note_counter_after": 10
+      },
+      {
+        "kind": "predicate",
+        "step_start": 179823,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DCA2",
+        "z": false,
+        "carry": false,
+        "hl": "A034",
+        "duration_word": 0,
+        "step_end": 181130,
+        "entity_changes": [],
+        "note_counter_before": 10,
+        "note_counter_after": 10
+      },
+      {
+        "kind": "native_body",
+        "step_start": 181190,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DCC5",
+        "rule": "DCC1",
+        "z": false,
+        "carry": false,
+        "hl": "DCC5",
+        "duration_word": 1,
+        "step_end": 181195,
+        "entity_changes": [
+          {
+            "id": 85,
+            "name": "burning note",
+            "changes": [
+              {
+                "offset": "01",
+                "before": 84,
+                "after": 0
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 10,
+        "note_counter_after": 10
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DF85",
+        "opcode": 7,
+        "actor": 0,
+        "step": 276680
+      },
+      {
+        "kind": "rule",
+        "step_start": 277399,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DF8B",
+        "label": "aggiornamento biglietto dopo TAKE",
+        "z": false,
+        "carry": false,
+        "hl": "07D5",
+        "duration_word": 0,
+        "step_end": 278963,
+        "entity_changes": [
+          {
+            "id": 85,
+            "name": "burning note",
+            "changes": [
+              {
+                "offset": "09",
+                "before": 87,
+                "after": 213
+              },
+              {
+                "offset": "0A",
+                "before": 1,
+                "after": 7
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 9,
+        "note_counter_after": 255
+      },
+      {
+        "kind": "native_body",
+        "step_start": 278907,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          85,
+          255
+        ],
+        "execute": true,
+        "address": "DF8D",
+        "rule": "DF8B",
+        "z": false,
+        "carry": false,
+        "hl": "07D5",
+        "duration_word": 0,
+        "step_end": 278919,
+        "entity_changes": [
+          {
+            "id": 85,
+            "name": "burning note",
+            "changes": [
+              {
+                "offset": "09",
+                "before": 87,
+                "after": 213
+              },
+              {
+                "offset": "0A",
+                "before": 1,
+                "after": 7
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 9,
+        "note_counter_after": 255
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DF8A",
+        "opcode": 11,
+        "actor": 0,
+        "step": 279471
+      }
+    ],
+    "steps": 283191,
+    "lower": "TAKE NOTE.\n> ",
+    "upper": "\nYou take the burning note.\n",
+    "clock_before": 2,
+    "clock_after": 3,
+    "entity_changes": [
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 10
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 30
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 26
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 21
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "name": "burning note",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 84,
+            "after": 0
+          },
+          {
+            "offset": "09",
+            "before": 87,
+            "after": 213
+          },
+          {
+            "offset": "0A",
+            "before": 1,
+            "after": 7
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "fixture sintetica",
+    "fixture": "Holmes nella stanza35; nota85 resa visibile; timer9CA1=10"
+  },
+  {
+    "input": "OPEN WALL SAFE",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 49388
+      },
+      {
+        "kind": "rule",
+        "step_start": 65366,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": false,
+        "address": "DFA7",
+        "label": "OPEN cassaforte",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 66823,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 66807,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": false,
+        "address": "E01C",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 66813,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 70010,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": false,
+        "address": "DFA7",
+        "label": "OPEN cassaforte",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 71467,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 71451,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": false,
+        "address": "E01C",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 71457,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 72871,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": true,
+        "address": "DFA7",
+        "label": "OPEN cassaforte",
+        "z": false,
+        "carry": true,
+        "hl": "DFAB",
+        "duration_word": 0,
+        "step_end": 145794,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 74312,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": true,
+        "address": "E01C",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 74318,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DFAB",
+        "opcode": 7,
+        "actor": 0,
+        "step": 146179
+      },
+      {
+        "kind": "rule",
+        "step_start": 146905,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": true,
+        "address": "DFB6",
+        "label": "evento narrativo cassaforte",
+        "z": false,
+        "carry": false,
+        "hl": "DFB8",
+        "duration_word": 15,
+        "step_end": 147108,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 147059,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": true,
+        "address": "DFB8",
+        "rule": "DFB6",
+        "z": false,
+        "carry": false,
+        "hl": "DFB8",
+        "duration_word": 15,
+        "step_end": 147064,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 15,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 1,
+        "clock": 2
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 2,
+        "clock": 3
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 3,
+        "clock": 4
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 4,
+        "clock": 5
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 5,
+        "clock": 6
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 6,
+        "clock": 7
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 7,
+        "clock": 8
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 8,
+        "clock": 9
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 9,
+        "clock": 10
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 10,
+        "clock": 11
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 11,
+        "clock": 12
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 12,
+        "clock": 13
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 13,
+        "clock": 14
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 14,
+        "clock": 15
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DFB0",
+        "opcode": 7,
+        "actor": 0,
+        "step": 1024875
+      },
+      {
+        "kind": "rule",
+        "step_start": 1025601,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": true,
+        "address": "DE9D",
+        "label": "OPEN ordinario",
+        "z": false,
+        "carry": false,
+        "hl": "DEA4",
+        "duration_word": 1,
+        "step_end": 1027803,
+        "entity_changes": [
+          {
+            "id": 86,
+            "name": "wall safe",
+            "changes": [
+              {
+                "offset": "05",
+                "before": 128,
+                "after": 160
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 1027755,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          86,
+          255
+        ],
+        "execute": true,
+        "address": "DEA4",
+        "rule": "DE9D",
+        "z": false,
+        "carry": false,
+        "hl": "DEA4",
+        "duration_word": 1,
+        "step_end": 1027759,
+        "entity_changes": [
+          {
+            "id": 86,
+            "name": "wall safe",
+            "changes": [
+              {
+                "offset": "05",
+                "before": 128,
+                "after": 160
+              }
+            ]
+          }
+        ],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 16,
+        "clock": 16
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 3,
+        "row": "9870",
+        "cost": 1,
+        "due_before": 15,
+        "clock": 16
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DFB5",
+        "opcode": 11,
+        "actor": 0,
+        "step": 1178034
+      }
+    ],
+    "steps": 1181862,
+    "lower": "OPEN WALL SAFE.\n> ",
+    "upper": "\nYou open the wall safe.\n",
+    "clock_before": 2,
+    "clock_after": 17,
+    "entity_changes": [
+      {
+        "id": 2,
+        "name": "inspector lestrade",
+        "changes": [
+          {
+            "offset": "01",
+            "before": 255,
+            "after": 30
+          },
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 18
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 18
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "hansom cab",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 18
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "cabbie",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 18
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "money",
+        "changes": [
+          {
+            "offset": "09",
+            "before": 0,
+            "after": 122
+          },
+          {
+            "offset": "0A",
+            "before": 0,
+            "after": 255
+          },
+          {
+            "offset": "0F",
+            "before": 0,
+            "after": 18
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 180,
+            "after": 52
+          },
+          {
+            "offset": "0F",
+            "before": 16,
+            "after": 2
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 20
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 31
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "name": "steam train",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 52,
+            "after": 180
+          },
+          {
+            "offset": "0F",
+            "before": 2,
+            "after": 27
+          }
+        ]
+      },
+      {
+        "id": 86,
+        "name": "wall safe",
+        "changes": [
+          {
+            "offset": "05",
+            "before": 128,
+            "after": 160
+          }
+        ]
+      },
+      {
+        "id": 92,
+        "name": "gun",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 18
+          }
+        ]
+      },
+      {
+        "id": 93,
+        "name": "large rock",
+        "changes": [
+          {
+            "offset": "0F",
+            "before": 10,
+            "after": 18
+          }
+        ]
+      }
+    ],
+    "unfinished_callbacks": 0,
+    "source": "fixture sintetica",
+    "fixture": "Holmes nella stanza47, cassaforte86"
+  },
+  {
+    "input": "OPEN WALL SAFE",
+    "events": [
+      {
+        "kind": "semantic_entry",
+        "actor": 0,
+        "step": 49388
+      },
+      {
+        "kind": "rule",
+        "step_start": 66937,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": false,
+        "address": "DFA7",
+        "label": "OPEN cassaforte",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 68436,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 68420,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": false,
+        "address": "E01C",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 68426,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 70094,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": false,
+        "address": "DFA7",
+        "label": "OPEN cassaforte",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 71593,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 71577,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": false,
+        "address": "E01C",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 71583,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "rule",
+        "step_start": 73018,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": true,
+        "address": "DFA7",
+        "label": "OPEN cassaforte",
+        "z": false,
+        "carry": true,
+        "hl": "DFAB",
+        "duration_word": 0,
+        "step_end": 146004,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "predicate",
+        "step_start": 74501,
+        "actor": 0,
+        "action": 36,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": true,
+        "address": "E01C",
+        "z": false,
+        "carry": false,
+        "hl": "E01C",
+        "duration_word": 0,
+        "step_end": 74507,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "script_opcode",
+        "address": "DFAB",
+        "opcode": 7,
+        "actor": 0,
+        "step": 146389
+      },
+      {
+        "kind": "rule",
+        "step_start": 147136,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": true,
+        "address": "DFB6",
+        "label": "evento narrativo cassaforte",
+        "z": false,
+        "carry": false,
+        "hl": "0001",
+        "duration_word": 1,
+        "step_end": 841220,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "native_body",
+        "step_start": 147290,
+        "actor": 0,
+        "action": 255,
+        "arguments": [
+          89,
+          255
+        ],
+        "execute": true,
+        "address": "DFB8",
+        "rule": "DFB6",
+        "z": false,
+        "carry": false,
+        "hl": "0001",
+        "duration_word": 1,
+        "step_end": 841176,
+        "entity_changes": [],
+        "note_counter_before": 15,
+        "note_counter_after": 15
+      },
+      {
+        "kind": "scheduler_advance",
+        "actor": 0,
+        "row": "9860",
+        "cost": 1,
+        "due_before": 0,
+        "clock": 0
+      }
+    ],
+    "stopped_before_external_io": "C0DF",
+    "steps": 841813,
+    "lower": "OPEN WALL SAFE.\n",
+    "upper": "\nYou open the wall safe.\nBasil enters and says \" Holmes, yourinterference is becoming annoying. \". Pulling a gun he shoots you. \nPerhaps you should try again.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "clock_before": 2,
+    "clock_after": 0,
+    "entity_changes": [],
+    "unfinished_callbacks": 0,
+    "source": "fixture sintetica",
+    "fixture": "Holmes nella stanza58, cassaforte89"
+  }
+]

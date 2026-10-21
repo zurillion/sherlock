@@ -1,0 +1,25 @@
+{
+  "clock_labels": [
+    "Mon 08:05am",
+    "Mon 12:05pm",
+    "Tue 08:05am",
+    "Tue 12:05pm",
+    "Wed 08:05am",
+    "Wed 12:05pm",
+    "Thu 08:05am",
+    "Thu 12:05pm",
+    "Fri 08:05am",
+    "Fri 12:05pm",
+    "Sat 08:05am",
+    "Sat 12:05pm",
+    "Sun 08:05am",
+    "Sun 12:05pm"
+  ],
+  "logical_characters": 18,
+  "initially_mapped": 11,
+  "player_movement_and_disguise_tracked": true,
+  "watson_parent_preserved": true,
+  "npc_room_change_reflected": true,
+  "off_map_not_fabricated": true,
+  "all_passed": true
+}

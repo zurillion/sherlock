@@ -1,0 +1,139 @@
+i$5D80
+
+; Ingresso del programma dopo il caricamento
+;
+; Ingresso raggiunto nella simulazione del TAP. Questa e una selezione
+; parziale: le aree omesse non sono classificate. Le semantiche delle variabili
+; non sono ancora note.
+c$A040 XOR A         ; {Azzera $D6B8 e $A01B.
+ $A041 LD ($D6B8),A  ;
+ $A044 LD ($A01B),A  ;
+ $A047 DI            ; }
+ $A048 CALL $C14A    ; Prepara lo schermo tramite $C14A.
+ $A04B LD SP,$5D80   ; Ripristina lo stack a $5D80.
+ $A04E CALL $C415    ; Attende un carattere tramite $C415.
+ $A051 CP $6E        ; {Confronta con n minuscola.
+ $A053 JR Z,$A05B    ; }
+ $A055 CP $4E        ; {Confronta con N maiuscola.
+ $A057 LD A,$01      ;
+ $A059 JR NZ,$A05C   ; }
+*$A05B XOR A         ; n/N portano A a zero; ogni altro carattere lascia A a 1.
+*$A05C LD ($A011),A  ; Registra questa scelta in $A011. Significato ancora da
+                     ; verificare.
+ $A05F LD A,R        ; {Salva il registro R in $A037; possibile sorgente di
+ $A061 LD ($A037),A  ; variabilita, non ancora dimostrata come seme casuale.}
+ $A064 XOR A         ; {Azzera $A0DA prima del ciclo successivo, omesso da
+ $A065 LD ($A0DA),A  ; questo estratto.}
+
+i$A068
+
+; Preparazione schermo e motivo grafico
+;
+; Eseguita nella prima traccia di avvio. Il ciclo $C168-$C180 copia sei righe
+; da quattro byte ciascuna, ripetendole otto volte in orizzontale. La sorgente
+; a $C190 e quindi un motivo grafico da 24 byte.
+c$C14A CALL $C10F    ; Chiama $C10F: effetti da documentare separatamente.
+ $C14D LD A,$24      ; {Imposta parametri nelle celle $C1F4, $C1F6 e $C1FB.
+ $C14F LD ($C1F4),A  ;
+ $C152 LD HL,$50E0   ;
+ $C155 LD ($C1F6),HL ;
+ $C158 LD A,$02      ;
+ $C15A LD ($C1FB),A  ; }
+ $C15D CALL $C142    ; Chiama $C142: effetti da documentare separatamente.
+ $C160 LD HL,$5140   ; Destinazione bitmap a $5140.
+ $C163 LD DE,$C190   ; Sorgente del motivo grafico.
+ $C166 LD B,$06      ; Sei righe di pixel.
+*$C168 LD C,$08      ; {Otto ripetizioni orizzontali.
+ $C16A PUSH BC       ;
+ $C16B PUSH HL       ; }
+*$C16C LD B,$04      ; {Quattro byte per ripetizione.
+ $C16E PUSH DE       ;
+*$C16F LD A,(DE)     ;
+ $C170 LD (HL),A     ;
+ $C171 INC DE        ;
+ $C172 INC L         ;
+ $C173 DJNZ $C16F    ;
+ $C175 POP DE        ;
+ $C176 DEC C         ;
+ $C177 JR NZ,$C16C   ; }
+ $C179 INC DE        ; {Avanza la sorgente alla riga successiva.
+ $C17A INC DE        ;
+ $C17B INC DE        ;
+ $C17C INC DE        ;
+ $C17D POP HL        ;
+ $C17E POP BC        ; }
+ $C17F INC H         ; {Avanza alla riga pixel seguente nella disposizione
+ $C180 DJNZ $C168    ; video Spectrum.}
+ $C182 LD HL,$5A40   ; {Riempie 32 attributi a $5A40-$5A5F con $78.
+ $C185 LD DE,$5A41   ;
+ $C188 LD BC,$001F   ;
+ $C18B LD (HL),$78   ;
+ $C18D LDIR          ;
+ $C18F RET           ; }
+
+; Motivo grafico di 24 byte
+;
+; Provato dalla routine che legge questi byte e li copia nella bitmap. Qui non
+; si devono interpretare i byte come istruzioni Z80.
+b$C190 DEFB $00,$3F,$C1,$C0
+ $C194 DEFB $20,$FE,$01,$C4
+ $C198 DEFB $81,$E8,$0D,$81
+ $C19C DEFB $41,$B0,$17,$82
+ $C1A0 DEFB $83,$80,$7F,$01
+ $C1A4 DEFB $23,$83,$FC,$04
+
+i$C1A8
+
+; Attesa di un carattere valido
+;
+; Ripete $C41F finche A ha il bit 7 impostato, poi rimuove quel bit e
+; restituisce il carattere in A. La chiamata iniziale proviene da $A04E; il
+; ramo con un tasto disponibile non e stato esercitato in questa sessione.
+c$C415 CALL $C41F    ;
+ $C418 BIT 7,A       ;
+ $C41A JR Z,$C415    ;
+ $C41C AND $7F       ;
+ $C41E RET           ;
+
+; Poll tastiera sincronizzato con interrupt
+;
+; Preserva IY, IX, HL, DE e BC. Imposta IY=$5C3A, abilita gli interrupt ed
+; esegue HALT; dopo il risveglio li disabilita. Esamina bit 5 di $5C3B e legge
+; il carattere da $5C08. Restituisce 0 senza nuovo carattere oppure il
+; risultato della conversione con bit 7 impostato. Effetti della chiamata $C240
+; ancora da verificare.
+c$C41F PUSH IY       ;
+ $C421 PUSH IX       ;
+ $C423 PUSH HL       ;
+ $C424 PUSH DE       ;
+ $C425 PUSH BC       ;
+ $C426 LD IY,$5C3A   ; Base dell'area di sistema ROM.
+ $C42A EI            ; {Abilita interrupt per il successivo HALT.
+ $C42B HALT          ;
+ $C42C DI            ; }
+ $C42D LD A,($5C3B)  ; {Legge il flag di disponibilita del carattere.
+ $C430 BIT 5,A       ;
+ $C432 JR NZ,$C437   ;
+ $C434 XOR A         ;
+ $C435 JR $C456      ; }
+*$C437 RES 5,A       ; {Consuma il flag prima di leggere il carattere.
+ $C439 LD ($5C3B),A  ; }
+ $C43C LD A,($5C08)  ; {Legge il carattere; seguono conversioni $5F->$18,
+ $C43F CP $5F        ; $0C->$08, $0B->$5B.
+ $C441 JR NZ,$C445   ;
+ $C443 LD A,$18      ;
+*$C445 CP $0C        ;
+ $C447 JR NZ,$C44B   ;
+ $C449 LD A,$08      ;
+*$C44B CP $0B        ;
+ $C44D JR NZ,$C451   ;
+ $C44F LD A,$5B      ; }
+*$C451 CALL $C240    ; Ulteriore conversione tramite $C240: da analizzare.
+ $C454 SET 7,A       ; {Marca il risultato come carattere disponibile.
+*$C456 POP BC        ;
+ $C457 POP DE        ;
+ $C458 POP HL        ;
+ $C459 POP IX        ;
+ $C45B POP IY        ;
+ $C45D RET           ; }
+

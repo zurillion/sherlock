@@ -1,0 +1,97 @@
+[
+  {
+    "input": ".",
+    "status": "returned",
+    "type": "B0",
+    "offset": "0000",
+    "word": null,
+    "next_input": "5B01",
+    "instructions": 27
+  },
+  {
+    "input": ",",
+    "status": "returned",
+    "type": "A0",
+    "offset": "0000",
+    "word": null,
+    "next_input": "5B01",
+    "instructions": 30
+  },
+  {
+    "input": "\"",
+    "status": "returned",
+    "type": "90",
+    "offset": "0000",
+    "word": null,
+    "next_input": "5B01",
+    "instructions": 33
+  },
+  {
+    "input": "1",
+    "status": "returned",
+    "type": "F0",
+    "offset": "8100",
+    "word": null,
+    "next_input": "5B01",
+    "instructions": 86
+  },
+  {
+    "input": "12:30",
+    "status": "returned",
+    "type": "F0",
+    "offset": "8C1E",
+    "word": null,
+    "next_input": "5B05",
+    "instructions": 160
+  },
+  {
+    "input": "12PM",
+    "status": "returned",
+    "type": "F0",
+    "offset": "8C40",
+    "word": null,
+    "next_input": "5B04",
+    "instructions": 130
+  },
+  {
+    "input": "60",
+    "status": "returned",
+    "type": "D0",
+    "offset": "0000",
+    "word": null,
+    "next_input": "5B02",
+    "instructions": 95
+  },
+  {
+    "input": "2S",
+    "status": "returned",
+    "type": "F0",
+    "offset": "8098",
+    "word": null,
+    "next_input": "5B02",
+    "instructions": 132
+  },
+  {
+    "input": "`1",
+    "status": "returned",
+    "type": "F0",
+    "offset": "81F0",
+    "word": null,
+    "next_input": "5B02",
+    "instructions": 106
+  },
+  {
+    "input": "Z",
+    "status": "returned",
+    "type": "F0",
+    "offset": "FFFF",
+    "word": null,
+    "next_input": "5B01",
+    "instructions": 1245
+  },
+  {
+    "input": "ZZ",
+    "status": "instruction_limit",
+    "pc": "D9F3"
+  }
+]

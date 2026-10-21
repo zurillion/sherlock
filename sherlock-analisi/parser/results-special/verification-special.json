@@ -1,0 +1,11 @@
+{
+  "command_cases": 56,
+  "continuation_cases": 7,
+  "previous_cases_compared": 39,
+  "quote_consumer_comparisons": 3,
+  "real_continuation_matches": true,
+  "buffer_limit_checked": true,
+  "z_boundary_stopped_before_invalid_record": true,
+  "failures": 0,
+  "interactive_source_sha256": "91739c789acf3c8be23c2a6932caf48a0d90140310aea71b914a3a6d9c4d1e98"
+}

@@ -1,0 +1,8 @@
+{
+  "roundtrip_equal": true,
+  "bytes_roundtripped": 4389,
+  "z80_instructions": 1101,
+  "bytecode_instructions": 443,
+  "rule_headers": 48,
+  "note": "Identita dei byte verificata; non prova da sola tutte le interpretazioni."
+}

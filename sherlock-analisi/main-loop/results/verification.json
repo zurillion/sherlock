@@ -1,0 +1,14 @@
+{
+  "cases": 14,
+  "actors": 24,
+  "deadline_cases": 9,
+  "row_action_and_arguments_roundtrip": true,
+  "halt_equivalence": {
+    "identical_memory_and_registers": true,
+    "slow_steps": 7760,
+    "fast_steps": 1169
+  },
+  "reschedules_checked": 373,
+  "ineligible_visits": 155,
+  "zero_cost_returns": 294
+}

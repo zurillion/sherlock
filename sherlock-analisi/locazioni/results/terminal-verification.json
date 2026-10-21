@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "uppercase, end-only backspace, ignored navigation, plus, enter",
+    "MORE waits before scroll, consumes key and resumes output",
+    "switching mode releases a pending MORE without a stuck queue",
+    "original clarification is uppercase in the lower pane",
+    "commands cannot interleave with pending output",
+    "startup pauses blank, consumes key, then writes from the bottom upward",
+    "reset restores the blank startup pause and can be cancelled",
+    "clock starts at x16: two character cells to the right"
+  ]
+}

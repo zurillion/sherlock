@@ -1,0 +1,17 @@
+{
+  "source_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "files": {
+    "ATTORI.md": "42b2343a5aa65349e7abd9414b0c9e9757d7d2e20c0234386065ce7aa0d87903",
+    "GUIDA-SCRIPT.md": "8ed2badccb681aa2a243e71737cbd5bf87d055c5480446e18bc728ee55904dd1",
+    "LEGGIMI-MAIN-LOOP.md": "57950ac458f618187d68cec0c23b1370ac3ebe1e3f50ff199a13c09f3bdde9dc",
+    "TRACCE.md": "63ff38e1dddb6ae53a536a71b0803b6f510ad4d5e184062812dcd5002aa4def4",
+    "build_loop_listing.py": "94f2405c3791604a345d81745cde9b13a9f678d379d1dbbf312a0be9ddf3045c",
+    "results/actors.json": "9eeba02fc12f8ac948f7197a92258a23ab6b1c6a84f7df8e45074e0dc97becc8",
+    "results/listing-verification.json": "a82413e7aead8adcc67d964162b48d7c8fe5cbeada8988a63638985603759cc6",
+    "results/loop-traces.json": "baa483df9df5fb949392f86debaf34224063071d1e54ce3c31cc0ff2806eed79",
+    "results/main-loop.asm": "c3d1c10b7a26282e8c23a3b698bcdfffb0d8c645ca0fba4d56c6f698ef4b1c25",
+    "results/verification.json": "a665ee3fd2bd7603cbe4076fcf29a0bfdfb94950f580ba8b30c516e9e1175281",
+    "trace_main_loop.py": "5a3f8cb4fd2b74c343945e2509c3d50e8aa572c9d40488f8e1fefb1c9f33f049",
+    "verify_main_loop.py": "4aba5b1b9b0a81e5d410e36bf3e6cb035098dde708e27bdc05c629c37a2e6647"
+  }
+}

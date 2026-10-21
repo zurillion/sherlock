@@ -1,0 +1,9 @@
+{
+  "pc": 41024,
+  "sp": 23936,
+  "iff1": 0,
+  "im": 1,
+  "main_payload_matches_memory": true,
+  "screen_payload_matches_memory": true,
+  "loader_status": 1
+}

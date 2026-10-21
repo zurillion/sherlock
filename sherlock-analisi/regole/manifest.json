@@ -1,0 +1,15 @@
+{
+  "GUIDA-SCRIPT.md": "5a743c6e0a2fe2af34279e7a31f58d56d8d0835d9e9d9e4d6f693b9a2512a07a",
+  "LEGGIMI-REGOLE.md": "d6e18bdcb292989dad993d551c121ceaaf24b83705e972ac380df56b7fe76968",
+  "build_rules_listing.py": "22004846186aced1cc64f3328196ef9a8c39967d462b347925de3dcf55fef16e",
+  "results/PROVE.md": "430b56814233ff9a2070b2c6ee2d65717361cc7f5b401bd7649ad8140bf66700",
+  "results/REGOLE.md": "2881fa0e881e369e8ec8d8edb3e983ef07957acfd6765e97c496733324713793",
+  "results/execution-traces.json": "f908c3c53819191ea459ebdb7f3dc0cb00eb786b2a830b4551e56973d9e28f9f",
+  "results/listing-verification.json": "434611e79515d875e0e35de829d302afc52ad7594af7e3f92402d19967382723",
+  "results/rules.asm": "0f06191cace19cf093e62ec2f6cdfdbde284b8e18964a55b53ca6dac9ef75598",
+  "results/rules.json": "947801dc18055ed61a90f72c81972508021b04d3bbc92d17484f053c7f2d6231",
+  "results/verification.json": "4cf254778bcae8f1c130b62c7ebf6f031dce353ce52bfbbe415b9bf658c48b8c",
+  "sherlock_rules.py": "814b9950d98177c1e0278deaecc62cd9aa29b44f20f36ab9ba661496d4a5c826",
+  "trace_rules.py": "96ae2a1db5728a043d6434645a377b01de283b354cd32011dfbd7ed46c22446e",
+  "verify_rules.py": "5cac229794d22f45a4bcaae71c38a78186425d83a8cd6646c1f0cb31192c8b20"
+}

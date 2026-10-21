@@ -1,0 +1,27 @@
+{
+  "url": "http://127.0.0.1:8766/",
+  "fixture": "map teleport to closet 9",
+  "sequence": [
+    {
+      "command": "take disguise",
+      "reply": "WHICH DISGUISE ?"
+    },
+    {
+      "command": "china",
+      "reply": "You take the china mans disguise."
+    },
+    {
+      "command": "wear disguise",
+      "reply": "WHICH DISGUISE ?"
+    },
+    {
+      "command": "china",
+      "reply": "You wear the china mans disguise."
+    }
+  ],
+  "look": "The china man is in a small closet. To the south there is a plain door. The china man can see an old mans disguise.",
+  "inventory": "The china man is carrying your money.",
+  "room_label": "small closet",
+  "console_errors": [],
+  "screenshot": "disguise-fixed.png"
+}

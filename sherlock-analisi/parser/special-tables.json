@@ -1,0 +1,176 @@
+{
+  "modes": {
+    "0": "autodetect citazione",
+    "1": "comandi",
+    "2": "affermazioni"
+  },
+  "statement_verbs": [
+    {
+      "address": "994D",
+      "offset": "00FE",
+      "word": "blackmail"
+    },
+    {
+      "address": "994F",
+      "offset": "03BA",
+      "word": "had"
+    },
+    {
+      "address": "9951",
+      "offset": "03D8",
+      "word": "has"
+    },
+    {
+      "address": "9953",
+      "offset": "0485",
+      "word": "is"
+    },
+    {
+      "address": "9955",
+      "offset": "0498",
+      "word": "killed"
+    },
+    {
+      "address": "9957",
+      "offset": "0956",
+      "word": "visit"
+    },
+    {
+      "address": "9959",
+      "offset": "03DB",
+      "word": "hated"
+    },
+    {
+      "address": "995B",
+      "offset": "02CD",
+      "word": "examined"
+    },
+    {
+      "address": "995D",
+      "offset": "040A",
+      "word": "hid"
+    },
+    {
+      "address": "995F",
+      "offset": "0632",
+      "word": "owns"
+    },
+    {
+      "address": "9961",
+      "offset": "0538",
+      "word": "made"
+    }
+  ],
+  "dispatch_normal": [
+    {
+      "table_address": "AF6B",
+      "offset": "0000",
+      "word": "<quote>",
+      "handler": "B049"
+    },
+    {
+      "table_address": "AF6F",
+      "offset": "0040",
+      "word": "all",
+      "handler": "B033"
+    },
+    {
+      "table_address": "AF73",
+      "offset": "015E",
+      "word": "but",
+      "handler": "B01C"
+    },
+    {
+      "table_address": "AF77",
+      "offset": "06D5",
+      "word": "print",
+      "handler": "AFFF"
+    },
+    {
+      "table_address": "AF7B",
+      "offset": "05BD",
+      "word": "noprint",
+      "handler": "B00B"
+    },
+    {
+      "table_address": "AF7F",
+      "offset": "0507",
+      "word": "load",
+      "handler": "B0A3"
+    },
+    {
+      "table_address": "AF83",
+      "offset": "0775",
+      "word": "save",
+      "handler": "B0C6"
+    },
+    {
+      "table_address": "AF87",
+      "offset": "0660",
+      "word": "pause",
+      "handler": "B09A"
+    },
+    {
+      "table_address": "AF8B",
+      "offset": "03E3",
+      "word": "he",
+      "handler": "B135"
+    },
+    {
+      "table_address": "AF8F",
+      "offset": "0488",
+      "word": "it",
+      "handler": "B151"
+    },
+    {
+      "table_address": "AF93",
+      "offset": "06F6",
+      "word": "quit",
+      "handler": "B0A3"
+    },
+    {
+      "table_address": "AF97",
+      "offset": "08B3",
+      "word": "they",
+      "handler": "B151"
+    }
+  ],
+  "dispatch_mode2": [
+    {
+      "table_address": "AF9B",
+      "offset": "0899",
+      "word": "that",
+      "handler": "B0FD"
+    },
+    {
+      "table_address": "AF9F",
+      "offset": "03E3",
+      "word": "he",
+      "handler": "B13F"
+    },
+    {
+      "table_address": "AFA3",
+      "offset": "0488",
+      "word": "it",
+      "handler": "B15B"
+    },
+    {
+      "table_address": "AFA7",
+      "offset": "08B3",
+      "word": "they",
+      "handler": "B15B"
+    },
+    {
+      "table_address": "AFAB",
+      "offset": "00C5",
+      "word": "because",
+      "handler": "AFFA"
+    },
+    {
+      "table_address": "AFAF",
+      "offset": "08AE",
+      "word": "therefore",
+      "handler": "AFFA"
+    }
+  ]
+}

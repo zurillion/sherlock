@@ -1,0 +1,13 @@
+Program: SHERLOCK  
+Fast loading data block: 23755,23
+Bytes: sherlock  
+Fast loading data block: 32768,256
+Data (19 bytes)
+Data (7190 bytes)
+Data (19 bytes)
+Data (6914 bytes)
+Data (19 bytes)
+Data (41602 bytes)
+Tape finished
+Simulation stopped (PC at start address): PC=41024
+Writing outputs/sherlock-analisi-01/game-entry.z80

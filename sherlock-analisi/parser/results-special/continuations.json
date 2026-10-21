@@ -1,0 +1,1143 @@
+[
+  {
+    "input": "WATSONS",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B85",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "ca 02 00 00 00 00 00 00 7e 00 75 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "02CA",
+              "offset": "02CA",
+              "word": "examine",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "007E",
+                  "offset": "007E",
+                  "word": "armchair",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "0975",
+                    "offset": "0975",
+                    "word": "watsons",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B85",
+            "last_token": "5B84"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 1,
+      "base_command": "EXAMINE ARMCHAIR.",
+      "synthetic_context": true,
+      "a01b": "08",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "ca 02 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "02CA",
+            "offset": "02CA",
+            "word": "examine",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "007E",
+                "offset": "007E",
+                "word": "armchair",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            },
+            {
+              "relations": [],
+              "referent": null,
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": "WATSONS.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 7,
+        "text": "WATSONS",
+        "type": "60",
+        "value": "0975",
+        "canonical": {
+          "raw": "0975",
+          "offset": "0975",
+          "word": "watsons",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 7,
+        "end": 8,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 8,
+        "end": 8,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "60",
+        "value": "0975",
+        "word": "watsons",
+        "bytes": "60 09 75"
+      },
+      {
+        "address": "5B84",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B85",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> WATSONS.\r"
+  },
+  {
+    "input": "HEAVY",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B85",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "89 03 00 00 00 00 00 00 1b 01 00 00 00 00 db 08 00 00 71 09 ed 03 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0389",
+              "offset": "0389",
+              "word": "give",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "011B",
+                  "offset": "011B",
+                  "word": "book",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [
+                  {
+                    "raw": "08DB",
+                    "offset": "08DB",
+                    "word": "to",
+                    "unresolved_bits": "0000"
+                  }
+                ],
+                "referent": {
+                  "raw": "0971",
+                  "offset": "0971",
+                  "word": "watson",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "03ED",
+                    "offset": "03ED",
+                    "word": "heavy",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B85",
+            "last_token": "5B84"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 2,
+      "base_command": "GIVE BOOK TO WATSON.",
+      "synthetic_context": true,
+      "a01b": "12",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "89 03 00 00 00 00 00 00 1b 01 00 00 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "0389",
+            "offset": "0389",
+            "word": "give",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "011B",
+                "offset": "011B",
+                "word": "book",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            },
+            {
+              "relations": [
+                {
+                  "raw": "08DB",
+                  "offset": "08DB",
+                  "word": "to",
+                  "unresolved_bits": "0000"
+                }
+              ],
+              "referent": {
+                "raw": "0971",
+                "offset": "0971",
+                "word": "watson",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": "HEAVY.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 5,
+        "text": "HEAVY",
+        "type": "60",
+        "value": "03ED",
+        "canonical": {
+          "raw": "03ED",
+          "offset": "03ED",
+          "word": "heavy",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 5,
+        "end": 6,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 6,
+        "end": 6,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "60",
+        "value": "03ED",
+        "word": "heavy",
+        "bytes": "60 03 ed"
+      },
+      {
+        "address": "5B84",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B85",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> HEAVY.\r"
+  },
+  {
+    "input": "CLOSED",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B85",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 08 00 00 00 00 00 00 1b 01 ed 03 bb 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "011B",
+                  "offset": "011B",
+                  "word": "book",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": [
+                  {
+                    "raw": "03ED",
+                    "offset": "03ED",
+                    "word": "heavy",
+                    "unresolved_bits": "0000"
+                  },
+                  {
+                    "raw": "01BB",
+                    "offset": "01BB",
+                    "word": "closed",
+                    "unresolved_bits": "0000"
+                  }
+                ]
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B85",
+            "last_token": "5B84"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 1,
+      "base_command": "TAKE HEAVY BOOK.",
+      "synthetic_context": true,
+      "a01b": "08",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "87 08 00 00 00 00 00 00 1b 01 ed 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "0887",
+            "offset": "0887",
+            "word": "take",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "011B",
+                "offset": "011B",
+                "word": "book",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": [
+                {
+                  "raw": "03ED",
+                  "offset": "03ED",
+                  "word": "heavy",
+                  "unresolved_bits": "0000"
+                }
+              ]
+            },
+            {
+              "relations": [],
+              "referent": null,
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": "CLOSED.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 6,
+        "text": "CLOSED",
+        "type": "60",
+        "value": "01BB",
+        "canonical": {
+          "raw": "01BB",
+          "offset": "01BB",
+          "word": "closed",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 6,
+        "end": 7,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 7,
+        "end": 7,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "60",
+        "value": "01BB",
+        "word": "closed",
+        "bytes": "60 01 bb"
+      },
+      {
+        "address": "5B84",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B85",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> CLOSED.\r"
+  },
+  {
+    "input": "GUN",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B85",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 08 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "011B",
+                  "offset": "011B",
+                  "word": "book",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B85",
+            "last_token": "5B84"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 1,
+      "base_command": "TAKE BOOK.",
+      "synthetic_context": true,
+      "a01b": "08",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "87 08 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "0887",
+            "offset": "0887",
+            "word": "take",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "011B",
+                "offset": "011B",
+                "word": "book",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            },
+            {
+              "relations": [],
+              "referent": null,
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": "GUN.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "GUN",
+        "type": "50",
+        "value": "03B4",
+        "canonical": {
+          "raw": "03B4",
+          "offset": "03B4",
+          "word": "gun",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 3,
+        "end": 4,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "50",
+        "value": "03B4",
+        "word": "gun",
+        "bytes": "50 03 b4"
+      },
+      {
+        "address": "5B84",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B85",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> GUN.\r"
+  },
+  {
+    "input": "LOOK",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B85",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9808",
+            "raw": "23 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0523",
+              "offset": "0523",
+              "word": "look",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B85",
+            "last_token": "5B84"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 1,
+      "base_command": "TAKE BOOK.",
+      "synthetic_context": true,
+      "a01b": "08",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "87 08 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "0887",
+            "offset": "0887",
+            "word": "take",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "011B",
+                "offset": "011B",
+                "word": "book",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            },
+            {
+              "relations": [],
+              "referent": null,
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": "LOOK.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 4,
+        "text": "LOOK",
+        "type": "30",
+        "value": "0523",
+        "canonical": {
+          "raw": "0523",
+          "offset": "0523",
+          "word": "look",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 4,
+        "end": 5,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 5,
+        "end": 5,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "30",
+        "value": "0523",
+        "word": "look",
+        "bytes": "30 05 23"
+      },
+      {
+        "address": "5B84",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B85",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> LOOK.\r"
+  },
+  {
+    "input": "THE THE",
+    "outcome": "syntax_error",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B83",
+        "mode": 1,
+        "parser_code": 1,
+        "nodes": [],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 1,
+            "z": false,
+            "mode": 1,
+            "cursor": "5B83",
+            "last_token": "5B82"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 1,
+      "base_command": "TAKE BOOK.",
+      "synthetic_context": true,
+      "a01b": "08",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "87 08 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "0887",
+            "offset": "0887",
+            "word": "take",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "011B",
+                "offset": "011B",
+                "word": "book",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            },
+            {
+              "relations": [],
+              "referent": null,
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": "THE THE.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 4,
+        "end": 7,
+        "text": "THE",
+        "type": "80",
+        "value": "089D",
+        "canonical": {
+          "raw": "089D",
+          "offset": "089D",
+          "word": "the",
+          "unresolved_bits": "0000"
+        }
+      },
+      {
+        "start": 7,
+        "end": 8,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 8,
+        "end": 8,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B82",
+        "type": "80",
+        "bytes": "80"
+      },
+      {
+        "address": "5B83",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B84",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> THE THE.\r WHAT ?\r"
+  },
+  {
+    "input": "@",
+    "outcome": "ok",
+    "units": [
+      {
+        "start": "5B81",
+        "next": "5B82",
+        "mode": 1,
+        "parser_code": 0,
+        "nodes": [
+          {
+            "address": "9829",
+            "raw": "87 08 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+            "verb": {
+              "raw": "0887",
+              "offset": "0887",
+              "word": "take",
+              "unresolved_bits": "0000"
+            },
+            "verb_modifier": null,
+            "all": false,
+            "exclusion": false,
+            "groups": [
+              {
+                "relations": [],
+                "referent": {
+                  "raw": "011B",
+                  "offset": "011B",
+                  "word": "book",
+                  "unresolved_bits": "0000"
+                },
+                "qualifiers": []
+              },
+              {
+                "relations": [],
+                "referent": null,
+                "qualifiers": []
+              }
+            ],
+            "subject": {
+              "referent": null,
+              "qualifiers": [],
+              "he_flag": false,
+              "it_they_flag": false
+            }
+          }
+        ],
+        "controls": [],
+        "parser_returns": [
+          {
+            "site": "D791",
+            "a": 0,
+            "z": true,
+            "mode": 1,
+            "cursor": "5B82",
+            "last_token": "5B81"
+          }
+        ],
+        "quotes": []
+      }
+    ],
+    "controls": [],
+    "scope": "syntax_only_original_z80",
+    "semantic_checks_performed": false,
+    "continuation": {
+      "group": 1,
+      "base_command": "TAKE BOOK.",
+      "synthetic_context": true,
+      "a01b": "08",
+      "before_nodes": [
+        {
+          "address": "9829",
+          "raw": "87 08 00 00 00 00 00 00 1b 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "verb": {
+            "raw": "0887",
+            "offset": "0887",
+            "word": "take",
+            "unresolved_bits": "0000"
+          },
+          "verb_modifier": null,
+          "all": false,
+          "exclusion": false,
+          "groups": [
+            {
+              "relations": [],
+              "referent": {
+                "raw": "011B",
+                "offset": "011B",
+                "word": "book",
+                "unresolved_bits": "0000"
+              },
+              "qualifiers": []
+            },
+            {
+              "relations": [],
+              "referent": null,
+              "qualifiers": []
+            }
+          ],
+          "subject": {
+            "referent": null,
+            "qualifiers": [],
+            "he_flag": false,
+            "it_they_flag": false
+          }
+        }
+      ]
+    },
+    "normalised": ".",
+    "repeated": false,
+    "editor_note": "@ viene ignorato durante una continuazione; rimane il solo Invio.",
+    "lexemes": [
+      {
+        "start": 0,
+        "end": 1,
+        "text": ".",
+        "type": "B0",
+        "value": "0000",
+        "canonical": null
+      },
+      {
+        "start": 1,
+        "end": 1,
+        "text": "",
+        "type": "C0",
+        "value": "0000",
+        "canonical": null
+      }
+    ],
+    "tokens": [
+      {
+        "address": "5B81",
+        "type": "B0",
+        "bytes": "b0"
+      },
+      {
+        "address": "5B82",
+        "type": "C0",
+        "bytes": "c0"
+      }
+    ],
+    "lower_output": "> .\r"
+  }
+]

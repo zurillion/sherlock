@@ -1,0 +1,33 @@
+{
+  "clock": "Mon 08:09am",
+  "clock_x_virtual": 16,
+  "input_after_resume": "",
+  "nonempty_rows": [
+    {
+      "index": 14,
+      "text": "You are on Baker"
+    },
+    {
+      "index": 15,
+      "text": "Street. To the"
+    },
+    {
+      "index": 16,
+      "text": "north there is the"
+    },
+    {
+      "index": 17,
+      "text": "front door."
+    }
+  ],
+  "ready": true,
+  "waiting": "false",
+  "observed_startup": {
+    "blank_before_key": true,
+    "waiting_reason": "startup",
+    "first_word_row": 17,
+    "key_consumed": true,
+    "clock_before_key": "Mon 08:09am"
+  },
+  "console_errors": []
+}
