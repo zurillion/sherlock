@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:8766/",
+  "checks": [
+    "Normal mode: hail, boarding, quoted destination, transit, arrival, disembarkation and native change",
+    "Reload during transit preserves room001, clock and scheduled arrival",
+    "C1 and Holmes markers travel together from005 through001 to028; map follows transit and arrival",
+    "Spectrum mode: same complete journey with uppercase editor, word output and MORE pauses",
+    "MORE and mode switch do not advance game time; restart restores Mon08:00am",
+    "Original protest and four-penny change visible in both modes",
+    "Final server version: COUNT YOUR MONEY displays £5 4/-; Riavvia returns to room008 and Mon08:00am"
+  ],
+  "normal": [
+    {
+      "command": "HAIL CAB",
+      "cabbie": "5",
+      "clock": "Mon 08:01am",
+      "mapView": "683.5999999999999 370 620 650",
+      "output": "You hail the hansom cab.\n The cabbie says to you\" Good morning guv'nor.\".",
+      "player": "5",
+      "room": "005"
+    },
+    {
+      "command": "GET INTO CAB",
+      "cabbie": "5",
+      "clock": "Mon 08:02am",
+      "mapView": "683.5999999999999 370 620 650",
+      "output": "You get into the hansom cab.",
+      "player": "5",
+      "room": "005"
+    },
+    {
+      "command": "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+      "cabbie": "1",
+      "clock": "Mon 08:03am",
+      "mapView": "3089.3999999999996 -195.8 620 650",
+      "output": "You are in a hansom cab with the cabbie. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+      "player": "1",
+      "room": "001"
+    },
+    {
+      "command": "WAIT",
+      "cabbie": "1",
+      "clock": "Mon 08:08am",
+      "mapView": "3089.3999999999996 -195.8 620 650",
+      "output": "You wait.",
+      "player": "1",
+      "room": "001"
+    },
+    {
+      "command": "WAIT",
+      "cabbie": "1",
+      "clock": "Mon 08:13am",
+      "mapView": "3089.3999999999996 -195.8 620 650",
+      "output": "You wait.",
+      "player": "1",
+      "room": "001"
+    },
+    {
+      "command": "WAIT",
+      "cabbie": "28",
+      "clock": "Mon 08:18am",
+      "mapView": "1141.8158935546874 1042.3999999999999 620 650",
+      "output": "You are in a hansom cab. The hansom cab is in Buckingham Palace Road. Visible exits are east.\n The cabbie says to you\" Right guv'nor that will be 8d.\"",
+      "player": "28",
+      "room": "028"
+    },
+    {
+      "command": "GET OUT OF CAB",
+      "cabbie": "28",
+      "clock": "Mon 08:20am",
+      "mapView": "1141.8158935546874 1042.3999999999999 620 650",
+      "output": "You get out of the hansom cab.\n The cabbie, who now appears to be getting quite agitated, says\" What about me money guv'nor?\".",
+      "player": "28",
+      "room": "028"
+    },
+    {
+      "command": "PAY 1/- TO CABBIE",
+      "cabbie": "28",
+      "clock": "Mon 08:21am",
+      "mapView": "1141.8158935546874 1042.3999999999999 620 650",
+      "output": "You pay 1/- to the cabbie.\n The cabbie pays 4d. To you.",
+      "player": "28",
+      "room": "028"
+    }
+  ],
+  "spectrum": [
+    {
+      "command": "HAIL CAB",
+      "cabbie": "5",
+      "clock": "Mon 08:01am",
+      "lower": "HAIL CAB                            \n+",
+      "player": "5",
+      "room": "005",
+      "upper": "You are on Baker                    \nStreet.                             \nYou hail the                        \nhansom cab.                         \nThe cabbie says to                  \nyou\" Good morning                   \nguv'nor.\"."
+    },
+    {
+      "command": "GET INTO CAB",
+      "cabbie": "5",
+      "clock": "Mon 08:02am",
+      "lower": "HAIL CAB                            \nGET INTO CAB                        \n+",
+      "player": "5",
+      "room": "005",
+      "upper": "You are on Baker                    \nStreet.                             \nYou hail the                        \nhansom cab.                         \nThe cabbie says to                  \nyou\" Good morning                   \nguv'nor.\".                          \nYou get into the                    \nhansom cab."
+    },
+    {
+      "command": "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+      "cabbie": "1",
+      "clock": "Mon 08:03am",
+      "lower": "HAIL CAB                            \nGET INTO CAB                        \nSAY TO CABBIE \"GO TO BUCKINGHAM PALA\nCE ROAD\"                            \n+",
+      "player": "1",
+      "room": "001",
+      "upper": "You are on Baker                    \nStreet.                             \nYou hail the                        \nhansom cab.                         \nThe cabbie says to                  \nyou\" Good morning                   \nguv'nor.\".                          \nYou get into the                    \nhansom cab.                         \nYou talk to the cabbie.             \nYou are in a hansom cab with the    \ncabbie. You are travelling the      \nstreets of London in a hansom cab,  \nthe sun shines through the windows  \nonto your face."
+    },
+    {
+      "command": "WAIT",
+      "cabbie": "1",
+      "clock": "Mon 08:08am",
+      "lower": "GET INTO CAB                        \nSAY TO CABBIE \"GO TO BUCKINGHAM PALA\nCE ROAD\"                            \nWAIT                                \n+",
+      "mapView": "3089.3999999999996 -195.8 620 650",
+      "player": "1",
+      "room": "001",
+      "upper": "You are on Baker                    \nStreet.                             \nYou hail the                        \nhansom cab.                         \nThe cabbie says to                  \nyou\" Good morning                   \nguv'nor.\".                          \nYou get into the                    \nhansom cab.                         \nYou talk to the cabbie.             \nYou are in a hansom cab with the    \ncabbie. You are travelling the      \nstreets of London in a hansom cab,  \nthe sun shines through the windows  \nonto your face.                     \nYou wait."
+    },
+    {
+      "command": "WAIT",
+      "cabbie": "1",
+      "clock": "Mon 08:13am",
+      "lower": "SAY TO CABBIE \"GO TO BUCKINGHAM PALA\nCE ROAD\"                            \nWAIT                                \nWAIT                                \n+",
+      "mapView": "3089.3999999999996 -195.8 620 650",
+      "player": "1",
+      "room": "001",
+      "upper": "You are on Baker                    \nStreet.                             \nYou hail the                        \nhansom cab.                         \nThe cabbie says to                  \nyou\" Good morning                   \nguv'nor.\".                          \nYou get into the                    \nhansom cab.                         \nYou talk to the cabbie.             \nYou are in a hansom cab with the    \ncabbie. You are travelling the      \nstreets of London in a hansom cab,  \nthe sun shines through the windows  \nonto your face.                     \nYou wait.                           \nYou wait."
+    },
+    {
+      "command": "WAIT",
+      "cabbie": "28",
+      "clock": "Mon 08:18am",
+      "lower": "CE ROAD\"                            \nWAIT                                \nWAIT                                \nWAIT                                \n+",
+      "mapView": "1141.8158935546874 1042.3999999999999 620 650",
+      "player": "28",
+      "room": "028",
+      "upper": "you\" Good morning                   \nguv'nor.\".                          \nYou get into the                    \nhansom cab.                         \nYou talk to the cabbie.             \nYou are in a hansom cab with the    \ncabbie. You are travelling the      \nstreets of London in a hansom cab,  \nthe sun shines through the windows  \nonto your face.                     \nYou wait.                           \nYou wait.                           \nYou wait.                           \nYou are in a hansom cab. The hansom \ncab is in Buckingham Palace Road.   \nVisible exits are east.             \nThe cabbie says to you\" Right       \nguv'nor that will be 8d.\""
+    },
+    {
+      "command": "GET OUT OF CAB",
+      "cabbie": "28",
+      "clock": "Mon 08:20am",
+      "lower": "WAIT                                \nWAIT                                \nWAIT                                \nGET OUT OF CAB                      \n+",
+      "mapView": "1141.8158935546874 1042.3999999999999 620 650",
+      "player": "28",
+      "room": "028",
+      "upper": "You talk to the cabbie.             \nYou are in a hansom cab with the    \ncabbie. You are travelling the      \nstreets of London in a hansom cab,  \nthe sun shines through the windows  \nonto your face.                     \nYou wait.                           \nYou wait.                           \nYou wait.                           \nYou are in a hansom cab. The hansom \ncab is in Buckingham Palace Road.   \nVisible exits are east.             \nThe cabbie says to you\" Right       \nguv'nor that will be 8d.\"           \nYou get out of the hansom cab.      \nThe cabbie, who now appears to be   \ngetting quite agitated, says\" What  \nabout me money guv'nor?\"."
+    },
+    {
+      "command": "PAY 1/- TO CABBIE",
+      "cabbie": "28",
+      "clock": "Mon 08:21am",
+      "lower": "WAIT                                \nWAIT                                \nGET OUT OF CAB                      \nPAY 1/- TO CABBIE                   \n+",
+      "mapView": "1141.8158935546874 1042.3999999999999 620 650",
+      "player": "28",
+      "room": "028",
+      "upper": "cabbie. You are travelling the      \nstreets of London in a hansom cab,  \nthe sun shines through the windows  \nonto your face.                     \nYou wait.                           \nYou wait.                           \nYou wait.                           \nYou are in a hansom cab. The hansom \ncab is in Buckingham Palace Road.   \nVisible exits are east.             \nThe cabbie says to you\" Right       \nguv'nor that will be 8d.\"           \nYou get out of the hansom cab.      \nThe cabbie, who now appears to be   \ngetting quite agitated, says\" What  \nabout me money guv'nor?\".           \nYou pay 1/- to the cabbie.          \nThe cabbie pays 4d. To you."
+    }
+  ],
+  "screenshots": [
+    "cab-web-normal.png",
+    "cab-web-spectrum.png"
+  ],
+  "currency": {
+    "clock": "Mon 08:01am",
+    "upper": "The sun streams in the two broad    \nwindows in your sitting room. There \nis a pipe rack to the right of the  \nsofa. Bullet pock marks are the     \nfeature of one wall, and charts and \ndiagrams fill another. An acid      \nstained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \nYou count your money.               \nIt totals £5 4/-"
+  },
+  "finalState": {
+    "room": 8,
+    "clock": "Mon 08:00am",
+    "ready": true
+  }
+}

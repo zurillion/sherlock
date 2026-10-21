@@ -1,4 +1,4 @@
-"""Ponti limitati al codice originale: scene, percezione e azioni senza scheduler NPC."""
+"""Ponte al codice originale con turni NPC selezionabili e prompt persistente."""
 import sys,re
 from pathlib import Path
 sys.dont_write_bytecode=True
@@ -6,7 +6,8 @@ sys.dont_write_bytecode=True
 def word(m,p):return m[p]+256*m[p+1]
 
 class NativeWorld:
-    def __init__(self,project):
+    def __init__(self,project,active_npcs=()):
+        self.active_npcs=None if active_npcs is None else frozenset(active_npcs)
         self.project=Path(project)
         sys.path.insert(0,str(self.project/'sherlock-analisi/parser'))
         from sherlock_parser import SherlockParser
@@ -33,7 +34,7 @@ class NativeWorld:
             if pc==0xaa6e:
                 c=r[R.A];wrap=word(m,r[R.SP])==0xa9f4
                 if c==13:text.append(' ' if wrap else '\n')
-                elif c>=32:text.append(chr(c))
+                elif c>=32:text.append('£' if c==96 else chr(c))
             if pc==0xd531:listed.append(m[r[R.IXh]*256+r[R.IXl]])
             if pc in (0xd102,0xd1b2,0xd078,0xdcD2,0xdd35,0xca9e):events.append({'pc':f'{pc:04X}','a':r[R.A]})
             s.opcodes[m[pc]]()
@@ -46,7 +47,10 @@ class NativeWorld:
     @property
     def room(self):return self.m[word(self.m,0x8b70+3*self.player_id)+15]
     def teleport(self,room):
-        self.prepare();self.call(0xdd0b,b=room);self.prepare()
+        self.prepare()
+        # Map travel detaches the player from a chair/vehicle, then moves inventory.
+        self.m[0xa033:0xa036]=[128,self.player_id,room]
+        self.call(0xc4d1);self.prepare()
         # L'esplorazione via mappa non usa le porte e non consuma tempo.
         return self.call(0xca9e)
     def scene(self,full=True):
@@ -70,7 +74,7 @@ class NativeWorld:
         return {'tick':word(self.m,0x9fdd),'due':word(self.m,0x9866),'minute':minute,'hour':hour,'day':day,'period':'am' if period==97 else 'pm','label':f"{['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day%7]} {hour:02d}:{minute:02d}{'am' if period==97 else 'pm'}"}
 
     def submit(self,text,explored):
-        """Esegue editor/parser/semantica e turno originali; salta le visite NPC.
+        """Esegue editor/parser/semantica e scheduler originali, abilitando gli NPC selezionati.
 
         Conserva il punto d'attesa e lo stack fra risposte, incluso A01B/9FF0.
         Le chiamate di ispezione possono usare i registri senza perdere quel punto.
@@ -91,7 +95,7 @@ class NativeWorld:
             nonlocal channel
             if channel!=kind:flush();channel=kind
             if c==13:buf.append('\n')
-            elif c>=32:buf.append(chr(c))
+            elif c>=32:buf.append('£' if c==96 else chr(c))
         try:
             for step in range(9000000):
                 pc=r[R.PC]
@@ -119,10 +123,10 @@ class NativeWorld:
                         flush();messages.append({'kind':'narrative','text':'','image_room':room})
                     explored.add(room)
                 if pc==0xd531:listed.append(m[r[R.IXh]*256+r[R.IXl]])
-                if pc==0xc4d1:actions.append({'id':m[0xa033],'arguments':list(m[0xa034:0xa036])})
+                if pc==0xc4d1:actions.append({'actor':m[0xa036],'id':m[0xa033],'arguments':list(m[0xa034:0xa036])})
                 if pc==0xa097:
                     row=r[R.IYh]*256+r[R.IYl]
-                    if row!=0x9860 and m[row]!=255:r[R.PC]=0xa0d1;continue
+                    if row!=0x9860 and m[row]!=255 and self.active_npcs is not None and m[row] not in self.active_npcs:r[R.PC]=0xa0d1;continue
                 if pc in (0xb0ac,0xb0c9,0xb09d,0xb002,0xb00e,0xc040,0xc0df,0x04c2,0x0556):
                     raise RuntimeError('Tape, printing and control commands are not available in this explorer.')
                 if pc==0xd9f5 and not 0x5dc0<=r[R.D]*256+r[R.E]<0x67b6:

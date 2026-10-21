@@ -152,10 +152,11 @@ async function api(path,body){
  pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}
 }
 function setBusy(value){busy=value;$('command').disabled=value;$('submit').disabled=value;$('reset').disabled=restarting||!data;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);}
-function update(s){state=s;spectrum.setRoom(s.room);spectrum.setClock(s.clock.label);$('clock').textContent=s.clock.label;$('ticks').textContent=`Tick ${s.clock.tick} · ${s.visited.length} luoghi esplorati`;$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
+function update(s){const previousRoom=state?.room;state=s;spectrum.setRoom(s.room);spectrum.setClock(s.clock.label);$('clock').textContent=s.clock.label;$('ticks').textContent=`Tick ${s.clock.tick} · ${s.visited.length} luoghi esplorati`;$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
  updateCharacters(s);
+ if(previousRoom!==undefined&&previousRoom!==s.room&&(previousRoom===1||s.room===1))centerRoom(s.room);
  $('exits').replaceChildren();for(const e of s.exits){const row=el('div',undefined,'exit'),button=el('button',e.direction),desc=el('div',`${String(e.target).padStart(3,'0')} ${e.target_name||'destinazione non attiva'}`);button.title='Esegui il movimento, rispettando gli ostacoli';button.onclick=()=>command(e.direction);desc.append(el('small',`${e.gate_name?e.gate_name+' · ':''}${e.status}`));row.append(button,desc);$('exits').append(row);}if(!s.exits.length)$('exits').append(el('span','Nessuna uscita direzionale.'));
  $('objects').replaceChildren();for(const o of s.visible){const item=el('span',o.name,'entity');item.title=`Entità ${o.id}${s.objects.some(x=>x.id===o.id)?' · elencata nella scena':''}`;$('objects').append(item);}if(!s.visible.length)$('objects').append(el('span',s.dark?'È buio: nessun elenco visivo disponibile.':'Nessuna entità percepibile.'));
  if(s.analysis){const a=s.analysis;$('analysis').textContent=JSON.stringify({esito:a.outcome,riga:a.normalised,unita:a.units,controlli:a.controls},null,2);}}

@@ -1,0 +1,3810 @@
+{
+  "passed": true,
+  "checks": [
+    "Natural walk, hail, boarding, quoted destination, transit and arrival; C1 and player markers move, other NPCs stay put",
+    "Native scheduler updates clock and scene/image events when an NPC moves the passenger",
+    "Disembarkation, protest, payment of a shilling and native four-penny change",
+    "Syntax errors and rejected exit do not advance a trip; repeated scene/state inspection preserves suspended NPC context",
+    "Payment during transit retains native credit behaviour; a quoted PAY order recovers the change",
+    "FURIOUSLY invokes the native accelerated trip and triple fare",
+    "Unpaid departure prints the original threat and keeps the debt",
+    "Map teleport detaches player from cab without consuming time; the scheduled cab arrival cannot drag the player back",
+    "Restart restores initial NPC rows, money, location and 08:00 clock",
+    "Bridge with all NPCs enabled matches independent full-game probe on 13 identical commands, texts, clock and 11 full entity records",
+    "Spectrum currency glyph is rendered as £; paying £1 returns 19/4 and settles the 8d fare"
+  ],
+  "active_npcs": [
+    31,
+    34
+  ],
+  "full_game_comparison": [
+    "OPEN YOUR DOOR",
+    "WEST",
+    "DOWN",
+    "OPEN FRONT DOOR",
+    "SOUTH",
+    "HAIL CAB",
+    "GET INTO CAB",
+    "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+    "WAIT",
+    "WAIT",
+    "WAIT",
+    "GET OUT OF CAB",
+    "PAY 1/- TO CABBIE"
+  ],
+  "traces": [
+    {
+      "command": "OPEN YOUR DOOR",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              8
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 8,
+        "name": "your room",
+        "clock": {
+          "tick": 2,
+          "due": 1,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "visited": [
+          8
+        ],
+        "native_seen": [],
+        "exits": [
+          {
+            "source": 8,
+            "target": 7,
+            "direction_id": 4,
+            "direction": "W",
+            "gate": 21,
+            "gate_name": "your door",
+            "address": "8549",
+            "destination_zero": false,
+            "target_name": "hall",
+            "status": "aperta / attraversabile"
+          },
+          {
+            "source": 8,
+            "target": 9,
+            "direction_id": 1,
+            "direction": "N",
+            "gate": 50,
+            "gate_name": "plain door",
+            "address": "854C",
+            "destination_zero": false,
+            "target_name": "small closet",
+            "status": "chiusa / ostacolo"
+          }
+        ],
+        "objects": [
+          {
+            "id": 22,
+            "name": "oil lamp"
+          },
+          {
+            "id": 23,
+            "name": "your armchair"
+          },
+          {
+            "id": 24,
+            "name": "watsons armchair"
+          },
+          {
+            "id": 3,
+            "name": "watson"
+          },
+          {
+            "id": 25,
+            "name": "daily chronicle"
+          }
+        ],
+        "dark": false,
+        "visible": [
+          {
+            "id": 3,
+            "name": "watson"
+          },
+          {
+            "id": 21,
+            "name": "your door"
+          },
+          {
+            "id": 22,
+            "name": "oil lamp"
+          },
+          {
+            "id": 23,
+            "name": "your armchair"
+          },
+          {
+            "id": 24,
+            "name": "watsons armchair"
+          },
+          {
+            "id": 25,
+            "name": "daily chronicle"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 50,
+            "name": "plain door"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "OPEN YOUR DOOR",
+          "normalised": "OPEN YOUR DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "09F2",
+                          "offset": "09F2",
+                          "word": "your",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You open your door."
+        }
+      ]
+    },
+    {
+      "command": "WEST",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              7
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 7,
+        "name": "hall",
+        "clock": {
+          "tick": 3,
+          "due": 3,
+          "minute": 2,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:02am"
+        },
+        "visited": [
+          7,
+          8
+        ],
+        "native_seen": [
+          7
+        ],
+        "exits": [
+          {
+            "source": 7,
+            "target": 8,
+            "direction_id": 3,
+            "direction": "E",
+            "gate": 21,
+            "gate_name": "your door",
+            "address": "8539",
+            "destination_zero": false,
+            "target_name": "your room",
+            "status": "aperta / attraversabile"
+          },
+          {
+            "source": 7,
+            "target": 6,
+            "direction_id": 10,
+            "direction": "DOWN",
+            "gate": 20,
+            "gate_name": "stairway",
+            "address": "853C",
+            "destination_zero": false,
+            "target_name": "entrance hallway",
+            "status": "aperta / attraversabile"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 20,
+            "name": "stairway"
+          },
+          {
+            "id": 21,
+            "name": "your door"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "WEST",
+          "normalised": "WEST",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "92 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0992",
+                    "offset": "0992",
+                    "word": "west",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You go west."
+        },
+        {
+          "kind": "narrative",
+          "text": "",
+          "image_room": 7
+        },
+        {
+          "kind": "narrative",
+          "text": "You are in a hall. To the east there is your door. Below there is the stairway."
+        }
+      ]
+    },
+    {
+      "command": "DOWN",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              6
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 6,
+        "name": "entrance hallway",
+        "clock": {
+          "tick": 5,
+          "due": 5,
+          "minute": 4,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:04am"
+        },
+        "visited": [
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          6,
+          7
+        ],
+        "exits": [
+          {
+            "source": 6,
+            "target": 7,
+            "direction_id": 9,
+            "direction": "UP",
+            "gate": 20,
+            "gate_name": "stairway",
+            "address": "8529",
+            "destination_zero": false,
+            "target_name": "hall",
+            "status": "aperta / attraversabile"
+          },
+          {
+            "source": 6,
+            "target": 5,
+            "direction_id": 2,
+            "direction": "S",
+            "gate": 19,
+            "gate_name": "front door",
+            "address": "852C",
+            "destination_zero": false,
+            "target_name": "baker street",
+            "status": "chiusa / ostacolo"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 19,
+            "name": "front door"
+          },
+          {
+            "id": 20,
+            "name": "stairway"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "DOWN",
+          "normalised": "DOWN",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "72 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0272",
+                    "offset": "0272",
+                    "word": "down",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 10,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You go down."
+        },
+        {
+          "kind": "narrative",
+          "text": "",
+          "image_room": 6
+        },
+        {
+          "kind": "narrative",
+          "text": "You are in an entrance hallway. Above there is the stairway. To the south there is the front door."
+        }
+      ]
+    },
+    {
+      "command": "OPEN FRONT DOOR",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              6
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 6,
+        "name": "entrance hallway",
+        "clock": {
+          "tick": 6,
+          "due": 6,
+          "minute": 5,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:05am"
+        },
+        "visited": [
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          6,
+          7
+        ],
+        "exits": [
+          {
+            "source": 6,
+            "target": 7,
+            "direction_id": 9,
+            "direction": "UP",
+            "gate": 20,
+            "gate_name": "stairway",
+            "address": "8529",
+            "destination_zero": false,
+            "target_name": "hall",
+            "status": "aperta / attraversabile"
+          },
+          {
+            "source": 6,
+            "target": 5,
+            "direction_id": 2,
+            "direction": "S",
+            "gate": 19,
+            "gate_name": "front door",
+            "address": "852C",
+            "destination_zero": false,
+            "target_name": "baker street",
+            "status": "aperta / attraversabile"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 19,
+            "name": "front door"
+          },
+          {
+            "id": 20,
+            "name": "stairway"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "OPEN FRONT DOOR",
+          "normalised": "OPEN FRONT DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 55 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "0355",
+                          "offset": "0355",
+                          "word": "front",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                19,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You open the front door."
+        }
+      ]
+    },
+    {
+      "command": "SOUTH",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              5
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 5,
+        "name": "baker street",
+        "clock": {
+          "tick": 8,
+          "due": 8,
+          "minute": 7,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:07am"
+        },
+        "visited": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          5,
+          6,
+          7
+        ],
+        "exits": [
+          {
+            "source": 5,
+            "target": 6,
+            "direction_id": 1,
+            "direction": "N",
+            "gate": 19,
+            "gate_name": "front door",
+            "address": "851C",
+            "destination_zero": false,
+            "target_name": "entrance hallway",
+            "status": "aperta / attraversabile"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 19,
+            "name": "front door"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "SOUTH",
+          "normalised": "SOUTH",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "1a 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "081A",
+                    "offset": "081A",
+                    "word": "south",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 2,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You go south."
+        },
+        {
+          "kind": "narrative",
+          "text": "",
+          "image_room": 5
+        },
+        {
+          "kind": "narrative",
+          "text": "You are on Baker Street. To the north there is the front door."
+        }
+      ]
+    },
+    {
+      "command": "HAIL CAB",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              5
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [
+              5
+            ],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 5,
+        "name": "baker street",
+        "clock": {
+          "tick": 9,
+          "due": 9,
+          "minute": 8,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:08am"
+        },
+        "visited": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          5,
+          6,
+          7
+        ],
+        "exits": [
+          {
+            "source": 5,
+            "target": 6,
+            "direction_id": 1,
+            "direction": "N",
+            "gate": 19,
+            "gate_name": "front door",
+            "address": "851C",
+            "destination_zero": false,
+            "target_name": "entrance hallway",
+            "status": "aperta / attraversabile"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 19,
+            "name": "front door"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 30,
+            "name": "hansom cab"
+          },
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "HAIL CAB",
+          "normalised": "HAIL CAB",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "be 03 00 00 00 00 00 00 64 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "03BE",
+                    "offset": "03BE",
+                    "word": "hail",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "0164",
+                        "offset": "0164",
+                        "word": "cab",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 31,
+              "arguments": [
+                30,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You hail the hansom cab.\n The cabbie says to you\" Good morning guv'nor.\"."
+        }
+      ]
+    },
+    {
+      "command": "GET INTO CAB",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              5
+            ],
+            "parent_id": 30,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [
+              5
+            ],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 5,
+        "name": "baker street",
+        "clock": {
+          "tick": 11,
+          "due": 11,
+          "minute": 10,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:10am"
+        },
+        "visited": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          5,
+          6,
+          7
+        ],
+        "exits": [
+          {
+            "source": 5,
+            "target": 6,
+            "direction_id": 1,
+            "direction": "N",
+            "gate": 19,
+            "gate_name": "front door",
+            "address": "851C",
+            "destination_zero": false,
+            "target_name": "entrance hallway",
+            "status": "aperta / attraversabile"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 19,
+            "name": "front door"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 30,
+            "name": "hansom cab"
+          },
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "GET INTO CAB",
+          "normalised": "GET INTO CAB",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "981A",
+                  "raw": "81 03 00 00 77 04 00 00 64 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0381",
+                    "offset": "0381",
+                    "word": "get",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [
+                        {
+                          "raw": "0477",
+                          "offset": "0477",
+                          "word": "into",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "0164",
+                        "offset": "0164",
+                        "word": "cab",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 24,
+              "arguments": [
+                30,
+                255
+              ]
+            },
+            {
+              "actor": 31,
+              "id": 130,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You get into the hansom cab."
+        }
+      ]
+    },
+    {
+      "command": "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              1
+            ],
+            "parent_id": 30,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [
+              1
+            ],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 1,
+        "name": "hansom cab",
+        "clock": {
+          "tick": 12,
+          "due": 12,
+          "minute": 11,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:11am"
+        },
+        "visited": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          1,
+          5,
+          6,
+          7
+        ],
+        "exits": [],
+        "objects": [
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "dark": false,
+        "visible": [
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 30,
+            "name": "hansom cab"
+          },
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+          "normalised": "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "981A",
+                  "raw": "8b 08 00 00 db 08 00 00 68 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "088B",
+                    "offset": "088B",
+                    "word": "talk",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [
+                        {
+                          "raw": "08DB",
+                          "offset": "08DB",
+                          "word": "to",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "0168",
+                        "offset": "0168",
+                        "word": "cabbie",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                31,
+                255
+              ]
+            },
+            {
+              "actor": 31,
+              "id": 29,
+              "arguments": [
+                28,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You talk to the cabbie."
+        },
+        {
+          "kind": "narrative",
+          "text": "",
+          "image_room": 1
+        },
+        {
+          "kind": "narrative",
+          "text": "You are in a hansom cab with the cabbie. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face."
+        }
+      ]
+    },
+    {
+      "command": "WAIT",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              1
+            ],
+            "parent_id": 30,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [
+              1
+            ],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 1,
+        "name": "hansom cab",
+        "clock": {
+          "tick": 17,
+          "due": 17,
+          "minute": 16,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:16am"
+        },
+        "visited": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          1,
+          5,
+          6,
+          7
+        ],
+        "exits": [],
+        "objects": [
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "dark": false,
+        "visible": [
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 30,
+            "name": "hansom cab"
+          },
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "WAIT",
+          "normalised": "WAIT",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9810",
+                  "raw": "5e 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "095E",
+                    "offset": "095E",
+                    "word": "wait",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You wait."
+        }
+      ]
+    },
+    {
+      "command": "WAIT",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              1
+            ],
+            "parent_id": 30,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [
+              1
+            ],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 1,
+        "name": "hansom cab",
+        "clock": {
+          "tick": 22,
+          "due": 22,
+          "minute": 21,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:21am"
+        },
+        "visited": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "native_seen": [
+          1,
+          5,
+          6,
+          7
+        ],
+        "exits": [],
+        "objects": [
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "dark": false,
+        "visible": [
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 30,
+            "name": "hansom cab"
+          },
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "WAIT",
+          "normalised": "WAIT",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9810",
+                  "raw": "5e 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "095E",
+                    "offset": "095E",
+                    "word": "wait",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You wait."
+        }
+      ]
+    },
+    {
+      "command": "WAIT",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              28
+            ],
+            "parent_id": 30,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [
+              28
+            ],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 28,
+        "name": "buckingham palace road",
+        "clock": {
+          "tick": 27,
+          "due": 27,
+          "minute": 26,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:26am"
+        },
+        "visited": [
+          1,
+          5,
+          6,
+          7,
+          8,
+          28
+        ],
+        "native_seen": [
+          1,
+          5,
+          6,
+          7,
+          28
+        ],
+        "exits": [
+          {
+            "source": 28,
+            "target": 29,
+            "direction_id": 3,
+            "direction": "E",
+            "gate": 0,
+            "gate_name": null,
+            "address": "8668",
+            "destination_zero": false,
+            "target_name": "victoria station",
+            "status": "libera"
+          }
+        ],
+        "objects": [],
+        "dark": false,
+        "visible": [
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 30,
+            "name": "hansom cab"
+          },
+          {
+            "id": 31,
+            "name": "cabbie"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "WAIT",
+          "normalised": "WAIT",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9810",
+                  "raw": "5e 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "095E",
+                    "offset": "095E",
+                    "word": "wait",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 31,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 31,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 31,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You wait."
+        },
+        {
+          "kind": "narrative",
+          "text": "",
+          "image_room": 28
+        },
+        {
+          "kind": "narrative",
+          "text": "You are in a hansom cab. The hansom cab is in Buckingham Palace Road. Visible exits are east.\n The cabbie says to you\" Right guv'nor that will be 8d.\""
+        }
+      ]
+    }
+  ],
+  "currency": {
+    "count": "You count your money. It totals £5 4/-",
+    "payment": "You pay £1 to the cabbie. The cabbie pays 19/4 to you.",
+    "player_pence": 1240,
+    "driver_balance": 0
+  }
+}

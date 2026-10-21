@@ -1,21 +1,21 @@
 {
   "source_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
   "files": {
-    "cab.py": "3b7f59b429df1218d5ff9e0885b1690803f2172095bba7fb9d1d276a911f793b",
-    "trace_cab.py": "a919acf1586d0b345e8ca787315f08543f7a227ffe38b922b8de1a8bc9c3292a",
-    "verify_cab.py": "37d65224af055cdbe95e68cc6e4f995c7275e1c392f0054a7578bc8fb90c06f4",
-    "build_cab_listing.py": "867013e5b83b87f4aa9c482f76498f0d291a2e7eaeb365c6b913589a8167931c",
-    "LEGGIMI-CAB.md": "0313a074f5076a86648d958204ea3e555d37eaed5b6d362a206dc4c89dabb8a0",
     "GUIDA-SCRIPT.md": "3c43d174f21461362603c8efd56c5ad3c24c7519c030bf5dd2e8007057a2ea18",
+    "LEGGIMI-CAB.md": "2c6763ba60594c6ce89c47682def2d84097f2ec67c25a5fe8ba2b000e6b53694",
+    "build_cab_listing.py": "867013e5b83b87f4aa9c482f76498f0d291a2e7eaeb365c6b913589a8167931c",
+    "cab.py": "3b7f59b429df1218d5ff9e0885b1690803f2172095bba7fb9d1d276a911f793b",
+    "results/BYTECODE.md": "79e58299e4b9a377c90415616ff0ea881ecd073c51f5ff1e2a4b0c864228283a",
+    "results/PROVE.md": "b0b5e9951f7e2eee30204e04178d706bb2b0d1d0422d3c9ebd0bb4c9e4c86413",
+    "results/ROTTE.md": "d447564b5713509b8cbbaae71e8fcbcfbdfadcf84c4347025e9da09f32debead",
     "results/cab-data.json": "71333ceb1123f1da1003bf073186dec2977d8c106a78f37bd728eed26631b390",
     "results/cab-traces.json": "9b6dcb98f051961c4febb5c9e8fd12e710e153573c566c9417bb10ca794862cc",
     "results/cab.asm": "854a36011be0f4cbb60b87e085b3c8d3e4fbe3d52046a4f8bfa8924c3bb7a907",
-    "results/verification.json": "44e1075b7d50659f0c27a629032965dae7ebe164d4df91ebab4a209b591ff629",
-    "results/listing-verification.json": "7518b3a6d985488bb5c376d2a442112934acc9e1f1227c39f93edf999ae0dea0",
-    "results/PROVE.md": "b0b5e9951f7e2eee30204e04178d706bb2b0d1d0422d3c9ebd0bb4c9e4c86413",
-    "results/ROTTE.md": "d447564b5713509b8cbbaae71e8fcbcfbdfadcf84c4347025e9da09f32debead",
-    "results/BYTECODE.md": "79e58299e4b9a377c90415616ff0ea881ecd073c51f5ff1e2a4b0c864228283a",
     "results/demo/interactive-trace.json": "9be35459b34033128dc6ba32c421e65c5e96d8cfb0b5377d5d7588bf3f59b8bc",
-    "results/demo-session.log": "8c9624c09dc7a187588ac3b53cce02fa503dfe669fbd6d2aff309ff0d5379570"
+    "results/demo-session.log": "8c9624c09dc7a187588ac3b53cce02fa503dfe669fbd6d2aff309ff0d5379570",
+    "results/listing-verification.json": "7518b3a6d985488bb5c376d2a442112934acc9e1f1227c39f93edf999ae0dea0",
+    "results/verification.json": "44e1075b7d50659f0c27a629032965dae7ebe164d4df91ebab4a209b591ff629",
+    "trace_cab.py": "a919acf1586d0b345e8ca787315f08543f7a227ffe38b922b8de1a8bc9c3292a",
+    "verify_cab.py": "37d65224af055cdbe95e68cc6e4f995c7275e1c392f0054a7578bc8fb90c06f4"
   }
 }

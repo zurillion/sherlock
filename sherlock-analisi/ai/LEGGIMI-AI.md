@@ -263,3 +263,5 @@ I semi sono impostati dopo il primo prompt, con cursore del generatore azzerato:
 **Prossimo approfondimento consigliato:** completare la memoria delle informazioni e i gestori di TELL/asserzioni, collegandoli alle callback e alle domande degli NPC. In parallelo, si potranno ricostruire gli itinerari degli altri personaggi. L’abilitazione dei turni NPC nell’esploratore web richiederà poi di gestire anche dialoghi, scene terminali e sospensioni; questa fase di analisi non cambia il comportamento della pagina in esecuzione.
 
 Comandi e file: [GUIDA-SCRIPT.md](GUIDA-SCRIPT.md). Dettaglio delle sequenze: [results/SEQUENZE.md](results/SEQUENZE.md). Prove leggibili: [results/PROVE.md](results/PROVE.md).
+
+Aggiornamento: il servizio cab è ora disponibile nella pagina con i due cocchieri attivi. Gli altri NPC restano sospesi. Vedere [CAB-WEB.md](../locazioni/CAB-WEB.md).

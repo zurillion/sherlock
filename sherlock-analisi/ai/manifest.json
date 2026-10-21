@@ -2,8 +2,8 @@
   "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
   "scope": "Prima analisi AI: Watson, Lestrade, Basil; 17 scenari, 67 comandi; nessuna modifica all esploratore web.",
   "files": {
-    "GUIDA-SCRIPT.md": "de95039327bbbb25a104a9984ef49c4f5848375ea525410ed50f71aba7dcc326",
-    "LEGGIMI-AI.md": "1b8d971cc5e1ceb0aec22c676b22425fc10e4c606472ff093e5b6912e4e6605f",
+    "GUIDA-SCRIPT.md": "8408e8d4103104a7f0c35ab0f9e5dac8aea95ea83288267778daeb0bf8073f42",
+    "LEGGIMI-AI.md": "46a95b878e2464ff7a8811c6cdfc970e93166fac7146dc87624a3f26eff540a7",
     "build_ai_listing.py": "ed8ecf452062d7fc237102c9dfe4571db70b528510602c49c7c5c22077ddce76",
     "decode_npc_ai.py": "d969af439b46e02c28e4c396c25073f73f3d0a3a840f8f779dc9c2c3f4249354",
     "results/PROVE.md": "28343a03475c364679adda320fadc5573cd2d9779f6b68506bd025ef006578dc",

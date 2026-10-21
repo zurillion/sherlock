@@ -1,6 +1,6 @@
 # Sherlock: locazioni, movimento e descrizione del mondo
 
-**Aggiornamento del prototipo:** il turno del giocatore ora attraversa editor, parser, semantica e azioni Z80 originali, con stato pendente conservato fra input. Le domande e i rifiuti sono stampati dal gioco; YOUR e YOUR DOOR completano OPEN DOOR. Le visite NPC vengono saltate. Vedere `AGGIORNAMENTI-INTERFACCIA.md` per verifiche e modifiche a SVG e mappa.
+**Aggiornamento del prototipo:** il turno del giocatore ora attraversa editor, parser, semantica e azioni Z80 originali, con stato pendente conservato fra input. Le domande e i rifiuti sono stampati dal gioco; YOUR e YOUR DOOR completano OPEN DOOR. Sono attive le visite dei due cocchieri; gli altri NPC vengono saltati. Vedere anche [CAB-WEB.md](CAB-WEB.md). Vedere `AGGIORNAMENTI-INTERFACCIA.md` per verifiche e modifiche a SVG e mappa.
 
 Analisi del payload ZX Spectrum v2.0 fornito nel progetto. Gli indirizzi sono esadecimali; ID e costi sono decimali. I risultati derivano dai byte originali e da esecuzioni Z80. Foggy London è usato come indizio e, nell'interfaccia, come fonte delle coordinate grafiche dei nodi: la topologia viene estratta dal gioco.
 
@@ -145,13 +145,13 @@ Pagina HTML/CSS/JS
     → parser Z80 originale, in copia isolata
     → AST del comando
     → esecuzione originale del turno del giocatore
-    → ciclo originale, saltando le visite degli NPC
+    → ciclo originale, abilitando i due cocchieri e saltando gli altri NPC
     → costo, orologio simulato, testo e stato della mappa
 ```
 
 La pagina esegue il turno originale del giocatore: editor, tokenizzazione, parser, risoluzione semantica, domande di disambiguazione e azioni. Conserva registri e stack al punto di attesa, oltre ai dati del comando e ai nodi pendenti. Le routine di ispezione possono usare separatamente i registri; prima del prossimo input si ripristina il punto corretto. Le frasi mostrate nell'area di gioco sono catturate dalle routine di stampa, senza una traduzione o una riscrittura degli errori in Python.
 
-Le visite degli NPC nello scheduler sono saltate. Il tempo e la scadenza di Holmes vengono aggiornati dal ciclo originale; non si calcola più il costo del comando con una selezione Python. Restano bloccati i servizi nastro, stampa e controllo, per i quali compare un messaggio tecnico in inglese e viene ripristinato lo stato precedente. Le azioni non elencate fra i casi verificati non sono per questo certificate in ogni situazione di gioco.
+Le visite dei cocchieri 31 e 34 vengono eseguite nello scheduler originale; quelle degli altri NPC sono saltate. Il tempo e la scadenza di Holmes vengono aggiornati dal ciclo originale; non si calcola più il costo del comando con una selezione Python. Restano bloccati i servizi nastro, stampa e controllo, per i quali compare un messaggio tecnico in inglese e viene ripristinato lo stato precedente. Le azioni non elencate fra i casi verificati non sono per questo certificate in ogni situazione di gioco.
 
 Le continuazioni avvengono naturalmente: dopo WHICH DOOR ? la risposta YOUR o YOUR DOOR completa il nodo pendente. Un nuovo verbo può sostituirlo, secondo le regole originali. Un trasferimento manuale tramite la mappa annulla il comando pendente.
 
@@ -171,6 +171,6 @@ Il grafo supporta ricerca, pan, zoom, nomi opzionali, evidenziazione del luogo c
 - 844 istruzioni e 3689 byte selezionati ricomposti identicamente al payload. Il listato separa dati, intestazioni e bytecode dal codice.
 - Verifica nel browser di errore lessicale, apertura, movimento, aggiornamento dell'orologio e salto sulla mappa a tempo invariato.
 
-I test sintetici non attestano che tutti gli stati siano raggiungibili attraverso una partita ordinaria. I campioni testuali non includono tutte le combinazioni di ora, contenimento e stato narrativo. Il filtro di percezione tradotto è verificato sui casi dichiarati; la regola completa di ogni azione, i trasporti e l'evoluzione autonoma dei personaggi restano fuori dal prototipo.
+I test sintetici non attestano che tutti gli stati siano raggiungibili attraverso una partita ordinaria. I campioni testuali non includono tutte le combinazioni di ora, contenimento e stato narrativo. Il filtro di percezione tradotto è verificato sui casi dichiarati; la regola completa di ogni azione, i trasporti diversi dal cab e l’evoluzione autonoma degli altri personaggi restano fuori dal prototipo.
 
 Vedere [GUIDA-SCRIPT.md](GUIDA-SCRIPT.md) per avvio e riproduzione; [CATALOGO-LOCAZIONI.md](CATALOGO-LOCAZIONI.md) per tutti i record e gli archi; `results/locations.asm` per il listato commentato.

@@ -29,9 +29,9 @@ LOOK
 
 `OPEN DOR` mostra l'errore lessicale e non consuma tempo. Il primo WEST fallisce perché la porta è chiusa. Gli ingressi successivi mostrano la differenza fra forma estesa e breve; LOOK ripristina quella estesa. Poi clicca un nodo della mappa o cerca `074`: il trasferimento non avanza l'orologio.
 
-Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. Gli NPC restano fermi; i comandi nastro, stampa e controllo sono bloccati con un messaggio tecnico in inglese e ripristino dello stato.
+Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. I due cocchieri eseguono i turni originali, con viaggi e conti; gli altri NPC restano fermi; i comandi nastro, stampa e controllo sono bloccati con un messaggio tecnico in inglese e ripristino dello stato.
 
-Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; le schede con lo stesso cookie condividono lo stato. “Ricomincia” ripristina lo snapshot iniziale. Non c'è ancora salvataggio su disco della partita. La mappa consente di ispezionare luoghi fuori dal normale percorso di gioco, mentre gli NPC restano fermi.
+Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; le schede con lo stesso cookie condividono lo stato. “Riavvia” ripristina lo snapshot iniziale. Non c'è ancora salvataggio su disco della partita. La mappa consente di ispezionare luoghi fuori dal normale percorso di gioco, senza consumare tempo. Il salto attraverso la mappa stacca Holmes da un eventuale cab, che prosegue autonomamente.
 
 ## I nuovi script
 
@@ -42,6 +42,7 @@ Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; 
 | `native_world.py` | Turno originale del giocatore con continuazioni, chiamate di ispezione e cattura del testo |
 | `extract_locations.py` | Estrazione del catalogo e dei 206 archi dal payload |
 | `verify_locations.py` | Prove native e del prototipo, confronto del filtro di percezione, campioni di tutte le locazioni |
+| `verify_web_cab.py` | Corse, pagamento e resto nella pagina, ispezioni e teletrasporto, confronto indipendente con lo Z80 completo |
 | `trace_movement.py` | Dodici comandi nel gioco completo, con scheduler originale e NPC attivi |
 | `build_locations_listing.py` | Listato commentato con separazione codice/dati e ricomposizione identica dei byte |
 
@@ -62,11 +63,11 @@ I JSON distinguono campioni sintetici, prove del prototipo e tracce del gioco co
 
 Le 14 associazioni illustrate usano i file `*-straight.svg` già ricostruiti in `sherlock-analisi/grafica/immagini`, senza modificarli. L’immagine viene aggiunta al testo al primo ingresso nella sessione (anche tramite mappa) e a ogni LOOK riuscito; un semplice ritorno non la aggiunge nuovamente. I messaggi dei comandi multipli conservano ciascuno la propria locazione.
 
-La casella **Immagini**, in alto nel taccuino, mostra/nasconde anche le immagini nella cronologia e conserva la preferenza nel browser, senza cambiare il tempo o le visite. Cliccando un’immagine si apre l’SVG completo. Al ricaricamento della pagina, il riepilogo della stanza attuale include la sua immagine, se disponibile. “Ricomincia” azzera le visite ma conserva la preferenza grafica.
+La casella **Immagini**, in alto nel taccuino, mostra/nasconde anche le immagini nella cronologia e conserva la preferenza nel browser, senza cambiare il tempo o le visite. Cliccando un’immagine si apre l’SVG completo. Al ricaricamento della pagina, il riepilogo della stanza attuale include la sua immagine, se disponibile. “Riavvia” azzera le visite ma conserva la preferenza grafica.
 
 ## Messaggi originali e continuazioni
 
-`native_world.py:submit` conserva registri, stack e strutture del comando al prompt, fa girare il ciclo originale e salta le visite degli NPC. Il costo e l’orologio vengono aggiornati dal codice originale, inclusi gli eventuali passi di sicurezza della VM. Gli errori e le domande non sono più frasi sintetiche Python.
+`native_world.py:submit` conserva registri, stack e strutture del comando al prompt, fa girare il ciclo originale e abilita le visite dei cocchieri 31/34, saltando gli altri NPC. Il costo e l’orologio vengono aggiornati dal codice originale, inclusi gli eventuali passi di sicurezza della VM. Gli errori e le domande non sono più frasi sintetiche Python.
 
 La mappa annulla un’eventuale domanda pendente; senza spostamenti manuali, puoi rispondere naturalmente con un qualificatore o con un nuovo comando. `verify_refinements.py` confronta YOUR e YOUR DOOR con una traccia indipendente del gioco completo e verifica i messaggi e gli eventi delle immagini. Avvio: `python3 -B sherlock-analisi/locazioni/verify_refinements.py`.
 
@@ -82,9 +83,11 @@ La sequenza `TAKE DISGUISE` → `CHINA` → `WEAR DISGUISE` → `CHINA` è verif
 
 L’orologio è a sinistra nella striscia e usa il formato inglese `Mon 08:05am`. Le frecce hanno una sigla quando la direzione reale differisce da quella suggerita dai lati/spigoli dei riquadri; UP/DOWN e uscite parallele diverse sono esplicite.
 
-I personaggi hanno sigle e colori nei riquadri, con nomi e posizioni nella legenda. Cliccare un nome nella legenda inquadra quel personaggio; non sposta il giocatore. Gli NPC sono ancora fermi, ma i segnaposti leggono lo stato corrente a ogni risposta. Dettagli e comandi di verifica in `MAPPA-PERSONAGGI.md`.
+I personaggi hanno sigle e colori nei riquadri, con nomi e posizioni nella legenda. Cliccare un nome nella legenda inquadra quel personaggio; non sposta il giocatore. I cocchieri si spostano ai loro turni; gli altri NPC sono fermi. I segnaposti leggono lo stato corrente a ogni risposta. Dettagli e comandi di verifica in `MAPPA-PERSONAGGI.md`.
 
 
 ## Presentazione compatibilità Spectrum
 
 La modalità si attiva dalla pagina. Griglia, tastiera, immagini e manutenzione sono spiegate in [COMPATIBILITA-SPECTRUM.md](COMPATIBILITA-SPECTRUM.md). Il file `app.js` è ora generato: modificare `explorer-ui.js`/`spectrum.js` e ricostruirlo con `build_compat_assets.py`.
+
+Il servizio cab nella pagina è descritto in [CAB-WEB.md](CAB-WEB.md), con una sequenza breve da provare.

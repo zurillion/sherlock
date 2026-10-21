@@ -56,4 +56,4 @@ python3 -B decode_npc_ai.py \
   --output risultati-ai
 ```
 
-L’esploratore HTML conserva per ora gli NPC statici. Questa cartella è il banco di analisi del comportamento nativo, da usare per preparare un’integrazione verificata.
+L’esploratore HTML esegue ora i turni dei due cocchieri; gli altri NPC sono ancora statici. Vedere [CAB-WEB.md](../locazioni/CAB-WEB.md). Questa cartella è il banco di analisi del comportamento nativo, da usare per preparare un’integrazione verificata.
