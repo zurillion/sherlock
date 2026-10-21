@@ -1,0 +1,2824 @@
+{
+  "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "routes": [
+    {
+      "address": "9B7F",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 5,
+      "target_name": "baker street",
+      "duration": 3,
+      "fare_pence": 2,
+      "furious_duration": 1,
+      "furious_fare_pence": 6
+    },
+    {
+      "address": "9B82",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 10,
+      "target_name": "parliament street",
+      "duration": 7,
+      "fare_pence": 4,
+      "furious_duration": 5,
+      "furious_fare_pence": 12
+    },
+    {
+      "address": "9B85",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 12,
+      "target_name": "slater street",
+      "duration": 20,
+      "fare_pence": 10,
+      "furious_duration": 18,
+      "furious_fare_pence": 30
+    },
+    {
+      "address": "9B88",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 14,
+      "target_name": "aldergate street",
+      "duration": 19,
+      "fare_pence": 8,
+      "furious_duration": 17,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9B8B",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 18,
+      "target_name": "kings cross road",
+      "duration": 18,
+      "fare_pence": 8,
+      "furious_duration": 16,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9B8E",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 24,
+      "target_name": "bishops road",
+      "duration": 7,
+      "fare_pence": 4,
+      "furious_duration": 5,
+      "furious_fare_pence": 12
+    },
+    {
+      "address": "9B91",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 12,
+      "fare_pence": 6,
+      "furious_duration": 10,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9B94",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 6,
+      "fare_pence": 4,
+      "furious_duration": 4,
+      "furious_fare_pence": 12
+    },
+    {
+      "address": "9B97",
+      "source": 45,
+      "source_name": "portman street",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 13,
+      "fare_pence": 6,
+      "furious_duration": 11,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9B9A",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 10,
+      "target_name": "parliament street",
+      "duration": 20,
+      "fare_pence": 10,
+      "furious_duration": 18,
+      "furious_fare_pence": 30
+    },
+    {
+      "address": "9B9D",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 12,
+      "target_name": "slater street",
+      "duration": 25,
+      "fare_pence": 12,
+      "furious_duration": 23,
+      "furious_fare_pence": 36
+    },
+    {
+      "address": "9BA0",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 14,
+      "target_name": "aldergate street",
+      "duration": 26,
+      "fare_pence": 12,
+      "furious_duration": 24,
+      "furious_fare_pence": 36
+    },
+    {
+      "address": "9BA3",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 18,
+      "target_name": "kings cross road",
+      "duration": 12,
+      "fare_pence": 6,
+      "furious_duration": 10,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9BA6",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 24,
+      "target_name": "bishops road",
+      "duration": 6,
+      "fare_pence": 4,
+      "furious_duration": 4,
+      "furious_fare_pence": 12
+    },
+    {
+      "address": "9BA9",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 15,
+      "fare_pence": 8,
+      "furious_duration": 13,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BAC",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 24,
+      "fare_pence": 10,
+      "furious_duration": 22,
+      "furious_fare_pence": 30
+    },
+    {
+      "address": "9BAF",
+      "source": 5,
+      "source_name": "baker street",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 9,
+      "fare_pence": 4,
+      "furious_duration": 7,
+      "furious_fare_pence": 12
+    },
+    {
+      "address": "9BB2",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 12,
+      "target_name": "slater street",
+      "duration": 18,
+      "fare_pence": 8,
+      "furious_duration": 16,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BB5",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 14,
+      "target_name": "aldergate street",
+      "duration": 18,
+      "fare_pence": 8,
+      "furious_duration": 16,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BB8",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 18,
+      "target_name": "kings cross road",
+      "duration": 12,
+      "fare_pence": 6,
+      "furious_duration": 10,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9BBB",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 24,
+      "target_name": "bishops road",
+      "duration": 19,
+      "fare_pence": 8,
+      "furious_duration": 17,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BBE",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 2,
+      "fare_pence": 2,
+      "furious_duration": 0,
+      "furious_fare_pence": 6
+    },
+    {
+      "address": "9BC1",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 4,
+      "fare_pence": 2,
+      "furious_duration": 2,
+      "furious_fare_pence": 6
+    },
+    {
+      "address": "9BC4",
+      "source": 10,
+      "source_name": "parliament street",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 15,
+      "fare_pence": 8,
+      "furious_duration": 13,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BC7",
+      "source": 12,
+      "source_name": "slater street",
+      "target": 14,
+      "target_name": "aldergate street",
+      "duration": 3,
+      "fare_pence": 2,
+      "furious_duration": 1,
+      "furious_fare_pence": 6
+    },
+    {
+      "address": "9BCA",
+      "source": 12,
+      "source_name": "slater street",
+      "target": 18,
+      "target_name": "kings cross road",
+      "duration": 20,
+      "fare_pence": 10,
+      "furious_duration": 18,
+      "furious_fare_pence": 30
+    },
+    {
+      "address": "9BCD",
+      "source": 12,
+      "source_name": "slater street",
+      "target": 24,
+      "target_name": "bishops road",
+      "duration": 30,
+      "fare_pence": 14,
+      "furious_duration": 28,
+      "furious_fare_pence": 42
+    },
+    {
+      "address": "9BD0",
+      "source": 12,
+      "source_name": "slater street",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 20,
+      "fare_pence": 10,
+      "furious_duration": 18,
+      "furious_fare_pence": 30
+    },
+    {
+      "address": "9BD3",
+      "source": 12,
+      "source_name": "slater street",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 17,
+      "fare_pence": 8,
+      "furious_duration": 15,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BD6",
+      "source": 12,
+      "source_name": "slater street",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 25,
+      "fare_pence": 12,
+      "furious_duration": 23,
+      "furious_fare_pence": 36
+    },
+    {
+      "address": "9BD9",
+      "source": 14,
+      "source_name": "aldergate street",
+      "target": 18,
+      "target_name": "kings cross road",
+      "duration": 13,
+      "fare_pence": 6,
+      "furious_duration": 11,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9BDC",
+      "source": 14,
+      "source_name": "aldergate street",
+      "target": 24,
+      "target_name": "bishops road",
+      "duration": 28,
+      "fare_pence": 12,
+      "furious_duration": 26,
+      "furious_fare_pence": 36
+    },
+    {
+      "address": "9BDF",
+      "source": 14,
+      "source_name": "aldergate street",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 17,
+      "fare_pence": 8,
+      "furious_duration": 15,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BE2",
+      "source": 14,
+      "source_name": "aldergate street",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 9,
+      "fare_pence": 4,
+      "furious_duration": 7,
+      "furious_fare_pence": 12
+    },
+    {
+      "address": "9BE5",
+      "source": 14,
+      "source_name": "aldergate street",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 11,
+      "fare_pence": 6,
+      "furious_duration": 9,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9BE8",
+      "source": 18,
+      "source_name": "kings cross road",
+      "target": 24,
+      "target_name": "bishops road",
+      "duration": 11,
+      "fare_pence": 6,
+      "furious_duration": 9,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9BEB",
+      "source": 18,
+      "source_name": "kings cross road",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 16,
+      "fare_pence": 8,
+      "furious_duration": 14,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BEE",
+      "source": 18,
+      "source_name": "kings cross road",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 18,
+      "fare_pence": 8,
+      "furious_duration": 16,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BF1",
+      "source": 18,
+      "source_name": "kings cross road",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 3,
+      "fare_pence": 2,
+      "furious_duration": 1,
+      "furious_fare_pence": 6
+    },
+    {
+      "address": "9BF4",
+      "source": 24,
+      "source_name": "bishops road",
+      "target": 28,
+      "target_name": "buckingham palace road",
+      "duration": 15,
+      "fare_pence": 8,
+      "furious_duration": 13,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9BF7",
+      "source": 24,
+      "source_name": "bishops road",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 24,
+      "fare_pence": 10,
+      "furious_duration": 22,
+      "furious_fare_pence": 30
+    },
+    {
+      "address": "9BFA",
+      "source": 24,
+      "source_name": "bishops road",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 13,
+      "fare_pence": 6,
+      "furious_duration": 11,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9BFD",
+      "source": 28,
+      "source_name": "buckingham palace road",
+      "target": 32,
+      "target_name": "camden street",
+      "duration": 12,
+      "fare_pence": 6,
+      "furious_duration": 10,
+      "furious_fare_pence": 18
+    },
+    {
+      "address": "9C00",
+      "source": 28,
+      "source_name": "buckingham palace road",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 19,
+      "fare_pence": 8,
+      "furious_duration": 17,
+      "furious_fare_pence": 24
+    },
+    {
+      "address": "9C03",
+      "source": 32,
+      "source_name": "camden street",
+      "target": 40,
+      "target_name": "sidmouth street",
+      "duration": 22,
+      "fare_pence": 10,
+      "furious_duration": 20,
+      "furious_fare_pence": 30
+    }
+  ],
+  "destinations": [
+    {
+      "id": 5,
+      "name": "baker street"
+    },
+    {
+      "id": 10,
+      "name": "parliament street"
+    },
+    {
+      "id": 12,
+      "name": "slater street"
+    },
+    {
+      "id": 14,
+      "name": "aldergate street"
+    },
+    {
+      "id": 18,
+      "name": "kings cross road"
+    },
+    {
+      "id": 24,
+      "name": "bishops road"
+    },
+    {
+      "id": 28,
+      "name": "buckingham palace road"
+    },
+    {
+      "id": 32,
+      "name": "camden street"
+    },
+    {
+      "id": 40,
+      "name": "sidmouth street"
+    },
+    {
+      "id": 45,
+      "name": "portman street"
+    }
+  ],
+  "scripts": [
+    {
+      "entry": "F2B2",
+      "end_exclusive": "F380",
+      "instructions": [
+        {
+          "address": "F2B2",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2B3",
+          "failure": null,
+          "successors": [
+            "F2B3"
+          ]
+        },
+        {
+          "address": "F2B3",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e b2 f2",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2B6",
+          "failure": null,
+          "jump": "F2B2",
+          "successors": [
+            "F2B2"
+          ]
+        },
+        {
+          "address": "F2B6",
+          "opcode": 5,
+          "kind": 5,
+          "operation": "parla a un destinatario",
+          "raw": "05 fd ac 6b",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2BA",
+          "failure": null,
+          "text_pointer": "6BAC",
+          "target_actor": 253,
+          "successors": [
+            "F2BA"
+          ]
+        },
+        {
+          "address": "F2BA",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 2f e5 04 04",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2BF",
+          "failure": "F2BF",
+          "rule": "E52F",
+          "args": [
+            4,
+            4
+          ],
+          "successors": [
+            "F2BF"
+          ]
+        },
+        {
+          "address": "F2BF",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 a8 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2C2",
+          "failure": "F2C2",
+          "rule": "E5A8",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2C2"
+          ]
+        },
+        {
+          "address": "F2C2",
+          "opcode": 129,
+          "kind": 1,
+          "operation": "azione senza argomenti",
+          "raw": "81 82 d0 f2",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2D0",
+          "failure": "F2C6",
+          "action": 130,
+          "args": [
+            255,
+            255
+          ],
+          "rule": "E5FD",
+          "successors": [
+            "F2C6",
+            "F2D0"
+          ]
+        },
+        {
+          "address": "F2C6",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 7a e5 bf f2",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2BF",
+          "failure": "F2CB",
+          "rule": "E57A",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2BF",
+            "F2CB"
+          ]
+        },
+        {
+          "address": "F2CB",
+          "opcode": 134,
+          "kind": 6,
+          "operation": "stampa testo",
+          "raw": "86 f6 6b 76 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F376",
+          "failure": null,
+          "text_pointer": "6BF6",
+          "successors": [
+            "F376"
+          ]
+        },
+        {
+          "address": "F2D0",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 88 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2D3",
+          "failure": "F2D3",
+          "rule": "E588",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2D3"
+          ]
+        },
+        {
+          "address": "F2D3",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 2f e5 05 03",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2D8",
+          "failure": "F2D8",
+          "rule": "E52F",
+          "args": [
+            5,
+            3
+          ],
+          "successors": [
+            "F2D8"
+          ]
+        },
+        {
+          "address": "F2D8",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 3e e6 eb f2",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2EB",
+          "failure": "F2DD",
+          "rule": "E63E",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2DD",
+            "F2EB"
+          ]
+        },
+        {
+          "address": "F2DD",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 a8 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2E0",
+          "failure": "F2E0",
+          "rule": "E5A8",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2E0"
+          ]
+        },
+        {
+          "address": "F2E0",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 7a e5 d8 f2",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2D8",
+          "failure": "F2E5",
+          "rule": "E57A",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2D8",
+            "F2E5"
+          ]
+        },
+        {
+          "address": "F2E5",
+          "opcode": 133,
+          "kind": 5,
+          "operation": "parla a un destinatario",
+          "raw": "85 fd 1b 6c ba f2",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2BA",
+          "failure": null,
+          "text_pointer": "6C1B",
+          "target_actor": 253,
+          "successors": [
+            "F2BA"
+          ]
+        },
+        {
+          "address": "F2EB",
+          "opcode": 130,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "82 82 fd ff fc f2",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2FC",
+          "failure": "F2F1",
+          "action": 130,
+          "args": [
+            253,
+            255
+          ],
+          "rule": "E5FD",
+          "successors": [
+            "F2F1",
+            "F2FC"
+          ]
+        },
+        {
+          "address": "F2F1",
+          "opcode": 130,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "82 81 fd fb 2e f3",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F32E",
+          "failure": "F2F7",
+          "action": 129,
+          "args": [
+            253,
+            251
+          ],
+          "rule": "E5D8",
+          "successors": [
+            "F2F7",
+            "F32E"
+          ]
+        },
+        {
+          "address": "F2F7",
+          "opcode": 19,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "13 e6 e6 59 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2FC",
+          "failure": "F359",
+          "rule": "E6E6",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2FC",
+            "F359"
+          ]
+        },
+        {
+          "address": "F2FC",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 88 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2FF",
+          "failure": "F2FF",
+          "rule": "E588",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2FF"
+          ]
+        },
+        {
+          "address": "F2FF",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 2f e5 05 02",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F304",
+          "failure": "F304",
+          "rule": "E52F",
+          "args": [
+            5,
+            2
+          ],
+          "successors": [
+            "F304"
+          ]
+        },
+        {
+          "address": "F304",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 54 e6 a2 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3A2",
+          "failure": "F309",
+          "rule": "E654",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F309",
+            "F3A2"
+          ]
+        },
+        {
+          "address": "F309",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 6f e6 66 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F366",
+          "failure": "F30E",
+          "rule": "E66F",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F30E",
+            "F366"
+          ]
+        },
+        {
+          "address": "F30E",
+          "opcode": 18,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "12 82 fd ff 2e f3",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F314",
+          "failure": "F32E",
+          "action": 130,
+          "args": [
+            253,
+            255
+          ],
+          "rule": "E5FD",
+          "successors": [
+            "F314",
+            "F32E"
+          ]
+        },
+        {
+          "address": "F314",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 a8 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F317",
+          "failure": "F317",
+          "rule": "E5A8",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F317"
+          ]
+        },
+        {
+          "address": "F317",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 7a e5 04 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F304",
+          "failure": "F31C",
+          "rule": "E57A",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F304",
+            "F31C"
+          ]
+        },
+        {
+          "address": "F31C",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 54 e6 a2 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3A2",
+          "failure": "F321",
+          "rule": "E654",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F321",
+            "F3A2"
+          ]
+        },
+        {
+          "address": "F321",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 6f e6 69 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F369",
+          "failure": "F326",
+          "rule": "E66F",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F326",
+            "F369"
+          ]
+        },
+        {
+          "address": "F326",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 bc e6 fd fb",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F32B",
+          "failure": "F32B",
+          "rule": "E6BC",
+          "args": [
+            253,
+            251
+          ],
+          "successors": [
+            "F32B"
+          ]
+        },
+        {
+          "address": "F32B",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e ff f2",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F32E",
+          "failure": null,
+          "jump": "F2FF",
+          "successors": [
+            "F2FF"
+          ]
+        },
+        {
+          "address": "F32E",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 88 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F331",
+          "failure": "F331",
+          "rule": "E588",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F331"
+          ]
+        },
+        {
+          "address": "F331",
+          "opcode": 6,
+          "kind": 6,
+          "operation": "stampa testo",
+          "raw": "06 c7 6b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F334",
+          "failure": null,
+          "text_pointer": "6BC7",
+          "successors": [
+            "F334"
+          ]
+        },
+        {
+          "address": "F334",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 2f e5 05 02",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F339",
+          "failure": "F339",
+          "rule": "E52F",
+          "args": [
+            5,
+            2
+          ],
+          "successors": [
+            "F339"
+          ]
+        },
+        {
+          "address": "F339",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 54 e6 a2 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3A2",
+          "failure": "F33E",
+          "rule": "E654",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F33E",
+            "F3A2"
+          ]
+        },
+        {
+          "address": "F33E",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 6f e6 66 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F366",
+          "failure": "F343",
+          "rule": "E66F",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F343",
+            "F366"
+          ]
+        },
+        {
+          "address": "F343",
+          "opcode": 130,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "82 82 fd ff fc f2",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2FC",
+          "failure": "F349",
+          "action": 130,
+          "args": [
+            253,
+            255
+          ],
+          "rule": "E5FD",
+          "successors": [
+            "F2FC",
+            "F349"
+          ]
+        },
+        {
+          "address": "F349",
+          "opcode": 18,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "12 81 fd fb 59 f3",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F34F",
+          "failure": "F359",
+          "action": 129,
+          "args": [
+            253,
+            251
+          ],
+          "rule": "E5D8",
+          "successors": [
+            "F34F",
+            "F359"
+          ]
+        },
+        {
+          "address": "F34F",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 a8 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F352",
+          "failure": "F352",
+          "rule": "E5A8",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F352"
+          ]
+        },
+        {
+          "address": "F352",
+          "opcode": 147,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "93 7a e5 39 f3 31 f3",
+          "size": 7,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F339",
+          "failure": "F331",
+          "rule": "E57A",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F331",
+            "F339"
+          ]
+        },
+        {
+          "address": "F359",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 88 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F35C",
+          "failure": "F35C",
+          "rule": "E588",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F35C"
+          ]
+        },
+        {
+          "address": "F35C",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 0e e7",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F35F",
+          "failure": "F35F",
+          "rule": "E70E",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F35F"
+          ]
+        },
+        {
+          "address": "F35F",
+          "opcode": 147,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "93 e6 e6 fc f2 76 f3",
+          "size": 7,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2FC",
+          "failure": "F376",
+          "rule": "E6E6",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2FC",
+            "F376"
+          ]
+        },
+        {
+          "address": "F366",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 88 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F369",
+          "failure": "F369",
+          "rule": "E588",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F369"
+          ]
+        },
+        {
+          "address": "F369",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F36A",
+          "failure": null,
+          "successors": [
+            "F36A"
+          ]
+        },
+        {
+          "address": "F36A",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F36B",
+          "failure": null,
+          "successors": [
+            "F36B"
+          ]
+        },
+        {
+          "address": "F36B",
+          "opcode": 130,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "82 82 fd ff d0 f2",
+          "size": 6,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2D0",
+          "failure": "F371",
+          "action": 130,
+          "args": [
+            253,
+            255
+          ],
+          "rule": "E5FD",
+          "successors": [
+            "F2D0",
+            "F371"
+          ]
+        },
+        {
+          "address": "F371",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 e6 e6 e5 f2",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F2E5",
+          "failure": "F376",
+          "rule": "E6E6",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F2E5",
+            "F376"
+          ]
+        },
+        {
+          "address": "F376",
+          "opcode": 2,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "02 80 fc 00",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F37A",
+          "failure": "F37A",
+          "action": 128,
+          "args": [
+            252,
+            0
+          ],
+          "rule": "E497",
+          "successors": [
+            "F37A"
+          ]
+        },
+        {
+          "address": "F37A",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 80 f3 7a f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F37A",
+          "failure": "F37F",
+          "rule": "F380",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F37A",
+            "F37F"
+          ]
+        },
+        {
+          "address": "F37F",
+          "opcode": 11,
+          "kind": 11,
+          "operation": "ritorna con successo",
+          "raw": "0b",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F380",
+          "failure": null,
+          "successors": []
+        }
+      ]
+    },
+    {
+      "entry": "F384",
+      "end_exclusive": "F389",
+      "instructions": [
+        {
+          "address": "F384",
+          "opcode": 2,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "02 80 fd 00",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F388",
+          "failure": "F388",
+          "action": 128,
+          "args": [
+            253,
+            0
+          ],
+          "rule": "E497",
+          "successors": [
+            "F388"
+          ]
+        },
+        {
+          "address": "F388",
+          "opcode": 11,
+          "kind": 11,
+          "operation": "ritorna con successo",
+          "raw": "0b",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F389",
+          "failure": null,
+          "successors": []
+        }
+      ]
+    },
+    {
+      "entry": "F3A2",
+      "end_exclusive": "F3C2",
+      "instructions": [
+        {
+          "address": "F3A2",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 88 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3A5",
+          "failure": "F3A5",
+          "rule": "E588",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F3A5"
+          ]
+        },
+        {
+          "address": "F3A5",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 06 e5 fb fd",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3AA",
+          "failure": "F3AA",
+          "rule": "E506",
+          "args": [
+            251,
+            253
+          ],
+          "successors": [
+            "F3AA"
+          ]
+        },
+        {
+          "address": "F3AA",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 69 f3",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3AD",
+          "failure": null,
+          "jump": "F369",
+          "successors": [
+            "F369"
+          ]
+        },
+        {
+          "address": "F3AD",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 41 9c fd ff",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3B2",
+          "failure": "F3B2",
+          "rule": "9C41",
+          "args": [
+            253,
+            255
+          ],
+          "successors": [
+            "F3B2"
+          ]
+        },
+        {
+          "address": "F3B2",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 54 e6 c1 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3C1",
+          "failure": "F3B7",
+          "rule": "E654",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F3B7",
+            "F3C1"
+          ]
+        },
+        {
+          "address": "F3B7",
+          "opcode": 131,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "83 6f e6 c1 f3",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3C1",
+          "failure": "F3BC",
+          "rule": "E66F",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "F3BC",
+            "F3C1"
+          ]
+        },
+        {
+          "address": "F3BC",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 bc e6 fc fb",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3C1",
+          "failure": "F3C1",
+          "rule": "E6BC",
+          "args": [
+            252,
+            251
+          ],
+          "successors": [
+            "F3C1"
+          ]
+        },
+        {
+          "address": "F3C1",
+          "opcode": 11,
+          "kind": 11,
+          "operation": "ritorna con successo",
+          "raw": "0b",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "F3C2",
+          "failure": null,
+          "successors": []
+        }
+      ]
+    },
+    {
+      "entry": "E08F",
+      "end_exclusive": "E0A0",
+      "instructions": [
+        {
+          "address": "E08F",
+          "opcode": 135,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "87 fd e5 fd ff 9b e0",
+          "size": 7,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E09B",
+          "failure": "E096",
+          "rule": "E5FD",
+          "args": [
+            253,
+            255
+          ],
+          "successors": [
+            "E096",
+            "E09B"
+          ]
+        },
+        {
+          "address": "E096",
+          "opcode": 5,
+          "kind": 5,
+          "operation": "parla a un destinatario",
+          "raw": "05 fd 9e 6b",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E09A",
+          "failure": null,
+          "text_pointer": "6B9E",
+          "target_actor": 253,
+          "successors": [
+            "E09A"
+          ]
+        },
+        {
+          "address": "E09A",
+          "opcode": 11,
+          "kind": 11,
+          "operation": "ritorna con successo",
+          "raw": "0b",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E09B",
+          "failure": null,
+          "successors": []
+        },
+        {
+          "address": "E09B",
+          "opcode": 2,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "02 1d fc ff",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E09F",
+          "failure": "E09F",
+          "action": 29,
+          "args": [
+            252,
+            255
+          ],
+          "successors": [
+            "E09F"
+          ]
+        },
+        {
+          "address": "E09F",
+          "opcode": 11,
+          "kind": 11,
+          "operation": "ritorna con successo",
+          "raw": "0b",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E0A0",
+          "failure": null,
+          "successors": []
+        }
+      ]
+    },
+    {
+      "entry": "E508",
+      "end_exclusive": "E518",
+      "instructions": [
+        {
+          "address": "E508",
+          "opcode": 199,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "c7 18 e5 fd fc 10 e5",
+          "size": 7,
+          "erase_on_success": false,
+          "request_restriction_flag": true,
+          "success": "E510",
+          "failure": "E50F",
+          "rule": "E518",
+          "args": [
+            253,
+            252
+          ],
+          "successors": [
+            "E50F",
+            "E510"
+          ]
+        },
+        {
+          "address": "E50F",
+          "opcode": 10,
+          "kind": 10,
+          "operation": "ritorna con fallimento",
+          "raw": "0a",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E510",
+          "failure": null,
+          "successors": []
+        },
+        {
+          "address": "E510",
+          "opcode": 87,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "57 70 e3 fd fc 0f e5",
+          "size": 7,
+          "erase_on_success": false,
+          "request_restriction_flag": true,
+          "success": "E517",
+          "failure": "E50F",
+          "rule": "E370",
+          "args": [
+            253,
+            252
+          ],
+          "successors": [
+            "E50F",
+            "E517"
+          ]
+        },
+        {
+          "address": "E517",
+          "opcode": 11,
+          "kind": 11,
+          "operation": "ritorna con successo",
+          "raw": "0b",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "E518",
+          "failure": null,
+          "successors": []
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "address": "9AE1",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        4,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 4,
+          "meaning": "locazione"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "9AE3",
+      "header_size": 2,
+      "raw_header": "04 00",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "9AF4",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        4,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 4,
+          "meaning": "locazione"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "9AF6",
+      "header_size": 2,
+      "raw_header": "04 00",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "9C41",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        4,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 4,
+          "meaning": "locazione"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "9C43",
+      "header_size": 2,
+      "raw_header": "04 00",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E08D",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        141,
+        4
+      ],
+      "arguments": [
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        },
+        {
+          "class": 4,
+          "meaning": "locazione"
+        }
+      ],
+      "requires_light": false,
+      "deferred": true,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "E08F",
+      "header_size": 2,
+      "raw_header": "8d 04",
+      "body_kind": "script differito"
+    },
+    {
+      "address": "E2C7",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        71,
+        16
+      ],
+      "arguments": [
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 1,
+      "predicate": "E298",
+      "attribute_masks": [],
+      "body": "E2CB",
+      "header_size": 4,
+      "raw_header": "47 10 98 e2",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E328",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        106,
+        16
+      ],
+      "arguments": [
+        {
+          "class": 10,
+          "meaning": "entità percepibile posseduta dall’attore"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": true,
+      "deferred": false,
+      "duration": 1,
+      "predicate": "E31C",
+      "attribute_masks": [],
+      "body": "E32C",
+      "header_size": 4,
+      "raw_header": "6a 10 1c e3",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E370",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        102,
+        29
+      ],
+      "arguments": [
+        {
+          "class": 6,
+          "meaning": "letterale valuta"
+        },
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        }
+      ],
+      "requires_light": true,
+      "deferred": false,
+      "duration": 1,
+      "predicate": "E345",
+      "attribute_masks": [],
+      "body": "E374",
+      "header_size": 4,
+      "raw_header": "66 1d 45 e3",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E3EA",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        120,
+        32
+      ],
+      "arguments": [
+        {
+          "class": 8,
+          "meaning": "entità percepibile"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": true,
+      "deferred": false,
+      "duration": 2,
+      "predicate": "E3B8",
+      "attribute_masks": [
+        {
+          "argument": 1,
+          "tests": [
+            {
+              "mode": 2,
+              "mask": 64
+            },
+            {
+              "mode": 1,
+              "mask": 40
+            }
+          ]
+        },
+        {
+          "argument": 2,
+          "tests": [
+            {
+              "mode": 0,
+              "mask": 0
+            },
+            {
+              "mode": 0,
+              "mask": 0
+            }
+          ]
+        }
+      ],
+      "body": "E3F3",
+      "header_size": 9,
+      "raw_header": "78 20 b8 e3 90 40 28 00 00",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E432",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        120,
+        32
+      ],
+      "arguments": [
+        {
+          "class": 8,
+          "meaning": "entità percepibile"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": true,
+      "deferred": false,
+      "duration": 2,
+      "predicate": "E420",
+      "attribute_masks": [
+        {
+          "argument": 1,
+          "tests": [
+            {
+              "mode": 0,
+              "mask": 128
+            },
+            {
+              "mode": 1,
+              "mask": 40
+            }
+          ]
+        },
+        {
+          "argument": 2,
+          "tests": [
+            {
+              "mode": 0,
+              "mask": 0
+            },
+            {
+              "mode": 0,
+              "mask": 0
+            }
+          ]
+        }
+      ],
+      "body": "E43B",
+      "header_size": 9,
+      "raw_header": "78 20 20 e4 10 80 28 00 00",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E497",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        71,
+        36
+      ],
+      "arguments": [
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        },
+        {
+          "class": 4,
+          "meaning": "locazione"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 2,
+      "predicate": "E4B0",
+      "attribute_masks": [],
+      "body": "E49B",
+      "header_size": 4,
+      "raw_header": "47 24 b0 e4",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E506",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        173,
+        13
+      ],
+      "arguments": [
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        },
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        }
+      ],
+      "requires_light": true,
+      "deferred": true,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "E508",
+      "header_size": 2,
+      "raw_header": "ad 0d",
+      "body_kind": "script differito"
+    },
+    {
+      "address": "E518",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        109,
+        13
+      ],
+      "arguments": [
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        },
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        }
+      ],
+      "requires_light": true,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E4FC",
+      "attribute_masks": [],
+      "body": "E51C",
+      "header_size": 4,
+      "raw_header": "6d 0d fc e4",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E52F",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        7,
+        7
+      ],
+      "arguments": [
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        },
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "E531",
+      "header_size": 2,
+      "raw_header": "07 07",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E57A",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        64,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E573",
+      "attribute_masks": [],
+      "body": "E57E",
+      "header_size": 4,
+      "raw_header": "40 00 73 e5",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E588",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        64,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E573",
+      "attribute_masks": [],
+      "body": "E58C",
+      "header_size": 4,
+      "raw_header": "40 00 73 e5",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E5A8",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        0,
+        16
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 1,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "E5AA",
+      "header_size": 2,
+      "raw_header": "00 10",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E5D8",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        71,
+        7
+      ],
+      "arguments": [
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        },
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E5DF",
+      "attribute_masks": [],
+      "body": "E5DC",
+      "header_size": 4,
+      "raw_header": "47 07 df e5",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E5FD",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        71,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 7,
+          "meaning": "entità senza ulteriore filtro di questa classe"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E604",
+      "attribute_masks": [],
+      "body": "E601",
+      "header_size": 4,
+      "raw_header": "47 00 04 e6",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E63E",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        64,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E642",
+      "attribute_masks": [],
+      "body": "E642",
+      "header_size": 4,
+      "raw_header": "40 00 42 e6",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E654",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        64,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E658",
+      "attribute_masks": [],
+      "body": "E658",
+      "header_size": 4,
+      "raw_header": "40 00 58 e6",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E66F",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        64,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E673",
+      "attribute_masks": [],
+      "body": "E673",
+      "header_size": 4,
+      "raw_header": "40 00 73 e6",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E6BC",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        13,
+        12
+      ],
+      "arguments": [
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        },
+        {
+          "class": 12,
+          "meaning": "entità con bit persona"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "E6BE",
+      "header_size": 2,
+      "raw_header": "0d 0c",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E6E6",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        77,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 13,
+          "meaning": "entità percepibile con bit persona"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": "E6F6",
+      "attribute_masks": [],
+      "body": "E6EA",
+      "header_size": 4,
+      "raw_header": "4d 00 f6 e6",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "E70E",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        0,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": false,
+      "duration": 0,
+      "predicate": null,
+      "attribute_masks": [],
+      "body": "E710",
+      "header_size": 2,
+      "raw_header": "00 00",
+      "body_kind": "codice Z80"
+    },
+    {
+      "address": "F380",
+      "label": "regola non etichettata",
+      "header_bytes": [
+        200,
+        0
+      ],
+      "arguments": [
+        {
+          "class": 8,
+          "meaning": "entità percepibile"
+        },
+        {
+          "class": 0,
+          "meaning": "nessuno"
+        }
+      ],
+      "requires_light": false,
+      "deferred": true,
+      "duration": 0,
+      "predicate": "F389",
+      "attribute_masks": [],
+      "body": "F384",
+      "header_size": 4,
+      "raw_header": "c8 00 89 f3",
+      "body_kind": "script differito"
+    }
+  ],
+  "texts": [
+    {
+      "address": "6B9E",
+      "text": "You have to get into the cab first.",
+      "unresolved": [],
+      "token_addresses": [
+        "6B9E",
+        "6B9F",
+        "6BA0",
+        "6BA1",
+        "6BA3",
+        "6BA5",
+        "6BA6",
+        "6BA8",
+        "6BAA",
+        "6BAB"
+      ],
+      "status": "decoded"
+    },
+    {
+      "address": "6BAC",
+      "text": "⟦scelta: hello / call @$691C⟧ Guv'nor.",
+      "unresolved": [
+        {
+          "address": "6918",
+          "reason": "scelta: hello / call @$691C"
+        }
+      ],
+      "token_addresses": [
+        "6BAC",
+        "6918",
+        "691F",
+        "6BAF",
+        "6BB1",
+        "6BB2",
+        "6BB5",
+        "6BB6"
+      ],
+      "status": "symbolic"
+    },
+    {
+      "address": "6BB7",
+      "text": "⟦nome referente $A036⟧ ⟦scelta: say/says / remark/remarks⟧ To ⟦nome referente $A034⟧ \" Right guv'nor that will be",
+      "unresolved": [
+        {
+          "address": "67F7",
+          "reason": "nome referente $A036"
+        },
+        {
+          "address": "67F8",
+          "reason": "scelta: say/says / remark/remarks"
+        },
+        {
+          "address": "6808",
+          "reason": "nome referente $A034"
+        }
+      ],
+      "token_addresses": [
+        "6BB7",
+        "6804",
+        "67F7",
+        "67F8",
+        "67FE",
+        "6807",
+        "6808",
+        "6809",
+        "680A",
+        "6BBA",
+        "6BBC",
+        "6BBE",
+        "6BBF",
+        "6BC2",
+        "6BC3",
+        "6BC5",
+        "6BC6"
+      ],
+      "status": "symbolic"
+    },
+    {
+      "address": "6BC7",
+      "text": "⟦nome referente $A036⟧, Who now appears to be getting quite agitated, says \" What about me money guv'nor? \".\n",
+      "unresolved": [
+        {
+          "address": "6BC7",
+          "reason": "nome referente $A036"
+        }
+      ],
+      "token_addresses": [
+        "6BC7",
+        "6BC8",
+        "6BC9",
+        "6BCB",
+        "6BCC",
+        "6BCE",
+        "6BCF",
+        "6BD0",
+        "6BD1",
+        "6BD7",
+        "6BD9",
+        "6BDB",
+        "6BDC",
+        "6BE2",
+        "6BE3",
+        "6BE5",
+        "6BE6",
+        "6BE7",
+        "6BE9",
+        "6BEB",
+        "6BED",
+        "6BEF",
+        "6BF0",
+        "6BF3",
+        "6BF4",
+        "6BF5"
+      ],
+      "status": "symbolic"
+    },
+    {
+      "address": "6BF6",
+      "text": "With a practised flick of the reins, ⟦nome referente $A036⟧ moves on down the street in search of other fares.\n",
+      "unresolved": [
+        {
+          "address": "6C05",
+          "reason": "nome referente $A036"
+        }
+      ],
+      "token_addresses": [
+        "6BF6",
+        "6BF7",
+        "6BF8",
+        "6BFA",
+        "6BFB",
+        "6C00",
+        "6C01",
+        "6C02",
+        "6C04",
+        "6C05",
+        "6C06",
+        "6C07",
+        "6C0C",
+        "6C0D",
+        "6C0F",
+        "6C10",
+        "6C12",
+        "6C13",
+        "6C15",
+        "6C16",
+        "6C18",
+        "6C1A"
+      ],
+      "status": "symbolic"
+    },
+    {
+      "address": "6C1B",
+      "text": "Well are we goin' anywhere guv'nor?",
+      "unresolved": [],
+      "token_addresses": [
+        "6C1B",
+        "6C1C",
+        "6C1D",
+        "6C1F",
+        "6C20",
+        "6C24",
+        "6C25",
+        "6C26",
+        "6C2C",
+        "6C2E",
+        "6C2F",
+        "6C32",
+        "6C33"
+      ],
+      "status": "decoded"
+    },
+    {
+      "address": "6C34",
+      "text": "⟦nome referente $A036⟧ Replies \" Sorry guv'nor I cannot get there from'ere \".\n",
+      "unresolved": [
+        {
+          "address": "6C34",
+          "reason": "nome referente $A036"
+        }
+      ],
+      "token_addresses": [
+        "6C34",
+        "6C35",
+        "6C36",
+        "6C3C",
+        "6C3D",
+        "6C3F",
+        "6C41",
+        "6C42",
+        "6C45",
+        "6C47",
+        "6C49",
+        "6C4B",
+        "6C4D",
+        "6C4E",
+        "6C4F",
+        "6C52",
+        "6C53"
+      ],
+      "status": "symbolic"
+    },
+    {
+      "address": "6C54",
+      "text": "⟦nome referente $A036⟧ Shouts \" You bloody snob, watch out if we ever meet again \".\n",
+      "unresolved": [
+        {
+          "address": "6C54",
+          "reason": "nome referente $A036"
+        }
+      ],
+      "token_addresses": [
+        "6C54",
+        "6C55",
+        "6C56",
+        "6C5B",
+        "6C5C",
+        "6C5D",
+        "6C5F",
+        "6C61",
+        "6C62",
+        "6C66",
+        "6C67",
+        "6C69",
+        "6C6A",
+        "6C6C",
+        "6C6E",
+        "6C70",
+        "6C72",
+        "6C74",
+        "6C75"
+      ],
+      "status": "symbolic"
+    }
+  ]
+}

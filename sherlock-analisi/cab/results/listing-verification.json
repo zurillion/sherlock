@@ -1,0 +1,6 @@
+{
+  "roundtrip_equal": true,
+  "bytes_roundtripped": 1466,
+  "items": 558,
+  "note": "La ricomposizione verifica i byte, non dimostra da sola la semantica."
+}

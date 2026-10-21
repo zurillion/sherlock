@@ -1,0 +1,10014 @@
+[
+  {
+    "command": "OPEN YOUR DOOR",
+    "stop": "prompt",
+    "steps": 243005,
+    "before": {
+      "tick": 2,
+      "calendar": [
+        1,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 8,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 8,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 1
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 1
+        }
+      ]
+    },
+    "after": {
+      "tick": 3,
+      "calendar": [
+        2,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 8,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 8,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 10,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2C2",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 2
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 2
+        }
+      ]
+    },
+    "upper": "You open your door.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 2,
+        "actor": 0,
+        "action": 36,
+        "args": [
+          21,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 2,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 1,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 31,
+        "address": "F2B6",
+        "raw": 5,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 31,
+        "success": true,
+        "address": "F2B6",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 31,
+        "address": "F2BA",
+        "raw": 7,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 2,
+        "actor": 31,
+        "base": 4,
+        "spread": 4
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 31,
+        "success": true,
+        "address": "F2BA",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 31,
+        "address": "F2BF",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 31,
+        "success": true,
+        "address": "F2BF",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 2,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 1,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 2,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 2,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 2,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 1,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WEST",
+    "stop": "prompt",
+    "steps": 427378,
+    "before": {
+      "tick": 3,
+      "calendar": [
+        2,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 8,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 8,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 10,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2C2",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 2
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 2
+        }
+      ]
+    },
+    "after": {
+      "tick": 4,
+      "calendar": [
+        3,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 7,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 10,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 7,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 10,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2E0",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 3
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 3
+        }
+      ]
+    },
+    "upper": "You go west. You are in a hall. To the east there is your door. Below there is the stairway.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          36,
+          21,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 3,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 3,
+        "actor": 0,
+        "action": 4,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 3,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 2
+      },
+      {
+        "event": "reschedule",
+        "tick": 3,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 2,
+        "cost": 2
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 31,
+        "address": "F2C2",
+        "raw": 129,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 3,
+        "actor": 31,
+        "action": 130,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 31,
+        "success": true,
+        "address": "F2C2",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 31,
+        "address": "F2D0",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 31,
+        "success": true,
+        "address": "F2D0",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 31,
+        "address": "F2D3",
+        "raw": 7,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 3,
+        "actor": 31,
+        "base": 5,
+        "spread": 3
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 31,
+        "success": true,
+        "address": "F2D3",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 31,
+        "address": "F2D8",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 3,
+        "actor": 31,
+        "address": "E63E",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 31,
+        "success": false,
+        "address": "F2D8",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 31,
+        "address": "F2DD",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 31,
+        "success": true,
+        "address": "F2DD",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 3,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 2,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 3,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 3,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 3,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 2,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "DOWN",
+    "stop": "prompt",
+    "steps": 537994,
+    "before": {
+      "tick": 4,
+      "calendar": [
+        3,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 7,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 10,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 7,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 10,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 10,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 10,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2E0",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 3
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 3
+        }
+      ]
+    },
+    "after": {
+      "tick": 6,
+      "calendar": [
+        5,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 6,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 6,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 5
+        }
+      ]
+    },
+    "upper": "You go down. You are in an entrance hallway. Above there is the stairway. To the south there is the front door.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          4,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 4,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 4,
+        "actor": 0,
+        "action": 10,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 4,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 2
+      },
+      {
+        "event": "reschedule",
+        "tick": 4,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 4,
+        "cost": 2
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 31,
+        "address": "F2E0",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 31,
+        "success": true,
+        "address": "F2E0",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 31,
+        "address": "F2D8",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 4,
+        "actor": 31,
+        "address": "E63E",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 31,
+        "success": false,
+        "address": "F2D8",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 31,
+        "address": "F2DD",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 31,
+        "success": true,
+        "address": "F2DD",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 4,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 3,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 4,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 4,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 4,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 3,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 5,
+        "actor": 31,
+        "address": "F2E0",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "request_dispatch",
+        "tick": 5,
+        "actor": 31,
+        "script_opcode": 131,
+        "request": "97EA"
+      },
+      {
+        "event": "action",
+        "tick": 5,
+        "actor": 31,
+        "action": 29,
+        "args": [
+          18,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "rule",
+        "tick": 5,
+        "actor": 31,
+        "address": "9AF4",
+        "execute": true,
+        "args": [
+          18,
+          255
+        ]
+      },
+      {
+        "event": "reschedule",
+        "tick": 5,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 4,
+        "cost": 12
+      },
+      {
+        "event": "opcode",
+        "tick": 5,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 5,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 5,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 5,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 4,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "OPEN FRONT DOOR",
+    "stop": "prompt",
+    "steps": 233848,
+    "before": {
+      "tick": 6,
+      "calendar": [
+        5,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 6,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 6,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 5
+        }
+      ]
+    },
+    "after": {
+      "tick": 7,
+      "calendar": [
+        6,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 6,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 6,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 6
+        }
+      ]
+    },
+    "upper": "You open the front door.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          10,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 6,
+        "actor": 0,
+        "action": 36,
+        "args": [
+          19,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 6,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 6,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 6,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 6,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 6,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 5,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "SOUTH",
+    "stop": "prompt",
+    "steps": 442558,
+    "before": {
+      "tick": 7,
+      "calendar": [
+        6,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 6,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 6,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 6
+        }
+      ]
+    },
+    "after": {
+      "tick": 9,
+      "calendar": [
+        8,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 8
+        }
+      ]
+    },
+    "upper": "You go south. You are on Baker Street. To the north there is the front door.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          36,
+          19,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 7,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 7,
+        "actor": 0,
+        "action": 2,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 7,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 2
+      },
+      {
+        "event": "reschedule",
+        "tick": 7,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 7,
+        "cost": 2
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 7,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 7,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 7,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 6,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 8,
+        "actor": 34,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 8,
+        "actor": 34,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 8,
+        "actor": 34,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 8,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 7,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "HAIL CAB",
+    "stop": "prompt",
+    "steps": 291817,
+    "before": {
+      "tick": 9,
+      "calendar": [
+        8,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 0,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 8
+        }
+      ]
+    },
+    "after": {
+      "tick": 10,
+      "calendar": [
+        9,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 5,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2C2",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 9
+        }
+      ]
+    },
+    "upper": "You hail the hansom cab. The cabbie says to you\" Good morning guv'nor.\".",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          2,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 9,
+        "actor": 0,
+        "address": "E2C7",
+        "execute": false,
+        "args": [
+          30,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 9,
+        "actor": 0,
+        "address": "E2C7",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 9,
+        "actor": 0,
+        "address": "E2C7",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 9,
+        "actor": 0,
+        "action": 31,
+        "args": [
+          33,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "rule",
+        "tick": 9,
+        "actor": 0,
+        "address": "E2C7",
+        "execute": true,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 9,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 9,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 34,
+        "address": "F2B6",
+        "raw": 5,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 34,
+        "success": true,
+        "address": "F2B6",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 34,
+        "address": "F2BA",
+        "raw": 7,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 9,
+        "actor": 34,
+        "base": 4,
+        "spread": 4
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 34,
+        "success": true,
+        "address": "F2BA",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 9,
+        "actor": 34,
+        "address": "F2BF",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 9,
+        "actor": 34,
+        "success": true,
+        "address": "F2BF",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 9,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 8,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "GET INTO CAB",
+    "stop": "prompt",
+    "steps": 330927,
+    "before": {
+      "tick": 10,
+      "calendar": [
+        9,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 5,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2C2",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 9
+        }
+      ]
+    },
+    "after": {
+      "tick": 12,
+      "calendar": [
+        11,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 5,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 5,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2E0",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 11
+        }
+      ]
+    },
+    "upper": "You get into the hansom cab.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          31,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 10,
+        "actor": 0,
+        "address": "E3EA",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 10,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "rule",
+        "tick": 10,
+        "actor": 0,
+        "address": "E3EA",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 10,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 10,
+        "actor": 0,
+        "action": 24,
+        "args": [
+          33,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "rule",
+        "tick": 10,
+        "actor": 0,
+        "address": "E3EA",
+        "execute": true,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 10,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 2
+      },
+      {
+        "event": "reschedule",
+        "tick": 10,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 10,
+        "cost": 2
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 34,
+        "address": "F2C2",
+        "raw": 129,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 10,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 34,
+        "success": true,
+        "address": "F2C2",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 34,
+        "address": "F2D0",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 34,
+        "success": true,
+        "address": "F2D0",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 34,
+        "address": "F2D3",
+        "raw": 7,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 10,
+        "actor": 34,
+        "base": 5,
+        "spread": 3
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 34,
+        "success": true,
+        "address": "F2D3",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 34,
+        "address": "F2D8",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 10,
+        "actor": 34,
+        "address": "E63E",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 34,
+        "success": false,
+        "address": "F2D8",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 10,
+        "actor": 34,
+        "address": "F2DD",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 10,
+        "actor": 34,
+        "success": true,
+        "address": "F2DD",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 10,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 9,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 11,
+        "actor": 34,
+        "address": "F2E0",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 11,
+        "actor": 34,
+        "success": true,
+        "address": "F2E0",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 11,
+        "actor": 34,
+        "address": "F2D8",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 11,
+        "actor": 34,
+        "address": "E63E",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 11,
+        "actor": 34,
+        "success": false,
+        "address": "F2D8",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 11,
+        "actor": 34,
+        "address": "F2DD",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 11,
+        "actor": 34,
+        "success": true,
+        "address": "F2DD",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 11,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 10,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "SAY TO CABBIE \"GO TO BUCKINGHAM PALACE ROAD\"",
+    "stop": "prompt",
+    "steps": 760299,
+    "before": {
+      "tick": 12,
+      "calendar": [
+        11,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 5,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 5,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 5,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 5,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F2E0",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 11
+        }
+      ]
+    },
+    "after": {
+      "tick": 13,
+      "calendar": [
+        12,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "34": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 26
+        }
+      ]
+    },
+    "upper": "You talk to the cabbie. You are in a hansom cab with the cabbie. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          24,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 12,
+        "actor": 0,
+        "action": 46,
+        "args": [
+          34,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 12,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 12,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 12,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 12,
+        "actor": 34,
+        "address": "F2E0",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "request_dispatch",
+        "tick": 12,
+        "actor": 34,
+        "script_opcode": 131,
+        "request": "97F9"
+      },
+      {
+        "event": "rule",
+        "tick": 12,
+        "actor": 34,
+        "address": "9AF4",
+        "execute": false,
+        "args": [
+          28,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 12,
+        "actor": 34,
+        "address": "9AF4",
+        "execute": false,
+        "args": [
+          28,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 12,
+        "actor": 34,
+        "action": 29,
+        "args": [
+          28,
+          255
+        ],
+        "request": true
+      },
+      {
+        "event": "rule",
+        "tick": 12,
+        "actor": 34,
+        "address": "9AF4",
+        "execute": true,
+        "args": [
+          28,
+          255
+        ]
+      },
+      {
+        "event": "reschedule",
+        "tick": 12,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 11,
+        "cost": 15
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WAIT",
+    "stop": "prompt",
+    "steps": 623112,
+    "before": {
+      "tick": 13,
+      "calendar": [
+        12,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "30": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "31": {
+          "parent": 30,
+          "room": 1,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF7A",
+          "pence": -6
+        },
+        "33": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "34": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 16
+        },
+        {
+          "id": 34,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 26
+        }
+      ]
+    },
+    "after": {
+      "tick": 18,
+      "calendar": [
+        17,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 18,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 18,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 18,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 18,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 18,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "34": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "E517",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 18
+        },
+        {
+          "id": 34,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 26
+        }
+      ]
+    },
+    "upper": "You wait.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          46,
+          34,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 13,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 13,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 13,
+        "actor": 0,
+        "action": 49,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 13,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 13,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 13,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 5
+      },
+      {
+        "event": "reschedule",
+        "tick": 13,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 13,
+        "cost": 5
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F3AD",
+        "raw": 7,
+        "saved": [
+          255,
+          18,
+          2
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "9C41",
+        "execute": true,
+        "args": [
+          18,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F3AD",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F3B2",
+        "raw": 131,
+        "saved": [
+          255,
+          18,
+          2
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": false,
+        "address": "F3B2",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F3B7",
+        "raw": 131,
+        "saved": [
+          255,
+          18,
+          2
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": false,
+        "address": "F3B7",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F3BC",
+        "raw": 7,
+        "saved": [
+          255,
+          18,
+          2
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "E6BC",
+        "execute": true,
+        "args": [
+          2,
+          31
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F3BC",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F3C1",
+        "raw": 11,
+        "saved": [
+          255,
+          18,
+          2
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F2E0",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F2E0",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F2D8",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "E63E",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F2D8",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F2EB",
+        "raw": 130,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 16,
+        "actor": 31,
+        "action": 130,
+        "args": [
+          2,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F2EB",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F2FC",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F2FC",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F2FF",
+        "raw": 7,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 16,
+        "actor": 31,
+        "base": 5,
+        "spread": 2
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F2FF",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F304",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": false,
+        "address": "F304",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F309",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 16,
+        "actor": 31,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": false,
+        "address": "F309",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F30E",
+        "raw": 18,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 16,
+        "actor": 31,
+        "action": 130,
+        "args": [
+          2,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F30E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 16,
+        "actor": 31,
+        "address": "F314",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 16,
+        "actor": 31,
+        "success": true,
+        "address": "F314",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 16,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 16,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 17,
+        "actor": 31,
+        "address": "F317",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 17,
+        "actor": 31,
+        "success": true,
+        "address": "F317",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 17,
+        "actor": 31,
+        "address": "F304",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 17,
+        "actor": 31,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 17,
+        "actor": 31,
+        "success": true,
+        "address": "F304",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 17,
+        "actor": 31,
+        "address": "F3A2",
+        "raw": 3,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 17,
+        "actor": 31,
+        "success": true,
+        "address": "F3A2",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 17,
+        "actor": 31,
+        "address": "F3A5",
+        "raw": 7,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 17,
+        "actor": 31,
+        "address": "E506",
+        "execute": true,
+        "args": [
+          31,
+          2
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 17,
+        "actor": 31,
+        "address": "E508",
+        "raw": 199,
+        "saved": [
+          255,
+          31,
+          2
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 17,
+        "actor": 31,
+        "success": true,
+        "address": "E508",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 17,
+        "actor": 31,
+        "address": "E510",
+        "raw": 87,
+        "saved": [
+          255,
+          254,
+          2
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 17,
+        "actor": 31,
+        "address": "E370",
+        "execute": true,
+        "args": [
+          254,
+          2
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 17,
+        "actor": 31,
+        "success": true,
+        "address": "E510",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 17,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 17,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WAIT",
+    "stop": "prompt",
+    "steps": 978622,
+    "before": {
+      "tick": 18,
+      "calendar": [
+        17,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "2": {
+          "parent": 30,
+          "room": 18,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 18,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 18,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 18,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 18,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "34": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "E517",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 18
+        },
+        {
+          "id": 34,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 26
+        }
+      ]
+    },
+    "after": {
+      "tick": 23,
+      "calendar": [
+        22,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 20,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 20,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "34": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 23
+        },
+        {
+          "id": 34,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 26
+        }
+      ]
+    },
+    "upper": "You wait.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 18,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 18,
+        "actor": 0,
+        "action": 49,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 18,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 18,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 5
+      },
+      {
+        "event": "reschedule",
+        "tick": 18,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 18,
+        "cost": 5
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 31,
+        "address": "E517",
+        "raw": 11,
+        "saved": [
+          255,
+          254,
+          2
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 31,
+        "success": true,
+        "address": "F3A5",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 31,
+        "address": "F3AA",
+        "raw": 14,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 18,
+        "actor": 31,
+        "address": "F369",
+        "raw": 15,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 18,
+        "actor": 31,
+        "success": true,
+        "address": "F369",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 18,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 18,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 19,
+        "actor": 31,
+        "address": "F36A",
+        "raw": 15,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 19,
+        "actor": 31,
+        "success": true,
+        "address": "F36A",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 19,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 19,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 20,
+        "actor": 31,
+        "address": "F36B",
+        "raw": 130,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 20,
+        "actor": 31,
+        "action": 130,
+        "args": [
+          2,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 20,
+        "actor": 31,
+        "success": false,
+        "address": "F36B",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 20,
+        "actor": 31,
+        "address": "F371",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          0,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          1,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          2,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          3,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          4,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          5,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          6,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          7,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          8,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          9,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          10,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          11,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          12,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          13,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          14,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          15,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          16,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          17,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          18,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          19,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          20,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          21,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          22,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          23,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          24,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          25,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          26,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          27,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          28,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          29,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          30,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          31,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          32,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          34,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          35,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          36,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          37,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          38,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          39,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          40,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          41,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          42,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          43,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          44,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          45,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          46,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          47,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          48,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          49,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          50,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          51,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          52,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          53,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          54,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          55,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          56,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          57,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          58,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          59,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          60,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          61,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          62,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          63,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          64,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          65,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          66,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          67,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          68,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          69,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          70,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          71,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          72,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          73,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          74,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          75,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          76,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          77,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          78,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          79,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          80,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          81,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          82,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          83,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          84,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          85,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          86,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          87,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          88,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          89,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          90,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          91,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          92,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          93,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          94,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          95,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          96,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          97,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          98,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          99,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          100,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          101,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          102,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          103,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          104,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          105,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          106,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          107,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          108,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 20,
+        "actor": 31,
+        "address": "E6E6",
+        "execute": false,
+        "args": [
+          109,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 20,
+        "actor": 31,
+        "success": false,
+        "address": "F371",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 20,
+        "actor": 31,
+        "address": "F376",
+        "raw": 2,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 20,
+        "actor": 31,
+        "action": 128,
+        "args": [
+          30,
+          0
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 20,
+        "actor": 31,
+        "success": true,
+        "address": "F376",
+        "cost": 2
+      },
+      {
+        "event": "reschedule",
+        "tick": 20,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 20,
+        "cost": 2
+      },
+      {
+        "event": "opcode",
+        "tick": 22,
+        "actor": 31,
+        "address": "F37A",
+        "raw": 131,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 22,
+        "actor": 31,
+        "success": false,
+        "address": "F37A",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 22,
+        "actor": 31,
+        "address": "F37F",
+        "raw": 11,
+        "saved": [
+          255,
+          2,
+          30
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 22,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 22,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 22,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 22,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 22,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WAIT",
+    "stop": "prompt",
+    "steps": 935341,
+    "before": {
+      "tick": 23,
+      "calendar": [
+        22,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 20,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 1,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 20,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 1,
+          "visible": false
+        },
+        "34": {
+          "parent": 33,
+          "room": 1,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 1,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 23
+        },
+        {
+          "id": 34,
+          "script": "F3AD",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 26
+        }
+      ]
+    },
+    "after": {
+      "tick": 28,
+      "calendar": [
+        27,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 22,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 28,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 22,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 28,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 28
+        },
+        {
+          "id": 34,
+          "script": "F317",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 28
+        }
+      ]
+    },
+    "upper": "You wait. You are in a hansom cab. The hansom cab is in Buckingham Palace Road. Visible exits are east. The cabbie remarks to you\" Right guv'nor that will be 8d.\"",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 23,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 23,
+        "actor": 0,
+        "action": 49,
+        "args": [
+          255,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 23,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "request_gate",
+        "tick": 23,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 5
+      },
+      {
+        "event": "reschedule",
+        "tick": 23,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 23,
+        "cost": 5
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 23,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 23,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 23,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 23,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 24,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 24,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 24,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 24,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 24,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 25,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 25,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 25,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 25,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 25,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 26,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 26,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F3AD",
+        "raw": 7,
+        "saved": [
+          31,
+          28,
+          0
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "9C41",
+        "execute": true,
+        "args": [
+          28,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F3AD",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F3B2",
+        "raw": 131,
+        "saved": [
+          31,
+          28,
+          0
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": false,
+        "address": "F3B2",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F3B7",
+        "raw": 131,
+        "saved": [
+          31,
+          28,
+          0
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": false,
+        "address": "F3B7",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F3BC",
+        "raw": 7,
+        "saved": [
+          31,
+          28,
+          0
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "E6BC",
+        "execute": true,
+        "args": [
+          0,
+          34
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F3BC",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F3C1",
+        "raw": 11,
+        "saved": [
+          31,
+          28,
+          0
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F2E0",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F2E0",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F2D8",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "E63E",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F2D8",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F2EB",
+        "raw": 130,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 26,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          0,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F2EB",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F2FC",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F2FC",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F2FF",
+        "raw": 7,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 26,
+        "actor": 34,
+        "base": 5,
+        "spread": 2
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F2FF",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F304",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": false,
+        "address": "F304",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F309",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 26,
+        "actor": 34,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": false,
+        "address": "F309",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F30E",
+        "raw": 18,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 26,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          0,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F30E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 26,
+        "actor": 34,
+        "address": "F314",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 26,
+        "actor": 34,
+        "success": true,
+        "address": "F314",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 26,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 26,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 27,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 27,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 27,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 34,
+        "address": "F317",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 27,
+        "actor": 34,
+        "success": true,
+        "address": "F317",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 34,
+        "address": "F304",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 27,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 27,
+        "actor": 34,
+        "success": false,
+        "address": "F304",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 34,
+        "address": "F309",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 27,
+        "actor": 34,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 27,
+        "actor": 34,
+        "success": false,
+        "address": "F309",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 34,
+        "address": "F30E",
+        "raw": 18,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 27,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          0,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 27,
+        "actor": 34,
+        "success": true,
+        "address": "F30E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 27,
+        "actor": 34,
+        "address": "F314",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 27,
+        "actor": 34,
+        "success": true,
+        "address": "F314",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 27,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 27,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "GET OUT OF CAB",
+    "stop": "prompt",
+    "steps": 518054,
+    "before": {
+      "tick": 28,
+      "calendar": [
+        27,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 22,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 28,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 22,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 28,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 28
+        },
+        {
+          "id": 34,
+          "script": "F317",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 28
+        }
+      ]
+    },
+    "after": {
+      "tick": 30,
+      "calendar": [
+        29,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 22,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 28,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 22,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 28,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 30
+        },
+        {
+          "id": 34,
+          "script": "F352",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 30
+        }
+      ]
+    },
+    "upper": "You get out of the hansom cab. The cabbie, who now appears to be getting quite agitated, says\" What about me money guv'nor?\".",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          49,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 0,
+        "address": "E432",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 28,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 0,
+        "address": "E432",
+        "execute": false,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 28,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 28,
+        "actor": 0,
+        "action": 25,
+        "args": [
+          33,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 0,
+        "address": "E432",
+        "execute": true,
+        "args": [
+          33,
+          255
+        ]
+      },
+      {
+        "event": "request_gate",
+        "tick": 28,
+        "actor": 0,
+        "opcode": 0,
+        "blocked": false
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 2
+      },
+      {
+        "event": "reschedule",
+        "tick": 28,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 28,
+        "cost": 2
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 28,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 28,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F317",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": true,
+        "address": "F317",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F304",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": false,
+        "address": "F304",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F309",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 34,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": false,
+        "address": "F309",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F30E",
+        "raw": 18,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 28,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          0,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": false,
+        "address": "F30E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F32E",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": true,
+        "address": "F32E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F331",
+        "raw": 6,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": true,
+        "address": "F331",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F334",
+        "raw": 7,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "counter_create",
+        "tick": 28,
+        "actor": 34,
+        "base": 5,
+        "spread": 2
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": true,
+        "address": "F334",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F339",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": false,
+        "address": "F339",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F33E",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 28,
+        "actor": 34,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": false,
+        "address": "F33E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F343",
+        "raw": 130,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 28,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          0,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": false,
+        "address": "F343",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F349",
+        "raw": 18,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 28,
+        "actor": 34,
+        "action": 129,
+        "args": [
+          0,
+          34
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": true,
+        "address": "F349",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 28,
+        "actor": 34,
+        "address": "F34F",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 28,
+        "actor": 34,
+        "success": true,
+        "address": "F34F",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 28,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 28,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 29,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 29,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 34,
+        "address": "F352",
+        "raw": 147,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 34,
+        "success": true,
+        "address": "F352",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 34,
+        "address": "F339",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 29,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 34,
+        "success": false,
+        "address": "F339",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 34,
+        "address": "F33E",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 29,
+        "actor": 34,
+        "address": "E66F",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 34,
+        "success": false,
+        "address": "F33E",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 34,
+        "address": "F343",
+        "raw": 130,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 29,
+        "actor": 34,
+        "action": 130,
+        "args": [
+          0,
+          255
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 34,
+        "success": false,
+        "address": "F343",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 34,
+        "address": "F349",
+        "raw": 18,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 29,
+        "actor": 34,
+        "action": 129,
+        "args": [
+          0,
+          34
+        ],
+        "request": false
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 34,
+        "success": true,
+        "address": "F349",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 29,
+        "actor": 34,
+        "address": "F34F",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 29,
+        "actor": 34,
+        "success": true,
+        "address": "F34F",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 29,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 29,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      }
+    ]
+  },
+  {
+    "command": "PAY 1/- TO CABBIE",
+    "stop": "prompt",
+    "steps": 374737,
+    "before": {
+      "tick": 30,
+      "calendar": [
+        29,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 22,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 28,
+          "visible": true,
+          "raw_money": "0960",
+          "pence": 1248
+        },
+        "28": {
+          "parent": 2,
+          "room": 22,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 28,
+          "visible": true,
+          "raw_money": "FF78",
+          "pence": -8
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 30
+        },
+        {
+          "id": 34,
+          "script": "F352",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 30
+        }
+      ]
+    },
+    "after": {
+      "tick": 31,
+      "calendar": [
+        30,
+        8,
+        0,
+        97
+      ],
+      "entities": {
+        "0": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "2": {
+          "parent": 255,
+          "room": 22,
+          "visible": true
+        },
+        "27": {
+          "parent": 0,
+          "room": 28,
+          "visible": true,
+          "raw_money": "0958",
+          "pence": 1240
+        },
+        "28": {
+          "parent": 2,
+          "room": 22,
+          "visible": true,
+          "raw_money": "095A",
+          "pence": 1242
+        },
+        "30": {
+          "parent": 255,
+          "room": 0,
+          "visible": true
+        },
+        "31": {
+          "parent": 30,
+          "room": 0,
+          "visible": true
+        },
+        "32": {
+          "parent": 31,
+          "room": 0,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        },
+        "33": {
+          "parent": 255,
+          "room": 28,
+          "visible": true
+        },
+        "34": {
+          "parent": 33,
+          "room": 28,
+          "visible": true
+        },
+        "35": {
+          "parent": 34,
+          "room": 28,
+          "visible": true,
+          "raw_money": "0000",
+          "pence": 0
+        }
+      },
+      "cabbies": [
+        {
+          "id": 31,
+          "script": "F2B3",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 31
+        },
+        {
+          "id": 34,
+          "script": "E517",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "due": 31
+        }
+      ]
+    },
+    "upper": "You pay 1/- to the cabbie. The cabbie pays 4d. To you.",
+    "lower": "",
+    "events": [
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "9923",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9928",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "9928",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9932",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "9932",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "993C",
+        "raw": 19,
+        "saved": [
+          25,
+          33,
+          255
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 0,
+        "address": "E370",
+        "execute": false,
+        "args": [
+          254,
+          34
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 0,
+        "address": "E370",
+        "execute": false,
+        "args": [
+          254,
+          34
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 0,
+        "address": "E370",
+        "execute": false,
+        "args": [
+          254,
+          34
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "993C",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 0,
+        "address": "9941",
+        "raw": 2,
+        "saved": [
+          37,
+          254,
+          34
+        ]
+      },
+      {
+        "event": "action",
+        "tick": 30,
+        "actor": 0,
+        "action": 37,
+        "args": [
+          254,
+          34
+        ],
+        "request": false
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 0,
+        "address": "E370",
+        "execute": true,
+        "args": [
+          254,
+          34
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 0,
+        "success": true,
+        "address": "9941",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 30,
+        "actor": 0,
+        "row": "9860",
+        "old_due": 30,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 31,
+        "address": "F2B3",
+        "raw": 14,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 31,
+        "address": "F2B2",
+        "raw": 15,
+        "saved": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 31,
+        "success": true,
+        "address": "F2B2",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 30,
+        "actor": 31,
+        "row": "98D0",
+        "old_due": 30,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 34,
+        "address": "F352",
+        "raw": 147,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 34,
+        "success": true,
+        "address": "F352",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 34,
+        "address": "F339",
+        "raw": 131,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 34,
+        "address": "E654",
+        "execute": true,
+        "args": [
+          255,
+          255
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 34,
+        "success": true,
+        "address": "F339",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 34,
+        "address": "F3A2",
+        "raw": 3,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 34,
+        "success": true,
+        "address": "F3A2",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 34,
+        "address": "F3A5",
+        "raw": 7,
+        "saved": [
+          31,
+          0,
+          33
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 34,
+        "address": "E506",
+        "execute": true,
+        "args": [
+          34,
+          0
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 34,
+        "address": "E508",
+        "raw": 199,
+        "saved": [
+          31,
+          34,
+          0
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 34,
+        "success": true,
+        "address": "E508",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 30,
+        "actor": 34,
+        "address": "E510",
+        "raw": 87,
+        "saved": [
+          31,
+          254,
+          0
+        ]
+      },
+      {
+        "event": "rule",
+        "tick": 30,
+        "actor": 34,
+        "address": "E370",
+        "execute": true,
+        "args": [
+          254,
+          0
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 30,
+        "actor": 34,
+        "success": true,
+        "address": "E510",
+        "cost": 1
+      },
+      {
+        "event": "reschedule",
+        "tick": 30,
+        "actor": 34,
+        "row": "98D8",
+        "old_due": 30,
+        "cost": 1
+      },
+      {
+        "event": "opcode",
+        "tick": 31,
+        "actor": 0,
+        "address": "9945",
+        "raw": 14,
+        "saved": [
+          37,
+          254,
+          34
+        ]
+      },
+      {
+        "event": "opcode",
+        "tick": 31,
+        "actor": 0,
+        "address": "9937",
+        "raw": 19,
+        "saved": [
+          37,
+          254,
+          34
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 31,
+        "actor": 0,
+        "success": false,
+        "address": "9937",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 31,
+        "actor": 0,
+        "address": "992D",
+        "raw": 19,
+        "saved": [
+          37,
+          254,
+          34
+        ]
+      },
+      {
+        "event": "branch",
+        "tick": 31,
+        "actor": 0,
+        "success": false,
+        "address": "992D",
+        "cost": 0
+      },
+      {
+        "event": "opcode",
+        "tick": 31,
+        "actor": 0,
+        "address": "9923",
+        "raw": 19,
+        "saved": [
+          37,
+          254,
+          34
+        ]
+      }
+    ]
+  }
+]
