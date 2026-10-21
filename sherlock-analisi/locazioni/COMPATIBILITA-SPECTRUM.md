@@ -13,13 +13,15 @@ La griglia ha 36 colonne, con passo di sette pixel e margine di due pixel per la
 
 Fare clic sul video per scrivere. Il testo del comando è maiuscolo; il punto di inserimento è un **+**. Si possono inserire caratteri stampabili, cancellare l’ultimo con **Backspace** e inviare con **Invio**. Frecce, Home, End e Delete non spostano il cursore né modificano il testo. Incolla, taglia e trascinamento di testo sono disabilitati. Il limite resta quello del parser già usato dal prototipo: 70 caratteri per comando. `£` è supportato come nel ponte Python esistente.
 
-Le cinque righe conservano i comandi recenti e le risposte del canale inferiore. Gli errori e le domande originali, come `WHICH DOOR ?`, vengono mostrati qui in maiuscolo. Le risposte alla domanda vengono inviate allo stesso contesto di continuation del gioco.
+Le cinque righe conservano i comandi recenti e le risposte del canale inferiore, scorrendo verso l’alto. Ogni riga usata comincia con `> `, compresi errori e continuazioni su più righe: restano 34 colonne per il contenuto. Il prompt pronto è `> +`. Gli errori e le domande originali, come `WHICH DOOR ?`, vengono mostrati qui in maiuscolo. Le risposte alla domanda vengono inviate allo stesso contesto di continuation del gioco.
 
 ## Scrittura, scroll e MORE
 
 All’avvio della modalità e dopo **Riavvia**, lo schermo superiore è vuoto e il quadratino lampeggiante attende un tasto. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio appare subito al primo tasto alle **Mon 08:00am** e resta alle 08:00am dopo la descrizione iniziale. Comincia due colonne più a destra rispetto alla versione precedente: x=16 pixel virtuali, con passo di sette pixel.
 
 L’uscita superiore viene composta per parole, con intervallo di presentazione di circa 32,5 ms (il doppio della velocità precedente). Le parole che non entrano nella riga passano alla successiva. Le sequenze più lunghe della riga vengono spezzate per garantire che il testo avanzi sempre.
+
+Alla fine dell’uscita superiore di ciascun comando viene aggiunta una riga vuota, che separa la risposta da quella successiva. I diversi messaggi dello stesso comando rimangono consecutivi; un errore scritto solo nella zona inferiore non modifica il testo superiore. Anche la riga vuota finale rispetta la pausa MORE e non fa avanzare l’orologio.
 
 Prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. Nella cella destra della barra di stato lampeggia un quadratino. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
 

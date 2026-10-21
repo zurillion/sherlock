@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "startup remains blank before MORE",
+      "passed": true
+    },
+    {
+      "check": "initial output ends in one blank row at Mon 08:00am",
+      "passed": true
+    },
+    {
+      "check": "clarification uses > prefixes and leaves upper output unchanged",
+      "passed": true
+    },
+    {
+      "check": "continuation succeeds and preserves one blank before and after command output",
+      "passed": true
+    },
+    {
+      "check": "five lower lines scroll upward with > on commands, errors and current prompt",
+      "passed": true
+    },
+    {
+      "check": "syntax error stays in lower pane without adding upper blank rows",
+      "passed": true
+    }
+  ],
+  "final": {
+    "clock": "Mon 08:01am",
+    "lower": "> WHICH DOOR ?                      \n> YOUR                              \n> XYZ                               \n> I DO NOT KNOW THE WORD\"XYZ \"      \n> +                                 ",
+    "upper": "                                    \n                                    \nThe sun streams in the two broad    \nwindows in your sitting room. There \nis a pipe rack to the right of the  \nsofa. Bullet pock marks are the     \nfeature of one wall, and charts and \ndiagrams fill another. An acid      \nstained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \n                                    \nYou open your door.                 \n                                    "
+  },
+  "consoleErrors": []
+}

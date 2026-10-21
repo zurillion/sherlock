@@ -21,7 +21,7 @@ function spectrumTokens(text){return text.replace(/\r\n?/g,'\n').trim().match(/\
 function spectrumWrap(text,columns=36){const lines=[''];for(const c of text){if(c==='\n'||lines[lines.length-1].length===columns)lines.push('');if(c!=='\n')lines[lines.length-1]+=c;}return lines;}
 class SpectrumTerminal {
  constructor({canvas,input,upper,lower,status,onCommand}){
-  Object.assign(this,{canvas,input,upper,lower,status,onCommand});this.model=new SpectrumBuffer();this.active=false;this.busy=false;this.processing=false;this.waiting=false;this.waitingReason=null;this.startupPending=true;this.epoch=0;this.draft='';this.lowerHistory=[];this.lowerLine='';this.clock='Mon 08:00am';this.clockVisible=false;this.scale=2;this.pictureMode='svg';this.pictures=true;this.picture=null;this.pictureTop=0;this.pictureNarrow=false;this.cache=new Map();this.delay=32.5;
+  Object.assign(this,{canvas,input,upper,lower,status,onCommand});this.model=new SpectrumBuffer();this.active=false;this.busy=false;this.processing=false;this.waiting=false;this.waitingReason=null;this.startupPending=true;this.epoch=0;this.draft='';this.lowerHistory=[];this.lowerLine='';this.upperSeparated=false;this.clock='Mon 08:00am';this.clockVisible=false;this.scale=2;this.pictureMode='svg';this.pictures=true;this.picture=null;this.pictureTop=0;this.pictureNarrow=false;this.cache=new Map();this.delay=32.5;
   input.addEventListener('keydown',e=>this.key(e));input.addEventListener('beforeinput',e=>{e.preventDefault();if(this.busy||this.processing||this.waiting)return;if(e.inputType==='insertText'&&e.data)for(const c of e.data)this.type(c);else if(e.inputType==='deleteContentBackward')this.backspace();});
   for(const event of ['paste','drop','cut'])input.addEventListener(event,e=>e.preventDefault());
   input.addEventListener('input',()=>{input.value=this.draft;});
@@ -38,7 +38,7 @@ class SpectrumTerminal {
  setRoom(room){if(this.room!==undefined&&room!==this.room)this.clearPicture();this.room=room;}
  async setPictureMode(value){this.pictureMode=value==='pixel'?'pixel':'svg';if(this.picture)await this.loadPicture(this.picture.room,false);this.render();}
  clearPicture(){this.picture=null;this.pictureNarrow=false;this.model.columns=36;this.render();}
- reset(){this.cancel();this.clock='Mon 08:00am';this.clockVisible=false;this.startupPending=true;this.model.clear();this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
+ reset(){this.cancel();this.clock='Mon 08:00am';this.clockVisible=false;this.startupPending=true;this.model.clear();this.upperSeparated=false;this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
  cancel(){this.epoch++;this.waiting=false;this.waitingReason=null;this.processing=false;if(this.resume){this.resume(false);this.resume=null;}this.render();}
  focus(){if(this.active)this.input.focus({preventScroll:true});}
  type(character){if(!/^[ -~£]$/.test(character)||this.draft.length>=70)return;this.draft+=character.toUpperCase();this.input.value=this.draft;this.render();}
@@ -49,7 +49,7 @@ class SpectrumTerminal {
   e.preventDefault();if(this.busy||this.processing||!this.active)return;
   if(e.key==='Backspace')this.backspace();else if(e.key==='Enter'){if(this.draft.trim())this.onCommand(this.draft);}else if(e.key.length===1)this.type(e.key);
  }
- commit(text){this.lowerHistory.push(...spectrumWrap(text.toUpperCase()));this.lowerHistory=this.lowerHistory.slice(-40);this.draft='';this.input.value='';this.render();}
+ commit(text){this.lowerHistory.push(...spectrumWrap(text.toUpperCase(),34));this.lowerHistory=this.lowerHistory.slice(-40);this.draft='';this.input.value='';this.render();}
  more(){if(!this.waiting)return;if(this.waitingReason==='startup'){this.clockVisible=true;this.model.startPage();}else{this.model.more();if(this.picture&&this.pictureNarrow)this.picture.scrollOrigin=this.model.scrolls;this.pictureNarrow=false;this.model.columns=36;}this.waiting=false;this.waitingReason=null;const resolve=this.resume;this.resume=null;this.render();if(resolve)resolve(true);}
  async pause(reason='more'){this.waiting=true;this.waitingReason=reason;this.status.textContent='Premi un tasto qualsiasi per continuare.';this.render();return new Promise(resolve=>{this.resume=resolve;});}
  async line(epoch){while(!this.model.newline()){if(!await this.pause()||epoch!==this.epoch)return false;}return epoch===this.epoch;}
@@ -59,11 +59,11 @@ class SpectrumTerminal {
   if(!this.cache.has(url))this.cache.set(url,new Promise(resolve=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>resolve(null);image.src=url;}));
   const image=await this.cache.get(url);if(epoch!==this.epoch||mode!==this.pictureMode||(this.room!==undefined&&this.room!==room))return;
   if(!image){this.clearPicture();return;}
-  if(fresh){this.model.clear();this.model.startPage();this.pictureTop=0;this.pictureNarrow=true;}
+  if(fresh){this.model.clear();this.model.startPage();this.upperSeparated=false;this.pictureTop=0;this.pictureNarrow=true;}
   this.picture={room,image,url,scrollOrigin:fresh?this.model.scrolls:(this.picture?.scrollOrigin??this.model.scrolls)};this.model.columns=this.pictures&&this.pictureNarrow?18:36;this.render();
  }
  async writeMessages(messages){
-  if(!this.active)return;const epoch=this.epoch;this.processing=true;this.status.textContent='Scrittura del testo…';this.render();
+  if(!this.active)return;const epoch=this.epoch;let wroteUpper=false;this.processing=true;this.status.textContent='Scrittura del testo…';this.render();
   try{
    if(this.startupPending&&messages.some(message=>message.kind!=='error'&&message.text?.trim())){this.startupPending=false;if(!await this.pause('startup')||epoch!==this.epoch)return;}
    for(const message of messages){
@@ -71,12 +71,15 @@ class SpectrumTerminal {
     if(message.image_room!==undefined&&message.image_room!==null){if(this.pictures)await this.loadPicture(message.image_room);else this.clearPicture();}
     const text=message.text||'';if(!text.trim())continue;
     const lower=message.kind==='error';
-    if(!lower&&this.model.lines.at(-1).length&&!await this.line(epoch))return;
+    if(!lower){
+     if((this.upperSeparated||this.model.lines.at(-1).length)&&!await this.line(epoch))return;
+     this.upperSeparated=false;wroteUpper=true;
+    }
     for(const token of spectrumTokens(lower?text.toUpperCase():text)){
      if(epoch!==this.epoch||!this.active)return;
      if(lower){
       if(token==='\n'){if(this.lowerLine){this.lowerHistory.push(this.lowerLine);this.lowerLine='';}}
-      else{for(let remaining=token;remaining;){if(this.lowerLine.length&&(this.lowerLine.length+1+Math.min(remaining.length,36)>36)){this.lowerHistory.push(this.lowerLine);this.lowerLine='';}const count=Math.min(remaining.length,36-this.lowerLine.length-(this.lowerLine?1:0));this.lowerLine+=(this.lowerLine?' ':'')+remaining.slice(0,count);remaining=remaining.slice(count);}}
+      else{for(let remaining=token;remaining;){if(this.lowerLine.length&&(this.lowerLine.length+1+Math.min(remaining.length,34)>34)){this.lowerHistory.push(this.lowerLine);this.lowerLine='';}const count=Math.min(remaining.length,34-this.lowerLine.length-(this.lowerLine?1:0));this.lowerLine+=(this.lowerLine?' ':'')+remaining.slice(0,count);remaining=remaining.slice(count);}}
      }else if(token==='\n'){if(!await this.line(epoch))return;}
      else{let remaining=token;while(remaining){const count=this.model.word(remaining);if(!count){if(!await this.pause()||epoch!==this.epoch||!await this.line(epoch))return;}else remaining=remaining.slice(count);}}
      this.render();await new Promise(resolve=>setTimeout(resolve,this.delay));
@@ -84,9 +87,10 @@ class SpectrumTerminal {
     if(lower&&this.lowerLine){this.lowerHistory.push(this.lowerLine);this.lowerLine='';}
     this.lowerHistory=this.lowerHistory.slice(-40);
    }
+   if(wroteUpper&&epoch===this.epoch&&await this.line(epoch))this.upperSeparated=true;
   }finally{if(epoch===this.epoch){this.processing=false;this.status.textContent='Pronto. Caratteri, Backspace, Invio.';this.render();}}
  }
- lowerRows(){const rows=[...this.lowerHistory];if(this.lowerLine)rows.push(this.lowerLine);const draft=spectrumWrap(this.draft+(!this.busy&&!this.processing?'+':''));rows.push(...draft);return [...Array(Math.max(0,5-rows.length)).fill(''),...rows.slice(-5)].map(line=>line.padEnd(36,' '));}
+ lowerRows(){const rows=[...this.lowerHistory];if(this.lowerLine)rows.push(this.lowerLine);const draft=spectrumWrap(this.draft+(!this.busy&&!this.processing?'+':''),34);rows.push(...draft);return [...Array(Math.max(0,5-rows.length)).fill(null),...rows.slice(-5)].map(line=>line===null?' '.repeat(36):('> '+line).padEnd(36,' '));}
  render(){
   const upper=this.model.visible(),lower=this.lowerRows();this.upper.textContent=upper.join('\n');this.lower.textContent=lower.join('\n');
   this.canvas.setAttribute('aria-label',`Schermo ZX Spectrum${this.clockVisible?' · '+this.clock:''}. 36 colonne, 18 righe di testo, una riga di stato, 5 righe di comando.`);this.canvas.dataset.waiting=String(this.waiting);this.canvas.dataset.waitingReason=this.waitingReason||'';this.canvas.dataset.clockX='16';this.canvas.dataset.clockVisible=String(this.clockVisible);this.canvas.dataset.clock=this.clockVisible?this.clock:'';this.canvas.dataset.processing=String(this.processing);this.canvas.dataset.columns=String(this.model.columns);this.canvas.dataset.scrolls=String(this.model.scrolls);this.canvas.dataset.picture=this.picture&&this.pictures?String(this.picture.room):'';this.canvas.dataset.pictureMode=this.pictureMode;
