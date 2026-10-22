@@ -1,19 +1,23 @@
 {
   "passed": true,
   "checks": [
-    "uppercase, end-only backspace, ignored navigation, plus, enter",
-    "MORE waits before scroll, consumes key and resumes output",
-    "switching mode releases a pending MORE without a stuck queue",
-    "original clarification is uppercase in the lower pane",
-    "commands cannot interleave with pending output",
-    "startup has no prompt, consumes any key, then shows the clock and writes from the bottom upward",
-    "reset restores the blank startup pause and can be cancelled",
+    "uppercase, end-only backspace, navigation ignored, plus and enter",
+    "native opening keeps three empty top rows and no lower prompt until MORE completes the greeting CR",
+    "MORE pauses before pending scroll, consumes key, and continues with counter zero",
+    "switching mode releases pending MORE",
+    "clarification stays below while parser reset still reaches the paging counter",
+    "lexical error neither scrolls nor resets upper paging",
+    "commands cannot interleave with output",
+    "startup is pattern-only, consumes key and preserves the original leading and trailing CR",
+    "reset restores blank startup pause",
     "startup shows the original divider pattern with no prompt or clock; clock stays at x16 with blank surrounding cells; MORE inverts exactly 8x8 pixels and restores the underlying pattern",
-    "restart during writing cancels stale output and restores the startup clock",
-    "one trailing blank after the complete command output, preserved between commands; errors stay in the lower pane",
-    "commands, wrapped lines, errors and active prompt reserve two prefix cells without losing text or changing submitted input",
-    "trailing blank obeys MORE before scrolling text off screen and consumes no game time",
-    "streamed minute frames preserve text and add only one command separator at completion",
-    "game over blocks commands; restart keeps input blank until startup is released"
+    "restart cancels stale output even during a word delay",
+    "HTTP batches and command completion add no linefeeds or word separators",
+    "lower history and errors keep prefix and wrap without losing characters",
+    "counter persists across message batches and MORE is free of game time",
+    "last-column auto advance and explicit CR are both counted",
+    "illustration clears through 18 original CR/reset pairs, narrows, then MORE widens before pending scroll",
+    "disabled illustrations do not clear or narrow the screen",
+    "ending blocks input; restart restores it after startup"
   ]
 }

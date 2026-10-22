@@ -1,14 +1,14 @@
 {
   "passed": true,
   "checks": [
-    "36 columns: a word wraps upward from the bottom",
-    "18 lines fill before any visible text is lost",
-    "MORE grants exactly 18 scrolling lines",
-    "illustrated text uses 18 columns beside a fixed picture",
-    "long words make progress within the grid",
-    "paragraphs survive tokenization",
-    "commands reserve a cell for the plus cursor",
-    "clear leaves the entire screen blank with no scroll grant",
+    "word wrap scrolls from the bottom at 36 columns",
+    "15 advances pause before the next scroll despite three unused physical rows",
+    "MORE pending advance leaves counter zero; later pauses precede 32 and 48",
+    "exact width scrolls immediately; a following CR is a separate advance",
+    "wide mode resets columns and cursor but preserves the counter",
+    "narrow physical scroll leaves the right half untouched",
+    "quote spaces and capitalization follow AA14",
+    "lower pane wrapping preserves 34 content cells beside its prefix",
     "original assets: 96 glyphs, 6 divider rows, 14 native rasters"
   ]
 }

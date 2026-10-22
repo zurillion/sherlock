@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "boot: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "WAIT: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "WAIT: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "OPEN DOR: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "LOOK: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "LOOK. LOOK: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "PICK THE NOTE UP: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "EXAMINE ARMCHAIR: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "YOUR: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "WAIT: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "WAIT: native screen, MORE positions, counter, width, remaining columns and scroll count",
+    "illustrated formatter: native screen, MORE positions, counter, width, remaining columns and scroll count"
+  ]
+}

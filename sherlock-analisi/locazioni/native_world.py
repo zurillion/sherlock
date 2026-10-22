@@ -2,6 +2,7 @@
 import sys,re
 from pathlib import Path
 sys.dont_write_bytecode=True
+from native_screen import ScreenStream
 
 def word(m,p):return m[p]+256*m[p+1]
 
@@ -21,13 +22,13 @@ class NativeWorld:
         r[R.SP],r[R.PC]=0x5d7e,address;e.put(s,0x5d7e,8)
         if a is not None:r[R.A]=a
         if b is not None:r[R.B]=b
-        text=[];listed=[];events=[]
+        text=[];listed=[];events=[];screen=ScreenStream()
         for step in range(budget):
             pc=r[R.PC]
             if pc==8:
                 value=''.join(text).replace('\x08','')
                 value=re.sub(r'[ \t]+',' ',value)
-                return {'text':value.strip(),'a':r[R.A],'z':bool(r[R.F]&64),'carry':bool(r[R.F]&1),'listed':listed,'events':events,'steps':step,'cost':word(m,0xa01f)}
+                return {'text':value.strip(),'screen_events':screen.drain(),'a':r[R.A],'z':bool(r[R.F]&64),'carry':bool(r[R.F]&1),'listed':listed,'events':events,'steps':step,'cost':word(m,0xa01f)}
             if pc in (0xa536,0xb191,0xc040,0xc0df,0x04c2,0x0556):raise RuntimeError(f'Routine fuori ambito: {pc:04X}')
             if pc==0xc415:
                 r[R.A],r[R.F]=32,0;r[R.PC]=word(m,r[R.SP]);r[R.SP]+=2;continue
@@ -38,6 +39,7 @@ class NativeWorld:
                 elif c>=32:text.append('£' if c==96 else chr(c))
             if pc==0xd531:listed.append(m[r[R.IXh]*256+r[R.IXl]])
             if pc in (0xd102,0xd1b2,0xd078,0xdcD2,0xdd35,0xca9e):events.append({'pc':f'{pc:04X}','a':r[R.A]})
+            screen.observe(m,r,R)
             s.opcodes[m[pc]]()
         raise RuntimeError(f'Budget esaurito a {r[R.PC]:04X}')
     def prepare(self):
@@ -96,11 +98,12 @@ class NativeWorld:
         m,r,R=self.m,self.sim.registers,self.R
         backup=(m[:],r[:],self.input_registers[:],self.input_stack[:],set(explored))
         r[:]=self.input_registers;m[0x5d00:0x5d80]=self.input_stack;m[0xa027]=1
-        keys=[64] if text.strip()=='@' and not m[0xa01b] else list(text.upper().encode())+[13];messages=[];buf=[];channel=None;editing=True;actions=[];units=[];outcome='ok';listed=[];scene=False;terminal=None;phase_steps=0
+        keys=[64] if text.strip()=='@' and not m[0xa01b] else list(text.upper().encode())+[13];messages=[];buf=[];channel=None;editing=True;actions=[];units=[];outcome='ok';listed=[];scene=False;terminal=None;phase_steps=0;screen=ScreenStream()
         def flush():
             nonlocal buf
             value=''.join(buf).replace('\x08','');value=re.sub(r'[ \t]+',' ',value).strip()
-            if value:messages.append({'kind':channel or 'narrative','text':value})
+            display=screen.drain()
+            if value or display:messages.append({'kind':channel or 'narrative','text':value,'screen_events':display})
             buf=[]
         def emit(kind,c):
             nonlocal channel
@@ -149,7 +152,7 @@ class NativeWorld:
                 if pc in (0xd102,0xd1b2) and not m[0xd0dc]:
                     room=self.room;scene=True;listed=[]
                     if pc==0xd102 and (room not in explored or m[0xa033]==34):
-                        flush();messages.append({'kind':'narrative','text':'','image_room':room})
+                        flush();messages.append({'kind':'narrative','text':'','image_room':room,'screen_events':[]})
                     explored.add(room)
                 if pc==0xd531:listed.append(m[r[R.IXh]*256+r[R.IXl]])
                 if pc==0xc4d1:actions.append({'actor':m[0xa036],'id':m[0xa033],'arguments':list(m[0xa034:0xa036])})
@@ -163,6 +166,7 @@ class NativeWorld:
                 if pc==0xd73c:
                     pos=r[R.IYh]*256+r[R.IYl];kind=r[R.A];size=3 if kind<128 or kind in (0x90,0xe0,0xf0) else 1
                     if pos+size>0x5be1:raise RuntimeError('The original token buffer is full.')
+                screen.observe(m,r,R)
                 self.sim.opcodes[m[pc]]()
         except (RuntimeError,IndexError,ValueError) as exc:
             failed_pc=f'{r[R.PC]:04X}';failed_clock=self.clock()

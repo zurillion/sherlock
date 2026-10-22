@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "checks": [
+    "Cached opening packets match a fresh native boot",
+    "Web packets preserve original order: WAIT",
+    "Web packets preserve original order: WAIT",
+    "Web packets preserve original order: OPEN DOR",
+    "Web packets preserve original order: LOOK",
+    "Web packets preserve original order: LOOK. LOOK",
+    "Web packets preserve original order: PICK THE NOTE UP",
+    "Web packets preserve original order: EXAMINE ARMCHAIR",
+    "Web packets preserve original order: YOUR",
+    "Web packets preserve original order: WAIT",
+    "Web packets preserve original order: WAIT",
+    "Streaming minute batches neither discard nor duplicate presentation packets",
+    "WAIT UNTIL still reaches 08:10 minute by minute",
+    "First map visit retains its picture request even with a short native scene"
+  ],
+  "clock_frames": [
+    "Mon 08:01am",
+    "Mon 08:02am",
+    "Mon 08:03am",
+    "Mon 08:04am",
+    "Mon 08:05am",
+    "Mon 08:06am",
+    "Mon 08:07am",
+    "Mon 08:08am",
+    "Mon 08:09am",
+    "Mon 08:10am"
+  ]
+}

@@ -113,3 +113,7 @@ python3 -B sherlock-analisi/locazioni/verify_wait_endgame.py
 Scrive `results/wait-endgame-verification.json`. Le modifiche sono spiegate in `ATTESE-E-FINE-PARTITA.md`. Nella pagina prova `WAIT` e `WAIT UNTIL 8:10AM`: l’orologio si aggiorna ogni minuto. Durante WAIT UNTIL premi Invio o Interrompi per fermarti; davanti al MORE il tasto serve solo a continuare la lettura.
 
 Il saluto iniziale e la sua impaginazione sono documentati in `AVVIO-E-SALUTO-WATSON.md`; `verify_opening.py` rigenera `results/opening-verification.json`.
+
+## Scrolling e MORE originali
+
+[SCROLLING-WEB.md](SCROLLING-WEB.md) descrive il flusso `screen_events`, la cattura prima del word wrap in `native_screen.py` e le prove contro il renderer Z80. Rigenerare prima `verify_paging.py`, poi eseguire `node verify_paging.cjs`: i confronti includono anche i punti precisi di arresto e le schermate complete.

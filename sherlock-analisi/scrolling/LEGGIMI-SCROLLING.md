@@ -122,13 +122,13 @@ In modo largo copia 32 byte per riga pixel, cioè 256 pixel; sposta inoltre 17 r
 
 Il tasto MORE è consumato dalla routine d’attesa. Non è un nuovo comando, non passa dal parser e non incrementa il tempo del mondo. Nelle prove vengono osservati il valore nativo `$F8` dell’attributo durante la pausa e il passaggio successivo al modo largo.
 
-## Conseguenze per il prototipo web
+## Limiti del prototipo al momento dell’analisi
 
-Il renderer JavaScript attuale usa una disponibilità di scroll ricavata dall’altezza di 18 righe (`scrollAllowance`), concede 18 scroll dopo MORE e applica la pausa quando perderebbe una riga. **Questa regola non è quella originale.** Inoltre l’uscita ricevuta viene normalizzata e privata dei CR iniziali/finali; il separatore vuoto è aggiunto dalla presentazione.
+Il renderer JavaScript esaminato in questa analisi usava una disponibilità di scroll ricavata dall’altezza di 18 righe (`scrollAllowance`), concedeva 18 scroll dopo MORE e applicava la pausa quando perderebbe una riga. **Questa regola non è quella originale.** Inoltre l’uscita ricevuta viene normalizzata e privata dei CR iniziali/finali; il separatore vuoto è aggiunto dalla presentazione.
 
 Per allinearlo occorre rappresentare il contatore `$A019` e i suoi azzeramenti, conservare i CR realmente emessi e distinguere pausa, avanzamento pendente e copia fisica. Vanno inclusi gli avanzamenti automatici a esaurimento delle colonne e il passaggio 18→36. Il criterio non può dipendere dal solo numero di righe occupate né da un generico “fine comando”.
 
-Questa consegna contiene l’analisi e gli strumenti di riferimento. Non modifica ancora la politica di paginazione della pagina: le tracce costituiscono le prove con cui verificarne la successiva correzione.
+La consegna originaria conteneva l’analisi e gli strumenti di riferimento. Le tracce sono state poi usate per correggere e verificare la pagina, come indicato nella sezione finale di questo documento.
 
 ## File e verifiche
 
@@ -140,3 +140,7 @@ Questa consegna contiene l’analisi e gli strumenti di riferimento. Non modific
 - `results/boot-more-01.png`: prima pausa nativa, prima dell’a capo finale del saluto.
 
 Le fixture che impostano un contatore, un modo video o una bitmap di prova sono dichiarate e separate dalle esecuzioni di gameplay. Non vengono alterate le istruzioni Z80 del gioco. I tasti vengono forniti ai punti d’ingresso della tastiera; per il timeout vengono eseguiti ROM e interrupt con la sola accelerazione delle ripetizioni HALT già verificata nell’analisi del main loop.
+
+## Integrazione successiva nella pagina
+
+La regola analizzata qui è ora implementata nel terminale web, inclusi gli azzeramenti del parser e la preparazione delle figure. Vedere [SCROLLING-WEB.md](../locazioni/SCROLLING-WEB.md) per il protocollo e i confronti automatici delle schermate JavaScript con il renderer Z80. Le tracce di questo dossier restano il riferimento originale indipendente.

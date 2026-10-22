@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "startup pattern only",
+      "clock": "",
+      "counter": 0,
+      "upper_blank": true,
+      "lower_blank": true,
+      "waiting": "startup"
+    },
+    {
+      "check": "first MORE after Watson greeting",
+      "clock": "Mon 08:00am",
+      "counter": 15,
+      "scrolls": 15,
+      "empty_top_rows": 3,
+      "nonempty_rows": 15,
+      "lower_blank": true,
+      "waiting": "more"
+    },
+    {
+      "check": "acknowledge pending final CR",
+      "clock": "Mon 08:00am",
+      "counter": 0,
+      "scrolls": 16,
+      "prompt": "> +"
+    },
+    {
+      "check": "LOOK. LOOK shares counter and pauses during second LOOK",
+      "counter": 15,
+      "scrolls": 31,
+      "clock": "Mon 08:01am",
+      "waiting": "more"
+    },
+    {
+      "check": "second LOOK completes after MORE",
+      "clock": "Mon 08:02am",
+      "counter": 12,
+      "processing": false
+    },
+    {
+      "check": "deployed server first MORE",
+      "origin": "http://localhost:8766/",
+      "counter": 15,
+      "scrolls": 15,
+      "clock": "Mon 08:00am"
+    },
+    {
+      "check": "first map visit with short scene keeps SVG request",
+      "room": 74,
+      "columns": 18,
+      "counter": 2,
+      "picture": 74,
+      "mode": "svg",
+      "clock": "Mon 08:00am"
+    },
+    {
+      "check": "switch to original raster preserves counter and columns",
+      "room": 74,
+      "columns": 18,
+      "counter": 2,
+      "picture": 74,
+      "mode": "pixel"
+    },
+    {
+      "check": "LOOK redraws illustrated scene with original CRs",
+      "room": 74,
+      "columns": 18,
+      "counter": 4,
+      "clock": "Mon 08:01am",
+      "processing": false
+    }
+  ],
+  "screenshot": "scrolling-web-first-more.png"
+}

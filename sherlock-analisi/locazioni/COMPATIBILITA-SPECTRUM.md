@@ -23,9 +23,15 @@ L’orologio comincia a x=16 pixel virtuali, con passo di sette pixel. Una cella
 
 L’uscita superiore viene composta per parole, con intervallo di presentazione di circa 32,5 ms (il doppio della velocità precedente). Le parole che non entrano nella riga passano alla successiva. Le sequenze più lunghe della riga vengono spezzate per garantire che il testo avanzi sempre.
 
-Alla fine dell’uscita superiore di ciascun comando viene aggiunta una riga vuota, che separa la risposta da quella successiva. I diversi messaggi dello stesso comando rimangono consecutivi; un errore scritto solo nella zona inferiore non modifica il testo superiore. Anche la riga vuota finale rispetta la pausa MORE e non fa avanzare l’orologio.
+Gli a capo ora provengono dal flusso originale, compresi quelli iniziali, finali e le righe vuote. Il completamento di una richiesta HTTP o di un comando non aggiunge separatori. Errori e domande scritti solo nella zona inferiore non scorrono il testo superiore.
 
-La regola attuale del renderer web è la seguente: prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. L’ultima cella 8×8 della barra di stato (x=248, y=144) lampeggia invertendo il bianco e il nero del motivo già disegnato; nella fase spenta torna visibile il motivo originale. Non viene sostituita con un riquadro pieno. Questo indicatore compare solo per MORE, mai nella pausa iniziale. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
+Il renderer riproduce `$A019/$C2CA`: prima di ogni avanzamento controlla se il contatore è **15**. In quel caso si ferma **prima** dello scroll, anche se rimangono righe vuote nella finestra fisica di 18 righe. Dopo il tasto MORE l’avanzamento pendente lascia il contatore a **0**, non a 1. Senza azzeramenti intermedi le pause precedono gli avanzamenti 16, 32, 48 e così via. Contano sia CR espliciti sia word wrap e raggiungimento esatto dell’ultima colonna: una parola di 36 caratteri scorre subito, e un CR successivo conta ancora.
+
+Il contatore è condiviso dai messaggi e dagli attori. La tokenizzazione a `$D71A` lo azzera dopo il controllo lessicale: un errore di parola sconosciuta non lo azzera, mentre una riga riconosciuta lo fa anche se poi produce un errore sintattico o una domanda. `LOOK. LOOK` condivide un solo azzeramento. Il passaggio a 36 colonne tramite `$C142` ripristina il cursore ma non azzera il contatore.
+
+All’avvio, il CR iniziale conta già come primo avanzamento. La prima pausa cade dopo le 13 righe della descrizione e le due del saluto di Watson, con **tre righe vuote in alto**, prima del CR finale. Un tasto esegue quel CR: compare la riga vuota in basso e poi il prompt. L’area inferiore resta vuota durante questa prima lettura. L’orologio rimane alle 08:00am secondo la scelta gratuita dell’esploratore.
+
+L’ultima cella 8×8 della barra di stato (x=248, y=144) lampeggia invertendo il bianco e il nero del motivo già disegnato. Non viene sostituita con un riquadro pieno. L’indicatore compare solo per MORE, mai nella pausa iniziale. **Un tasto qualsiasi** o un clic sul video riprende l’uscita. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
 
 La pausa e la velocità di scrittura sono gestite dalla presentazione JavaScript. L’orologio riceve i valori dal motore esistente e non avanza per i timer grafici né per il tasto MORE. Durante l’uscita non si possono inviare altri comandi. Disattivare la modalità sblocca un eventuale MORE pendente e restituisce la normale interfaccia.
 
@@ -50,7 +56,7 @@ Il selettore offre:
 
 La grafica viene collocata a destra, alla coordinata virtuale x=128, conservando proporzioni e scala del disegno originale. È limitata alle 18 righe superiori richieste: dei 176 pixel di altezza sono inizialmente visibili i primi 144; la composizione principale dei disegni è nei primi 128. La barra e i comandi rimangono nelle proprie righe.
 
-Il testo accanto alla figura usa 18 colonne a sinistra, come nel gestore grafico originale. Dopo il MORE passa a 36 colonne; la figura scorre insieme al contenuto precedente. Cambiando locazione viene rimossa l’immagine precedente; gli eventi di primo ingresso e LOOK forniti dal server decidono quando mostrarne una nuova.
+Quando `$A277` richiede una figura disponibile e le immagini sono abilitate, si riproduce la preparazione originale: 18 CR, azzeramento dopo ciascuno (`$A296`), poi modalità a 18 colonne con contatore zero (`$C129`). Anche il primo di questi CR può chiedere MORE se il contatore in ingresso è 15. Il disegno viene mostrato dopo la pulizia. Il testo usa 18 colonne a sinistra; MORE passa a 36 **prima** dello scroll pendente. Anche il parser può ripristinare la larghezza piena. La figura scorre insieme al contenuto precedente quando lo scroll è largo; la sola modifica del luogo nella mappa non cancella in anticipo la presentazione ancora da leggere. Con immagini disabilitate non si eseguono pulizia né restringimento.
 
 L’interruttore **Immagini** mostra/nasconde anche la grafica della modalità compatibilità. Le scelte SVG/raster e 2×/3× vengono ricordate. Il pannello contiene tutta la larghezza del video e della cornice, anche a 3×. Le due colonne non hanno più larghezza obbligatoriamente uguale: la colonna del gioco rispetta la dimensione effettiva del terminale e il contenitore principale può arrivare a 1900 pixel. Con 3× e meno di 1324 pixel disponibili nella finestra, la mappa passa sotto al gioco; con 2× rimane il passaggio a colonna unica sotto i 1150 pixel. Non c’è uno scorrimento orizzontale interno al riquadro. Se la finestra del browser è fisicamente più stretta dei 768 pixel del video 3×, l’intera pagina deve comunque poter scorrere: per vedere tutto insieme occorre allargare il browser oppure usare 2×. La griglia e la dimensione scelta dei caratteri non vengono ridotte automaticamente.
 
@@ -58,7 +64,10 @@ L’interruttore **Immagini** mostra/nasconde anche la grafica della modalità c
 
 | File | Funzione |
 |---|---|
-| `spectrum.js` | Griglia, coda di scrittura, MORE, editor limitato e disegno del terminale. |
+| `spectrum.js` | Formatter A9B7/AA14, griglia e contatore C2CA, coda, MORE, editor e disegno. |
+| `native_screen.py` | Cattura parole prima del word wrap e controlli del renderer; ricostruisce l’apertura in una VM separata, con cache. |
+| `verify_paging.py` | Confronta il ponte web con il gioco Z80 e produce le tracce indipendenti per JavaScript. |
+| `verify_paging.cjs` | Confronta schermate, punti MORE, colonne residue e contatori del browser con quelle tracce. |
 | `explorer-ui.js` | Interfaccia e collegamento al server; comprende mappa e modalità normale. |
 | `build_compat_assets.py` | Estrae font/striscia, include i raster esistenti e compone il file servito. |
 | `spectrum-assets.json` | Asset estratti, hash delle fonti e PNG originali incorporati. |
@@ -76,15 +85,17 @@ Dalla cartella Sherlock rebuild:
 python3 -B sherlock-analisi/locazioni/build_compat_assets.py
 node sherlock-analisi/locazioni/verify_compatibility.cjs
 node sherlock-analisi/locazioni/verify_terminal.cjs
+python3 -B sherlock-analisi/locazioni/verify_paging.py
+node sherlock-analisi/locazioni/verify_paging.cjs
 python3 -B sherlock-analisi/locazioni/verify_restart.py
 ```
 
 Dopo modifiche statiche, ricaricare la pagina. Entrare nella modalità ricompone la descrizione della locazione corrente; la scelta della modalità non esegue LOOK né aggiunge il suo costo temporale.
 
-Le verifiche automatiche coprono impaginazione, progresso delle parole lunghe, pausa prima di perdere righe, ripresa, consumo del tasto MORE, cancellazione della coda al cambio di modalità, tastiera limitata, zona inferiore e dimensioni dei 14 raster. Le prove nel browser controllano anche griglia effettiva, orologio, continuation, SVG/raster e proporzioni del video.
+Le verifiche automatiche confrontano l’impaginazione con il renderer Z80: avvio, comandi singoli e multipli, errori lessicali/sintattici, disambiguazione, testo degli NPC e modalità stretta che diventa larga durante MORE. Coprono inoltre ultima colonna, ripresa, consumo del tasto, cancellazione della coda, tastiera, zona inferiore e dimensioni dei 14 raster. Le prove nel browser controllano anche griglia effettiva, orologio, continuation, SVG/raster e proporzioni del video.
 
-Questa è una presentazione compatibile con le richieste di griglia e interazione. La cadenza delle parole e la paginazione non sono una simulazione dei cicli della CPU o del video Spectrum. Il motore Python esistente continua a determinare azioni, risposte e tempo.
+Questa è una presentazione compatibile con le richieste di griglia e interazione. La paginazione segue le routine originali; la cadenza delle parole resta un timer di presentazione e non simula i cicli della CPU o del video Spectrum. Il motore Python esistente continua a determinare azioni, risposte e tempo.
 
 ## Confronto con la paginazione originale
 
-L’analisi nativa successiva in [Scorrimento e MORE](../scrolling/LEGGIMI-SCROLLING.md) ha verificato una regola diversa: `$A019` conta gli avanzamenti di riga e richiede MORE quando è 15, prima di quello successivo. Il parser e la modalità grafica hanno azzeramenti propri. La disponibilità di scroll basata sulle 18 righe, descritta sopra, è ancora il comportamento del prototipo e deve essere allineata a quelle tracce per riprodurre la paginazione originale. Questa fase di analisi non modifica il renderer web.
+L’analisi in [Scorrimento e MORE](../scrolling/LEGGIMI-SCROLLING.md) è ora integrata nella pagina. Dettagli del protocollo e delle verifiche in [SCROLLING-WEB.md](SCROLLING-WEB.md).

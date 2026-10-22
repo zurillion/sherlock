@@ -35,7 +35,7 @@ def main():
                 token,game=self.game()
                 if game.command_job is None and not game.world.ended:
                     scene=game.world.scene(full=not game.world.call(0xd078)['carry'])
-                    game.initial=scene['text'];game.last_listed=scene['listed']
+                    game.initial=scene['text'];game.initial_screen=scene['screen_events'];game.last_listed=scene['listed']
                 return self.reply(200,game.state(),cookie=token)
             files={'/':('index.html','text/html; charset=utf-8'),'/index.html':('index.html','text/html; charset=utf-8'),'/style.css':('style.css','text/css; charset=utf-8'),'/app.js':('app.js','text/javascript; charset=utf-8')}
             if path not in files:return self.reply(404,{'error':'Not found'})
@@ -57,7 +57,7 @@ def main():
                     result=game.continue_command(body.get('job'),body.get('interrupt') is True)
                 elif self.path=='/api/teleport':result=game.teleport(body.get('room'))
                 elif self.path=='/api/reset':
-                    game=Game(a.project,data);sessions[token]=game;result=game.result([{'kind':'narrative','text':game.opening,'image_room':game.world.room}])
+                    game=Game(a.project,data);sessions[token]=game;result=game.result([{'kind':'narrative','text':game.opening,'screen_events':game.opening_screen,'image_room':game.world.room}])
                 else:return self.reply(404,{'error':'Not found'})
                 self.reply(200,result,cookie=token)
             except (ValueError,TypeError) as exc:self.reply(400,{'error':str(exc)})

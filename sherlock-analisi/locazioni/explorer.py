@@ -1,5 +1,6 @@
 """Esploratore con parser, azioni e scheduler degli attori originali."""
 from native_world import NativeWorld,word
+from native_screen import opening_screen
 import secrets
 
 def perceived(m,ident,actor=None):
@@ -41,12 +42,12 @@ class Game:
         self.command_job=None;self.job_id=None;self.cached_state=None
         self.rooms={x['id']:x for x in data['rooms']};self.entities={x['id']:x for x in data['entities']}
         self.explored={8};self.last_listed=[];self.last_analysis=None;self.ending_messages=[]
-        scene=self.world.scene();self.last_listed=scene['listed'];self.initial=scene['text']
+        scene=self.world.scene();self.last_listed=scene['listed'];self.initial=scene['text'];self.initial_screen=scene['screen_events']
         # The first-prompt snapshot has already executed Watson's opening line.
         # Restore that lost presentation, without running his turn/counter twice.
         greeting=self.parser.audit.decoder.render(word(self.world.m,0xe730))
         if self.world.m[0xe72f]!=6 or greeting['unresolved']:raise ValueError('Unsupported Watson opening bytecode')
-        self.opening=self.initial+'\n'+greeting['text'].strip();self.opening_pending=True
+        self.opening=self.initial+'\n'+greeting['text'].strip();self.opening_pending=True;self.opening_screen=list(opening_screen(str(self.world.project.resolve())))
     def characters(self):
         """Posizioni vive dei personaggi; le identita alternative di Holmes sono un solo segnaposto."""
         m=self.world.m;player=self.world.player_id;characters=[]
@@ -73,7 +74,7 @@ class Game:
             gate=edge['gate'];p=int(self.entities[gate]['record'],16) if gate else None
             status='senza destinazione' if not edge['target'] else 'libera' if not gate else 'aperta / attraversabile' if m[p+5]&40 else 'chiusa / ostacolo'
             exits.append({**edge,'target_name':self.rooms[edge['target']]['name_hint'],'status':status})
-        state={'characters':self.characters(),'player_id':w.player_id,'room':w.room,'name':room['name_hint'],'clock':w.clock(),'visited':sorted(self.explored),'native_seen':[i for i,r in self.rooms.items() if m[int(r['record'],16)]&64],'exits':exits,'objects':[{'id':i,'name':self.entities[i]['name']} for i in self.last_listed],'dark':dark,'visible':[{'id':i,'name':o['name']} for i,o in self.entities.items() if not dark and i!=w.player_id and perceived(m,i)],'initial':self.initial,'opening':self.opening if self.opening_pending else None,'analysis':self.last_analysis,'game_over':w.ended,'ending_messages':self.ending_messages,'command_running':False}
+        state={'characters':self.characters(),'player_id':w.player_id,'room':w.room,'name':room['name_hint'],'clock':w.clock(),'visited':sorted(self.explored),'native_seen':[i for i,r in self.rooms.items() if m[int(r['record'],16)]&64],'exits':exits,'objects':[{'id':i,'name':self.entities[i]['name']} for i in self.last_listed],'dark':dark,'visible':[{'id':i,'name':o['name']} for i,o in self.entities.items() if not dark and i!=w.player_id and perceived(m,i)],'initial':self.initial,'initial_screen':self.initial_screen,'opening_screen':self.opening_screen if self.opening_pending else None,'opening':self.opening if self.opening_pending else None,'analysis':self.last_analysis,'game_over':w.ended,'ending_messages':self.ending_messages,'command_running':False}
         self.cached_state=state
         return state
     def result(self,messages,**extra):return {'state':self.state(),'messages':messages,**extra}
@@ -86,7 +87,13 @@ class Game:
             self.world.call(0xd87d);self.world.call(0xd88a)
             self.world.m[0xa01b]=0;self.world.m[0xd7e0]=0;self.world.m[0xd6b8]=0
         scene=self.world.teleport(ident);self.explored.add(ident);self.last_listed=scene['listed']
-        return self.result([{'kind':'narrative','text':scene['text'],'image_room':ident if first_visit else None}])
+        # Map travel is an explorer extension. CA9E may choose the short native
+        # description even on the map's first visit; retain its picture request.
+        if first_visit and not any(e['op']=='picture' for e in scene['screen_events']):
+            display=scene['screen_events']
+            start=1 if display and display[0]['op']=='word' and not display[0]['text'] and display[0]['delimiter']=='\r' else 0
+            display.insert(start,{'op':'picture','room':ident})
+        return self.result([{'kind':'narrative','text':scene['text'],'screen_events':scene['screen_events'],'image_room':ident if first_visit else None}])
     def command(self,text):
         if self.command_job is not None:raise ValueError('A command is already running.')
         self.opening_pending=False

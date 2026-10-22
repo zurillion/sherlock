@@ -1,0 +1,5549 @@
+{
+  "source_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "fixtures": [
+    {
+      "name": "boot",
+      "packets": [
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "picture",
+          "room": 8
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sun",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "streams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "two",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "broad",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "windowS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitting",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "room.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pipe",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "rack",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "right",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sofa.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "bullet",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pock",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "markS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "are",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "feature",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "one",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wall,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "charts",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "diagrams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "fill",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "another.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "acid",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "stained",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "table",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "corner.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "west",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "north",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "plain",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "can",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "see",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "oil",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lamp,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson.",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "carryING",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "daily",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "chronicle.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lookS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "up",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "from",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "paper",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sayS",
+          "delimiter": "\"",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "good",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "mornING",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "holmes.",
+          "delimiter": "\"",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "",
+          "",
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "Watson looks up from the paper and",
+          "says \" Good morning Holmes. \"",
+          ""
+        ],
+        "counter": 0,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 2,
+        "calendar": [
+          1,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [
+        {
+          "rows": [
+            "",
+            "",
+            "",
+            "The sun streams in the two broad",
+            "windows in your sitting room. There",
+            "is a pipe rack to the right of the",
+            "sofa. Bullet pock marks are the",
+            "feature of one wall, and charts and",
+            "diagrams fill another. An acid",
+            "stained table sits in the corner. To",
+            "the west there is your door. To the",
+            "north there is a plain door. You can",
+            "see an oil lamp, your armchair and",
+            "watsons armchair. In watsons",
+            "armchair there is Watson. Watson is",
+            "carrying the daily chronicle.",
+            "Watson looks up from the paper and",
+            "says \" Good morning Holmes. \""
+          ],
+          "counter": 15,
+          "width": 36,
+          "columns_left": 7,
+          "cursor_bitmap": "5039",
+          "cursor_bits": 5,
+          "tick": 1,
+          "calendar": [
+            0,
+            8,
+            0,
+            97
+          ]
+        }
+      ],
+      "feeds": 16
+    },
+    {
+      "name": "WAIT",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wait.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "Watson looks up from the paper and",
+          "says \" Good morning Holmes. \"",
+          "",
+          "You wait.",
+          ""
+        ],
+        "counter": 2,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 6,
+        "calendar": [
+          5,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 2
+    },
+    {
+      "name": "WAIT",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wait.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "Watson looks up from the paper and",
+          "says \" Good morning Holmes. \"",
+          "",
+          "You wait.",
+          "",
+          "You wait.",
+          ""
+        ],
+        "counter": 2,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 11,
+        "calendar": [
+          10,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 2
+    },
+    {
+      "name": "OPEN DOR",
+      "packets": [],
+      "after": {
+        "rows": [
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "Watson looks up from the paper and",
+          "says \" Good morning Holmes. \"",
+          "",
+          "You wait.",
+          "",
+          "You wait.",
+          ""
+        ],
+        "counter": 2,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 11,
+        "calendar": [
+          10,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 0
+    },
+    {
+      "name": "LOOK",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "picture",
+          "room": 8
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sun",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "streams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "two",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "broad",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "windowS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitting",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "room.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pipe",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "rack",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "right",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sofa.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "bullet",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pock",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "markS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "are",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "feature",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "one",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wall,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "charts",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "diagrams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "fill",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "another.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "acid",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "stained",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "table",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "corner.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "west",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "north",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "plain",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "can",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "see",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "oil",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lamp,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson.",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "carryING",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "daily",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "chronicle.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "You wait.",
+          "",
+          "You wait.",
+          "",
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          ""
+        ],
+        "counter": 14,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 12,
+        "calendar": [
+          11,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 14
+    },
+    {
+      "name": "LOOK. LOOK",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "picture",
+          "room": 8
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sun",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "streams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "two",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "broad",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "windowS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitting",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "room.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pipe",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "rack",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "right",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sofa.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "bullet",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pock",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "markS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "are",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "feature",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "one",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wall,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "charts",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "diagrams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "fill",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "another.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "acid",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "stained",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "table",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "corner.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "west",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "north",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "plain",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "can",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "see",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "oil",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lamp,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson.",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "carryING",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "daily",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "chronicle.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "picture",
+          "room": 8
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sun",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "streams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "two",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "broad",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "windowS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitting",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "room.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pipe",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "rack",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "right",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sofa.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "bullet",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "pock",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "markS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "are",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "feature",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "one",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wall,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "charts",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "diagrams",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "fill",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "another.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "acid",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "stained",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "table",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sitS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "corner.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "west",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "north",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "plain",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "door.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "can",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "see",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "oil",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lamp,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watsons",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "there",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson.",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "carryING",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "daily",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "chronicle.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "",
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          ""
+        ],
+        "counter": 12,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 14,
+        "calendar": [
+          13,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [
+        {
+          "rows": [
+            "armchair there is Watson. Watson is",
+            "carrying the daily chronicle.",
+            "",
+            "The sun streams in the two broad",
+            "windows in your sitting room. There",
+            "is a pipe rack to the right of the",
+            "sofa. Bullet pock marks are the",
+            "feature of one wall, and charts and",
+            "diagrams fill another. An acid",
+            "stained table sits in the corner. To",
+            "the west there is your door. To the",
+            "north there is a plain door. You can",
+            "see an oil lamp, your armchair and",
+            "watsons armchair. In watsons",
+            "armchair there is Watson. Watson is",
+            "carrying the daily chronicle.",
+            "",
+            "The sun streams in the two broad"
+          ],
+          "counter": 15,
+          "width": 36,
+          "columns_left": 3,
+          "cursor_bitmap": "503D",
+          "cursor_bits": 1,
+          "tick": 13,
+          "calendar": [
+            12,
+            8,
+            0,
+            97
+          ]
+        }
+      ],
+      "feeds": 28
+    },
+    {
+      "name": "PICK THE NOTE UP",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        }
+      ],
+      "after": {
+        "rows": [
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "",
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          ""
+        ],
+        "counter": 0,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 14,
+        "calendar": [
+          13,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 0
+    },
+    {
+      "name": "EXAMINE ARMCHAIR",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        }
+      ],
+      "after": {
+        "rows": [
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "",
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          ""
+        ],
+        "counter": 0,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 14,
+        "calendar": [
+          13,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 0
+    },
+    {
+      "name": "YOUR",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "examine",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "see",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "your",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "armchair.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "",
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "",
+          "You examine your armchair.",
+          "You see your armchair.",
+          ""
+        ],
+        "counter": 3,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 15,
+        "calendar": [
+          14,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 3
+    },
+    {
+      "name": "WAIT",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wait.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "with",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "excited",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "look",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "on",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "his",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "face",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "sayS",
+          "delimiter": "\"",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "well",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "here",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "is",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "case",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "that",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "may",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "interest",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "it",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "seemS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "that",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "two",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "close",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "friendS,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "mrs",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "brown",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "a",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "mrs",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "jones,",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "were",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "murderED",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "last",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "night",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "separate",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "incidentS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "although",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "apparentLY",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "with",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "same",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "weapon.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "crimeS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "occurred",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "at",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "their",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "respective",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "homes",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "township",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "leather",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "head",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "because",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lack",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "of",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "murder",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "weapon",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "apparent",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "motive,",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "local",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "police",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "are",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "completely",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "baffled.",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "they",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "have",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "callED",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "upon",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "scotland",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "yard",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "for",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "assistance",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "it",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "appearS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "that",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "fameD",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "detective",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "inspector",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "giles",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "lestrade",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "has",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "taken",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "an",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "interest",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "in",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "case",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "and",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "will",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "be",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "goING",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "the",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "scene",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "thiS",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "mornING.",
+          "delimiter": "\"",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "Watson says \" Well here is a case",
+          "that may interest you, it seems that",
+          "two close friends, a Mrs Brown and a",
+          "Mrs Jones, were murdered last night",
+          "in separate incidents although",
+          "apparently with the same weapon. The",
+          "crimes occurred at their respective",
+          "homes in the township of Leather",
+          "Head and, because of the lack of",
+          "murder weapon and apparent motive,",
+          "the local police are completely",
+          "baffled. They have called upon",
+          "Scotland Yard for assistance and it",
+          "appears that the famed detective",
+          "Inspector Giles Lestrade has taken",
+          "an interest in the case and will be",
+          "going to the scene this morning. \"",
+          ""
+        ],
+        "counter": 4,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 20,
+        "calendar": [
+          19,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [
+        {
+          "rows": [
+            "You examine your armchair.",
+            "You see your armchair.",
+            "",
+            "You wait.",
+            "With an excited look on his face",
+            "Watson says \" Well here is a case",
+            "that may interest you, it seems that",
+            "two close friends, a Mrs Brown and a",
+            "Mrs Jones, were murdered last night",
+            "in separate incidents although",
+            "apparently with the same weapon. The",
+            "crimes occurred at their respective",
+            "homes in the township of Leather",
+            "Head and, because of the lack of",
+            "murder weapon and apparent motive,",
+            "the local police are completely",
+            "baffled. They have called upon",
+            "Scotland Yard for assistance and it"
+          ],
+          "counter": 15,
+          "width": 36,
+          "columns_left": 1,
+          "cursor_bitmap": "503E",
+          "cursor_bits": 7,
+          "tick": 16,
+          "calendar": [
+            15,
+            8,
+            0,
+            97
+          ]
+        }
+      ],
+      "feeds": 20
+    },
+    {
+      "name": "WAIT",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wait.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "two close friends, a Mrs Brown and a",
+          "Mrs Jones, were murdered last night",
+          "in separate incidents although",
+          "apparently with the same weapon. The",
+          "crimes occurred at their respective",
+          "homes in the township of Leather",
+          "Head and, because of the lack of",
+          "murder weapon and apparent motive,",
+          "the local police are completely",
+          "baffled. They have called upon",
+          "Scotland Yard for assistance and it",
+          "appears that the famed detective",
+          "Inspector Giles Lestrade has taken",
+          "an interest in the case and will be",
+          "going to the scene this morning. \"",
+          "",
+          "You wait.",
+          ""
+        ],
+        "counter": 2,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 25,
+        "calendar": [
+          24,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 2
+    }
+  ],
+  "narrow_fixture": {
+    "name": "illustrated formatter",
+    "packets": [
+      {
+        "op": "narrow"
+      },
+      {
+        "op": "word",
+        "text": "The",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "narrow",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "window",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "has",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "eighteen",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "columns.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Exactwidthwordhere",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Watson",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "says",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Good",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "morning",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "Holmes.",
+        "delimiter": " ",
+        "capitalize": false,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\"",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": " ",
+        "capitalize": true,
+        "force": false
+      },
+      {
+        "op": "word",
+        "text": "",
+        "delimiter": "\r",
+        "capitalize": true,
+        "force": false
+      }
+    ],
+    "after": {
+      "rows": [
+        "morning holmes.  \" Watson says  \"",
+        "Good morning holmes.  \" Watson says",
+        " \" Good morning holmes.  \" Watson",
+        "says  \" Good morning holmes.  \"",
+        "Watson says  \" Good morning holmes.",
+        " \" Watson says  \" Good morning",
+        "holmes.  \" Watson says  \" Good",
+        "morning holmes.  \" Watson says  \"",
+        "Good morning holmes.  \" Watson says",
+        " \" Good morning holmes.  \" Watson",
+        "says  \" Good morning holmes.  \"",
+        "Watson says  \" Good morning holmes.",
+        " \" Watson says  \" Good morning",
+        "holmes.  \" Watson says  \" Good",
+        "morning holmes.  \" Watson says  \"",
+        "Good morning holmes.  \" Watson says",
+        " \" Good morning holmes.  \"",
+        ""
+      ],
+      "counter": 2,
+      "width": 36,
+      "columns_left": 36,
+      "cursor_bitmap": "5020",
+      "cursor_bits": 2,
+      "tick": 2,
+      "calendar": [
+        1,
+        8,
+        0,
+        97
+      ]
+    },
+    "pages": [
+      {
+        "rows": [
+          "",
+          "",
+          "The narrow window",
+          "has eighteen",
+          "columns.",
+          "Exactwidthwordhere",
+          " watson says  \"",
+          "Good morning",
+          "holmes.  \" Watson",
+          "says  \" Good",
+          "morning holmes.  \"",
+          " Watson says  \"",
+          "Good morning",
+          "holmes.  \" Watson",
+          "says  \" Good",
+          "morning holmes.  \"",
+          " Watson says  \"",
+          "Good morning"
+        ],
+        "counter": 15,
+        "width": 18,
+        "columns_left": 5,
+        "cursor_bitmap": "502B",
+        "cursor_bits": 5,
+        "tick": 2,
+        "calendar": [
+          1,
+          8,
+          0,
+          97
+        ]
+      },
+      {
+        "rows": [
+          " Watson says  \"",
+          "Good morning",
+          "holmes.  \" Watson says  \" Good",
+          "morning holmes.  \" Watson says  \"",
+          "Good morning holmes.  \" Watson says",
+          " \" Good morning holmes.  \" Watson",
+          "says  \" Good morning holmes.  \"",
+          "Watson says  \" Good morning holmes.",
+          " \" Watson says  \" Good morning",
+          "holmes.  \" Watson says  \" Good",
+          "morning holmes.  \" Watson says  \"",
+          "Good morning holmes.  \" Watson says",
+          " \" Good morning holmes.  \" Watson",
+          "says  \" Good morning holmes.  \"",
+          "Watson says  \" Good morning holmes.",
+          " \" Watson says  \" Good morning",
+          "holmes.  \" Watson says  \" Good",
+          "morning holmes.  \" Watson says  \""
+        ],
+        "counter": 15,
+        "width": 36,
+        "columns_left": 2,
+        "cursor_bitmap": "503E",
+        "cursor_bits": 0,
+        "tick": 2,
+        "calendar": [
+          1,
+          8,
+          0,
+          97
+        ]
+      }
+    ],
+    "feeds": 34
+  }
+}
