@@ -1,0 +1,530 @@
+{
+  "scope": "Static location rendering, without NPC scripts or proof of all dynamic states",
+  "rooms": [
+    {
+      "room": 1,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 2,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 3,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 4,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 5,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 6,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 7,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 8,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 9,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 10,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 11,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 12,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 13,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 14,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 15,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 16,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 17,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 18,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 19,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 20,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 21,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 22,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 23,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 24,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 25,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 26,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 27,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 28,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 29,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 30,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 31,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 32,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 33,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 34,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 35,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 36,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 37,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 38,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 39,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 40,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 41,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 42,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 43,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 44,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 45,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 46,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 47,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 48,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 49,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 50,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 51,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 52,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 53,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 54,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 55,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 56,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 57,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 58,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 59,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 60,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 61,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 62,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 63,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 64,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 65,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 66,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 67,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 68,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 69,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 70,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 71,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 72,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 73,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 74,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 75,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 76,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 77,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 78,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 79,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 80,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 81,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 82,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 83,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 84,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 85,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 86,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 87,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 88,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 89,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 90,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 91,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 92,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 93,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 94,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 95,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 96,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 97,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 98,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 99,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 100,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 101,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 102,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 103,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 104,
+      "translated": true,
+      "diagnostics": []
+    },
+    {
+      "room": 105,
+      "translated": true,
+      "diagnostics": []
+    }
+  ]
+}

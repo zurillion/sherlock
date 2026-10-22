@@ -1,0 +1,6399 @@
+[
+  {
+    "commands": [
+      {
+        "input": "LOOK",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "",
+            "image_room": 8,
+            "screen_events": []
+          },
+          {
+            "kind": "narrative",
+            "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+            "screen_events": [
+              {
+                "op": "picture",
+                "room": 8
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sun",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "streams",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "two",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "broad",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "windowS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sitting",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "room.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "pipe",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "rack",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "right",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "of",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sofa.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "bullet",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "pock",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "markS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "feature",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "of",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "one",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "wall,",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "charts",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "diagrams",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "fill",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "another.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "acid",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "stained",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "table",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sitS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "corner.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "west",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "north",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "plain",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "can",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "see",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp,",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson.",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "carryING",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "daily",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "chronicle.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "LOOK",
+          "normalised": "LOOK",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "23 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0523",
+                    "offset": "0523",
+                    "word": "look",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "OPEN DOOR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "WHICH DOOR ?",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "OPEN DOOR",
+          "normalised": "OPEN DOOR",
+          "outcome": "clarification",
+          "continuation_slot": 8,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      },
+      {
+        "input": "YOUR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You open your door.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "open",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "YOUR",
+          "normalised": "YOUR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "09F2",
+                          "offset": "09F2",
+                          "word": "your",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      },
+      {
+        "input": "OPEN YOUR DOOR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOUR DOOR IS OPEN",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "OPEN YOUR DOOR",
+          "normalised": "OPEN YOUR DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "09F2",
+                          "offset": "09F2",
+                          "word": "your",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      },
+      {
+        "input": "CLOSE YOUR DOOR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You close your door.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "close",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "CLOSE YOUR DOOR",
+          "normalised": "CLOSE YOUR DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "b7 01 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "01B7",
+                    "offset": "01B7",
+                    "word": "close",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "09F2",
+                          "offset": "09F2",
+                          "word": "your",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 14,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 3,
+          "due": 3,
+          "minute": 2,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:02am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "WEST",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOU CANNOT GO WEST.",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "WEST",
+          "normalised": "WEST",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "92 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0992",
+                    "offset": "0992",
+                    "word": "west",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "TAKE ARMCHAIR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "I SEE NO ARMCHAIR THAT YOU CAN TAKE",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "TAKE ARMCHAIR",
+          "normalised": "TAKE ARMCHAIR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "87 08 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0887",
+                    "offset": "0887",
+                    "word": "take",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "007E",
+                        "offset": "007E",
+                        "word": "armchair",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "TAKE LAMP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You take the oil lamp.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "take",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "TAKE LAMP",
+          "normalised": "TAKE LAMP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "87 08 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0887",
+                    "offset": "0887",
+                    "word": "take",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 41,
+              "arguments": [
+                22,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      },
+      {
+        "input": "INVENTORY",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You are carrying an oil lamp and your money.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "carryING",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "money.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "INVENTORY",
+          "normalised": "INVENTORY",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "7a 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "047A",
+                    "offset": "047A",
+                    "word": "inventory",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 33,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 3,
+          "due": 3,
+          "minute": 2,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:02am"
+        },
+        "room": 8
+      },
+      {
+        "input": "GIVE LAMP TO WATSON",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You give the oil lamp to Watson.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "give",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson.",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "GIVE LAMP TO WATSON",
+          "normalised": "GIVE LAMP TO WATSON",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "89 03 00 00 00 00 00 00 b9 04 00 00 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0389",
+                    "offset": "0389",
+                    "word": "give",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [
+                        {
+                          "raw": "08DB",
+                          "offset": "08DB",
+                          "word": "to",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "0971",
+                        "offset": "0971",
+                        "word": "watson",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 26,
+              "arguments": [
+                22,
+                3
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 4,
+          "due": 4,
+          "minute": 3,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:03am"
+        },
+        "room": 8
+      },
+      {
+        "input": "TAKE LAMP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOU CANNOT TAKE THE OIL LAMP.",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "TAKE LAMP",
+          "normalised": "TAKE LAMP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "87 08 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0887",
+                    "offset": "0887",
+                    "word": "take",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 41,
+              "arguments": [
+                22,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 4,
+          "due": 4,
+          "minute": 3,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:03am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "GIVE LAMP TO WATSON",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOU CANNOT GIVE THE LAMP",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "GIVE LAMP TO WATSON",
+          "normalised": "GIVE LAMP TO WATSON",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "89 03 00 00 00 00 00 00 b9 04 00 00 00 00 db 08 00 00 71 09 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0389",
+                    "offset": "0389",
+                    "word": "give",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [
+                        {
+                          "raw": "08DB",
+                          "offset": "08DB",
+                          "word": "to",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "0971",
+                        "offset": "0971",
+                        "word": "watson",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "OPEN LAMP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOU CANNOT OPEN THE LAMP",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "OPEN LAMP",
+          "normalised": "OPEN LAMP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "EXAMINE ARMCHAIR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "WHICH ARMCHAIR ?",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "EXAMINE ARMCHAIR",
+          "normalised": "EXAMINE ARMCHAIR",
+          "outcome": "clarification",
+          "continuation_slot": 8,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "ca 02 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "02CA",
+                    "offset": "02CA",
+                    "word": "examine",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "007E",
+                        "offset": "007E",
+                        "word": "armchair",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      },
+      {
+        "input": "WATSONS",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You examine watsons armchair.\n You see watsons armchair.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "examine",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "see",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "WATSONS",
+          "normalised": "WATSONS",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "ca 02 00 00 00 00 00 00 7e 00 75 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "02CA",
+                    "offset": "02CA",
+                    "word": "examine",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "007E",
+                        "offset": "007E",
+                        "word": "armchair",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "0975",
+                          "offset": "0975",
+                          "word": "watsons",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 19,
+              "arguments": [
+                24,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "WAIT",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You wait.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "wait.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "WAIT",
+          "normalised": "WAIT",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "5e 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "095E",
+                    "offset": "095E",
+                    "word": "wait",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 6,
+          "due": 6,
+          "minute": 5,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:05am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "OPEN YOUR DOOR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You open your door.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "open",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "OPEN YOUR DOOR",
+          "normalised": "OPEN YOUR DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "09F2",
+                          "offset": "09F2",
+                          "word": "your",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      },
+      {
+        "input": "WEST",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You go west.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "go",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "west.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "",
+            "image_room": 7,
+            "screen_events": []
+          },
+          {
+            "kind": "narrative",
+            "text": "You are in a hall. To the east there is your door. Below there is the stairway.",
+            "screen_events": [
+              {
+                "op": "picture",
+                "room": 7
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "hall.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "east",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "below",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "stairway.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "WEST",
+          "normalised": "WEST",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "92 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0992",
+                    "offset": "0992",
+                    "word": "west",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 4,
+          "due": 4,
+          "minute": 3,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:03am"
+        },
+        "room": 7
+      },
+      {
+        "input": "DOWN",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You go down.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "go",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "down.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "",
+            "image_room": 6,
+            "screen_events": []
+          },
+          {
+            "kind": "narrative",
+            "text": "You are in an entrance hallway. Above there is the stairway. To the south there is the front door.",
+            "screen_events": [
+              {
+                "op": "picture",
+                "room": 6
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "entrance",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "hallway.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "above",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "stairway.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "south",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "front",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "DOWN",
+          "normalised": "DOWN",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "72 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0272",
+                    "offset": "0272",
+                    "word": "down",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 10,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 6,
+          "due": 6,
+          "minute": 5,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:05am"
+        },
+        "room": 6
+      },
+      {
+        "input": "OPEN FRONT DOOR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You open the front door.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "open",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "front",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "OPEN FRONT DOOR",
+          "normalised": "OPEN FRONT DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 6e 02 55 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "0355",
+                          "offset": "0355",
+                          "word": "front",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                19,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 7,
+          "due": 7,
+          "minute": 6,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:06am"
+        },
+        "room": 6
+      },
+      {
+        "input": "SOUTH",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You go south.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "go",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "south.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "",
+            "image_room": 5,
+            "screen_events": []
+          },
+          {
+            "kind": "narrative",
+            "text": "You are on Baker Street. To the north there is the front door.",
+            "screen_events": [
+              {
+                "op": "picture",
+                "room": 5
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "on",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "baker",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "street.",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "north",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "front",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "SOUTH",
+          "normalised": "SOUTH",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "1a 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "081A",
+                    "offset": "081A",
+                    "word": "south",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 2,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 9,
+          "due": 9,
+          "minute": 8,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:08am"
+        },
+        "room": 5
+      },
+      {
+        "input": "NORTH",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You go north.\n You are in an entrance hallway.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "go",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "north.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "entrance",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "hallway.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "NORTH",
+          "normalised": "NORTH",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "c3 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "05C3",
+                    "offset": "05C3",
+                    "word": "north",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 1,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 11,
+          "due": 11,
+          "minute": 10,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:10am"
+        },
+        "room": 6
+      },
+      {
+        "input": "UP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You go up.\n You are in a hall.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "go",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "up.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "hall.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "UP",
+          "normalised": "UP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "3c 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "093C",
+                    "offset": "093C",
+                    "word": "up",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 9,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 13,
+          "due": 13,
+          "minute": 12,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:12am"
+        },
+        "room": 7
+      },
+      {
+        "input": "EAST",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You go east.\n The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "go",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "east.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "picture",
+                "room": 8
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sun",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "streams",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "two",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "broad",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "windowS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sitting",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "room.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "pipe",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "rack",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "right",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "of",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sofa.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "bullet",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "pock",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "markS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "feature",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "of",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "one",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "wall,",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "charts",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "diagrams",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "fill",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "another.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "acid",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "stained",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "table",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sitS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "corner.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "west",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "north",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "plain",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "can",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "see",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp,",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson.",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "carryING",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "daily",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "chronicle.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "EAST",
+          "normalised": "EAST",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "84 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0284",
+                    "offset": "0284",
+                    "word": "east",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 3,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 15,
+          "due": 15,
+          "minute": 14,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:14am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "COUNT MONEY",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You count your money.\n It totals £5 4/-",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "count",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "money.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "it",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "totals",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "£5",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "4/-",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "COUNT MONEY",
+          "normalised": "COUNT MONEY",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "f7 01 00 00 00 00 00 00 75 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "01F7",
+                    "offset": "01F7",
+                    "word": "count",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "0575",
+                        "offset": "0575",
+                        "word": "money",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 15,
+              "arguments": [
+                27,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "TAKE LAMP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You take the oil lamp.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "take",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "TAKE LAMP",
+          "normalised": "TAKE LAMP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "87 08 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0887",
+                    "offset": "0887",
+                    "word": "take",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 41,
+              "arguments": [
+                22,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      },
+      {
+        "input": "DROP LAMP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "You drop the oil lamp.",
+            "screen_events": [
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "drop",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "DROP LAMP",
+          "normalised": "DROP LAMP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "7c 02 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "027C",
+                    "offset": "027C",
+                    "word": "drop",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 16,
+              "arguments": [
+                22,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 3,
+          "due": 3,
+          "minute": 2,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:02am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "TAKE MONEY",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "I SEE NO MONEY THAT YOU CAN TAKE",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "TAKE MONEY",
+          "normalised": "TAKE MONEY",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "87 08 00 00 00 00 00 00 75 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0887",
+                    "offset": "0887",
+                    "word": "take",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "0575",
+                        "offset": "0575",
+                        "word": "money",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "LOOK THROUGH YOUR DOOR",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOU CANNOT LOOK THROUGH YOUR DOOR.",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "LOOK THROUGH YOUR DOOR",
+          "normalised": "LOOK THROUGH YOUR DOOR",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "23 05 00 00 ce 08 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0523",
+                    "offset": "0523",
+                    "word": "look",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [
+                        {
+                          "raw": "08CE",
+                          "offset": "08CE",
+                          "word": "through",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "026E",
+                        "offset": "026E",
+                        "word": "door",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "09F2",
+                          "offset": "09F2",
+                          "word": "your",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 35,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "GO INTO HALL",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "YOU CANNOT GO WEST.",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "GO INTO HALL",
+          "normalised": "GO INTO HALL",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "8d 03 00 00 77 04 00 00 c2 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "038D",
+                    "offset": "038D",
+                    "word": "go",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [
+                        {
+                          "raw": "0477",
+                          "offset": "0477",
+                          "word": "into",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "03C2",
+                        "offset": "03C2",
+                        "word": "hall",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 27,
+              "arguments": [
+                7,
+                255
+              ]
+            },
+            {
+              "actor": 0,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "GO TO HALL",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "I SEE NO HALL THAT YOU CAN GO TO",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "GO TO HALL",
+          "normalised": "GO TO HALL",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "8d 03 00 00 db 08 00 00 c2 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "038D",
+                    "offset": "038D",
+                    "word": "go",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [
+                        {
+                          "raw": "08DB",
+                          "offset": "08DB",
+                          "word": "to",
+                          "unresolved_bits": "0000"
+                        }
+                      ],
+                      "referent": {
+                        "raw": "03C2",
+                        "offset": "03C2",
+                        "word": "hall",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "TAKE THE",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "TAKE WHAT ?",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "TAKE THE",
+          "normalised": "TAKE THE",
+          "outcome": "clarification",
+          "continuation_slot": 8,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "87 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0887",
+                    "offset": "0887",
+                    "word": "take",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "OPEN THE",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              }
+            ]
+          },
+          {
+            "kind": "error",
+            "text": "OPEN WHAT ?",
+            "screen_events": []
+          }
+        ],
+        "analysis": {
+          "input": "OPEN THE",
+          "normalised": "OPEN THE",
+          "outcome": "clarification",
+          "continuation_slot": 8,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": []
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "room": 8
+      }
+    ]
+  },
+  {
+    "commands": [
+      {
+        "input": "LOOK AT LAMP",
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "screen_events": [
+              {
+                "op": "counter",
+                "value": 0,
+                "source": "D71A"
+              },
+              {
+                "op": "wide"
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": "\r",
+                "capitalize": true,
+                "force": false
+              }
+            ]
+          },
+          {
+            "kind": "narrative",
+            "text": "",
+            "image_room": 8,
+            "screen_events": []
+          },
+          {
+            "kind": "narrative",
+            "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+            "screen_events": [
+              {
+                "op": "picture",
+                "room": 8
+              },
+              {
+                "op": "word",
+                "text": "",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sun",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "streams",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "two",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "broad",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "windowS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sitting",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "room.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "pipe",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "rack",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "right",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "of",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sofa.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "bullet",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "pock",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "markS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "are",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "feature",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "of",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "one",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "wall,",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "charts",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "diagrams",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "fill",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "another.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "acid",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "stained",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "table",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "sitS",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "corner.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "west",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "to",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "north",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "a",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "plain",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "door.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "you",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "can",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "see",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "an",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "oil",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "lamp,",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "your",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "and",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair.",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "in",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watsons",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "armchair",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "there",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson.",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "watson",
+                "delimiter": " ",
+                "capitalize": true,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "is",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "carryING",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "the",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "daily",
+                "delimiter": " ",
+                "capitalize": false,
+                "force": false
+              },
+              {
+                "op": "word",
+                "text": "chronicle.",
+                "delimiter": "\r",
+                "capitalize": false,
+                "force": false
+              }
+            ]
+          }
+        ],
+        "analysis": {
+          "input": "LOOK AT LAMP",
+          "normalised": "LOOK AT LAMP",
+          "outcome": "ok",
+          "continuation_slot": 0,
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "23 05 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "0523",
+                    "offset": "0523",
+                    "word": "look",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "04B9",
+                        "offset": "04B9",
+                        "word": "lamp",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        "clock": {
+          "tick": 2,
+          "due": 2,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        "room": 8
+      }
+    ]
+  }
+]

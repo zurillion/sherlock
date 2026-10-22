@@ -1,0 +1,1929 @@
+{
+  "scope": "Reference execution with NPC visits disabled after the native boot; selected entity fields only. No claim of full-world or NPC equivalence.",
+  "sequences": [
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          }
+        },
+        {
+          "input": "YOUR",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          }
+        },
+        {
+          "input": "CLOSE YOUR DOOR",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          }
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "TAKE LAMP",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          }
+        },
+        {
+          "input": "GIVE LAMP TO WATSON",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          }
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "TAKE LAMP",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          }
+        },
+        {
+          "input": "DROP LAMP",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          }
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "EXAMINE ARMCHAIR",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          }
+        },
+        {
+          "input": "WATSONS",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": true
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          }
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN YOUR DOOR",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 8,
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          }
+        },
+        {
+          "input": "WEST",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                7
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                7
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 7,
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          }
+        },
+        {
+          "input": "DOWN",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                6
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                6
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 6,
+          "clock": {
+            "tick": 6,
+            "due": 6,
+            "minute": 5,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:05am"
+          }
+        },
+        {
+          "input": "OPEN FRONT DOOR",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                6
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                6
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 6,
+          "clock": {
+            "tick": 7,
+            "due": 7,
+            "minute": 6,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:06am"
+          }
+        },
+        {
+          "input": "SOUTH",
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224,
+              "examined": false
+            },
+            {
+              "id": 19,
+              "parent": null,
+              "rooms": [
+                5,
+                6,
+                93,
+                96,
+                51,
+                56
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 20,
+              "parent": null,
+              "rooms": [
+                6,
+                7,
+                96,
+                100,
+                41,
+                43,
+                56,
+                61
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148,
+              "examined": false
+            },
+            {
+              "id": 23,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160,
+              "examined": false
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128,
+              "examined": false
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128,
+              "examined": false
+            }
+          ],
+          "room": 5,
+          "clock": {
+            "tick": 9,
+            "due": 9,
+            "minute": 8,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:08am"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+import {Dictionary,Lexer,InputError} from './lexer.mjs';
+import {Parser} from './parser.mjs';
+import {World,UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
+import {Text} from './text.mjs';
+
+export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,14,15,16,18,19,23,26,27,28,33,34,35,36,41,49,50];
+const clone=structuredClone;
+// Rules are domain functions over logical objects. No binary, RAM, CPU, address
+// dispatcher, server-side game logic, or fallback to the reference engine.
+export class Game {
+ constructor(data,{start_mode='free'}={}){
+  this.data=data;this.dictionary=new Dictionary(data.dictionary);this.lexer=new Lexer(this.dictionary);this.parser=new Parser(this.lexer);this.world=new World(data);this.text=new Text(data,this.dictionary,this.world);
+  this.startMode=start_mode;this.pending=null;this.analysis=null;this.lastInput=null;this.ended=null;this.openingPending=true;this.conversation=null;
+  if(start_mode==='original'){this.world.tick=2;this.world.minutes++;}
+  this.initial=this.text.scene();this.opening=this.initial+'\n'+this.text.render('6DEB');
+ }
+ word(id){return this.dictionary.word(id)?.stem||'';}
+ queryName(group){return [...group.qualifiers,group.noun].filter(Boolean).map(id=>this.word(id)).join(' ')||'anything';}
+ action(node){
+  const verb=this.word(node.verb),modifier=this.word(node.modifier),relations=node.groups.flatMap(g=>g.relations).map(id=>this.word(id));
+  if(DIRECTION_NAMES.includes(verb)&&verb)return DIRECTION_NAMES.indexOf(verb);
+  return this.data.actions.find(a=>a.words[0]===verb&&JSON.stringify(a.words.slice(1,3).filter(Boolean))===JSON.stringify(relations)&&(a.words[3]||'')===modifier)?.id
+    ||(verb==='wait'&&relations.length===0?49:0);
+ }
+ canTake(e){const w=this.world;return w.perceived(e.id)&&e.rooms.length===1&&!e.person&&!w.owns(w.player,e.id)&&!w.owns(e.id,w.player)&&w.weight(e.id)<=w.remainingCapacity(w.player)&&!w.entities.some(p=>p.person&&w.owns(p.id,e.id));}
+ canResolve(e,action,slot){
+  const w=this.world;if(!w.perceived(e.id))return false;
+  if(action===36||action===14)return e.rules.some(r=>r.action===action);
+  if([11,23,41].includes(action))return this.canTake(e);
+  if(action===26)return slot===0?w.owns(w.player,e.id):e.person;
+  if(action===16)return w.owns(w.player,e.id);
+  return true;
+ }
+ error(text){return {kind:'error',text};}
+ resolve(node,action,slot=0){
+  const w=this.world,group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]};
+  if(!group.noun&&!group.qualifiers.length){return {message:this.error(`${this.word(node.verb).toUpperCase()} WHAT ?`)};}
+  const nominal=w.entities.filter(e=>w.nounMatches(e,group)),possible=nominal.filter(e=>this.canResolve(e,action,slot));
+  if(possible.length>1){this.pending={node:clone(node),slot};return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
+  if(possible.length===1)return {entity:possible[0]};
+  const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
+  if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
+  if([11,23,41].includes(action)&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
+  return {message:this.error(`YOU CANNOT ${verb} THE ${query}`)};
+ }
+ execute(node){
+  const w=this.world,action=this.action(node),actor=w.player,narrative=text=>({kind:'narrative',text}),ok=(messages,cost=1,args=[])=>({messages:messages.map(m=>typeof m==='string'?narrative(m):m),cost,action,args}),reject=text=>({messages:[this.error(text)],cost:0,action,args:[]});
+  if(node.all||node.exclusion)throw new UnsupportedFeature('esecuzione di ALL/EXCEPT');
+  if(node.subject)throw new UnsupportedFeature('asserzioni, informazioni e deduzioni');
+  if(node.quote){
+   for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
+   throw new UnsupportedFeature('dialoghi e ordini agli NPC');
+  }
+  if(!action)return reject(`I DO NOT KNOW THE VERB"${this.word(node.verb).toUpperCase()} "`);
+  if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
+  if(w.dark()&&![33,49,50].includes(action))return reject('SORRY IT IS TOO DARK.');
+  if(action===34){const scene=this.text.scene();return ok([{kind:'narrative',text:scene,image_room:w.roomOf()}]);}
+  if(action===33){const items=w.entities.filter(e=>e.parent===actor).map(e=>w.name(e.id,{indefinite:true}));return ok(['You are carrying '+(items.length?joinList(items):'nothing')+'.']);}
+  if(action===49)return ok(['You wait.'],5);
+  if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');const hour=(literal>>>8)&63,minute=literal&63;if(hour<1||hour>12)return reject('YOU CANNOT WAIT UNTIL THAT TIME.');let target=(hour%12)*60+minute;
+   if(literal&16384){}else if(literal&64)target+=720;else if(Math.floor(w.minutes/720)%2)target+=720;
+   let absolute=Math.floor(w.minutes/1440)*1440+target;if(absolute<=w.minutes)absolute+=(literal&16448)?1440:720;
+   return ok(['You wait.'],absolute-w.minutes,[{hour,minute}]);
+  }
+  if(action<=10||[18,27,28,35].includes(action)){
+   let edge,direction=action;
+   if(action<=10)edge=w.rooms[w.roomOf()].exits.find(e=>e.direction_id===action);
+   else if(action===18||action===27){const group=node.groups[0]||{noun:0,qualifiers:[]};edge=w.rooms[w.roomOf()].exits.find(e=>{const r=w.rooms[e.target],ids=r?.nameWords.map(n=>n&4095)||[];return (!group.noun||ids.includes(group.noun&4095))&&group.qualifiers.every(q=>ids.includes(q&4095));});direction=edge?.direction_id;}
+   else{const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};edge=w.rooms[w.roomOf()].exits.find(e=>e.gate===result.entity.id);direction=edge?.direction_id;}
+   const gate=edge?.gate?w.entity(edge.gate):null;
+   const failure=()=>action===35?reject(`YOU CANNOT LOOK THROUGH ${gate?w.name(gate.id).toUpperCase():'THAT'}.`):reject(`YOU CANNOT GO ${DIRECTION_NAMES[direction||action]?.toUpperCase()||'THAT WAY'}.`);
+   if(!edge||!edge.target||w.entity(actor).parent!==null||(gate&&(!(gate.attributes&40)||gate.size<w.entity(actor).size)))return failure();
+   if(action===35){const saved=w.dump();w.move(actor,edge.target);let scene;try{scene=this.text.scene({full:false,remote:true,mark:false});}finally{w.restore(saved);}return ok([`You look through ${w.name(gate.id)}.\n${scene}`],2,[gate.id]);}
+   const room=edge.target,first=!(w.rooms[room].flags&64);w.move(actor,room);w.rooms[room].flags|=64;w.explored.add(room);
+   const movement=action===28?`You go through ${w.name(gate.id)}.`:`You go ${DIRECTION_NAMES[direction]}.`;
+   return ok([movement,{kind:'narrative',text:this.text.scene({full:first}),image_room:first?room:null}],2,[]);
+  }
+  if(node.groups.some(g=>g.noun&32768))throw new UnsupportedFeature('argomenti letterali per questa azione');
+  const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};const e=result.entity;
+  if([11,23,41].includes(action)){if(e.rules.some(r=>r.action===41))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);w.move(e.id,w.roomOf(),actor);return ok([`You take ${w.name(e.id)}.`],1,[e.id]);}
+  if(action===16){w.move(e.id,w.roomOf(),w.entity(actor).parent);return ok([`You drop ${w.name(e.id)}.`],1,[e.id]);}
+  if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([`You give ${w.name(e.id)} to ${w.name(target.entity.id)}.`],1,[e.id,target.entity.id]);}
+  if(action===36||action===14){const rule=e.rules.find(r=>r.action===action);if(!['openOrdinary','closeOrdinary'].includes(rule?.rule))throw new UnsupportedFeature('regola speciale '+this.word(node.verb)+' di '+e.name);
+   if(e.attributes&1)return reject(w.name(e.id).toUpperCase()+' IS LOCKED');const open=Boolean(e.attributes&32);
+   if(action===36&&open)return reject(w.name(e.id).toUpperCase()+' IS OPEN');if(action===14&&!open)return reject(w.name(e.id).toUpperCase()+' IS CLOSED');
+   e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([`You ${action===36?'open':'close'} ${w.name(e.id)}.`],1,[e.id]);
+  }
+  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);e.status|=64;return ok([`You examine ${w.name(e.id)}.\n`+(e.description?this.text.render(e.description,{object:e.id}):`You see ${w.name(e.id)}.`)],1,[e.id]);}
+  if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');const pence=e.pence,pounds=Math.floor(pence/240),shillings=Math.floor(pence%240/12),p=pence%12;return ok([`You count ${w.name(e.id)}.\nIt totals ${pounds?'£'+pounds+' ':''}${shillings}/${p||'-'}`],1,[e.id]);}
+  throw new UnsupportedFeature('azione '+action);
+ }
+ submit(input){
+  if(this.ended)return {state:this.state(),messages:[]};
+  const messages=[],actions=[],units=[];this.openingPending=false;let lexed,index=0,mode=1;
+  try{
+   if(input.trim()==='@'){if(this.pending)throw new InputError('syntax_error','WHAT ?');input=this.lastInput||'';}
+   lexed=this.lexer.scan(input);this.lastInput=input;
+   this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
+   while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
+    const parsed=this.parser.unit(lexed.tokens,index,{pending:this.pending,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    if(parsed.outcome==='control'){
+     throw new UnsupportedFeature('controllo '+parsed.control+' (usare i pulsanti del motore JS)');
+    }
+    for(const node of parsed.nodes){
+     const before=this.world.dump();let outcome;
+     try{outcome=this.execute(node);if(outcome.cost)this.world.consume(outcome.cost);}
+     catch(error){this.world.restore(before);throw error;}
+     messages.push(...outcome.messages);
+     if(outcome.cost)actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});
+     if(this.pending){this.analysis.outcome='clarification';break;}
+    }
+    if(this.pending)break;
+   }
+  }catch(error){
+   if(error instanceof InputError){this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message,...(error.kind==='syntax_error'?{screen_events:[{op:'counter',value:0},{op:'wide'}]}:{})});}
+   else if(error instanceof UnsupportedFeature){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature,units,actions};messages.push({kind:'system',text:error.message});}
+   else throw error;
+  }
+  if(this.pending)this.analysis.continuation_slot=this.pending.slot;
+  return {state:this.state(),messages};
+ }
+ scene(){const before=this.world.dump();try{return this.text.scene({full:!this.world.dark()});}finally{this.world.restore(before);}}
+ state(){const w=this.world,room=w.rooms[w.roomOf()],dark=w.dark();
+  return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>e.person&&![1,100].includes(e.id)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:e.id===0?'SH':e.id===3?'W':e.id===2?'IL':String(e.id),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,engine:'javascript-autonomous',ai:'not-translated'};
+ }
+ teleport(room){if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene();return {state:this.state(),messages:[{kind:'narrative',text:scene,image_room:room}]};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}
+ dump(){return {format:'sherlock-js-save',version:1,source_sha256:this.data.source_sha256,world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),openingPending:this.openingPending,opening:this.opening,startMode:this.startMode,conversation:clone(this.conversation)};}
+ static load(data,save){
+  if(save?.format!=='sherlock-js-save'||save.version!==1||save.source_sha256!==data.source_sha256)throw Error('Questo file non è un salvataggio del motore JavaScript autonomo.');
+  const s=save.world;if(!s||!Array.isArray(s.entities)||s.entities.length!==110||!Array.isArray(s.rooms)||s.rooms.length!==106||!Number.isInteger(s.tick)||s.tick<0||s.tick>65535||!Number.isInteger(s.playerDue)||s.playerDue<0||s.playerDue>65535||!Number.isSafeInteger(s.minutes)||s.minutes<0||!Number.isInteger(s.player)||s.player<0||s.player>=110)throw Error('Salvataggio JS incompleto.');
+  for(const [i,e] of s.entities.entries())if(e.id!==i||!Array.isArray(e.rooms)||!e.rooms.every(r=>Number.isInteger(r)&&r>=0&&r<106)||e.parent!==null&&(!Number.isInteger(e.parent)||e.parent<0||e.parent>=110))throw Error('Entità nel salvataggio non valida.');
+  for(const e of s.entities){const seen=new Set([e.id]);let parent=e.parent;while(parent!==null){if(seen.has(parent))throw Error('Ciclo nei contenitori del salvataggio.');seen.add(parent);parent=s.entities[parent].parent;}}
+  const g=new Game(data,{start_mode:save.startMode});g.world.restore(s);for(const key of ['pending','analysis','lastInput','ended','openingPending','opening','conversation'])g[key]=clone(save[key]);g.state();return g;
+ }
+}

@@ -1,0 +1,778 @@
+TAP version 13
+# Subtest: The playable bundle has no CPU, original binary or backend dependency
+ok 1 - The playable bundle has no CPU, original binary or backend dependency
+  ---
+  duration_ms: 19.029125
+  type: 'test'
+  ...
+# Subtest: 1,804 frozen alphabetical comparisons against original lookup
+ok 2 - 1,804 frozen alphabetical comparisons against original lookup
+  ---
+  duration_ms: 33.026208
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "LOOK"
+ok 3 - Native grammar fixture: "LOOK"
+  ---
+  duration_ms: 2.703625
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "XYZZY"
+ok 4 - Native grammar fixture: "XYZZY"
+  ---
+  duration_ms: 0.477208
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE XYZZY"
+ok 5 - Native grammar fixture: "TAKE XYZZY"
+  ---
+  duration_ms: 0.192084
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "THE"
+ok 6 - Native grammar fixture: "THE"
+  ---
+  duration_ms: 0.212417
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "BOOK"
+ok 7 - Native grammar fixture: "BOOK"
+  ---
+  duration_ms: 0.148208
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE TAKE"
+ok 8 - Native grammar fixture: "TAKE TAKE"
+  ---
+  duration_ms: 0.132209
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE THE THE BOOK"
+ok 9 - Native grammar fixture: "TAKE THE THE BOOK"
+  ---
+  duration_ms: 0.229541
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOK BOOK BOOK"
+ok 10 - Native grammar fixture: "TAKE BOOK BOOK BOOK"
+  ---
+  duration_ms: 0.29575
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "THE TAKE BOOK"
+ok 11 - Native grammar fixture: "THE TAKE BOOK"
+  ---
+  duration_ms: 0.21575
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "GO NORTH NORTH"
+ok 12 - Native grammar fixture: "GO NORTH NORTH"
+  ---
+  duration_ms: 0.090125
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "LOOK 60"
+ok 13 - Native grammar fixture: "LOOK 60"
+  ---
+  duration_ms: 1.811417
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TELL WATSON \\"XYZZY\\""
+ok 14 - Native grammar fixture: "TELL WATSON \\"XYZZY\\""
+  ---
+  duration_ms: 0.065334
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "ABOVE"
+ok 15 - Native grammar fixture: "ABOVE"
+  ---
+  duration_ms: 1.2985
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "ASKS"
+ok 16 - Native grammar fixture: "ASKS"
+  ---
+  duration_ms: 0.046333
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOK"
+ok 17 - Native grammar fixture: "TAKE BOOK"
+  ---
+  duration_ms: 0.214208
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOKS"
+ok 18 - Native grammar fixture: "TAKE BOOKS"
+  ---
+  duration_ms: 0.112625
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE THE"
+ok 19 - Native grammar fixture: "TAKE THE"
+  ---
+  duration_ms: 0.095458
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE THE BOOK"
+ok 20 - Native grammar fixture: "TAKE THE BOOK"
+  ---
+  duration_ms: 0.132
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE HEAVY BOOK"
+ok 21 - Native grammar fixture: "TAKE HEAVY BOOK"
+  ---
+  duration_ms: 0.112917
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOK GUN"
+ok 22 - Native grammar fixture: "TAKE BOOK GUN"
+  ---
+  duration_ms: 0.078292
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE 12:30"
+ok 23 - Native grammar fixture: "TAKE 12:30"
+  ---
+  duration_ms: 0.133208
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOK AND GUN"
+ok 24 - Native grammar fixture: "TAKE BOOK AND GUN"
+  ---
+  duration_ms: 0.141959
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOK, DROP BOOK"
+ok 25 - Native grammar fixture: "TAKE BOOK, DROP BOOK"
+  ---
+  duration_ms: 0.065875
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "LOOK. THE"
+ok 26 - Native grammar fixture: "LOOK. THE"
+  ---
+  duration_ms: 0.039583
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "GIVE BOOK TO WATSON"
+ok 27 - Native grammar fixture: "GIVE BOOK TO WATSON"
+  ---
+  duration_ms: 0.04925
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE BOOK WITH GUN"
+ok 28 - Native grammar fixture: "TAKE BOOK WITH GUN"
+  ---
+  duration_ms: 0.03775
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "LOOK AT BOOK"
+ok 29 - Native grammar fixture: "LOOK AT BOOK"
+  ---
+  duration_ms: 0.036125
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "LOOK NORTH"
+ok 30 - Native grammar fixture: "LOOK NORTH"
+  ---
+  duration_ms: 0.327875
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "GO NORTH"
+ok 31 - Native grammar fixture: "GO NORTH"
+  ---
+  duration_ms: 0.057083
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "NORTH"
+ok 32 - Native grammar fixture: "NORTH"
+  ---
+  duration_ms: 0.041709
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "EXAMINE BOOK"
+ok 33 - Native grammar fixture: "EXAMINE BOOK"
+  ---
+  duration_ms: 0.037167
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TELL WATSON \\"LOOK\\""
+ok 34 - Native grammar fixture: "TELL WATSON \\"LOOK\\""
+  ---
+  duration_ms: 0.083375
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TELL WATSON \\"LOOK"
+ok 35 - Native grammar fixture: "TELL WATSON \\"LOOK"
+  ---
+  duration_ms: 0.244167
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "IS LOOK"
+ok 36 - Native grammar fixture: "IS LOOK"
+  ---
+  duration_ms: 0.037666
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "TAKE ALL"
+ok 37 - Native grammar fixture: "TAKE ALL"
+  ---
+  duration_ms: 0.064375
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: ""
+ok 38 - Native grammar fixture: ""
+  ---
+  duration_ms: 0.029292
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "QUIT"
+ok 39 - Native grammar fixture: "QUIT"
+  ---
+  duration_ms: 0.061292
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "SAVE"
+ok 40 - Native grammar fixture: "SAVE"
+  ---
+  duration_ms: 0.026375
+  type: 'test'
+  ...
+# Subtest: Native grammar fixture: "PAUSE"
+ok 41 - Native grammar fixture: "PAUSE"
+  ---
+  duration_ms: 0.025334
+  type: 'test'
+  ...
+# Subtest: Ordinary numeric formats use original token values
+ok 42 - Ordinary numeric formats use original token values
+  ---
+  duration_ms: 16.309083
+  type: 'test'
+  ...
+# Subtest: Quotations, persistent mode and standalone statements
+ok 43 - Quotations, persistent mode and standalone statements
+  ---
+  duration_ms: 0.597625
+  type: 'test'
+  ...
+# Subtest: A continuation fills empty fields and a new verb replaces it
+ok 44 - A continuation fills empty fields and a new verb replaces it
+  ---
+  duration_ms: 0.1625
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOOK"
+ok 45 - Whole-line and special grammar: "LOOK"
+  ---
+  duration_ms: 0.720625
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE BOOK"
+ok 46 - Whole-line and special grammar: "TAKE BOOK"
+  ---
+  duration_ms: 0.064791
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE BOOKS"
+ok 47 - Whole-line and special grammar: "TAKE BOOKS"
+  ---
+  duration_ms: 0.098709
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE THE"
+ok 48 - Whole-line and special grammar: "TAKE THE"
+  ---
+  duration_ms: 0.180583
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "XYZZY"
+ok 49 - Whole-line and special grammar: "XYZZY"
+  ---
+  duration_ms: 0.0475
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE XYZZY"
+ok 50 - Whole-line and special grammar: "TAKE XYZZY"
+  ---
+  duration_ms: 0.057125
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOOK 60"
+ok 51 - Whole-line and special grammar: "LOOK 60"
+  ---
+  duration_ms: 0.0425
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE TAKE"
+ok 52 - Whole-line and special grammar: "TAKE TAKE"
+  ---
+  duration_ms: 0.057
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE THE THE BOOK"
+ok 53 - Whole-line and special grammar: "TAKE THE THE BOOK"
+  ---
+  duration_ms: 0.06075
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "THE"
+ok 54 - Whole-line and special grammar: "THE"
+  ---
+  duration_ms: 0.03325
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "BOOK"
+ok 55 - Whole-line and special grammar: "BOOK"
+  ---
+  duration_ms: 0.029625
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: ""
+ok 56 - Whole-line and special grammar: ""
+  ---
+  duration_ms: 0.241125
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOOK. THE"
+ok 57 - Whole-line and special grammar: "LOOK. THE"
+  ---
+  duration_ms: 0.046375
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOOK THEN THE"
+ok 58 - Whole-line and special grammar: "LOOK THEN THE"
+  ---
+  duration_ms: 0.039833
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOOK, THE"
+ok 59 - Whole-line and special grammar: "LOOK, THE"
+  ---
+  duration_ms: 0.076625
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE BOOK AND DROP GUN"
+ok 60 - Whole-line and special grammar: "TAKE BOOK AND DROP GUN"
+  ---
+  duration_ms: 0.059917
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE BOOK AND GUN"
+ok 61 - Whole-line and special grammar: "TAKE BOOK AND GUN"
+  ---
+  duration_ms: 0.064125
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE ALL BUT BOOK"
+ok 62 - Whole-line and special grammar: "TAKE ALL BUT BOOK"
+  ---
+  duration_ms: 0.078875
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE EVERYTHING EXCEPT BOOK"
+ok 63 - Whole-line and special grammar: "TAKE EVERYTHING EXCEPT BOOK"
+  ---
+  duration_ms: 0.065083
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE BOOK EXCEPT GUN"
+ok 64 - Whole-line and special grammar: "TAKE BOOK EXCEPT GUN"
+  ---
+  duration_ms: 0.190625
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "ALL"
+ok 65 - Whole-line and special grammar: "ALL"
+  ---
+  duration_ms: 0.089167
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE ALL ALL"
+ok 66 - Whole-line and special grammar: "TAKE ALL ALL"
+  ---
+  duration_ms: 0.070333
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "HE KILLED YOU"
+ok 67 - Whole-line and special grammar: "HE KILLED YOU"
+  ---
+  duration_ms: 0.062916
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "IT IS BOOK"
+ok 68 - Whole-line and special grammar: "IT IS BOOK"
+  ---
+  duration_ms: 0.088583
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "THEY HAD GUN"
+ok 69 - Whole-line and special grammar: "THEY HAD GUN"
+  ---
+  duration_ms: 0.044458
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "WATSON KILLED YOU"
+ok 70 - Whole-line and special grammar: "WATSON KILLED YOU"
+  ---
+  duration_ms: 0.03875
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "HE HAD BOOK AND GUN"
+ok 71 - Whole-line and special grammar: "HE HAD BOOK AND GUN"
+  ---
+  duration_ms: 0.060291
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "HE HAD BOOK THEREFORE IT IS GUN"
+ok 72 - Whole-line and special grammar: "HE HAD BOOK THEREFORE IT IS GUN"
+  ---
+  duration_ms: 0.0495
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"LOOK\\""
+ok 73 - Whole-line and special grammar: "TELL WATSON \\"LOOK\\""
+  ---
+  duration_ms: 0.047208
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"THE\\""
+ok 74 - Whole-line and special grammar: "TELL WATSON \\"THE\\""
+  ---
+  duration_ms: 0.060083
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"XYZZY\\""
+ok 75 - Whole-line and special grammar: "TELL WATSON \\"XYZZY\\""
+  ---
+  duration_ms: 0.0455
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU\\""
+ok 76 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU\\""
+  ---
+  duration_ms: 2.208792
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU BECAUSE HE HAD GUN\\""
+ok 77 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU BECAUSE HE HAD GUN\\""
+  ---
+  duration_ms: 0.067167
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU, THAT HAD GUN\\""
+ok 78 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU, THAT HAD GUN\\""
+  ---
+  duration_ms: 0.296209
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"TAKE BOOK. DROP BOOK\\""
+ok 79 - Whole-line and special grammar: "TELL WATSON \\"TAKE BOOK. DROP BOOK\\""
+  ---
+  duration_ms: 0.179542
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "\\"LOOK\\""
+ok 80 - Whole-line and special grammar: "\\"LOOK\\""
+  ---
+  duration_ms: 0.110041
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "\\"TAKE BOOK\\" \\"DROP BOOK\\""
+ok 81 - Whole-line and special grammar: "\\"TAKE BOOK\\" \\"DROP BOOK\\""
+  ---
+  duration_ms: 0.096833
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "\\"\\""
+ok 82 - Whole-line and special grammar: "\\"\\""
+  ---
+  duration_ms: 0.335833
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "\\"LOOK. WATSON KILLED YOU\\""
+ok 83 - Whole-line and special grammar: "\\"LOOK. WATSON KILLED YOU\\""
+  ---
+  duration_ms: 0.099209
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "\\"WATSON KILLED YOU. LOOK\\""
+ok 84 - Whole-line and special grammar: "\\"WATSON KILLED YOU. LOOK\\""
+  ---
+  duration_ms: 0.120167
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TELL WATSON \\"LOOK"
+ok 85 - Whole-line and special grammar: "TELL WATSON \\"LOOK"
+  ---
+  duration_ms: 0.2595
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "NO"
+ok 86 - Whole-line and special grammar: "NO"
+  ---
+  duration_ms: 0.145625
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "SAVE"
+ok 87 - Whole-line and special grammar: "SAVE"
+  ---
+  duration_ms: 0.148666
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOAD"
+ok 88 - Whole-line and special grammar: "LOAD"
+  ---
+  duration_ms: 0.067125
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "QUIT"
+ok 89 - Whole-line and special grammar: "QUIT"
+  ---
+  duration_ms: 0.06125
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "PAUSE"
+ok 90 - Whole-line and special grammar: "PAUSE"
+  ---
+  duration_ms: 0.048417
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "PRINT"
+ok 91 - Whole-line and special grammar: "PRINT"
+  ---
+  duration_ms: 0.044708
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "NOPRINT"
+ok 92 - Whole-line and special grammar: "NOPRINT"
+  ---
+  duration_ms: 0.0405
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "SAVE LOOK"
+ok 93 - Whole-line and special grammar: "SAVE LOOK"
+  ---
+  duration_ms: 0.071083
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "LOOK SAVE"
+ok 94 - Whole-line and special grammar: "LOOK SAVE"
+  ---
+  duration_ms: 0.055417
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE 12:30"
+ok 95 - Whole-line and special grammar: "TAKE 12:30"
+  ---
+  duration_ms: 0.092042
+  type: 'test'
+  ...
+# Subtest: Whole-line and special grammar: "TAKE £1"
+ok 96 - Whole-line and special grammar: "TAKE £1"
+  ---
+  duration_ms: 0.085
+  type: 'test'
+  ...
+# Subtest: Several quotations are preserved in order, not overwritten
+ok 97 - Several quotations are preserved in order, not overwritten
+  ---
+  duration_ms: 0.158458
+  type: 'test'
+  ...
+# Subtest: WAIT produces five UI clock frames while the domain logic remains local
+ok 98 - WAIT produces five UI clock frames while the domain logic remains local
+  ---
+  duration_ms: 27.793292
+  type: 'test'
+  ...
+# Subtest: SAVE/LOAD preserve logical state and detect corrupted files atomically
+ok 99 - SAVE/LOAD preserve logical state and detect corrupted files atomically
+  ---
+  duration_ms: 89.536834
+  type: 'test'
+  ...
+# Subtest: Unsupported narrative scripts never invoke an external service
+ok 100 - Unsupported narrative scripts never invoke an external service
+  ---
+  duration_ms: 11.87725
+  type: 'test'
+  ...
+# Subtest: Snapshot validation rejects a containment cycle
+ok 101 - Snapshot validation rejects a containment cycle
+  ---
+  duration_ms: 3.347709
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: LOOK
+ok 102 - Native isolated action trace: LOOK
+  ---
+  duration_ms: 19.44575
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: OPEN DOOR → YOUR → OPEN YOUR DOOR → CLOSE YOUR DOOR
+ok 103 - Native isolated action trace: OPEN DOOR → YOUR → OPEN YOUR DOOR → CLOSE YOUR DOOR
+  ---
+  duration_ms: 30.869166
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: WEST
+ok 104 - Native isolated action trace: WEST
+  ---
+  duration_ms: 5.63275
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: TAKE ARMCHAIR
+ok 105 - Native isolated action trace: TAKE ARMCHAIR
+  ---
+  duration_ms: 7.960209
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: TAKE LAMP → INVENTORY → GIVE LAMP TO WATSON → TAKE LAMP
+ok 106 - Native isolated action trace: TAKE LAMP → INVENTORY → GIVE LAMP TO WATSON → TAKE LAMP
+  ---
+  duration_ms: 25.004292
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: GIVE LAMP TO WATSON
+ok 107 - Native isolated action trace: GIVE LAMP TO WATSON
+  ---
+  duration_ms: 5.613334
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: OPEN LAMP
+ok 108 - Native isolated action trace: OPEN LAMP
+  ---
+  duration_ms: 4.270625
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: EXAMINE ARMCHAIR → WATSONS
+ok 109 - Native isolated action trace: EXAMINE ARMCHAIR → WATSONS
+  ---
+  duration_ms: 6.446792
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: WAIT
+ok 110 - Native isolated action trace: WAIT
+  ---
+  duration_ms: 3.54225
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH → NORTH → UP → EAST
+ok 111 - Native isolated action trace: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH → NORTH → UP → EAST
+  ---
+  duration_ms: 24.198042
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: COUNT MONEY
+ok 112 - Native isolated action trace: COUNT MONEY
+  ---
+  duration_ms: 7.987375
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: TAKE LAMP → DROP LAMP
+ok 113 - Native isolated action trace: TAKE LAMP → DROP LAMP
+  ---
+  duration_ms: 11.244542
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: TAKE MONEY
+ok 114 - Native isolated action trace: TAKE MONEY
+  ---
+  duration_ms: 5.245167
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: LOOK THROUGH YOUR DOOR
+ok 115 - Native isolated action trace: LOOK THROUGH YOUR DOOR
+  ---
+  duration_ms: 7.7975
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: GO INTO HALL
+ok 116 - Native isolated action trace: GO INTO HALL
+  ---
+  duration_ms: 8.864083
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: TAKE THE
+ok 117 - Native isolated action trace: TAKE THE
+  ---
+  duration_ms: 4.634583
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: OPEN THE
+ok 118 - Native isolated action trace: OPEN THE
+  ---
+  duration_ms: 5.65375
+  type: 'test'
+  ...
+# Subtest: Native isolated action trace: LOOK AT LAMP
+ok 119 - Native isolated action trace: LOOK AT LAMP
+  ---
+  duration_ms: 3.990959
+  type: 'test'
+  ...
+# Subtest: Visibility follows containment and light, not a flat room filter
+ok 120 - Visibility follows containment and light, not a flat room filter
+  ---
+  duration_ms: 0.977584
+  type: 'test'
+  ...
+# Subtest: Logical save/load resumes clarification and future commands without CPU state
+ok 121 - Logical save/load resumes clarification and future commands without CPU state
+  ---
+  duration_ms: 50.192667
+  type: 'test'
+  ...
+# Subtest: An unported action is explicit and has no hidden fallback or world effect
+ok 122 - An unported action is explicit and has no hidden fallback or world effect
+  ---
+  duration_ms: 7.519625
+  type: 'test'
+  ...
+# Subtest: Quoted syntax errors are checked before unported conversation execution
+ok 123 - Quoted syntax errors are checked before unported conversation execution
+  ---
+  duration_ms: 7.527833
+  type: 'test'
+  ...
+# Subtest: Native selected entity mutations: OPEN DOOR → YOUR → CLOSE YOUR DOOR
+ok 124 - Native selected entity mutations: OPEN DOOR → YOUR → CLOSE YOUR DOOR
+  ---
+  duration_ms: 11.239208
+  type: 'test'
+  ...
+# Subtest: Native selected entity mutations: TAKE LAMP → GIVE LAMP TO WATSON
+ok 125 - Native selected entity mutations: TAKE LAMP → GIVE LAMP TO WATSON
+  ---
+  duration_ms: 8.101417
+  type: 'test'
+  ...
+# Subtest: Native selected entity mutations: TAKE LAMP → DROP LAMP
+ok 126 - Native selected entity mutations: TAKE LAMP → DROP LAMP
+  ---
+  duration_ms: 5.983667
+  type: 'test'
+  ...
+# Subtest: Native selected entity mutations: EXAMINE ARMCHAIR → WATSONS
+ok 127 - Native selected entity mutations: EXAMINE ARMCHAIR → WATSONS
+  ---
+  duration_ms: 10.66625
+  type: 'test'
+  ...
+# Subtest: Native selected entity mutations: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH
+ok 128 - Native selected entity mutations: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH
+  ---
+  duration_ms: 16.262125
+  type: 'test'
+  ...
+1..128
+# tests 128
+# suites 0
+# pass 128
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 598.826292

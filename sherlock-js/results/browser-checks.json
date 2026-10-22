@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "url": "http://127.0.0.1:8768/",
+  "canonical_runtime_folder": "/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js",
+  "checks": [
+    {
+      "command": "OPEN DOOR",
+      "result": "WHICH DOOR ?"
+    },
+    {
+      "command": "YOUR",
+      "result": "You open your door."
+    },
+    {
+      "command": "WEST",
+      "room": 7,
+      "clock": "Mon 08:03am"
+    },
+    {
+      "command": "TELL WATSON \"THE\"",
+      "result": "WHAT ?",
+      "outcome": "quoted_syntax_error"
+    },
+    {
+      "command": "TELL WATSON \"TAKE LAMP\"",
+      "result": "visible external diagnostic: dialoghi e ordini agli NPC not translated"
+    },
+    {
+      "operation": "map search 074 and teleport",
+      "image": "images/074.svg",
+      "room_name": "daphnes room"
+    },
+    {
+      "operation": "compatibility startup and MORE",
+      "result": "initial description and Watson greeting rendered; any key resumes"
+    }
+  ],
+  "screenshots": [
+    "autonomous-browser.png",
+    "autonomous-overview.png"
+  ],
+  "limitations": "Visual smoke checks only; not exact Spectrum pagination or complete-game equivalence."
+}

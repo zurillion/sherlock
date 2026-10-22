@@ -1,0 +1,599 @@
+{
+  "scope": "Implementazione autonoma iniziale; riconoscere un modello non equivale a riprodurne ogni effetto.",
+  "actions": [
+    {
+      "id": 1,
+      "words": [
+        "north",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 2,
+      "words": [
+        "south",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 3,
+      "words": [
+        "east",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 4,
+      "words": [
+        "west",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 5,
+      "words": [
+        "northeast",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 6,
+      "words": [
+        "northwest",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 7,
+      "words": [
+        "southeast",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 8,
+      "words": [
+        "southwest",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 9,
+      "words": [
+        "up",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 10,
+      "words": [
+        "down",
+        null,
+        null,
+        "go"
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 11,
+      "words": [
+        "carry",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 12,
+      "words": [
+        "climb",
+        "into",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 13,
+      "words": [
+        "climb",
+        "out",
+        "of",
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 14,
+      "words": [
+        "close",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Porte con regola ordinaria; esclusi oggetti e serrature speciali."
+    },
+    {
+      "id": 15,
+      "words": [
+        "count",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Solo conteggio del denaro."
+    },
+    {
+      "id": 16,
+      "words": [
+        "drop",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 17,
+      "words": [
+        "drop",
+        "in",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 18,
+      "words": [
+        "enter",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 19,
+      "words": [
+        "examine",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Esame generico; escluse regole speciali."
+    },
+    {
+      "id": 20,
+      "words": [
+        "examine",
+        null,
+        null,
+        "closely"
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 21,
+      "words": [
+        "follow",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 22,
+      "words": [
+        "come",
+        "with",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 23,
+      "words": [
+        "get",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 24,
+      "words": [
+        "get",
+        "into",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 25,
+      "words": [
+        "get",
+        "out",
+        "of",
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 26,
+      "words": [
+        "give",
+        "to",
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Trasferimento generico; escluse reazioni del destinatario e pagamenti."
+    },
+    {
+      "id": 27,
+      "words": [
+        "go",
+        "into",
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 28,
+      "words": [
+        "go",
+        "through",
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 29,
+      "words": [
+        "go",
+        "to",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 30,
+      "words": [
+        "go",
+        "to",
+        null,
+        "furiously"
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 31,
+      "words": [
+        "hail",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 32,
+      "words": [
+        "hello",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 33,
+      "words": [
+        "inventory",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 34,
+      "words": [
+        "look",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Descrizioni e visibilità statiche; non esegue turni NPC."
+    },
+    {
+      "id": 35,
+      "words": [
+        "look",
+        "through",
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Regola generica; una prova negativa congelata, nessuna certificazione completa."
+    },
+    {
+      "id": 36,
+      "words": [
+        "open",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Porte con regola ordinaria; escluse casseforti e altre regole speciali."
+    },
+    {
+      "id": 37,
+      "words": [
+        "pay",
+        "to",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 38,
+      "words": [
+        "put",
+        "in",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 39,
+      "words": [
+        "put",
+        "on",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 40,
+      "words": [
+        "sit",
+        "in",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 41,
+      "words": [
+        "take",
+        null,
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Variante generica soltanto; vedere COPERTURA.md."
+    },
+    {
+      "id": 42,
+      "words": [
+        "take",
+        "from",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 43,
+      "words": [
+        "take",
+        "off",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 44,
+      "words": [
+        "take",
+        "out",
+        "of",
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 45,
+      "words": [
+        "take",
+        "to",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 46,
+      "words": [
+        "talk",
+        "to",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 47,
+      "words": [
+        "tell",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 48,
+      "words": [
+        "tell",
+        "about",
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 49,
+      "words": [
+        "wait",
+        "here",
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Cinque minuti; nessuna AI durante l’attesa."
+    },
+    {
+      "id": 50,
+      "words": [
+        "wait",
+        "until",
+        null,
+        null
+      ],
+      "status": "partial_functional_rule",
+      "note": "Calcolo provvisorio della destinazione oraria; non certificato contro eventi e interrupt originali."
+    },
+    {
+      "id": 51,
+      "words": [
+        "wear",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 52,
+      "words": [
+        "kill",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 53,
+      "words": [
+        "lock",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    },
+    {
+      "id": 54,
+      "words": [
+        "unlock",
+        null,
+        null,
+        null
+      ],
+      "status": "not_translated",
+      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+    }
+  ]
+}
