@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "First MORE has 15 text rows, counter 15, 15 completed scrolls and the 16th linefeed pending",
+      "passed": true
+    },
+    {
+      "check": "The initial blank CR contributes to the counter before any narrative text",
+      "passed": true
+    },
+    {
+      "check": "MORE precedes the greeting terminal CR; the empty bottom row appears only after acknowledgement",
+      "passed": true
+    },
+    {
+      "check": "Without resets, MORE fires at requests 16, 32 and 48, independently of text or commands",
+      "passed": true
+    },
+    {
+      "check": "Filling exactly 36 columns scrolls automatically; an extra CR counts an empty row",
+      "passed": true
+    },
+    {
+      "check": "Every counter observation in the full gameplay traces matches the inferred state machine",
+      "passed": true,
+      "phases": 12,
+      "linefeeds": 89
+    },
+    {
+      "check": "Separate WAIT inputs reset the parser counter instead of accumulating previous command output",
+      "passed": true
+    },
+    {
+      "check": "An unknown word fails before the reset and lower-pane text does not increment the counter",
+      "passed": true
+    },
+    {
+      "check": "A syntactic rejection after lexical preflight does reset the counter",
+      "passed": true
+    },
+    {
+      "check": "LOOK. LOOK shares one reset and crosses MORE inside the second action",
+      "passed": true
+    },
+    {
+      "check": "Watson narrative uses the shared counter during a player WAIT",
+      "passed": true
+    },
+    {
+      "check": "The actual 3000-poll inactivity timeout preserves the accumulated counter",
+      "passed": true
+    },
+    {
+      "check": "C142 preserves the counter; C129 resets it and selects 18 columns",
+      "passed": true
+    },
+    {
+      "check": "Narrow MORE returns to 36 columns before the pending scroll is performed",
+      "passed": true
+    },
+    {
+      "check": "Clear emits 18 CR with per-row resets; a pre-existing 15 can trigger MORE on its first CR",
+      "passed": true
+    },
+    {
+      "check": "The native MORE enables FLASH on the last status cell",
+      "passed": true,
+      "attribute_address": "5A5F",
+      "attribute_value": "F8"
+    },
+    {
+      "check": "Wide physical scroll copies 17 rows of 8 pixels and preserves status/input areas",
+      "passed": true,
+      "copied_bytes_per_scanline": 32,
+      "bitmap_rows": 18,
+      "cleared_bottom_x_inclusive": [
+        2,
+        254
+      ],
+      "counter_unchanged": true,
+      "attributes_scrolled": true
+    },
+    {
+      "check": "Narrow physical scroll copies 17 rows of 8 pixels and preserves status/input areas",
+      "passed": true,
+      "copied_bytes_per_scanline": 16,
+      "bitmap_rows": 18,
+      "cleared_bottom_x_inclusive": [
+        2,
+        128
+      ],
+      "counter_unchanged": true,
+      "attributes_scrolled": false
+    }
+  ],
+  "scope": "Original code; routine display fixtures are explicitly separate from full gameplay traces."
+}

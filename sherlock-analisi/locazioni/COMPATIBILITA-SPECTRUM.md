@@ -25,7 +25,7 @@ L’uscita superiore viene composta per parole, con intervallo di presentazione 
 
 Alla fine dell’uscita superiore di ciascun comando viene aggiunta una riga vuota, che separa la risposta da quella successiva. I diversi messaggi dello stesso comando rimangono consecutivi; un errore scritto solo nella zona inferiore non modifica il testo superiore. Anche la riga vuota finale rispetta la pausa MORE e non fa avanzare l’orologio.
 
-Prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. L’ultima cella 8×8 della barra di stato (x=248, y=144) lampeggia invertendo il bianco e il nero del motivo già disegnato; nella fase spenta torna visibile il motivo originale. Non viene sostituita con un riquadro pieno. Questo indicatore compare solo per MORE, mai nella pausa iniziale. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
+La regola attuale del renderer web è la seguente: prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. L’ultima cella 8×8 della barra di stato (x=248, y=144) lampeggia invertendo il bianco e il nero del motivo già disegnato; nella fase spenta torna visibile il motivo originale. Non viene sostituita con un riquadro pieno. Questo indicatore compare solo per MORE, mai nella pausa iniziale. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
 
 La pausa e la velocità di scrittura sono gestite dalla presentazione JavaScript. L’orologio riceve i valori dal motore esistente e non avanza per i timer grafici né per il tasto MORE. Durante l’uscita non si possono inviare altri comandi. Disattivare la modalità sblocca un eventuale MORE pendente e restituisce la normale interfaccia.
 
@@ -84,3 +84,7 @@ Dopo modifiche statiche, ricaricare la pagina. Entrare nella modalità ricompone
 Le verifiche automatiche coprono impaginazione, progresso delle parole lunghe, pausa prima di perdere righe, ripresa, consumo del tasto MORE, cancellazione della coda al cambio di modalità, tastiera limitata, zona inferiore e dimensioni dei 14 raster. Le prove nel browser controllano anche griglia effettiva, orologio, continuation, SVG/raster e proporzioni del video.
 
 Questa è una presentazione compatibile con le richieste di griglia e interazione. La cadenza delle parole e la paginazione non sono una simulazione dei cicli della CPU o del video Spectrum. Il motore Python esistente continua a determinare azioni, risposte e tempo.
+
+## Confronto con la paginazione originale
+
+L’analisi nativa successiva in [Scorrimento e MORE](../scrolling/LEGGIMI-SCROLLING.md) ha verificato una regola diversa: `$A019` conta gli avanzamenti di riga e richiede MORE quando è 15, prima di quello successivo. Il parser e la modalità grafica hanno azzeramenti propri. La disponibilità di scroll basata sulle 18 righe, descritta sopra, è ancora il comportamento del prototipo e deve essere allineata a quelle tracce per riprodurre la paginazione originale. Questa fase di analisi non modifica il renderer web.

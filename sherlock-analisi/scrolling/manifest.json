@@ -1,0 +1,17 @@
+{
+  "source_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "files": {
+    "GUIDA-SCRIPT.md": "e1c07ea26a57f786dcdff222b1f531edbbbe9bd2b0b23c1639569cbfdd7ce55a",
+    "LEGGIMI-SCROLLING.md": "e2d1917d1862c23ecde3dac500b0a1b9dd0980a639213284eaa8e61c693c1b1b",
+    "build_scrolling_listing.py": "3dda008b5b55d327ca4cdff7bac01c0fad68396d83e7908a04db99038edbbbba",
+    "results/LOOK--LOOK-more-02.png": "42fc42833eb1d91949ed14bdeee8bd437c9e46d90bd7d12c8f3f864eb0586c88",
+    "results/WAIT-more-03.png": "1a53b26a78dc6daa9d33a8281048b261745363022bf4af9e1fc83394fbbcbff0",
+    "results/boot-more-01.png": "c8b654329ffeaae04cd35c9a8386d6c2fe3cfb1446e63d9098c4dff83ab42e2a",
+    "results/listing-verification.json": "9fc49a046bc1b7356b86b628c97022b7472f22ddcf7e8a39c9151afcb96e1654",
+    "results/scroll-traces.json": "f60501e83ee3d97e228f6becc359513f5caa24c8f2ac940f9d00c11f122e4700",
+    "results/scrolling.asm": "c2cb94e0dbead6f2a2f8a9a1cb3202d8a93750c83db8bb2de56fe2e958cdf3f7",
+    "results/verification.json": "a97962c2c653291babf02bf8777c103cb36b0f1548bb000bd55a6b5c83a2b683",
+    "trace_scrolling.py": "9b3c2aabe9d7852b0d3f5b12ee48f4f05c7d2fd2daca6540a7f923e78db33b7f",
+    "verify_scrolling.py": "07f9deeb4818b9e6c034c530981b041e771cfd3a079c208e4b7ef6df3871837c"
+  }
+}

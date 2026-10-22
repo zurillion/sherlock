@@ -234,3 +234,7 @@ Le ultime due istruzioni generano immagini dalla memoria video degli snapshot, e
 ## Prossima indagine consigliata
 
 Seguire i chiamanti di `$A887` e i comandi di `$A5CD` per assegnare un significato preciso a `$A034/$A036`, agli altri metadati e alla scelta dei riferimenti nei dialoghi. Questo collegherà le trasformazioni già verificate alla grammatica effettiva del gioco.
+
+## Paginazione e scorrimento: analisi precisa
+
+Il dossier [Scorrimento e MORE](../scrolling/LEGGIMI-SCROLLING.md) documenta il contatore `$A019`, la soglia 15, gli azzeramenti del parser, il passaggio 18/36 colonne e le copie bitmap native. La prima pausa dell’avvio avviene con 15 righe di testo, prima del CR finale del saluto di Watson. Include 18 controlli riproducibili, un listato ri-assemblato e schermate dalla RAM originale.
