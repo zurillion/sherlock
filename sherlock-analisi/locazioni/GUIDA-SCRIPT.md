@@ -29,7 +29,7 @@ LOOK
 
 `OPEN DOR` mostra l'errore lessicale e non consuma tempo. Il primo WEST fallisce perché la porta è chiusa. Gli ingressi successivi mostrano la differenza fra forma estesa e breve; LOOK ripristina quella estesa. Poi clicca un nodo della mappa o cerca `074`: il trasferimento non avanza l'orologio.
 
-Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. Watson, Lestrade e gli altri attori eseguono i turni originali, compresi viaggi, richieste e segnali; i comandi nastro, stampa e controllo sono bloccati con un messaggio tecnico in inglese e ripristino dello stato.
+Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. Watson, Lestrade e gli altri attori eseguono i turni originali, compresi viaggi, richieste e segnali; SAVE/LOAD e i servizi stampa/PAUSE restano bloccati con un messaggio tecnico fuori dall’area del gioco e ripristino dello stato. QUIT termina la partita. Morte e conclusione conservano il testo originale, poi richiedono Riavvia.
 
 Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; le schede con lo stesso cookie condividono lo stato. “Riavvia” ripristina lo snapshot iniziale. Non c'è ancora salvataggio su disco della partita. La mappa consente di ispezionare luoghi fuori dal normale percorso di gioco, senza consumare tempo. Il salto attraverso la mappa stacca Holmes da un eventuale cab, che prosegue autonomamente.
 
@@ -42,6 +42,8 @@ Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; 
 | `native_world.py` | Turno originale del giocatore con continuazioni, chiamate di ispezione e cattura del testo |
 | `extract_locations.py` | Estrazione del catalogo e dei 206 archi dal payload |
 | `verify_locations.py` | Prove native e del prototipo, confronto del filtro di percezione, campioni di tutte le locazioni |
+| `verify_opening.py` | Avvio Z80 completo, origine del saluto di Watson e confronto della presentazione iniziale |
+| `verify_wait_endgame.py` | WAIT di cinque minuti, WAIT UNTIL incrementale e interrompibile, confronto Z80 con interrupt e percorsi di fine partita |
 | `verify_web_cab.py` | Corse, pagamento e resto nella pagina, ispezioni e teletrasporto, confronto indipendente con lo Z80 completo |
 | `trace_movement.py` | Dodici comandi nel gioco completo, con scheduler originale e NPC attivi |
 | `build_locations_listing.py` | Listato commentato con separazione codice/dati e ricomposizione identica dei byte |
@@ -101,3 +103,13 @@ python3 -B sherlock-analisi/locazioni/verify_web_ai.py
 ```
 
 Lo script verifica il comportamento del prototipo e confronta tre sequenze di input con il banco Z80 indipendente. Salva il rapporto in `results/web-ai-verification.json`.
+
+## Attese e conclusione
+
+```sh
+python3 -B sherlock-analisi/locazioni/verify_wait_endgame.py
+```
+
+Scrive `results/wait-endgame-verification.json`. Le modifiche sono spiegate in `ATTESE-E-FINE-PARTITA.md`. Nella pagina prova `WAIT` e `WAIT UNTIL 8:10AM`: l’orologio si aggiorna ogni minuto. Durante WAIT UNTIL premi Invio o Interrompi per fermarti; davanti al MORE il tasto serve solo a continuare la lettura.
+
+Il saluto iniziale e la sua impaginazione sono documentati in `AVVIO-E-SALUTO-WATSON.md`; `verify_opening.py` rigenera `results/opening-verification.json`.

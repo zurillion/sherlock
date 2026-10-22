@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Original boot runs LOOK before Watson opcode 06 at E72F and text 6DEB",
+      "passed": true
+    },
+    {
+      "check": "Web opening matches the full native narrative from LOOK to the first prompt",
+      "passed": true
+    },
+    {
+      "check": "Description and Watson greeting have exactly one newline between them",
+      "passed": true
+    },
+    {
+      "check": "Saved prompt has already advanced Watson beyond the greeting",
+      "passed": true
+    },
+    {
+      "check": "Reconstructing the greeting does not repeat the actor turn or alter the VM",
+      "passed": true
+    },
+    {
+      "check": "First WAIT still lasts five minutes and never repeats the greeting",
+      "passed": true
+    },
+    {
+      "check": "LOOK and later state reloads contain the scene without the startup greeting",
+      "passed": true
+    },
+    {
+      "check": "Restart restores the opening once, at the free 08:00 clock",
+      "passed": true
+    },
+    {
+      "check": "Map travel discards startup presentation for later scene reloads",
+      "passed": true
+    }
+  ],
+  "events": [
+    {
+      "event": "bytecode",
+      "actor": 0,
+      "address": "9921",
+      "tick": 1,
+      "step": 15691
+    },
+    {
+      "event": "bytecode",
+      "actor": 3,
+      "address": "E72F",
+      "tick": 1,
+      "step": 1133712
+    },
+    {
+      "event": "greeting_text",
+      "actor": 3,
+      "address": "6DEB",
+      "step": 1133728
+    },
+    {
+      "event": "bytecode",
+      "actor": 3,
+      "address": "E732",
+      "tick": 1,
+      "step": 1250737
+    },
+    {
+      "event": "bytecode",
+      "actor": 3,
+      "address": "E737",
+      "tick": 1,
+      "step": 1251903
+    },
+    {
+      "event": "bytecode",
+      "actor": 3,
+      "address": "E79C",
+      "tick": 1,
+      "step": 1252671
+    }
+  ],
+  "native_opening": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.\nWatson looks up from the paper and says \" Good morning Holmes. \"",
+  "native_prompt_clock": [
+    1,
+    8,
+    0,
+    97
+  ],
+  "native_watson_script": "E79F",
+  "greeting": "Watson looks up from the paper and says \" Good morning Holmes. \"",
+  "text_pointer": "6DEB",
+  "script_address": "E72F"
+}

@@ -25,3 +25,5 @@ html{scroll-padding-top:16px}header{position:static}.divider{position:relative;h
 @media(max-width:600px){.compatibility-mode main{padding:12px 8px}.spectrum-frame{padding:0}.spectrum-scroll{padding:8px 1px}}
 
 .game .panel-title #reset{background:var(--teal);color:#fff;border-radius:3px;padding:6px 10px;white-space:nowrap}
+
+#game-status{margin:10px 16px;padding:8px 10px;border:1px solid var(--line);color:var(--ink);font-size:12px}#game-status[hidden],#interrupt-wait[hidden]{display:none}.game .panel-title #interrupt-wait{border:1px solid var(--teal);border-radius:3px;margin-right:7px;padding:5px 8px;white-space:nowrap}

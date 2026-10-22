@@ -10,6 +10,10 @@ Perciò `Game` usa `NativeWorld(active_npcs=None)`: lo scheduler originale visit
 
 `Game(project, data, active_npcs=(...))` resta disponibile per esperimenti isolati e regressioni. Il server non passa questo argomento e usa il mondo completo. Il valore predefinito di `NativeWorld` resta invece la selezione vuota, per conservare il banco di analisi delle singole routine.
 
+## Il saluto all’avvio
+
+Il primo opcode del programma (`$E72F`: `06 EB 6D`) stampa il saluto `$6DEB` prima del primo prompt. Lo snapshot usato dal prototipo è già successivo a quel turno: ora la pagina ripresenta il testo perduto insieme alla descrizione, senza riga vuota tra le due parti e senza rieseguire il turno dell’attore. Dettagli e prova dell’avvio reale sono in `AVVIO-E-SALUTO-WATSON.md`.
+
 ## Provare Watson
 
 Dopo **Riavvia**, nella stanza iniziale:
@@ -72,10 +76,10 @@ python3 -B sherlock-analisi/locazioni/verify_web_cab.py
 python3 -B sherlock-analisi/locazioni/verify_restart.py
 ```
 
-`verify_web_ai.py` verifica ordini, seguito, informazioni, lettura e nota di Watson; rifiuto e viaggio di Lestrade; movimenti dei segnaposti, dipendenza dai treni, avanzamento oltre il primo scambio con Straker e riavvio. Confronta inoltre sequenze di input con `Probe`, il banco indipendente che esegue il gioco originale senza passare da `Game` o da `NativeWorld.submit`: testo superiore/inferiore, 110 record di entità, tutte le 24 righe degli attori e calendario. Il seme di prova è 1; il riferimento riceve lo stesso scarto iniziale di un minuto del prototipo. Le ispezioni ripetute della scena vengono inserite in una prova per controllare i contesti sospesi.
+`verify_web_ai.py` verifica ordini, seguito, informazioni, lettura e nota di Watson; rifiuto e viaggio di Lestrade; movimenti dei segnaposti, dipendenza dai treni, avanzamento oltre il primo scambio con Straker e riavvio. Confronta inoltre sequenze di input con `Probe`, il banco indipendente che esegue il gioco originale senza passare da `Game` o da `NativeWorld.submit`: testo superiore/inferiore, 110 record di entità, tutte le 24 righe degli attori e calendario. Il seme di prova è 1; il riferimento riceve lo stesso calendario iniziale e lo stesso riallineamento della scadenza di Sherlock del prototipo, descritti in `ATTESE-E-FINE-PARTITA.md`. Le ispezioni ripetute della scena vengono inserite in una prova per controllare i contesti sospesi.
 
-La verifica ha completato **18 controlli e 77 comandi**, di cui 23 confrontati con il banco indipendente. Nel percorso con seme 1, Lestrade risulta sul treno 42 alle 09:19am e sceso a Leatherhead Station alle 10:34am; alle 10:54am ha superato gli scambi iniziali con Straker ed esaminato gli oggetti 46 e 47. Sono punti osservati ai prompt della prova, non orari universali attribuiti alle scene.
+La verifica ha completato **18 controlli e 77 comandi**, di cui 23 confrontati con il banco indipendente. Nel percorso con seme 1, Lestrade risulta sul treno 42 alle 09:15am e sceso a Leatherhead Station alle 10:35am; alle 10:55am ha superato gli scambi iniziali con Straker ed esaminato gli oggetti 46 e 47. Sono punti osservati ai prompt della prova, non orari universali attribuiti alle scene.
 
 Il rapporto con i comandi e gli stati osservati è `results/web-ai-verification.json`. Le regressioni specifiche del cab mantengono anche un mondo isolato con i soli cocchieri; la nuova verifica esercita un viaggio del giocatore nello scheduler completo. Le prove nel browser controllano risposte e segnaposti anche in modalità Spectrum.
 
-Attivare tutti i programmi non equivale a certificarne ogni scena. Le nuove prove coprono Watson e la prima parte dell'itinerario di Lestrade, compreso il viaggio in treno e il primo incontro con Straker. Gli sviluppi successivi dell'indagine, gli eventi terminali e tutte le combinazioni di ordini non sono ancora verificati integralmente. Restano esclusi i servizi nastro/stampa e il timeout dell'editor. L'integrazione esegue il codice originale; la sua riscrittura autonoma in Python resta una fase successiva.
+Attivare tutti i programmi non equivale a certificarne ogni scena. Le nuove prove coprono Watson e la prima parte dell'itinerario di Lestrade, compreso il viaggio in treno e il primo incontro con Straker. Gli sviluppi successivi dell’indagine e tutte le combinazioni di ordini non sono ancora verificati integralmente. I percorsi terminali hanno ora prove dedicate in `ATTESE-E-FINE-PARTITA.md`; manca ancora una partita completa riproducibile. Restano esclusi i servizi nastro/stampa e il timeout dell'editor. L'integrazione esegue il codice originale; la sua riscrittura autonoma in Python resta una fase successiva.

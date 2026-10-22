@@ -14,6 +14,7 @@ class NativeWorld:
         self.engine=SherlockParser(self.project);self.sim=self.engine.new_sim();self.m=self.sim.memory;self.R=self.engine.R
         self.input_registers=self.sim.registers[:];self.input_stack=self.m[0x5d00:0x5d80]
         self.m[0xa011]=0 # grafica disabilitata: testo conservato
+        self.ended=None;self.interrupt_wait=False;self.phase_budget=9000000
         self.prepare()
     def call(self,address,a=None,b=None,budget=1800000):
         e,s,R=self.engine,self.sim,self.R;m,r=s.memory,s.registers
@@ -74,6 +75,13 @@ class NativeWorld:
         return {'tick':word(self.m,0x9fdd),'due':word(self.m,0x9866),'minute':minute,'hour':hour,'day':day,'period':'am' if period==97 else 'pm','label':f"{['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day%7]} {hour:02d}:{minute:02d}{'am' if period==97 else 'pm'}"}
 
     def submit(self,text,explored):
+        """Synchronous research interface; the web consumes iter_submit minute by minute."""
+        messages=[]
+        for part in self.iter_submit(text,explored):
+            messages.extend(part.get("messages",[]))
+        return {**part,"messages":messages}
+
+    def iter_submit(self,text,explored):
         """Esegue editor/parser/semantica e scheduler originali, abilitando gli NPC selezionati.
 
         Conserva il punto d'attesa e lo stack fra risposte, incluso A01B/9FF0.
@@ -81,11 +89,14 @@ class NativeWorld:
         """
         text=text.replace('£','`')
         if not text.isascii() or any(ord(c)<32 for c in text) or len(text)>70:
-            return {'messages':[{'kind':'system','text':'Input limit: 70 printable ASCII characters (or £).'}],'analysis':{'input':text,'outcome':'tool_limit','units':[]}}
+            yield {'complete':True,'messages':[{'kind':'system','text':'Input limit: 70 printable ASCII characters (or £).'}],'analysis':{'input':text,'outcome':'tool_limit','units':[]}};return
+        if self.ended:
+            yield {'complete':True,'messages':[],'analysis':{'input':text,'outcome':'game_over','units':[]},'game_over':self.ended};return
+        self.interrupt_wait=False
         m,r,R=self.m,self.sim.registers,self.R
         backup=(m[:],r[:],self.input_registers[:],self.input_stack[:],set(explored))
         r[:]=self.input_registers;m[0x5d00:0x5d80]=self.input_stack;m[0xa027]=1
-        keys=[64] if text.strip()=='@' and not m[0xa01b] else list(text.upper().encode())+[13];messages=[];buf=[];channel=None;editing=True;actions=[];units=[];outcome='ok';listed=[];scene=False
+        keys=[64] if text.strip()=='@' and not m[0xa01b] else list(text.upper().encode())+[13];messages=[];buf=[];channel=None;editing=True;actions=[];units=[];outcome='ok';listed=[];scene=False;terminal=None;phase_steps=0
         def flush():
             nonlocal buf
             value=''.join(buf).replace('\x08','');value=re.sub(r'[ \t]+',' ',value).strip()
@@ -97,12 +108,30 @@ class NativeWorld:
             if c==13:buf.append('\n')
             elif c>=32:buf.append('£' if c==96 else chr(c))
         try:
-            for step in range(9000000):
+            step=0
+            while True:
+                step+=1;phase_steps+=1
+                if phase_steps>self.phase_budget:raise RuntimeError(f'The original code made no clock or input progress (PC {r[R.PC]:04X}).')
                 pc=r[R.PC]
+                if pc==0xb0a6:terminal={'entry':'B0A6','reason':'quit'}
+                if pc==0x9e74:
+                    terminal={'entry':'9E74','reason':'story','text_pointer':f'{r[R.H]*256+r[R.L]:04X}'}
+                if pc==0xb0ac and terminal:
+                    flush();self.ended=terminal
+                    yield {'complete':True,'messages':messages,'analysis':{'input':text,'outcome':'game_over','units':units,'actions':actions},'steps':step,'listed':listed,'scene':scene,'game_over':terminal};return
+                if pc==0xa074:
+                    flush();batch=messages;messages=[];phase_steps=0
+                    yield {'complete':False,'messages':batch,'clock':self.clock(),'steps':step}
+                if pc==0xc41f and m[0x9863]==50:
+                    # A07F polls ENTER once per minute. A full Spectrum would
+                    # resume HALT via its interrupt; this input bridge supplies
+                    # the poll result instead of executing hardware waiting.
+                    r[R.A],r[R.F]=(0x8d if self.interrupt_wait else 0),0
+                    self.interrupt_wait=False;r[R.PC]=word(m,r[R.SP]);r[R.SP]+=2;continue
                 if pc==0xa536:
                     if not keys:
                         flush();self.input_registers=r[:];self.input_stack=m[0x5d00:0x5d80]
-                        return {'messages':messages,'analysis':{'input':text,'normalised':text,'outcome':'clarification' if m[0xa01b] else outcome,'continuation_slot':m[0xa01b],'units':units,'actions':actions},'steps':step,'listed':listed,'scene':scene}
+                        yield {'complete':True,'messages':messages,'analysis':{'input':text,'normalised':text,'outcome':'clarification' if m[0xa01b] else outcome,'continuation_slot':m[0xa01b],'units':units,'actions':actions},'steps':step,'listed':listed,'scene':scene};return
                     r[R.A],r[R.F]=keys.pop(0),0;r[R.PC]=word(m,r[R.SP]);r[R.SP]+=2;continue
                 if pc==0xc415:
                     r[R.A],r[R.F]=32,0;r[R.PC]=word(m,r[R.SP]);r[R.SP]+=2;continue
@@ -135,7 +164,7 @@ class NativeWorld:
                     pos=r[R.IYh]*256+r[R.IYl];kind=r[R.A];size=3 if kind<128 or kind in (0x90,0xe0,0xf0) else 1
                     if pos+size>0x5be1:raise RuntimeError('The original token buffer is full.')
                 self.sim.opcodes[m[pc]]()
-            raise RuntimeError('The command exceeded the execution limit.')
         except (RuntimeError,IndexError,ValueError) as exc:
+            failed_pc=f'{r[R.PC]:04X}';failed_clock=self.clock()
             m[:],r[:],self.input_registers,self.input_stack=backup[:4];explored.clear();explored.update(backup[4])
-            return {'messages':[{'kind':'system','text':str(exc)}],'analysis':{'input':text,'outcome':'tool_limit','units':units}}
+            yield {'complete':True,'messages':[{'kind':'system','text':str(exc)}],'analysis':{'input':text,'outcome':'tool_limit','units':units,'pc':failed_pc,'clock_at_failure':failed_clock}}

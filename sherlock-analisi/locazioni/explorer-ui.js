@@ -1,6 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
 let operationEpoch=0,restarting=false;
+let activeJob=null,canInterrupt=false,interruptRequested=false;
 const pendingRequests=new Set();
 let data,state,busy=false,history=[],historyAt=0,view=[-15,-15,805,675],drag=null,moved=false;
 const rooms=new Map(),nodes=new Map(),edgeEls=[];
@@ -15,11 +16,18 @@ displayCompatibility(preference('sherlock-compatibility','false')==='true');
 $('compatibility').onchange=async()=>{
  const enabled=$('compatibility').checked;if(busy&&enabled){$('compatibility').checked=spectrum.active;return;}
  displayCompatibility(enabled);if(!enabled){focusCommand();return;}if(!data||!state)return;
- const epoch=++operationEpoch;spectrum.reset();setBusy(true);try{const current=await api('/api/state');if(epoch!==operationEpoch)return;update(current);await spectrum.writeMessages([{kind:'narrative',text:current.initial,image_room:current.room}]);}catch(error){if(epoch===operationEpoch)append('error',error.message);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}
+ const epoch=++operationEpoch;spectrum.reset();setBusy(true);try{const current=await api('/api/state');if(epoch!==operationEpoch)return;update(current);if(current.game_over){spectrum.resumeSession();await showMessages(current.ending_messages||[]);}else await spectrum.writeMessages([{kind:'narrative',text:current.opening||current.initial,image_room:current.room}]);}catch(error){if(epoch===operationEpoch)append('error',error.message);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}
 };
 $('compat-picture-mode').onchange=()=>{savePreference('sherlock-compat-picture-mode',$('compat-picture-mode').value);spectrum.setPictureMode($('compat-picture-mode').value);};
 $('compat-scale').onchange=()=>{savePreference('sherlock-compat-scale',$('compat-scale').value);spectrum.setScale($('compat-scale').value);};
-async function showMessages(messages){for(const message of messages)appendScene(message);if(spectrum.active)await spectrum.writeMessages(messages);}
+async function showMessages(messages,options){
+ const native=[];
+ for(const message of messages){
+  if(message.kind==='system'){$('game-status').textContent='Messaggio del prototipo: '+message.text;$('game-status').hidden=false;continue;}
+  appendScene(message);native.push(message);
+ }
+ if(spectrum.active)await spectrum.writeMessages(native,options);
+}
 
 function svg(tag,attrs={}){const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);return el;}
 function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
@@ -41,8 +49,9 @@ async function api(path,body){
  const request=(async()=>{const options=body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)};const res=await fetch(path,options);const value=await res.json();if(!res.ok)throw new Error(value.error||'Richiesta non riuscita');return value;})();
  pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}
 }
-function setBusy(value){busy=value;$('command').disabled=value;$('submit').disabled=value;$('reset').disabled=restarting||!data;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);}
-function update(s){const previousRoom=state?.room;state=s;spectrum.setRoom(s.room);spectrum.setClock(s.clock.label);$('clock').textContent=s.clock.label;$('ticks').textContent=`Tick ${s.clock.tick} · ${s.visited.length} luoghi esplorati`;$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
+function setBusy(value){busy=value;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||!data;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
+function update(s){const previousRoom=state?.room;state=s;spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);$('game-status').hidden=!s.game_over;if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
  updateCharacters(s);
@@ -50,9 +59,29 @@ function update(s){const previousRoom=state?.room;state=s;spectrum.setRoom(s.roo
  $('exits').replaceChildren();for(const e of s.exits){const row=el('div',undefined,'exit'),button=el('button',e.direction),desc=el('div',`${String(e.target).padStart(3,'0')} ${e.target_name||'destinazione non attiva'}`);button.title='Esegui il movimento, rispettando gli ostacoli';button.onclick=()=>command(e.direction);desc.append(el('small',`${e.gate_name?e.gate_name+' · ':''}${e.status}`));row.append(button,desc);$('exits').append(row);}if(!s.exits.length)$('exits').append(el('span','Nessuna uscita direzionale.'));
  $('objects').replaceChildren();for(const o of s.visible){const item=el('span',o.name,'entity');item.title=`Entità ${o.id}${s.objects.some(x=>x.id===o.id)?' · elencata nella scena':''}`;$('objects').append(item);}if(!s.visible.length)$('objects').append(el('span',s.dark?'È buio: nessun elenco visivo disponibile.':'Nessuna entità percepibile.'));
  if(s.analysis){const a=s.analysis;$('analysis').textContent=JSON.stringify({esito:a.outcome,riga:a.normalised,unita:a.units,controlli:a.controls},null,2);}}
-async function perform(path,body,focus=true){if(busy)return;const epoch=++operationEpoch;setBusy(true);try{const r=await api(path,body);if(epoch!==operationEpoch)return;update(r.state);await showMessages(r.messages);}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){setBusy(false);if(focus||spectrum.active)focusCommand();}}}
-async function command(text){if(busy||!text.trim())return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('/api/command',{command:text});}
-async function teleport(id){if(busy)return;$('search-results').hidden=true;$('search').value='';await perform('/api/teleport',{room:id},false);}
+function waitControls(job,allowed){activeJob=job;canInterrupt=Boolean(allowed);$('interrupt-wait').hidden=!canInterrupt;$('interrupt-wait').disabled=interruptRequested;}
+function interruptWait(){if(!activeJob||!canInterrupt||spectrum.waiting)return;interruptRequested=true;$('interrupt-wait').disabled=true;}
+$('interrupt-wait').onclick=interruptWait;
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
+async function consumeCommand(result,epoch){
+ let continuing=false;
+ while(epoch===operationEpoch){
+  if(!result.running){update(result.state);await showMessages(result.messages,{complete:true,continuing});waitControls(null,false);return;}
+  waitControls(result.job,result.can_interrupt);
+  await showMessages(result.messages,{complete:false,continuing});continuing=true;
+  if(epoch!==operationEpoch)return;
+  setClock(result.clock);
+  $('spectrum-status').textContent=canInterrupt?'Attesa in corso: Invio interrompe; MORE continua la pagina.':'Comando in corso…';
+  // Let each native clock frame be painted before executing the next minute.
+  await new Promise(resolve=>setTimeout(resolve,100));
+  if(epoch!==operationEpoch)return;
+  const interrupt=interruptRequested;interruptRequested=false;
+  result=await api('/api/continue-command',{job:activeJob,interrupt});
+ }
+}
+async function perform(path,body,focus=true){if(busy||state?.game_over)return;const epoch=++operationEpoch;interruptRequested=false;$('game-status').hidden=true;setBusy(true);try{const r=await api(path,body);if(epoch!==operationEpoch)return;if(path==='/api/start-command')await consumeCommand(r,epoch);else{update(r.state);await showMessages(r.messages);}}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){waitControls(null,false);setBusy(false);if(focus||spectrum.active)focusCommand();}}}
+async function command(text){if(busy||state?.game_over||!text.trim())return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('/api/start-command',{command:text});}
+async function teleport(id){if(busy||state?.game_over)return;$('search-results').hidden=true;$('search').value='';await perform('/api/teleport',{room:id},false);}
 function applyView(){$('map').setAttribute('viewBox',view.join(' '));}
 function zoom(factor,cx=view[0]+view[2]/2,cy=view[1]+view[3]/2){const width=Math.min(7000,Math.max(250,view[2]*factor)),ratio=width/view[2];view=[cx+(view[0]-cx)*ratio,cy+(view[1]-cy)*ratio,width,view[3]*ratio];applyView();}
 function point(e){const p=$('map').createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform($('map').getScreenCTM().inverse());}
@@ -114,6 +143,7 @@ $('command').addEventListener('keydown',e=>{if(e.key==='ArrowUp'||e.key==='Arrow
 for(const b of document.querySelectorAll('[data-command]'))b.onclick=()=>command(b.dataset.command);
 $('reset').onclick=async()=>{
  if(restarting||!data)return;const epoch=++operationEpoch;restarting=true;
+ waitControls(null,false);interruptRequested=false;
  spectrum.reset();$('transcript').replaceChildren();$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
  $('search').value='';$('search-results').hidden=true;setBusy(true);
  try{
@@ -134,4 +164,4 @@ $('map').addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-d
 window.addEventListener('pointerup',()=>{drag=null;$('map').classList.remove('dragging');});
 $('map').addEventListener('pointercancel',()=>{drag=null;$('map').classList.remove('dragging');});
 $('search').addEventListener('input',()=>{const q=$('search').value.trim().toLowerCase(),list=$('search-results');list.replaceChildren();list.hidden=!q;if(!q)return;const found=data.rooms.filter(r=>r.id&&(r.name_hint.toLowerCase().includes(q)||String(r.id).padStart(3,'0').includes(q))).slice(0,18);for(const r of found){const b=el('button',`${String(r.id).padStart(3,'0')} · ${r.name_hint} →`);b.onclick=()=>{centerRoom(r.id);teleport(r.id);};list.append(b);}if(!found.length)list.append(el('p','Nessun luogo corrispondente.'));});
-(async()=>{const epoch=++operationEpoch;setBusy(true);try{data=await api('/api/data');spectrum.configure(SPECTRUM_ASSETS,data.pictures,SPECTRUM_ASSETS.pixels);buildGraph();const initialState=await api('/api/state');if(epoch!==operationEpoch)return;update(initialState);centerRoom(state.room);setBusy(true);await showMessages([{kind:'narrative',text:state.initial,image_room:state.room}]);}catch(error){if(epoch===operationEpoch)append('error',`Start the Python server to use the explorer. ${error.message}`);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}})();
+(async()=>{const epoch=++operationEpoch;setBusy(true);try{data=await api('/api/data');spectrum.configure(SPECTRUM_ASSETS,data.pictures,SPECTRUM_ASSETS.pixels);buildGraph();const initialState=await api('/api/state');if(epoch!==operationEpoch)return;update(initialState);centerRoom(state.room);setBusy(true);if(initialState.command_running){spectrum.resumeSession();await consumeCommand({running:true,job:initialState.job,can_interrupt:initialState.can_interrupt,clock:initialState.clock,messages:[]},epoch);}else if(initialState.game_over){spectrum.resumeSession();await showMessages(initialState.ending_messages||[]);}else await showMessages([{kind:'narrative',text:state.opening||state.initial,image_room:state.room}]);}catch(error){if(epoch===operationEpoch)append('error',`Start the Python server to use the explorer. ${error.message}`);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}})();

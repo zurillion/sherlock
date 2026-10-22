@@ -2,7 +2,7 @@
   "passed": true,
   "checks": [
     "Initial description and state inspection leave the clock at Mon 08:00am",
-    "Native action costs and responses remain identical, with a one-minute initial offset; syntax and clarification are free",
+    "Native action costs and responses remain identical, with the same explicit free-start normalization; syntax and clarification are free",
     "New session restores room, explored locations, entity positions, parser state and clock"
   ],
   "sequence": [
@@ -10,7 +10,7 @@
       "command": "LOOK",
       "clock": {
         "tick": 2,
-        "due": 1,
+        "due": 2,
         "minute": 1,
         "hour": 8,
         "day": 0,
@@ -18,25 +18,25 @@
         "label": "Mon 08:01am"
       },
       "reference_clock": {
-        "tick": 3,
+        "tick": 2,
         "due": 2,
-        "minute": 2,
+        "minute": 1,
         "hour": 8,
         "day": 0,
         "period": "am",
-        "label": "Mon 08:02am"
+        "label": "Mon 08:01am"
       }
     },
     {
       "command": "WAIT",
       "clock": {
-        "tick": 6,
-        "due": 6,
-        "minute": 5,
+        "tick": 7,
+        "due": 7,
+        "minute": 6,
         "hour": 8,
         "day": 0,
         "period": "am",
-        "label": "Mon 08:05am"
+        "label": "Mon 08:06am"
       },
       "reference_clock": {
         "tick": 7,
@@ -51,13 +51,13 @@
     {
       "command": "XYZZY",
       "clock": {
-        "tick": 6,
-        "due": 6,
-        "minute": 5,
+        "tick": 7,
+        "due": 7,
+        "minute": 6,
         "hour": 8,
         "day": 0,
         "period": "am",
-        "label": "Mon 08:05am"
+        "label": "Mon 08:06am"
       },
       "reference_clock": {
         "tick": 7,
@@ -72,13 +72,13 @@
     {
       "command": "OPEN DOOR",
       "clock": {
-        "tick": 6,
-        "due": 6,
-        "minute": 5,
+        "tick": 7,
+        "due": 7,
+        "minute": 6,
         "hour": 8,
         "day": 0,
         "period": "am",
-        "label": "Mon 08:05am"
+        "label": "Mon 08:06am"
       },
       "reference_clock": {
         "tick": 7,
@@ -93,13 +93,13 @@
     {
       "command": "YOUR",
       "clock": {
-        "tick": 7,
-        "due": 7,
-        "minute": 6,
+        "tick": 8,
+        "due": 8,
+        "minute": 7,
         "hour": 8,
         "day": 0,
         "period": "am",
-        "label": "Mon 08:06am"
+        "label": "Mon 08:07am"
       },
       "reference_clock": {
         "tick": 8,

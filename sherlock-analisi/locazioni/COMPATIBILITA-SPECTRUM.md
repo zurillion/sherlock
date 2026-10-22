@@ -17,7 +17,9 @@ Le cinque righe conservano i comandi recenti e le risposte del canale inferiore,
 
 ## Scrittura, scroll e MORE
 
-All’avvio della modalità e dopo **Riavvia**, lo schermo superiore è vuoto e il quadratino lampeggiante attende un tasto. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio appare subito al primo tasto alle **Mon 08:00am** e resta alle 08:00am dopo la descrizione iniziale. Comincia due colonne più a destra rispetto alla versione precedente: x=16 pixel virtuali, con passo di sette pixel.
+All’avvio della modalità e dopo **Riavvia**, lo schermo superiore è vuoto e il quadratino lampeggiante attende un tasto. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio appare subito al primo tasto alle **Mon 08:00am** e resta alle 08:00am dopo la descrizione iniziale. La descrizione è seguita dal saluto iniziale di Watson, recuperato dal testo originale già stampato prima dello snapshot: fra descrizione e saluto c’è un solo a capo, senza riga vuota. Non viene eseguito un secondo turno dell’NPC.
+
+L’orologio comincia due colonne più a destra rispetto alla versione precedente: x=16 pixel virtuali, con passo di sette pixel.
 
 L’uscita superiore viene composta per parole, con intervallo di presentazione di circa 32,5 ms (il doppio della velocità precedente). Le parole che non entrano nella riga passano alla successiva. Le sequenze più lunghe della riga vengono spezzate per garantire che il testo avanzi sempre.
 
@@ -29,7 +31,13 @@ La pausa e la velocità di scrittura sono gestite dalla presentazione JavaScript
 
 Il pulsante **Riavvia ↺**, sopra il video, ricrea la partita da zero: locazione iniziale, oggetti, stato del parser, comandi e orologio. Resta disponibile anche durante la scrittura e le pause MORE. Annulla l’uscita precedente; se una richiesta è già in corso, ne attende la fine prima di sostituire la partita, evitando che una risposta vecchia alteri il nuovo avvio. Le preferenze grafiche restano memorizzate.
 
-L’avvio gratuito è una scelta dell’esploratore richiesta dall’utente. Il riferimento Z80 del primo prompt resta alle 08:01am nelle analisi originali. `Game` riporta il calendario alle 08:00am e arretra insieme tick globale e scadenza del giocatore di un’unità, preservando gli intervalli delle azioni successive; `NativeWorld` e gli snapshot di ricerca restano invariati.
+L’avvio gratuito è una scelta dell’esploratore richiesta dall’utente. Il riferimento Z80 del primo prompt resta alle 08:01am nelle analisi originali. `Game` riporta il calendario alle 08:00am, arretra di un tick le scadenze degli attori e riallinea la scadenza di Sherlock al tick corrente. Quest’ultimo passaggio elimina il minuto già anticipato nello snapshot: WAIT dura cinque minuti anche subito dopo l’avvio e WAIT UNTIL raggiunge l’ora richiesta. Gli opcode Z80 e gli snapshot di ricerca restano invariati. Il dettaglio del confronto è in `ATTESE-E-FINE-PARTITA.md`.
+
+## Attese e fine partita
+
+Durante WAIT e WAIT UNTIL la barra mostra ogni minuto prodotto dal ciclo originale. WAIT dura cinque minuti; WAIT UNTIL si interrompe con **Invio** o con **Interrompi**, appena disponibile il controllo nativo successivo. Se è visibile il MORE, Invio continua soltanto il testo. Per specificare la fascia usare `WAIT UNTIL 9:00AM` o `WAIT UNTIL 9:00PM`, senza spazio prima del suffisso.
+
+Alla morte o alla conclusione si stampa il finale originale e si congelano comandi, tempo e spostamenti tramite mappa. Il MORE rimane utilizzabile per leggere tutto. **Riavvia** apre una nuova partita. Ricaricare la pagina conserva invece il finale nella stessa sessione del server. Gli errori tecnici del prototipo compaiono fuori dallo schermo virtuale.
 
 ## Immagini
 
@@ -55,7 +63,8 @@ L’interruttore **Immagini** mostra/nasconde anche la grafica della modalità c
 | `app.js` | Bundle generato da terminale, asset e interfaccia. |
 | `verify_compatibility.cjs` | Controlli della griglia, dell’impaginazione e degli asset. |
 | `verify_restart.py` | Avvio alle 08:00am, costi nativi e ripristino della partita. |
-| `verify_terminal.cjs` | Controlli della coda reale, della tastiera e della cancellazione del MORE. |
+| `verify_terminal.cjs` | Coda, tastiera, MORE, lotti di testo incrementali e blocco dopo la fine partita. |
+| `verify_wait_endgame.py` | Attese, interrupt originali, confronto del mondo, morte, gateway di vittoria e QUIT. |
 
 **Per modificare l’interfaccia, lavorare su `explorer-ui.js` e `spectrum.js`, quindi ricostruire `app.js`.** Il bundle rende la funzione disponibile anche al server già aperto, che conosceva solo le route HTML/CSS/JS precedenti. Per modifiche statiche non occorre riavviarlo né perdere le sessioni. Le modifiche Python richiedono invece il riavvio del server locale.
 

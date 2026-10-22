@@ -72,6 +72,7 @@ def verify(project):
         for row in range(0x9860, 0x9920, 8):
             ref.e.put(ref.s, row + 6, max(0, word(ref.m, row + 6) - 1))
         ref.m[0x9fdf:0x9fe3] = [0, 8, 0, 97]
+        ref.e.put(ref.s, 0x9866, word(ref.m, 0x9fdd))
         compared = []
         for command in commands:
             if inspect:

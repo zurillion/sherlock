@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "WAIT visibly advances from 08:00 to 08:05 through each minute",
+      "passed": true,
+      "observed": [
+        "Mon 08:00am",
+        "Mon 08:01am",
+        "Mon 08:02am",
+        "Mon 08:03am",
+        "Mon 08:04am",
+        "Mon 08:05am"
+      ]
+    },
+    {
+      "check": "WAIT UNTIL reaches 08:10 with individual visible minute updates",
+      "passed": true,
+      "observed": [
+        "Mon 08:05am",
+        "Mon 08:06am",
+        "Mon 08:07am",
+        "Mon 08:08am",
+        "Mon 08:09am",
+        "Mon 08:10am"
+      ]
+    },
+    {
+      "check": "ENTER stops WAIT UNTIL before the requested 09:00 (pressed outside MORE)",
+      "passed": true,
+      "before": "Mon 08:01am",
+      "after": "Mon 08:02am"
+    },
+    {
+      "check": "Native wall-safe ending is visible, commands are locked and Restart stays available",
+      "passed": true,
+      "clock": "Mon 08:02am",
+      "ending": "stained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \n                                    \nYou are in Basils Library. Visible  \nexits are north. You can see a wall \nsafe.                               \n                                    \nYou open the wall safe.             \nBasil enters and says\" Holmes, your \ninterference is becoming annoying.\".\nPulling a gun he shoots you. Perhaps\nyou should try again.               \n                                    ",
+      "inputLocked": true,
+      "lower": "                                    \n                                    \n> WAIT UNTIL 9:00                   \n> OPEN WALL SAFE                    \n>                                   ",
+      "restartEnabled": true,
+      "status": "Partita terminata. Usa Riavvia per ricominciare."
+    },
+    {
+      "check": "Reload preserves the native ending and locked input",
+      "passed": true,
+      "clock": "Mon 08:02am",
+      "locked": true,
+      "upper": "                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \nYou open the wall safe.             \nBasil enters and says\" Holmes, your \ninterference is becoming annoying.\".\nPulling a gun he shoots you. Perhaps\nyou should try again.               \n                                    "
+    },
+    {
+      "check": "Restart after ending restores the free 08:00 clock and live prompt",
+      "passed": true,
+      "clock": "Mon 08:00am",
+      "ending": false,
+      "locked": false,
+      "lower": "                                    \n                                    \n                                    \n                                    \n> +                                 "
+    }
+  ],
+  "consoleErrors": []
+}

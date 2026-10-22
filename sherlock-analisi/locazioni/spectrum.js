@@ -22,7 +22,7 @@ function spectrumWrap(text,columns=36){const lines=[''];for(const c of text){if(
 class SpectrumTerminal {
  constructor({canvas,input,upper,lower,status,onCommand}){
   Object.assign(this,{canvas,input,upper,lower,status,onCommand});this.model=new SpectrumBuffer();this.active=false;this.busy=false;this.processing=false;this.waiting=false;this.waitingReason=null;this.startupPending=true;this.epoch=0;this.draft='';this.lowerHistory=[];this.lowerLine='';this.upperSeparated=false;this.clock='Mon 08:00am';this.clockVisible=false;this.scale=2;this.pictureMode='svg';this.pictures=true;this.picture=null;this.pictureTop=0;this.pictureNarrow=false;this.cache=new Map();this.delay=32.5;
-  input.addEventListener('keydown',e=>this.key(e));input.addEventListener('beforeinput',e=>{e.preventDefault();if(this.busy||this.processing||this.waiting)return;if(e.inputType==='insertText'&&e.data)for(const c of e.data)this.type(c);else if(e.inputType==='deleteContentBackward')this.backspace();});
+  input.addEventListener('keydown',e=>this.key(e));input.addEventListener('beforeinput',e=>{e.preventDefault();if(this.busy||this.processing||this.waiting||this.ended)return;if(e.inputType==='insertText'&&e.data)for(const c of e.data)this.type(c);else if(e.inputType==='deleteContentBackward')this.backspace();});
   for(const event of ['paste','drop','cut'])input.addEventListener(event,e=>e.preventDefault());
   input.addEventListener('input',()=>{input.value=this.draft;});
   canvas.parentElement.addEventListener('click',()=>{if(this.waiting)this.more();else this.focus();});
@@ -33,20 +33,22 @@ class SpectrumTerminal {
  setActive(value){this.active=value;if(!value)this.cancel();this.render();}
  setBusy(value){this.busy=value;this.input.setAttribute('aria-busy',String(value));this.render();}
  setClock(value){this.clock=value;this.render();}
+ setEnded(value){this.ended=Boolean(value);this.input.setAttribute('aria-disabled',String(this.ended));this.render();}
+ resumeSession(){this.startupPending=false;this.clockVisible=true;this.model.startPage();this.render();}
  setScale(value){this.scale=Number(value)===3?3:2;this.render();}
  setPictures(value){this.pictures=value;this.model.columns=this.picture&&value&&this.pictureNarrow?18:36;this.render();}
  setRoom(room){if(this.room!==undefined&&room!==this.room)this.clearPicture();this.room=room;}
  async setPictureMode(value){this.pictureMode=value==='pixel'?'pixel':'svg';if(this.picture)await this.loadPicture(this.picture.room,false);this.render();}
  clearPicture(){this.picture=null;this.pictureNarrow=false;this.model.columns=36;this.render();}
- reset(){this.cancel();this.clock='Mon 08:00am';this.clockVisible=false;this.startupPending=true;this.model.clear();this.upperSeparated=false;this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
+ reset(){this.cancel();this.ended=false;this.commandWroteUpper=false;this.clock='Mon 08:00am';this.clockVisible=false;this.startupPending=true;this.model.clear();this.upperSeparated=false;this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
  cancel(){this.epoch++;this.waiting=false;this.waitingReason=null;this.processing=false;if(this.resume){this.resume(false);this.resume=null;}this.render();}
  focus(){if(this.active)this.input.focus({preventScroll:true});}
- type(character){if(!/^[ -~£]$/.test(character)||this.draft.length>=70)return;this.draft+=character.toUpperCase();this.input.value=this.draft;this.render();}
- backspace(){this.draft=this.draft.slice(0,-1);this.input.value=this.draft;this.render();}
+ type(character){if(this.ended||!/^[ -~£]$/.test(character)||this.draft.length>=70)return;this.draft+=character.toUpperCase();this.input.value=this.draft;this.render();}
+ backspace(){if(this.ended)return;this.draft=this.draft.slice(0,-1);this.input.value=this.draft;this.render();}
  key(e){
   if(e.key==='Tab')return;
   if(e.ctrlKey||e.metaKey){if(['v','x','a'].includes(e.key.toLowerCase()))e.preventDefault();return;}
-  e.preventDefault();if(this.busy||this.processing||!this.active)return;
+  e.preventDefault();if(this.busy||this.processing||this.ended||!this.active)return;
   if(e.key==='Backspace')this.backspace();else if(e.key==='Enter'){if(this.draft.trim())this.onCommand(this.draft);}else if(e.key.length===1)this.type(e.key);
  }
  commit(text){this.lowerHistory.push(...spectrumWrap(text.toUpperCase(),34));this.lowerHistory=this.lowerHistory.slice(-40);this.draft='';this.input.value='';this.render();}
@@ -62,8 +64,8 @@ class SpectrumTerminal {
   if(fresh){this.model.clear();this.model.startPage();this.upperSeparated=false;this.pictureTop=0;this.pictureNarrow=true;}
   this.picture={room,image,url,scrollOrigin:fresh?this.model.scrolls:(this.picture?.scrollOrigin??this.model.scrolls)};this.model.columns=this.pictures&&this.pictureNarrow?18:36;this.render();
  }
- async writeMessages(messages){
-  if(!this.active)return;const epoch=this.epoch;let wroteUpper=false;this.processing=true;this.status.textContent='Scrittura del testo…';this.render();
+ async writeMessages(messages,{complete=true,continuing=false}={}){
+  if(!this.active)return;const epoch=this.epoch;let wroteUpper=false;if(!continuing)this.commandWroteUpper=false;this.processing=true;this.status.textContent='Scrittura del testo…';this.render();
   try{
    if(this.startupPending&&messages.some(message=>message.kind!=='error'&&message.text?.trim())){this.startupPending=false;if(!await this.pause('startup')||epoch!==this.epoch)return;}
    for(const message of messages){
@@ -73,7 +75,7 @@ class SpectrumTerminal {
     const lower=message.kind==='error';
     if(!lower){
      if((this.upperSeparated||this.model.lines.at(-1).length)&&!await this.line(epoch))return;
-     this.upperSeparated=false;wroteUpper=true;
+     this.upperSeparated=false;wroteUpper=true;this.commandWroteUpper=true;
     }
     for(const token of spectrumTokens(lower?text.toUpperCase():text)){
      if(epoch!==this.epoch||!this.active)return;
@@ -87,10 +89,10 @@ class SpectrumTerminal {
     if(lower&&this.lowerLine){this.lowerHistory.push(this.lowerLine);this.lowerLine='';}
     this.lowerHistory=this.lowerHistory.slice(-40);
    }
-   if(wroteUpper&&epoch===this.epoch&&await this.line(epoch))this.upperSeparated=true;
-  }finally{if(epoch===this.epoch){this.processing=false;this.status.textContent='Pronto. Caratteri, Backspace, Invio.';this.render();}}
+   if(complete&&(wroteUpper||this.commandWroteUpper)&&epoch===this.epoch&&await this.line(epoch)){this.upperSeparated=true;this.commandWroteUpper=false;}
+  }finally{if(epoch===this.epoch){this.processing=false;this.status.textContent=this.ended?'Partita terminata. Usa Riavvia.':'Pronto. Caratteri, Backspace, Invio.';this.render();}}
  }
- lowerRows(){const rows=[...this.lowerHistory];if(this.lowerLine)rows.push(this.lowerLine);const draft=spectrumWrap(this.draft+(!this.busy&&!this.processing?'+':''),34);rows.push(...draft);return [...Array(Math.max(0,5-rows.length)).fill(null),...rows.slice(-5)].map(line=>line===null?' '.repeat(36):('> '+line).padEnd(36,' '));}
+ lowerRows(){const rows=[...this.lowerHistory];if(this.lowerLine)rows.push(this.lowerLine);const draft=spectrumWrap(this.draft+(!this.busy&&!this.processing&&!this.ended?'+':''),34);rows.push(...draft);return [...Array(Math.max(0,5-rows.length)).fill(null),...rows.slice(-5)].map(line=>line===null?' '.repeat(36):('> '+line).padEnd(36,' '));}
  render(){
   const upper=this.model.visible(),lower=this.lowerRows();this.upper.textContent=upper.join('\n');this.lower.textContent=lower.join('\n');
   this.canvas.setAttribute('aria-label',`Schermo ZX Spectrum${this.clockVisible?' · '+this.clock:''}. 36 colonne, 18 righe di testo, una riga di stato, 5 righe di comando.`);this.canvas.dataset.waiting=String(this.waiting);this.canvas.dataset.waitingReason=this.waitingReason||'';this.canvas.dataset.clockX='16';this.canvas.dataset.clockVisible=String(this.clockVisible);this.canvas.dataset.clock=this.clockVisible?this.clock:'';this.canvas.dataset.processing=String(this.processing);this.canvas.dataset.columns=String(this.model.columns);this.canvas.dataset.scrolls=String(this.model.scrolls);this.canvas.dataset.picture=this.picture&&this.pictures?String(this.picture.room):'';this.canvas.dataset.pictureMode=this.pictureMode;

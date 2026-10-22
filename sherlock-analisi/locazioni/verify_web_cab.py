@@ -42,7 +42,7 @@ def verify(project):
     assert next(c for c in g.characters() if c['id']==31)['rooms']==[28]
     assert {1,5,28}<=g.explored
     checks.append('Natural walk, hail, boarding, quoted destination, transit and arrival; C1 and player markers move, other NPCs stay put')
-    assert g.world.clock()['label']=='Mon 08:26am'
+    assert g.world.clock()['label']=='Mon 08:27am'
     images=[m.get('image_room') for row in traces for m in row['messages']]
     assert 1 in images and 28 in images
     checks.append('Native scheduler updates clock and scene/image events when an NPC moves the passenger')

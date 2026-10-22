@@ -1,0 +1,3007 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "WAIT lasts five minutes from startup and after other actions",
+      "passed": true
+    },
+    {
+      "check": "Every elapsed minute is returned separately and in order",
+      "passed": true
+    },
+    {
+      "check": "Lexical errors have no minute frames and leave time unchanged",
+      "passed": true
+    },
+    {
+      "check": "WAIT UNTIL reaches exactly 09:00am; read-only session inspection is safe",
+      "passed": true
+    },
+    {
+      "check": "18:24 to implicit 9:00 selects 9pm and completes all 156 minute frames",
+      "passed": true
+    },
+    {
+      "check": "ENTER interrupts WAIT UNTIL through the native A07F poll",
+      "passed": true
+    },
+    {
+      "check": "A pending command rejects another command and a stale continuation token",
+      "passed": true
+    },
+    {
+      "check": "WAIT itself remains uninterruptible and lasts five minutes",
+      "passed": true
+    },
+    {
+      "check": "Minute frames, 110 entity records and 24 actor rows match original code with real ROM interrupts",
+      "passed": true,
+      "commands": [
+        "WAIT",
+        "WAIT UNTIL 8:10AM",
+        "LOOK",
+        "WAIT UNTIL 8:15AM"
+      ],
+      "interrupts": 9
+    },
+    {
+      "check": "Original wall-safe death text reaches a terminal result instead of rollback",
+      "passed": true
+    },
+    {
+      "check": "Ended game accepts no more actions and retains its original ending on reload",
+      "passed": true
+    },
+    {
+      "check": "Map travel is frozen after game over",
+      "passed": true
+    },
+    {
+      "check": "The original victory gateway retains its text and terminates without tape I/O",
+      "passed": true
+    },
+    {
+      "check": "QUIT ends cleanly before any tape access",
+      "passed": true
+    },
+    {
+      "check": "Restart restores a live world and the free 08:00 clock",
+      "passed": true
+    },
+    {
+      "check": "Genuine lack of execution progress remains bounded and rolls back safely",
+      "passed": true
+    }
+  ],
+  "traces": {
+    "waits": [
+      {
+        "command": "WAIT",
+        "before": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "after": {
+          "tick": 6,
+          "due": 6,
+          "minute": 5,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:05am"
+        },
+        "frames": [
+          {
+            "tick": 2,
+            "due": 6,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          {
+            "tick": 3,
+            "due": 6,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          {
+            "tick": 4,
+            "due": 6,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          {
+            "tick": 5,
+            "due": 6,
+            "minute": 4,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:04am"
+          },
+          {
+            "tick": 6,
+            "due": 6,
+            "minute": 5,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:05am"
+          }
+        ],
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "You wait."
+          }
+        ],
+        "outcome": "ok",
+        "game_over": null
+      },
+      {
+        "command": "WAIT",
+        "before": {
+          "tick": 6,
+          "due": 6,
+          "minute": 5,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:05am"
+        },
+        "after": {
+          "tick": 11,
+          "due": 11,
+          "minute": 10,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:10am"
+        },
+        "frames": [
+          {
+            "tick": 7,
+            "due": 11,
+            "minute": 6,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:06am"
+          },
+          {
+            "tick": 8,
+            "due": 11,
+            "minute": 7,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:07am"
+          },
+          {
+            "tick": 9,
+            "due": 11,
+            "minute": 8,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:08am"
+          },
+          {
+            "tick": 10,
+            "due": 11,
+            "minute": 9,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:09am"
+          },
+          {
+            "tick": 11,
+            "due": 11,
+            "minute": 10,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:10am"
+          }
+        ],
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "You wait."
+          }
+        ],
+        "outcome": "ok",
+        "game_over": null
+      },
+      {
+        "command": "LOOK",
+        "before": {
+          "tick": 11,
+          "due": 11,
+          "minute": 10,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:10am"
+        },
+        "after": {
+          "tick": 12,
+          "due": 12,
+          "minute": 11,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:11am"
+        },
+        "frames": [
+          {
+            "tick": 12,
+            "due": 12,
+            "minute": 11,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:11am"
+          }
+        ],
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "",
+            "image_room": 8
+          },
+          {
+            "kind": "narrative",
+            "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+          }
+        ],
+        "outcome": "ok",
+        "game_over": null
+      },
+      {
+        "command": "WAIT",
+        "before": {
+          "tick": 12,
+          "due": 12,
+          "minute": 11,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:11am"
+        },
+        "after": {
+          "tick": 17,
+          "due": 17,
+          "minute": 16,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:16am"
+        },
+        "frames": [
+          {
+            "tick": 13,
+            "due": 17,
+            "minute": 12,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:12am"
+          },
+          {
+            "tick": 14,
+            "due": 17,
+            "minute": 13,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:13am"
+          },
+          {
+            "tick": 15,
+            "due": 17,
+            "minute": 14,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:14am"
+          },
+          {
+            "tick": 16,
+            "due": 17,
+            "minute": 15,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:15am"
+          },
+          {
+            "tick": 17,
+            "due": 17,
+            "minute": 16,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:16am"
+          }
+        ],
+        "messages": [
+          {
+            "kind": "narrative",
+            "text": "You wait."
+          },
+          {
+            "kind": "narrative",
+            "text": "With an excited look on his face Watson says\" Well here is a case that may interest you, it seems that two close friends, a Mrs Brown and a Mrs Jones, were murdered last night in separate incidents although apparently with the same weapon. The crimes occurred at their respective homes in the township of Leather Head and, because of the lack of murder weapon and apparent motive, the local police are completely baffled. They have called upon Scotland Yard for assistance and it appears that the famed detective Inspector Giles Lestrade has taken an interest in the case and will be going to the scene this morning.\""
+          }
+        ],
+        "outcome": "ok",
+        "game_over": null
+      }
+    ],
+    "until_morning": {
+      "command": "WAIT UNTIL 9:00AM",
+      "before": {
+        "tick": 17,
+        "due": 17,
+        "minute": 16,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:16am"
+      },
+      "after": {
+        "tick": 61,
+        "due": 61,
+        "minute": 0,
+        "hour": 9,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 09:00am"
+      },
+      "frames": [
+        {
+          "tick": 18,
+          "due": 61,
+          "minute": 17,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:17am"
+        },
+        {
+          "tick": 19,
+          "due": 61,
+          "minute": 18,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:18am"
+        },
+        {
+          "tick": 20,
+          "due": 61,
+          "minute": 19,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:19am"
+        },
+        {
+          "tick": 21,
+          "due": 61,
+          "minute": 20,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:20am"
+        },
+        {
+          "tick": 22,
+          "due": 61,
+          "minute": 21,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:21am"
+        },
+        {
+          "tick": 23,
+          "due": 61,
+          "minute": 22,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:22am"
+        },
+        {
+          "tick": 24,
+          "due": 61,
+          "minute": 23,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:23am"
+        },
+        {
+          "tick": 25,
+          "due": 61,
+          "minute": 24,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:24am"
+        },
+        {
+          "tick": 26,
+          "due": 61,
+          "minute": 25,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:25am"
+        },
+        {
+          "tick": 27,
+          "due": 61,
+          "minute": 26,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:26am"
+        },
+        {
+          "tick": 28,
+          "due": 61,
+          "minute": 27,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:27am"
+        },
+        {
+          "tick": 29,
+          "due": 61,
+          "minute": 28,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:28am"
+        },
+        {
+          "tick": 30,
+          "due": 61,
+          "minute": 29,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:29am"
+        },
+        {
+          "tick": 31,
+          "due": 61,
+          "minute": 30,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:30am"
+        },
+        {
+          "tick": 32,
+          "due": 61,
+          "minute": 31,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:31am"
+        },
+        {
+          "tick": 33,
+          "due": 61,
+          "minute": 32,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:32am"
+        },
+        {
+          "tick": 34,
+          "due": 61,
+          "minute": 33,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:33am"
+        },
+        {
+          "tick": 35,
+          "due": 61,
+          "minute": 34,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:34am"
+        },
+        {
+          "tick": 36,
+          "due": 61,
+          "minute": 35,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:35am"
+        },
+        {
+          "tick": 37,
+          "due": 61,
+          "minute": 36,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:36am"
+        },
+        {
+          "tick": 38,
+          "due": 61,
+          "minute": 37,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:37am"
+        },
+        {
+          "tick": 39,
+          "due": 61,
+          "minute": 38,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:38am"
+        },
+        {
+          "tick": 40,
+          "due": 61,
+          "minute": 39,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:39am"
+        },
+        {
+          "tick": 41,
+          "due": 61,
+          "minute": 40,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:40am"
+        },
+        {
+          "tick": 42,
+          "due": 61,
+          "minute": 41,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:41am"
+        },
+        {
+          "tick": 43,
+          "due": 61,
+          "minute": 42,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:42am"
+        },
+        {
+          "tick": 44,
+          "due": 61,
+          "minute": 43,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:43am"
+        },
+        {
+          "tick": 45,
+          "due": 61,
+          "minute": 44,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:44am"
+        },
+        {
+          "tick": 46,
+          "due": 61,
+          "minute": 45,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:45am"
+        },
+        {
+          "tick": 47,
+          "due": 61,
+          "minute": 46,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:46am"
+        },
+        {
+          "tick": 48,
+          "due": 61,
+          "minute": 47,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:47am"
+        },
+        {
+          "tick": 49,
+          "due": 61,
+          "minute": 48,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:48am"
+        },
+        {
+          "tick": 50,
+          "due": 61,
+          "minute": 49,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:49am"
+        },
+        {
+          "tick": 51,
+          "due": 61,
+          "minute": 50,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:50am"
+        },
+        {
+          "tick": 52,
+          "due": 61,
+          "minute": 51,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:51am"
+        },
+        {
+          "tick": 53,
+          "due": 61,
+          "minute": 52,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:52am"
+        },
+        {
+          "tick": 54,
+          "due": 61,
+          "minute": 53,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:53am"
+        },
+        {
+          "tick": 55,
+          "due": 61,
+          "minute": 54,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:54am"
+        },
+        {
+          "tick": 56,
+          "due": 61,
+          "minute": 55,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:55am"
+        },
+        {
+          "tick": 57,
+          "due": 61,
+          "minute": 56,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:56am"
+        },
+        {
+          "tick": 58,
+          "due": 61,
+          "minute": 57,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:57am"
+        },
+        {
+          "tick": 59,
+          "due": 61,
+          "minute": 58,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:58am"
+        },
+        {
+          "tick": 60,
+          "due": 61,
+          "minute": 59,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:59am"
+        },
+        {
+          "tick": 61,
+          "due": 61,
+          "minute": 0,
+          "hour": 9,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 09:00am"
+        }
+      ],
+      "messages": [],
+      "outcome": "ok",
+      "game_over": null
+    },
+    "until_evening": {
+      "command": "WAIT UNTIL 9:00",
+      "before": {
+        "tick": 1,
+        "due": 1,
+        "minute": 24,
+        "hour": 6,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 06:24pm"
+      },
+      "after": {
+        "tick": 157,
+        "due": 157,
+        "minute": 0,
+        "hour": 9,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 09:00pm"
+      },
+      "frames": [
+        {
+          "tick": 2,
+          "due": 157,
+          "minute": 25,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:25pm"
+        },
+        {
+          "tick": 3,
+          "due": 157,
+          "minute": 26,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:26pm"
+        },
+        {
+          "tick": 4,
+          "due": 157,
+          "minute": 27,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:27pm"
+        },
+        {
+          "tick": 5,
+          "due": 157,
+          "minute": 28,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:28pm"
+        },
+        {
+          "tick": 6,
+          "due": 157,
+          "minute": 29,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:29pm"
+        },
+        {
+          "tick": 7,
+          "due": 157,
+          "minute": 30,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:30pm"
+        },
+        {
+          "tick": 8,
+          "due": 157,
+          "minute": 31,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:31pm"
+        },
+        {
+          "tick": 9,
+          "due": 157,
+          "minute": 32,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:32pm"
+        },
+        {
+          "tick": 10,
+          "due": 157,
+          "minute": 33,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:33pm"
+        },
+        {
+          "tick": 11,
+          "due": 157,
+          "minute": 34,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:34pm"
+        },
+        {
+          "tick": 12,
+          "due": 157,
+          "minute": 35,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:35pm"
+        },
+        {
+          "tick": 13,
+          "due": 157,
+          "minute": 36,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:36pm"
+        },
+        {
+          "tick": 14,
+          "due": 157,
+          "minute": 37,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:37pm"
+        },
+        {
+          "tick": 15,
+          "due": 157,
+          "minute": 38,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:38pm"
+        },
+        {
+          "tick": 16,
+          "due": 157,
+          "minute": 39,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:39pm"
+        },
+        {
+          "tick": 17,
+          "due": 157,
+          "minute": 40,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:40pm"
+        },
+        {
+          "tick": 18,
+          "due": 157,
+          "minute": 41,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:41pm"
+        },
+        {
+          "tick": 19,
+          "due": 157,
+          "minute": 42,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:42pm"
+        },
+        {
+          "tick": 20,
+          "due": 157,
+          "minute": 43,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:43pm"
+        },
+        {
+          "tick": 21,
+          "due": 157,
+          "minute": 44,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:44pm"
+        },
+        {
+          "tick": 22,
+          "due": 157,
+          "minute": 45,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:45pm"
+        },
+        {
+          "tick": 23,
+          "due": 157,
+          "minute": 46,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:46pm"
+        },
+        {
+          "tick": 24,
+          "due": 157,
+          "minute": 47,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:47pm"
+        },
+        {
+          "tick": 25,
+          "due": 157,
+          "minute": 48,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:48pm"
+        },
+        {
+          "tick": 26,
+          "due": 157,
+          "minute": 49,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:49pm"
+        },
+        {
+          "tick": 27,
+          "due": 157,
+          "minute": 50,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:50pm"
+        },
+        {
+          "tick": 28,
+          "due": 157,
+          "minute": 51,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:51pm"
+        },
+        {
+          "tick": 29,
+          "due": 157,
+          "minute": 52,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:52pm"
+        },
+        {
+          "tick": 30,
+          "due": 157,
+          "minute": 53,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:53pm"
+        },
+        {
+          "tick": 31,
+          "due": 157,
+          "minute": 54,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:54pm"
+        },
+        {
+          "tick": 32,
+          "due": 157,
+          "minute": 55,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:55pm"
+        },
+        {
+          "tick": 33,
+          "due": 157,
+          "minute": 56,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:56pm"
+        },
+        {
+          "tick": 34,
+          "due": 157,
+          "minute": 57,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:57pm"
+        },
+        {
+          "tick": 35,
+          "due": 157,
+          "minute": 58,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:58pm"
+        },
+        {
+          "tick": 36,
+          "due": 157,
+          "minute": 59,
+          "hour": 6,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 06:59pm"
+        },
+        {
+          "tick": 37,
+          "due": 157,
+          "minute": 0,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:00pm"
+        },
+        {
+          "tick": 38,
+          "due": 157,
+          "minute": 1,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:01pm"
+        },
+        {
+          "tick": 39,
+          "due": 157,
+          "minute": 2,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:02pm"
+        },
+        {
+          "tick": 40,
+          "due": 157,
+          "minute": 3,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:03pm"
+        },
+        {
+          "tick": 41,
+          "due": 157,
+          "minute": 4,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:04pm"
+        },
+        {
+          "tick": 42,
+          "due": 157,
+          "minute": 5,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:05pm"
+        },
+        {
+          "tick": 43,
+          "due": 157,
+          "minute": 6,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:06pm"
+        },
+        {
+          "tick": 44,
+          "due": 157,
+          "minute": 7,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:07pm"
+        },
+        {
+          "tick": 45,
+          "due": 157,
+          "minute": 8,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:08pm"
+        },
+        {
+          "tick": 46,
+          "due": 157,
+          "minute": 9,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:09pm"
+        },
+        {
+          "tick": 47,
+          "due": 157,
+          "minute": 10,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:10pm"
+        },
+        {
+          "tick": 48,
+          "due": 157,
+          "minute": 11,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:11pm"
+        },
+        {
+          "tick": 49,
+          "due": 157,
+          "minute": 12,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:12pm"
+        },
+        {
+          "tick": 50,
+          "due": 157,
+          "minute": 13,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:13pm"
+        },
+        {
+          "tick": 51,
+          "due": 157,
+          "minute": 14,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:14pm"
+        },
+        {
+          "tick": 52,
+          "due": 157,
+          "minute": 15,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:15pm"
+        },
+        {
+          "tick": 53,
+          "due": 157,
+          "minute": 16,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:16pm"
+        },
+        {
+          "tick": 54,
+          "due": 157,
+          "minute": 17,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:17pm"
+        },
+        {
+          "tick": 55,
+          "due": 157,
+          "minute": 18,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:18pm"
+        },
+        {
+          "tick": 56,
+          "due": 157,
+          "minute": 19,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:19pm"
+        },
+        {
+          "tick": 57,
+          "due": 157,
+          "minute": 20,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:20pm"
+        },
+        {
+          "tick": 58,
+          "due": 157,
+          "minute": 21,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:21pm"
+        },
+        {
+          "tick": 59,
+          "due": 157,
+          "minute": 22,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:22pm"
+        },
+        {
+          "tick": 60,
+          "due": 157,
+          "minute": 23,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:23pm"
+        },
+        {
+          "tick": 61,
+          "due": 157,
+          "minute": 24,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:24pm"
+        },
+        {
+          "tick": 62,
+          "due": 157,
+          "minute": 25,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:25pm"
+        },
+        {
+          "tick": 63,
+          "due": 157,
+          "minute": 26,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:26pm"
+        },
+        {
+          "tick": 64,
+          "due": 157,
+          "minute": 27,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:27pm"
+        },
+        {
+          "tick": 65,
+          "due": 157,
+          "minute": 28,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:28pm"
+        },
+        {
+          "tick": 66,
+          "due": 157,
+          "minute": 29,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:29pm"
+        },
+        {
+          "tick": 67,
+          "due": 157,
+          "minute": 30,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:30pm"
+        },
+        {
+          "tick": 68,
+          "due": 157,
+          "minute": 31,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:31pm"
+        },
+        {
+          "tick": 69,
+          "due": 157,
+          "minute": 32,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:32pm"
+        },
+        {
+          "tick": 70,
+          "due": 157,
+          "minute": 33,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:33pm"
+        },
+        {
+          "tick": 71,
+          "due": 157,
+          "minute": 34,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:34pm"
+        },
+        {
+          "tick": 72,
+          "due": 157,
+          "minute": 35,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:35pm"
+        },
+        {
+          "tick": 73,
+          "due": 157,
+          "minute": 36,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:36pm"
+        },
+        {
+          "tick": 74,
+          "due": 157,
+          "minute": 37,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:37pm"
+        },
+        {
+          "tick": 75,
+          "due": 157,
+          "minute": 38,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:38pm"
+        },
+        {
+          "tick": 76,
+          "due": 157,
+          "minute": 39,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:39pm"
+        },
+        {
+          "tick": 77,
+          "due": 157,
+          "minute": 40,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:40pm"
+        },
+        {
+          "tick": 78,
+          "due": 157,
+          "minute": 41,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:41pm"
+        },
+        {
+          "tick": 79,
+          "due": 157,
+          "minute": 42,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:42pm"
+        },
+        {
+          "tick": 80,
+          "due": 157,
+          "minute": 43,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:43pm"
+        },
+        {
+          "tick": 81,
+          "due": 157,
+          "minute": 44,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:44pm"
+        },
+        {
+          "tick": 82,
+          "due": 157,
+          "minute": 45,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:45pm"
+        },
+        {
+          "tick": 83,
+          "due": 157,
+          "minute": 46,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:46pm"
+        },
+        {
+          "tick": 84,
+          "due": 157,
+          "minute": 47,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:47pm"
+        },
+        {
+          "tick": 85,
+          "due": 157,
+          "minute": 48,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:48pm"
+        },
+        {
+          "tick": 86,
+          "due": 157,
+          "minute": 49,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:49pm"
+        },
+        {
+          "tick": 87,
+          "due": 157,
+          "minute": 50,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:50pm"
+        },
+        {
+          "tick": 88,
+          "due": 157,
+          "minute": 51,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:51pm"
+        },
+        {
+          "tick": 89,
+          "due": 157,
+          "minute": 52,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:52pm"
+        },
+        {
+          "tick": 90,
+          "due": 157,
+          "minute": 53,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:53pm"
+        },
+        {
+          "tick": 91,
+          "due": 157,
+          "minute": 54,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:54pm"
+        },
+        {
+          "tick": 92,
+          "due": 157,
+          "minute": 55,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:55pm"
+        },
+        {
+          "tick": 93,
+          "due": 157,
+          "minute": 56,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:56pm"
+        },
+        {
+          "tick": 94,
+          "due": 157,
+          "minute": 57,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:57pm"
+        },
+        {
+          "tick": 95,
+          "due": 157,
+          "minute": 58,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:58pm"
+        },
+        {
+          "tick": 96,
+          "due": 157,
+          "minute": 59,
+          "hour": 7,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 07:59pm"
+        },
+        {
+          "tick": 97,
+          "due": 157,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:00pm"
+        },
+        {
+          "tick": 98,
+          "due": 157,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:01pm"
+        },
+        {
+          "tick": 99,
+          "due": 157,
+          "minute": 2,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:02pm"
+        },
+        {
+          "tick": 100,
+          "due": 157,
+          "minute": 3,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:03pm"
+        },
+        {
+          "tick": 101,
+          "due": 157,
+          "minute": 4,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:04pm"
+        },
+        {
+          "tick": 102,
+          "due": 157,
+          "minute": 5,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:05pm"
+        },
+        {
+          "tick": 103,
+          "due": 157,
+          "minute": 6,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:06pm"
+        },
+        {
+          "tick": 104,
+          "due": 157,
+          "minute": 7,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:07pm"
+        },
+        {
+          "tick": 105,
+          "due": 157,
+          "minute": 8,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:08pm"
+        },
+        {
+          "tick": 106,
+          "due": 157,
+          "minute": 9,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:09pm"
+        },
+        {
+          "tick": 107,
+          "due": 157,
+          "minute": 10,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:10pm"
+        },
+        {
+          "tick": 108,
+          "due": 157,
+          "minute": 11,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:11pm"
+        },
+        {
+          "tick": 109,
+          "due": 157,
+          "minute": 12,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:12pm"
+        },
+        {
+          "tick": 110,
+          "due": 157,
+          "minute": 13,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:13pm"
+        },
+        {
+          "tick": 111,
+          "due": 157,
+          "minute": 14,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:14pm"
+        },
+        {
+          "tick": 112,
+          "due": 157,
+          "minute": 15,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:15pm"
+        },
+        {
+          "tick": 113,
+          "due": 157,
+          "minute": 16,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:16pm"
+        },
+        {
+          "tick": 114,
+          "due": 157,
+          "minute": 17,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:17pm"
+        },
+        {
+          "tick": 115,
+          "due": 157,
+          "minute": 18,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:18pm"
+        },
+        {
+          "tick": 116,
+          "due": 157,
+          "minute": 19,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:19pm"
+        },
+        {
+          "tick": 117,
+          "due": 157,
+          "minute": 20,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:20pm"
+        },
+        {
+          "tick": 118,
+          "due": 157,
+          "minute": 21,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:21pm"
+        },
+        {
+          "tick": 119,
+          "due": 157,
+          "minute": 22,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:22pm"
+        },
+        {
+          "tick": 120,
+          "due": 157,
+          "minute": 23,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:23pm"
+        },
+        {
+          "tick": 121,
+          "due": 157,
+          "minute": 24,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:24pm"
+        },
+        {
+          "tick": 122,
+          "due": 157,
+          "minute": 25,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:25pm"
+        },
+        {
+          "tick": 123,
+          "due": 157,
+          "minute": 26,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:26pm"
+        },
+        {
+          "tick": 124,
+          "due": 157,
+          "minute": 27,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:27pm"
+        },
+        {
+          "tick": 125,
+          "due": 157,
+          "minute": 28,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:28pm"
+        },
+        {
+          "tick": 126,
+          "due": 157,
+          "minute": 29,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:29pm"
+        },
+        {
+          "tick": 127,
+          "due": 157,
+          "minute": 30,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:30pm"
+        },
+        {
+          "tick": 128,
+          "due": 157,
+          "minute": 31,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:31pm"
+        },
+        {
+          "tick": 129,
+          "due": 157,
+          "minute": 32,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:32pm"
+        },
+        {
+          "tick": 130,
+          "due": 157,
+          "minute": 33,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:33pm"
+        },
+        {
+          "tick": 131,
+          "due": 157,
+          "minute": 34,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:34pm"
+        },
+        {
+          "tick": 132,
+          "due": 157,
+          "minute": 35,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:35pm"
+        },
+        {
+          "tick": 133,
+          "due": 157,
+          "minute": 36,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:36pm"
+        },
+        {
+          "tick": 134,
+          "due": 157,
+          "minute": 37,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:37pm"
+        },
+        {
+          "tick": 135,
+          "due": 157,
+          "minute": 38,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:38pm"
+        },
+        {
+          "tick": 136,
+          "due": 157,
+          "minute": 39,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:39pm"
+        },
+        {
+          "tick": 137,
+          "due": 157,
+          "minute": 40,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:40pm"
+        },
+        {
+          "tick": 138,
+          "due": 157,
+          "minute": 41,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:41pm"
+        },
+        {
+          "tick": 139,
+          "due": 157,
+          "minute": 42,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:42pm"
+        },
+        {
+          "tick": 140,
+          "due": 157,
+          "minute": 43,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:43pm"
+        },
+        {
+          "tick": 141,
+          "due": 157,
+          "minute": 44,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:44pm"
+        },
+        {
+          "tick": 142,
+          "due": 157,
+          "minute": 45,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:45pm"
+        },
+        {
+          "tick": 143,
+          "due": 157,
+          "minute": 46,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:46pm"
+        },
+        {
+          "tick": 144,
+          "due": 157,
+          "minute": 47,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:47pm"
+        },
+        {
+          "tick": 145,
+          "due": 157,
+          "minute": 48,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:48pm"
+        },
+        {
+          "tick": 146,
+          "due": 157,
+          "minute": 49,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:49pm"
+        },
+        {
+          "tick": 147,
+          "due": 157,
+          "minute": 50,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:50pm"
+        },
+        {
+          "tick": 148,
+          "due": 157,
+          "minute": 51,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:51pm"
+        },
+        {
+          "tick": 149,
+          "due": 157,
+          "minute": 52,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:52pm"
+        },
+        {
+          "tick": 150,
+          "due": 157,
+          "minute": 53,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:53pm"
+        },
+        {
+          "tick": 151,
+          "due": 157,
+          "minute": 54,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:54pm"
+        },
+        {
+          "tick": 152,
+          "due": 157,
+          "minute": 55,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:55pm"
+        },
+        {
+          "tick": 153,
+          "due": 157,
+          "minute": 56,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:56pm"
+        },
+        {
+          "tick": 154,
+          "due": 157,
+          "minute": 57,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:57pm"
+        },
+        {
+          "tick": 155,
+          "due": 157,
+          "minute": 58,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:58pm"
+        },
+        {
+          "tick": 156,
+          "due": 157,
+          "minute": 59,
+          "hour": 8,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 08:59pm"
+        },
+        {
+          "tick": 157,
+          "due": 157,
+          "minute": 0,
+          "hour": 9,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 09:00pm"
+        }
+      ],
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "With an excited look on his face Watson says\" Well here is a case that may interest you, it seems that two close friends, a Mrs Brown and a Mrs Jones, were murdered last night in separate incidents although apparently with the same weapon. The crimes occurred at their respective homes in the township of Leather Head and, because of the lack of murder weapon and apparent motive, the local police are completely baffled. They have called upon Scotland Yard for assistance and it appears that the famed detective Inspector Giles Lestrade has taken an interest in the case and will be going to the scene this morning.\""
+        }
+      ],
+      "outcome": "ok",
+      "game_over": null
+    },
+    "interrupted": {
+      "command": "WAIT UNTIL 9:00AM",
+      "before": {
+        "tick": 1,
+        "due": 1,
+        "minute": 0,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:00am"
+      },
+      "after": {
+        "tick": 3,
+        "due": 3,
+        "minute": 2,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:02am"
+      },
+      "frames": [
+        {
+          "tick": 2,
+          "due": 61,
+          "minute": 1,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:01am"
+        },
+        {
+          "tick": 3,
+          "due": 61,
+          "minute": 2,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:02am"
+        }
+      ],
+      "messages": [],
+      "outcome": "ok",
+      "game_over": null
+    },
+    "death": {
+      "fixture": "Map teleport to room 58, day 0, then OPEN WALL SAFE",
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              58
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              10
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 58,
+        "name": "basils library",
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "visited": [
+          8,
+          58
+        ],
+        "native_seen": [
+          58
+        ],
+        "exits": [
+          {
+            "source": 58,
+            "target": 57,
+            "direction_id": 1,
+            "direction": "N",
+            "gate": 0,
+            "gate_name": null,
+            "address": "8848",
+            "destination_zero": false,
+            "target_name": "lounge room",
+            "status": "libera"
+          }
+        ],
+        "objects": [
+          {
+            "id": 89,
+            "name": "wall safe"
+          }
+        ],
+        "dark": false,
+        "visible": [
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 89,
+            "name": "wall safe"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "OPEN WALL SAFE",
+          "outcome": "game_over",
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "0b 06 00 00 00 00 00 00 5e 07 62 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "060B",
+                    "offset": "060B",
+                    "word": "open",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": {
+                        "raw": "075E",
+                        "offset": "075E",
+                        "word": "safe",
+                        "unresolved_bits": "0000"
+                      },
+                      "qualifiers": [
+                        {
+                          "raw": "0962",
+                          "offset": "0962",
+                          "word": "wall",
+                          "unresolved_bits": "0000"
+                        }
+                      ]
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                89,
+                255
+              ]
+            }
+          ]
+        },
+        "game_over": {
+          "entry": "9E74",
+          "reason": "story",
+          "text_pointer": "759C"
+        },
+        "ending_messages": [
+          {
+            "kind": "narrative",
+            "text": "You open the wall safe.\n Basil enters and says\" Holmes, your interference is becoming annoying.\". Pulling a gun he shoots you. Perhaps you should try again."
+          }
+        ],
+        "command_running": false
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You open the wall safe.\n Basil enters and says\" Holmes, your interference is becoming annoying.\". Pulling a gun he shoots you. Perhaps you should try again."
+        }
+      ]
+    },
+    "victory_gateway_fixture": {
+      "state": {
+        "characters": [
+          {
+            "id": 0,
+            "key": "player",
+            "name": "Sherlock Holmes",
+            "badge": "SH",
+            "rooms": [
+              8
+            ],
+            "parent_id": null,
+            "is_player": true,
+            "visible_flag": true
+          },
+          {
+            "id": 2,
+            "key": "2",
+            "name": "Inspector Lestrade",
+            "badge": "IL",
+            "rooms": [
+              8
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 3,
+            "key": "3",
+            "name": "Watson",
+            "badge": "W",
+            "rooms": [
+              8
+            ],
+            "parent_id": 24,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 4,
+            "key": "4",
+            "name": "Chief Constable Straker",
+            "badge": "CS",
+            "rooms": [
+              53
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 5,
+            "key": "5",
+            "name": "Daphne Strachan",
+            "badge": "DS",
+            "rooms": [
+              67
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 6,
+            "key": "6",
+            "name": "Basil Phipps",
+            "badge": "BP",
+            "rooms": [
+              8
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 7,
+            "key": "7",
+            "name": "Major Percival Ffoulkes",
+            "badge": "PF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 8,
+            "key": "8",
+            "name": "Gardener",
+            "badge": "G",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 9,
+            "key": "9",
+            "name": "Cook",
+            "badge": "CK",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 10,
+            "key": "10",
+            "name": "Maid",
+            "badge": "M",
+            "rooms": [
+              65
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 11,
+            "key": "11",
+            "name": "Local Police Man",
+            "badge": "P1",
+            "rooms": [
+              92
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 12,
+            "key": "12",
+            "name": "Local Police Man",
+            "badge": "P2",
+            "rooms": [
+              62
+            ],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 13,
+            "key": "13",
+            "name": "Tricia Fender",
+            "badge": "TF",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 31,
+            "key": "31",
+            "name": "Cabbie",
+            "badge": "C1",
+            "rooms": [],
+            "parent_id": 30,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 34,
+            "key": "34",
+            "name": "Cabbie",
+            "badge": "C2",
+            "rooms": [],
+            "parent_id": 33,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 94,
+            "key": "94",
+            "name": "Mrs Brown",
+            "badge": "MB",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 95,
+            "key": "95",
+            "name": "Mrs Jones",
+            "badge": "MJ",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          },
+          {
+            "id": 104,
+            "key": "104",
+            "name": "German Agent",
+            "badge": "GA",
+            "rooms": [],
+            "parent_id": null,
+            "is_player": false,
+            "visible_flag": true
+          }
+        ],
+        "player_id": 0,
+        "room": 8,
+        "name": "your room",
+        "clock": {
+          "tick": 1,
+          "due": 6,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "visited": [
+          8
+        ],
+        "native_seen": [],
+        "exits": [
+          {
+            "source": 8,
+            "target": 7,
+            "direction_id": 4,
+            "direction": "W",
+            "gate": 21,
+            "gate_name": "your door",
+            "address": "8549",
+            "destination_zero": false,
+            "target_name": "hall",
+            "status": "chiusa / ostacolo"
+          },
+          {
+            "source": 8,
+            "target": 9,
+            "direction_id": 1,
+            "direction": "N",
+            "gate": 50,
+            "gate_name": "plain door",
+            "address": "854C",
+            "destination_zero": false,
+            "target_name": "small closet",
+            "status": "chiusa / ostacolo"
+          }
+        ],
+        "objects": [
+          {
+            "id": 22,
+            "name": "oil lamp"
+          },
+          {
+            "id": 23,
+            "name": "your armchair"
+          },
+          {
+            "id": 24,
+            "name": "watsons armchair"
+          },
+          {
+            "id": 3,
+            "name": "watson"
+          },
+          {
+            "id": 25,
+            "name": "daily chronicle"
+          }
+        ],
+        "dark": false,
+        "visible": [
+          {
+            "id": 2,
+            "name": "inspector lestrade"
+          },
+          {
+            "id": 3,
+            "name": "watson"
+          },
+          {
+            "id": 6,
+            "name": "basil phipps"
+          },
+          {
+            "id": 21,
+            "name": "your door"
+          },
+          {
+            "id": 22,
+            "name": "oil lamp"
+          },
+          {
+            "id": 23,
+            "name": "your armchair"
+          },
+          {
+            "id": 24,
+            "name": "watsons armchair"
+          },
+          {
+            "id": 25,
+            "name": "daily chronicle"
+          },
+          {
+            "id": 27,
+            "name": "your money"
+          },
+          {
+            "id": 28,
+            "name": "money"
+          },
+          {
+            "id": 50,
+            "name": "plain door"
+          }
+        ],
+        "initial": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.",
+        "analysis": {
+          "input": "WAIT",
+          "outcome": "game_over",
+          "units": [
+            {
+              "mode": 1,
+              "nodes": [
+                {
+                  "address": "9829",
+                  "raw": "5e 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                  "verb": {
+                    "raw": "095E",
+                    "offset": "095E",
+                    "word": "wait",
+                    "unresolved_bits": "0000"
+                  },
+                  "verb_modifier": null,
+                  "all": false,
+                  "exclusion": false,
+                  "groups": [
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    },
+                    {
+                      "relations": [],
+                      "referent": null,
+                      "qualifiers": []
+                    }
+                  ],
+                  "subject": {
+                    "referent": null,
+                    "qualifiers": [],
+                    "he_flag": false,
+                    "it_they_flag": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 2,
+              "id": 31,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ]
+        },
+        "game_over": {
+          "entry": "9E74",
+          "reason": "story",
+          "text_pointer": "6AF3"
+        },
+        "ending_messages": [
+          {
+            "kind": "narrative",
+            "text": "You wait.\n Inspector Lestrade with a surprised look on his face, says\" Well, Holmes fancy seeing you here.\".\n Inspector Lestrade says to Watson\" Hello\".\n Watson says to Inspector Lestrade\" Good morning \".\n\n\n\n\n\n\n\n\n As Basil enters he sees you and pulls a gun. With suprising agility Watson pushes you out of the way of Basils first shot allowing Lestrade time to pull his gun and capture the culprits. As incredible as it may seem you have solved this case. You truly deserve the title of worlds greatest detective."
+          }
+        ],
+        "command_running": false
+      },
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "You wait.\n Inspector Lestrade with a surprised look on his face, says\" Well, Holmes fancy seeing you here.\".\n Inspector Lestrade says to Watson\" Hello\".\n Watson says to Inspector Lestrade\" Good morning \".\n\n\n\n\n\n\n\n\n As Basil enters he sees you and pulls a gun. With suprising agility Watson pushes you out of the way of Basils first shot allowing Lestrade time to pull his gun and capture the culprits. As incredible as it may seem you have solved this case. You truly deserve the title of worlds greatest detective."
+        }
+      ]
+    }
+  },
+  "reference_policy": "The original prompt receives the same explicit free-start calendar/deadline normalization as Game; Z80 instructions are unchanged."
+}

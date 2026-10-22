@@ -1,5 +1,6 @@
 """Esploratore con parser, azioni e scheduler degli attori originali."""
 from native_world import NativeWorld,word
+import secrets
 
 def perceived(m,ident,actor=None):
     if actor is None:actor=m[0x9860]
@@ -29,15 +30,23 @@ class Game:
         # Production runs the full scheduler; focused tests may select a subset.
         self.data=data;self.world=NativeWorld(project,active_npcs=active_npcs);self.parser=self.world.engine
         # Web presentation starts before the snapshot's first paid LOOK.
-        # Shift the global tick and every actor deadline together; action costs stay native.
+        # Shift the global tick and NPC deadlines; normalize the player to that tick.
         self.parser.put(self.world.sim,0x9fdd,1)
         for row in range(0x9860,0x9920,8):
             due=word(self.world.m,row+6)
             self.parser.put(self.world.sim,row+6,max(0,due-1))
         self.world.m[0x9fdf:0x9fe3]=[0,8,0,97]
+        # The free initial scene must leave Holmes ready at the displayed minute.
+        self.parser.put(self.world.sim,0x9866,word(self.world.m,0x9fdd))
+        self.command_job=None;self.job_id=None;self.cached_state=None
         self.rooms={x['id']:x for x in data['rooms']};self.entities={x['id']:x for x in data['entities']}
-        self.explored={8};self.last_listed=[];self.last_analysis=None
+        self.explored={8};self.last_listed=[];self.last_analysis=None;self.ending_messages=[]
         scene=self.world.scene();self.last_listed=scene['listed'];self.initial=scene['text']
+        # The first-prompt snapshot has already executed Watson's opening line.
+        # Restore that lost presentation, without running his turn/counter twice.
+        greeting=self.parser.audit.decoder.render(word(self.world.m,0xe730))
+        if self.world.m[0xe72f]!=6 or greeting['unresolved']:raise ValueError('Unsupported Watson opening bytecode')
+        self.opening=self.initial+'\n'+greeting['text'].strip();self.opening_pending=True
     def characters(self):
         """Posizioni vive dei personaggi; le identita alternative di Holmes sono un solo segnaposto."""
         m=self.world.m;player=self.world.player_id;characters=[]
@@ -52,15 +61,26 @@ class Game:
             characters.append({'id':ident,'key':'player' if ident==player else str(ident),'name':name,'badge':badges.get(ident,str(ident)),'rooms':locations,'parent_id':None if m[p+1]==255 else m[p+1],'is_player':ident==player,'visible_flag':bool(m[p+5]&128)})
         return characters
     def state(self):
+        if self.command_job is not None:
+            # Inspection calls alter the Z80 work registers and cannot run in
+            # the middle of a suspended scheduler pass. Keep the last safe
+            # scene and read only clock/positions until the command ends.
+            return {**self.cached_state,'clock':self.world.clock(),'characters':self.characters(),
+                    'command_running':True,'job':self.job_id,
+                    'can_interrupt':self.world.m[0x9863]==50}
         w=self.world;m=w.m;room=self.rooms[w.room];exits=[];dark=w.call(0xd078)['carry']
         for edge in room['exits']:
             gate=edge['gate'];p=int(self.entities[gate]['record'],16) if gate else None
             status='senza destinazione' if not edge['target'] else 'libera' if not gate else 'aperta / attraversabile' if m[p+5]&40 else 'chiusa / ostacolo'
             exits.append({**edge,'target_name':self.rooms[edge['target']]['name_hint'],'status':status})
-        return {'characters':self.characters(),'player_id':w.player_id,'room':w.room,'name':room['name_hint'],'clock':w.clock(),'visited':sorted(self.explored),'native_seen':[i for i,r in self.rooms.items() if m[int(r['record'],16)]&64],'exits':exits,'objects':[{'id':i,'name':self.entities[i]['name']} for i in self.last_listed],'dark':dark,'visible':[{'id':i,'name':o['name']} for i,o in self.entities.items() if not dark and i!=w.player_id and perceived(m,i)],'initial':self.initial,'analysis':self.last_analysis}
+        state={'characters':self.characters(),'player_id':w.player_id,'room':w.room,'name':room['name_hint'],'clock':w.clock(),'visited':sorted(self.explored),'native_seen':[i for i,r in self.rooms.items() if m[int(r['record'],16)]&64],'exits':exits,'objects':[{'id':i,'name':self.entities[i]['name']} for i in self.last_listed],'dark':dark,'visible':[{'id':i,'name':o['name']} for i,o in self.entities.items() if not dark and i!=w.player_id and perceived(m,i)],'initial':self.initial,'opening':self.opening if self.opening_pending else None,'analysis':self.last_analysis,'game_over':w.ended,'ending_messages':self.ending_messages,'command_running':False}
+        self.cached_state=state
+        return state
     def result(self,messages,**extra):return {'state':self.state(),'messages':messages,**extra}
     def teleport(self,ident):
+        if self.command_job is not None or self.world.ended:raise ValueError('The game is busy or has ended.')
         if type(ident)!=int or ident not in self.rooms or ident==0:raise ValueError('Locazione non esplorabile')
+        self.opening_pending=False
         first_visit=ident not in self.explored
         if self.world.m[0xa01b]:
             self.world.call(0xd87d);self.world.call(0xd88a)
@@ -68,7 +88,27 @@ class Game:
         scene=self.world.teleport(ident);self.explored.add(ident);self.last_listed=scene['listed']
         return self.result([{'kind':'narrative','text':scene['text'],'image_room':ident if first_visit else None}])
     def command(self,text):
+        if self.command_job is not None:raise ValueError('A command is already running.')
+        self.opening_pending=False
         out=self.world.submit(text,self.explored)
+        return self.finish_command(out)
+    def finish_command(self,out):
         self.last_analysis=out['analysis']
+        if self.world.ended and out['messages']:self.ending_messages=list(out['messages'])
         if out.get('scene'):self.last_listed=out['listed']
         return self.result(out['messages'])
+    def start_command(self,text):
+        if self.command_job is not None:raise ValueError('A command is already running.')
+        self.opening_pending=False
+        self.cached_state=self.state();self.job_id=secrets.token_urlsafe(12)
+        self.command_job=self.world.iter_submit(text,self.explored)
+        return self.continue_command(self.job_id)
+    def continue_command(self,job,interrupt=False):
+        if self.command_job is None or job!=self.job_id:raise ValueError('This command is no longer running.')
+        if interrupt:self.world.interrupt_wait=True
+        out=next(self.command_job)
+        if not out['complete']:
+            return {'running':True,'job':self.job_id,'clock':out['clock'],'messages':out['messages'],
+                    'can_interrupt':self.world.m[0x9863]==50}
+        self.command_job.close();self.command_job=None;self.job_id=None
+        return {'running':False,**self.finish_command(out)}

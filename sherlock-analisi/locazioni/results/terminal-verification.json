@@ -12,6 +12,8 @@
     "restart during writing cancels stale output and restores the startup clock",
     "one trailing blank after the complete command output, preserved between commands; errors stay in the lower pane",
     "commands, wrapped lines, errors and active prompt reserve two prefix cells without losing text or changing submitted input",
-    "trailing blank obeys MORE before scrolling text off screen and consumes no game time"
+    "trailing blank obeys MORE before scrolling text off screen and consumes no game time",
+    "streamed minute frames preserve text and add only one command separator at completion",
+    "game over removes the cursor and blocks commands; restart restores input"
   ]
 }
