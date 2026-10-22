@@ -20,7 +20,7 @@ I segnaposti occupano una riga dedicata nei riquadri. Sigla, colore e tooltip li
 
 Il giocatore mantiene la chiave `player` e la sigla SH anche se cambia identità per un travestimento. Le identità alternative non producono copie del giocatore sulla mappa. I personaggi senza una locazione attiva restano nella legenda come «Fuori mappa»: non viene inventata una posizione. Sono distinti dagli attori-mezzi di trasporto, che qui non ricevono un segnaposto personale.
 
-Allo stato iniziale vengono restituiti 18 personaggi logici, di cui 11 con posizione sulla mappa. Watson è nella stanza 8 anche se contenuto nella sua poltrona. Gli NPC rimangono fermi: i segnaposti si aggiornano da ogni risposta del server e seguiranno le variazioni di posizione quando attiveremo le loro sequenze. Per Holmes il seguito di movimento, teletrasporto e travestimenti è già verificato.
+Allo stato iniziale vengono restituiti 18 personaggi logici, di cui 11 con posizione sulla mappa. Watson è nella stanza 8 anche se contenuto nella sua poltrona. I segnaposti si aggiornano da ogni risposta del server. Con lo scheduler ora attivo seguono anche Watson, Lestrade e gli altri personaggi nelle stanze, nei veicoli e fuori mappa; vedere [AI-WEB.md](AI-WEB.md). Per Holmes il seguito di movimento, teletrasporto e travestimenti è già verificato.
 
 ## Riproduzione
 

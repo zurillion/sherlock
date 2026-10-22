@@ -12,7 +12,7 @@ def verify(project):
     assert initial['clock']['label']=='Mon 08:00am'
     game.world.scene();assert game.state()['clock']==initial['clock']
     checks.append('Initial description and state inspection leave the clock at Mon 08:00am')
-    baseline=NativeWorld(project);visited={8};sequence=[]
+    baseline=NativeWorld(project,active_npcs=None);visited={8};sequence=[]
     for command in ['LOOK','WAIT','XYZZY','OPEN DOOR','YOUR']:
         result=game.command(command);reference=baseline.submit(command,visited)
         actual=game.world.clock();original=baseline.clock()

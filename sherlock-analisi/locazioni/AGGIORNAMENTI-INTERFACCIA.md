@@ -14,7 +14,7 @@ Il testo viene catturato dai due canali di stampa del gioco. L'input digitato re
 
 Un nuovo verbo può sostituire il comando pendente secondo il parser originale. Uno spostamento manuale dalla mappa annulla la domanda in corso. Anche dopo un ricaricamento della pagina lo stato pendente rimane nella sessione del server.
 
-GO TO conserva ora il significato del gioco: non viene trasformato artificialmente in una direzione. Sono provati anche LOOK, GO INTO/THROUGH, porte, errori, TAKE, INVENTORY e WAIT; gli NPC restano fermi e questo non costituisce una certificazione dell'intera partita.
+GO TO conserva ora il significato del gioco: non viene trasformato artificialmente in una direzione. Sono provati anche LOOK, GO INTO/THROUGH, porte, errori, TAKE, INVENTORY e WAIT; in queste prove iniziali gli NPC erano sospesi. Per l’attivazione successiva di Watson, Lestrade e dello scheduler completo vedere [AI-WEB.md](AI-WEB.md). Questo non costituisce una certificazione dell’intera partita.
 
 ## Griglia negli SVG
 

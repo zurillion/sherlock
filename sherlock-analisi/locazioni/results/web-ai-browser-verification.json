@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Spectrum quoted TAKE executes at Watson turn",
+      "passed": true
+    },
+    {
+      "check": "Normal interface shows Watson leaving his chair and entering the hall with Holmes",
+      "passed": true
+    },
+    {
+      "check": "Lestrade refuses WAIT and hails a cab with the original dialogue",
+      "passed": true
+    },
+    {
+      "check": "Spectrum shows Lestrade boarding and ordering his destination; IL marker moves into the cab",
+      "passed": true
+    },
+    {
+      "check": "Syntax error advances neither the clock nor NPC markers in Spectrum mode",
+      "passed": true
+    },
+    {
+      "check": "Spectrum restart restores Watson and Lestrade to their initial positions at 08:00am",
+      "passed": true
+    }
+  ],
+  "watson_take": {
+    "clock": "Mon 08:01am",
+    "lower": "                                    \n                                    \n                                    \n> SAY TO WATSON \"TAKE LAMP\"         \n> +                                 ",
+    "upper": "                                    \nThe sun streams in the two broad    \nwindows in your sitting room. There \nis a pipe rack to the right of the  \nsofa. Bullet pock marks are the     \nfeature of one wall, and charts and \ndiagrams fill another. An acid      \nstained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \n                                    \nYou talk to Watson.                 \nWatson takes the oil lamp.          \n                                    "
+  },
+  "watson_follow": {
+    "clock": "Mon 08:04am",
+    "markers": [
+      {
+        "character": "2",
+        "room": "1"
+      },
+      {
+        "character": "player",
+        "room": "7"
+      },
+      {
+        "character": "3",
+        "room": "7"
+      }
+    ],
+    "room": "hall",
+    "transcript": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.SAY TO WATSON \"TAKE LAMP\"You talk to Watson.\n Watson takes the oil lamp.SAY TO WATSON \"DROP THE DAILY CHRONICLE\"You talk to Watson.\n Watson drops the daily chronicle.OPEN YOUR DOORYou open your door.\n Watson climbs out of watsons armchair.WESTYou go west.You are in a hall. To the east there is your door. Below there is the stairway.\n Watson enters."
+  },
+  "lestrade_refusal": {
+    "clock": "Mon 08:01am",
+    "markers": [
+      {
+        "name": "Inspector Lestrade",
+        "room": "10"
+      }
+    ],
+    "transcript": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.You are on Parliament Street. Visible exits are east. You can see Inspector Lestrade. Inspector Lestrade is carrying some money.SAY TO LESTRADE \"WAIT\"You talk to Inspector Lestrade.\n Inspector Lestrade remarks\" Sorry, I cannot do that now.\"\n Inspector Lestrade hails the hansom cab.\n Inspector Lestrade with a surprised look on his face, says\" Well, Holmes fancy seeing you here.\".\n The cabbie says to Inspector Lestrade\" Good morning guv'nor.\"."
+  },
+  "lestrade_cab": {
+    "clock": "Mon 08:05am",
+    "lower": "                                    \n                                    \n                                    \n> WAIT                              \n> +                                 ",
+    "markers": [
+      {
+        "character": "2",
+        "room": "1"
+      },
+      {
+        "character": "31",
+        "room": "1"
+      },
+      {
+        "character": "player",
+        "room": "10"
+      }
+    ],
+    "upper": "                                    \n                                    \n                                    \n                                    \n                                    \nYou are on Parliament Street.       \nVisible exits are east. You can see \nInspector Lestrade and a hansom cab.\nInspector Lestrade is carrying some \nmoney. In the hansom cab there is   \nthe cabbie.                         \n                                    \nYou wait.                           \nInspector Lestrade climbs into the  \nhansom cab.                         \nInspector Lestrade says to the      \ncabbie\" Go to Kings Cross Road.\".   \n                                    "
+  },
+  "syntax_error": {
+    "clock": "Mon 08:05am",
+    "lower": "                                    \n> WAIT                              \n> XYZ                               \n> I DO NOT KNOW THE WORD\"XYZ \"      \n> +                                 ",
+    "markers": [
+      {
+        "character": "2",
+        "room": "1"
+      },
+      {
+        "character": "31",
+        "room": "1"
+      },
+      {
+        "character": "player",
+        "room": "10"
+      }
+    ]
+  },
+  "restart": {
+    "clock": "Mon 08:00am",
+    "lower": "                                    \n                                    \n                                    \n                                    \n> +                                 ",
+    "markers": [
+      {
+        "character": "player",
+        "room": "8"
+      },
+      {
+        "character": "3",
+        "room": "8"
+      },
+      {
+        "character": "2",
+        "room": "10"
+      }
+    ]
+  },
+  "consoleErrors": [],
+  "deployment": {
+    "passed": true,
+    "url": "http://127.0.0.1:8766/",
+    "proof": {
+      "clock": "Mon 08:01am",
+      "legend": "W: Watson · IL: Lestrade · C1/C2: cocchieri. Gli attori seguono i turni originali. Clicca un nome per inquadrarlo sulla mappa.",
+      "lower": "                                    \n                                    \n                                    \n> SAY TO WATSON \"TAKE LAMP\"         \n> +                                 ",
+      "upper": "                                    \nThe sun streams in the two broad    \nwindows in your sitting room. There \nis a pipe rack to the right of the  \nsofa. Bullet pock marks are the     \nfeature of one wall, and charts and \ndiagrams fill another. An acid      \nstained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \n                                    \nYou talk to Watson.                 \nWatson takes the oil lamp.          \n                                    "
+    }
+  }
+}

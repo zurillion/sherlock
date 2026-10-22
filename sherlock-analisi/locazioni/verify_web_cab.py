@@ -11,10 +11,12 @@ def cash(world,ident):
     p=word(world.m,0x8b70+3*ident);hi=world.m[p+10]
     return (hi if hi<128 else hi-256)*128+(world.m[p+9]&127)
 def transcript(result):return norm(' '.join(m['text'] for m in result['messages']))
+# Isolate cab mechanics; verify_web_ai.py also exercises a production journey
+# with the full scheduler and an independent full-game reference.
 NATURAL=['OPEN YOUR DOOR','WEST','DOWN','OPEN FRONT DOOR','SOUTH','HAIL CAB','GET INTO CAB','SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD"']+['WAIT']*3
 
 def verify_currency(project):
-    g=Game(project,extract(project))
+    g=Game(project,extract(project),active_npcs=(31,34))
     count=transcript(g.command('COUNT YOUR MONEY'));assert '£5 4/-' in count and '`' not in count
     g.teleport(5)
     for c in ['HAIL CAB','GET INTO CAB','SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD"']+['WAIT']*3:g.command(c)
@@ -28,7 +30,7 @@ def verify(project):
         def append(self,value):
             print('OK:',value,flush=True);super().append(value)
     data=extract(project);checks=Checks();traces=[]
-    g=Game(project,data)
+    g=Game(project,data,active_npcs=(31,34))
     initial=g.state();assert initial['clock']['label']=='Mon 08:00am'
     stationary={i:g.world.m[word(g.world.m,0x8b70+3*i)+15] for i in (2,3,4,6)}
     for command in NATURAL:
@@ -50,7 +52,7 @@ def verify(project):
     checks.append('Disembarkation, protest, payment of a shilling and native four-penny change')
 
     def aboard():
-        q=Game(project,data);q.teleport(5)
+        q=Game(project,data,active_npcs=(31,34));q.teleport(5)
         for c in ['HAIL CAB','GET INTO CAB']:q.command(c)
         return q
     q=aboard();q.command('SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD"')
@@ -87,7 +89,7 @@ def verify(project):
     assert q.world.room==74 and q.world.m[word(q.world.m,0x8b70)+1]==255
     assert 'You bloody snob' in taxi_text and q.world.m[word(q.world.m,0x8b70+30*3)+15] in (0,28)
     checks.append('Map teleport detaches player from cab without consuming time; the scheduled cab arrival cannot drag the player back')
-    fresh=Game(project,data);assert fresh.state()==initial
+    fresh=Game(project,data,active_npcs=(31,34));assert fresh.state()==initial
     checks.append('Restart restores initial NPC rows, money, location and 08:00 clock')
 
     # Independent full-game probe: all NPCs enabled in both, no web clock offset.

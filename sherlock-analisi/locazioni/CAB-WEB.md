@@ -1,6 +1,6 @@
 # Il cab nella pagina web
 
-Il prototipo ora esegue le visite dei due cocchieri, ID 31 e 34, attraverso lo scheduler Z80 originale. Richieste citate, viaggi differiti, tariffe, pagamento, resto e proteste sono prodotti dal gioco. Gli altri NPC sono ancora sospesi. La selezione è esplicita in `NativeWorld(active_npcs=(31,34))`; il valore predefinito vuoto mantiene disponibili le prove precedenti senza NPC, mentre `None` abilita tutti gli attori per il confronto con il banco completo.
+Il prototipo ora esegue le visite dei due cocchieri, ID 31 e 34, attraverso lo scheduler Z80 originale. Richieste citate, viaggi differiti, tariffe, pagamento, resto e proteste sono prodotti dal gioco. Con l’integrazione di Watson e Lestrade è attivo l’intero scheduler: vedere [AI-WEB.md](AI-WEB.md). La selezione `Game(active_npcs=(31,34))` resta nelle regressioni isolate del cab; il server usa `None`, che abilita tutti gli attori. Il valore predefinito vuoto di `NativeWorld` mantiene disponibili le prove precedenti senza NPC.
 
 ## Una prova breve
 
@@ -28,7 +28,7 @@ WAIT fa avanzare il mondo. MORE, scrittura del testo, cambio di modalità e aggi
 ## Modifiche al ponte
 
 - `native_world.py`: la visita a `$A097` salta solo gli NPC non abilitati. Per i cocchieri passano preparazione, ordini, VM, contesti sospesi e rischedulazione originali. L’analisi delle azioni registra anche l’ID dell’attore che le esegue.
-- `explorer.py`: abilita i due cocchieri. Per l’avvio gratuito alle 08:00am arretra insieme tick globale e scadenze degli attori di una unità, evitando che i cocchieri restino spostati di un tick rispetto al giocatore.
+- `explorer.py`: abilita tutti gli attori, inclusi i due cocchieri e Lestrade che può usare il cab per proprio conto. Per l’avvio gratuito alle 08:00am arretra insieme tick globale e scadenze degli attori di una unità, evitando che i cocchieri restino spostati di un tick rispetto al giocatore.
 - Il salto sulla mappa usa l’azione interna 128 (`$E497`), che stacca l’entità dal genitore e propaga la posizione all’inventario. Questo evita una situazione incoerente in cui Holmes è stato teletrasportato altrove ma risulta ancora contenuto nel cab.
 - `explorer-ui.js`: segue sulla mappa ingresso e uscita dalla locazione di transito. Le risposte del gioco restano in inglese in entrambe le modalità.
 - `index.html`: aggiorna la legenda e la guida, indicando quali personaggi sono attivi e i comandi della corsa.

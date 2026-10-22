@@ -1,4 +1,10 @@
 {
+  "currency": {
+    "count": "You count your money. It totals £5 4/-",
+    "payment": "You pay £1 to the cabbie. The cabbie pays 19/4 to you.",
+    "player_pence": 1240,
+    "driver_balance": 0
+  },
   "passed": true,
   "checks": [
     "Natural walk, hail, boarding, quoted destination, transit and arrival; C1 and player markers move, other NPCs stay put",
@@ -3800,11 +3806,5 @@
         }
       ]
     }
-  ],
-  "currency": {
-    "count": "You count your money. It totals £5 4/-",
-    "payment": "You pay £1 to the cabbie. The cabbie pays 19/4 to you.",
-    "player_pence": 1240,
-    "driver_balance": 0
-  }
+  ]
 }

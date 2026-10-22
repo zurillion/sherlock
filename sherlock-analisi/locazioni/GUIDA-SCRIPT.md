@@ -29,7 +29,7 @@ LOOK
 
 `OPEN DOR` mostra l'errore lessicale e non consuma tempo. Il primo WEST fallisce perché la porta è chiusa. Gli ingressi successivi mostrano la differenza fra forma estesa e breve; LOOK ripristina quella estesa. Poi clicca un nodo della mappa o cerca `074`: il trasferimento non avanza l'orologio.
 
-Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. I due cocchieri eseguono i turni originali, con viaggi e conti; gli altri NPC restano fermi; i comandi nastro, stampa e controllo sono bloccati con un messaggio tecnico in inglese e ripristino dello stato.
+Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. Watson, Lestrade e gli altri attori eseguono i turni originali, compresi viaggi, richieste e segnali; i comandi nastro, stampa e controllo sono bloccati con un messaggio tecnico in inglese e ripristino dello stato.
 
 Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; le schede con lo stesso cookie condividono lo stato. “Riavvia” ripristina lo snapshot iniziale. Non c'è ancora salvataggio su disco della partita. La mappa consente di ispezionare luoghi fuori dal normale percorso di gioco, senza consumare tempo. Il salto attraverso la mappa stacca Holmes da un eventuale cab, che prosegue autonomamente.
 
@@ -67,7 +67,7 @@ La casella **Immagini**, in alto nel taccuino, mostra/nasconde anche le immagini
 
 ## Messaggi originali e continuazioni
 
-`native_world.py:submit` conserva registri, stack e strutture del comando al prompt, fa girare il ciclo originale e abilita le visite dei cocchieri 31/34, saltando gli altri NPC. Il costo e l’orologio vengono aggiornati dal codice originale, inclusi gli eventuali passi di sicurezza della VM. Gli errori e le domande non sono più frasi sintetiche Python.
+`native_world.py:submit` conserva registri, stack e strutture del comando al prompt, fa girare il ciclo originale con tutti gli attori abilitati. Il parametro facoltativo `active_npcs` di `Game` consente ancora prove isolate; il server usa lo scheduler completo. Vedere [AI-WEB.md](AI-WEB.md). Il costo e l’orologio vengono aggiornati dal codice originale, inclusi gli eventuali passi di sicurezza della VM. Gli errori e le domande non sono più frasi sintetiche Python.
 
 La mappa annulla un’eventuale domanda pendente; senza spostamenti manuali, puoi rispondere naturalmente con un qualificatore o con un nuovo comando. `verify_refinements.py` confronta YOUR e YOUR DOOR con una traccia indipendente del gioco completo e verifica i messaggi e gli eventi delle immagini. Avvio: `python3 -B sherlock-analisi/locazioni/verify_refinements.py`.
 
@@ -83,7 +83,7 @@ La sequenza `TAKE DISGUISE` → `CHINA` → `WEAR DISGUISE` → `CHINA` è verif
 
 L’orologio è a sinistra nella striscia e usa il formato inglese `Mon 08:05am`. Le frecce hanno una sigla quando la direzione reale differisce da quella suggerita dai lati/spigoli dei riquadri; UP/DOWN e uscite parallele diverse sono esplicite.
 
-I personaggi hanno sigle e colori nei riquadri, con nomi e posizioni nella legenda. Cliccare un nome nella legenda inquadra quel personaggio; non sposta il giocatore. I cocchieri si spostano ai loro turni; gli altri NPC sono fermi. I segnaposti leggono lo stato corrente a ogni risposta. Dettagli e comandi di verifica in `MAPPA-PERSONAGGI.md`.
+I personaggi hanno sigle e colori nei riquadri, con nomi e posizioni nella legenda. Cliccare un nome nella legenda inquadra quel personaggio; non sposta il giocatore. Watson, Lestrade, cocchieri e altri attori si spostano ai propri turni secondo i programmi originali. I segnaposti leggono lo stato corrente a ogni risposta. Dettagli e comandi di verifica in `MAPPA-PERSONAGGI.md`.
 
 
 ## Presentazione compatibilità Spectrum
@@ -91,3 +91,13 @@ I personaggi hanno sigle e colori nei riquadri, con nomi e posizioni nella legen
 La modalità si attiva dalla pagina. Griglia, tastiera, immagini e manutenzione sono spiegate in [COMPATIBILITA-SPECTRUM.md](COMPATIBILITA-SPECTRUM.md). Il file `app.js` è ora generato: modificare `explorer-ui.js`/`spectrum.js` e ricostruirlo con `build_compat_assets.py`.
 
 Il servizio cab nella pagina è descritto in [CAB-WEB.md](CAB-WEB.md), con una sequenza breve da provare.
+
+## Watson e Lestrade attivi
+
+Vedere [AI-WEB.md](AI-WEB.md) per gli esperimenti interattivi e le dipendenze fra attori. Per riprodurre le nuove prove:
+
+```sh
+python3 -B sherlock-analisi/locazioni/verify_web_ai.py
+```
+
+Lo script verifica il comportamento del prototipo e confronta tre sequenze di input con il banco Z80 indipendente. Salva il rapporto in `results/web-ai-verification.json`.

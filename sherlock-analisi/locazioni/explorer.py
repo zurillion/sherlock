@@ -1,4 +1,4 @@
-"""Esploratore con parser, azioni e servizio cab originali; altri NPC sospesi."""
+"""Esploratore con parser, azioni e scheduler degli attori originali."""
 from native_world import NativeWorld,word
 
 def perceived(m,ident,actor=None):
@@ -24,8 +24,10 @@ def perceived(m,ident,actor=None):
     return room in m[p+15:p+15+m[p]]
 
 class Game:
-    def __init__(self,project,data):
-        self.data=data;self.world=NativeWorld(project,active_npcs=(31,34));self.parser=self.world.engine
+    def __init__(self,project,data,active_npcs=None):
+        # Lestrade depends on trains, requests and signals from other actors.
+        # Production runs the full scheduler; focused tests may select a subset.
+        self.data=data;self.world=NativeWorld(project,active_npcs=active_npcs);self.parser=self.world.engine
         # Web presentation starts before the snapshot's first paid LOOK.
         # Shift the global tick and every actor deadline together; action costs stay native.
         self.parser.put(self.world.sim,0x9fdd,1)

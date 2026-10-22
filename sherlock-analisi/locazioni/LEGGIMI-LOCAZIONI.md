@@ -1,6 +1,6 @@
 # Sherlock: locazioni, movimento e descrizione del mondo
 
-**Aggiornamento del prototipo:** il turno del giocatore ora attraversa editor, parser, semantica e azioni Z80 originali, con stato pendente conservato fra input. Le domande e i rifiuti sono stampati dal gioco; YOUR e YOUR DOOR completano OPEN DOOR. Sono attive le visite dei due cocchieri; gli altri NPC vengono saltati. Vedere anche [CAB-WEB.md](CAB-WEB.md). Vedere `AGGIORNAMENTI-INTERFACCIA.md` per verifiche e modifiche a SVG e mappa.
+**Aggiornamento del prototipo:** il turno del giocatore ora attraversa editor, parser, semantica e azioni Z80 originali, con stato pendente conservato fra input. Le domande e i rifiuti sono stampati dal gioco; YOUR e YOUR DOOR completano OPEN DOOR. Sono attivi Watson, Lestrade e l’intero scheduler originale, compresi cocchieri, treni e interlocutori necessari ai loro programmi. Le nuove verifiche riguardano Watson e il primo itinerario di Lestrade: vedere [AI-WEB.md](AI-WEB.md) e [CAB-WEB.md](CAB-WEB.md). Vedere `AGGIORNAMENTI-INTERFACCIA.md` per verifiche e modifiche a SVG e mappa.
 
 Analisi del payload ZX Spectrum v2.0 fornito nel progetto. Gli indirizzi sono esadecimali; ID e costi sono decimali. I risultati derivano dai byte originali e da esecuzioni Z80. Foggy London è usato come indizio e, nell'interfaccia, come fonte delle coordinate grafiche dei nodi: la topologia viene estratta dal gioco.
 
@@ -145,13 +145,13 @@ Pagina HTML/CSS/JS
     → parser Z80 originale, in copia isolata
     → AST del comando
     → esecuzione originale del turno del giocatore
-    → ciclo originale, abilitando i due cocchieri e saltando gli altri NPC
+    → ciclo originale, con tutti gli attori abilitati e le loro scadenze
     → costo, orologio simulato, testo e stato della mappa
 ```
 
 La pagina esegue il turno originale del giocatore: editor, tokenizzazione, parser, risoluzione semantica, domande di disambiguazione e azioni. Conserva registri e stack al punto di attesa, oltre ai dati del comando e ai nodi pendenti. Le routine di ispezione possono usare separatamente i registri; prima del prossimo input si ripristina il punto corretto. Le frasi mostrate nell'area di gioco sono catturate dalle routine di stampa, senza una traduzione o una riscrittura degli errori in Python.
 
-Le visite dei cocchieri 31 e 34 vengono eseguite nello scheduler originale; quelle degli altri NPC sono saltate. Il tempo e la scadenza di Holmes vengono aggiornati dal ciclo originale; non si calcola più il costo del comando con una selezione Python. Restano bloccati i servizi nastro, stampa e controllo, per i quali compare un messaggio tecnico in inglese e viene ripristinato lo stato precedente. Le azioni non elencate fra i casi verificati non sono per questo certificate in ogni situazione di gioco.
+Lo scheduler originale esegue tutti i 24 attori, Sherlock incluso. Watson e Lestrade possono ricevere ordini, agire autonomamente e reagire agli incontri; cocchieri, treni e altri NPC consentono i loro spostamenti e scambi di segnali. L’integrazione e i limiti delle prove sono descritti in [AI-WEB.md](AI-WEB.md). Il tempo e la scadenza di Holmes vengono aggiornati dal ciclo originale; non si calcola più il costo del comando con una selezione Python. Restano bloccati i servizi nastro, stampa e controllo, per i quali compare un messaggio tecnico in inglese e viene ripristinato lo stato precedente. Le azioni non elencate fra i casi verificati non sono per questo certificate in ogni situazione di gioco.
 
 Le continuazioni avvengono naturalmente: dopo WHICH DOOR ? la risposta YOUR o YOUR DOOR completa il nodo pendente. Un nuovo verbo può sostituirlo, secondo le regole originali. Un trasferimento manuale tramite la mappa annulla il comando pendente.
 
