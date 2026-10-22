@@ -1,0 +1,81 @@
+[
+  {
+    "command": "SAVE",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "clock_preserved": true
+  },
+  {
+    "command": "LOAD",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "clock_preserved": true
+  },
+  {
+    "command": "QUIT",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "clock_preserved": true
+  },
+  {
+    "command": "PAUSE",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "clock_preserved": true
+  },
+  {
+    "command": "PRINT",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "clock_preserved": true
+  },
+  {
+    "command": "NOPRINT",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "clock_preserved": true
+  },
+  {
+    "fixture": "Map teleport to room 58; original wall safe death branch on day 0",
+    "command": "OPEN WALL SAFE",
+    "outcome": "tool_limit",
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "world_memory_restored": true,
+    "room": 58
+  }
+]

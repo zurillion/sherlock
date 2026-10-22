@@ -42,7 +42,7 @@ La grafica viene collocata a destra, alla coordinata virtuale x=128, conservando
 
 Il testo accanto alla figura usa 18 colonne a sinistra, come nel gestore grafico originale. Dopo il MORE passa a 36 colonne; la figura scorre insieme al contenuto precedente. Cambiando locazione viene rimossa l’immagine precedente; gli eventi di primo ingresso e LOOK forniti dal server decidono quando mostrarne una nuova.
 
-L’interruttore **Immagini** mostra/nasconde anche la grafica della modalità compatibilità. Le scelte SVG/raster e 2×/3× vengono ricordate. Una finestra più stretta della dimensione scelta offre scorrimento orizzontale del riquadro, senza ridurre la griglia o cambiare la dimensione dei caratteri.
+L’interruttore **Immagini** mostra/nasconde anche la grafica della modalità compatibilità. Le scelte SVG/raster e 2×/3× vengono ricordate. Il pannello contiene tutta la larghezza del video e della cornice, anche a 3×. Le due colonne non hanno più larghezza obbligatoriamente uguale: la colonna del gioco rispetta la dimensione effettiva del terminale e il contenitore principale può arrivare a 1900 pixel. Con 3× e meno di 1324 pixel disponibili nella finestra, la mappa passa sotto al gioco; con 2× rimane il passaggio a colonna unica sotto i 1150 pixel. Non c’è uno scorrimento orizzontale interno al riquadro. Se la finestra del browser è fisicamente più stretta dei 768 pixel del video 3×, l’intera pagina deve comunque poter scorrere: per vedere tutto insieme occorre allargare il browser oppure usare 2×. La griglia e la dimensione scelta dei caratteri non vengono ridotte automaticamente.
 
 ## File e manutenzione
 

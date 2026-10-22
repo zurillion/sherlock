@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "3x video keeps its exact 768 by 576 size",
+      "passed": true
+    },
+    {
+      "check": "wide 3x panel contains the frame and canvas without horizontal scrolling",
+      "passed": true
+    },
+    {
+      "check": "map moves below 3x at 1280px while 2x retains two columns",
+      "passed": true
+    },
+    {
+      "check": "2x still fits the narrow 535px viewport",
+      "passed": true
+    },
+    {
+      "check": "narrow 3x grows the enclosure instead of using an internal horizontal scrollbar",
+      "passed": true
+    }
+  ],
+  "measurements": {
+    "wide3x": {
+      "canvas": {
+        "height": 576,
+        "right": 1024,
+        "width": 768,
+        "x": 256
+      },
+      "documentOverflow": 0,
+      "frame": {
+        "right": 1048,
+        "width": 816,
+        "x": 232
+      },
+      "innerScroll": 0,
+      "mainColumns": "1220px",
+      "mapBelow": true,
+      "panel": {
+        "bottom": 771,
+        "height": 789.5,
+        "right": 1250,
+        "width": 1220,
+        "x": 30,
+        "y": -18.5
+      },
+      "scale": "3",
+      "viewport": 1280
+    },
+    "wide2x": {
+      "canvas": {
+        "height": 384,
+        "right": 585.5,
+        "width": 512,
+        "x": 73.5
+      },
+      "documentOverflow": 0,
+      "frame": {
+        "right": 609.5,
+        "width": 560,
+        "x": 49.5
+      },
+      "innerScroll": 0,
+      "mainColumns": "599px 599px",
+      "mapBelow": false,
+      "panel": {
+        "bottom": 595.5,
+        "height": 614,
+        "right": 629,
+        "width": 599,
+        "x": 30,
+        "y": -18.5
+      },
+      "scale": "2",
+      "viewport": 1280
+    },
+    "narrow2x": {
+      "canvas": {
+        "height": 384,
+        "right": 523.5,
+        "width": 512,
+        "x": 11.5
+      },
+      "documentOverflow": 0,
+      "frame": {
+        "right": 523.5,
+        "width": 512,
+        "x": 11.5
+      },
+      "innerScroll": 0,
+      "mainColumns": "519px",
+      "mapBelow": true,
+      "panel": {
+        "bottom": 732.5,
+        "height": 558,
+        "right": 527,
+        "width": 519,
+        "x": 8,
+        "y": 174.5
+      },
+      "scale": "2",
+      "viewport": 535
+    },
+    "narrow3x": {
+      "canvas": {
+        "height": 576,
+        "right": 778,
+        "width": 768,
+        "x": 10
+      },
+      "documentOverflow": 245,
+      "frame": {
+        "right": 778,
+        "width": 768,
+        "x": 10
+      },
+      "innerScroll": 0,
+      "mainColumns": "772px",
+      "mapBelow": true,
+      "panel": {
+        "bottom": 924.5,
+        "height": 750,
+        "right": 780,
+        "width": 772,
+        "x": 8,
+        "y": 174.5
+      },
+      "scale": "3",
+      "viewport": 535
+    }
+  },
+  "consoleErrors": []
+}
