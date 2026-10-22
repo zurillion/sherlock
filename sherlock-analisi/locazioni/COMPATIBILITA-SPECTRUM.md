@@ -17,15 +17,15 @@ Le cinque righe conservano i comandi recenti e le risposte del canale inferiore,
 
 ## Scrittura, scroll e MORE
 
-All’avvio della modalità e dopo **Riavvia**, lo schermo superiore è vuoto e il quadratino lampeggiante attende un tasto. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio appare subito al primo tasto alle **Mon 08:00am** e resta alle 08:00am dopo la descrizione iniziale. La descrizione è seguita dal saluto iniziale di Watson, recuperato dal testo originale già stampato prima dello snapshot: fra descrizione e saluto c’è un solo a capo, senza riga vuota. Non viene eseguito un secondo turno dell’NPC.
+All’avvio della modalità e dopo **Riavvia**, lo schermo superiore e l’area comandi sono vuoti; la barra di stato è bianca, senza motivo grafico, orologio o quadratino. Non compaiono ancora `>` e cursore. Il gioco attende un tasto qualsiasi. Dopo il tasto, la prima riga compare subito sopra la barra; ogni riga nuova fa salire quelle precedenti. Anche la successiva uscita continua a partire dalla riga inferiore. L’orologio appare subito al primo tasto alle **Mon 08:00am** e resta alle 08:00am dopo la descrizione iniziale. La descrizione è seguita dal saluto iniziale di Watson, recuperato dal testo originale già stampato prima dello snapshot: fra descrizione e saluto c’è un solo a capo, senza riga vuota. Non viene eseguito un secondo turno dell’NPC.
 
-L’orologio comincia due colonne più a destra rispetto alla versione precedente: x=16 pixel virtuali, con passo di sette pixel.
+L’orologio comincia a x=16 pixel virtuali, con passo di sette pixel. Una cella bianca di otto pixel precede e segue il testo: la seconda cella 8×8 della barra, a x=8, resta quindi vuota.
 
 L’uscita superiore viene composta per parole, con intervallo di presentazione di circa 32,5 ms (il doppio della velocità precedente). Le parole che non entrano nella riga passano alla successiva. Le sequenze più lunghe della riga vengono spezzate per garantire che il testo avanzi sempre.
 
 Alla fine dell’uscita superiore di ciascun comando viene aggiunta una riga vuota, che separa la risposta da quella successiva. I diversi messaggi dello stesso comando rimangono consecutivi; un errore scritto solo nella zona inferiore non modifica il testo superiore. Anche la riga vuota finale rispetta la pausa MORE e non fa avanzare l’orologio.
 
-Prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. Nella cella destra della barra di stato lampeggia un quadratino. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
+Prima del primo scroll che perderebbe una riga delle 18 visualizzate, la scrittura si ferma. L’ultima cella 8×8 della barra di stato (x=248, y=144) lampeggia invertendo il bianco e il nero del motivo già disegnato; nella fase spenta torna visibile il motivo originale. Non viene sostituita con un riquadro pieno. Questo indicatore compare solo per MORE, mai nella pausa iniziale. **Un tasto qualsiasi** riprende l’uscita e autorizza un’altra pagina di scroll; anche un clic sul video consente di continuare. Il tasto viene consumato: non finisce nel comando e non provoca azioni del gioco.
 
 La pausa e la velocità di scrittura sono gestite dalla presentazione JavaScript. L’orologio riceve i valori dal motore esistente e non avanza per i timer grafici né per il tasto MORE. Durante l’uscita non si possono inviare altri comandi. Disattivare la modalità sblocca un eventuale MORE pendente e restituisce la normale interfaccia.
 

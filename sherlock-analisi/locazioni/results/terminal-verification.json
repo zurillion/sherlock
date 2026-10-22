@@ -6,14 +6,14 @@
     "switching mode releases a pending MORE without a stuck queue",
     "original clarification is uppercase in the lower pane",
     "commands cannot interleave with pending output",
-    "startup pauses blank, consumes key, then writes from the bottom upward",
+    "startup has no prompt, consumes any key, then shows the clock and writes from the bottom upward",
     "reset restores the blank startup pause and can be cancelled",
-    "clock starts at x16: two character cells to the right",
+    "startup bar and prompt are empty; clock stays at x16 with blank surrounding cells; MORE inverts exactly 8x8 pixels and restores the underlying pattern",
     "restart during writing cancels stale output and restores the startup clock",
     "one trailing blank after the complete command output, preserved between commands; errors stay in the lower pane",
     "commands, wrapped lines, errors and active prompt reserve two prefix cells without losing text or changing submitted input",
     "trailing blank obeys MORE before scrolling text off screen and consumes no game time",
     "streamed minute frames preserve text and add only one command separator at completion",
-    "game over removes the cursor and blocks commands; restart restores input"
+    "game over blocks commands; restart keeps input blank until startup is released"
   ]
 }

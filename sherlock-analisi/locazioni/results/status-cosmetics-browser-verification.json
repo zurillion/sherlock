@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "after_first_key": {
+    "clock": "Mon 08:00am",
+    "prompt": "> +"
+  },
+  "more": {
+    "clock": "Mon 08:00am",
+    "lower": "> LOOK                              \n>",
+    "processing": "true",
+    "reason": "more"
+  },
+  "after_restart": {
+    "clockVisible": "false",
+    "lower": "",
+    "reason": "startup",
+    "restartDisabled": false,
+    "upper": ""
+  },
+  "consoleErrors": []
+}
