@@ -1,0 +1,3463 @@
+[
+  {
+    "label": "SAVE",
+    "input": "SAVE",
+    "length": 4,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": "B0C9",
+    "game_over": null
+  },
+  {
+    "label": "LOAD",
+    "input": "LOAD",
+    "length": 4,
+    "outcome": "game_over",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "LOAD.",
+    "guard_pc": null,
+    "game_over": {
+      "entry": "B0A6",
+      "reason": "quit"
+    }
+  },
+  {
+    "label": "PAUSE",
+    "input": "PAUSE",
+    "length": 5,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": "B09D",
+    "game_over": null
+  },
+  {
+    "label": "PRINT",
+    "input": "PRINT",
+    "length": 5,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": "B002",
+    "game_over": null
+  },
+  {
+    "label": "NOPRINT",
+    "input": "NOPRINT",
+    "length": 7,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Tape, printing and control commands are not available in this explorer."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": "B00E",
+    "game_over": null
+  },
+  {
+    "label": "QUIT",
+    "input": "QUIT",
+    "length": 4,
+    "outcome": "game_over",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "QUIT.",
+    "guard_pc": null,
+    "game_over": {
+      "entry": "B0A6",
+      "reason": "quit"
+    }
+  },
+  {
+    "label": "KILL",
+    "input": "KILL",
+    "length": 4,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "ONLY AN IDIOT WOULD TRY THAT."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "KILL.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "ATTACK WATSON",
+    "input": "ATTACK WATSON",
+    "length": 13,
+    "outcome": "lexical_error",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "error",
+        "text": "I DO NOT KNOW THE WORD\"ATTACK \""
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "ATTACK WATSON.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "DRIVE CAB",
+    "input": "DRIVE CAB",
+    "length": 9,
+    "outcome": "lexical_error",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "error",
+        "text": "I DO NOT KNOW THE WORD\"DRIVE \""
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "DRIVE CAB.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "PICK THE NOTE UP",
+    "input": "PICK THE NOTE UP",
+    "length": 16,
+    "outcome": "syntax_error",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHAT ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "PICK THE NOTE UP.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "PICK UP THE NOTE",
+    "input": "PICK UP THE NOTE",
+    "length": 16,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "I DO NOT KNOW THE VERB\" UP CARRY\""
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "PICK UP THE NOTE.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "LOOK",
+    "input": "LOOK",
+    "length": 4,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 34,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "screen_pictures": [
+      8
+    ],
+    "normal_pictures": [
+      8
+    ],
+    "buffer": "LOOK.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "L",
+    "input": "L",
+    "length": 1,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 34,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "screen_pictures": [
+      8
+    ],
+    "normal_pictures": [
+      8
+    ],
+    "buffer": "L.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "INVENTORY",
+    "input": "INVENTORY",
+    "length": 9,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 33,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You are carrying your money."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "INVENTORY.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "I",
+    "input": "I",
+    "length": 1,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 33,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You are carrying your money."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "I.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "COUNT YOUR MONEY",
+    "input": "COUNT YOUR MONEY",
+    "length": 16,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 15,
+        "arguments": [
+          27,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You count your money.\n It totals £5 4/-"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "COUNT YOUR MONEY.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "CARRY LAMP",
+    "input": "CARRY LAMP",
+    "length": 10,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 11,
+        "arguments": [
+          22,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You carry the oil lamp."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "CARRY LAMP.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "TAKE LAMP",
+    "input": "TAKE LAMP",
+    "length": 9,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 41,
+        "arguments": [
+          22,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You take the oil lamp."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TAKE LAMP.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "GET LAMP",
+    "input": "GET LAMP",
+    "length": 8,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 23,
+        "arguments": [
+          22,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You get the oil lamp."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "GET LAMP.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "CLOSE YOUR DOOR",
+    "input": "CLOSE YOUR DOOR",
+    "length": 15,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 14,
+        "arguments": [
+          21,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "YOUR DOOR IS CLOSED"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "CLOSE YOUR DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "OPEN YOUR DOOR",
+    "input": "OPEN YOUR DOOR",
+    "length": 14,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          21,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open your door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN YOUR DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "LOCK YOUR DOOR",
+    "input": "LOCK YOUR DOOR",
+    "length": 14,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "I SEE NO YOUR DOOR THAT YOU CAN LOCK"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "LOCK YOUR DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "UNLOCK YOUR DOOR",
+    "input": "UNLOCK YOUR DOOR",
+    "length": 16,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "I SEE NO YOUR DOOR THAT YOU CAN UNLOCK"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "UNLOCK YOUR DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "CLIMB INTO YOUR ARMCHAIR",
+    "input": "CLIMB INTO YOUR ARMCHAIR",
+    "length": 24,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 12,
+        "arguments": [
+          23,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You climb into your armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "CLIMB INTO YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "GET INTO YOUR ARMCHAIR",
+    "input": "GET INTO YOUR ARMCHAIR",
+    "length": 22,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 24,
+        "arguments": [
+          23,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You get into your armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "GET INTO YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "SIT IN YOUR ARMCHAIR",
+    "input": "SIT IN YOUR ARMCHAIR",
+    "length": 20,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 40,
+        "arguments": [
+          23,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You sit in your armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "SIT IN YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "GET OUT OF YOUR ARMCHAIR",
+    "input": "GET OUT OF YOUR ARMCHAIR",
+    "length": 24,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "I SEE NO YOUR ARMCHAIR THAT YOU CAN GET OUT OF"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "GET OUT OF YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "ENTER HALL",
+    "input": "ENTER HALL",
+    "length": 10,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 18,
+        "arguments": [
+          7,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 4,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "YOU CANNOT GO WEST."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "ENTER HALL.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "GO TO HALL",
+    "input": "GO TO HALL",
+    "length": 10,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "I SEE NO HALL THAT YOU CAN GO TO"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "GO TO HALL.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "FOLLOW WATSON",
+    "input": "FOLLOW WATSON",
+    "length": 13,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 13,
+      "due": 13,
+      "minute": 12,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:12am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 21,
+        "arguments": [
+          3,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 13,
+        "arguments": [
+          255,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 12,
+        "arguments": [
+          24,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You climb into watsons armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "FOLLOW WATSON.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "COME WITH WATSON",
+    "input": "COME WITH WATSON",
+    "length": 16,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 13,
+      "due": 13,
+      "minute": 12,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:12am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 22,
+        "arguments": [
+          3,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 13,
+        "arguments": [
+          255,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 12,
+        "arguments": [
+          24,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You climb into watsons armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "COME WITH WATSON.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "HAIL CAB",
+    "input": "HAIL CAB",
+    "length": 8,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "YOU CANNOT HAIL THE CAB"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "HAIL CAB.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "HELLO",
+    "input": "HELLO",
+    "length": 5,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 32,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "HI."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "HELLO.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "TALK TO WATSON",
+    "input": "TALK TO WATSON",
+    "length": 14,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 46,
+        "arguments": [
+          3,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You talk to Watson."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TALK TO WATSON.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "PAY 6D TO WATSON",
+    "input": "PAY 6D TO WATSON",
+    "length": 16,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 37,
+        "arguments": [
+          254,
+          3
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You pay 6d. To Watson."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "PAY 6D TO WATSON.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "QUICKLY COUNT THE MONEY",
+    "input": "QUICKLY COUNT THE MONEY",
+    "length": 23,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "I DO NOT KNOW THE VERB\" FURIOUSLY COUNT\""
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "QUICKLY COUNT THE MONEY.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "EXAMINE LAMP CLOSELY",
+    "input": "EXAMINE LAMP CLOSELY",
+    "length": 20,
+    "outcome": "syntax_error",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHAT ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "EXAMINE LAMP CLOSELY.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "EXAMINE ALL EXCEPT THE LAMP",
+    "input": "EXAMINE ALL EXCEPT THE LAMP",
+    "length": 27,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 7,
+      "due": 7,
+      "minute": 6,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:06am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          0,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          3,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          21,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          22,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          23,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          24,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          27,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 19,
+        "arguments": [
+          50,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "YOU CANNOT EXAMINE ME.\n YOU CANNOT EXAMINE WATSON."
+      },
+      {
+        "kind": "narrative",
+        "text": "You examine your door.\n You see your door."
+      },
+      {
+        "kind": "narrative",
+        "text": "You examine the oil lamp.\n You see an oil lamp."
+      },
+      {
+        "kind": "narrative",
+        "text": "You examine your armchair.\n You see your armchair."
+      },
+      {
+        "kind": "narrative",
+        "text": "You examine watsons armchair.\n You see watsons armchair."
+      },
+      {
+        "kind": "narrative",
+        "text": "You examine your money.\n You see your money."
+      },
+      {
+        "kind": "narrative",
+        "text": "You examine the plain door.\n You see a plain door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "EXAMINE ALL EXCEPT THE LAMP.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "OPEN ALL EXCEPT THE PLAIN DOOR",
+    "input": "OPEN ALL EXCEPT THE PLAIN DOOR",
+    "length": 30,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          21,
+          255
+        ]
+      },
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          50,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open your door."
+      },
+      {
+        "kind": "narrative",
+        "text": "You open the plain door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN ALL EXCEPT THE PLAIN DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "Z",
+    "input": "Z",
+    "length": 1,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "The original dictionary scan left its valid range."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": "D9F5",
+    "game_over": null
+  },
+  {
+    "label": "LOOK                                                                      ",
+    "input": "LOOK                                                                      ",
+    "length": 74,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "Input limit: 70 printable ASCII characters (or £)."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I ",
+    "input": "I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I ",
+    "length": 68,
+    "outcome": "tool_limit",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": null,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "system",
+        "text": "The original token buffer is full."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": null,
+    "guard_pc": "D73C",
+    "game_over": null
+  },
+  {
+    "label": "objects: TAKE LAMP",
+    "input": "TAKE LAMP",
+    "length": 9,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 41,
+        "arguments": [
+          22,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You take the oil lamp."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TAKE LAMP.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "objects: PUT LAMP ON YOUR ARMCHAIR",
+    "input": "PUT LAMP ON YOUR ARMCHAIR",
+    "length": 25,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 39,
+        "arguments": [
+          22,
+          23
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You put the oil lamp on your armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "PUT LAMP ON YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "objects: TAKE LAMP FROM YOUR ARMCHAIR",
+    "input": "TAKE LAMP FROM YOUR ARMCHAIR",
+    "length": 28,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 42,
+        "arguments": [
+          22,
+          23
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You take the oil lamp from your armchair."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TAKE LAMP FROM YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "objects: DROP LAMP IN YOUR ARMCHAIR",
+    "input": "DROP LAMP IN YOUR ARMCHAIR",
+    "length": 26,
+    "outcome": "syntax_error",
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHAT ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "DROP LAMP IN YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "objects: TAKE LAMP OUT OF YOUR ARMCHAIR",
+    "input": "TAKE LAMP OUT OF YOUR ARMCHAIR",
+    "length": 30,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "YOU CANNOT TAKE THE LAMP"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TAKE LAMP OUT OF YOUR ARMCHAIR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "objects: GIVE LAMP TO WATSON",
+    "input": "GIVE LAMP TO WATSON",
+    "length": 19,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "clock_after": {
+      "tick": 5,
+      "due": 5,
+      "minute": 4,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:04am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 26,
+        "arguments": [
+          22,
+          3
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You give the oil lamp to Watson."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "GIVE LAMP TO WATSON.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "conversation: SAY TO WATSON \"HELLO\"",
+    "input": "SAY TO WATSON \"HELLO\"",
+    "length": 21,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 46,
+        "arguments": [
+          3,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You talk to Watson.\n Watson says\" Hello\"."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "SAY TO WATSON \"HELLO.\".",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "conversation: \"TELL ME ABOUT LESTRADE\"",
+    "input": "\"TELL ME ABOUT LESTRADE\"",
+    "length": 24,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 46,
+        "arguments": [
+          3,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You talk to Watson.\n Watson says to you\" I am sorry I cannot help you with that.\"."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "\"TELL ME ABOUT LESTRADE.\".",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "conversation: \"WATSON IS INNOCENT\"",
+    "input": "\"WATSON IS INNOCENT\"",
+    "length": 20,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 46,
+        "arguments": [
+          3,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You talk to Watson.\n Watson remarks\" That is brilliant Holmes.\"."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "\"WATSON IS INNOCENT.\".",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "conversation: \"BASIL KILLED MRS BROWN\"",
+    "input": "\"BASIL KILLED MRS BROWN\"",
+    "length": 24,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "clock_after": {
+      "tick": 5,
+      "due": 5,
+      "minute": 4,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:04am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 46,
+        "arguments": [
+          3,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You talk to Watson.\n Watson remarks\" That is brilliant Holmes.\"."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "\"BASIL KILLED MRS BROWN.\".",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "continuation: OPEN DOOR",
+    "input": "OPEN DOOR",
+    "length": 9,
+    "outcome": "clarification",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 8,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHICH DOOR ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "continuation: YOUR",
+    "input": "YOUR",
+    "length": 4,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          21,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open your door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "YOUR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "continuation: @",
+    "input": "@",
+    "length": 1,
+    "outcome": "syntax_error",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHAT ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "YOUR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "repeat: LOOK",
+    "input": "LOOK",
+    "length": 4,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 34,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "screen_pictures": [
+      8
+    ],
+    "normal_pictures": [
+      8
+    ],
+    "buffer": "LOOK.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "repeat: @",
+    "input": "@",
+    "length": 1,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 3,
+      "due": 3,
+      "minute": 2,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:02am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 34,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 8
+      },
+      {
+        "kind": "narrative",
+        "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+      }
+    ],
+    "screen_pictures": [
+      8
+    ],
+    "normal_pictures": [
+      8
+    ],
+    "buffer": "LOOK.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: OPEN PLAIN DOOR",
+    "input": "OPEN PLAIN DOOR",
+    "length": 15,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          50,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open the plain door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN PLAIN DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: NORTH",
+    "input": "NORTH",
+    "length": 5,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 9,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 1,
+        "arguments": [
+          255,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You go north."
+      },
+      {
+        "kind": "narrative",
+        "text": "",
+        "image_room": 9
+      },
+      {
+        "kind": "narrative",
+        "text": "You are in a small closet. To the south there is a plain door. You can see a china mans disguise and an old mans disguise."
+      }
+    ],
+    "screen_pictures": [
+      9
+    ],
+    "normal_pictures": [
+      9
+    ],
+    "buffer": "NORTH.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: TAKE DISGUISE",
+    "input": "TAKE DISGUISE",
+    "length": 13,
+    "outcome": "clarification",
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 9,
+    "continuation_slot": 8,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHICH DISGUISE ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TAKE DISGUISE.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: CHINA",
+    "input": "CHINA",
+    "length": 5,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "clock_after": {
+      "tick": 5,
+      "due": 5,
+      "minute": 4,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:04am"
+    },
+    "room": 9,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 41,
+        "arguments": [
+          14,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You take the china mans disguise."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "CHINA.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: WEAR DISGUISE",
+    "input": "WEAR DISGUISE",
+    "length": 13,
+    "outcome": "clarification",
+    "clock_before": {
+      "tick": 5,
+      "due": 5,
+      "minute": 4,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:04am"
+    },
+    "clock_after": {
+      "tick": 5,
+      "due": 5,
+      "minute": 4,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:04am"
+    },
+    "room": 9,
+    "continuation_slot": 8,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHICH DISGUISE ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "WEAR DISGUISE.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: CHINA",
+    "input": "CHINA",
+    "length": 5,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 5,
+      "due": 5,
+      "minute": 4,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:04am"
+    },
+    "clock_after": {
+      "tick": 6,
+      "due": 6,
+      "minute": 5,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:05am"
+    },
+    "room": 9,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 51,
+        "arguments": [
+          14,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You wear the china mans disguise."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "CHINA.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "disguise: TAKE OFF DISGUISE",
+    "input": "TAKE OFF DISGUISE",
+    "length": 17,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 6,
+      "due": 6,
+      "minute": 5,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:05am"
+    },
+    "clock_after": {
+      "tick": 7,
+      "due": 7,
+      "minute": 6,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:06am"
+    },
+    "room": 9,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 1,
+        "id": 43,
+        "arguments": [
+          14,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "The china man takes off the china mans disguise."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "TAKE OFF DISGUISE.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "view: OPEN YOUR DOOR",
+    "input": "OPEN YOUR DOOR",
+    "length": 14,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          21,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open your door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN YOUR DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "view: LOOK THROUGH YOUR DOOR",
+    "input": "LOOK THROUGH YOUR DOOR",
+    "length": 22,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 35,
+        "arguments": [
+          21,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You look through your door.\n You can see a hall."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "LOOK THROUGH YOUR DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "inspected continuation: OPEN DOOR",
+    "input": "OPEN DOOR",
+    "length": 9,
+    "outcome": "clarification",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "room": 8,
+    "continuation_slot": 8,
+    "player_actions": [],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "error",
+        "text": "WHICH DOOR ?"
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "inspected continuation: YOUR",
+    "input": "YOUR",
+    "length": 4,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 8,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          21,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open your door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "YOUR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "map fixture room 69: open",
+    "input": "OPEN DAPHNES DOOR",
+    "length": 17,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 1,
+      "due": 1,
+      "minute": 0,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:00am"
+    },
+    "clock_after": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "room": 69,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 36,
+        "arguments": [
+          52,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You open daphnes door."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "OPEN DAPHNES DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  },
+  {
+    "label": "map fixture room 69: look through to 74",
+    "input": "LOOK THROUGH DAPHNES DOOR",
+    "length": 25,
+    "outcome": "ok",
+    "clock_before": {
+      "tick": 2,
+      "due": 2,
+      "minute": 1,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:01am"
+    },
+    "clock_after": {
+      "tick": 4,
+      "due": 4,
+      "minute": 3,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:03am"
+    },
+    "room": 69,
+    "continuation_slot": 0,
+    "player_actions": [
+      {
+        "actor": 0,
+        "id": 35,
+        "arguments": [
+          52,
+          255
+        ]
+      }
+    ],
+    "messages": [
+      {
+        "kind": "narrative",
+        "text": ""
+      },
+      {
+        "kind": "narrative",
+        "text": "You look through daphnes door.\n You can see Daphnes Room."
+      }
+    ],
+    "screen_pictures": [],
+    "normal_pictures": [],
+    "buffer": "LOOK THROUGH DAPHNES DOOR.",
+    "guard_pc": null,
+    "game_over": null
+  }
+]

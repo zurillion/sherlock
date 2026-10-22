@@ -117,3 +117,7 @@ Il saluto iniziale e la sua impaginazione sono documentati in `AVVIO-E-SALUTO-WA
 ## Scrolling e MORE originali
 
 [SCROLLING-WEB.md](SCROLLING-WEB.md) descrive il flusso `screen_events`, la cattura prima del word wrap in `native_screen.py` e le prove contro il renderer Z80. Rigenerare prima `verify_paging.py`, poi eseguire `node verify_paging.cjs`: i confronti includono anche i punti precisi di arresto e le schermate complete.
+
+## Inventario delle lacune del gameplay
+
+[BACKLOG-GAMEPLAY.md](BACKLOG-GAMEPLAY.md) è l’elenco corrente, con priorità e ID G01–G19. `audit_gameplay.py` produce 70 prove isolate; `probe_audit_edges.py` controlla i casi dubbi contro un banco Z80 indipendente; `build_gameplay_inventory.py` consolida i 54 modelli lessicali e le regole iniziali. Eseguirli in quest’ordine. I report sono in `results/gameplay-*.json` e `results/GAMEPLAY-ACTIONS.md`. Le prove non usano la sessione del browser e non richiedono un riavvio del server.

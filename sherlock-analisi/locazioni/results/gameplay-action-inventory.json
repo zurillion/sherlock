@@ -1,0 +1,1548 @@
+{
+  "source_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "baseline_commit": "fc50b3c",
+  "scope": "Static initial rule associations plus observed calls to C4D1 in 70 audit commands. C4D1 reached does not imply action success; absence from this audit does not imply missing support. Runtime mutation of tables is not ruled out by a static inventory.",
+  "commands": 70,
+  "outcomes": {
+    "tool_limit": 7,
+    "game_over": 2,
+    "ok": 51,
+    "lexical_error": 2,
+    "syntax_error": 4,
+    "clarification": 4
+  },
+  "native_models": 54,
+  "models_reaching_executor_in_audit": 27,
+  "models": [
+    {
+      "id": 1,
+      "address": "8259",
+      "words": [
+        "north",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "disguise: NORTH"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 2,
+      "address": "8261",
+      "words": [
+        "south",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 3,
+      "address": "8269",
+      "words": [
+        "east",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 4,
+      "address": "8271",
+      "words": [
+        "west",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "ENTER HALL"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 5,
+      "address": "8279",
+      "words": [
+        "northeast",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 6,
+      "address": "8281",
+      "words": [
+        "northwest",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 7,
+      "address": "8289",
+      "words": [
+        "southeast",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 8,
+      "address": "8291",
+      "words": [
+        "southwest",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 9,
+      "address": "8299",
+      "words": [
+        "up",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 10,
+      "address": "82A1",
+      "words": [
+        "down",
+        null,
+        null,
+        "go"
+      ],
+      "general_rule": "DD03",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 11,
+      "address": "82A9",
+      "words": [
+        "carry",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DCC1",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "CARRY LAMP"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 12,
+      "address": "82B1",
+      "words": [
+        "climb",
+        "into",
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 23,
+          "name": "your armchair",
+          "rule": "E40A"
+        },
+        {
+          "entity": 24,
+          "name": "watsons armchair",
+          "rule": "E40A"
+        },
+        {
+          "entity": 30,
+          "name": "hansom cab",
+          "rule": "E3EA"
+        },
+        {
+          "entity": 33,
+          "name": "hansom cab",
+          "rule": "E3EA"
+        },
+        {
+          "entity": 36,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 37,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 38,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 39,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 40,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 41,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 42,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 43,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 60,
+          "name": "plush sofa",
+          "rule": "E40A"
+        },
+        {
+          "entity": 109,
+          "name": "police cab",
+          "rule": "E3EA"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "CLIMB INTO YOUR ARMCHAIR",
+        "COME WITH WATSON",
+        "FOLLOW WATSON"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 13,
+      "address": "82B9",
+      "words": [
+        "climb",
+        "out",
+        "of",
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 23,
+          "name": "your armchair",
+          "rule": "E432"
+        },
+        {
+          "entity": 24,
+          "name": "watsons armchair",
+          "rule": "E432"
+        },
+        {
+          "entity": 30,
+          "name": "hansom cab",
+          "rule": "E432"
+        },
+        {
+          "entity": 33,
+          "name": "hansom cab",
+          "rule": "E432"
+        },
+        {
+          "entity": 36,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 37,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 38,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 39,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 40,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 41,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 42,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 43,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 60,
+          "name": "plush sofa",
+          "rule": "E432"
+        },
+        {
+          "entity": 109,
+          "name": "police cab",
+          "rule": "E432"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "COME WITH WATSON",
+        "FOLLOW WATSON"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 14,
+      "address": "82C1",
+      "words": [
+        "close",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 19,
+          "name": "front door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 21,
+          "name": "your door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 45,
+          "name": "large oak door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 48,
+          "name": "heavy oak door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 49,
+          "name": "diningroom door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 50,
+          "name": "plain door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 51,
+          "name": "ornate door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 52,
+          "name": "daphnes door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 53,
+          "name": "bedroom door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 54,
+          "name": "wooden door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 55,
+          "name": "thick heavy door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 56,
+          "name": "side door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 62,
+          "name": "drawer",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 63,
+          "name": "false bottom",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 68,
+          "name": "solid door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 69,
+          "name": "sittingroom door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 70,
+          "name": "northern door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 73,
+          "name": "back gate",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 74,
+          "name": "back door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 79,
+          "name": "window",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 86,
+          "name": "wall safe",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 89,
+          "name": "wall safe",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 91,
+          "name": "front door",
+          "rule": "DEAF"
+        },
+        {
+          "entity": 103,
+          "name": "tricias front door",
+          "rule": "DEAF"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "CLOSE YOUR DOOR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 15,
+      "address": "82C9",
+      "words": [
+        "count",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 27,
+          "name": "your money",
+          "rule": "E328"
+        },
+        {
+          "entity": 28,
+          "name": "money",
+          "rule": "E328"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "COUNT YOUR MONEY"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 16,
+      "address": "82D1",
+      "words": [
+        "drop",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DC8D",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 17,
+      "address": "82D9",
+      "words": [
+        "drop",
+        "in",
+        null,
+        null
+      ],
+      "general_rule": "DEC1",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 18,
+      "address": "82E1",
+      "words": [
+        "enter",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DD52",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "ENTER HALL"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 19,
+      "address": "82E9",
+      "words": [
+        "examine",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DF40",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "EXAMINE ALL EXCEPT THE LAMP"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 20,
+      "address": "82F1",
+      "words": [
+        "examine",
+        null,
+        null,
+        "closely"
+      ],
+      "general_rule": "E135",
+      "local_rules": [
+        {
+          "entity": 59,
+          "name": "deep stream",
+          "rule": "E0A0"
+        },
+        {
+          "entity": 62,
+          "name": "drawer",
+          "rule": "E0F2"
+        },
+        {
+          "entity": 66,
+          "name": "bookcase",
+          "rule": "E104"
+        },
+        {
+          "entity": 80,
+          "name": "trash pile",
+          "rule": "E0E0"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 21,
+      "address": "82F9",
+      "words": [
+        "follow",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "E452",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "FOLLOW WATSON"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 22,
+      "address": "8301",
+      "words": [
+        "come",
+        "with",
+        null,
+        null
+      ],
+      "general_rule": "E452",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "COME WITH WATSON"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 23,
+      "address": "8309",
+      "words": [
+        "get",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DCC1",
+      "local_rules": [
+        {
+          "entity": 30,
+          "name": "hansom cab",
+          "rule": "E2C7"
+        },
+        {
+          "entity": 33,
+          "name": "hansom cab",
+          "rule": "E2C7"
+        },
+        {
+          "entity": 85,
+          "name": "burning note",
+          "rule": "DF7E"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "GET LAMP"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 24,
+      "address": "8311",
+      "words": [
+        "get",
+        "into",
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 23,
+          "name": "your armchair",
+          "rule": "E40A"
+        },
+        {
+          "entity": 24,
+          "name": "watsons armchair",
+          "rule": "E40A"
+        },
+        {
+          "entity": 30,
+          "name": "hansom cab",
+          "rule": "E3EA"
+        },
+        {
+          "entity": 33,
+          "name": "hansom cab",
+          "rule": "E3EA"
+        },
+        {
+          "entity": 36,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 37,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 38,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 39,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 40,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 41,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 42,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 43,
+          "name": "steam train",
+          "rule": "E40A"
+        },
+        {
+          "entity": 60,
+          "name": "plush sofa",
+          "rule": "E40A"
+        },
+        {
+          "entity": 109,
+          "name": "police cab",
+          "rule": "E3EA"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "GET INTO YOUR ARMCHAIR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 25,
+      "address": "8319",
+      "words": [
+        "get",
+        "out",
+        "of",
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 23,
+          "name": "your armchair",
+          "rule": "E432"
+        },
+        {
+          "entity": 24,
+          "name": "watsons armchair",
+          "rule": "E432"
+        },
+        {
+          "entity": 30,
+          "name": "hansom cab",
+          "rule": "E432"
+        },
+        {
+          "entity": 33,
+          "name": "hansom cab",
+          "rule": "E432"
+        },
+        {
+          "entity": 36,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 37,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 38,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 39,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 40,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 41,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 42,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 43,
+          "name": "steam train",
+          "rule": "E432"
+        },
+        {
+          "entity": 60,
+          "name": "plush sofa",
+          "rule": "E432"
+        },
+        {
+          "entity": 109,
+          "name": "police cab",
+          "rule": "E432"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 26,
+      "address": "8321",
+      "words": [
+        "give",
+        "to",
+        null,
+        null
+      ],
+      "general_rule": "DF02",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "objects: GIVE LAMP TO WATSON"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 27,
+      "address": "8329",
+      "words": [
+        "go",
+        "into",
+        null,
+        null
+      ],
+      "general_rule": "DD52",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 28,
+      "address": "8331",
+      "words": [
+        "go",
+        "through",
+        null,
+        null
+      ],
+      "general_rule": "DC57",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 29,
+      "address": "8339",
+      "words": [
+        "go",
+        "to",
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 11,
+          "name": "local police man",
+          "rule": "9A99"
+        },
+        {
+          "entity": 31,
+          "name": "cabbie",
+          "rule": "9AF4"
+        },
+        {
+          "entity": 34,
+          "name": "cabbie",
+          "rule": "9AF4"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 30,
+      "address": "8341",
+      "words": [
+        "go",
+        "to",
+        null,
+        "furiously"
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 11,
+          "name": "local police man",
+          "rule": "9ACB"
+        },
+        {
+          "entity": 31,
+          "name": "cabbie",
+          "rule": "9AE1"
+        },
+        {
+          "entity": 34,
+          "name": "cabbie",
+          "rule": "9AE1"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 31,
+      "address": "8349",
+      "words": [
+        "hail",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 30,
+          "name": "hansom cab",
+          "rule": "E2C7"
+        },
+        {
+          "entity": 33,
+          "name": "hansom cab",
+          "rule": "E2C7"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 32,
+      "address": "8351",
+      "words": [
+        "hello",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "9A7E",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "HELLO"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 33,
+      "address": "8359",
+      "words": [
+        "inventory",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DE6F",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "I",
+        "INVENTORY"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 34,
+      "address": "8361",
+      "words": [
+        "look",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DC7B",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "L",
+        "LOOK",
+        "repeat: @",
+        "repeat: LOOK"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 35,
+      "address": "8369",
+      "words": [
+        "look",
+        "through",
+        null,
+        null
+      ],
+      "general_rule": "DC19",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "map fixture room 69: look through to 74",
+        "view: LOOK THROUGH YOUR DOOR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 36,
+      "address": "8371",
+      "words": [
+        "open",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 19,
+          "name": "front door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 21,
+          "name": "your door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 45,
+          "name": "large oak door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 48,
+          "name": "heavy oak door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 49,
+          "name": "diningroom door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 50,
+          "name": "plain door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 51,
+          "name": "ornate door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 52,
+          "name": "daphnes door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 53,
+          "name": "bedroom door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 54,
+          "name": "wooden door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 55,
+          "name": "thick heavy door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 56,
+          "name": "side door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 62,
+          "name": "drawer",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 63,
+          "name": "false bottom",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 68,
+          "name": "solid door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 69,
+          "name": "sittingroom door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 70,
+          "name": "northern door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 73,
+          "name": "back gate",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 74,
+          "name": "back door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 79,
+          "name": "window",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 86,
+          "name": "wall safe",
+          "rule": "DFA7"
+        },
+        {
+          "entity": 89,
+          "name": "wall safe",
+          "rule": "DFA7"
+        },
+        {
+          "entity": 91,
+          "name": "front door",
+          "rule": "DE9D"
+        },
+        {
+          "entity": 103,
+          "name": "tricias front door",
+          "rule": "DE9D"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "OPEN ALL EXCEPT THE PLAIN DOOR",
+        "OPEN YOUR DOOR",
+        "continuation: YOUR",
+        "disguise: OPEN PLAIN DOOR",
+        "inspected continuation: YOUR",
+        "map fixture room 69: open",
+        "view: OPEN YOUR DOOR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 37,
+      "address": "8379",
+      "words": [
+        "pay",
+        "to",
+        null,
+        null
+      ],
+      "general_rule": "E370",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "PAY 6D TO WATSON"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 38,
+      "address": "8381",
+      "words": [
+        "put",
+        "in",
+        null,
+        null
+      ],
+      "general_rule": "DEC1",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 39,
+      "address": "8389",
+      "words": [
+        "put",
+        "on",
+        null,
+        null
+      ],
+      "general_rule": "DEC1",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "objects: PUT LAMP ON YOUR ARMCHAIR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 40,
+      "address": "8391",
+      "words": [
+        "sit",
+        "in",
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 23,
+          "name": "your armchair",
+          "rule": "E40A"
+        },
+        {
+          "entity": 24,
+          "name": "watsons armchair",
+          "rule": "E40A"
+        },
+        {
+          "entity": 60,
+          "name": "plush sofa",
+          "rule": "E40A"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "SIT IN YOUR ARMCHAIR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 41,
+      "address": "8399",
+      "words": [
+        "take",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "DCC1",
+      "local_rules": [
+        {
+          "entity": 85,
+          "name": "burning note",
+          "rule": "DF7E"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "TAKE LAMP",
+        "disguise: CHINA",
+        "objects: TAKE LAMP"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 42,
+      "address": "83A1",
+      "words": [
+        "take",
+        "from",
+        null,
+        null
+      ],
+      "general_rule": "DCC1",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "objects: TAKE LAMP FROM YOUR ARMCHAIR"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 43,
+      "address": "83A9",
+      "words": [
+        "take",
+        "off",
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 14,
+          "name": "china mans disguise",
+          "rule": "E003"
+        },
+        {
+          "entity": 101,
+          "name": "old mans disguise",
+          "rule": "DFEA"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "disguise: TAKE OFF DISGUISE"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 44,
+      "address": "83B1",
+      "words": [
+        "take",
+        "out",
+        "of",
+        null
+      ],
+      "general_rule": "DCC1",
+      "local_rules": [
+        {
+          "entity": 85,
+          "name": "burning note",
+          "rule": "DF7E"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 45,
+      "address": "83B9",
+      "words": [
+        "take",
+        "to",
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 31,
+          "name": "cabbie",
+          "rule": "E08D"
+        },
+        {
+          "entity": 34,
+          "name": "cabbie",
+          "rule": "E08D"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 46,
+      "address": "83C1",
+      "words": [
+        "talk",
+        "to",
+        null,
+        null
+      ],
+      "general_rule": "DD9E",
+      "local_rules": [],
+      "observed_dispatch_cases": [
+        "TALK TO WATSON",
+        "conversation: \"BASIL KILLED MRS BROWN\"",
+        "conversation: \"TELL ME ABOUT LESTRADE\"",
+        "conversation: \"WATSON IS INNOCENT\"",
+        "conversation: SAY TO WATSON \"HELLO\""
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 47,
+      "address": "83C9",
+      "words": [
+        "tell",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "E1D6",
+      "local_rules": [
+        {
+          "entity": 13,
+          "name": "tricia fender",
+          "rule": "E1A3"
+        },
+        {
+          "entity": 95,
+          "name": "mrs jones",
+          "rule": "E17B"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 48,
+      "address": "83D1",
+      "words": [
+        "tell",
+        "about",
+        null,
+        null
+      ],
+      "general_rule": "E1D6",
+      "local_rules": [
+        {
+          "entity": 13,
+          "name": "tricia fender",
+          "rule": "E1A3"
+        },
+        {
+          "entity": 95,
+          "name": "mrs jones",
+          "rule": "E17B"
+        }
+      ],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 49,
+      "address": "83D9",
+      "words": [
+        "wait",
+        "here",
+        null,
+        null
+      ],
+      "general_rule": "DDB4",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 50,
+      "address": "83E1",
+      "words": [
+        "wait",
+        "until",
+        null,
+        null
+      ],
+      "general_rule": "DDD0",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 51,
+      "address": "83E9",
+      "words": [
+        "wear",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [
+        {
+          "entity": 14,
+          "name": "china mans disguise",
+          "rule": "E022"
+        },
+        {
+          "entity": 101,
+          "name": "old mans disguise",
+          "rule": "DFF0"
+        }
+      ],
+      "observed_dispatch_cases": [
+        "disguise: CHINA"
+      ],
+      "has_initial_rule": true
+    },
+    {
+      "id": 52,
+      "address": "83F1",
+      "words": [
+        "kill",
+        null,
+        null,
+        null
+      ],
+      "general_rule": "9FC5",
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": true
+    },
+    {
+      "id": 53,
+      "address": "83F9",
+      "words": [
+        "lock",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": false
+    },
+    {
+      "id": 54,
+      "address": "8401",
+      "words": [
+        "unlock",
+        null,
+        null,
+        null
+      ],
+      "general_rule": null,
+      "local_rules": [],
+      "observed_dispatch_cases": [],
+      "has_initial_rule": false
+    }
+  ]
+}

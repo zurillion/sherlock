@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "scope": "Targeted comparisons of observed output; first two use snapshot clock 08:01 vs free web 08:00; remote view uses declared placement fixture. No complete playthrough is claimed.",
+  "cases": [
+    {
+      "command": "EXAMINE ALL EXCEPT THE LAMP",
+      "native_upper": "\n You examine your door.\n You see your door.\n\n You examine the oil lamp.\n You see an oil lamp.\n\n You examine your armchair.\n You see your armchair.\n\n You examine watsons armchair.\n You see watsons armchair.\n\n You examine your money.\n You see your money.\n\n You examine the plain door.\n You see a plain door.\n",
+      "native_lower": " you cannot examine me.\n you cannot examine watson.\n",
+      "web_upper": " You examine your door.\n You see your door. You examine the oil lamp.\n You see an oil lamp. You examine your armchair.\n You see your armchair. You examine watsons armchair.\n You see watsons armchair. You examine your money.\n You see your money. You examine the plain door.\n You see a plain door.",
+      "web_lower": "YOU CANNOT EXAMINE ME.\n YOU CANNOT EXAMINE WATSON.",
+      "native_stop": "prompt",
+      "same_upper": true,
+      "same_lower": true
+    },
+    {
+      "command": "OPEN ALL EXCEPT THE PLAIN DOOR",
+      "native_upper": "\n You open your door.\n\n You open the plain door.\n",
+      "native_lower": "",
+      "web_upper": " You open your door. You open the plain door.",
+      "web_lower": "",
+      "native_stop": "prompt",
+      "same_upper": true,
+      "same_lower": true
+    },
+    {
+      "command": "LOOK THROUGH DAPHNES DOOR",
+      "fixture": "Map/relocate Holmes and children to 69; OPEN DAPHNES DOOR; native graphics enabled",
+      "native_upper": "\n You look through daphnes door.\n You can see Daphnes Room.\n",
+      "native_lower": "",
+      "web_upper": " You look through daphnes door.\n You can see Daphnes Room.",
+      "web_lower": "",
+      "native_stop": "prompt",
+      "same_upper": true,
+      "same_lower": true
+    }
+  ]
+}

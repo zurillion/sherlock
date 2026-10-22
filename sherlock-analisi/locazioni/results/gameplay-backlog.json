@@ -1,0 +1,176 @@
+{
+  "baseline_commit": "fc50b3c",
+  "items": [
+    {
+      "id": "G01",
+      "priority": 1,
+      "status": "Manca / comportamento errato",
+      "title": "SAVE e LOAD",
+      "detail": "SAVE è escluso. LOAD raggiunge il ramo comune e viene classificato come QUIT: chiude la partita senza caricare nulla. Le sessioni sono soltanto in RAM.",
+      "evidence": "NativeWorld.iter_submit; serve_explorer.py:sessions; audit: SAVE/LOAD/QUIT",
+      "done_when": "Un salvataggio esportabile, caricabile anche dopo riavvio del server o morte, ripristina mondo, timer, denaro, code, interlocutore e disambiguazioni. LOAD non termina impropriamente la sessione."
+    },
+    {
+      "id": "G02",
+      "priority": 1,
+      "status": "Manca",
+      "title": "Timeout di inattività e PAUSE",
+      "detail": "Al prompt il ponte si ferma subito; nessun WAIT automatico quando non si scrive. PAUSE è escluso. Il riferimento è il timeout fra tasti, non un orologio continuo a velocità reale.",
+      "evidence": "NativeWorld.iter_submit:A536; main-loop/LEGGIMI-MAIN-LOOP.md; audit: PAUSE",
+      "done_when": "Riprodurre il timeout nativo di 3000 letture (~60 s nella traccia, diversamente dai ~30 s del manuale), cancellazione dell’input parziale e WAIT. Tasti, PAUSE e MORE devono sospendere o riarmare il timer correttamente."
+    },
+    {
+      "id": "G03",
+      "priority": 1,
+      "status": "Limite aggiunto dal prototipo",
+      "title": "Input lungo e buffer",
+      "detail": "UI e ponte impongono 70 caratteri. Un LOOK con spazi, lungo 74 caratteri, viene eseguito dall’originale e rifiutato dal web. Il limite dei token è distinto dal limite dei caratteri.",
+      "evidence": "index.html:maxlength; SpectrumTerminal.type; NativeWorld.iter_submit; editor D8BA/D93C; audit: original_long_input_reference",
+      "done_when": "Stabilire i limiti sicuri dell’editor, compresi punto e virgolette aggiunti, e gestire il buffer dei token senza falsi errori grammaticali. Correggere la guida che chiama 70 il limite originale."
+    },
+    {
+      "id": "G04",
+      "priority": 1,
+      "status": "Da verificare fino in fondo",
+      "title": "Partita completa e tutti i finali",
+      "detail": "Morte, QUIT e gateway di vittoria sono provati; la vittoria usa una fixture. Manca una soluzione ripetibile dall’avvio senza mappa e senza modificare il mondo.",
+      "evidence": "verify_wait_endgame.py:fixture victory; AI-WEB.md; STATO-GAMEPLAY.md",
+      "done_when": "Traccia completa input/tempo/stati fino alla soluzione, poi rami alternativi: accuse errate, indizi distrutti, piani perduti, soluzioni parziali, arrivo tardivo e morte."
+    },
+    {
+      "id": "G05",
+      "priority": 1,
+      "status": "In esecuzione; comprensione parziale",
+      "title": "Informazioni, testimonianze e accuse",
+      "detail": "Il percorso delle affermazioni e la lista di informazioni sono attivi. Non è ancora ricostruito interamente come Watson e Lestrade valutano prove, innocenza, contraddizioni e deduzioni.",
+      "evidence": "ai/LEGGIMI-AI.md §9; BA20, BA67, BB67, 9FF4; audit: conversation",
+      "done_when": "Catalogare fatti iniziali, metadati, aggiornamenti e condizioni delle risposte; distinguere un assenso verbale dall’acquisizione di un fatto o da una conclusione del caso."
+    },
+    {
+      "id": "G06",
+      "priority": 2,
+      "status": "Attivo; copertura incompleta",
+      "title": "Altri NPC e scene successive",
+      "detail": "Tutti i 24 attori girano già. Restano da spiegare e provare gli sviluppi di Straker, Daphne, Basil, Ffoulkes, agente tedesco, Tricia, domestici e poliziotti, e le scene tarde di Lestrade.",
+      "evidence": "ai/results/scripts.json; ai/LEGGIMI-AI.md; verify_web_ai.py",
+      "done_when": "Per ciascun personaggio: programma, contatori, callback, incontri, segnali, ordini accettati/rifiutati e conseguenze quando Holmes arriva prima o dopo."
+    },
+    {
+      "id": "G07",
+      "priority": 2,
+      "status": "Attivo; copertura incompleta",
+      "title": "Viaggi in treno dal punto di vista del giocatore",
+      "detail": "Treni e itinerario iniziale di Lestrade sono verificati. Non risulta una suite completa su tutti i viaggi di Holmes, denaro/biglietti, coincidenze, corse perse e discese.",
+      "evidence": "AI-WEB.md; main-loop/ATTORI.md; manuale Movement/Travel",
+      "done_when": "Percorsi normali fra tutte le linee con Holmes e Watson, condizioni di salita/discesa e rapporto fra passeggeri, posizione del mezzo, tariffe e orari. Verificare nel codice l’effettiva esistenza delle regole sui biglietti citate dal manuale."
+    },
+    {
+      "id": "G08",
+      "priority": 2,
+      "status": "Attivo; da catalogare",
+      "title": "Indizi e oggetti con eventi speciali",
+      "detail": "Nota che brucia, casseforti, pistola, piani e altri oggetti possono attivare script e callback. Le prove isolate non certificano il percorso completo per incontrare ogni variante.",
+      "evidence": "regole/LEGGIMI-REGOLE.md; entita/results/CATALOGO.md; regole/results/execution-traces.json",
+      "done_when": "Tabella oggetto → azioni/eccezioni → trasformazioni → eventi ritardati → effetto sull’indagine; prove ai due lati delle scadenze."
+    },
+    {
+      "id": "G09",
+      "priority": 2,
+      "status": "Attivo; da verificare",
+      "title": "Notte, luce e riposo dei personaggi",
+      "detail": "Percezione, fasce delle descrizioni e buio sono presenti; non abbiamo una copertura completa di spostamenti notturni, lampada, sonno/rientri e interazioni con gli orari.",
+      "evidence": "verify_locations.py; decoder/print_locations.py; ai/LEGGIMI-AI.md: test F1D6",
+      "done_when": "Prove di giorno/notte con e senza luce, oggetti dentro contenitori opachi/trasparenti, turni serali degli NPC e passaggio di giorno."
+    },
+    {
+      "id": "G10",
+      "priority": 2,
+      "status": "Attivo; da verificare",
+      "title": "Fisica degli oggetti e combinazioni di azioni",
+      "detail": "TAKE/GIVE/OPEN e parte del contenimento sono studiati. Restano capacità/peso, annidamento, accessibilità, proprietà altrui, serrature e molti successi/fallimenti di azioni poco usate.",
+      "evidence": "entita/LEGGIMI-ENTITA.md; regole/LEGGIMI-REGOLE.md; audit: objects",
+      "done_when": "Matrice di azioni in stati validi e invalidi, confrontando messaggi, costi ed effetti col codice originale. Non aggiungere comportamenti solo perché una parola compare nel manuale o nei 54 modelli."
+    },
+    {
+      "id": "G11",
+      "priority": 2,
+      "status": "Differenza accertata; scelta da definire",
+      "title": "Inizializzazione e varietà fra partite",
+      "detail": "Riavvia ricarica sempre lo snapshot al primo prompt, con il primo contatore di Watson già inizializzato. L’avvio originale campiona R per il seme a A05F/A061.",
+      "evidence": "Game.__init__; parser/game prompt; A05F LD A,R → A037; ai/LEGGIMI-AI.md §6",
+      "done_when": "Separare avvio fedele, seme di test riproducibile e nuova partita variabile. Ricalcolare i contatori che precedono lo snapshot se si vuole riprodurre la varietà originale."
+    },
+    {
+      "id": "G12",
+      "priority": 2,
+      "status": "Protezione deliberata; casi da delimitare",
+      "title": "Limiti tecnici e anomalie dell’originale",
+      "detail": "Il ponte blocca scansioni fuori dizionario (es. Z), overflow dei token e fasi senza progresso, con rollback e messaggio tecnico. Non sono errori sintattici del gioco. Nei due casi ALL EXCEPT provati l’oggetto escluso viene comunque trattato: accade anche nel banco originale indipendente, non soltanto nel web.",
+      "evidence": "NativeWorld.iter_submit; parser/LEGGIMI-SPECIALI.md §7; audit: Z e input denso; results/gameplay-edge-comparisons.json",
+      "done_when": "Per ogni arresto identificare limite del tool o anomalia nativa, conservare una riproduzione e un esito dichiarato. Non rimuovere alla cieca le protezioni per imitare letture fuori tabella."
+    },
+    {
+      "id": "G13",
+      "priority": 3,
+      "status": "Manca",
+      "title": "PRINT/NOPRINT e trascrizione esportabile",
+      "detail": "I due comandi sono bloccati; la cronologia normale non è una registrazione esportabile dell’intera sessione.",
+      "evidence": "NativeWorld.iter_submit; audit: PRINT/NOPRINT",
+      "done_when": "Adattare PRINT a una trascrizione persistente/esportabile del canale superiore, e NOPRINT all’arresto della registrazione, senza richiedere una stampante Spectrum."
+    },
+    {
+      "id": "G14",
+      "priority": 3,
+      "status": "Presentazione parziale",
+      "title": "Tastiera e cronologia fedeli",
+      "detail": "Il motore aggiunge punto e chiusure delle virgolette, ma la cronologia mostra il testo digitato. Cancellazione intera riga e scorciatoie direzionali native non sono riprodotte; @ attende Invio nel frontend.",
+      "evidence": "SpectrumTerminal.commit/key; explorer-ui.js:command; editor D8D9/D949/D978/D99E; audit: buffer",
+      "done_when": "Confrontare editor e storia visuale con l’originale. Frecce ignorate e inserimento solo in coda erano scelte richieste: eventuali scorciatoie vanno introdotte come opzione, non cambiate implicitamente."
+    },
+    {
+      "id": "G15",
+      "priority": 3,
+      "status": "Presentazione parziale",
+      "title": "Ripresa esatta dello schermo",
+      "detail": "Reload conserva il mondo ma ricompone la scena, perdendo la storia dello schermo, il punto di animazione/MORE, la bozza e parte della cronologia inferiore.",
+      "evidence": "explorer-ui.js:initial load/compatibility change; SpectrumTerminal.reset/resumeSession",
+      "done_when": "Conservare o ripristinare la presentazione senza un LOOK di ispezione aggiuntivo; provare reload al prompt, durante MORE, dopo una domanda e durante WAIT UNTIL."
+    },
+    {
+      "id": "G16",
+      "priority": 3,
+      "status": "Presentazione parziale",
+      "title": "Mappa e pannelli durante il tempo simulato",
+      "detail": "Durante i lotti al minuto la pagina aggiorna l’orologio ma aggiorna posizioni/marker solo al risultato finale. Nomi degli oggetti e stato delle uscite usano anche il catalogo iniziale e criteri semplificati.",
+      "evidence": "explorer-ui.js:consumeCommand/updateCharacters; Game.state/characters",
+      "done_when": "Aggiornare la mappa a ogni minuto senza eseguire ispezioni mutanti; mostrare qualificatori correnti e distinguere stato grafico dell’uscita dall’esito della regola completa. La mappa onnisciente resta uno strumento di analisi richiesto."
+    },
+    {
+      "id": "G17",
+      "priority": 3,
+      "status": "Da estendere nelle prove",
+      "title": "Casi rari di output e viste",
+      "detail": "Il MORE principale ora è verificato contro lo Z80. Restano da collaudare insieme percezione, LOOK THROUGH, grafiche, contenitori, numeri e trasformazioni degli oggetti in scene complesse.",
+      "evidence": "verify_paging.py/cjs; native_screen.py; audit: view/remote_view_probe",
+      "done_when": "Confronti delle schermate nei casi rari; chiarire prima nel codice cosa fa LOOK THROUGH in questa versione. Il testo promesso dal manuale non basta per dedurre che debba comparire una figura."
+    },
+    {
+      "id": "G18",
+      "priority": 3,
+      "status": "Documentazione da riallineare",
+      "title": "Guida e dossier delle fasi precedenti",
+      "detail": "Alcuni testi storici descrivono ancora NPC esclusi, LOAD bloccato o 70 come limite nativo. Sono descrizioni superate o inesatte, non la situazione del codice corrente.",
+      "evidence": "index.html:help; CAB dossier; LEGGIMI-LOCAZIONI.md; STATO-GAMEPLAY.md precedente",
+      "done_when": "Indicare chiaramente le versioni storiche e mantenere un solo inventario corrente, con collegamenti alle prove e distinzione fra non implementato e non verificato."
+    },
+    {
+      "id": "G19",
+      "priority": 4,
+      "status": "Fase futura distinta",
+      "title": "Motore Python autonomo",
+      "detail": "La pagina usa Python per pilotare il codice Z80 originale. Decoder di testo/grafica e parti delle strutture sono già Python; parser, regole, scheduler e AI non sono ancora tutti riscritti indipendentemente.",
+      "evidence": "NativeWorld; sherlock_parser.py; documenti regole/AI/main-loop",
+      "done_when": "Tradurre per moduli solo dopo aver definito gli stati e le prove differenziali. Avere una reazione eseguibile nel prototipo non equivale ad averla capita o riscritta."
+    }
+  ]
+}
