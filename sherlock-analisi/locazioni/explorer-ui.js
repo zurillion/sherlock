@@ -1,8 +1,9 @@
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
-let operationEpoch=0,restarting=false;
+let operationEpoch=0,restarting=false,persisting=false;
 let activeJob=null,canInterrupt=false,interruptRequested=false;
 const pendingRequests=new Set();
+let transcriptRows=[],replayingTranscript=false;
 let data,state,busy=false,history=[],historyAt=0,view=[-15,-15,805,675],drag=null,moved=false;
 const rooms=new Map(),nodes=new Map(),edgeEls=[];
 const spectrum=new SpectrumTerminal({canvas:$('spectrum-screen'),input:$('spectrum-input'),upper:$('spectrum-upper'),lower:$('spectrum-lower'),status:$('spectrum-status'),onCommand:text=>command(text)});
@@ -31,14 +32,15 @@ async function showMessages(messages,options){
 
 function svg(tag,attrs={}){const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);return el;}
 function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
-function append(kind,text){if(!text)return;$('transcript').append(el('div',text,`entry ${kind}`));$('transcript').scrollTop=$('transcript').scrollHeight;}
+function append(kind,text,record=true){if(!text)return;if(record&&!replayingTranscript)transcriptRows.push({kind,text});$('transcript').append(el('div',text,`entry ${kind}`));$('transcript').scrollTop=$('transcript').scrollHeight;}
 function appendScene(message){
+ if(!replayingTranscript)transcriptRows.push(structuredClone(message));
  const url=data.pictures?.[message.image_room];let picture=null;
  if(url){const figure=el('figure',undefined,'scene-picture'),link=el('a'),img=el('img');
   link.href=url;link.target='_blank';link.rel='noopener';img.src=url;img.width=1024;img.height=1408;img.alt=`${String(message.image_room).padStart(3,'0')} · ${rooms.get(message.image_room)?.name_hint||'Locazione'}`;
   img.addEventListener('error',()=>figure.remove());link.append(img);figure.append(link,el('figcaption',img.alt+' · apri SVG'));$('transcript').append(figure);picture=figure;
  }
- append(message.kind,message.text);
+ append(message.kind,message.text,false);
  if(picture&&!$('pictures').checked)return;
  if(picture)$('transcript').scrollTop+=picture.getBoundingClientRect().top-$('transcript').getBoundingClientRect().top;
 }
@@ -49,9 +51,9 @@ async function api(path,body){
  const request=(async()=>{const options=body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)};const res=await fetch(path,options);const value=await res.json();if(!res.ok)throw new Error(value.error||'Richiesta non riuscita');return value;})();
  pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}
 }
-function setBusy(value){busy=value;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||!data;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
-function update(s){const previousRoom=state?.room;state=s;spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);$('game-status').hidden=!s.game_over;if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
+function update(s){const previousRoom=state?.room;state=s;$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);$('game-status').hidden=!s.game_over;if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
  updateCharacters(s);
@@ -80,7 +82,43 @@ async function consumeCommand(result,epoch){
  }
 }
 async function perform(path,body,focus=true){if(busy||state?.game_over)return;const epoch=++operationEpoch;interruptRequested=false;$('game-status').hidden=true;setBusy(true);try{const r=await api(path,body);if(epoch!==operationEpoch)return;if(path==='/api/start-command')await consumeCommand(r,epoch);else{update(r.state);await showMessages(r.messages);}}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){waitControls(null,false);setBusy(false);if(focus||spectrum.active)focusCommand();}}}
-async function command(text){if(busy||state?.game_over||!text.trim())return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('/api/start-command',{command:text});}
+async function command(text){if(busy||!text.trim())return;const control=text.trim().toUpperCase().replace(/\.$/,'');if(control==='SAVE'){await saveGame();return;}if(control==='LOAD'){chooseLoad();return;}if(state?.game_over)return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('/api/start-command',{command:text});}
+function notice(text){$('session-notice').textContent=text;}
+async function saveGame(){
+ if(busy||!state)return;
+ try{
+  const presentation={version:1,compatibility:spectrum.active,spectrum:spectrum.snapshot(),transcript:transcriptRows.slice(-200),history:history.slice(-200),view:[...view]};
+  persisting=true;setBusy(true);const result=await api('/api/save',{presentation});
+  const blob=new Blob([JSON.stringify(result.save,null,2)+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),link=el('a');
+  link.href=url;link.download=`sherlock-seed-${state.seed??'snapshot'}-${state.clock.day}-${state.clock.hour}-${state.clock.minute}${state.clock.period}.json`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  notice('Partita salvata nel file scaricato.');
+ }catch(error){notice(error.message);}finally{persisting=false;setBusy(false);focusCommand();}
+}
+function chooseLoad(){if(!busy&&state){$('load-file').value='';$('load-file').click();}}
+function validatePresentation(p){
+ if(p==null)return;
+ if(p.version!==1||typeof p.compatibility!=='boolean'||!Array.isArray(p.transcript)||p.transcript.length>200||!p.transcript.every(m=>m&&['command','narrative','error','system'].includes(m.kind)&&typeof m.text==='string')||!Array.isArray(p.history)||p.history.length>200||!p.history.every(t=>typeof t==='string')||!Array.isArray(p.view)||p.view.length!==4||!p.view.every(Number.isFinite)||p.view[2]<=0||p.view[3]<=0)throw new Error('Presentazione nel salvataggio non valida.');
+ SpectrumTerminal.validateSnapshot(p.spectrum);
+}
+$('save-game').onclick=saveGame;$('load-game').onclick=chooseLoad;
+$('load-file').onchange=async()=>{
+ const file=$('load-file').files[0];if(!file||busy)return;persisting=true;setBusy(true);
+ try{
+  if(file.size>1800000)throw new Error('File di salvataggio troppo grande.');
+  const document=JSON.parse(await file.text());validatePresentation(document.presentation);setBusy(true);
+  const result=await api('/api/load',{save:document});const epoch=++operationEpoch;
+  spectrum.reset();$('transcript').replaceChildren();$('analysis').textContent='';$('command').value='';transcriptRows=[];
+  const p=result.presentation;
+  if(p){
+   displayCompatibility(p.compatibility);await spectrum.restore(p.spectrum);setPictures(p.spectrum.pictures);$('compat-picture-mode').value=p.spectrum.pictureMode;savePreference('sherlock-compat-picture-mode',p.spectrum.pictureMode);
+   replayingTranscript=true;try{for(const row of p.transcript){if(row.kind==='command')append(row.kind,row.text);else appendScene(row);}}finally{replayingTranscript=false;}
+   transcriptRows=structuredClone(p.transcript);history=[...p.history];historyAt=history.length;view=[...p.view];applyView();update(result.state);
+  }else{
+   history=[];historyAt=0;update(result.state);if(state.game_over){spectrum.resumeSession();await showMessages(state.ending_messages||[]);}else{if(!state.opening)spectrum.resumeSession();await showMessages([{kind:'narrative',text:state.opening||state.initial,screen_events:state.opening_screen||state.initial_screen}]);}
+  }
+  if(epoch===operationEpoch)notice('Partita ripristinata, compreso lo stato casuale.');
+ }catch(error){notice(error.message);}finally{persisting=false;setBusy(false);focusCommand();}
+};
 async function teleport(id){if(busy||state?.game_over)return;$('search-results').hidden=true;$('search').value='';await perform('/api/teleport',{room:id},false);}
 function applyView(){$('map').setAttribute('viewBox',view.join(' '));}
 function zoom(factor,cx=view[0]+view[2]/2,cy=view[1]+view[3]/2){const width=Math.min(7000,Math.max(250,view[2]*factor)),ratio=width/view[2];view=[cx+(view[0]-cx)*ratio,cy+(view[1]-cy)*ratio,width,view[3]*ratio];applyView();}
@@ -142,14 +180,14 @@ $('command-form').addEventListener('submit',e=>{e.preventDefault();command($('co
 $('command').addEventListener('keydown',e=>{if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();historyAt=Math.max(0,Math.min(history.length,historyAt+(e.key==='ArrowUp'?-1:1)));$('command').value=history[historyAt]||'';}});
 for(const b of document.querySelectorAll('[data-command]'))b.onclick=()=>command(b.dataset.command);
 $('reset').onclick=async()=>{
- if(restarting||!data)return;const epoch=++operationEpoch;restarting=true;
+ if(restarting||persisting||!data)return;const seed=Number($('seed').value);if($('seed').value===''||!Number.isInteger(seed)||seed<0||seed>255){notice('Scegli un seed intero da 0 a 255.');return;}const epoch=++operationEpoch;restarting=true;notice('');
  waitControls(null,false);interruptRequested=false;
- spectrum.reset();$('transcript').replaceChildren();$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
+ spectrum.reset();$('transcript').replaceChildren();transcriptRows=[];$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
  $('search').value='';$('search-results').hidden=true;setBusy(true);
  try{
   // Let an already submitted action finish before replacing its session.
   await Promise.allSettled([...pendingRequests]);
-  const r=await api('/api/reset',{});if(epoch!==operationEpoch)return;
+  const r=await api('/api/reset',{seed,start_mode:$('start-mode').value});if(epoch!==operationEpoch)return;
   update(r.state);centerRoom(r.state.room);restarting=false;setBusy(true);
   await showMessages(r.messages);
  }catch(error){if(epoch===operationEpoch)append('error',error.message);}

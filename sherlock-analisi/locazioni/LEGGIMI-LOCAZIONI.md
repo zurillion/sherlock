@@ -155,7 +155,7 @@ Lo scheduler originale esegue tutti i 24 attori, Sherlock incluso. Watson e Lest
 
 Le continuazioni avvengono naturalmente: dopo WHICH DOOR ? la risposta YOUR o YOUR DOOR completa il nodo pendente. Un nuovo verbo può sostituirlo, secondo le regole originali. Un trasferimento manuale tramite la mappa annulla il comando pendente.
 
-Gli oggetti e gli NPC partono dallo snapshot del primo prompt; gli effetti delle azioni vengono applicati dal codice originale. Le routine di descrizione mantengono la grafica nativa disabilitata perché la pagina inserisce gli SVG separatamente. Il payload sul disco non viene modificato. Il buio, le porte e le altre condizioni delle azioni vengono valutati dal gioco.
+Gli oggetti e gli NPC partono ora dal vero bootstrap con seed esplicito, prima del primo prompt; gli effetti delle azioni vengono applicati dal codice originale. La VM viva mantiene la grafica nativa attiva per preservare la casualità; le ispezioni di testo avvengono senza effetti sulla partita. SVG/pixel sono opzioni della presentazione. Vedere SEED-E-SALVATAGGI.md. Il payload sul disco non viene modificato. Il buio, le porte e le altre condizioni delle azioni vengono valutati dal gioco.
 
 Il clic sulla mappa è uno strumento di esplorazione: chiama il trasferimento originale con propagazione ai discendenti, poi il percorso di descrizione d'arrivo, ma **ignora porte, adiacenza e costo**. Consente anche di ispezionare interni di mezzi non raggiungibili con i soli comandi implementati. Il punto zero non è una destinazione selezionabile.
 

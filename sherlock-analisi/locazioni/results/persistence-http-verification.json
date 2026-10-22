@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "HTTP reset chooses seed 7 before native boot and retains the original clock",
+      "passed": true
+    },
+    {
+      "check": "HTTP save preserves a pending native clarification",
+      "passed": true
+    },
+    {
+      "check": "Repeated GET /api/state does not change any machine byte/register",
+      "passed": true
+    },
+    {
+      "check": "A fresh cookie session resumes the same clarification, output, RNG and CPU",
+      "passed": true
+    },
+    {
+      "check": "Corrupt save is rejected without replacing the live session",
+      "passed": true
+    },
+    {
+      "check": "Invalid seeds are rejected without resetting the session",
+      "passed": true
+    },
+    {
+      "check": "Standalone SAVE exports a snapshot without a game turn",
+      "passed": true
+    },
+    {
+      "check": "Standalone LOAD requests a file and never becomes QUIT",
+      "passed": true
+    },
+    {
+      "check": "A completed game can load an earlier live state",
+      "passed": true
+    },
+    {
+      "check": "Portable save recovers the seed/startup profile in a new session",
+      "passed": true
+    }
+  ]
+}

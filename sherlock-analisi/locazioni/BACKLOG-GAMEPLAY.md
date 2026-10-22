@@ -8,10 +8,10 @@ Le categorie qui usate sono: **manca/errato**, **limite del prototipo**, **attiv
 
 ## Ordine di lavoro consigliato
 
-1. **G01 — SAVE/LOAD**, con stati esportabili e riproducibili; correggere prima la classificazione di LOAD come QUIT. È la base per indagare senza perdere i progressi.
+1. **G01 — SAVE/LOAD** ora implementato e verificato: usare i file JSON completi per riprendere le analisi. Vedere SEED-E-SALVATAGGI.md.
 2. **G05 e G04 — informazioni e soluzione del caso**: spiegare come testimonianze/accuse influenzano Watson e Lestrade e costruire una partita completa ripetibile.
 3. **G06–G10 — completare le prove del mondo**: altri NPC, treni, indizi, notte e combinazioni degli oggetti, usando gli stati salvati.
-4. **G02/G03/G11 — fedeltà dell’interazione**: timeout e PAUSE, limiti dell’input, vera inizializzazione e seme. Il timeout cambia l’esperienza d’uso: va introdotto consapevolmente.
+4. **G02/G03 — fedeltà dell’interazione**: timeout e PAUSE, limiti dell’input. G11 (avvio e seed) è ora implementato con prove differenziali. Il timeout cambia l’esperienza d’uso: va introdotto consapevolmente.
 5. **G13–G18 — servizi e dettagli di presentazione**, con priorità alle discrepanze effettivamente riproducibili.
 6. **G19 — traduzione autonoma in Python**, dopo aver reso ogni modulo confrontabile con il riferimento Z80.
 
@@ -21,7 +21,7 @@ La priorità 1 segnala un fondamento o una lacuna importante; non impone di impl
 
 | ID | Priorità | Parte | Stato |
 |---|---:|---|---|
-| G01 | 1 | SAVE e LOAD | Manca / comportamento errato |
+| G01 | 1 | SAVE e LOAD | Implementato; snapshot web completo al prompt |
 | G02 | 1 | Timeout di inattività e PAUSE | Manca |
 | G03 | 1 | Input lungo e buffer | Limite aggiunto dal prototipo |
 | G04 | 1 | Partita completa e tutti i finali | Da verificare fino in fondo |
@@ -31,7 +31,7 @@ La priorità 1 segnala un fondamento o una lacuna importante; non impone di impl
 | G08 | 2 | Indizi e oggetti con eventi speciali | Attivo; da catalogare |
 | G09 | 2 | Notte, luce e riposo dei personaggi | Attivo; da verificare |
 | G10 | 2 | Fisica degli oggetti e combinazioni di azioni | Attivo; da verificare |
-| G11 | 2 | Inizializzazione e varietà fra partite | Differenza accertata; scelta da definire |
+| G11 | 2 | Inizializzazione e varietà fra partite | Implementato; seed esplicito e due profili di avvio |
 | G12 | 2 | Limiti tecnici e anomalie dell’originale | Protezione deliberata; casi da delimitare |
 | G13 | 3 | PRINT/NOPRINT e trascrizione esportabile | Manca |
 | G14 | 3 | Tastiera e cronologia fedeli | Presentazione parziale |
@@ -43,13 +43,11 @@ La priorità 1 segnala un fondamento o una lacuna importante; non impone di impl
 
 ## G01 — SAVE e LOAD
 
-**Priorità 1 · Manca / comportamento errato.**
+**Implementato il 23 ottobre 2026.**
 
-SAVE è escluso. LOAD raggiunge il ramo comune e viene classificato come QUIT: chiude la partita senza caricare nulla. Le sessioni sono soltanto in RAM.
+Salva/Carica e i comandi isolati SAVE/LOAD usano un JSON completo: RAM, CPU, stato del parser, seed/cursore, metadati e schermo. Si salva al prompt, dopo testo/MORE, anche durante un chiarimento o viaggio. Caricamento verificato in una sessione nuova e dopo QUIT; file corrotti rifiutati senza perdere la partita corrente. SAVE web non consuma un turno e non usa il formato nastro originale.
 
-Evidenza: NativeWorld.iter_submit; serve_explorer.py:sessions; audit: SAVE/LOAD/QUIT.
-
-Completamento verificabile: Un salvataggio esportabile, caricabile anche dopo riavvio del server o morte, ripristina mondo, timer, denaro, code, interlocutore e disambiguazioni. LOAD non termina impropriamente la sessione.
+Evidenza e limiti: [SEED-E-SALVATAGGI.md](SEED-E-SALVATAGGI.md), `results/save-verification.json`, `results/persistence-http-verification.json`. La serializzazione nel mezzo di un comando ancora in esecuzione resta esclusa esplicitamente.
 
 ## G02 — Timeout di inattività e PAUSE
 
@@ -143,13 +141,11 @@ Completamento verificabile: Matrice di azioni in stati validi e invalidi, confro
 
 ## G11 — Inizializzazione e varietà fra partite
 
-**Priorità 2 · Differenza accertata; scelta da definire.**
+**Implementato il 23 ottobre 2026.**
 
-Riavvia ricarica sempre lo snapshot al primo prompt, con il primo contatore di Watson già inizializzato. L’avvio originale campiona R per il seme a A05F/A061.
+Il server esegue il vero bootstrap da game-entry, impostando il seed 0–255 a A061, prima dei primi contatori NPC. Riavvia applica il valore scelto. Il profilo Originale conserva il primo prompt alle 08:01; quello gratuito alle 08:00 mantiene la modifica concordata. La grafica interna della VM è attiva e indipendente da SVG/pixel/immagini nascoste. Le ispezioni della pagina ripristinano integralmente memoria e CPU.
 
-Evidenza: Game.__init__; parser/game prompt; A05F LD A,R → A037; ai/LEGGIMI-AI.md §6.
-
-Completamento verificabile: Separare avvio fedele, seme di test riproducibile e nuova partita variabile. Ricalcolare i contatori che precedono lo snapshot se si vuole riprodurre la varietà originale.
+Evidenza: [SEED-E-SALVATAGGI.md](SEED-E-SALVATAGGI.md), `results/random-verification.json`: confronto per tre seed contro bootstrap e banco Z80 indipendenti. La garanzia richiede lo stesso stato iniziale e protocollo di input; il timeout hardware resta G02. `Game(seed=None)` è conservato per compatibilità dei vecchi script di ricerca, non è l'avvio usato dal server.
 
 ## G12 — Limiti tecnici e anomalie dell’originale
 

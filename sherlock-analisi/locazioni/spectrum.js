@@ -59,7 +59,7 @@ class SpectrumTerminal {
   for(const event of ['paste','drop','cut'])input.addEventListener(event,e=>e.preventDefault());
   input.addEventListener('input',()=>{input.value=this.draft;});
   canvas.parentElement.addEventListener('click',()=>{if(this.waiting)this.more();else this.focus();});
-  document.addEventListener('keydown',e=>{if(this.active&&this.waiting){e.preventDefault();e.stopImmediatePropagation();this.more();}},true);
+  document.addEventListener('keydown',e=>{if(this.active&&this.waiting){if(e.target!==this.input&&e.target?.closest?.('input,select,button,textarea,a'))return;e.preventDefault();e.stopImmediatePropagation();this.more();}},true);
   this.blink=setInterval(()=>{if(this.active&&this.waitingReason==='more')this.render();},320);
  }
  configure(assets,pictures,pixels){this.assets=assets;this.urls={svg:pictures||{},pixel:pixels||{}};this.render();}
@@ -74,6 +74,31 @@ class SpectrumTerminal {
  async setPictureMode(value){this.pictureMode=value==='pixel'?'pixel':'svg';if(this.picture)await this.loadPicture(this.picture.room,false);this.render();}
  clearPicture(){this.picture=null;this.pictureNarrow=false;this.model.setColumns(36);this.render();}
  reset(){this.cancel();this.ended=false;this.clock='Mon 08:00am';this.clockVisible=false;this.promptVisible=false;this.startupPending=true;this.model.clear();this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
+ snapshot(){
+  if(this.processing||this.waiting)throw new Error('Attendi la fine del testo prima di salvare.');
+  const model={};for(const key of ['columns','rows','lines','counter','scrolls','cursor','remaining','started','capitalize'])model[key]=structuredClone(this.model[key]);
+  return {model,lowerHistory:[...this.lowerHistory],lowerLine:this.lowerLine,draft:this.draft,clockVisible:this.clockVisible,promptVisible:this.promptVisible,startupPending:this.startupPending,
+   picture:this.picture?{room:this.picture.room,scrollOrigin:this.picture.scrollOrigin}:null,pictureTop:this.pictureTop,pictureNarrow:this.pictureNarrow,pictureMode:this.pictureMode,pictures:this.pictures};
+ }
+ static validateSnapshot(value){
+  const fail=()=>{throw new Error('Schermo nel salvataggio non valido.');},m=value?.model;
+  if(!m||![18,36].includes(m.columns)||m.rows!==18||!Array.isArray(m.lines)||m.lines.length!==18||!m.lines.every(s=>typeof s==='string'&&s.length<=36))fail();
+  for(const key of ['counter','scrolls','cursor','remaining'])if(!Number.isSafeInteger(m[key])||m[key]<0)fail();
+  if(m.counter>255||m.cursor>m.columns||m.remaining!==m.columns-m.cursor)fail();
+  for(const key of ['started','capitalize'])if(typeof m[key]!=='boolean')fail();
+  for(const key of ['clockVisible','promptVisible','startupPending','pictureNarrow','pictures'])if(typeof value[key]!=='boolean')fail();
+  if(!['svg','pixel'].includes(value.pictureMode)||!Array.isArray(value.lowerHistory)||value.lowerHistory.length>40||!value.lowerHistory.every(s=>typeof s==='string'&&s.length<=34)||typeof value.lowerLine!=='string'||value.lowerLine.length>34||typeof value.draft!=='string'||value.draft.length>70)fail();
+  if(!Number.isSafeInteger(value.pictureTop)||value.pictureTop<0)fail();
+  if(value.picture!==null&&(!Number.isInteger(value.picture?.room)||value.picture.room<0||value.picture.room>105||!Number.isSafeInteger(value.picture.scrollOrigin)||value.picture.scrollOrigin<0))fail();
+ }
+ async restore(value){
+  SpectrumTerminal.validateSnapshot(value);this.reset();
+  this.pictureMode=value.pictureMode;this.pictures=value.pictures;
+  if(value.picture){await this.loadPicture(value.picture.room,false);if(this.picture)this.picture.scrollOrigin=value.picture.scrollOrigin;}
+  Object.assign(this.model,structuredClone(value.model));
+  for(const key of ['lowerHistory','lowerLine','draft','clockVisible','promptVisible','startupPending','pictureTop','pictureNarrow'])this[key]=structuredClone(value[key]);
+  this.input.value=this.draft;this.render();
+ }
  cancel(){this.epoch++;this.waiting=false;this.waitingReason=null;this.processing=false;if(this.resume){this.resume(false);this.resume=null;}this.render();}
  focus(){if(this.active)this.input.focus({preventScroll:true});}
  type(character){if(this.ended||!/^[ -~£]$/.test(character)||this.draft.length>=70)return;this.draft+=character.toUpperCase();this.input.value=this.draft;this.render();}

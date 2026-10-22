@@ -4,10 +4,10 @@
     {
       "id": "G01",
       "priority": 1,
-      "status": "Manca / comportamento errato",
+      "status": "Implementato e verificato al prompt",
       "title": "SAVE e LOAD",
-      "detail": "SAVE è escluso. LOAD raggiunge il ramo comune e viene classificato come QUIT: chiude la partita senza caricare nulla. Le sessioni sono soltanto in RAM.",
-      "evidence": "NativeWorld.iter_submit; serve_explorer.py:sessions; audit: SAVE/LOAD/QUIT",
+      "detail": "Snapshot JSON completo di RAM, CPU, input/parser, seed/cursore e presentazione; caricamento in sessioni nuove, dopo QUIT, durante chiarimenti e viaggi. SAVE web non consuma un turno. Non si salva una continuazione Python nel mezzo di un comando ancora attivo.",
+      "evidence": "SEED-E-SALVATAGGI.md; results/save-verification.json; results/persistence-http-verification.json; results/save-terminal-verification.json",
       "done_when": "Un salvataggio esportabile, caricabile anche dopo riavvio del server o morte, ripristina mondo, timer, denaro, code, interlocutore e disambiguazioni. LOAD non termina impropriamente la sessione."
     },
     {
@@ -94,10 +94,10 @@
     {
       "id": "G11",
       "priority": 2,
-      "status": "Differenza accertata; scelta da definire",
+      "status": "Implementato con profili espliciti",
       "title": "Inizializzazione e varietà fra partite",
-      "detail": "Riavvia ricarica sempre lo snapshot al primo prompt, con il primo contatore di Watson già inizializzato. L’avvio originale campiona R per il seme a A05F/A061.",
-      "evidence": "Game.__init__; parser/game prompt; A05F LD A,R → A037; ai/LEGGIMI-AI.md §6",
+      "detail": "Vero bootstrap con seed 0–255 a A061, prima dei contatori NPC. Avvio originale 08:01 oppure descrizione gratuita 08:00. Ispezioni senza effetti; grafica nativa attiva e indipendente dalla presentazione. Confronti differenziali su tre seed contro banco Z80 indipendente.",
+      "evidence": "SEED-E-SALVATAGGI.md; results/random-verification.json",
       "done_when": "Separare avvio fedele, seme di test riproducibile e nuova partita variabile. Ricalcolare i contatori che precedono lo snapshot se si vuole riprodurre la varietà originale."
     },
     {
@@ -172,5 +172,6 @@
       "evidence": "NativeWorld; sherlock_parser.py; documenti regole/AI/main-loop",
       "done_when": "Tradurre per moduli solo dopo aver definito gli stati e le prove differenziali. Avere una reazione eseguibile nel prototipo non equivale ad averla capita o riscritta."
     }
-  ]
+  ],
+  "updated_at": "2026-10-23"
 }

@@ -12,6 +12,8 @@ Perciò `Game` usa `NativeWorld(active_npcs=None)`: lo scheduler originale visit
 
 ## Il saluto all’avvio
 
+Aggiornamento 23 ottobre: avvio con seed esplicito e salvataggi completi; vedere [SEED-E-SALVATAGGI.md](SEED-E-SALVATAGGI.md). Le prove storiche qui descritte usano ancora il percorso di ricerca `seed=None`.
+
 Il primo opcode del programma (`$E72F`: `06 EB 6D`) stampa il saluto `$6DEB` prima del primo prompt. Lo snapshot usato dal prototipo è già successivo a quel turno: ora la pagina ripresenta il testo perduto insieme alla descrizione, senza riga vuota tra le due parti e senza rieseguire il turno dell’attore. Dettagli e prova dell’avvio reale sono in `AVVIO-E-SALUTO-WATSON.md`.
 
 ## Provare Watson
@@ -66,7 +68,7 @@ Gli incontri e i saluti avvengono soltanto quando le condizioni originali di pre
 
 Rimangono l'avvio gratuito alle **Mon 08:00am**, i costi originali delle azioni e lo stato pendente delle domande del parser. Errori lessicali e richieste di disambiguazione provati non concedono nuovi turni agli NPC. MORE, animazione delle parole, ricaricamento della pagina e cambio di modalità non fanno passare minuti. Le ispezioni di scena non devono alterare il contesto delle sequenze sospese.
 
-Le modalità normale e Spectrum ricevono gli stessi messaggi dal server. **Riavvia** ricrea anche i programmi degli attori, i veicoli, le richieste, le informazioni e i contatori dal medesimo snapshot del primo prompt usato dal prototipo; non rigioca l'introduzione precedente allo snapshot.
+Le modalità normale e Spectrum ricevono gli stessi messaggi dal server. **Riavvia** ora riparte prima del primo prompt e inizializza anche i primi contatori NPC usando il seed scelto. Il vecchio snapshot è conservato come opzione degli script di ricerca (`seed=None`).
 
 ## Script e verifiche
 

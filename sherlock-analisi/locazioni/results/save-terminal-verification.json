@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Seed and other external controls do not consume the startup key/MORE",
+    "A key in the virtual screen still starts/continues the original display",
+    "JSON round trip retains native paging state, lower history and unfinished clarification text",
+    "Continuation after restore pauses at the same MORE and produces the same screen",
+    "Cannot save a partial output operation or an unacknowledged MORE",
+    "Inconsistent terminal snapshots are rejected before restoration"
+  ]
+}

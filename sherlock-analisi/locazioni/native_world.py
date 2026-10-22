@@ -2,22 +2,27 @@
 import sys,re
 from pathlib import Path
 sys.dont_write_bytecode=True
-from native_screen import ScreenStream
+from native_screen import ScreenStream,boot_state
 
 def word(m,p):return m[p]+256*m[p+1]
 
 class NativeWorld:
-    def __init__(self,project,active_npcs=()):
+    def __init__(self,project,active_npcs=(),seed=None):
+        if seed is not None and (type(seed)!=int or not 0<=seed<=255):raise ValueError('Seed must be an integer from 0 to 255.')
         self.active_npcs=None if active_npcs is None else frozenset(active_npcs)
         self.project=Path(project)
         sys.path.insert(0,str(self.project/'sherlock-analisi/parser'))
         from sherlock_parser import SherlockParser
         self.engine=SherlockParser(self.project);self.sim=self.engine.new_sim();self.m=self.sim.memory;self.R=self.engine.R
+        self.seed=seed;self.opening_events=None
+        if seed is not None:
+            memory,registers,events=boot_state(str(self.project.resolve()),seed,True)
+            self.m[:]=memory;self.sim.registers[:]=registers;self.opening_events=list(events)
         self.input_registers=self.sim.registers[:];self.input_stack=self.m[0x5d00:0x5d80]
-        self.m[0xa011]=0 # grafica disabilitata: testo conservato
+        if seed is None:self.m[0xa011]=0 # Historical research snapshot profile.
         self.ended=None;self.interrupt_wait=False;self.phase_budget=9000000
-        self.prepare()
-    def call(self,address,a=None,b=None,budget=1800000):
+        self.observer=None
+    def call(self,address,a=None,b=None,budget=6000000):
         e,s,R=self.engine,self.sim,self.R;m,r=s.memory,s.registers
         r[R.SP],r[R.PC]=0x5d7e,address;e.put(s,0x5d7e,8)
         if a is not None:r[R.A]=a
@@ -25,6 +30,7 @@ class NativeWorld:
         text=[];listed=[];events=[];screen=ScreenStream()
         for step in range(budget):
             pc=r[R.PC]
+            if self.observer:self.observer(m,r,self.R)
             if pc==8:
                 value=''.join(text).replace('\x08','')
                 value=re.sub(r'[ \t]+',' ',value)
@@ -57,7 +63,20 @@ class NativeWorld:
         # L'esplorazione via mappa non usa le porte e non consuma tempo.
         return self.call(0xca9e)
     def scene(self,full=True):
-        self.prepare();return self.call(0xd102 if full else 0xd1b2,a=self.room)
+        # Rendering a scene can consume random choices and mention flags.
+        # Inspection must restore ALL memory/registers, not only the seed.
+        before=(self.m[:],self.sim.registers[:]);observer=self.observer;self.observer=None
+        try:
+            # Bitmap reconstruction can take millions of instructions. It has
+            # no role in this *discarded* inspection; keep the live graphics
+            # profile intact while obtaining prose/word packets in the copy.
+            self.m[0xa011]=0
+            self.prepare();return self.call(0xd102 if full else 0xd1b2,a=self.room)
+        finally:self.m[:],self.sim.registers[:]=before;self.observer=observer
+    def inspect(self,address,**kwargs):
+        before=(self.m[:],self.sim.registers[:]);observer=self.observer;self.observer=None
+        try:return self.call(address,**kwargs)
+        finally:self.m[:],self.sim.registers[:]=before;self.observer=observer
     def action(self,action,arg=255):
         self.prepare();self.m[0xa033:0xa036]=[action,arg,255]
         return self.call(0xc4d1)
@@ -116,7 +135,11 @@ class NativeWorld:
                 step+=1;phase_steps+=1
                 if phase_steps>self.phase_budget:raise RuntimeError(f'The original code made no clock or input progress (PC {r[R.PC]:04X}).')
                 pc=r[R.PC]
-                if pc==0xb0a6:terminal={'entry':'B0A6','reason':'quit'}
+                if self.observer:self.observer(m,r,R)
+                if pc==0xb0a6:
+                    token=self.engine.reference(r[R.B]*256+r[R.C])
+                    if token and token.get('word')=='load':raise RuntimeError('Use LOAD by itself or the Load game button to select a saved game file.')
+                    terminal={'entry':'B0A6','reason':'quit'}
                 if pc==0x9e74:
                     terminal={'entry':'9E74','reason':'story','text_pointer':f'{r[R.H]*256+r[R.L]:04X}'}
                 if pc==0xb0ac and terminal:

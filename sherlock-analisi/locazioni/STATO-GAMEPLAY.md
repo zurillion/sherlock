@@ -1,16 +1,16 @@
 # Stato corrente del gameplay
 
-Aggiornato il 22 ottobre 2026 sulla baseline `fc50b3c`. L’inventario di riferimento è [BACKLOG-GAMEPLAY.md](BACKLOG-GAMEPLAY.md), con 19 voci ordinate e criteri di completamento. Gli ID G01–G19 permettono di scegliere il prossimo lavoro.
+Aggiornato il 23 ottobre 2026 dopo la baseline `2a2f02b`. L’inventario di riferimento è [BACKLOG-GAMEPLAY.md](BACKLOG-GAMEPLAY.md), con 19 voci ordinate e criteri di completamento. Gli ID G01–G19 permettono di scegliere il prossimo lavoro.
 
 Il prototipo esegue il codice Z80 originale attraverso SkoolKit: parser, semantica, regole, scheduler di tutti i 24 attori, dialoghi, contenimento, veicoli e calendario. Non è ancora un motore di gioco tradotto interamente in Python. Non va chiamato “mancante” ciò che è soltanto non studiato o non coperto da una prova.
 
-## Lacune accertate
+## Stato delle funzionalità e lacune accertate
 
-- **SAVE/LOAD:** nessun salvataggio su disco della sessione. SAVE è bloccato; LOAD viene invece classificato come QUIT e termina la partita. La precedente indicazione che LOAD fosse bloccato senza effetti era inesatta.
+- **SAVE/LOAD e seed (G01/G11) ora disponibili:** scelta 0–255 prima dell’avvio, profili 08:00/08:01, JSON completo con RAM/CPU/parser/stato casuale e schermo. LOAD non viene più confuso con QUIT. Si salva al prompt, dopo testo/MORE; non nel mezzo di un comando ancora in corso. Vedere [SEED-E-SALVATAGGI.md](SEED-E-SALVATAGGI.md).
 - **Inattività e PAUSE:** al prompt non scatta il WAIT automatico; PAUSE è bloccato. L’originale ha un timeout fra tasti, circa 60 secondi nelle tracce, che cancella la riga incompleta e avvia WAIT.
 - **Input:** 70 caratteri sono un limite del ponte/UI. Una riga di 74 caratteri esegue LOOK nel banco originale. Buffer dei token e anomalie del dizionario hanno protezioni separate.
 - **PRINT/NOPRINT:** esclusi; manca un equivalente esportabile della trascrizione.
-- **Presentazione:** reload ricompone la scena senza conservare il video esatto; la mappa non avanza i marker a ogni lotto/minuto di WAIT UNTIL. Alcune scorciatoie e dettagli dell’editor sono semplificati.
+- **Presentazione:** reload ricompone la scena senza conservare il video esatto (il file di salvataggio ora conserva lo schermo); la mappa non avanza i marker a ogni lotto/minuto di WAIT UNTIL. Alcune scorciatoie e dettagli dell’editor sono semplificati.
 
 ## In esecuzione, ma non certificato integralmente
 

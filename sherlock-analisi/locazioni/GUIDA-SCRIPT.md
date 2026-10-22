@@ -29,9 +29,9 @@ LOOK
 
 `OPEN DOR` mostra l'errore lessicale e non consuma tempo. Il primo WEST fallisce perché la porta è chiusa. Gli ingressi successivi mostrano la differenza fra forma estesa e breve; LOOK ripristina quella estesa. Poi clicca un nodo della mappa o cerca `074`: il trasferimento non avanza l'orologio.
 
-Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. Watson, Lestrade e gli altri attori eseguono i turni originali, compresi viaggi, richieste e segnali; SAVE/LOAD e i servizi stampa/PAUSE restano bloccati con un messaggio tecnico fuori dall’area del gioco e ripristino dello stato. QUIT termina la partita. Morte e conclusione conservano il testo originale, poi richiedono Riavvia.
+Il turno del giocatore esegue ora editor, parser, disambiguazione e azioni originali. Sono verificati LOOK, direzioni, GO INTO/THROUGH, porte, TAKE, INVENTORY e WAIT. Dopo `OPEN DOOR`, rispondi `YOUR` oppure `YOUR DOOR`: il nodo pendente viene completato dal parser originale. `GO TO` conserva il significato originale e non è una scorciatoia per GO INTO. Watson, Lestrade e gli altri attori eseguono i turni originali, compresi viaggi, richieste e segnali; SAVE/LOAD usano ora snapshot JSON completi tramite i pulsanti web o i comandi isolati; stampa/PAUSE restano bloccati con un messaggio tecnico fuori dall’area del gioco e ripristino dello stato. QUIT termina la partita. Morte e conclusione conservano il testo originale, poi richiedono Riavvia.
 
-Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; le schede con lo stesso cookie condividono lo stato. “Riavvia” ripristina lo snapshot iniziale. Non c'è ancora salvataggio su disco della partita. La mappa consente di ispezionare luoghi fuori dal normale percorso di gioco, senza consumare tempo. Il salto attraverso la mappa stacca Holmes da un eventuale cab, che prosegue autonomamente.
+Ogni sessione browser conserva lo stato in RAM finché il server rimane attivo; le schede con lo stesso cookie condividono lo stato. “Riavvia” esegue l’avvio con il seed (0–255) e il profilo selezionati. Salva partita scarica un JSON completo; Carica partita lo ripristina anche in una sessione nuova, senza rigenerare il seed. La mappa consente di ispezionare luoghi fuori dal normale percorso di gioco, senza consumare tempo. Il salto attraverso la mappa stacca Holmes da un eventuale cab, che prosegue autonomamente.
 
 ## I nuovi script
 
@@ -121,3 +121,17 @@ Il saluto iniziale e la sua impaginazione sono documentati in `AVVIO-E-SALUTO-WA
 ## Inventario delle lacune del gameplay
 
 [BACKLOG-GAMEPLAY.md](BACKLOG-GAMEPLAY.md) è l’elenco corrente, con priorità e ID G01–G19. `audit_gameplay.py` produce 70 prove isolate; `probe_audit_edges.py` controlla i casi dubbi contro un banco Z80 indipendente; `build_gameplay_inventory.py` consolida i 54 modelli lessicali e le regole iniziali. Eseguirli in quest’ordine. I report sono in `results/gameplay-*.json` e `results/GAMEPLAY-ACTIONS.md`. Le prove non usano la sessione del browser e non richiedono un riavvio del server.
+
+## Seed, avvio e salvataggi
+
+Il dossier [SEED-E-SALVATAGGI.md](SEED-E-SALVATAGGI.md) descrive il generatore originale, i requisiti di determinismo e la differenza dal nastro. Scegli “Originale · 08:01” per i confronti; “Descrizione gratuita · 08:00” mantiene l’avvio concordato. Si salva al prompt, anche durante una richiesta di chiarimento, dopo aver completato testo/MORE.
+
+- `audit_random.py --project "/percorso/Sherlock rebuild" --seed 1`: traccia le estrazioni del vero avvio, prima del primo prompt.
+- `verify_random.py --project "/percorso/Sherlock rebuild"`: confronta tre seed con un banco Z80 indipendente, fino a ogni byte RAM, registro CPU ed estrazione.
+- `verify_saves.py --project "/percorso/Sherlock rebuild"`: confronta riprese da salvataggio, inclusi chiarimenti e cab.
+- `verify_persistence_http.py --url http://127.0.0.1:8767`: verifica le API usando sessioni di prova separate su un server già avviato.
+- `saved_game.py`: modulo del formato snapshot; usato dal server e dagli script. Non è un eseguibile interattivo.
+
+Il server accetta anche `--seed 7 --start-mode original` per le nuove sessioni, prima delle scelte nella pagina.
+
+`node verify_save_terminal.cjs` verifica il ripristino del video e del contatore MORE, compresa la riga di comando incompleta.

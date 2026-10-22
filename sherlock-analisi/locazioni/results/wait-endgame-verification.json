@@ -6002,7 +6002,9 @@
             ]
           }
         ],
-        "command_running": false
+        "command_running": false,
+        "seed": null,
+        "start_mode": "free"
       },
       "messages": [
         {
@@ -8441,7 +8443,9 @@
             ]
           }
         ],
-        "command_running": false
+        "command_running": false,
+        "seed": null,
+        "start_mode": "free"
       },
       "messages": [
         {

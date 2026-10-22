@@ -1,0 +1,416 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Seed 0 is set before Watson initialization",
+      "passed": true
+    },
+    {
+      "check": "initial_seed_0: load restores every byte, CPU/input register and stack",
+      "passed": true
+    },
+    {
+      "check": "initial_seed_0: subsequent output and complete machine state are identical",
+      "passed": true,
+      "commands": [
+        "OPEN YOUR DOOR",
+        "WEST",
+        "WAIT",
+        "WAIT"
+      ]
+    },
+    {
+      "check": "Seed 1 is set before Watson initialization",
+      "passed": true
+    },
+    {
+      "check": "initial_seed_1: load restores every byte, CPU/input register and stack",
+      "passed": true
+    },
+    {
+      "check": "initial_seed_1: subsequent output and complete machine state are identical",
+      "passed": true,
+      "commands": [
+        "OPEN YOUR DOOR",
+        "WEST",
+        "WAIT",
+        "WAIT"
+      ]
+    },
+    {
+      "check": "Seed 255 is set before Watson initialization",
+      "passed": true
+    },
+    {
+      "check": "initial_seed_255: load restores every byte, CPU/input register and stack",
+      "passed": true
+    },
+    {
+      "check": "initial_seed_255: subsequent output and complete machine state are identical",
+      "passed": true,
+      "commands": [
+        "OPEN YOUR DOOR",
+        "WEST",
+        "WAIT",
+        "WAIT"
+      ]
+    },
+    {
+      "check": "Native clarification is pending before save",
+      "passed": true
+    },
+    {
+      "check": "pending_clarification: load restores every byte, CPU/input register and stack",
+      "passed": true
+    },
+    {
+      "check": "pending_clarification: subsequent output and complete machine state are identical",
+      "passed": true,
+      "commands": [
+        "YOUR",
+        "WEST",
+        "WAIT"
+      ]
+    },
+    {
+      "check": "Cab trip is pending before save",
+      "passed": true
+    },
+    {
+      "check": "cab_trip: load restores every byte, CPU/input register and stack",
+      "passed": true
+    },
+    {
+      "check": "cab_trip: subsequent output and complete machine state are identical",
+      "passed": true,
+      "commands": [
+        "WAIT",
+        "GET OUT OF CAB",
+        "PAY 1/- TO CABBIE"
+      ]
+    },
+    {
+      "check": "ended_game: load restores every byte, CPU/input register and stack",
+      "passed": true
+    },
+    {
+      "check": "ended_game: subsequent output and complete machine state are identical",
+      "passed": true,
+      "commands": [
+        "LOOK"
+      ]
+    },
+    {
+      "check": "Long command exposes a safe progress frame",
+      "passed": true
+    },
+    {
+      "check": "Saving an active command is refused explicitly",
+      "passed": true
+    },
+    {
+      "check": "Malformed, incompatible and corrupted saves are rejected",
+      "passed": true
+    }
+  ],
+  "branches": [
+    {
+      "name": "initial_seed_0",
+      "commands": [
+        {
+          "command": "OPEN YOUR DOOR",
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "seed": 128,
+          "cursor": 2304
+        },
+        {
+          "command": "WEST",
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "seed": 218,
+          "cursor": 3584
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 9,
+            "due": 9,
+            "minute": 8,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:08am"
+          },
+          "seed": 121,
+          "cursor": 6656
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 14,
+            "due": 14,
+            "minute": 13,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:13am"
+          },
+          "seed": 149,
+          "cursor": 9216
+        }
+      ]
+    },
+    {
+      "name": "initial_seed_1",
+      "commands": [
+        {
+          "command": "OPEN YOUR DOOR",
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "seed": 209,
+          "cursor": 2048
+        },
+        {
+          "command": "WEST",
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "seed": 252,
+          "cursor": 3840
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 9,
+            "due": 9,
+            "minute": 8,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:08am"
+          },
+          "seed": 242,
+          "cursor": 7168
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 14,
+            "due": 14,
+            "minute": 13,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:13am"
+          },
+          "seed": 190,
+          "cursor": 10240
+        }
+      ]
+    },
+    {
+      "name": "initial_seed_255",
+      "commands": [
+        {
+          "command": "OPEN YOUR DOOR",
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "seed": 135,
+          "cursor": 2304
+        },
+        {
+          "command": "WEST",
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "seed": 127,
+          "cursor": 3840
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 9,
+            "due": 9,
+            "minute": 8,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:08am"
+          },
+          "seed": 28,
+          "cursor": 7424
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 14,
+            "due": 14,
+            "minute": 13,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:13am"
+          },
+          "seed": 85,
+          "cursor": 10752
+        }
+      ]
+    },
+    {
+      "name": "pending_clarification",
+      "commands": [
+        {
+          "command": "YOUR",
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "seed": 247,
+          "cursor": 2048
+        },
+        {
+          "command": "WEST",
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "seed": 26,
+          "cursor": 3840
+        },
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 9,
+            "due": 9,
+            "minute": 8,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:08am"
+          },
+          "seed": 89,
+          "cursor": 7168
+        }
+      ]
+    },
+    {
+      "name": "cab_trip",
+      "commands": [
+        {
+          "command": "WAIT",
+          "clock": {
+            "tick": 10,
+            "due": 10,
+            "minute": 9,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:09am"
+          },
+          "seed": 219,
+          "cursor": 8448
+        },
+        {
+          "command": "GET OUT OF CAB",
+          "clock": {
+            "tick": 10,
+            "due": 10,
+            "minute": 9,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:09am"
+          },
+          "seed": 219,
+          "cursor": 8448
+        },
+        {
+          "command": "PAY 1/- TO CABBIE",
+          "clock": {
+            "tick": 11,
+            "due": 11,
+            "minute": 10,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:10am"
+          },
+          "seed": 137,
+          "cursor": 8960
+        }
+      ]
+    },
+    {
+      "name": "ended_game",
+      "commands": [
+        {
+          "command": "LOOK",
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "seed": 102,
+          "cursor": 512
+        }
+      ]
+    }
+  ],
+  "format": "sherlock-web-save",
+  "version": 1
+}

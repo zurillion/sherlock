@@ -26,19 +26,22 @@ def perceived(m,ident,actor=None):
     return room in m[p+15:p+15+m[p]]
 
 class Game:
-    def __init__(self,project,data,active_npcs=None):
+    def __init__(self,project,data,active_npcs=None,seed=None,start_mode='free'):
+        if start_mode not in ('free','original'):raise ValueError('Unknown startup mode.')
+        self.start_mode=start_mode
         # Lestrade depends on trains, requests and signals from other actors.
         # Production runs the full scheduler; focused tests may select a subset.
-        self.data=data;self.world=NativeWorld(project,active_npcs=active_npcs);self.parser=self.world.engine
+        self.data=data;self.world=NativeWorld(project,active_npcs=active_npcs,seed=seed);self.parser=self.world.engine
         # Web presentation starts before the snapshot's first paid LOOK.
         # Shift the global tick and NPC deadlines; normalize the player to that tick.
-        self.parser.put(self.world.sim,0x9fdd,1)
-        for row in range(0x9860,0x9920,8):
-            due=word(self.world.m,row+6)
-            self.parser.put(self.world.sim,row+6,max(0,due-1))
-        self.world.m[0x9fdf:0x9fe3]=[0,8,0,97]
-        # The free initial scene must leave Holmes ready at the displayed minute.
-        self.parser.put(self.world.sim,0x9866,word(self.world.m,0x9fdd))
+        if start_mode=='free':
+            self.parser.put(self.world.sim,0x9fdd,1)
+            for row in range(0x9860,0x9920,8):
+                due=word(self.world.m,row+6)
+                self.parser.put(self.world.sim,row+6,max(0,due-1))
+            self.world.m[0x9fdf:0x9fe3]=[0,8,0,97]
+            # The free initial scene must leave Holmes ready at the displayed minute.
+            self.parser.put(self.world.sim,0x9866,word(self.world.m,0x9fdd))
         self.command_job=None;self.job_id=None;self.cached_state=None
         self.rooms={x['id']:x for x in data['rooms']};self.entities={x['id']:x for x in data['entities']}
         self.explored={8};self.last_listed=[];self.last_analysis=None;self.ending_messages=[]
@@ -47,7 +50,7 @@ class Game:
         # Restore that lost presentation, without running his turn/counter twice.
         greeting=self.parser.audit.decoder.render(word(self.world.m,0xe730))
         if self.world.m[0xe72f]!=6 or greeting['unresolved']:raise ValueError('Unsupported Watson opening bytecode')
-        self.opening=self.initial+'\n'+greeting['text'].strip();self.opening_pending=True;self.opening_screen=list(opening_screen(str(self.world.project.resolve())))
+        self.opening=self.initial+'\n'+greeting['text'].strip();self.opening_pending=True;self.opening_screen=self.world.opening_events if self.world.opening_events is not None else list(opening_screen(str(self.world.project.resolve())))
     def characters(self):
         """Posizioni vive dei personaggi; le identita alternative di Holmes sono un solo segnaposto."""
         m=self.world.m;player=self.world.player_id;characters=[]
@@ -69,12 +72,14 @@ class Game:
             return {**self.cached_state,'clock':self.world.clock(),'characters':self.characters(),
                     'command_running':True,'job':self.job_id,
                     'can_interrupt':self.world.m[0x9863]==50}
-        w=self.world;m=w.m;room=self.rooms[w.room];exits=[];dark=w.call(0xd078)['carry']
+        w=self.world;m=w.m;room=self.rooms[w.room];exits=[];dark=w.inspect(0xd078)['carry']
         for edge in room['exits']:
             gate=edge['gate'];p=int(self.entities[gate]['record'],16) if gate else None
             status='senza destinazione' if not edge['target'] else 'libera' if not gate else 'aperta / attraversabile' if m[p+5]&40 else 'chiusa / ostacolo'
             exits.append({**edge,'target_name':self.rooms[edge['target']]['name_hint'],'status':status})
         state={'characters':self.characters(),'player_id':w.player_id,'room':w.room,'name':room['name_hint'],'clock':w.clock(),'visited':sorted(self.explored),'native_seen':[i for i,r in self.rooms.items() if m[int(r['record'],16)]&64],'exits':exits,'objects':[{'id':i,'name':self.entities[i]['name']} for i in self.last_listed],'dark':dark,'visible':[{'id':i,'name':o['name']} for i,o in self.entities.items() if not dark and i!=w.player_id and perceived(m,i)],'initial':self.initial,'initial_screen':self.initial_screen,'opening_screen':self.opening_screen if self.opening_pending else None,'opening':self.opening if self.opening_pending else None,'analysis':self.last_analysis,'game_over':w.ended,'ending_messages':self.ending_messages,'command_running':False}
+        state['seed']=w.seed
+        state['start_mode']=self.start_mode
         self.cached_state=state
         return state
     def result(self,messages,**extra):return {'state':self.state(),'messages':messages,**extra}
@@ -96,6 +101,8 @@ class Game:
         return self.result([{'kind':'narrative','text':scene['text'],'screen_events':scene['screen_events'],'image_room':ident if first_visit else None}])
     def command(self,text):
         if self.command_job is not None:raise ValueError('A command is already running.')
+        control=self.persistence_control(text)
+        if control is not None:return control
         self.opening_pending=False
         out=self.world.submit(text,self.explored)
         return self.finish_command(out)
@@ -106,10 +113,19 @@ class Game:
         return self.result(out['messages'])
     def start_command(self,text):
         if self.command_job is not None:raise ValueError('A command is already running.')
+        control=self.persistence_control(text)
+        if control is not None:return {'running':False,**control}
         self.opening_pending=False
         self.cached_state=self.state();self.job_id=secrets.token_urlsafe(12)
         self.command_job=self.world.iter_submit(text,self.explored)
         return self.continue_command(self.job_id)
+    def persistence_control(self,text):
+        control=text.strip().upper().removesuffix('.')
+        if control=='SAVE':
+            from saved_game import save
+            return self.result([],save=save(self))
+        if control=='LOAD':return self.result([],load_requested=True)
+        return None
     def continue_command(self,job,interrupt=False):
         if self.command_job is None or job!=self.job_id:raise ValueError('This command is no longer running.')
         if interrupt:self.world.interrupt_wait=True

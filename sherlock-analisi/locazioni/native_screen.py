@@ -36,9 +36,14 @@ class ScreenStream:
         return events
 
 
-@lru_cache(maxsize=2)
-def opening_screen(project):
-    """Replay boot in a separate VM once; never repeat Watson's live turn."""
+@lru_cache(maxsize=16)
+def boot_state(project,seed=None,graphics=False):
+    """Immutable first-prompt state. Inject A immediately before LD (A037),A.
+
+    None preserves the historical, reproducible snapshot boot for research.
+    Browser sessions pass an explicit byte; graphics is a fixed native profile,
+    independent of SVG/pixel/hidden presentation in the browser.
+    """
     import sys
     project=Path(project);sys.path.insert(0,str(project/'sherlock-analisi/parser'))
     from sherlock_parser import SherlockParser
@@ -48,11 +53,16 @@ def opening_screen(project):
     m,r=s.memory,s.registers;stream=ScreenStream();recording=False
     for _ in range(3000000):
         pc=r[R.PC]
-        if pc==0xa536:return tuple(stream.drain())
+        if pc==0xa536:return bytes(m),tuple(r),tuple(stream.drain())
         if pc==0xc415:
-            r[R.A],r[R.PC]=ord('N'),0xc41e
+            initial=word(m,r[R.SP])==0xa051
+            r[R.A],r[R.PC]=ord('Y' if graphics and initial else 'N'),0xc41e
+        if pc==0xa061 and seed is not None:r[R.A]=seed
         if pc==0xcc9e and m[0xa036]==0 and r[R.IXh]*256+r[R.IXl]==0x9921:
             recording=True
         if recording:stream.observe(m,r,R)
         s.opcodes[m[r[R.PC]]]()
     raise RuntimeError('Original opening did not reach the first prompt')
+
+
+def opening_screen(project):return boot_state(project)[2]

@@ -7,9 +7,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 from explorer import Game
 from extract_locations import extract
+import saved_game
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',type=Path,default=Path(__file__).resolve().parents[2]);ap.add_argument('--port',type=int,default=8766);a=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',type=Path,default=Path(__file__).resolve().parents[2]);ap.add_argument('--port',type=int,default=8766);ap.add_argument('--seed',type=int,choices=range(256),default=1,metavar='0..255');ap.add_argument('--start-mode',choices=('free','original'),default='free');a=ap.parse_args()
     root=Path(__file__).resolve().parent;data=extract(a.project);sessions={}
     pictures={int(f.name.split('-')[0]):f for f in (a.project/'sherlock-analisi/grafica/immagini').glob('[0-9][0-9][0-9]-*-straight.svg')}
     picture_routes={f'/images/{ident:03d}.svg':f for ident,f in pictures.items()}
@@ -25,7 +26,7 @@ def main():
             cookies=SimpleCookie();cookies.load(self.headers.get('Cookie',''));token=cookies['sherlock'].value if 'sherlock' in cookies else None
             if token not in sessions:
                 if len(sessions)>=24:sessions.pop(next(iter(sessions)))
-                token=secrets.token_urlsafe(24);sessions[token]=Game(a.project,data)
+                token=secrets.token_urlsafe(24);sessions[token]=Game(a.project,data,seed=a.seed,start_mode=a.start_mode)
             return token,sessions[token]
         def do_GET(self):
             path=urlparse(self.path).path
@@ -34,7 +35,7 @@ def main():
             if path=='/api/state':
                 token,game=self.game()
                 if game.command_job is None and not game.world.ended:
-                    scene=game.world.scene(full=not game.world.call(0xd078)['carry'])
+                    scene=game.world.scene(full=not game.world.inspect(0xd078)['carry'])
                     game.initial=scene['text'];game.initial_screen=scene['screen_events'];game.last_listed=scene['listed']
                 return self.reply(200,game.state(),cookie=token)
             files={'/':('index.html','text/html; charset=utf-8'),'/index.html':('index.html','text/html; charset=utf-8'),'/style.css':('style.css','text/css; charset=utf-8'),'/app.js':('app.js','text/javascript; charset=utf-8')}
@@ -45,8 +46,11 @@ def main():
             if origin and origin!=f'http://{self.headers.get("Host")}':return self.reply(403,{'error':'Origin not allowed'})
             try:
                 length=int(self.headers.get('Content-Length','0'))
-                if not 0<length<=4096:return self.reply(413,{'error':'Request too large'})
-                body=json.loads(self.rfile.read(length));token,game=self.game()
+                limit=2*1024*1024 if self.path in ('/api/save','/api/load') else 4096
+                if not 0<length<=limit:return self.reply(413,{'error':'Request too large'})
+                body=json.loads(self.rfile.read(length))
+                if not isinstance(body,dict):raise ValueError('Expected a JSON object.')
+                token,game=self.game()
                 if self.path=='/api/command':
                     if not isinstance(body.get('command'),str):raise ValueError('Missing command')
                     result=game.command(body['command'])
@@ -57,7 +61,15 @@ def main():
                     result=game.continue_command(body.get('job'),body.get('interrupt') is True)
                 elif self.path=='/api/teleport':result=game.teleport(body.get('room'))
                 elif self.path=='/api/reset':
-                    game=Game(a.project,data);sessions[token]=game;result=game.result([{'kind':'narrative','text':game.opening,'screen_events':game.opening_screen,'image_room':game.world.room}])
+                    seed=body.get('seed',1)
+                    if type(seed)!=int or not 0<=seed<=255:raise ValueError('Seed must be an integer from 0 to 255.')
+                    game=Game(a.project,data,seed=seed,start_mode=body.get('start_mode','free'));sessions[token]=game;result=game.result([{'kind':'narrative','text':game.opening,'screen_events':game.opening_screen,'image_room':game.world.room}])
+                elif self.path=='/api/save':result={'save':saved_game.save(game,body.get('presentation'))}
+                elif self.path=='/api/load':
+                    if game.command_job is not None:raise ValueError('Finish the current command before loading.')
+                    candidate,presentation=saved_game.load(a.project,data,body.get('save'))
+                    result={'state':candidate.state(),'presentation':presentation,'messages':[]}
+                    sessions[token]=candidate
                 else:return self.reply(404,{'error':'Not found'})
                 self.reply(200,result,cookie=token)
             except (ValueError,TypeError) as exc:self.reply(400,{'error':str(exc)})

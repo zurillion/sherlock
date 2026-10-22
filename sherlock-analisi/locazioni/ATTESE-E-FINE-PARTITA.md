@@ -57,7 +57,7 @@ Il gateway della soluzione ha intestazione `$9E48` e corpo `$9E4A`: controlla la
 
 La prova di morte usa invece una nuova partita, un trasferimento via mappa alla locazione 58 e `OPEN WALL SAFE`. Il gioco produce il testo originale della scena e raggiunge `$9E74`, HL=`$759C`.
 
-Dopo il finale, orologio, comandi e spostamenti sulla mappa sono congelati; rimangono lettura e MORE. **Riavvia** ripristina il mondo iniziale alle 08:00am. Ricaricare la pagina conserva e ripresenta il finale della sessione. Il server conserva le sessioni solo in RAM: riavviarlo le azzera. SAVE/LOAD, servizi di stampa, PAUSE e timeout di inattività restano da adattare.
+Dopo il finale, orologio, comandi e spostamenti sulla mappa sono congelati; rimangono lettura e MORE. **Riavvia** ripristina il mondo iniziale alle 08:00am. Ricaricare la pagina conserva e ripresenta il finale della sessione. Il server conserva le sessioni solo in RAM: riavviarlo le azzera. Ora SAVE/LOAD usano file JSON completi, ripristinabili anche dopo la fine partita o il riavvio del server; vedere SEED-E-SALVATAGGI.md. Servizi di stampa, PAUSE e timeout di inattività restano da adattare.
 
 ## Riprodurre le verifiche
 
