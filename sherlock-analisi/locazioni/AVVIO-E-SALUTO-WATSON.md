@@ -46,3 +46,7 @@ Confronta tutta la narrazione iniziale con la presentazione del prototipo e veri
 I riferimenti statici restano in `sherlock-analisi/ai/results/npc-ai.asm`, `SEQUENZE.md`, `sherlock-analisi/main-loop/results/main-loop.asm` e nella traccia di avvio di `main-loop/results/loop-traces.json`.
 
 La verifica della pagina servita sulla porta 8766 è in `results/opening-browser-verification.json`, con schermata `results/avvio-saluto-watson.png`: saluto presente, nessuna riga vuota prima della battuta, prompt pronto e orologio alle 08:00am.
+
+## Ripresa di una partita già iniziata
+
+Una ricarica dopo un comando riprende la sessione esistente: il saluto è già avvenuto e non viene generato nuovamente. La pagina ora rende esplicita questa differenza nel comportamento: mostra subito la scena con l’orologio, senza riproporre l’attesa iniziale di una nuova partita. Riavvia prepara invece l’apertura completa con il saluto, preceduta dallo schermo con il solo motivo delle pistole. La regressione del flusso è in `results/startup-pistols-browser-verification.json`.

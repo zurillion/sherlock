@@ -104,8 +104,8 @@ class SpectrumTerminal {
   if(this.picture&&this.pictures){const y=this.pictureTop-(this.pictureNarrow?0:8*(this.model.scrolls-this.picture.scrollOrigin));ctx.imageSmoothingEnabled=this.pictureMode!=='pixel';ctx.drawImage(this.picture.image,128,y,128,176);}
   for(let row=0;row<18;row++)this.drawText(ctx,upper[row],2,row*8);ctx.restore();
   ctx.fillStyle='#fff';ctx.fillRect(0,144,256,8);ctx.fillStyle='#000';
+  for(let row=0;row<6;row++)for(let x=0;x<256;x++)if(this.assets.divider[row*4+Math.floor(x/8)%4]&(128>>(x%8)))ctx.fillRect(x,145+row,1,1);
   if(this.clockVisible){
-   for(let row=0;row<6;row++)for(let x=0;x<256;x++)if(this.assets.divider[row*4+Math.floor(x/8)%4]&(128>>(x%8)))ctx.fillRect(x,145+row,1,1);
    ctx.fillStyle='#fff';ctx.fillRect(8,144,this.clock.length*7+16,8);this.drawText(ctx,this.clock,16,144);
    if(this.waiting&&this.waitingReason==='more'&&Math.floor(Date.now()/320)%2===0){ctx.save();ctx.globalCompositeOperation='difference';ctx.fillStyle='#fff';ctx.fillRect(248,144,8,8);ctx.restore();}
   }

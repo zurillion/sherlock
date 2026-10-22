@@ -8,7 +8,7 @@
     "commands cannot interleave with pending output",
     "startup has no prompt, consumes any key, then shows the clock and writes from the bottom upward",
     "reset restores the blank startup pause and can be cancelled",
-    "startup bar and prompt are empty; clock stays at x16 with blank surrounding cells; MORE inverts exactly 8x8 pixels and restores the underlying pattern",
+    "startup shows the original divider pattern with no prompt or clock; clock stays at x16 with blank surrounding cells; MORE inverts exactly 8x8 pixels and restores the underlying pattern",
     "restart during writing cancels stale output and restores the startup clock",
     "one trailing blank after the complete command output, preserved between commands; errors stay in the lower pane",
     "commands, wrapped lines, errors and active prompt reserve two prefix cells without losing text or changing submitted input",
