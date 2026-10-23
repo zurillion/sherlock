@@ -3,7 +3,7 @@ import {Game} from '../src/game.mjs';import {ClientSession} from '../src/session
 const read=async name=>JSON.parse(await readFile(new URL(name,import.meta.url),'utf8'));
 const data=await read('../data/game.json'),reference=await read('./fixtures/feedback-reference.json'),paragraphs=await read('./fixtures/paragraph-reference.json');
 const norm=s=>s.replace(/\s*"\s*/g,'"').replace(/\s+/g,' ').trim().toUpperCase();
-for(const trace of reference.cases.filter(c=>c.label!=='hail_with_drivers'))test('Original feedback trace: '+trace.label,()=>{
+for(const trace of reference.cases.filter(c=>!['hail_with_drivers','hello_reading','hello_during_follow'].includes(c.label)))test('Original feedback trace: '+trace.label,()=>{
  const g=new Game(data,{npcs:trace.actors.includes(3)});if(trace.teleport)g.teleport(trace.teleport);
  for(const row of trace.commands){const out=g.submit(row.input);assert.notEqual(out.state.analysis.outcome,'not_translated',JSON.stringify(out.messages));
   for(const kind of ['narrative','error'])assert.equal(norm(out.messages.filter(m=>m.kind===kind).map(m=>m.text).join(' ')),norm(row.messages.filter(m=>m.kind===kind).map(m=>m.text).join(' ')),row.input+' '+kind);
@@ -18,9 +18,9 @@ test('The blank line between commands matches native WAIT rows, counters and scr
  for(const row of paragraphs.wait){const before=b.scrolls,out=s.request('command',{command:'WAIT'});assert.equal(deliver(b,out.messages),row.feeds);assert.deepEqual(b.lines,row.after.rows);assert.equal(b.counter,row.after.counter);assert.equal(b.remaining,row.after.columns_left);assert.equal(b.scrolls-before,2);}
 });
 test('There is one paragraph per player action, with no extra paragraph before an NPC reply',()=>{
- const s=new ClientSession(data),out=s.request('command',{command:'SAY TO WATSON "HELLO"'}),b=new SpectrumBuffer();
- assert.equal(out.messages.filter(m=>m.paragraph_before).length,1);assert.equal(deliver(b,out.messages),3);
- assert.equal(b.lines.at(-3),'You talk to Watson.');assert.equal(b.lines.at(-2).trim(),'Watson says " Good morning ".');
+ const s=new ClientSession(data),out=s.request('command',{command:'SAY TO WATSON "FOLLOW ME"'}),b=new SpectrumBuffer();
+ assert.equal(out.messages.filter(m=>m.paragraph_before).length,1);deliver(b,out.messages);
+ assert(b.lines.join('\n').includes('You talk to Watson.\nWatson climbs out of watsons'));
 });
 test('Minute batches do not add blank lines and a repeated action gets its own paragraph',()=>{
  const s=new ClientSession(data),b=new SpectrumBuffer();let r=s.request('start-command',{command:'WAIT'}),feeds=0;while(r.running){feeds+=deliver(b,r.messages);r=s.request('continue-command',{job:r.job});}feeds+=deliver(b,r.messages);assert.equal(feeds,2);
@@ -30,15 +30,24 @@ test('Input errors leave the upper text alone',()=>{
  const s=new ClientSession(data),b=new SpectrumBuffer();deliver(b,s.request('command',{command:'WAIT'}).messages);const before=[...b.lines];
  deliver(b,s.request('command',{command:'XYZZY'}).messages);deliver(b,s.request('command',{command:'OPEN DOOR'}).messages);assert.deepEqual(b.lines,before);
 });
-test('A pending greeting during FOLLOW survives save/load and waits for the ordinary program point',()=>{
- const a=new Game(data);a.submit('SAY TO WATSON "FOLLOW ME"');const out=a.submit('SAY TO WATSON "HELLO"');assert(!out.messages.some(m=>m.text.includes('Good morning')));
- const b=Game.load(data,JSON.parse(JSON.stringify(a.dump())));assert.deepEqual(a.submit('WAIT'),b.submit('WAIT'));assert(a.analysis.actions.some(a=>a.actor===3&&a.id===32));
+test('A legacy pending greeting remains loadable but never invents a reply',async()=>{
+ const g=Game.load(data,await read('./fixtures/legacy-pending-hello.json'));
+ const out=g.submit('WAIT');assert(out.messages.some(m=>m.kind==='system'&&m.text.includes('casuale')));
+ assert(!out.messages.some(m=>/Watson says/.test(m.text)));
 });
-test('Greeting prose uses original time filters and its provisional variant policy is explicit',()=>{
- const g=new Game(data);
- for(const [minute,words] of [[480,'Good morning'],[780,'Good afternoon'],[1200,'Good evening']]){g.world.minutes=minute;assert(g.text.greeting(3).includes(words));}
- assert.equal(g.state().greeting_variant,'original-time-of-day-without-rng-parity');
- assert.throws(()=>g.text.render('6920'),/choice/);
+test('Unimplemented seeded greetings are refused before queuing or advancing the world',()=>{
+ const g=new Game(data),before=g.world.dump();
+ for(let i=0;i<8;i++){
+  const out=g.submit('SAY TO WATSON "HELLO"');assert.equal(out.state.analysis.outcome,'not_translated');
+  assert(out.messages.every(m=>m.kind==='system'));assert.deepEqual(g.world.dump(),before);
+ }
+ assert.equal(g.state().greeting_variant,'unimplemented-original-random-source');
+ assert.equal(g.state().fidelity.original_seed_parity,false);
+ assert.throws(()=>g.text.greeting(3),/casuale/);
+});
+test('Unquoted HELLO retains the original HI. response without taking a turn',()=>{
+ const g=new Game(data),before=g.world.dump();
+ for(const command of ['HELLO','HELLO WATSON']){const out=g.submit(command);assert.equal(out.state.analysis.outcome,'ok');assert.equal(out.messages[0].text,'HI.');assert.equal(out.messages[0].kind,'error');assert.deepEqual(g.world.dump(),before);}
 });
 test('The cab arrives on every road in its original network, with driver and money descendants',()=>{
  for(const room of data.cab.streets){const g=new Game(data,{npcs:false});g.teleport(room);const out=g.submit('HAIL CAB');assert.equal(out.state.analysis.outcome,'ok');assert.equal(g.world.roomOf(30),room);assert.equal(g.world.roomOf(31),room);assert.equal(g.world.roomOf(32),room);assert(out.state.characters.some(c=>c.id===31&&c.rooms.includes(room)&&c.badge==='C1'));}

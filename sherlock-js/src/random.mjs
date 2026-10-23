@@ -28,5 +28,11 @@ export class OriginalRandom {
  signed(width,context){const value=this.draw(width,context);return value>=128?value-256:value;}
  absolute(width,context){return Math.abs(this.signed(width,context));}
  percent(context){return this.absolute(99,context)+1;}
+ // The text selector counts down from count and compares against abs(draw)+1.
+ // A zero draw selects the LAST alternative, not the first.
+ chooseIndex(count,context){
+  if(!Number.isInteger(count)||count<1||count>255)throw Error('Invalid text alternative count');
+  return count-1-this.absolute(count-1,context);
+ }
  dump(){return {seed:this.seed,cursor:this.cursor};}
 }

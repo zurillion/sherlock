@@ -1,5 +1,7 @@
 # Separazione dei comandi, saluti e chiamata del cab
 
+**Documento storico superato per il saluto.** La variante temporale fissa qui descritta è stata rimossa. Il saluto citato è nuovamente marcato come mancante: [FIDELITY.md](FIDELITY.md) spiega perché non soddisfaceva il requisito di equivalenza. Le prove visive qui citate si riferiscono alla versione precedente.
+
 23 ottobre 2026. Correzioni della fase 3 del motore autonomo JavaScript.
 
 ## La riga vuota

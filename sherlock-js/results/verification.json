@@ -12,7 +12,7 @@
   },
   "automated_tests": {
     "file": "tests.tap",
-    "passed": 212,
+    "passed": 214,
     "failed": 0
   },
   "reference_comparisons": {
@@ -88,5 +88,9 @@
   },
   "phase3_browser_report": "watson-browser.json",
   "feedback_report": "feedback-verification.json",
-  "feedback_browser_report": "feedback-browser.json"
+  "feedback_browser_report": "feedback-browser.json",
+  "fidelity_report": "fidelity-audit.json",
+  "current_greeting_status": "unimplemented-original-random-source; previous fixed variant removed",
+  "full_game_equivalence": false,
+  "original_seed_parity": false
 }

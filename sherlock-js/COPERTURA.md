@@ -9,7 +9,7 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Grammatica dei comandi ordinari, gruppi nominali, coordinazioni, ALL/EXCEPT, citazioni, modalità dichiarativa e completamento di un riferimento ambiguo.
 - Struttura degli oggetti e contenitori, propagazione della posizione, filtro di percezione, condizioni di luce, descrizioni per fascia oraria, prima visita e LOOK.
 - Varianti generiche di movimento, OPEN/CLOSE, TAKE/CARRY/GET, DROP, GIVE, INVENTORY, LOOK, EXAMINE e COUNT MONEY.
-- HELLO nella zona comandi e saluto rivolto a Watson, anche differito durante FOLLOW. La variante temporale del saluto è provvisoria: manca la scelta casuale originale.
+- HELLO nella zona comandi. Il precedente saluto temporale fisso di Watson è stato rimosso: il saluto citato è esplicitamente mancante finché non viene generata la sorgente casuale originale globale. Il selettore delle alternative è tradotto e verificato separatamente, senza ingressi inventati.
 - HAIL CAB sulle dieci strade della rete, arrivo con cocchiere e denaro, GET INTO CAB e GET OUT OF CAB. Il programma del cocchiere successivo all’arrivo è sospeso.
 - WAIT di cinque minuti e presentazione dei minuti; WAIT UNTIL è ancora provvisorio.
 - Scheduler funzionale dei 24 attori, ordine, scadenze, contesti sospesi e code; nel gioco sono collegati Holmes e il programma parziale di Watson.
@@ -21,7 +21,7 @@ L'inventario [results/action-coverage.json](results/action-coverage.json) elenca
 
 ## Limiti precisi delle parti presenti
 
-- Le citazioni possono impartire a Watson gli ordini generici documentati in [FASE-3.md](FASE-3.md), compresi ALL, WAIT, FOLLOW e HELLO. Durante FOLLOW, fra i nuovi ordini sono accettati soltanto i saluti; gli altri restano esplicitamente mancanti. Asserzioni, informazioni, deduzioni, altri interlocutori ed esclusioni restano da eseguire.
+- Le citazioni possono impartire a Watson gli ordini generici documentati in [FASE-3.md](FASE-3.md), compresi ALL, WAIT e FOLLOW. I nuovi ordini durante FOLLOW e i saluti citati restano mancanti; la precedentemente concessa variante fissa è stata rimossa. Asserzioni, informazioni, deduzioni, altri interlocutori ed esclusioni restano da eseguire.
 - Sono verificate le risposte `YOUR` e `YOUR DOOR` a `OPEN DOOR`. Non è ancora completa la ripresa di tutte le code di comandi dopo chiarimenti e conversazioni.
 - La lettera Z provoca una lettura oltre il dizionario nell'originale: non riproduciamo quell'accesso accidentale. Formati numerici anomali, overflow e tutti i limiti dell'editor non sono certificati. La UI consente al massimo 128 caratteri, limite di questa implementazione.
 - Gli algoritmi di visibilità sono tradotti, ma non ogni combinazione dinamica di luce, contenitori, peso, capacità e overflow a 8 bit è verificata.
@@ -61,3 +61,5 @@ Aggiornamento fase 2: 20 sequenze di confronto per ALL, 12 replay del ciclo usan
 Aggiornamento fase 3: ordini, primo contatore e seguito di Watson; 11 sequenze / 43 comandi confrontati con il riferimento isolato, più il prefisso narrativo al confine casuale. Salvataggi JS versione 3 e interruzione delle attese con ripristino degli NPC. Il contatore storico 15 non è un bootstrap generato da un seed. Vedere [FASE-3.md](FASE-3.md).
 
 Aggiornamento saluti e cab: 212 test complessivi. Sei nuove sequenze / 15 comandi confrontano testi normalizzati, orario e dieci entità selezionate. Per le chiamate del cab il programma del cocchiere è disabilitato nel riferimento: la prova attesta il prefisso fisico, non la sua conversazione. La settima traccia registrata con cocchieri attivi è documentazione del comportamento ancora mancante. Due WAIT confrontano anche le righe dello schermo originale. Dettagli e limiti: [SALUTI-E-CAB.md](SALUTI-E-CAB.md).
+
+Revisione del criterio di fedeltà: la risposta fissa di Watson è rimossa. Le due tracce sui saluti conservate nel corpus precedente non sono più dichiarate confronti equivalenti del gioco: restano come riferimento del lavoro da completare. Le quattro tracce del cab (8 comandi, cocchieri disabilitati) continuano a passare. 214 test attuali; 1.280 selezioni testuali controllate confrontate con il codice originale. La nuova indagine registra 401 comandi originali su sei seed, senza dichiarare che il motore JS li riproduca. [FIDELITY.md](FIDELITY.md) e `results/fidelity-audit.json` riportano criterio, prove e dipendenze mancanti.

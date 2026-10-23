@@ -1,0 +1,165 @@
+{
+  "implementation": "javascript-autonomous",
+  "full_game_equivalence": false,
+  "original_seed_parity": false,
+  "fixed_greeting_removed": true,
+  "greeting_gameplay_status": "explicitly unavailable; request rejected before world mutation",
+  "native_audit": {
+    "file": "greeting-audit.json",
+    "scenarios": 14,
+    "commands": 401,
+    "random_draws": 1271,
+    "reads": 2776,
+    "H": "Hello",
+    "G": "Good morning",
+    "-": "No greeting for this input",
+    "scenarios_summary": [
+      {
+        "seed": 0,
+        "active_actors": null,
+        "commands": 32,
+        "replies": "GHGHHHHHGGHHGGGHHHGHGHGGHHGHHGHG",
+        "random_draws": 119
+      },
+      {
+        "seed": 0,
+        "active_actors": [
+          3
+        ],
+        "commands": 32,
+        "replies": "GHHHHGGGGGGHHHGHGGHGGHHHGGGHHHGH",
+        "random_draws": 77
+      },
+      {
+        "seed": 1,
+        "active_actors": null,
+        "commands": 32,
+        "replies": "HHHHGHGHHGGGHGGHGGHGHHGHHGHHGGGG",
+        "random_draws": 118
+      },
+      {
+        "seed": 1,
+        "active_actors": [
+          3
+        ],
+        "commands": 32,
+        "replies": "HGHGGGHGHGHGHHGGHHGGGHGHGGGGHHGH",
+        "random_draws": 80
+      },
+      {
+        "seed": 7,
+        "active_actors": null,
+        "commands": 32,
+        "replies": "HGGHGGGHHHHGGGGHHGHGHHGHHGGHHHGH",
+        "random_draws": 123
+      },
+      {
+        "seed": 7,
+        "active_actors": [
+          3
+        ],
+        "commands": 32,
+        "replies": "HGHGGGHGHHGGGHHHGHGGHHHGGGGHHHHG",
+        "random_draws": 82
+      },
+      {
+        "seed": 42,
+        "active_actors": null,
+        "commands": 32,
+        "replies": "HHHGHGHHGGHHHHGGGGHGGGHGHHGGGHGH",
+        "random_draws": 120
+      },
+      {
+        "seed": 42,
+        "active_actors": [
+          3
+        ],
+        "commands": 32,
+        "replies": "HHGGGGGHGGGGHHGHGHGGHHHGGHHGHGGG",
+        "random_draws": 80
+      },
+      {
+        "seed": 127,
+        "active_actors": null,
+        "commands": 32,
+        "replies": "GHGHGHGHGHHHGHGHHHGGGHGHHGGGHGHH",
+        "random_draws": 122
+      },
+      {
+        "seed": 127,
+        "active_actors": [
+          3
+        ],
+        "commands": 32,
+        "replies": "GGHHHGHHHHGGHGHHGHHHGHHGGGGHHHHG",
+        "random_draws": 80
+      },
+      {
+        "seed": 255,
+        "active_actors": null,
+        "commands": 32,
+        "replies": "GHGGGHGHGGHHHGHHGGHGGGHHHGHHGGGG",
+        "random_draws": 118
+      },
+      {
+        "seed": 255,
+        "active_actors": [
+          3
+        ],
+        "commands": 32,
+        "replies": "GHGGGHHHHHGHHHGGHHHGGHGGHGGGGHHH",
+        "random_draws": 76
+      },
+      {
+        "seed": 1,
+        "active_actors": null,
+        "commands": 8,
+        "replies": "HHHHGHGH",
+        "random_draws": 34
+      },
+      {
+        "seed": 1,
+        "active_actors": null,
+        "commands": 9,
+        "replies": "H-HHHHGGG",
+        "random_draws": 42
+      }
+    ],
+    "js_matches_these_gameplay_sequences": false
+  },
+  "native_selector": {
+    "fixture": "test/fixtures/choice-reference.json",
+    "controlled_cases": 1280,
+    "option_counts": [
+      1,
+      2,
+      3,
+      4,
+      8
+    ],
+    "all_raw_byte_values": true,
+    "index_formula": "count - 1 - absolute_draw(count - 1)",
+    "gameplay_source_inputs_generated": false
+  },
+  "tests": {
+    "file": "tests.tap",
+    "passed": 214,
+    "failed": 0
+  },
+  "acceptance": {
+    "same_seed_and_identical_full_initial_profile": true,
+    "same_subsequent_inputs_and_events": true,
+    "same_global_random_draw_order_and_inputs": true,
+    "save_load_preserves_future_choices": true,
+    "meaning": "Required criteria, not yet achieved by the autonomous game"
+  },
+  "browser": {
+    "file": "fidelity-browser.json",
+    "screenshot": "fidelity-browser.png",
+    "quoted_greeting_explicitly_unimplemented": true,
+    "clock_unchanged": "Mon 08:00am",
+    "substitute_reply_printed": false,
+    "engine_picker_enabled": true
+  },
+  "native_arithmetic_additional_draws": 1271
+}
