@@ -10,7 +10,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 3,
@@ -32,7 +32,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 4,
@@ -43,7 +43,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 5,
@@ -54,7 +54,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 6,
@@ -65,7 +65,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 7,
@@ -76,7 +76,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 8,
@@ -87,7 +87,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 9,
@@ -98,7 +98,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 10,
@@ -109,7 +109,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 11,
@@ -120,7 +120,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 12,
@@ -130,8 +130,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 13,
@@ -141,8 +141,8 @@
         "of",
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 14,
@@ -153,7 +153,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Porte con regola ordinaria; esclusi oggetti e serrature speciali."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 15,
@@ -164,7 +164,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Solo conteggio del denaro."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 16,
@@ -175,7 +175,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 17,
@@ -197,7 +197,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 19,
@@ -208,7 +208,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Esame generico; escluse regole speciali."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 20,
@@ -229,8 +229,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_npc_order_only",
+      "note": "FOLLOW/COME WITH eseguiti su ordine a Watson; non azione del giocatore. Vedere FASE-3.md."
     },
     {
       "id": 22,
@@ -240,8 +240,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_npc_order_only",
+      "note": "FOLLOW/COME WITH eseguiti su ordine a Watson; non azione del giocatore. Vedere FASE-3.md."
     },
     {
       "id": 23,
@@ -252,7 +252,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 24,
@@ -262,8 +262,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 25,
@@ -273,8 +273,8 @@
         "of",
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 26,
@@ -285,7 +285,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Trasferimento generico; escluse reazioni del destinatario e pagamenti."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 27,
@@ -296,7 +296,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 28,
@@ -307,7 +307,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 29,
@@ -362,7 +362,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 34,
@@ -373,7 +373,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Descrizioni e visibilità statiche; non esegue turni NPC."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 35,
@@ -384,7 +384,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Regola generica; una prova negativa congelata, nessuna certificazione completa."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 36,
@@ -395,7 +395,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Porte con regola ordinaria; escluse casseforti e altre regole speciali."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 37,
@@ -438,8 +438,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 41,
@@ -450,7 +450,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Variante generica soltanto; vedere COPERTURA.md."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 42,
@@ -504,8 +504,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 47,
@@ -538,7 +538,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Cinque minuti; nessuna AI durante l’attesa."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 50,
@@ -549,7 +549,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Calcolo provvisorio della destinazione oraria; non certificato contro eventi e interrupt originali."
+      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
     },
     {
       "id": 51,

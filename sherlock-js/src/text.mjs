@@ -16,17 +16,18 @@ export class Text {
    result+=c;
   }};
   const name=(id,be=false)=>w.name(id)+(be?(id===w.player?' are':' is'):'');
+  const feedName=(id,be=false)=>{feed(' ');if(w.entity(id).person&&id!==w.player)capitalize=true;feed(name(id,be));};
   const emit=t=>{
    switch(t.op){
     case 'word':{if(t.id){feed(' ');if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem);}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
     case 'call':case 'jump':walk(t.text);break;
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
-    case 'actorName':feed(name(actor));break;
-    case 'objectName':feed(name(object));break;
-    case 'otherName':feed(name(other));break;
-    case 'actorIs':feed(name(actor,true));break;
-    case 'objectIs':feed(name(object,true));break;
+    case 'actorName':feedName(actor);break;
+    case 'objectName':feedName(object);break;
+    case 'otherName':feedName(other);break;
+    case 'actorIs':feedName(actor,true);break;
+    case 'objectIs':feedName(object,true);break;
     case 'actorPossessive':feed(actor===w.player?'your':'his');break;
     case 'objectPossessive':feed(object===w.player?'your':'his');break;
     case 'newline':case 'endLine':feed('\n');break;

@@ -48,10 +48,10 @@ export class World {
   return indefinite?(({0:'the ',4096:'a ',8192:'an ',12288:'some '})[room.nameWords[0]&12288])+room.name:room.name;
  }
  clock(){const day=Math.floor(this.minutes/1440),minute=this.minutes%60,h=Math.floor(this.minutes/60)%24,hour=h%12||12,period=h<12?'am':'pm';return {tick:this.tick,due:this.playerDue,day,minute,hour,period,label:`${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day%7]} ${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}${period}`};}
- consume(cost,{action=null,args=[]}={}){
+ consume(cost,{action=null,args=[],driver={}}={}){
   if(!cost)return [];
   const actor=this.scheduler.actor(0);actor.savedAction=action;actor.savedArgs=structuredClone(args);
-  return this.scheduler.finishPlayer(cost,()=>this.clock());
+  return this.scheduler.finishPlayer(cost,()=>this.clock(),driver);
  }
  dump(){return {entities:structuredClone(this.entities),rooms:structuredClone(this.rooms),player:this.player,explored:[...this.explored],lastListed:[...this.lastListed],tick:this.tick,playerDue:this.playerDue,minutes:this.minutes,scheduler:this.scheduler.dump()};}
  restore(state){

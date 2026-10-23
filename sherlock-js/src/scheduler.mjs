@@ -43,6 +43,10 @@ export class ActorScheduler {
    }
    const result=driver.step(actor,this.current.context,this)||{cost:0};
    if(result.type==='input'){this.emit({event:'input',actor:actor.id});return {type:'input',actor:actor.id};}
+   if(result.type==='unavailable'){
+    actor.enabled=false;this.emit({event:'unavailable',actor:actor.id,feature:result.feature});
+    this.current=null;this.index++;continue;
+   }
    if(result.type==='blocked')return {type:'blocked',actor:actor.id,feature:result.feature};
    if(!word(result.cost))throw Error('Invalid actor cost');
    this.current.steps++;this.emit({event:'step',actor:actor.id,cost:result.cost});
@@ -57,15 +61,17 @@ export class ActorScheduler {
   throw new SchedulerLimit('Il programma di un attore non restituisce tempo o input.');
  }
 
- // The current playable subset supplies only Sherlock's understood operations.
- // Other actors are visibly disabled, not replaced by invented WAIT scripts.
- finishPlayer(cost,clock){
+ // The current playable subset supplies shared actions and a partial Watson
+ // driver. Other actors are visibly disabled, without invented WAIT scripts.
+ finishPlayer(cost,clock,driver={}){
   if(!word(cost)||cost===0)throw Error('Positive action cost required');
   if(this.current?.actor!==0||this.index!==0)throw Error('Not at Sherlock input');
   let paid=false;const frames=[];
   const result=this.run({
-   step:actor=>{if(actor.id!==0)return {type:'blocked',feature:'NPC program not translated'};if(paid)return {type:'input'};paid=true;return {cost};},
-   clock:()=>{const frame=clock();frames.push(frame);}
+   prepare:(actor,s)=>driver.prepare?.(actor,s)||{},
+   step:(actor,context,s)=>{if(actor.id!==0)return driver.step?.(actor,context,s)||{type:'blocked',feature:'NPC program not translated'};if(paid)return {type:'input'};paid=true;return {cost};},
+   clock:()=>{const frame=clock();frames.push(frame);driver.clock?.(this);},
+   callback:(actor,context,s)=>driver.callback?.(actor,context,s)
   });
   if(result.type!=='input')throw Error('A non-translated actor was enabled');
   return frames;

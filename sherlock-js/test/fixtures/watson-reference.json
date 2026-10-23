@@ -1,0 +1,7155 @@
+{
+  "scope": "Historical prompt, free clock, seed set after boot, only Watson enabled; not full-game seed parity.",
+  "cases": [
+    {
+      "label": "take_and_drop_follow",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"TAKE LAMP\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson takes the oil lamp."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 41,
+              "arguments": [
+                22,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "SAY TO WATSON \"DROP THE DAILY CHRONICLE\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson drops the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 16,
+              "arguments": [
+                25,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 2,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 3,
+              "due": 3,
+              "minute": 2,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:02am"
+            }
+          }
+        },
+        {
+          "input": "OPEN YOUR DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You open your door.\n Watson climbs out of watsons armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 13,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 4,
+              "resume": "E7B9",
+              "saved": [
+                0,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 4,
+              "due": 4,
+              "minute": 3,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:03am"
+            }
+          }
+        },
+        {
+          "input": "WEST",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go west."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are in a hall. To the east there is your door. Below there is the stairway.\n Watson enters."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  7
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  7
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  7
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 6,
+              "resume": "DD5F",
+              "saved": [
+                7,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 6,
+              "due": 6,
+              "minute": 5,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:05am"
+            }
+          }
+        },
+        {
+          "input": "DOWN",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go down."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are in an entrance hallway. Above there is the stairway. To the south there is the front door.\n Watson enters."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 10,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 10,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  6
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 8,
+              "resume": "DD5F",
+              "saved": [
+                6,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 8,
+              "due": 8,
+              "minute": 7,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:07am"
+            }
+          }
+        },
+        {
+          "input": "OPEN FRONT DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You open the front door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                19,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  6
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 9,
+              "resume": "E7C5",
+              "saved": [
+                0,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 9,
+              "due": 9,
+              "minute": 8,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:08am"
+            }
+          }
+        },
+        {
+          "input": "SOUTH",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go south."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are on Baker Street. To the north there is the front door.\n Watson enters."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 2,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 2,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  5
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  5
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  5
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 11,
+              "resume": "DD5F",
+              "saved": [
+                5,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 11,
+              "due": 11,
+              "minute": 10,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:10am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "explicit_follow",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"FOLLOW ME\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson climbs out of watsons armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 21,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 13,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 2,
+              "resume": "E481",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  10
+                ],
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "OPEN YOUR DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 3,
+              "resume": "E482",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  10
+                ],
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 3,
+              "due": 3,
+              "minute": 2,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:02am"
+            }
+          }
+        },
+        {
+          "input": "WEST",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go west."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are in a hall. To the east there is your door. Below there is the stairway.\n Watson enters."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  7
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  7
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  7
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 5,
+              "resume": "DD5F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  9
+                ],
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 5,
+              "due": 5,
+              "minute": 4,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:04am"
+            }
+          }
+        },
+        {
+          "input": "DOWN",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go down."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are in an entrance hallway. Above there is the stairway. To the south there is the front door.\n Watson enters."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 10,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 10,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  6
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 7,
+              "resume": "DD5F",
+              "saved": [
+                6,
+                3,
+                1
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        },
+        {
+          "input": "OPEN FRONT DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You open the front door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                19,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  6
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  6
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 8,
+              "resume": "E7C5",
+              "saved": [
+                0,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 8,
+              "due": 8,
+              "minute": 7,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:07am"
+            }
+          }
+        },
+        {
+          "input": "SOUTH",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go south."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are on Baker Street. To the north there is the front door.\n Watson enters."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 2,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 2,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  5
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  5
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  5
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 10,
+              "resume": "DD5F",
+              "saved": [
+                5,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 10,
+              "due": 10,
+              "minute": 9,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:09am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "multiple_orders",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"OPEN YOUR DOOR. WEST\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson opens your door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 6,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  10
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "wait_order",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"WAIT\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson waits."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 5,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 5,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 3,
+              "due": 3,
+              "minute": 2,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:02am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 5,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 4,
+              "due": 4,
+              "minute": 3,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:03am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 5,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 5,
+              "due": 5,
+              "minute": 4,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:04am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 6,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  14
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 6,
+              "due": 6,
+              "minute": 5,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:05am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 7,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  13
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "impossible",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"TAKE ARMCHAIR\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  14
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "SAY TO WATSON \"WEST\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 2,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  13
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 3,
+              "due": 3,
+              "minute": 2,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:02am"
+            }
+          }
+        },
+        {
+          "input": "SAY TO WATSON \"DROP LAMP\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 3,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  12
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 4,
+              "due": 4,
+              "minute": 3,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:03am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "all_doors",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"OPEN ALL DOORS\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson opens your door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait.\n Watson opens the plain door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 36,
+              "arguments": [
+                50,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 6,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  11
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "greeting",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"HELLO\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson says\" Good morning \"."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 32,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  14
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "no_quote",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "TALK TO WATSON",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  14
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "containers",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SIT IN YOUR ARMCHAIR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You sit in your armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 40,
+              "arguments": [
+                23,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": 23,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 2,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  13
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 3,
+              "due": 3,
+              "minute": 2,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:02am"
+            }
+          }
+        },
+        {
+          "input": "GET OUT OF YOUR ARMCHAIR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You get out of your armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 25,
+              "arguments": [
+                23,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 4,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  11
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 5,
+              "due": 5,
+              "minute": 4,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:04am"
+            }
+          }
+        },
+        {
+          "input": "GET INTO WATSONS ARMCHAIR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You get into watsons armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 24,
+              "arguments": [
+                24,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 6,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  9
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        },
+        {
+          "input": "GET OUT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You get out of watsons armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 25,
+              "arguments": [
+                24,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 8,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  7
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 9,
+              "due": 9,
+              "minute": 8,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:08am"
+            }
+          }
+        },
+        {
+          "input": "CLIMB OUT OF WATSONS ARMCHAIR",
+          "messages": [
+            {
+              "kind": "error",
+              "text": "I SEE NO WATSONS ARMCHAIR THAT YOU CAN CLIMB OUT OF"
+            }
+          ],
+          "actions": [],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 8,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  7
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 9,
+              "due": 9,
+              "minute": 8,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:08am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "drop_journal",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"DROP DAILY CHRONICLE\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson drops the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 16,
+              "arguments": [
+                25,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait.\n Watson climbs out of watsons armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 13,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 7,
+              "resume": "E7C5",
+              "saved": [
+                0,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 130,
+              "arguments": [
+                0,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 12,
+              "resume": "E7C5",
+              "saved": [
+                0,
+                0,
+                0
+              ],
+              "counters": []
+            },
+            "clock": {
+              "tick": 12,
+              "due": 12,
+              "minute": 11,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:11am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "follow_timeout",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"FOLLOW ME\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson climbs out of watsons armchair."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 21,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 13,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 2,
+              "resume": "E481",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  10
+                ],
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 7,
+              "resume": "E482",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 7,
+              "due": 7,
+              "minute": 6,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:06am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 12,
+              "resume": "E482",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 12,
+              "due": 12,
+              "minute": 11,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:11am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see Watson, an oil lamp, your armchair and watsons armchair. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 13,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  14
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 13,
+              "due": 13,
+              "minute": 12,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:12am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "reading_boundary",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 5,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  10
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 6,
+              "due": 6,
+              "minute": 5,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:05am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 10,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  5
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 11,
+              "due": 11,
+              "minute": 10,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:10am"
+            }
+          }
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You wait."
+            },
+            {
+              "kind": "narrative",
+              "text": "With an excited look on his face Watson says\" Well here is a case that may interest you, it seems that two close friends, a Mrs Brown and a Mrs Jones, were murdered last night in separate incidents although apparently with the same weapon. The crimes occurred at their respective homes in the township of Leather Head and, because of the lack of murder weapon and apparent motive, the local police are completely baffled. They have called upon Scotland Yard for assistance and it appears that the famed detective Inspector Giles Lestrade has taken an interest in the case and will be going to the scene this morning.\""
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 129,
+              "arguments": [
+                0,
+                3
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 15,
+              "resume": "E79F",
+              "saved": [
+                16,
+                3,
+                1
+              ],
+              "counters": [
+                [
+                  3,
+                  16
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 16,
+              "due": 16,
+              "minute": 15,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:15am"
+            }
+          }
+        },
+        {
+          "input": "LOOK",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 34,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 16,
+              "resume": "E79F",
+              "saved": [
+                16,
+                3,
+                1
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 17,
+              "due": 17,
+              "minute": 16,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:16am"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "silent_remote_order",
+      "initial": {
+        "entities": [
+          {
+            "id": 0,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 3,
+            "parent": 24,
+            "rooms": [
+              8
+            ],
+            "attributes": 224
+          },
+          {
+            "id": 21,
+            "parent": null,
+            "rooms": [
+              7,
+              8
+            ],
+            "attributes": 128
+          },
+          {
+            "id": 22,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 148
+          },
+          {
+            "id": 23,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 24,
+            "parent": null,
+            "rooms": [
+              8
+            ],
+            "attributes": 160
+          },
+          {
+            "id": 25,
+            "parent": 3,
+            "rooms": [
+              8
+            ],
+            "attributes": 128
+          }
+        ],
+        "watson": {
+          "due": 0,
+          "resume": "E79F",
+          "saved": [
+            255,
+            13,
+            4
+          ],
+          "counters": [
+            [
+              3,
+              15
+            ]
+          ]
+        },
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "minute": 0,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:00am"
+        }
+      },
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"TAKE LAMP\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson takes the oil lamp."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 41,
+              "arguments": [
+                22,
+                255
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 128
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 1,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  15
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 2,
+              "due": 2,
+              "minute": 1,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:01am"
+            }
+          }
+        },
+        {
+          "input": "OPEN YOUR DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 36,
+              "arguments": [
+                21,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 2,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  14
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 3,
+              "due": 3,
+              "minute": 2,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:02am"
+            }
+          }
+        },
+        {
+          "input": "WEST",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "You go west."
+            },
+            {
+              "kind": "narrative",
+              "text": "You are in a hall. To the east there is your door. Below there is the stairway."
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 4,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  7
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 4,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  12
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 5,
+              "due": 5,
+              "minute": 4,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:04am"
+            }
+          }
+        },
+        {
+          "input": "SAY TO WATSON \"DROP LAMP\"",
+          "messages": [
+            {
+              "kind": "error",
+              "text": "I SEE NO WATSON THAT YOU CAN TALK TO"
+            }
+          ],
+          "actions": [],
+          "after": {
+            "entities": [
+              {
+                "id": 0,
+                "parent": null,
+                "rooms": [
+                  7
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 3,
+                "parent": 24,
+                "rooms": [
+                  8
+                ],
+                "attributes": 224
+              },
+              {
+                "id": 21,
+                "parent": null,
+                "rooms": [
+                  7,
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 22,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 148
+              },
+              {
+                "id": 23,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 24,
+                "parent": null,
+                "rooms": [
+                  8
+                ],
+                "attributes": 160
+              },
+              {
+                "id": 25,
+                "parent": 3,
+                "rooms": [
+                  8
+                ],
+                "attributes": 128
+              }
+            ],
+            "watson": {
+              "due": 4,
+              "resume": "E79F",
+              "saved": [
+                255,
+                13,
+                4
+              ],
+              "counters": [
+                [
+                  3,
+                  12
+                ]
+              ]
+            },
+            "clock": {
+              "tick": 5,
+              "due": 5,
+              "minute": 4,
+              "hour": 8,
+              "day": 0,
+              "period": "am",
+              "label": "Mon 08:04am"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

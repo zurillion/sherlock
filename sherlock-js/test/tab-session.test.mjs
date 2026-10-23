@@ -12,8 +12,8 @@ test('A tab checkpoint is not a conversion of the original engine save',()=>{
  const tab=storage();tab.setItem(TAB_SESSION_KEY,JSON.stringify({engine:'original',game:{memory:[]}}));assert.throws(()=>recallTab(tab,data,()=>{}),/altro motore/);
 });
 test('Version-one JS saves migrate to a logical scheduler without losing a clarification',()=>{
- const game=new Game(data);game.submit('OPEN DOOR');const saved=game.dump();saved.version=1;delete saved.world.scheduler;
- const restored=Game.load(data,saved);assert.deepEqual(restored.submit('ALL'),game.submit('ALL'));assert.equal(restored.dump().version,2);
+ const game=new Game(data,{npcs:false});game.submit('OPEN DOOR');const saved=game.dump();saved.version=1;delete saved.world.scheduler;
+ const restored=Game.load(data,saved);assert.deepEqual(restored.submit('ALL'),game.submit('ALL'));assert.equal(restored.dump().version,3);
 });
 test('The engine selector describes both implementations without an automatic fallback',async()=>{
  const html=await readFile(new URL('../index.html',import.meta.url),'utf8');assert(html.includes('id="engine-select"'));assert(html.includes('Originale · Z80'));assert(html.includes('JavaScript autonomo'));assert(html.includes("'8766':'8768'"));assert(html.includes('Partite separate.'));

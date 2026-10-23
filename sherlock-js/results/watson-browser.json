@@ -1,0 +1,42 @@
+{
+  "actor": {
+    "behavior": {
+      "follow": null,
+      "orders": [],
+      "phase": "following",
+      "profile": "historical-first-prompt-counter-15",
+      "remaining": 0
+    },
+    "due": 12,
+    "enabled": true,
+    "id": 3,
+    "name": "watson",
+    "program": "watson",
+    "savedAction": null,
+    "savedArgs": [
+      null,
+      null
+    ]
+  },
+  "clock": "Mon 08:11am",
+  "engine": "javascript",
+  "engine_picker_enabled": true,
+  "room": "entrance hallway",
+  "spectrum": {
+    "clock": "Mon 08:11am",
+    "clockVisible": "true",
+    "clockX": "16",
+    "columns": "36",
+    "lineCounter": "3",
+    "picture": "",
+    "pictureMode": "svg",
+    "processing": "false",
+    "scrolls": "7",
+    "waiting": "false",
+    "waitingReason": ""
+  },
+  "transcript": "The sun streams in the two broad windows in your sitting room. There is a pipe rack to the right of the sofa. Bullet pock marks are the feature of one wall, and charts and diagrams fill another. An acid stained table sits in the corner. To the west there is your door. To the north there is a plain door. You can see an oil lamp, your armchair and watsons armchair. In watsons armchair there is Watson. Watson is carrying the daily chronicle.\nWatson looks up from the paper and says \" Good morning Holmes. \"SAY TO WATSON \"TAKE LAMP\"You talk to Watson.Watson takes the oil lamp.SAY TO WATSON \"DROP DAILY CHRONICLE\"You talk to Watson.Watson drops the daily chronicle.OPEN YOUR DOORYou open your door.Watson climbs out of watsons armchair.WESTYou go west.You are in a hall. To the east there is your door. Below there is the stairway.Watson enters.DOWNYou go down.006 · entrance hallway · apri SVGYou are in an entrance hallway. Above there is the stairway. To the south there is the front door.Watson enters.UPYou go up.You are in a hall.Watson enters.DOWNYou go down.You are in an entrance hallway.Watson enters.",
+  "upper": "                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \nYou are in a hall. To the east there\nis your door. Below there is the    \nstairway. You can see Watson. Watson\nis carrying the oil lamp.           \nYou go down.                        \nYou are in an entrance hallway.     \nWatson enters.                      \n                                    ",
+  "url": "http://127.0.0.1:8768/",
+  "watson": "W\nwatson\n006 entrance hallway"
+}

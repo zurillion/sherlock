@@ -13,7 +13,7 @@ Ogni funzione viene ricostruita in termini di condizioni, dati letti, effetti, f
 3. `game.mjs` riconosce il modello OPEN, cerca gli oggetti compatibili e filtra quelli percepibili su cui l'azione si applica.
 4. Se le porte sono più di una, conserva il comando e il campo da precisare e stampa `WHICH DOOR ?`. `YOUR` completa quel gruppo nominale; `LOOK` lo sostituisce con un nuovo comando.
 5. La regola ordinaria OPEN controlla serratura e stato. Quando riesce, aggiorna la proprietà della porta, produce `You open your door.` e assegna il costo dell'azione.
-6. `world.mjs` aggiorna scadenza del giocatore e calendario. `session.mjs` fornisce alla presentazione i passaggi del minuto. Il ciclo comune è ora in `scheduler.mjs`; i programmi degli altri attori non sono ancora collegati.
+6. `world.mjs` aggiorna scadenza del giocatore e calendario. `session.mjs` fornisce alla presentazione i passaggi del minuto. Il ciclo comune è ora in `scheduler.mjs`; è collegata anche la parte verificata di Watson; gli altri programmi rimangono sospesi.
 
 Aprire una cassaforte richiede una regola diversa. Il motore non usa OPEN generico quando incontra una regola speciale ancora sconosciuta.
 
@@ -25,6 +25,7 @@ Aprire una cassaforte richiede una regola diversa. Il motore non usa OPEN generi
 | `parser.mjs` | Grammatica, coordinazioni, citazioni, modalità dichiarativa, continuazioni |
 | `world.mjs` | Entità e contenitori, visibilità, movimento e luce |
 | `scheduler.mjs` | Turni, ordine, scadenze, calendario, contesti sospesi, segnali e richieste |
+| `watson.mjs` | Richieste, primo contatore storico, seguito autonomo e FOLLOW esplicito |
 | `random.mjs` | Calcolo casuale su ingressi espliciti; modello degli ingressi ancora mancante |
 | `tab-session.mjs` | Ripresa della partita JS dopo un cambio di motore nella stessa scheda |
 | `text.mjs` | Formato dei testi compressi convertito in dati semantici, descrizioni ed elenchi |
@@ -45,3 +46,5 @@ I primi confronti usano prove del parser e azioni isolate. Poi occorreranno trac
 Un interprete futuro delle sequenze NPC potrà essere autonomo: quel linguaggio descrive comportamenti del gioco e non la CPU. Dovrà usare operazioni di dominio comprese e documentate, senza richiamare routine macchina.
 
 La seconda fase usa il ciclo anche per le singole esecuzioni espanse da ALL. Le prove del ciclo forniscono costi catturati: attestano il ciclo, non inventano il comportamento degli NPC. I dettagli sono in [FASE-2.md](FASE-2.md).
+
+La terza fase introduce un contesto esplicito per l’attore nelle azioni condivise e una macchina a stati funzionale per Watson, senza bytecode originale. Ogni minuto conserva uno stato logico per presentazione e interruzione; i salvataggi versione 3 includono le continuazioni di Watson. Il profilo iniziale e la sospensione al confine della casualità sono dichiarati in [FASE-3.md](FASE-3.md).

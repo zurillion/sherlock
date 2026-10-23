@@ -8,7 +8,7 @@ const norm=s=>s.replace(/\s+/g,' ').trim().toUpperCase();
 for(const sequence of [...base.sequences,...extra]){
  if(sequence.commands.some(r=>/\b(BUT|EXCEPT)\b/.test(r.input)))continue;
  test('Original collective trace: '+sequence.commands.map(r=>r.input).join(' → '),()=>{
-  const game=new Game(data);
+  const game=new Game(data,{npcs:false});
   for(const row of sequence.commands){const out=game.submit(row.input);
    assert.equal(out.state.analysis.outcome,row.analysis.outcome,row.input);
    for(const kind of ['narrative','error'])assert.equal(norm(out.messages.filter(m=>m.kind===kind).map(m=>m.text).join(' ')),norm(row.messages.filter(m=>m.kind===kind).map(m=>m.text).join(' ')),row.input+' '+kind);
@@ -18,6 +18,6 @@ for(const sequence of [...base.sequences,...extra]){
  });
 }
 test('ALL after clarification survives logical save/load',()=>{
- const a=new Game(data);a.submit('OPEN DOOR');const b=Game.load(data,structuredClone(a.dump()));
+ const a=new Game(data,{npcs:false});a.submit('OPEN DOOR');const b=Game.load(data,structuredClone(a.dump()));
  assert.deepEqual(b.submit('ALL'),a.submit('ALL'));assert.equal(b.world.entity(21).attributes&32,32);assert.equal(b.world.entity(50).attributes&32,32);
 });

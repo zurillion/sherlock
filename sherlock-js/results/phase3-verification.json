@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-23",
+  "phase": 3,
+  "implementation": "javascript-autonomous",
+  "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "status": "partial_watson_domain_port",
+  "runtime": {
+    "cpu": false,
+    "original_binary": false,
+    "python": false,
+    "game_backend": false,
+    "hidden_reference_fallback": false
+  },
+  "startup": {
+    "profile": "historical-first-prompt-counter-15",
+    "watson_counter": 15,
+    "generated_from_seed": false,
+    "full_original_bootstrap": false
+  },
+  "reference": {
+    "fixture": "test/fixtures/watson-reference.json",
+    "source_tool": "tools/probe-watson-reference.py",
+    "actors_enabled_after_prompt": [
+      3
+    ],
+    "seed_applied": "after historical first prompt",
+    "captured_sequences": 13,
+    "captured_commands": 48,
+    "fully_compared_sequences": 11,
+    "fully_compared_commands": 43,
+    "fields": [
+      "narrative and errors, normalized case/whitespace",
+      "clock: tick, player due, day, hour, minute, period, label",
+      "Watson deadline",
+      "Watson private reading/FOLLOW counters",
+      "parent, rooms and attributes of entities 0, 3, 21, 22, 23, 24, 25"
+    ],
+    "case_intro_prefix_commands": 3,
+    "excluded_from_full_equivalence": [
+      "greeting: random text choice unavailable",
+      "reading_boundary: continuation after new random counter unavailable"
+    ],
+    "full_game_seed_parity": false
+  },
+  "save": {
+    "format": "sherlock-js-save",
+    "version": 3,
+    "migrated_versions": [
+      1,
+      2
+    ],
+    "preserves": [
+      "entities",
+      "room flags",
+      "actor deadlines",
+      "reading counter",
+      "pending requests",
+      "multiple orders and ALL cursor",
+      "explicit FOLLOW continuation",
+      "suspended random boundary"
+    ],
+    "legacy_npcs_remain_disabled": true
+  },
+  "minute_presentation": {
+    "releases_messages_in_minute_order": true,
+    "shows_actor_positions_at_displayed_minute": true,
+    "wait_until_interrupt_restores_entire_world": true,
+    "reads_of_frame_state_have_no_effect": true
+  },
+  "automated": {
+    "file": "tests.tap",
+    "passed": 198,
+    "failed": 0
+  },
+  "untranslated": [
+    "full bootstrap",
+    "world inputs to original random arithmetic and seed parity",
+    "Watson second random counter and note/departure branch",
+    "Watson encounter callbacks",
+    "information, statements and deductions",
+    "Lestrade and remaining NPCs",
+    "transport and story"
+  ],
+  "not_claimed": [
+    "all NPC orders",
+    "all container or capacity corner cases",
+    "exact original screen text pagination",
+    "full-game equivalence"
+  ],
+  "browser": {
+    "file": "watson-browser.json",
+    "screenshot": "watson-browser.png",
+    "normal_input_order_and_follow_verified": true,
+    "spectrum_input_movement_verified": true,
+    "tab_reload_after_take_verified": true,
+    "engine_picker_enabled": true,
+    "clock_at_capture": "Mon 08:11am",
+    "holmes_and_watson_room_at_capture": 6
+  }
+}

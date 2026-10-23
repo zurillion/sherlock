@@ -82,7 +82,7 @@ export class Parser {
     continue;
    }
    if(!current.verb){
-    if(workingMode===0){const saved=index,g=nominal();if(g&&g.noun&&!g.relations.length){current.subject=g;workingMode=2;}else{index=saved;relations=0;workingMode=1;}}
+    if(workingMode===0){const saved=index,g=nominal();if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;workingMode=2;}else{index=saved;relations=0;workingMode=1;}}
     if(verb())continue;
     if(!pending)fail();
    }
