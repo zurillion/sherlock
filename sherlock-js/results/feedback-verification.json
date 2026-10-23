@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-23",
+  "implementation": "javascript-autonomous",
+  "tests": {
+    "file": "tests.tap",
+    "passed": 212,
+    "failed": 0
+  },
+  "reference": {
+    "fixture": "test/fixtures/feedback-reference.json",
+    "source_tool": "tools/probe-feedback-reference.py",
+    "captured_sequences": 7,
+    "captured_commands": 18,
+    "compared_sequences": 6,
+    "compared_commands": 15,
+    "fields": [
+      "normalized narrative and errors",
+      "clock",
+      "parent, rooms and attributes of 10 selected entities"
+    ],
+    "cab_actors_enabled": false,
+    "excluded": "hail_with_drivers: captured for study; driver program not ported"
+  },
+  "paragraphs": {
+    "fixture": "test/fixtures/paragraph-reference.json",
+    "native_wait_screens": 2,
+    "exact_fields": [
+      "rows",
+      "counter",
+      "remaining columns",
+      "scrolls"
+    ],
+    "no_paragraph_per_minute": true,
+    "no_extra_paragraph_before_npc": true
+  },
+  "greeting": {
+    "quoted_hello": true,
+    "unquoted_hello": "HI. in command area, zero time",
+    "pending_during_follow_saved": true,
+    "variant_policy": "original time-of-day greeting",
+    "original_random_choice_sequence": false
+  },
+  "cab": {
+    "street_count": 10,
+    "arrival": true,
+    "containment": true,
+    "driver_and_cash_follow_vehicle": true,
+    "save_resume": true,
+    "driver_program_enabled": false,
+    "untranslated": [
+      "driver greeting and dialogue",
+      "waiting and departure",
+      "destinations and travel",
+      "payment, change, debt and reactions"
+    ]
+  },
+  "browser": {
+    "file": "feedback-browser.json",
+    "screenshots": [
+      "feedback-watson.png",
+      "feedback-cab.png"
+    ],
+    "spectrum_quoted_greeting_verified": true,
+    "command_blank_line_verified": true,
+    "wait_minutes": 5,
+    "hail_cab_verified": true,
+    "get_into_cab_verified": true,
+    "get_out_of_cab_verified": true,
+    "cabbie_marker": "C1",
+    "engine_picker_enabled": true,
+    "existing_servers_restarted": false
+  },
+  "full_game_equivalence": false,
+  "original_seed_parity": false
+}

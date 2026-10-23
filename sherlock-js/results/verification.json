@@ -12,7 +12,7 @@
   },
   "automated_tests": {
     "file": "tests.tap",
-    "passed": 198,
+    "passed": 212,
     "failed": 0
   },
   "reference_comparisons": {
@@ -47,12 +47,12 @@
     "Watson encounter callbacks",
     "information, statements and deductions",
     "Lestrade and remaining NPCs",
-    "transport and story"
+    "cab driver dialogue, waiting, travel and payment; trains and story"
   ],
   "not_claimed": [
     "full gameplay equivalence",
     "all dynamic text states",
-    "exact screen pagination",
+    "exact screen pagination in all contexts (two native WAIT screens verified)",
     "native-compatible saves",
     "original RNG choice sequence"
   ],
@@ -86,5 +86,7 @@
     ],
     "full_game_seed_parity": false
   },
-  "phase3_browser_report": "watson-browser.json"
+  "phase3_browser_report": "watson-browser.json",
+  "feedback_report": "feedback-verification.json",
+  "feedback_browser_report": "feedback-browser.json"
 }

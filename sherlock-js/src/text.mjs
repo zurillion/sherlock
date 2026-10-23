@@ -4,6 +4,9 @@ import {UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 // This renderer interprets semantic text operations, not CPU instructions.
 export class Text {
  constructor(data,dictionary,world){this.data=data;this.dictionary=dictionary;this.world=world;}
+ // Temporary presentation policy: select the original time-of-day greeting.
+ // This is not the original RNG sequence; other choices remain unsupported.
+ greeting(actor){return this.render('6920',{actor,canonicalGreeting:true});}
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
   let result='',capitalize=true,force=false,depth=0;
@@ -22,6 +25,12 @@ export class Text {
     case 'word':{if(t.id){feed(' ');if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem);}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
     case 'call':case 'jump':walk(t.text);break;
+    case 'choice':{
+     const hello=t.options.find(o=>o.op==='word'&&this.dictionary.word(o.id)?.stem==='hello');
+     const timed=t.options.find(o=>o.op==='call'&&this.data.texts[o.text]?.some(t=>t.op==='time'));
+     if(!context.canonicalGreeting||t.options.length!==2||!hello||!timed)throw new UnsupportedFeature('operazione di testo choice');
+     emit(timed);break;
+    }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
     case 'actorName':feedName(actor);break;
     case 'objectName':feedName(object);break;

@@ -25,7 +25,8 @@ Aprire una cassaforte richiede una regola diversa. Il motore non usa OPEN generi
 | `parser.mjs` | Grammatica, coordinazioni, citazioni, modalità dichiarativa, continuazioni |
 | `world.mjs` | Entità e contenitori, visibilità, movimento e luce |
 | `scheduler.mjs` | Turni, ordine, scadenze, calendario, contesti sospesi, segnali e richieste |
-| `watson.mjs` | Richieste, primo contatore storico, seguito autonomo e FOLLOW esplicito |
+| `watson.mjs` | Richieste, primo contatore storico, seguito autonomo, FOLLOW esplicito e saluti differiti |
+| `cab.mjs` | Rete stradale, disponibilità e arrivo del cab; contesto successivo sospeso |
 | `random.mjs` | Calcolo casuale su ingressi espliciti; modello degli ingressi ancora mancante |
 | `tab-session.mjs` | Ripresa della partita JS dopo un cambio di motore nella stessa scheda |
 | `text.mjs` | Formato dei testi compressi convertito in dati semantici, descrizioni ed elenchi |
@@ -48,3 +49,5 @@ Un interprete futuro delle sequenze NPC potrà essere autonomo: quel linguaggio 
 La seconda fase usa il ciclo anche per le singole esecuzioni espanse da ALL. Le prove del ciclo forniscono costi catturati: attestano il ciclo, non inventano il comportamento degli NPC. I dettagli sono in [FASE-2.md](FASE-2.md).
 
 La terza fase introduce un contesto esplicito per l’attore nelle azioni condivise e una macchina a stati funzionale per Watson, senza bytecode originale. Ogni minuto conserva uno stato logico per presentazione e interruzione; i salvataggi versione 3 includono le continuazioni di Watson. Il profilo iniziale e la sospensione al confine della casualità sono dichiarati in [FASE-3.md](FASE-3.md).
+
+La correzione descritta in [SALUTI-E-CAB.md](SALUTI-E-CAB.md) marca il primo messaggio narrativo di ogni azione del giocatore con `paragraph_before`; `session.mjs` lo converte nel CR precedente il testo. Le risposte degli NPC e i lotti dei minuti non creano paragrafi aggiuntivi. Il saluto usa esplicitamente una variante temporale originale, con una politica provvisoria dichiarata nello stato, senza introdurre una nuova sorgente casuale. La chiamata del cab muove il contenitore e i suoi discendenti; il programma del cocchiere rimane sospeso al confine non tradotto.

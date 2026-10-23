@@ -88,3 +88,7 @@ Il banco Python richiede le analisi e SkoolKit già presenti nel progetto. Il gi
 Completare inizializzazione e sorgente casuale funzionale, quindi secondo contatore, nota/partenza e callback di Watson. Su queste basi collegare Lestrade, cab e treni. Le loro vecchie prove Z80 restano fonti di confronto, non una dimostrazione che siano già tradotti in JavaScript.
 
 Verifica della pagina: ordini e seguito da input ordinario, ripresa della scheda dopo TAKE e movimento da input Spectrum. La schermata finale mostra `Watson enters.`, Holmes e Watson nella stanza 6, con orologio 08:11am e selettore del motore abilitato. Prove: `results/watson-browser.json` e `results/watson-browser.png`. Il server del riferimento sulla porta 8766 non è stato riavviato.
+
+## Aggiornamento successivo: saluti e chiamata del cab
+
+Il limite relativo a HELLO descritto sopra è stato ristretto: il saluto è eseguibile e può essere differito durante FOLLOW, ma la sua scelta casuale resta mancante. Sono disponibili anche arrivo del cab e salita/discesa; viaggio e pagamento restano sospesi. [SALUTI-E-CAB.md](SALUTI-E-CAB.md) registra le nuove prove e il loro ambito.

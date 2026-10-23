@@ -1,6 +1,6 @@
 import {UnsupportedFeature} from './world.mjs';
 
-const REQUEST_ACTIONS=new Set([1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,21,22,23,24,25,26,36,40,41,49]);
+const REQUEST_ACTIONS=new Set([1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,21,22,23,24,25,26,32,36,40,41,49]);
 const clone=structuredClone;
 // A domain state machine, not an interpreter of native instructions. The first
 // reading counter is explicit historical-prompt data, not a generated seed.
@@ -31,7 +31,7 @@ export class Watson {
   prepare:actor=>{
    if(actor.id!==3)return {};
    const request=this.game.world.scheduler.takeRequest(3);
-   if(request)actor.behavior.orders.unshift({nodes:request.command.nodes,index:0,allCursor:-1});
+   if(request)actor.behavior.orders.unshift({nodes:request.command.nodes,index:0,allCursor:-1,priorityGreeting:Boolean(actor.behavior.follow)&&request.command.nodes.every(n=>this.game.action(n)===32)});
    return {};
   },
   step:actor=>{
@@ -42,7 +42,7 @@ export class Watson {
  perform(node,messages,actions){
   const g=this.game,w=g.world,visibleBefore=!w.dark()&&w.perceived(3),out=g.executeAs(node,3);
   if(visibleBefore||!w.dark()&&w.perceived(3))messages.push(...out.messages.filter(m=>m.kind!=='error'));
-  if(out.cost)actions.push({actor:3,id:out.action,arguments:out.args});
+  if(out.cost||out.action===32)actions.push({actor:3,id:out.action,arguments:out.args});
   return out;
  }
  root(id){const w=this.game.world;let root=null,e=w.entity(id);while(e.parent!==null){root=e.parent;e=w.entity(root);if(!(e.attributes&128)||!(e.attributes&40))break;}return root;}
@@ -61,6 +61,11 @@ export class Watson {
   try{
    // A visit may run several failed/zero-cost rules before returning time.
    for(let guard=0;guard<128;guard++){
+    const greeting=b.orders[0];
+    if(greeting?.priorityGreeting&&b.follow?.stage!=='wait'){
+     if(greeting.index>=greeting.nodes.length){b.orders.shift();continue;}
+     this.perform(greeting.nodes[greeting.index++],messages,actions);continue;
+    }
     if(b.follow){const f=b.follow;
      if(f.stage==='complete'){b.follow=null;continue;}
      if(f.stage==='wait'){f.stage='decrement';return {cost:1};}

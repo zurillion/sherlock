@@ -15,7 +15,7 @@ export class ClientSession {
   const before=this.game.world.dump();try{this.game.world.restore(frame.world);const s=this.game.state();if(s.analysis)s.analysis={...s.analysis,actions:s.analysis.actions.slice(0,frame.actionCount)};return {...s,command_running:true,job:this.job?.id};}finally{this.game.world.restore(before);}
  }
  state(){const s=this.job?this.frameState(this.job.frames[Math.max(0,this.job.index-1)]):this.game.state();return {...s,initial_screen:packets(s.initial),opening_screen:s.opening?packets(s.opening,{leading:true}):null};}
- messages(messages){return messages.map(m=>m.kind==='narrative'?{...m,screen_events:[...(m.image_room? [{op:'picture',room:m.image_room}]:[]),...packets(m.text)]}:m);}
+ messages(messages){return messages.map(m=>m.kind==='narrative'?{...m,screen_events:[...(m.image_room? [{op:'picture',room:m.image_room}]:[]),...packets(m.text,{leading:Boolean(m.paragraph_before)})]}:m);}
  request(operation,body={}){
   if(operation==='data')return this.publicData();
   if(operation==='state')return this.state();

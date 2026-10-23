@@ -1,0 +1,193 @@
+{
+  "source": "Original ScreenStream / ScrollProbe fixture, boot and first two WAIT outputs; world timing is not compared in this presentation test.",
+  "initial": {
+    "rows": [
+      "",
+      "",
+      "The sun streams in the two broad",
+      "windows in your sitting room. There",
+      "is a pipe rack to the right of the",
+      "sofa. Bullet pock marks are the",
+      "feature of one wall, and charts and",
+      "diagrams fill another. An acid",
+      "stained table sits in the corner. To",
+      "the west there is your door. To the",
+      "north there is a plain door. You can",
+      "see an oil lamp, your armchair and",
+      "watsons armchair. In watsons",
+      "armchair there is Watson. Watson is",
+      "carrying the daily chronicle.",
+      "Watson looks up from the paper and",
+      "says \" Good morning Holmes. \"",
+      ""
+    ],
+    "counter": 0,
+    "width": 36,
+    "columns_left": 36,
+    "cursor_bitmap": "5020",
+    "cursor_bits": 2,
+    "tick": 2,
+    "calendar": [
+      1,
+      8,
+      0,
+      97
+    ]
+  },
+  "wait": [
+    {
+      "name": "WAIT",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wait.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "The sun streams in the two broad",
+          "windows in your sitting room. There",
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "Watson looks up from the paper and",
+          "says \" Good morning Holmes. \"",
+          "",
+          "You wait.",
+          ""
+        ],
+        "counter": 2,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 6,
+        "calendar": [
+          5,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 2
+    },
+    {
+      "name": "WAIT",
+      "packets": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "wait.",
+          "delimiter": "\r",
+          "capitalize": false,
+          "force": false
+        }
+      ],
+      "after": {
+        "rows": [
+          "is a pipe rack to the right of the",
+          "sofa. Bullet pock marks are the",
+          "feature of one wall, and charts and",
+          "diagrams fill another. An acid",
+          "stained table sits in the corner. To",
+          "the west there is your door. To the",
+          "north there is a plain door. You can",
+          "see an oil lamp, your armchair and",
+          "watsons armchair. In watsons",
+          "armchair there is Watson. Watson is",
+          "carrying the daily chronicle.",
+          "Watson looks up from the paper and",
+          "says \" Good morning Holmes. \"",
+          "",
+          "You wait.",
+          "",
+          "You wait.",
+          ""
+        ],
+        "counter": 2,
+        "width": 36,
+        "columns_left": 36,
+        "cursor_bitmap": "5020",
+        "cursor_bits": 2,
+        "tick": 11,
+        "calendar": [
+          10,
+          8,
+          0,
+          97
+        ]
+      },
+      "pages": [],
+      "feeds": 2
+    }
+  ]
+}

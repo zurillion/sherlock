@@ -9,17 +9,19 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Grammatica dei comandi ordinari, gruppi nominali, coordinazioni, ALL/EXCEPT, citazioni, modalità dichiarativa e completamento di un riferimento ambiguo.
 - Struttura degli oggetti e contenitori, propagazione della posizione, filtro di percezione, condizioni di luce, descrizioni per fascia oraria, prima visita e LOOK.
 - Varianti generiche di movimento, OPEN/CLOSE, TAKE/CARRY/GET, DROP, GIVE, INVENTORY, LOOK, EXAMINE e COUNT MONEY.
+- HELLO nella zona comandi e saluto rivolto a Watson, anche differito durante FOLLOW. La variante temporale del saluto è provvisoria: manca la scelta casuale originale.
+- HAIL CAB sulle dieci strade della rete, arrivo con cocchiere e denaro, GET INTO CAB e GET OUT OF CAB. Il programma del cocchiere successivo all’arrivo è sospeso.
 - WAIT di cinque minuti e presentazione dei minuti; WAIT UNTIL è ancora provvisorio.
 - Scheduler funzionale dei 24 attori, ordine, scadenze, contesti sospesi e code; nel gioco sono collegati Holmes e il programma parziale di Watson.
 - ALL dopo una domanda, OPEN/CLOSE/TAKE/DROP/GIVE collettivi e alcune varianti di esame; [FASE-2.md](FASE-2.md) precisa la copertura.
 - Salvataggio dello stato logico e dello scheduler, inclusa una domanda di chiarimento pendente, e migrazione dei vecchi file JS.
 - Mappa, teletrasporto di analisi, SVG/pixel, presentazione Spectrum riutilizzata e collegata al motore locale.
 
-L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 33 hanno una regola generica parziale: questo **non** significa che quei 33 siano completamente equivalenti all'originale.
+L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 35 hanno almeno una regola parziale: questo **non** significa che quei 35 siano completamente equivalenti all'originale.
 
 ## Limiti precisi delle parti presenti
 
-- Le citazioni possono impartire a Watson gli ordini generici documentati in [FASE-3.md](FASE-3.md), compresi ALL, WAIT e FOLLOW. Asserzioni, informazioni, deduzioni, altri interlocutori ed esclusioni restano da eseguire.
+- Le citazioni possono impartire a Watson gli ordini generici documentati in [FASE-3.md](FASE-3.md), compresi ALL, WAIT, FOLLOW e HELLO. Durante FOLLOW, fra i nuovi ordini sono accettati soltanto i saluti; gli altri restano esplicitamente mancanti. Asserzioni, informazioni, deduzioni, altri interlocutori ed esclusioni restano da eseguire.
 - Sono verificate le risposte `YOUR` e `YOUR DOOR` a `OPEN DOOR`. Non è ancora completa la ripresa di tutte le code di comandi dopo chiarimenti e conversazioni.
 - La lettera Z provoca una lettura oltre il dizionario nell'originale: non riproduciamo quell'accesso accidentale. Formati numerici anomali, overflow e tutti i limiti dell'editor non sono certificati. La UI consente al massimo 128 caratteri, limite di questa implementazione.
 - Gli algoritmi di visibilità sono tradotti, ma non ogni combinazione dinamica di luce, contenitori, peso, capacità e overflow a 8 bit è verificata.
@@ -28,7 +30,7 @@ L'inventario [results/action-coverage.json](results/action-coverage.json) elenca
 - GIVE trasferisce l'oggetto; non riproduce ancora la reazione del destinatario. COUNT riguarda il denaro.
 - Calendario e costo del giocatore sono parziali. WAIT UNTIL, interruzioni, attraversamento della mezzanotte e interazione con eventi non sono certificati; il riporto del tick a 16 bit è ora gestito dal ciclo e verificato separatamente. I riporti del calendario su lunghi periodi restano da certificare.
 - Watson parte dal primo prompt storico, con il contatore privato 15 dichiarato; il secondo contatore casuale sospende esplicitamente il programma. Le callback degli incontri restano da tradurre. Gli altri personaggi iniziano dalle posizioni nei dati, senza eseguire i programmi di inizializzazione originali: le loro posizioni possono differire dal primo prompt dell'originale. Il buongiorno di Watson è tradotto separatamente, non è l'esecuzione della sua AI.
-- La presentazione a caratteri è stata riutilizzata. La corrispondenza esatta dei nuovi pacchetti di testo con paginazione, spaziatura e contatori dell'originale richiederà prove specifiche.
+- La presentazione a caratteri è stata riutilizzata. Due WAIT consecutivi sono ora confrontati con le righe, i contatori e gli scroll originali; è verificato anche che i lotti dei minuti non aggiungano righe vuote. La corrispondenza completa in tutti i contesti resta da certificare.
 - I controlli testuali SAVE, LOAD, QUIT, PAUSE, PRINT e NOPRINT sono riconosciuti ma non eseguiti come nel gioco. I pulsanti Salva, Carica e Riavvia sono strumenti della nuova UI.
 
 ## Ancora da tradurre
@@ -37,7 +39,7 @@ L'inventario [results/action-coverage.json](results/action-coverage.json) elenca
 2. **Regole semantiche e azioni mancanti.** Completare contenitori e sedute oltre le varianti ordinarie verificate sulle poltrone; FOLLOW/COME WITH del giocatore oltre agli ordini di Watson; PUT, TAKE FROM/OFF/OUT OF, WEAR, LOCK/UNLOCK, esame approfondito, ulteriori forme di ALL e BUT/EXCEPT, azioni composte e comandi di sistema.
 3. **Conoscenze e conversazione.** Pronomi nel contesto di gioco, destinatari, richieste, fatti, deduzioni, reazioni e ordini tra attori.
 4. **AI degli NPC.** Completare lettura, nota/partenza e callback di Watson; Lestrade e tutti gli altri programmi. Eventi e scelte dinamiche, oltre alle sequenze scriptate.
-5. **Trasporti e denaro.** Cab, destinazioni, pagamento/resto/debito, reazioni del cabbie, treni e orari.
+5. **Trasporti e denaro.** Dopo chiamata e salita nel cab: dialogo e reazioni del cocchiere, attese, destinazioni, viaggio, pagamento/resto/debito; treni e orari.
 6. **Storia e regole locali.** Indizi, eventi temporali, omicidio, sospetti, arresti, combattimento, morte, vittoria e fine partita.
 7. **Equivalenza della sessione completa.** Salvataggi dell'AI e della casualità, replay con lo stesso seed, editor e MORE nei casi limite, partite complete di regressione.
 
@@ -57,3 +59,5 @@ Il ciclo funzionale è presente: completare l’inizializzazione, ricostruire gl
 Aggiornamento fase 2: 20 sequenze di confronto per ALL, 12 replay del ciclo usando costi registrati, 446 estrazioni per il calcolo casuale e prove di selezione/persistenza della scheda. Nessuna di queste prove dichiara tradotti i programmi NPC; vedere [FASE-2.md](FASE-2.md).
 
 Aggiornamento fase 3: ordini, primo contatore e seguito di Watson; 11 sequenze / 43 comandi confrontati con il riferimento isolato, più il prefisso narrativo al confine casuale. Salvataggi JS versione 3 e interruzione delle attese con ripristino degli NPC. Il contatore storico 15 non è un bootstrap generato da un seed. Vedere [FASE-3.md](FASE-3.md).
+
+Aggiornamento saluti e cab: 212 test complessivi. Sei nuove sequenze / 15 comandi confrontano testi normalizzati, orario e dieci entità selezionate. Per le chiamate del cab il programma del cocchiere è disabilitato nel riferimento: la prova attesta il prefisso fisico, non la sua conversazione. La settima traccia registrata con cocchieri attivi è documentazione del comportamento ancora mancante. Due WAIT confrontano anche le righe dello schermo originale. Dettagli e limiti: [SALUTI-E-CAB.md](SALUTI-E-CAB.md).

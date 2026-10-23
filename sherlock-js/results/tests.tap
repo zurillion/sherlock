@@ -2,1197 +2,1281 @@ TAP version 13
 # Subtest: Original collective trace: OPEN DOOR → ALL
 ok 1 - Original collective trace: OPEN DOOR → ALL
   ---
-  duration_ms: 134.899083
+  duration_ms: 27.279708
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN DOOR → EVERYTHING
 ok 2 - Original collective trace: OPEN DOOR → EVERYTHING
   ---
-  duration_ms: 33.84175
+  duration_ms: 13.993458
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN ALL DOORS
 ok 3 - Original collective trace: OPEN ALL DOORS
   ---
-  duration_ms: 55.658125
+  duration_ms: 9.4655
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN ALL
 ok 4 - Original collective trace: OPEN ALL
   ---
-  duration_ms: 16.133208
+  duration_ms: 7.563583
   type: 'test'
   ...
 # Subtest: Original collective trace: TAKE ALL
 ok 5 - Original collective trace: TAKE ALL
   ---
-  duration_ms: 17.118542
+  duration_ms: 7.707708
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN DOOR → ALL → CLOSE DOOR → ALL
 ok 6 - Original collective trace: OPEN DOOR → ALL → CLOSE DOOR → ALL
   ---
-  duration_ms: 55.046125
+  duration_ms: 23.164
   type: 'test'
   ...
 # Subtest: Original collective trace: TAKE LAMP → DROP ALL
 ok 7 - Original collective trace: TAKE LAMP → DROP ALL
   ---
-  duration_ms: 24.44175
+  duration_ms: 12.994417
   type: 'test'
   ...
 # Subtest: Original collective trace: ALL
 ok 8 - Original collective trace: ALL
   ---
-  duration_ms: 14.653042
+  duration_ms: 3.711583
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN DOOR → ALL → WEST
 ok 9 - Original collective trace: OPEN DOOR → ALL → WEST
   ---
-  duration_ms: 80.7785
+  duration_ms: 17.055083
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN ALL → OPEN ALL
 ok 10 - Original collective trace: OPEN ALL → OPEN ALL
   ---
-  duration_ms: 43.177834
+  duration_ms: 14.190083
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN YOUR DOOR → OPEN DOOR → ALL
 ok 11 - Original collective trace: OPEN YOUR DOOR → OPEN DOOR → ALL
   ---
-  duration_ms: 25.224583
+  duration_ms: 16.291709
   type: 'test'
   ...
 # Subtest: Original collective trace: TAKE ALL LAMPS
 ok 12 - Original collective trace: TAKE ALL LAMPS
   ---
-  duration_ms: 8.568875
+  duration_ms: 6.658708
   type: 'test'
   ...
 # Subtest: Original collective trace: TAKE LAMP → TAKE ALL
 ok 13 - Original collective trace: TAKE LAMP → TAKE ALL
   ---
-  duration_ms: 17.67575
+  duration_ms: 10.613083
   type: 'test'
   ...
 # Subtest: Original collective trace: DROP ALL
 ok 14 - Original collective trace: DROP ALL
   ---
-  duration_ms: 9.116958
+  duration_ms: 4.786541
   type: 'test'
   ...
 # Subtest: Original collective trace: EXAMINE ALL DOORS
 ok 15 - Original collective trace: EXAMINE ALL DOORS
   ---
-  duration_ms: 20.735458
+  duration_ms: 7.51025
   type: 'test'
   ...
 # Subtest: Original collective trace: CLOSE ALL
 ok 16 - Original collective trace: CLOSE ALL
   ---
-  duration_ms: 12.010208
+  duration_ms: 4.608792
   type: 'test'
   ...
 # Subtest: Original collective trace: GIVE ALL TO WATSON
 ok 17 - Original collective trace: GIVE ALL TO WATSON
   ---
-  duration_ms: 13.748
+  duration_ms: 7.293875
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN DOOR → ALL. WEST
 ok 18 - Original collective trace: OPEN DOOR → ALL. WEST
   ---
-  duration_ms: 79.901708
+  duration_ms: 16.036083
   type: 'test'
   ...
 # Subtest: Original collective trace: TAKE LAMP → GIVE ALL TO WATSON
 ok 19 - Original collective trace: TAKE LAMP → GIVE ALL TO WATSON
   ---
-  duration_ms: 35.630417
+  duration_ms: 13.909542
   type: 'test'
   ...
 # Subtest: Original collective trace: OPEN DOOR → ALL → ALL
 ok 20 - Original collective trace: OPEN DOOR → ALL → ALL
   ---
-  duration_ms: 27.561916
+  duration_ms: 14.830666
   type: 'test'
   ...
 # Subtest: ALL after clarification survives logical save/load
 ok 21 - ALL after clarification survives logical save/load
   ---
-  duration_ms: 92.835417
+  duration_ms: 27.892125
   type: 'test'
   ...
 # Subtest: The playable bundle has no CPU, original binary or backend dependency
 ok 22 - The playable bundle has no CPU, original binary or backend dependency
   ---
-  duration_ms: 117.742416
+  duration_ms: 28.024875
+  type: 'test'
+  ...
+# Subtest: Original feedback trace: hello_reading
+ok 23 - Original feedback trace: hello_reading
+  ---
+  duration_ms: 37.278916
+  type: 'test'
+  ...
+# Subtest: Original feedback trace: hello_during_follow
+ok 24 - Original feedback trace: hello_during_follow
+  ---
+  duration_ms: 23.580458
+  type: 'test'
+  ...
+# Subtest: Original feedback trace: hail_prefix
+ok 25 - Original feedback trace: hail_prefix
+  ---
+  duration_ms: 30.879667
+  type: 'test'
+  ...
+# Subtest: Original feedback trace: get_cab
+ok 26 - Original feedback trace: get_cab
+  ---
+  duration_ms: 6.949791
+  type: 'test'
+  ...
+# Subtest: Original feedback trace: hail_inside
+ok 27 - Original feedback trace: hail_inside
+  ---
+  duration_ms: 8.936667
+  type: 'test'
+  ...
+# Subtest: Original feedback trace: hail_cabbie
+ok 28 - Original feedback trace: hail_cabbie
+  ---
+  duration_ms: 9.918917
+  type: 'test'
+  ...
+# Subtest: The blank line between commands matches native WAIT rows, counters and scrolls
+ok 29 - The blank line between commands matches native WAIT rows, counters and scrolls
+  ---
+  duration_ms: 27.096792
+  type: 'test'
+  ...
+# Subtest: There is one paragraph per player action, with no extra paragraph before an NPC reply
+ok 30 - There is one paragraph per player action, with no extra paragraph before an NPC reply
+  ---
+  duration_ms: 9.234958
+  type: 'test'
+  ...
+# Subtest: Minute batches do not add blank lines and a repeated action gets its own paragraph
+ok 31 - Minute batches do not add blank lines and a repeated action gets its own paragraph
+  ---
+  duration_ms: 68.996166
+  type: 'test'
+  ...
+# Subtest: Input errors leave the upper text alone
+ok 32 - Input errors leave the upper text alone
+  ---
+  duration_ms: 28.187791
+  type: 'test'
+  ...
+# Subtest: A pending greeting during FOLLOW survives save/load and waits for the ordinary program point
+ok 33 - A pending greeting during FOLLOW survives save/load and waits for the ordinary program point
+  ---
+  duration_ms: 44.133333
+  type: 'test'
+  ...
+# Subtest: Greeting prose uses original time filters and its provisional variant policy is explicit
+ok 34 - Greeting prose uses original time filters and its provisional variant policy is explicit
+  ---
+  duration_ms: 5.647583
+  type: 'test'
+  ...
+# Subtest: The cab arrives on every road in its original network, with driver and money descendants
+ok 35 - The cab arrives on every road in its original network, with driver and money descendants
+  ---
+  duration_ms: 88.687625
+  type: 'test'
+  ...
+# Subtest: Cab call and containment survive a logical save; unported journeys stay explicit
+ok 36 - Cab call and containment survive a logical save; unported journeys stay explicit
+  ---
+  duration_ms: 52.034917
   type: 'test'
   ...
 # Subtest: 1,804 frozen alphabetical comparisons against original lookup
-ok 23 - 1,804 frozen alphabetical comparisons against original lookup
+ok 37 - 1,804 frozen alphabetical comparisons against original lookup
   ---
-  duration_ms: 40.316334
+  duration_ms: 17.700583
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "LOOK"
-ok 24 - Native grammar fixture: "LOOK"
+ok 38 - Native grammar fixture: "LOOK"
   ---
-  duration_ms: 2.895
+  duration_ms: 1.709583
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "XYZZY"
-ok 25 - Native grammar fixture: "XYZZY"
+ok 39 - Native grammar fixture: "XYZZY"
   ---
-  duration_ms: 0.318416
+  duration_ms: 0.326375
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE XYZZY"
-ok 26 - Native grammar fixture: "TAKE XYZZY"
+ok 40 - Native grammar fixture: "TAKE XYZZY"
   ---
-  duration_ms: 0.171083
+  duration_ms: 1.296334
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "THE"
-ok 27 - Native grammar fixture: "THE"
+ok 41 - Native grammar fixture: "THE"
   ---
-  duration_ms: 0.185875
+  duration_ms: 0.113708
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "BOOK"
-ok 28 - Native grammar fixture: "BOOK"
+ok 42 - Native grammar fixture: "BOOK"
   ---
-  duration_ms: 0.113292
+  duration_ms: 0.070042
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE TAKE"
-ok 29 - Native grammar fixture: "TAKE TAKE"
+ok 43 - Native grammar fixture: "TAKE TAKE"
   ---
-  duration_ms: 0.095834
+  duration_ms: 0.067375
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE THE THE BOOK"
-ok 30 - Native grammar fixture: "TAKE THE THE BOOK"
+ok 44 - Native grammar fixture: "TAKE THE THE BOOK"
   ---
-  duration_ms: 0.363667
+  duration_ms: 0.15075
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOK BOOK BOOK"
-ok 31 - Native grammar fixture: "TAKE BOOK BOOK BOOK"
+ok 45 - Native grammar fixture: "TAKE BOOK BOOK BOOK"
   ---
-  duration_ms: 0.438334
+  duration_ms: 0.111334
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "THE TAKE BOOK"
-ok 32 - Native grammar fixture: "THE TAKE BOOK"
+ok 46 - Native grammar fixture: "THE TAKE BOOK"
   ---
-  duration_ms: 0.275375
+  duration_ms: 0.115916
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "GO NORTH NORTH"
-ok 33 - Native grammar fixture: "GO NORTH NORTH"
+ok 47 - Native grammar fixture: "GO NORTH NORTH"
   ---
-  duration_ms: 0.141917
+  duration_ms: 0.134958
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "LOOK 60"
-ok 34 - Native grammar fixture: "LOOK 60"
+ok 48 - Native grammar fixture: "LOOK 60"
   ---
-  duration_ms: 0.480208
+  duration_ms: 0.300166
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TELL WATSON \\"XYZZY\\""
-ok 35 - Native grammar fixture: "TELL WATSON \\"XYZZY\\""
+ok 49 - Native grammar fixture: "TELL WATSON \\"XYZZY\\""
   ---
-  duration_ms: 0.098458
+  duration_ms: 0.042667
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "ABOVE"
-ok 36 - Native grammar fixture: "ABOVE"
+ok 50 - Native grammar fixture: "ABOVE"
   ---
-  duration_ms: 0.071875
+  duration_ms: 0.029667
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "ASKS"
-ok 37 - Native grammar fixture: "ASKS"
+ok 51 - Native grammar fixture: "ASKS"
   ---
-  duration_ms: 5.418792
+  duration_ms: 0.026875
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOK"
-ok 38 - Native grammar fixture: "TAKE BOOK"
+ok 52 - Native grammar fixture: "TAKE BOOK"
   ---
-  duration_ms: 0.199042
+  duration_ms: 2.670875
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOKS"
-ok 39 - Native grammar fixture: "TAKE BOOKS"
+ok 53 - Native grammar fixture: "TAKE BOOKS"
   ---
-  duration_ms: 0.12575
+  duration_ms: 0.203375
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE THE"
-ok 40 - Native grammar fixture: "TAKE THE"
+ok 54 - Native grammar fixture: "TAKE THE"
   ---
-  duration_ms: 0.111167
+  duration_ms: 0.115208
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE THE BOOK"
-ok 41 - Native grammar fixture: "TAKE THE BOOK"
+ok 55 - Native grammar fixture: "TAKE THE BOOK"
   ---
-  duration_ms: 0.103
+  duration_ms: 0.09025
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE HEAVY BOOK"
-ok 42 - Native grammar fixture: "TAKE HEAVY BOOK"
+ok 56 - Native grammar fixture: "TAKE HEAVY BOOK"
   ---
-  duration_ms: 0.095125
+  duration_ms: 0.078083
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOK GUN"
-ok 43 - Native grammar fixture: "TAKE BOOK GUN"
+ok 57 - Native grammar fixture: "TAKE BOOK GUN"
   ---
-  duration_ms: 0.099167
+  duration_ms: 0.078667
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE 12:30"
-ok 44 - Native grammar fixture: "TAKE 12:30"
+ok 58 - Native grammar fixture: "TAKE 12:30"
   ---
-  duration_ms: 0.768292
+  duration_ms: 0.229459
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOK AND GUN"
-ok 45 - Native grammar fixture: "TAKE BOOK AND GUN"
+ok 59 - Native grammar fixture: "TAKE BOOK AND GUN"
   ---
-  duration_ms: 0.175708
+  duration_ms: 0.16275
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOK, DROP BOOK"
-ok 46 - Native grammar fixture: "TAKE BOOK, DROP BOOK"
+ok 60 - Native grammar fixture: "TAKE BOOK, DROP BOOK"
   ---
-  duration_ms: 0.218541
+  duration_ms: 0.080042
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "LOOK. THE"
-ok 47 - Native grammar fixture: "LOOK. THE"
+ok 61 - Native grammar fixture: "LOOK. THE"
   ---
-  duration_ms: 0.087375
+  duration_ms: 0.060625
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "GIVE BOOK TO WATSON"
-ok 48 - Native grammar fixture: "GIVE BOOK TO WATSON"
+ok 62 - Native grammar fixture: "GIVE BOOK TO WATSON"
   ---
-  duration_ms: 0.0655
+  duration_ms: 0.069917
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE BOOK WITH GUN"
-ok 49 - Native grammar fixture: "TAKE BOOK WITH GUN"
+ok 63 - Native grammar fixture: "TAKE BOOK WITH GUN"
   ---
-  duration_ms: 0.048334
+  duration_ms: 0.060041
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "LOOK AT BOOK"
-ok 50 - Native grammar fixture: "LOOK AT BOOK"
+ok 64 - Native grammar fixture: "LOOK AT BOOK"
   ---
-  duration_ms: 0.059166
+  duration_ms: 0.058583
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "LOOK NORTH"
-ok 51 - Native grammar fixture: "LOOK NORTH"
+ok 65 - Native grammar fixture: "LOOK NORTH"
   ---
-  duration_ms: 0.052584
+  duration_ms: 0.068708
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "GO NORTH"
-ok 52 - Native grammar fixture: "GO NORTH"
+ok 66 - Native grammar fixture: "GO NORTH"
   ---
-  duration_ms: 0.037083
+  duration_ms: 0.053208
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "NORTH"
-ok 53 - Native grammar fixture: "NORTH"
+ok 67 - Native grammar fixture: "NORTH"
   ---
-  duration_ms: 0.133084
+  duration_ms: 0.0485
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "EXAMINE BOOK"
-ok 54 - Native grammar fixture: "EXAMINE BOOK"
+ok 68 - Native grammar fixture: "EXAMINE BOOK"
   ---
-  duration_ms: 0.098083
+  duration_ms: 0.0625
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TELL WATSON \\"LOOK\\""
-ok 55 - Native grammar fixture: "TELL WATSON \\"LOOK\\""
+ok 69 - Native grammar fixture: "TELL WATSON \\"LOOK\\""
   ---
-  duration_ms: 0.144375
+  duration_ms: 0.113958
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TELL WATSON \\"LOOK"
-ok 56 - Native grammar fixture: "TELL WATSON \\"LOOK"
+ok 70 - Native grammar fixture: "TELL WATSON \\"LOOK"
   ---
-  duration_ms: 0.083667
+  duration_ms: 0.136667
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "IS LOOK"
-ok 57 - Native grammar fixture: "IS LOOK"
+ok 71 - Native grammar fixture: "IS LOOK"
   ---
-  duration_ms: 0.139458
+  duration_ms: 0.0745
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "TAKE ALL"
-ok 58 - Native grammar fixture: "TAKE ALL"
+ok 72 - Native grammar fixture: "TAKE ALL"
   ---
-  duration_ms: 0.138709
+  duration_ms: 0.093417
   type: 'test'
   ...
 # Subtest: Native grammar fixture: ""
-ok 59 - Native grammar fixture: ""
+ok 73 - Native grammar fixture: ""
   ---
-  duration_ms: 0.063167
+  duration_ms: 0.061416
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "QUIT"
-ok 60 - Native grammar fixture: "QUIT"
+ok 74 - Native grammar fixture: "QUIT"
   ---
-  duration_ms: 0.069042
+  duration_ms: 0.060834
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "SAVE"
-ok 61 - Native grammar fixture: "SAVE"
+ok 75 - Native grammar fixture: "SAVE"
   ---
-  duration_ms: 0.051583
+  duration_ms: 0.046666
   type: 'test'
   ...
 # Subtest: Native grammar fixture: "PAUSE"
-ok 62 - Native grammar fixture: "PAUSE"
+ok 76 - Native grammar fixture: "PAUSE"
   ---
-  duration_ms: 0.047
+  duration_ms: 0.045333
   type: 'test'
   ...
 # Subtest: Ordinary numeric formats use original token values
-ok 63 - Ordinary numeric formats use original token values
+ok 77 - Ordinary numeric formats use original token values
   ---
-  duration_ms: 23.92625
+  duration_ms: 12.224666
   type: 'test'
   ...
 # Subtest: Quotations, persistent mode and standalone statements
-ok 64 - Quotations, persistent mode and standalone statements
+ok 78 - Quotations, persistent mode and standalone statements
   ---
-  duration_ms: 2.471209
+  duration_ms: 0.425292
   type: 'test'
   ...
 # Subtest: A continuation fills empty fields and a new verb replaces it
-ok 65 - A continuation fills empty fields and a new verb replaces it
+ok 79 - A continuation fills empty fields and a new verb replaces it
   ---
-  duration_ms: 0.401
+  duration_ms: 0.133667
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOOK"
-ok 66 - Whole-line and special grammar: "LOOK"
+ok 80 - Whole-line and special grammar: "LOOK"
   ---
-  duration_ms: 0.528458
+  duration_ms: 0.80325
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE BOOK"
-ok 67 - Whole-line and special grammar: "TAKE BOOK"
+ok 81 - Whole-line and special grammar: "TAKE BOOK"
   ---
-  duration_ms: 0.115708
+  duration_ms: 0.114584
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE BOOKS"
-ok 68 - Whole-line and special grammar: "TAKE BOOKS"
+ok 82 - Whole-line and special grammar: "TAKE BOOKS"
   ---
-  duration_ms: 0.083875
+  duration_ms: 0.084292
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE THE"
-ok 69 - Whole-line and special grammar: "TAKE THE"
+ok 83 - Whole-line and special grammar: "TAKE THE"
   ---
-  duration_ms: 0.086875
+  duration_ms: 0.094625
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "XYZZY"
-ok 70 - Whole-line and special grammar: "XYZZY"
+ok 84 - Whole-line and special grammar: "XYZZY"
   ---
-  duration_ms: 0.065667
+  duration_ms: 0.06675
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE XYZZY"
-ok 71 - Whole-line and special grammar: "TAKE XYZZY"
+ok 85 - Whole-line and special grammar: "TAKE XYZZY"
   ---
-  duration_ms: 0.054625
+  duration_ms: 0.0545
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOOK 60"
-ok 72 - Whole-line and special grammar: "LOOK 60"
+ok 86 - Whole-line and special grammar: "LOOK 60"
   ---
-  duration_ms: 0.071541
+  duration_ms: 0.068167
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE TAKE"
-ok 73 - Whole-line and special grammar: "TAKE TAKE"
+ok 87 - Whole-line and special grammar: "TAKE TAKE"
   ---
-  duration_ms: 0.067917
+  duration_ms: 0.069125
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE THE THE BOOK"
-ok 74 - Whole-line and special grammar: "TAKE THE THE BOOK"
+ok 88 - Whole-line and special grammar: "TAKE THE THE BOOK"
   ---
-  duration_ms: 0.068291
+  duration_ms: 0.06475
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "THE"
-ok 75 - Whole-line and special grammar: "THE"
+ok 89 - Whole-line and special grammar: "THE"
   ---
-  duration_ms: 0.051875
+  duration_ms: 0.050417
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "BOOK"
-ok 76 - Whole-line and special grammar: "BOOK"
+ok 90 - Whole-line and special grammar: "BOOK"
   ---
-  duration_ms: 0.052667
+  duration_ms: 0.11675
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: ""
-ok 77 - Whole-line and special grammar: ""
+ok 91 - Whole-line and special grammar: ""
   ---
-  duration_ms: 0.058083
+  duration_ms: 0.047833
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOOK. THE"
-ok 78 - Whole-line and special grammar: "LOOK. THE"
+ok 92 - Whole-line and special grammar: "LOOK. THE"
   ---
-  duration_ms: 0.073
+  duration_ms: 0.080792
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOOK THEN THE"
-ok 79 - Whole-line and special grammar: "LOOK THEN THE"
+ok 93 - Whole-line and special grammar: "LOOK THEN THE"
   ---
-  duration_ms: 0.067708
+  duration_ms: 0.137834
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOOK, THE"
-ok 80 - Whole-line and special grammar: "LOOK, THE"
+ok 94 - Whole-line and special grammar: "LOOK, THE"
   ---
-  duration_ms: 0.0955
+  duration_ms: 0.09675
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE BOOK AND DROP GUN"
-ok 81 - Whole-line and special grammar: "TAKE BOOK AND DROP GUN"
+ok 95 - Whole-line and special grammar: "TAKE BOOK AND DROP GUN"
   ---
-  duration_ms: 0.1115
+  duration_ms: 0.094333
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE BOOK AND GUN"
-ok 82 - Whole-line and special grammar: "TAKE BOOK AND GUN"
+ok 96 - Whole-line and special grammar: "TAKE BOOK AND GUN"
   ---
-  duration_ms: 0.086333
+  duration_ms: 0.08275
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE ALL BUT BOOK"
-ok 83 - Whole-line and special grammar: "TAKE ALL BUT BOOK"
+ok 97 - Whole-line and special grammar: "TAKE ALL BUT BOOK"
   ---
-  duration_ms: 0.109333
+  duration_ms: 0.090334
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE EVERYTHING EXCEPT BOOK"
-ok 84 - Whole-line and special grammar: "TAKE EVERYTHING EXCEPT BOOK"
+ok 98 - Whole-line and special grammar: "TAKE EVERYTHING EXCEPT BOOK"
   ---
-  duration_ms: 0.101208
+  duration_ms: 0.096792
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE BOOK EXCEPT GUN"
-ok 85 - Whole-line and special grammar: "TAKE BOOK EXCEPT GUN"
+ok 99 - Whole-line and special grammar: "TAKE BOOK EXCEPT GUN"
   ---
-  duration_ms: 0.0715
+  duration_ms: 0.076792
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "ALL"
-ok 86 - Whole-line and special grammar: "ALL"
+ok 100 - Whole-line and special grammar: "ALL"
   ---
-  duration_ms: 70.210584
+  duration_ms: 0.056334
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE ALL ALL"
-ok 87 - Whole-line and special grammar: "TAKE ALL ALL"
+ok 101 - Whole-line and special grammar: "TAKE ALL ALL"
   ---
-  duration_ms: 2.548
+  duration_ms: 0.053042
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "HE KILLED YOU"
-ok 88 - Whole-line and special grammar: "HE KILLED YOU"
+ok 102 - Whole-line and special grammar: "HE KILLED YOU"
   ---
-  duration_ms: 1.349542
+  duration_ms: 0.074375
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "IT IS BOOK"
-ok 89 - Whole-line and special grammar: "IT IS BOOK"
+ok 103 - Whole-line and special grammar: "IT IS BOOK"
   ---
-  duration_ms: 0.107875
+  duration_ms: 0.134208
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "THEY HAD GUN"
-ok 90 - Whole-line and special grammar: "THEY HAD GUN"
+ok 104 - Whole-line and special grammar: "THEY HAD GUN"
   ---
-  duration_ms: 0.200417
+  duration_ms: 0.14725
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "WATSON KILLED YOU"
-ok 91 - Whole-line and special grammar: "WATSON KILLED YOU"
+ok 105 - Whole-line and special grammar: "WATSON KILLED YOU"
   ---
-  duration_ms: 0.076916
+  duration_ms: 0.093416
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "HE HAD BOOK AND GUN"
-ok 92 - Whole-line and special grammar: "HE HAD BOOK AND GUN"
+ok 106 - Whole-line and special grammar: "HE HAD BOOK AND GUN"
   ---
-  duration_ms: 0.127917
+  duration_ms: 0.125334
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "HE HAD BOOK THEREFORE IT IS GUN"
-ok 93 - Whole-line and special grammar: "HE HAD BOOK THEREFORE IT IS GUN"
+ok 107 - Whole-line and special grammar: "HE HAD BOOK THEREFORE IT IS GUN"
   ---
-  duration_ms: 2.701584
+  duration_ms: 0.097084
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"LOOK\\""
-ok 94 - Whole-line and special grammar: "TELL WATSON \\"LOOK\\""
+ok 108 - Whole-line and special grammar: "TELL WATSON \\"LOOK\\""
   ---
-  duration_ms: 1.016417
+  duration_ms: 0.080208
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"THE\\""
-ok 95 - Whole-line and special grammar: "TELL WATSON \\"THE\\""
+ok 109 - Whole-line and special grammar: "TELL WATSON \\"THE\\""
   ---
-  duration_ms: 0.842
+  duration_ms: 0.065084
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"XYZZY\\""
-ok 96 - Whole-line and special grammar: "TELL WATSON \\"XYZZY\\""
+ok 110 - Whole-line and special grammar: "TELL WATSON \\"XYZZY\\""
   ---
-  duration_ms: 0.074
+  duration_ms: 0.071208
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU\\""
-ok 97 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU\\""
+ok 111 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU\\""
   ---
-  duration_ms: 0.653459
+  duration_ms: 0.053417
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU BECAUSE HE HAD GUN\\""
-ok 98 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU BECAUSE HE HAD GUN\\""
+ok 112 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU BECAUSE HE HAD GUN\\""
   ---
-  duration_ms: 0.221334
+  duration_ms: 0.058
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU, THAT HAD GUN\\""
-ok 99 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU, THAT HAD GUN\\""
+ok 113 - Whole-line and special grammar: "TELL WATSON \\"WATSON KILLED YOU, THAT HAD GUN\\""
   ---
-  duration_ms: 0.347791
+  duration_ms: 0.051334
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"TAKE BOOK. DROP BOOK\\""
-ok 100 - Whole-line and special grammar: "TELL WATSON \\"TAKE BOOK. DROP BOOK\\""
+ok 114 - Whole-line and special grammar: "TELL WATSON \\"TAKE BOOK. DROP BOOK\\""
   ---
-  duration_ms: 0.101834
+  duration_ms: 0.034417
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "\\"LOOK\\""
-ok 101 - Whole-line and special grammar: "\\"LOOK\\""
+ok 115 - Whole-line and special grammar: "\\"LOOK\\""
   ---
-  duration_ms: 0.105667
+  duration_ms: 0.024875
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "\\"TAKE BOOK\\" \\"DROP BOOK\\""
-ok 102 - Whole-line and special grammar: "\\"TAKE BOOK\\" \\"DROP BOOK\\""
+ok 116 - Whole-line and special grammar: "\\"TAKE BOOK\\" \\"DROP BOOK\\""
   ---
-  duration_ms: 0.1485
+  duration_ms: 0.027041
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "\\"\\""
-ok 103 - Whole-line and special grammar: "\\"\\""
+ok 117 - Whole-line and special grammar: "\\"\\""
   ---
-  duration_ms: 0.116583
+  duration_ms: 0.021041
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "\\"LOOK. WATSON KILLED YOU\\""
-ok 104 - Whole-line and special grammar: "\\"LOOK. WATSON KILLED YOU\\""
+ok 118 - Whole-line and special grammar: "\\"LOOK. WATSON KILLED YOU\\""
   ---
-  duration_ms: 0.076542
+  duration_ms: 0.031875
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "\\"WATSON KILLED YOU. LOOK\\""
-ok 105 - Whole-line and special grammar: "\\"WATSON KILLED YOU. LOOK\\""
+ok 119 - Whole-line and special grammar: "\\"WATSON KILLED YOU. LOOK\\""
   ---
-  duration_ms: 0.098708
+  duration_ms: 0.0295
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TELL WATSON \\"LOOK"
-ok 106 - Whole-line and special grammar: "TELL WATSON \\"LOOK"
+ok 120 - Whole-line and special grammar: "TELL WATSON \\"LOOK"
   ---
-  duration_ms: 0.210083
+  duration_ms: 0.034625
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "NO"
-ok 107 - Whole-line and special grammar: "NO"
+ok 121 - Whole-line and special grammar: "NO"
   ---
-  duration_ms: 0.1365
+  duration_ms: 0.019667
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "SAVE"
-ok 108 - Whole-line and special grammar: "SAVE"
+ok 122 - Whole-line and special grammar: "SAVE"
   ---
-  duration_ms: 0.122875
+  duration_ms: 0.020875
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOAD"
-ok 109 - Whole-line and special grammar: "LOAD"
+ok 123 - Whole-line and special grammar: "LOAD"
   ---
-  duration_ms: 0.080708
+  duration_ms: 0.078625
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "QUIT"
-ok 110 - Whole-line and special grammar: "QUIT"
+ok 124 - Whole-line and special grammar: "QUIT"
   ---
-  duration_ms: 0.05625
+  duration_ms: 0.028167
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "PAUSE"
-ok 111 - Whole-line and special grammar: "PAUSE"
+ok 125 - Whole-line and special grammar: "PAUSE"
   ---
-  duration_ms: 0.052291
+  duration_ms: 0.017834
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "PRINT"
-ok 112 - Whole-line and special grammar: "PRINT"
+ok 126 - Whole-line and special grammar: "PRINT"
   ---
-  duration_ms: 0.054667
+  duration_ms: 0.016625
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "NOPRINT"
-ok 113 - Whole-line and special grammar: "NOPRINT"
+ok 127 - Whole-line and special grammar: "NOPRINT"
   ---
-  duration_ms: 0.439375
+  duration_ms: 0.027084
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "SAVE LOOK"
-ok 114 - Whole-line and special grammar: "SAVE LOOK"
+ok 128 - Whole-line and special grammar: "SAVE LOOK"
   ---
-  duration_ms: 0.313708
+  duration_ms: 0.031541
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "LOOK SAVE"
-ok 115 - Whole-line and special grammar: "LOOK SAVE"
+ok 129 - Whole-line and special grammar: "LOOK SAVE"
   ---
-  duration_ms: 0.086042
+  duration_ms: 0.020667
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE 12:30"
-ok 116 - Whole-line and special grammar: "TAKE 12:30"
+ok 130 - Whole-line and special grammar: "TAKE 12:30"
   ---
-  duration_ms: 0.141416
+  duration_ms: 0.037667
   type: 'test'
   ...
 # Subtest: Whole-line and special grammar: "TAKE £1"
-ok 117 - Whole-line and special grammar: "TAKE £1"
+ok 131 - Whole-line and special grammar: "TAKE £1"
   ---
-  duration_ms: 0.142833
+  duration_ms: 0.029584
   type: 'test'
   ...
 # Subtest: Several quotations are preserved in order, not overwritten
-ok 118 - Several quotations are preserved in order, not overwritten
+ok 132 - Several quotations are preserved in order, not overwritten
   ---
-  duration_ms: 0.16075
+  duration_ms: 0.156417
   type: 'test'
   ...
 # Subtest: Random arithmetic matches every frozen original extraction with its recorded input pairs
-ok 119 - Random arithmetic matches every frozen original extraction with its recorded input pairs
+ok 133 - Random arithmetic matches every frozen original extraction with its recorded input pairs
   ---
-  duration_ms: 20.1255
+  duration_ms: 4.701333
   type: 'test'
   ...
 # Subtest: Unavailable inputs leave the random source untouched, instead of substituting Math.random
-ok 120 - Unavailable inputs leave the random source untouched, instead of substituting Math.random
+ok 134 - Unavailable inputs leave the random source untouched, instead of substituting Math.random
   ---
-  duration_ms: 0.878542
+  duration_ms: 0.34175
   type: 'test'
   ...
 # Subtest: Random state and explicit input provider reproduce later choices after save/load
-ok 121 - Random state and explicit input provider reproduce later choices after save/load
+ok 135 - Random state and explicit input provider reproduce later choices after save/load
   ---
-  duration_ms: 0.57475
+  duration_ms: 0.414333
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: avvio
-ok 122 - Original scheduler cost replay: avvio
+ok 136 - Original scheduler cost replay: avvio
   ---
-  duration_ms: 7.742459
+  duration_ms: 4.132625
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: LOOK
-ok 123 - Original scheduler cost replay: LOOK
+ok 137 - Original scheduler cost replay: LOOK
   ---
-  duration_ms: 1.631792
+  duration_ms: 0.426125
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: errore lessicale
-ok 124 - Original scheduler cost replay: errore lessicale
+ok 138 - Original scheduler cost replay: errore lessicale
   ---
-  duration_ms: 0.248334
+  duration_ms: 0.123541
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: errore sintattico
-ok 125 - Original scheduler cost replay: errore sintattico
+ok 139 - Original scheduler cost replay: errore sintattico
   ---
-  duration_ms: 0.282125
+  duration_ms: 0.142917
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: rifiuto semantico
-ok 126 - Original scheduler cost replay: rifiuto semantico
+ok 140 - Original scheduler cost replay: rifiuto semantico
   ---
-  duration_ms: 0.576583
+  duration_ms: 0.443458
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: disambiguazione
-ok 127 - Original scheduler cost replay: disambiguazione
+ok 141 - Original scheduler cost replay: disambiguazione
   ---
-  duration_ms: 0.381625
+  duration_ms: 0.176708
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: due comandi
-ok 128 - Original scheduler cost replay: due comandi
+ok 142 - Original scheduler cost replay: due comandi
   ---
-  duration_ms: 1.124959
+  duration_ms: 0.964875
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: WAIT
-ok 129 - Original scheduler cost replay: WAIT
+ok 143 - Original scheduler cost replay: WAIT
   ---
-  duration_ms: 1.23775
+  duration_ms: 1.084208
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: WAIT UNTIL
-ok 130 - Original scheduler cost replay: WAIT UNTIL
+ok 144 - Original scheduler cost replay: WAIT UNTIL
   ---
-  duration_ms: 0.934917
+  duration_ms: 0.503709
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: WAIT UNTIL interrotto
-ok 131 - Original scheduler cost replay: WAIT UNTIL interrotto
+ok 145 - Original scheduler cost replay: WAIT UNTIL interrotto
   ---
-  duration_ms: 0.543791
+  duration_ms: 0.609041
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: timeout senza input
-ok 132 - Original scheduler cost replay: timeout senza input
+ok 146 - Original scheduler cost replay: timeout senza input
   ---
-  duration_ms: 84.986
+  duration_ms: 0.867792
   type: 'test'
   ...
 # Subtest: Original scheduler cost replay: timeout input parziale
-ok 133 - Original scheduler cost replay: timeout input parziale
+ok 147 - Original scheduler cost replay: timeout input parziale
   ---
-  duration_ms: 6.93625
+  duration_ms: 1.348334
   type: 'test'
   ...
 # Subtest: Same-tick messages and effects are visible to later actors in table order
-ok 134 - Same-tick messages and effects are visible to later actors in table order
+ok 148 - Same-tick messages and effects are visible to later actors in table order
   ---
-  duration_ms: 2.82575
+  duration_ms: 0.23375
   type: 'test'
   ...
 # Subtest: Zero-cost steps and a suspended input retain one prepared context across save/load
-ok 135 - Zero-cost steps and a suspended input retain one prepared context across save/load
+ok 149 - Zero-cost steps and a suspended input retain one prepared context across save/load
   ---
-  duration_ms: 1.695625
+  duration_ms: 0.618333
   type: 'test'
   ...
 # Subtest: Services precede the next tick; deadline comparison and addition remain unsigned 16-bit
-ok 136 - Services precede the next tick; deadline comparison and addition remain unsigned 16-bit
+ok 150 - Services precede the next tick; deadline comparison and addition remain unsigned 16-bit
   ---
-  duration_ms: 0.303167
+  duration_ms: 0.347125
   type: 'test'
   ...
 # Subtest: A program that never yields is diagnosed without advancing the calendar
-ok 137 - A program that never yields is diagnosed without advancing the calendar
+ok 151 - A program that never yields is diagnosed without advancing the calendar
   ---
-  duration_ms: 1.717833
+  duration_ms: 0.570542
   type: 'test'
   ...
 # Subtest: WAIT produces five UI clock frames while the domain logic remains local
-ok 138 - WAIT produces five UI clock frames while the domain logic remains local
+ok 152 - WAIT produces five UI clock frames while the domain logic remains local
   ---
-  duration_ms: 196.151166
+  duration_ms: 61.482375
   type: 'test'
   ...
 # Subtest: SAVE/LOAD preserve logical state and detect corrupted files atomically
-ok 139 - SAVE/LOAD preserve logical state and detect corrupted files atomically
+ok 153 - SAVE/LOAD preserve logical state and detect corrupted files atomically
   ---
-  duration_ms: 156.170667
+  duration_ms: 57.82675
   type: 'test'
   ...
 # Subtest: Unsupported narrative scripts never invoke an external service
-ok 140 - Unsupported narrative scripts never invoke an external service
+ok 154 - Unsupported narrative scripts never invoke an external service
   ---
-  duration_ms: 65.405917
+  duration_ms: 14.329083
   type: 'test'
   ...
 # Subtest: Snapshot validation rejects a containment cycle
-ok 141 - Snapshot validation rejects a containment cycle
+ok 155 - Snapshot validation rejects a containment cycle
   ---
-  duration_ms: 12.704
+  duration_ms: 4.270542
   type: 'test'
   ...
 # Subtest: WAIT UNTIL interruption restores NPC state and queues at the displayed minute, not only the clock
-ok 142 - WAIT UNTIL interruption restores NPC state and queues at the displayed minute, not only the clock
+ok 156 - WAIT UNTIL interruption restores NPC state and queues at the displayed minute, not only the clock
   ---
-  duration_ms: 358.895875
+  duration_ms: 172.897125
   type: 'test'
   ...
 # Subtest: Minute animation releases Watson text only in its minute and never leaks a future suspended branch on interruption
-ok 143 - Minute animation releases Watson text only in its minute and never leaks a future suspended branch on interruption
+ok 157 - Minute animation releases Watson text only in its minute and never leaks a future suspended branch on interruption
   ---
-  duration_ms: 198.052417
+  duration_ms: 105.43075
   type: 'test'
   ...
 # Subtest: A clarification following a multi-minute command is retained in the last frame
-ok 144 - A clarification following a multi-minute command is retained in the last frame
+ok 158 - A clarification following a multi-minute command is retained in the last frame
   ---
-  duration_ms: 74.543083
+  duration_ms: 55.961666
   type: 'test'
   ...
 # Subtest: Minute frames expose actor state at that minute without advancing or rewinding the live domain
-ok 145 - Minute frames expose actor state at that minute without advancing or rewinding the live domain
+ok 159 - Minute frames expose actor state at that minute without advancing or rewinding the live domain
   ---
-  duration_ms: 226.875584
+  duration_ms: 99.947417
   type: 'test'
   ...
 # Subtest: Switching away and back preserves pending ALL, later effects and presentation
-ok 146 - Switching away and back preserves pending ALL, later effects and presentation
+ok 160 - Switching away and back preserves pending ALL, later effects and presentation
   ---
-  duration_ms: 224.714041
+  duration_ms: 53.625417
   type: 'test'
   ...
 # Subtest: A tab checkpoint is not a conversion of the original engine save
-ok 147 - A tab checkpoint is not a conversion of the original engine save
+ok 161 - A tab checkpoint is not a conversion of the original engine save
   ---
-  duration_ms: 0.508125
+  duration_ms: 0.757458
   type: 'test'
   ...
 # Subtest: Version-one JS saves migrate to a logical scheduler without losing a clarification
-ok 148 - Version-one JS saves migrate to a logical scheduler without losing a clarification
+ok 162 - Version-one JS saves migrate to a logical scheduler without losing a clarification
   ---
-  duration_ms: 57.749958
+  duration_ms: 26.969709
   type: 'test'
   ...
 # Subtest: The engine selector describes both implementations without an automatic fallback
-ok 149 - The engine selector describes both implementations without an automatic fallback
+ok 163 - The engine selector describes both implementations without an automatic fallback
   ---
-  duration_ms: 9.852375
+  duration_ms: 3.594416
   type: 'test'
   ...
 # Subtest: Switching engines during startup preserves the game without requiring a complete terminal snapshot
-ok 150 - Switching engines during startup preserves the game without requiring a complete terminal snapshot
+ok 164 - Switching engines during startup preserves the game without requiring a complete terminal snapshot
   ---
-  duration_ms: 47.02075
+  duration_ms: 21.003875
   type: 'test'
   ...
 # Subtest: Switching engines during more preserves the game without requiring a complete terminal snapshot
-ok 151 - Switching engines during more preserves the game without requiring a complete terminal snapshot
+ok 165 - Switching engines during more preserves the game without requiring a complete terminal snapshot
   ---
-  duration_ms: 75.264709
+  duration_ms: 23.701084
   type: 'test'
   ...
 # Subtest: Switching engines during printing preserves the game without requiring a complete terminal snapshot
-ok 152 - Switching engines during printing preserves the game without requiring a complete terminal snapshot
+ok 166 - Switching engines during printing preserves the game without requiring a complete terminal snapshot
   ---
-  duration_ms: 35.575375
+  duration_ms: 20.197042
   type: 'test'
   ...
 # Subtest: Switching engines during clock-animation preserves the game without requiring a complete terminal snapshot
-ok 153 - Switching engines during clock-animation preserves the game without requiring a complete terminal snapshot
+ok 167 - Switching engines during clock-animation preserves the game without requiring a complete terminal snapshot
   ---
-  duration_ms: 58.840042
+  duration_ms: 22.273458
   type: 'test'
   ...
 # Subtest: A completed display retains its exact terminal snapshot
-ok 154 - A completed display retains its exact terminal snapshot
+ok 168 - A completed display retains its exact terminal snapshot
   ---
-  duration_ms: 0.366333
+  duration_ms: 0.324083
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: take_and_drop_follow
-ok 155 - Original Watson domain trace: take_and_drop_follow
+ok 169 - Original Watson domain trace: take_and_drop_follow
   ---
-  duration_ms: 165.869583
+  duration_ms: 59.077792
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: explicit_follow
-ok 156 - Original Watson domain trace: explicit_follow
+ok 170 - Original Watson domain trace: explicit_follow
   ---
-  duration_ms: 85.661375
+  duration_ms: 28.552042
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: multiple_orders
-ok 157 - Original Watson domain trace: multiple_orders
+ok 171 - Original Watson domain trace: multiple_orders
   ---
-  duration_ms: 29.053334
+  duration_ms: 17.303375
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: wait_order
-ok 158 - Original Watson domain trace: wait_order
+ok 172 - Original Watson domain trace: wait_order
   ---
-  duration_ms: 76.969083
+  duration_ms: 41.341166
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: impossible
-ok 159 - Original Watson domain trace: impossible
+ok 173 - Original Watson domain trace: impossible
   ---
-  duration_ms: 29.091875
+  duration_ms: 14.569917
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: all_doors
-ok 160 - Original Watson domain trace: all_doors
+ok 174 - Original Watson domain trace: all_doors
   ---
-  duration_ms: 32.252833
+  duration_ms: 19.533666
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: no_quote
-ok 161 - Original Watson domain trace: no_quote
+ok 175 - Original Watson domain trace: no_quote
   ---
-  duration_ms: 8.961875
+  duration_ms: 7.477334
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: containers
-ok 162 - Original Watson domain trace: containers
+ok 176 - Original Watson domain trace: containers
   ---
-  duration_ms: 50.021875
+  duration_ms: 39.385209
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: drop_journal
-ok 163 - Original Watson domain trace: drop_journal
+ok 177 - Original Watson domain trace: drop_journal
   ---
-  duration_ms: 41.019458
+  duration_ms: 34.078
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: follow_timeout
-ok 164 - Original Watson domain trace: follow_timeout
+ok 178 - Original Watson domain trace: follow_timeout
   ---
-  duration_ms: 54.1695
+  duration_ms: 32.149708
   type: 'test'
   ...
 # Subtest: Original Watson domain trace: silent_remote_order
-ok 165 - Original Watson domain trace: silent_remote_order
+ok 179 - Original Watson domain trace: silent_remote_order
   ---
-  duration_ms: 45.789542
+  duration_ms: 16.5335
   type: 'test'
   ...
 # Subtest: Watson save/load keeps delayed requests, ALL cursors and suspended FOLLOW
-ok 166 - Watson save/load keeps delayed requests, ALL cursors and suspended FOLLOW
+ok 180 - Watson save/load keeps delayed requests, ALL cursors and suspended FOLLOW
   ---
-  duration_ms: 789.831125
+  duration_ms: 163.554791
   type: 'test'
   ...
 # Subtest: An invalid quote, ambiguity or lexical error gives no actor a turn
-ok 167 - An invalid quote, ambiguity or lexical error gives no actor a turn
+ok 181 - An invalid quote, ambiguity or lexical error gives no actor a turn
   ---
-  duration_ms: 35.195125
+  duration_ms: 12.855458
   type: 'test'
   ...
 # Subtest: Watson requests are executed at his deadline rather than on SAY
-ok 168 - Watson requests are executed at his deadline rather than on SAY
+ok 182 - Watson requests are executed at his deadline rather than on SAY
   ---
-  duration_ms: 28.432541
+  duration_ms: 13.335125
   type: 'test'
   ...
 # Subtest: Unknown NPC programs and unported conversation do not become invented replies
-ok 169 - Unknown NPC programs and unported conversation do not become invented replies
+ok 183 - Unknown NPC programs and unported conversation do not become invented replies
   ---
-  duration_ms: 21.459875
+  duration_ms: 10.0025
   type: 'test'
   ...
 # Subtest: The ungenerated second random counter suspends the program once, with explicit provenance
-ok 170 - The ungenerated second random counter suspends the program once, with explicit provenance
+ok 184 - The ungenerated second random counter suspends the program once, with explicit provenance
   ---
-  duration_ms: 76.898334
+  duration_ms: 33.310625
   type: 'test'
   ...
 # Subtest: New requests during an active deferred FOLLOW are explicit until its request gates are ported
-ok 171 - New requests during an active deferred FOLLOW are explicit until its request gates are ported
+ok 185 - New requests during an active deferred FOLLOW are explicit until its request gates are ported
   ---
-  duration_ms: 19.291416
+  duration_ms: 8.499958
   type: 'test'
   ...
 # Subtest: Native isolated action trace: LOOK
-ok 172 - Native isolated action trace: LOOK
+ok 186 - Native isolated action trace: LOOK
   ---
-  duration_ms: 35.200916
+  duration_ms: 15.656
   type: 'test'
   ...
 # Subtest: Native isolated action trace: OPEN DOOR → YOUR → OPEN YOUR DOOR → CLOSE YOUR DOOR
-ok 173 - Native isolated action trace: OPEN DOOR → YOUR → OPEN YOUR DOOR → CLOSE YOUR DOOR
+ok 187 - Native isolated action trace: OPEN DOOR → YOUR → OPEN YOUR DOOR → CLOSE YOUR DOOR
   ---
-  duration_ms: 124.051167
+  duration_ms: 26.683167
   type: 'test'
   ...
 # Subtest: Native isolated action trace: WEST
-ok 174 - Native isolated action trace: WEST
+ok 188 - Native isolated action trace: WEST
   ---
-  duration_ms: 19.092959
+  duration_ms: 4.533292
   type: 'test'
   ...
 # Subtest: Native isolated action trace: TAKE ARMCHAIR
-ok 175 - Native isolated action trace: TAKE ARMCHAIR
+ok 189 - Native isolated action trace: TAKE ARMCHAIR
   ---
-  duration_ms: 14.033084
+  duration_ms: 5.400083
   type: 'test'
   ...
 # Subtest: Native isolated action trace: TAKE LAMP → INVENTORY → GIVE LAMP TO WATSON → TAKE LAMP
-ok 176 - Native isolated action trace: TAKE LAMP → INVENTORY → GIVE LAMP TO WATSON → TAKE LAMP
+ok 190 - Native isolated action trace: TAKE LAMP → INVENTORY → GIVE LAMP TO WATSON → TAKE LAMP
   ---
-  duration_ms: 40.173625
+  duration_ms: 25.219709
   type: 'test'
   ...
 # Subtest: Native isolated action trace: GIVE LAMP TO WATSON
-ok 177 - Native isolated action trace: GIVE LAMP TO WATSON
+ok 191 - Native isolated action trace: GIVE LAMP TO WATSON
   ---
-  duration_ms: 7.017417
+  duration_ms: 3.653834
   type: 'test'
   ...
 # Subtest: Native isolated action trace: OPEN LAMP
-ok 178 - Native isolated action trace: OPEN LAMP
+ok 192 - Native isolated action trace: OPEN LAMP
   ---
-  duration_ms: 6.778125
+  duration_ms: 5.324083
   type: 'test'
   ...
 # Subtest: Native isolated action trace: EXAMINE ARMCHAIR → WATSONS
-ok 179 - Native isolated action trace: EXAMINE ARMCHAIR → WATSONS
+ok 193 - Native isolated action trace: EXAMINE ARMCHAIR → WATSONS
   ---
-  duration_ms: 17.3615
+  duration_ms: 11.417291
   type: 'test'
   ...
 # Subtest: Native isolated action trace: WAIT
-ok 180 - Native isolated action trace: WAIT
+ok 194 - Native isolated action trace: WAIT
   ---
-  duration_ms: 21.0435
+  duration_ms: 13.561542
   type: 'test'
   ...
 # Subtest: Native isolated action trace: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH → NORTH → UP → EAST
-ok 181 - Native isolated action trace: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH → NORTH → UP → EAST
+ok 195 - Native isolated action trace: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH → NORTH → UP → EAST
   ---
-  duration_ms: 104.278833
+  duration_ms: 53.173417
   type: 'test'
   ...
 # Subtest: Native isolated action trace: COUNT MONEY
-ok 182 - Native isolated action trace: COUNT MONEY
+ok 196 - Native isolated action trace: COUNT MONEY
   ---
-  duration_ms: 11.61125
+  duration_ms: 5.459792
   type: 'test'
   ...
 # Subtest: Native isolated action trace: TAKE LAMP → DROP LAMP
-ok 183 - Native isolated action trace: TAKE LAMP → DROP LAMP
+ok 197 - Native isolated action trace: TAKE LAMP → DROP LAMP
   ---
-  duration_ms: 24.316333
+  duration_ms: 15.881792
   type: 'test'
   ...
 # Subtest: Native isolated action trace: TAKE MONEY
-ok 184 - Native isolated action trace: TAKE MONEY
+ok 198 - Native isolated action trace: TAKE MONEY
   ---
-  duration_ms: 8.482542
+  duration_ms: 6.127292
   type: 'test'
   ...
 # Subtest: Native isolated action trace: LOOK THROUGH YOUR DOOR
-ok 185 - Native isolated action trace: LOOK THROUGH YOUR DOOR
+ok 199 - Native isolated action trace: LOOK THROUGH YOUR DOOR
   ---
-  duration_ms: 6.48725
+  duration_ms: 6.180583
   type: 'test'
   ...
 # Subtest: Native isolated action trace: GO INTO HALL
-ok 186 - Native isolated action trace: GO INTO HALL
+ok 200 - Native isolated action trace: GO INTO HALL
   ---
-  duration_ms: 7.0845
+  duration_ms: 15.552167
   type: 'test'
   ...
 # Subtest: Native isolated action trace: TAKE THE
-ok 187 - Native isolated action trace: TAKE THE
+ok 201 - Native isolated action trace: TAKE THE
   ---
-  duration_ms: 7.888875
+  duration_ms: 4.380208
   type: 'test'
   ...
 # Subtest: Native isolated action trace: OPEN THE
-ok 188 - Native isolated action trace: OPEN THE
+ok 202 - Native isolated action trace: OPEN THE
   ---
-  duration_ms: 7.064916
+  duration_ms: 4.808
   type: 'test'
   ...
 # Subtest: Native isolated action trace: LOOK AT LAMP
-ok 189 - Native isolated action trace: LOOK AT LAMP
+ok 203 - Native isolated action trace: LOOK AT LAMP
   ---
-  duration_ms: 10.072084
+  duration_ms: 7.928041
   type: 'test'
   ...
 # Subtest: Visibility follows containment and light, not a flat room filter
-ok 190 - Visibility follows containment and light, not a flat room filter
+ok 204 - Visibility follows containment and light, not a flat room filter
   ---
-  duration_ms: 1.792917
+  duration_ms: 1.887084
   type: 'test'
   ...
 # Subtest: Logical save/load resumes clarification and future commands without CPU state
-ok 191 - Logical save/load resumes clarification and future commands without CPU state
+ok 205 - Logical save/load resumes clarification and future commands without CPU state
   ---
-  duration_ms: 145.64675
+  duration_ms: 65.591958
   type: 'test'
   ...
 # Subtest: An unported action is explicit and has no hidden fallback or world effect
-ok 192 - An unported action is explicit and has no hidden fallback or world effect
+ok 206 - An unported action is explicit and has no hidden fallback or world effect
   ---
-  duration_ms: 19.092
+  duration_ms: 6.486542
   type: 'test'
   ...
 # Subtest: Quoted syntax errors are checked before unported conversation execution
-ok 193 - Quoted syntax errors are checked before unported conversation execution
+ok 207 - Quoted syntax errors are checked before unported conversation execution
   ---
-  duration_ms: 26.309333
+  duration_ms: 5.943375
   type: 'test'
   ...
 # Subtest: Native selected entity mutations: OPEN DOOR → YOUR → CLOSE YOUR DOOR
-ok 194 - Native selected entity mutations: OPEN DOOR → YOUR → CLOSE YOUR DOOR
+ok 208 - Native selected entity mutations: OPEN DOOR → YOUR → CLOSE YOUR DOOR
   ---
-  duration_ms: 26.673541
+  duration_ms: 12.56925
   type: 'test'
   ...
 # Subtest: Native selected entity mutations: TAKE LAMP → GIVE LAMP TO WATSON
-ok 195 - Native selected entity mutations: TAKE LAMP → GIVE LAMP TO WATSON
+ok 209 - Native selected entity mutations: TAKE LAMP → GIVE LAMP TO WATSON
   ---
-  duration_ms: 18.514666
+  duration_ms: 6.71125
   type: 'test'
   ...
 # Subtest: Native selected entity mutations: TAKE LAMP → DROP LAMP
-ok 196 - Native selected entity mutations: TAKE LAMP → DROP LAMP
+ok 210 - Native selected entity mutations: TAKE LAMP → DROP LAMP
   ---
-  duration_ms: 17.436083
+  duration_ms: 6.745583
   type: 'test'
   ...
 # Subtest: Native selected entity mutations: EXAMINE ARMCHAIR → WATSONS
-ok 197 - Native selected entity mutations: EXAMINE ARMCHAIR → WATSONS
+ok 211 - Native selected entity mutations: EXAMINE ARMCHAIR → WATSONS
   ---
-  duration_ms: 28.1165
+  duration_ms: 5.756875
   type: 'test'
   ...
 # Subtest: Native selected entity mutations: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH
-ok 198 - Native selected entity mutations: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH
+ok 212 - Native selected entity mutations: OPEN YOUR DOOR → WEST → DOWN → OPEN FRONT DOOR → SOUTH
   ---
-  duration_ms: 417.111875
+  duration_ms: 20.151625
   type: 'test'
   ...
-1..198
-# tests 198
+1..212
+# tests 212
 # suites 0
-# pass 198
+# pass 212
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 2737.370708
+# duration_ms 1048.630875

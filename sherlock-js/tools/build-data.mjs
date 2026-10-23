@@ -12,7 +12,7 @@ if(sha!=='c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407')thro
 const byte=p=>payload[p-0x5d80],word=p=>byte(p)|(byte(p+1)<<8);
 const dictionary=(await read('parser/results/dictionary.json')).map(w=>({id:parseInt(w.offset,16),stem:w.stem,form:w.output_inflected,type:parseInt(w.class,16),alias:w.alias_direct?parseInt(w.alias_direct,16):null}));
 const catalog=await read('locazioni/results/locations.json');
-const ruleNames={E40A:'enterContainer',E432:'leaveContainer',DE9D:'openOrdinary',DEAF:'closeOrdinary',DF7E:'takeBurningNote',DFA7:'openSafe'};
+const ruleNames={E2C7:'hailCab',E3EA:'enterCab',E40A:'enterContainer',E432:'leaveContainer',DE9D:'openOrdinary',DEAF:'closeOrdinary',DF7E:'takeBurningNote',DFA7:'openSafe'};
 const entities=catalog.entities.map(e=>({id:e.id,name:e.name,noun:parseInt(e.name_words_raw[0],16),qualifiers:[e.money_flag?0:parseInt(e.name_words_raw[1],16),parseInt(e.name_words_raw[2],16)],parent:e.parent_id,rooms:e.locations.map(r=>r.id),size:e.field_02,weight:e.field_03,properties:e.field_04,attributes:parseInt(e.flags_05,16),status:parseInt(e.flags_06,16),person:e.person_flag,money:e.money_flag,pence:e.money_pence,description:e.description_pointer==='0000'?null:e.description_pointer,rules:e.rules.filter(r=>r.action_id).map(r=>({action:r.action_id,rule:ruleNames[r.rule_pointer]||'untranslated:'+r.rule_pointer}))}));
 const rooms=catalog.rooms.map(r=>({id:r.id,name:r.name_hint,flags:r.flags,nameWords:[word(parseInt(r.record,16)+1),word(parseInt(r.record,16)+3),word(parseInt(r.record,16)+5)],description:r.description,coordinates:r.coordinates,exits:r.exits.map(e=>({source:e.source,target:e.target,direction:e.direction,direction_id:e.direction_id,gate:e.gate,gate_name:e.gate_name}))}));
 const actions=(await read('locazioni/results/gameplay-action-inventory.json')).models.map(a=>({id:a.id,words:a.words,rule:a.general_rule}));
@@ -39,7 +39,8 @@ for(let pass=0;pass<8;pass++)for(const events of Object.values(texts))for(const 
 for(const r of rooms)if(r.description)ensure(r.description);
 for(const e of entities)if(e.description)ensure(e.description);
 const assets=await read('locazioni/spectrum-assets.json');
-const data={version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+const cabCatalog=await read('cab/results/cab-data.json');
+const data={cab:{streets:cabCatalog.destinations.map(d=>d.id)},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');

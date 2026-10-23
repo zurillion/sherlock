@@ -1,0 +1,45 @@
+{
+  "watson": {
+    "clock": "Mon 08:01am",
+    "enginePickerEnabled": true,
+    "lower": "                                    \n                                    \n                                    \n> SAY TO WATSON \"HELLO\"             \n> +                                 ",
+    "processing": "false",
+    "upper": "windows in your sitting room. There \nis a pipe rack to the right of the  \nsofa. Bullet pock marks are the     \nfeature of one wall, and charts and \ndiagrams fill another. An acid      \nstained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \nWatson looks up from the paper and  \nsays \" Good morning Holmes. \"       \n                                    \nYou talk to Watson.                 \nWatson says \" Good morning \".       \n                                    "
+  },
+  "wait": {
+    "lower": "                                    \n                                    \n> SAY TO WATSON \"HELLO\"             \n> WAIT                              \n> +                                 ",
+    "screen": {
+      "clock": "Mon 08:06am",
+      "clockVisible": "true",
+      "clockX": "16",
+      "columns": "36",
+      "lineCounter": "2",
+      "picture": "",
+      "pictureMode": "svg",
+      "processing": "false",
+      "scrolls": "21",
+      "waiting": "false",
+      "waitingReason": ""
+    },
+    "upper": "sofa. Bullet pock marks are the     \nfeature of one wall, and charts and \ndiagrams fill another. An acid      \nstained table sits in the corner. To\nthe west there is your door. To the \nnorth there is a plain door. You can\nsee an oil lamp, your armchair and  \nwatsons armchair. In watsons        \narmchair there is Watson. Watson is \ncarrying the daily chronicle.       \nWatson looks up from the paper and  \nsays \" Good morning Holmes. \"       \n                                    \nYou talk to Watson.                 \nWatson says \" Good morning \".       \n                                    \nYou wait.                           \n                                    "
+  },
+  "cabArrival": {
+    "clock": "Mon 08:07am",
+    "marker": "005baker streetSherlock HolmesSHcabbie · contenuto in entità 30C1",
+    "notice": "Motore JavaScript: cocchiere: chiamata e salita disponibili; viaggio, attese e pagamento ancora da ricostruire",
+    "upper": "                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \nYou are on Baker                    \nStreet. To the                      \nnorth there is the                  \nfront door.                         \n                                    \nYou hail the hansom cab.            \n                                    "
+  },
+  "cabBoard": {
+    "clock": "Mon 08:09am",
+    "marker": "005baker streetSherlock Holmes · contenuto in entità 30SHcabbie · contenuto in entità 30C1",
+    "upper": "                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \nYou are on Baker                    \nStreet. To the                      \nnorth there is the                  \nfront door.                         \n                                    \nYou hail the hansom cab.            \n                                    \nYou get into the hansom cab.        \n                                    "
+  },
+  "cabLeave": {
+    "clock": "Mon 08:11am",
+    "lower": "> WAIT                              \n> HAIL CAB                          \n> GET INTO CAB                      \n> GET OUT OF CAB                    \n> +                                 ",
+    "marker": "005baker streetSherlock HolmesSHcabbie · contenuto in entità 30C1",
+    "notice": "Motore JavaScript: cocchiere: chiamata e salita disponibili; viaggio, attese e pagamento ancora da ricostruire",
+    "pickerEnabled": true,
+    "upper": "                                    \n                                    \n                                    \n                                    \n                                    \n                                    \n                                    \nYou are on Baker                    \nStreet. To the                      \nnorth there is the                  \nfront door.                         \n                                    \nYou hail the hansom cab.            \n                                    \nYou get into the hansom cab.        \n                                    \nYou get out of the hansom cab.      \n                                    "
+  }
+}

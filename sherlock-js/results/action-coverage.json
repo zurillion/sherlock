@@ -339,8 +339,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "HAIL: arrivo e contenimento del cab; viaggio e pagamento mancanti."
     },
     {
       "id": 32,
@@ -350,8 +350,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "HELLO: HI. al giocatore; risposta temporale originale degli NPC, con scelta casuale ancora mancante."
     },
     {
       "id": 33,

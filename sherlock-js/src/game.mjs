@@ -3,8 +3,9 @@ import {Parser} from './parser.mjs';
 import {World,UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 import {Text} from './text.mjs';
 import {Watson} from './watson.mjs';
+import {Cab} from './cab.mjs';
 
-export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,33,34,35,36,40,41,46,49,50];
+export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,31,32,33,34,35,36,40,41,46,49,50];
 const clone=structuredClone;
 // Rules are domain functions over logical objects. No binary, RAM, CPU, address
 // dispatcher, server-side game logic, or fallback to the reference engine.
@@ -13,7 +14,7 @@ export class Game {
   this.data=data;this.dictionary=new Dictionary(data.dictionary);this.lexer=new Lexer(this.dictionary);this.parser=new Parser(this.lexer);this.world=new World(data);this.text=new Text(data,this.dictionary,this.world);
   this.startMode=start_mode;this.pending=null;this.analysis=null;this.lastInput=null;this.ended=null;this.openingPending=true;this.conversation=null;
   if(start_mode==='original'){this.world.tick=2;this.world.minutes++;}
-  this.watson=new Watson(this);if(npcs)this.watson.initialize();
+  this.cab=new Cab(this);this.watson=new Watson(this);if(npcs)this.watson.initialize();
   this.initial=this.text.scene();this.opening=this.initial+'\n'+this.text.render('6DEB');
  }
  word(id){return this.dictionary.word(id)?.stem||'';}
@@ -67,20 +68,27 @@ export class Game {
   if(w.dark(actor)&&![33,49,50].includes(action))return reject('SORRY IT IS TOO DARK.');
   if(action===34){const scene=this.text.scene();return ok([{kind:'narrative',text:scene,image_room:w.roomOf()}]);}
   if(action===33){const items=w.entities.filter(e=>e.parent===actor).map(e=>w.name(e.id,{indefinite:true}));return ok(['You are carrying '+(items.length?joinList(items):'nothing')+'.']);}
+  if(action===32)return ok([actor===w.player?this.error(this.text.render('6915').toUpperCase()):this.text.greeting(actor)],0);
   if(action===49)return ok([say('wait','.')],5);
   if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');const hour=(literal>>>8)&63,minute=literal&63;if(hour<1||hour>12)return reject('YOU CANNOT WAIT UNTIL THAT TIME.');let target=(hour%12)*60+minute;
    if(literal&16384){}else if(literal&64)target+=720;else if(Math.floor(w.minutes/720)%2)target+=720;
    let absolute=Math.floor(w.minutes/1440)*1440+target;if(absolute<=w.minutes)absolute+=(literal&16448)?1440:720;
    return ok(['You wait.'],absolute-w.minutes,[{hour,minute}]);
   }
+  if(action===31){
+   const group=node.groups[0]||{noun:0,qualifiers:[]};if(!group.noun&&!group.qualifiers.length)return reject('HAIL WHAT ?');
+   const nominal=w.entities.filter(e=>w.nounMatches(e,group)),vehicle=nominal.find(e=>this.cab.available(e,actor));
+   if(!vehicle)return reject(!this.cab.isStreet(w.roomOf(actor))&&nominal.some(e=>e.rules.some(r=>r.rule==='hailCab'))?'YOU CANNOT HAIL THE '+this.queryName(group).toUpperCase():'I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN HAIL');
+   this.cab.arrive(vehicle,actor);return ok([say('hail',' '+w.name(vehicle.id)+'.')],1,[vehicle.id]);
+  }
   if(action===46){
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    if(target.entity.id!==3||!w.scheduler.actor(3).enabled)throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
    if(node.quote){
-    if(w.scheduler.actor(3).behavior.follow)throw new UnsupportedFeature('nuovi ordini durante il FOLLOW differito di Watson');
     const commands=(node.quotes||[node.quote]).flatMap(q=>this.parser.quoted(q).nodes);
     if(commands.some(n=>n.subject))throw new UnsupportedFeature('affermazioni e memoria di Watson');
     this.watson.validateRequest(commands);
+    if(w.scheduler.actor(3).behavior.follow&&!commands.every(n=>this.action(n)===32))throw new UnsupportedFeature('nuovi ordini durante il FOLLOW differito di Watson');
     w.scheduler.sendRequest(actor,3,{nodes:commands});
    }
    return ok([say('talk',' to '+w.name(target.entity.id)+'.')],1,[target.entity.id]);
@@ -89,12 +97,12 @@ export class Game {
    if([13,25].includes(action)&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length&&w.entity(actor).parent!==null)node={...node,resolved:[w.entity(actor).parent]};
    const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};
    const e=result.entity,exiting=[13,25].includes(action),rule=e.rules.find(r=>r.action===action);
-   if(!['enterContainer','leaveContainer'].includes(rule?.rule))throw new UnsupportedFeature('regola contenitore di '+e.name);
+   if(!['enterContainer','enterCab','leaveContainer'].includes(rule?.rule))throw new UnsupportedFeature('regola contenitore di '+e.name);
    if(exiting){
     if(w.entity(actor).parent!==e.id)return reject('YOU CANNOT GET OUT OF '+w.name(e.id).toUpperCase());
     w.move(actor,w.roomOf(actor),e.parent);return ok([say(this.word(node.verb),' out of '+w.name(e.id)+'.')],2,[e.id]);
    }
-   if(w.entity(actor).parent!==null||w.owns(actor,e.id)||e.size<w.entity(actor).size||w.weight(actor)>w.remainingCapacity(e.id))return reject('YOU CANNOT GET INTO '+w.name(e.id).toUpperCase());
+   if(w.entity(actor).parent!==null||w.owns(actor,e.id)||e.size<w.entity(actor).size||(rule.rule!=='enterCab'&&w.weight(actor)>w.remainingCapacity(e.id)))return reject('YOU CANNOT GET INTO '+w.name(e.id).toUpperCase());
    w.move(actor,w.roomOf(actor),e.id);return ok([say(this.word(node.verb),(action===40?' in ':' into ')+w.name(e.id)+'.')],2,[e.id]);
   }
   if(action<=10||[18,27,28,35].includes(action)){
@@ -164,6 +172,7 @@ export class Game {
      for(const node of this.collective(originalNode)){
      const before=this.world.dump(),messageCount=messages.length,actionCount=actions.length;let outcome;
      try{outcome=this.execute(node);
+      const paragraph=outcome.cost&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
       messages.push(...outcome.messages);
       if(outcome.cost){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.advance(outcome.cost,{action:outcome.action,args:outcome.args,messages,actions});}}
      catch(error){this.world.restore(before);messages.length=messageCount;actions.length=actionCount;throw error;}
@@ -189,7 +198,7 @@ export class Game {
  }
  scene(){const before=this.world.dump();try{return this.text.scene({full:!this.world.dark()});}finally{this.world.restore(before);}}
  state(){const w=this.world,room=w.rooms[w.roomOf()],dark=w.dark();
-  return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>e.person&&![1,100].includes(e.id)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:e.id===0?'SH':e.id===3?'W':e.id===2?'IL':String(e.id),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,engine:'javascript-autonomous',ai:w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.scheduler.actor(3).behavior?.profile??null,scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
+  return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>e.person&&![1,100].includes(e.id)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:e.id===0?'SH':e.id===3?'W':e.id===2?'IL':e.id===31?'C1':e.id===34?'C2':String(e.id),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,engine:'javascript-autonomous',ai:w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.scheduler.actor(3).behavior?.profile??null,greeting_variant:'original-time-of-day-without-rng-parity',cab_scope:'arrival-and-containment',scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
  }
  teleport(room){if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene();return {state:this.state(),messages:[{kind:'narrative',text:scene,image_room:room}]};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}
  dump(){return {format:'sherlock-js-save',version:3,source_sha256:this.data.source_sha256,world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),openingPending:this.openingPending,opening:this.opening,startMode:this.startMode,conversation:clone(this.conversation)};}
@@ -200,6 +209,6 @@ export class Game {
   const s=save.world;if(!s||!Array.isArray(s.entities)||s.entities.length!==110||!Array.isArray(s.rooms)||s.rooms.length!==106||!Number.isInteger(s.tick)||s.tick<0||s.tick>65535||!Number.isInteger(s.playerDue)||s.playerDue<0||s.playerDue>65535||!Number.isSafeInteger(s.minutes)||s.minutes<0||!Number.isInteger(s.player)||s.player<0||s.player>=110)throw Error('Salvataggio JS incompleto.');
   for(const [i,e] of s.entities.entries())if(e.id!==i||!Array.isArray(e.rooms)||!e.rooms.every(r=>Number.isInteger(r)&&r>=0&&r<106)||e.parent!==null&&(!Number.isInteger(e.parent)||e.parent<0||e.parent>=110))throw Error('Entità nel salvataggio non valida.');
   for(const e of s.entities){const seen=new Set([e.id]);let parent=e.parent;while(parent!==null){if(seen.has(parent))throw Error('Ciclo nei contenitori del salvataggio.');seen.add(parent);parent=s.entities[parent].parent;}}
-  const g=new Game(data,{start_mode:save.startMode,npcs:false});g.world.restore(s);for(const key of ['pending','analysis','lastInput','ended','openingPending','opening','conversation'])g[key]=clone(save[key]);g.watson.validateState();g.state();return g;
+  const g=new Game(data,{start_mode:save.startMode,npcs:false});g.world.restore(s);for(const key of ['pending','analysis','lastInput','ended','openingPending','opening','conversation'])g[key]=clone(save[key]);g.watson.validateState();g.cab.validateState();g.state();return g;
  }
 }

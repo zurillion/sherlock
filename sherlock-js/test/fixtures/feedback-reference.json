@@ -1,0 +1,3219 @@
+{
+  "scope": "Historical prompt with seed set to 1 after boot, free clock, listed active actors and map fixtures. Not original bootstrap or seed parity.",
+  "cases": [
+    {
+      "label": "hello_reading",
+      "actors": [
+        3
+      ],
+      "teleport": null,
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"HELLO\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson says\" Good morning \".",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "talk",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "to",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson.",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "sayS",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "good",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "mornING",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": ".",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 32,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "input": "SAY \"HELLO\" TO WATSON",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson says\" Good morning \".",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "talk",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "to",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson.",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "sayS",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "good",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "mornING",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": ".",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 32,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 131,
+              "arguments": [
+                3,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "input": "HELLO",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                }
+              ]
+            },
+            {
+              "kind": "error",
+              "text": "HI.",
+              "screen_events": []
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 32,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "HELLO WATSON",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                }
+              ]
+            },
+            {
+              "kind": "error",
+              "text": "HI.",
+              "screen_events": []
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 32,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "hello_during_follow",
+      "actors": [
+        3
+      ],
+      "teleport": null,
+      "commands": [
+        {
+          "input": "SAY TO WATSON \"FOLLOW ME\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.\n Watson climbs out of watsons armchair.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "talk",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "to",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson.",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "climbS",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "out",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "of",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watsons",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "armchair.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 21,
+              "arguments": [
+                0,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 13,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "SAY TO WATSON \"HELLO\"",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You talk to Watson.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "talk",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "to",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson.",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 46,
+              "arguments": [
+                3,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "WAIT",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You wait.\n Watson says\" Good morning \".",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "wait.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "watson",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "sayS",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "good",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "mornING",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": ".",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 8,
+            "due": 8,
+            "minute": 7,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:07am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 49,
+              "arguments": [
+                255,
+                255
+              ]
+            },
+            {
+              "actor": 3,
+              "id": 32,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "hail_prefix",
+      "actors": [],
+      "teleport": 5,
+      "commands": [
+        {
+          "input": "HAIL CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You hail the hansom cab.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hail",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 31,
+              "arguments": [
+                30,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "GET INTO CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You get into the hansom cab.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "get",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "into",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 24,
+              "arguments": [
+                30,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "GET OUT OF CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You get out of the hansom cab.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "get",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "out",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "of",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 6,
+            "due": 6,
+            "minute": 5,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:05am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 25,
+              "arguments": [
+                30,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "HAIL CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You hail the hansom cab.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hail",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 7,
+            "due": 7,
+            "minute": 6,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:06am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 31,
+              "arguments": [
+                33,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "HAIL CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                }
+              ]
+            },
+            {
+              "kind": "error",
+              "text": "I SEE NO CAB THAT YOU CAN HAIL",
+              "screen_events": []
+            }
+          ],
+          "clock": {
+            "tick": 7,
+            "due": 7,
+            "minute": 6,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:06am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "label": "get_cab",
+      "actors": [],
+      "teleport": 5,
+      "commands": [
+        {
+          "input": "GET CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                }
+              ]
+            },
+            {
+              "kind": "error",
+              "text": "I SEE NO CAB THAT YOU CAN GET",
+              "screen_events": []
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "label": "hail_inside",
+      "actors": [],
+      "teleport": 8,
+      "commands": [
+        {
+          "input": "HAIL CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                }
+              ]
+            },
+            {
+              "kind": "error",
+              "text": "YOU CANNOT HAIL THE CAB",
+              "screen_events": []
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "label": "hail_cabbie",
+      "actors": [],
+      "teleport": 5,
+      "commands": [
+        {
+          "input": "HAIL CABBIE",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                }
+              ]
+            },
+            {
+              "kind": "error",
+              "text": "I SEE NO CABBIE THAT YOU CAN HAIL",
+              "screen_events": []
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "label": "hail_with_drivers",
+      "actors": [
+        31,
+        34
+      ],
+      "teleport": 5,
+      "commands": [
+        {
+          "input": "HAIL CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You hail the hansom cab.\n The cabbie says to you\" Hello guv'nor.\".",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hail",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cabbie",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "sayS",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "to",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hello",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "guv'nor.",
+                  "delimiter": "\"",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": ".",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 31,
+              "arguments": [
+                30,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "GET INTO CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You get into the hansom cab.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "get",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "into",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 24,
+              "arguments": [
+                30,
+                255
+              ]
+            },
+            {
+              "actor": 31,
+              "id": 130,
+              "arguments": [
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "input": "GET OUT OF CAB",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": "",
+              "screen_events": [
+                {
+                  "op": "counter",
+                  "value": 0,
+                  "source": "D71A"
+                },
+                {
+                  "op": "wide"
+                },
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": "\r",
+                  "capitalize": true,
+                  "force": false
+                }
+              ]
+            },
+            {
+              "kind": "narrative",
+              "text": "You get out of the hansom cab.",
+              "screen_events": [
+                {
+                  "op": "word",
+                  "text": "",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "you",
+                  "delimiter": " ",
+                  "capitalize": true,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "get",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "out",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "of",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "the",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "hansom",
+                  "delimiter": " ",
+                  "capitalize": false,
+                  "force": false
+                },
+                {
+                  "op": "word",
+                  "text": "cab.",
+                  "delimiter": "\r",
+                  "capitalize": false,
+                  "force": false
+                }
+              ]
+            }
+          ],
+          "clock": {
+            "tick": 6,
+            "due": 6,
+            "minute": 5,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:05am"
+          },
+          "entities": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 30,
+              "parent": null,
+              "rooms": [
+                5
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 31,
+              "parent": 30,
+              "rooms": [
+                5
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 32,
+              "parent": 31,
+              "rooms": [
+                5
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 33,
+              "parent": null,
+              "rooms": [
+                0
+              ],
+              "attributes": 180
+            },
+            {
+              "id": 34,
+              "parent": 33,
+              "rooms": [
+                0
+              ],
+              "attributes": 192
+            },
+            {
+              "id": 35,
+              "parent": 34,
+              "rooms": [
+                0
+              ],
+              "attributes": 128
+            }
+          ],
+          "actions": [
+            {
+              "actor": 0,
+              "id": 25,
+              "arguments": [
+                30,
+                255
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

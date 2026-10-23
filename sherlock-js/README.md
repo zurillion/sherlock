@@ -41,7 +41,9 @@ EAST
 
 Oppure, dopo un riavvio: `TAKE LAMP`, `INVENTORY`, `GIVE LAMP TO WATSON`, `COUNT MONEY`, `WAIT`. I clic sul grafo permettono di esplorare le descrizioni senza consumare tempo. Sono presenti immagini SVG e pixel originali e la presentazione in stile Spectrum.
 
-**Watson esegue ora gli ordini e il seguito attraverso uscite adiacenti.** Prova `SAY TO WATSON "TAKE LAMP"`, `SAY TO WATSON "DROP DAILY CHRONICLE"`, poi `OPEN YOUR DOOR`, `WEST`, `DOWN`. È disponibile anche `SAY TO WATSON "FOLLOW ME"`. Gli altri NPC, cab, treni e storia restano da riscrivere. Il contatore iniziale di Watson è il valore 15 del prompt storico; al secondo contatore casuale il programma si sospende esplicitamente. Inizializzazione completa, callback e sequenza casuale non sono ancora equivalenti all’originale. Dettagli e prove: [FASE-3.md](FASE-3.md). Un comportamento non tradotto produce un avviso esplicito fuori dal testo del gioco. Non esiste un ripiego automatico al motore originale. Il seed è disabilitato finché non avremo ricostruito il generatore e tutte le dipendenze che ne determinano le estrazioni.
+**Watson esegue ora gli ordini e il seguito attraverso uscite adiacenti.** Prova `SAY TO WATSON "TAKE LAMP"`, `SAY TO WATSON "DROP DAILY CHRONICLE"`, poi `OPEN YOUR DOOR`, `WEST`, `DOWN`. È disponibile anche `SAY TO WATSON "FOLLOW ME"`. È disponibile anche il saluto `SAY TO WATSON "HELLO"`: durante FOLLOW può attendere il turno successivo. `HELLO` da solo produce `HI.` nella zona comandi, come nell’originale. Per ora il saluto rivolto a Watson sceglie la variante originale relativa all’ora, senza riprodurre la selezione casuale fra questa e Hello. Gli altri NPC, treni e storia restano da riscrivere. Il contatore iniziale di Watson è il valore 15 del prompt storico; al secondo contatore casuale il programma si sospende esplicitamente. Inizializzazione completa, callback e sequenza casuale non sono ancora equivalenti all’originale. Dettagli e prove: [FASE-3.md](FASE-3.md). Un comportamento non tradotto produce un avviso esplicito fuori dal testo del gioco. Non esiste un ripiego automatico al motore originale. Il seed è disabilitato finché non avremo ricostruito il generatore e tutte le dipendenze che ne determinano le estrazioni.
+
+Su Baker Street (e nelle altre nove strade della rete) prova `HAIL CAB`, `GET INTO CAB`, `GET OUT OF CAB`. Cab, cocchiere e denaro arrivano insieme; chiamata, salita e discesa sono salvate. **Viaggio, attese del cocchiere, pagamento e resto non sono ancora tradotti.** Un avviso fuori dal testo del gioco segnala questo limite. La separazione fra comandi è ora verificata sulle righe dello schermo originale; i messaggi degli NPC non introducono una separazione supplementare. Analisi e prove: [SALUTI-E-CAB.md](SALUTI-E-CAB.md).
 
 Lo stesso esperimento funziona con `YOUR` per aprire soltanto la propria porta. Sono supportati anche `OPEN ALL DOORS`, `CLOSE ALL`, `TAKE ALL`, `DROP ALL` e `GIVE ALL TO WATSON` nelle varianti generiche già tradotte; BUT/EXCEPT resta esplicitamente mancante.
 
@@ -53,7 +55,7 @@ Il flusso è `Lexer → Parser → Game → World/Text → scheduler → present
 node --test test/*.test.mjs
 ```
 
-Le fixture sono risultati congelati dell'originale, non chiamate al vecchio motore durante i test. Il confronto di una frase normalizza spaziatura e maiuscole: non certifica l'output grafico esatto. `results/verification.json` registra l'ambito delle prove; `results/tests.tap` ne conserva il risultato.
+Le fixture sono risultati congelati dell'originale, non chiamate al vecchio motore durante i test. Il confronto di una frase normalizza spaziatura e maiuscole: non certifica l'output grafico esatto. Sono presenti 212 test automatici. `results/verification.json` registra l'ambito delle prove; `results/tests.tap` ne conserva il risultato.
 
 ## Dati e salvataggi
 
