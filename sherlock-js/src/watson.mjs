@@ -1,6 +1,6 @@
 import {UnsupportedFeature} from './world.mjs';
 
-const REQUEST_ACTIONS=new Set([1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,21,22,23,24,25,26,32,36,40,41,49]);
+const REQUEST_ACTIONS=new Set([1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,21,22,23,24,25,26,32,36,37,40,41,47,48,49]);
 const clone=structuredClone;
 // A domain state machine, not an interpreter of native instructions. The first
 // reading counter is explicit historical-prompt data, not a generated seed.

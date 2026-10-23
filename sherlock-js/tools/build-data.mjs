@@ -22,11 +22,11 @@ const frequent=Array.from({length:32},(_,i)=>word(0x67b7+2*i));
 function packed(p,count){let bits='';for(let n=0;n<Math.ceil(count*5/8);n++)bits+=byte(p+n).toString(2).padStart(8,'0');return Array.from({length:count},(_,i)=>String.fromCharCode(96+parseInt(bits.slice(i*5,i*5+5),2))).join('');}
 const commands=['nameArgument','wordArgument','jump','wordSubject','nameArgument','relationArgument','actorName','objectName','backspace','otherName','choice','call','actorPossessive','newline','objectPossessive','time','actorIs','objectIs','repeat','argumentIs','time','time','time','time','compose','textArgument','jumpArgument','toggleUpper','noop','endLine','endSentence','end'];
 function token(p){
- const b=byte(p);if(b>=128){const context=b&112,id=((b&15)<<8)|byte(p+1);return [{op:'word',id,form:context===80?'stem':context===64?'inflected':context===16?'object':'actor',capitalized:context===112,end:context===32?'end':context===48?'sentence':context===96?'line':null},p+2,[32,48,96].includes(context)];}
- if(b>=96)return [{op:'word',id:frequent[b-96],form:'stem'},p+1,false];
+ const b=byte(p);if(b>=128){const context=b&112,id=((b&15)<<8)|byte(p+1);return [{op:'word',id,randomContext:((b&127)<<8)|byte(p+1),form:context===80?'stem':context===64?'inflected':context===16?'object':'actor',capitalized:context===112,end:context===32?'end':context===48?'sentence':context===96?'line':null},p+2,[32,48,96].includes(context)];}
+ if(b>=96)return [{op:'word',id:frequent[b-96],randomContext:(frequent[b-96]+0x5000)&65535,form:'stem'},p+1,false];
  if(b>=64)return [{op:'literal',text:packed(p+1,(b&31)+1)},p+1+Math.ceil(((b&31)+1)*5/8),false];
  if(b>=32)return [{op:'literal',text:String.fromCharCode(b)},p+1,false];
- if(b===2||b===11)return [{op:b===2?'jump':'call',text:((p+word(p+1))&65535).toString(16).toUpperCase()},p+3,b===2];
+ if(b===2||b===11)return [{op:b===2?'jump':'call',text:((p+word(p+1))&65535).toString(16).toUpperCase(),relativeOffset:word(p+1)},p+3,b===2];
  if(b===10){const options=[];let q=p+2;for(let n=0;n<byte(p+1);n++){const [t,end]=token(q);options.push(t);q=end;}return [{op:'choice',options},q,false];}
  if([15,20,21,22,23].includes(b)){const [t,end]=token(p+1);return [{op:'time',value:({15:5,20:4,21:3,22:2,23:1})[b],token:t},end,false];}
  return [{op:commands[b]},p+1,[26,29,30,31].includes(b)];
@@ -42,7 +42,12 @@ const assets=await read('locazioni/spectrum-assets.json');
 const cabCatalog=await read('cab/results/cab-data.json');
 const npcPrograms=await read('ai/results/domain-programs.json');
 if(npcPrograms.source_sha256!==sha)throw Error('NPC programs refer to a different source payload');
-const data={npcPrograms,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+// TELL is an actor/topic table, not a search in descriptions or fact memory.
+// FE is the default speaker, used only when that actor has no own table.
+const conversationTopics={};let topicCursor=0xE22A;
+while(byte(topicCursor)!==255){const actor=byte(topicCursor++),topics={};while(byte(topicCursor)!==255){const id=byte(topicCursor),text=word(topicCursor+1).toString(16).toUpperCase();topics[id]=text;ensure(text);topicCursor+=3;}topicCursor++;conversationTopics[actor]=topics;}
+if(topicCursor!==0xE28C)throw Error('Unexpected TELL table boundary');
+const data={conversationTopics,npcPrograms,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');

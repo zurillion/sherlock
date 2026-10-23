@@ -38,7 +38,7 @@ export class World {
  }
  name(id,{indefinite=false,proper=true}={}){
   const e=this.entity(id);let name=e.name;
-  if(e.person&&proper)name=name[0].toUpperCase()+name.slice(1);
+  if(e.person&&proper&&(e.noun&32768))name=name.replace(/\b\w/g,c=>c.toUpperCase());
   if((e.noun&32768)||id===this.player)return name;
   const article=({0:'the ',4096:'a ',8192:'an ',12288:'some '})[e.noun&12288];
   return (indefinite?article:'the ')+name;

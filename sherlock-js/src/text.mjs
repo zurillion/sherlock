@@ -3,11 +3,11 @@ import {UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 // Compressed prose has been decoded to JSON data by the offline build step.
 // This renderer interprets semantic text operations, not CPU instructions.
 export class Text {
- constructor(data,dictionary,world){this.data=data;this.dictionary=dictionary;this.world=world;}
+ constructor(data,dictionary,world,{chooseIndex}={}){this.data=data;this.dictionary=dictionary;this.world=world;this.chooseIndex=chooseIndex;}
  greeting(actor){return this.render('6920',{actor});}
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
-  let result='',capitalize=true,force=false,depth=0;
+  let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false;const fragments=[];
   const feed=text=>{for(let c of String(text)){
    if(c==='\b'){result=result.slice(0,-1);continue;}
    if(/[A-Z]/.test(c))c=c.toLowerCase();
@@ -17,30 +17,50 @@ export class Text {
    result+=c;
   }};
   const name=(id,be=false)=>w.name(id)+(be?(id===w.player?' are':' is'):'');
-  const feedName=(id,be=false)=>{feed(' ');if(w.entity(id).person&&id!==w.player)capitalize=true;feed(name(id,be));};
+  const feedName=(id,be=false)=>{
+   feed(' ');const e=w.entity(id);
+   if(e.person&&(e.noun&32768)&&id!==w.player){for(const [i,part] of w.name(id).split(' ').entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
+   else feed(name(id,be));
+  };
   const emit=t=>{
    switch(t.op){
-    case 'word':{if(t.id){feed(' ');if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem);}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
+    case 'word':{mixOffset=t.randomContext??null;if(t.id){feed(' ');if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem);}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
-    case 'call':case 'jump':walk(t.text);break;
-    case 'choice':throw new UnsupportedFeature('selezione casuale del testo: sorgente originale e stato globale non ancora ricostruiti');
+    case 'call':case 'jump':mixOffset=t.relativeOffset===undefined?null:(t.relativeOffset-(t.op==='jump'?1:0))&65535;walk(t.text);break;
+    case 'choice':{
+     if(typeof this.chooseIndex!=='function')throw new UnsupportedFeature('selezione casuale del testo: sorgente originale e stato globale non ancora ricostruiti');
+     // A6D1/A6D2 are shared scratch fields. Nested selections overwrite the
+     // enclosing loop; a conventional recursive choice is not equivalent.
+     if(inChoice)throw new UnsupportedFeature('selettore di testo annidato e contatori condivisi');
+     if(mixOffset===null)throw new UnsupportedFeature('contesto originale della selezione del testo');
+     const index=this.chooseIndex(t.options.length,{actor,object,other,mixOffset,fragment:fragments.at(-1),token:t,context});
+     if(!Number.isInteger(index)||index<0||index>=t.options.length)throw Error('Invalid original text choice');
+     inChoice=true;emit(t.options[index]);inChoice=false;break;
+    }
+    case 'textArgument':{
+     mixOffset=context.argumentContexts?.[argumentsUsed]??null;
+     const id=context.textArguments?.[argumentsUsed++];
+     if(typeof id!=='string')throw new UnsupportedFeature('argomento di testo della conversazione');
+     walk(id);break;
+    }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
     case 'actorName':feedName(actor);break;
     case 'objectName':feedName(object);break;
     case 'otherName':feedName(other);break;
-    case 'actorIs':feedName(actor,true);break;
-    case 'objectIs':feedName(object,true);break;
-    case 'actorPossessive':feed(actor===w.player?'your':'his');break;
-    case 'objectPossessive':feed(object===w.player?'your':'his');break;
-    case 'newline':case 'endLine':feed('\n');break;
-    case 'endSentence':feed('.\n');break;
+    case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;break;
+    case 'objectIs':feedName(object,true);mixOffset=object===0?0x007A:0x0485;break;
+    case 'actorPossessive':feed(actor===w.player?'your':'his');mixOffset=actor===0?0x09F2:0x0414;break;
+    case 'objectPossessive':feed(object===w.player?'your':'his');mixOffset=object===0?0x09F2:0x0414;break;
+    case 'newline':feed('\n');break;
+    case 'endLine':mixOffset=mixOffset===null?null:0x6000|(mixOffset&255);feed('\n');break;
+    case 'endSentence':mixOffset=mixOffset===null?null:0x3000|(mixOffset&255);feed('.\n');break;
     case 'backspace':feed('\b');break;
     case 'toggleUpper':force=!force;break;
     case 'end':case 'noop':break;
     default:throw new UnsupportedFeature('operazione di testo '+t.op);
    }
   };
-  const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);for(const t of tokens)emit(t);depth--;};
+  const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);fragments.push(key);for(const t of tokens)emit(t);fragments.pop();depth--;};
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
  scene({full=true,room=this.world.roomOf(),remote=false,mark=true}={}){

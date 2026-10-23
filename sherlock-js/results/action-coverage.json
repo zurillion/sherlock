@@ -405,8 +405,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "PAY valuta TO persona: trasferimento ordinario, conto diretto, errori e formato monetario verificati; servizio del cab e PAY senza TO ancora incompleti. Vedere CONVERSATIONS.md."
     },
     {
       "id": 38,
@@ -516,7 +516,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Tabella e corpo TELL verificati come componenti con ingressi casuali forniti; conversazione giocabile ancora bloccata dalla sorgente originale mancante. Vedere CONVERSATIONS.md."
     },
     {
       "id": 48,
@@ -527,7 +527,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Tabella e corpo TELL verificati come componenti con ingressi casuali forniti; conversazione giocabile ancora bloccata dalla sorgente originale mancante. Vedere CONVERSATIONS.md."
     },
     {
       "id": 49,

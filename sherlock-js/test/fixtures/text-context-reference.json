@@ -1,0 +1,2939 @@
+{
+  "scope": "48 isolated native text-data cases. Actor 3, object 0, explicit entry context; native source bytes supplied only to tests, never gameplay.",
+  "cases": [
+    {
+      "label": "entry",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 8,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "entry",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 23,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "entry",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 17,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "entry",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 62,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "entry",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 137,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "entry",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 9,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "word",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22393,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22650,
+              "value": 56
+            }
+          ],
+          "next_seed": 119,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "word",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22393,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22650,
+              "value": 56
+            }
+          ],
+          "next_seed": 104,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "word",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22393,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22650,
+              "value": 56
+            }
+          ],
+          "next_seed": 110,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "word",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22393,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22650,
+              "value": 56
+            }
+          ],
+          "next_seed": 65,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "word",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22393,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22650,
+              "value": 56
+            }
+          ],
+          "next_seed": 246,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "word",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22393,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22650,
+              "value": 56
+            }
+          ],
+          "next_seed": 118,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "frequent",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 2205,
+            "randomContext": 22685,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "The holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22685,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22942,
+              "value": 56
+            }
+          ],
+          "next_seed": 119,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "frequent",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 2205,
+            "randomContext": 22685,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "The holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22685,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22942,
+              "value": 56
+            }
+          ],
+          "next_seed": 104,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "frequent",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 2205,
+            "randomContext": 22685,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "The holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22685,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22942,
+              "value": 56
+            }
+          ],
+          "next_seed": 110,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "frequent",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 2205,
+            "randomContext": 22685,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "The hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22685,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22942,
+              "value": 56
+            }
+          ],
+          "next_seed": 65,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "frequent",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 2205,
+            "randomContext": 22685,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "The holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22685,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22942,
+              "value": 56
+            }
+          ],
+          "next_seed": 246,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "frequent",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "word",
+            "id": 2205,
+            "randomContext": 22685,
+            "form": "stem"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "The holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 22685,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 22942,
+              "value": 56
+            }
+          ],
+          "next_seed": 118,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "possessive",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "actorPossessive"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "His hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 1044,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 1301,
+              "value": 254
+            }
+          ],
+          "next_seed": 177,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "possessive",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "actorPossessive"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "His hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 1044,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 1301,
+              "value": 254
+            }
+          ],
+          "next_seed": 174,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "possessive",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "actorPossessive"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "His hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 1044,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 1301,
+              "value": 254
+            }
+          ],
+          "next_seed": 168,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "possessive",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "actorPossessive"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "His hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 1044,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 1301,
+              "value": 254
+            }
+          ],
+          "next_seed": 135,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "possessive",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "actorPossessive"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "His holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 1044,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 1301,
+              "value": 254
+            }
+          ],
+          "next_seed": 48,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "possessive",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "actorPossessive"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "His hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 1044,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 1301,
+              "value": 254
+            }
+          ],
+          "next_seed": 176,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "object_is",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "objectIs"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "You are holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 122,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 379,
+              "value": 76
+            }
+          ],
+          "next_seed": 3,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "object_is",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "objectIs"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "You are holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 122,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 379,
+              "value": 76
+            }
+          ],
+          "next_seed": 28,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "object_is",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "objectIs"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "You are holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 122,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 379,
+              "value": 76
+            }
+          ],
+          "next_seed": 26,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "object_is",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "objectIs"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "You are holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 122,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 379,
+              "value": 76
+            }
+          ],
+          "next_seed": 53,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "object_is",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "objectIs"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "You are hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 122,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 379,
+              "value": 76
+            }
+          ],
+          "next_seed": 130,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "object_is",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "objectIs"
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "You are hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 122,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 379,
+              "value": 76
+            }
+          ],
+          "next_seed": 2,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "literal",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "literal",
+            "text": "\""
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "\" Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 8,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "literal",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "literal",
+            "text": "\""
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "\" Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 23,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "literal",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "literal",
+            "text": "\""
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "\" Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 17,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "literal",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "literal",
+            "text": "\""
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "\" Holmes.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 62,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "literal",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "literal",
+            "text": "\""
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "\" Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 137,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "literal",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "literal",
+            "text": "\""
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "\" Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 4660,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 4917,
+              "value": 71
+            }
+          ],
+          "next_seed": 9,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "call_return",
+      "seed": 0,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "call",
+            "text": "5BC0",
+            "relativeOffset": 64
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say.\n Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 12409,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 12666,
+              "value": 203
+            }
+          ],
+          "next_seed": 132,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "call_return",
+      "seed": 1,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "call",
+            "text": "5BC0",
+            "relativeOffset": 64
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say.\n Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 12409,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 12666,
+              "value": 203
+            }
+          ],
+          "next_seed": 155,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "call_return",
+      "seed": 7,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "call",
+            "text": "5BC0",
+            "relativeOffset": 64
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say.\n Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 12409,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 12666,
+              "value": 203
+            }
+          ],
+          "next_seed": 157,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "call_return",
+      "seed": 42,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "call",
+            "text": "5BC0",
+            "relativeOffset": 64
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say.\n Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 12409,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 12666,
+              "value": 203
+            }
+          ],
+          "next_seed": 178,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "call_return",
+      "seed": 127,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "call",
+            "text": "5BC0",
+            "relativeOffset": 64
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say.\n Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 12409,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 12666,
+              "value": 203
+            }
+          ],
+          "next_seed": 5,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "call_return",
+      "seed": 255,
+      "root": "5B80",
+      "texts": {
+        "5B80": [
+          {
+            "op": "call",
+            "text": "5BC0",
+            "relativeOffset": 64
+          },
+          {
+            "op": "choice",
+            "options": [
+              {
+                "op": "word",
+                "id": 1013,
+                "randomContext": 21493,
+                "form": "stem"
+              },
+              {
+                "op": "word",
+                "id": 1047,
+                "randomContext": 21527,
+                "form": "stem"
+              }
+            ]
+          },
+          {
+            "op": "endSentence"
+          }
+        ],
+        "5BC0": [
+          {
+            "op": "word",
+            "id": 1913,
+            "randomContext": 22393,
+            "form": "stem"
+          },
+          {
+            "op": "endSentence"
+          }
+        ]
+      },
+      "text": "Say.\n Hello.",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 12409,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 12666,
+              "value": 203
+            }
+          ],
+          "next_seed": 133,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "greeting",
+      "seed": 0,
+      "root": "6920",
+      "texts": {},
+      "text": "Watson says\" Good morning \".",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 65524,
+          "seed": 0,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 245,
+              "value": 164
+            }
+          ],
+          "next_seed": 235,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "greeting",
+      "seed": 1,
+      "root": "6920",
+      "texts": {},
+      "text": "Watson says\" Good morning \".",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 65524,
+          "seed": 1,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 245,
+              "value": 164
+            }
+          ],
+          "next_seed": 244,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "greeting",
+      "seed": 7,
+      "root": "6920",
+      "texts": {},
+      "text": "Watson says\" Good morning \".",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 65524,
+          "seed": 7,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 245,
+              "value": 164
+            }
+          ],
+          "next_seed": 242,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "greeting",
+      "seed": 42,
+      "root": "6920",
+      "texts": {},
+      "text": "Watson says\" Good morning \".",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 65524,
+          "seed": 42,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 245,
+              "value": 164
+            }
+          ],
+          "next_seed": 221,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "greeting",
+      "seed": 127,
+      "root": "6920",
+      "texts": {},
+      "text": "Watson says\" Good morning \".",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 65524,
+          "seed": 127,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 245,
+              "value": 164
+            }
+          ],
+          "next_seed": 106,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    },
+    {
+      "label": "greeting",
+      "seed": 255,
+      "root": "6920",
+      "texts": {},
+      "text": "Watson says\" Good morning \".",
+      "random": [
+        {
+          "width": 1,
+          "mixOffset": 65524,
+          "seed": 255,
+          "cursor": 0,
+          "reads": [
+            {
+              "address": 256,
+              "value": 79
+            },
+            {
+              "address": 245,
+              "value": 164
+            }
+          ],
+          "next_seed": 234,
+          "next_cursor": 256
+        }
+      ],
+      "initialMixOffset": 4660
+    }
+  ]
+}

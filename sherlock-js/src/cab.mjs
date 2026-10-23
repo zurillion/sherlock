@@ -11,7 +11,7 @@ export class Cab {
   const w=this.game.world;w.move(vehicle.id,w.roomOf(actor));
   const driver=w.scheduler.actor(vehicle.id+1);driver.program='cab-prefix';driver.enabled=false;
   driver.behavior={phase:'arrival-script-pending',vehicle:vehicle.id,customer:actor};
-  driver.suspension={feature:'cocchiere: chiamata e salita disponibili; viaggio, attese e pagamento ancora da ricostruire',tick:w.tick};
+  driver.suspension={feature:'cocchiere: chiamata, salita e PAY ordinario disponibili; viaggio, attese, richiesta tariffa e resto ancora da ricostruire',tick:w.tick};
  }
  validateState(){
   const w=this.game.world;

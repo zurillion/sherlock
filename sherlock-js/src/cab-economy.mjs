@@ -2,6 +2,14 @@
 export function decodeMoney(word){const high=word>>>8;return (high<128?high:high-256)*128+(word&127);}
 export function encodeMoney(pence){if(!Number.isInteger(pence)||pence< -16384||pence>16383)throw Error('Money outside original signed field');return (pence&127)|((pence<<1)&65280);}
 export const wrapMoney=pence=>((pence+16384)%32768+32768)%32768-16384;
+// A419's display convention: whole pounds omit a zero remainder; an amount
+// below one shilling has a trailing period, which capitalizes the next word.
+export function formatMoney(pence){
+ if(!Number.isInteger(pence)||pence<0||pence>16383)throw Error('Invalid displayed money');
+ const pounds=Math.floor(pence/240),rest=pence%240,shillings=Math.floor(rest/12),p=rest%12;
+ if(pounds&&!rest)return '£'+pounds;
+ return (pounds?'£'+pounds+' ':'')+(shillings?`${shillings}/${p||'-'}`:`${p}d.`);
+}
 export function account(world,actor){return world.entities.find(e=>e.parent===actor&&(e.noun&4095)===0x575)||null;}
 export function balance(world,actor){return account(world,actor)?.pence??null;}
 export function transferMoney(world,sender,recipient,pence){

@@ -1,0 +1,149 @@
+{
+  "scope": "One native numeric token and returned input cursor, explicit suffix and delimiter cases; not whole command execution.",
+  "cases": [
+    {
+      "input": "6D. TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8086",
+      "word": null,
+      "next_input": "5B03",
+      "instructions": 139
+    },
+    {
+      "input": "6D... TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8086",
+      "word": null,
+      "next_input": "5B05",
+      "instructions": 147
+    },
+    {
+      "input": "6D.LOOK",
+      "status": "returned",
+      "type": "D0",
+      "offset": "0000",
+      "word": null,
+      "next_input": "5B03",
+      "instructions": 144
+    },
+    {
+      "input": "6D. LOOK",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8086",
+      "word": null,
+      "next_input": "5B03",
+      "instructions": 139
+    },
+    {
+      "input": "2S. TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8098",
+      "word": null,
+      "next_input": "5B03",
+      "instructions": 136
+    },
+    {
+      "input": "1/-. TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "808C",
+      "word": null,
+      "next_input": "5B04",
+      "instructions": 140
+    },
+    {
+      "input": "0/6. TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8086",
+      "word": null,
+      "next_input": "5B04",
+      "instructions": 178
+    },
+    {
+      "input": "`1. TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "81F0",
+      "word": null,
+      "next_input": "5B03",
+      "instructions": 110
+    },
+    {
+      "input": "`1...LOOK",
+      "status": "returned",
+      "type": "D0",
+      "offset": "0000",
+      "word": null,
+      "next_input": "5B05",
+      "instructions": 123
+    },
+    {
+      "input": "9AM. LOOK",
+      "status": "returned",
+      "type": "F0",
+      "offset": "C900",
+      "word": null,
+      "next_input": "5B04",
+      "instructions": 112
+    },
+    {
+      "input": "9PM.. TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8940",
+      "word": null,
+      "next_input": "5B05",
+      "instructions": 119
+    },
+    {
+      "input": "9AM.LOOK",
+      "status": "returned",
+      "type": "D0",
+      "offset": "0000",
+      "word": null,
+      "next_input": "5B04",
+      "instructions": 117
+    },
+    {
+      "input": "9:30. LOOK",
+      "status": "returned",
+      "type": "F0",
+      "offset": "891E",
+      "word": null,
+      "next_input": "5B04",
+      "instructions": 137
+    },
+    {
+      "input": "9. LOOK",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8900",
+      "word": null,
+      "next_input": "5B01",
+      "instructions": 78
+    },
+    {
+      "input": "1/6,TO WATSON",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8092",
+      "word": null,
+      "next_input": "5B03",
+      "instructions": 172
+    },
+    {
+      "input": "6D.\"LOOK\"",
+      "status": "returned",
+      "type": "F0",
+      "offset": "8086",
+      "word": null,
+      "next_input": "5B02",
+      "instructions": 144
+    }
+  ]
+}

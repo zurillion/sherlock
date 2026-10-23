@@ -53,7 +53,16 @@ export class Lexer {
   while(pos<normalized.length){const start=pos,c=normalized[pos];if(c===' '){pos++;continue;}
    const special={'.':176,',':160,'"':144}[c];if(special!==undefined){tokens.push({type:special,value:0,word:null,start,end:++pos,source:c});continue;}
    let result;
-   if(/[0-9`]/.test(c)){while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;result=numericLiteral(normalized.slice(start,pos));}
+   if(/[0-9`]/.test(c)){
+    while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;result=numericLiteral(normalized.slice(start,pos));
+    // DB3D consumes periods following money or an explicit AM/PM suffix.
+    // In particular the dot in 6D. is not a command terminator.
+    if(result&&(result.literal.kind==='money'||result.literal.period)){
+     while(normalized[pos]==='.')pos++;
+     if(pos<normalized.length&&!/[ ,\"]/.test(normalized[pos]))result=null;
+     else if(normalized[pos]==='"')pos--; // DB5F returns before the quote.
+    }
+   }
    else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));}
    if(!result||result.type===208){const source=normalized.slice(start).split(' ')[0].replaceAll('.',' ');throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized});}
    tokens.push({...result,start,end:pos,source:normalized.slice(start,pos)});

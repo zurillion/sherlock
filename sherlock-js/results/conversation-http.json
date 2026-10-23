@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-23",
+  "port": 8768,
+  "statuses": {
+    "GET /": 200,
+    "GET /src/conversation.mjs": 200,
+    "GET /src/text.mjs": 200,
+    "GET /data/game.json": 200,
+    "GET /api/state": 404,
+    "POST /api/command": 405
+  },
+  "static_server_only": true,
+  "visual_browser_test": false
+}

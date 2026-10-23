@@ -143,7 +143,7 @@
   },
   "tests": {
     "file": "tests.tap",
-    "passed": 214,
+    "passed": 254,
     "failed": 0
   },
   "acceptance": {

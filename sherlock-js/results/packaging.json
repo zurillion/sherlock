@@ -1,6 +1,6 @@
 {
   "date": "2026-10-23",
-  "isolated_bundle_tests": 236,
+  "isolated_bundle_tests": 254,
   "isolated_bundle_dependencies": "Node standard library only",
   "http_status": {
     "GET /": 200,
@@ -11,5 +11,5 @@
     "POST /api/command": 405
   },
   "current_test_report": "tests.tap",
-  "http_status_provenance": "Existing static-server checks, unchanged server implementation"
+  "http_status_provenance": "Static routes rechecked on port 8768; see conversation-http.json"
 }

@@ -4,8 +4,10 @@ import {World,UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 import {Text} from './text.mjs';
 import {Watson} from './watson.mjs';
 import {Cab} from './cab.mjs';
+import {Conversation} from './conversation.mjs';
+import {transferMoney,decodeMoney,formatMoney} from './cab-economy.mjs';
 
-export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,31,32,33,34,35,36,40,41,46,49,50];
+export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,31,32,33,34,35,36,37,40,41,46,47,48,49,50];
 const clone=structuredClone;
 // Rules are domain functions over logical objects. No binary, RAM, CPU, address
 // dispatcher, server-side game logic, or fallback to the reference engine.
@@ -14,7 +16,7 @@ export class Game {
   this.data=data;this.dictionary=new Dictionary(data.dictionary);this.lexer=new Lexer(this.dictionary);this.parser=new Parser(this.lexer);this.world=new World(data);this.text=new Text(data,this.dictionary,this.world);
   this.startMode=start_mode;this.pending=null;this.analysis=null;this.lastInput=null;this.ended=null;this.openingPending=true;this.conversation=null;
   if(start_mode==='original'){this.world.tick=2;this.world.minutes++;}
-  this.cab=new Cab(this);this.watson=new Watson(this);if(npcs)this.watson.initialize();
+  this.cab=new Cab(this);this.watson=new Watson(this);this.dialogue=new Conversation(data,this.text);if(npcs)this.watson.initialize();
   this.initial=this.text.scene();this.opening=this.initial+'\n'+this.text.render('6DEB');
  }
  word(id){return this.dictionary.word(id)?.stem||'';}
@@ -38,6 +40,7 @@ export class Game {
   if([12,24,40].includes(action))return e.rules.some(r=>r.action===action);
   if([13,25].includes(action))return w.entity(actor).parent===e.id;
   if(action===46)return e.person&&e.id!==actor;
+  if([37,47,48].includes(action))return e.person;
   return true;
  }
  error(text){return {kind:'error',text};}
@@ -63,12 +66,34 @@ export class Game {
    for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
    if(action!==46)throw new UnsupportedFeature('citazioni per questa forma di conversazione');
   }
-  if(!action)return reject(`I DO NOT KNOW THE VERB"${this.word(node.verb).toUpperCase()} "`);
+  if(!action){if(this.word(node.verb)==='pay')throw new UnsupportedFeature('forma PAY senza TO e relativo passaggio al turno seguente');return reject(`I DO NOT KNOW THE VERB"${this.word(node.verb).toUpperCase()} "`);}
   if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
   if(w.dark(actor)&&![33,49,50].includes(action))return reject('SORRY IT IS TOO DARK.');
   if(action===34){const scene=this.text.scene();return ok([{kind:'narrative',text:scene,image_room:w.roomOf()}]);}
   if(action===33){const items=w.entities.filter(e=>e.parent===actor).map(e=>w.name(e.id,{indefinite:true}));return ok(['You are carrying '+(items.length?joinList(items):'nothing')+'.']);}
   if(action===32)return ok([actor===w.player?this.error(this.text.render('6915').toUpperCase()):this.text.greeting(actor)],0);
+  if(action===37){
+   const literal=node.groups[0]?.noun;
+   if(!(literal&32768)||!(literal&128))return reject("DON'T BE SILLY.");
+   const group=node.groups[1];
+   if(group){const nominal=w.entities.filter(e=>w.nounMatches(e,group));if(nominal.length&&!nominal.some(e=>e.person))return reject("DON'T BE SILLY.");}
+   const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
+   const pence=decodeMoney(literal&32767);
+   // The normal semantic preflight reports the generic refusal here; the
+   // E36A "not enough" routine is not the visible player-command result.
+   if(!transferMoney(w,actor,target.entity.id,pence))return reject("DON'T BE SILLY.");
+   const amount=formatMoney(pence);
+   return ok([say('pay',' '+amount+(amount.endsWith('.')?' To ':' to ')+w.name(target.entity.id)+'.','pays')],1,[254,target.entity.id]);
+  }
+  if(action===47||action===48){
+   const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
+   const group=node.groups[1];
+   // Class 7 deliberately includes off-stage people and things, independently
+   // of visibility; perceived recipient is checked separately by class D.
+   const topics=group?w.entities.filter(e=>w.nounMatches(e,group)):[];
+   if(topics.length!==1)throw new UnsupportedFeature('risoluzione del soggetto TELL: zero o più riferimenti');
+   return ok([this.dialogue.tell(actor,target.entity.id,topics[0].id)],1,[target.entity.id,topics[0].id]);
+  }
   if(action===49)return ok([say('wait','.')],5);
   if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');const hour=(literal>>>8)&63,minute=literal&63;if(hour<1||hour>12)return reject('YOU CANNOT WAIT UNTIL THAT TIME.');let target=(hour%12)*60+minute;
    if(literal&16384){}else if(literal&64)target+=720;else if(Math.floor(w.minutes/720)%2)target+=720;
@@ -89,6 +114,7 @@ export class Game {
     if(commands.some(n=>n.subject))throw new UnsupportedFeature('affermazioni e memoria di Watson');
     this.watson.validateRequest(commands);
     if(commands.some(n=>this.action(n)===32))throw new UnsupportedFeature('saluto di Watson: sorgente casuale originale e stato globale non ancora ricostruiti');
+    if(commands.some(n=>[47,48].includes(this.action(n)))&&!this.text.chooseIndex)throw new UnsupportedFeature('risposta TELL: selezione originale di says/remarks e stato casuale globale');
     if(w.scheduler.actor(3).behavior.follow&&!commands.every(n=>this.action(n)===32))throw new UnsupportedFeature('nuovi ordini durante il FOLLOW differito di Watson');
     w.scheduler.sendRequest(actor,3,{nodes:commands});
    }
@@ -132,7 +158,7 @@ export class Game {
    e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([say(action===36?'open':'close',' '+w.name(e.id)+'.')],1,[e.id]);
   }
   if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);e.status|=64;return ok([`You examine ${w.name(e.id)}.\n`+(e.description?this.text.render(e.description,{object:e.id}):`You see ${w.name(e.id,{indefinite:true})}.`)],1,[e.id]);}
-  if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');const pence=e.pence,pounds=Math.floor(pence/240),shillings=Math.floor(pence%240/12),p=pence%12;return ok([`You count ${w.name(e.id)}.\nIt totals ${pounds?'£'+pounds+' ':''}${shillings}/${p||'-'}`],1,[e.id]);}
+  if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');return ok([`You count ${w.name(e.id)}.\nIt totals ${formatMoney(e.pence&16383)}`],1,[e.id]);}
   throw new UnsupportedFeature('azione '+action);
  }
  // ALL selects references, rather than turning into one synthetic action with
@@ -185,7 +211,7 @@ export class Game {
     if(this.pending)break;
    }
   }catch(error){
-   if(error instanceof InputError){this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message,...(error.kind==='syntax_error'?{screen_events:[{op:'counter',value:0},{op:'wide'}]}:{})});}
+   if(error instanceof InputError){this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£'),...(error.kind==='syntax_error'?{screen_events:[{op:'counter',value:0},{op:'wide'}]}:{})});}
    else if(error instanceof UnsupportedFeature){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature,units,actions};messages.push({kind:'system',text:error.message});}
    else throw error;
   }

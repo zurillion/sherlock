@@ -8,7 +8,7 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Lessico alfabetico e abbreviazioni, con 1.804 confronti congelati; formati comuni di orari e denaro.
 - Grammatica dei comandi ordinari, gruppi nominali, coordinazioni, ALL/EXCEPT, citazioni, modalità dichiarativa e completamento di un riferimento ambiguo.
 - Struttura degli oggetti e contenitori, propagazione della posizione, filtro di percezione, condizioni di luce, descrizioni per fascia oraria, prima visita e LOOK.
-- Varianti generiche di movimento, OPEN/CLOSE, TAKE/CARRY/GET, DROP, GIVE, INVENTORY, LOOK, EXAMINE e COUNT MONEY.
+- Varianti generiche di movimento, OPEN/CLOSE, TAKE/CARRY/GET, DROP, GIVE, INVENTORY, LOOK, EXAMINE, COUNT MONEY e PAY valuta TO persona.
 - HELLO nella zona comandi. Il precedente saluto temporale fisso di Watson è stato rimosso: il saluto citato è esplicitamente mancante finché non viene generata la sorgente casuale originale globale. Il selettore delle alternative è tradotto e verificato separatamente, senza ingressi inventati.
 - HAIL CAB sulle dieci strade della rete, arrivo con cocchiere e denaro, GET INTO CAB e GET OUT OF CAB. Il programma del cocchiere successivo all’arrivo è sospeso.
 - WAIT di cinque minuti e presentazione dei minuti; WAIT UNTIL è ancora provvisorio.
@@ -17,7 +17,7 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Salvataggio dello stato logico e dello scheduler, inclusa una domanda di chiarimento pendente, e migrazione dei vecchi file JS.
 - Mappa, teletrasporto di analisi, SVG/pixel, presentazione Spectrum riutilizzata e collegata al motore locale.
 
-L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 35 hanno almeno una regola parziale: questo **non** significa che quei 35 siano completamente equivalenti all'originale.
+L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 36 hanno almeno una regola giocabile parziale: questo **non** significa che quei 36 siano completamente equivalenti all'originale. TELL ha ora un corpo e una tabella verificati separatamente, ma resta indisponibile nella pagina per la sorgente casuale mancante.
 
 ## Limiti precisi delle parti presenti
 

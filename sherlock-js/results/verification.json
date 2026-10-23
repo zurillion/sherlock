@@ -12,7 +12,7 @@
   },
   "automated_tests": {
     "file": "tests.tap",
-    "passed": 236,
+    "passed": 254,
     "failed": 0
   },
   "reference_comparisons": {
@@ -47,7 +47,7 @@
     "Watson encounter callbacks",
     "information, statements and deductions",
     "Lestrade and remaining NPCs",
-    "cab driver dialogue, waiting, travel and payment; trains and story"
+    "cab driver dialogue, waiting, travel, fare demands, change and reactions; trains and story"
   ],
   "not_claimed": [
     "full gameplay equivalence",
@@ -93,5 +93,6 @@
   "current_greeting_status": "unimplemented-original-random-source; previous fixed variant removed",
   "full_game_equivalence": false,
   "original_seed_parity": false,
-  "npc_foundations_report": "npc-foundations.json"
+  "npc_foundations_report": "npc-foundations.json",
+  "conversation_report": "conversation-verification.json"
 }

@@ -2,6 +2,8 @@
 
 The requested full behaviour of Watson, the cabbie and Lestrade is **not complete**. These modules implement necessary shared components. They are not enabled as a substitute NPC engine in the page. The page retains its documented partial profile and the explicit missing greeting notice. There is no statistical or scripted substitute for the original random source.
 
+Subsequent work on the TELL table, generated text-choice context and the playable ordinary PAY action is documented in [CONVERSATIONS.md](CONVERSATIONS.md). The current isolated suite has 254 passing tests. That work does not resolve the missing playable conversations or complete any of the three NPCs.
+
 ## Code added
 
 - `src/npc-program.mjs`: the game's domain instruction language, with conditional control flow, argument aliases, failure yields, one-shot erasure, signals, typed requests and nested deferred continuations. This interprets NPC instructions, not Z80 instructions. Native program labels are data identifiers; native CPU bodies are never dispatched.
