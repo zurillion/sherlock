@@ -1,0 +1,4901 @@
+{
+  "scope": "Original low-level NPC steps in explicit program fixtures; not a full game or seeded sequence comparison.",
+  "programs": [
+    {
+      "label": "yield",
+      "actor": 3,
+      "program": [
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B81",
+          "failure": null,
+          "successors": [
+            "5B81"
+          ]
+        },
+        "5B81": {
+          "address": "5B81",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B84",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "5B81",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B81",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B81",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B81",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "yield_ignored_operand",
+      "actor": 3,
+      "program": [
+        13,
+        99,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 13,
+          "kind": 13,
+          "operation": "cede con costo 1 (secondo byte ignorato)",
+          "raw": "0d 63",
+          "size": 2,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B82",
+          "failure": null,
+          "successors": [
+            "5B82"
+          ]
+        },
+        "5B82": {
+          "address": "5B82",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B85",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            13,
+            99,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            13,
+            99,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            13,
+            99,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            13,
+            99,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "signal_absent",
+      "actor": 3,
+      "program": [
+        25,
+        4,
+        128,
+        91,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 25,
+          "kind": 9,
+          "operation": "consuma segnale del mittente",
+          "raw": "19 04 80 5b",
+          "size": 4,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B84",
+          "failure": "5B80",
+          "sender": 4,
+          "successors": [
+            "5B80",
+            "5B84"
+          ]
+        },
+        "5B84": {
+          "address": "5B84",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B85",
+          "failure": null,
+          "successors": [
+            "5B85"
+          ]
+        },
+        "5B85": {
+          "address": "5B85",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B88",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "5B80",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            25,
+            4,
+            128,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B80",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            25,
+            4,
+            128,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B80",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            25,
+            4,
+            128,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "signal_send",
+      "actor": 3,
+      "program": [
+        8,
+        6,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 8,
+          "kind": 8,
+          "operation": "invia segnale",
+          "raw": "08 06",
+          "size": 2,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B82",
+          "failure": null,
+          "target_actor": 6,
+          "successors": [
+            "5B82"
+          ]
+        },
+        "5B82": {
+          "address": "5B82",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B83",
+          "failure": null,
+          "successors": [
+            "5B83"
+          ]
+        },
+        "5B83": {
+          "address": "5B83",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B86",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 0,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 0,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 0,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "fixture_bytes": [
+            8,
+            6,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "counter_three",
+      "actor": 3,
+      "program": [
+        3,
+        168,
+        229,
+        147,
+        122,
+        229,
+        128,
+        91,
+        138,
+        91,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": 3,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 a8 e5",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B83",
+          "failure": "5B83",
+          "rule": "E5A8",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "5B83"
+          ]
+        },
+        "5B83": {
+          "address": "5B83",
+          "opcode": 147,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "93 7a e5 80 5b 8a 5b",
+          "size": 7,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B80",
+          "failure": "5B8A",
+          "rule": "E57A",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "5B80",
+            "5B8A"
+          ]
+        },
+        "5B8A": {
+          "address": "5B8A",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B8B",
+          "failure": null,
+          "successors": [
+            "5B8B"
+          ]
+        },
+        "5B8B": {
+          "address": "5B8B",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B8E",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [
+            [
+              3,
+              3
+            ]
+          ],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "5B80",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [
+            [
+              3,
+              2
+            ]
+          ],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [
+            [
+              3,
+              2
+            ]
+          ],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 0,
+          "pc": "5B80",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [
+            [
+              3,
+              1
+            ]
+          ],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [
+            [
+              3,
+              1
+            ]
+          ],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 6,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 7,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 8,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 9,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 10,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 11,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            168,
+            229,
+            147,
+            122,
+            229,
+            128,
+            91,
+            138,
+            91,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "deferred_reading",
+      "actor": 3,
+      "program": [
+        3,
+        154,
+        231,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 3,
+          "kind": 3,
+          "operation": "regola senza argomenti",
+          "raw": "03 9a e7",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B83",
+          "failure": "5B83",
+          "rule": "E79A",
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "5B83"
+          ]
+        },
+        "5B83": {
+          "address": "5B83",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B84",
+          "failure": null,
+          "successors": [
+            "5B84"
+          ]
+        },
+        "5B84": {
+          "address": "5B84",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B87",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 0,
+          "pc": "E79C",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              255
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "E79F",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              255
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "E7A5",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              255
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "E7AC",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              255
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "5B83",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B84",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 0,
+          "pc": "E79C",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "E79F",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 0,
+          "pc": "E7A5",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 0,
+          "pc": "E7AC",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 0,
+          "pc": "5B83",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B84",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 0,
+          "pc": "E79C",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 1,
+          "pc": "E79F",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 0,
+          "pc": "E7A5",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 0,
+          "pc": "E7AC",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 0,
+          "pc": "5B83",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 1,
+          "pc": "5B84",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 6,
+          "cost": 0,
+          "pc": "E79C",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 6,
+          "cost": 1,
+          "pc": "E79F",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 7,
+          "cost": 0,
+          "pc": "E7A5",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 7,
+          "cost": 0,
+          "pc": "E7AC",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 7,
+          "cost": 0,
+          "pc": "5B83",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 7,
+          "cost": 1,
+          "pc": "5B84",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 8,
+          "cost": 0,
+          "pc": "E79C",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 8,
+          "cost": 1,
+          "pc": "E79F",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 9,
+          "cost": 0,
+          "pc": "E7A5",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 9,
+          "cost": 0,
+          "pc": "E7AC",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 9,
+          "cost": 0,
+          "pc": "5B83",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 9,
+          "cost": 1,
+          "pc": "5B84",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 10,
+          "cost": 0,
+          "pc": "E79C",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 10,
+          "cost": 1,
+          "pc": "E79F",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              255,
+              255,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 11,
+          "cost": 0,
+          "pc": "E7A5",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 11,
+          "cost": 0,
+          "pc": "E7AC",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [
+            [
+              3,
+              128,
+              91,
+              3,
+              8,
+              1,
+              0
+            ]
+          ],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 11,
+          "cost": 0,
+          "pc": "5B83",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 11,
+          "cost": 1,
+          "pc": "5B84",
+          "saved": [
+            0,
+            0,
+            0
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            3,
+            154,
+            231,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "dynamic_operands",
+      "actor": 3,
+      "program": [
+        7,
+        136,
+        228,
+        251,
+        255,
+        7,
+        173,
+        229,
+        251,
+        250,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 88 e4 fb ff",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B85",
+          "failure": "5B85",
+          "rule": "E488",
+          "args": [
+            251,
+            255
+          ],
+          "successors": [
+            "5B85"
+          ]
+        },
+        "5B85": {
+          "address": "5B85",
+          "opcode": 7,
+          "kind": 7,
+          "operation": "regola con argomenti",
+          "raw": "07 ad e5 fb fa",
+          "size": 5,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B8A",
+          "failure": "5B8A",
+          "rule": "E5AD",
+          "args": [
+            251,
+            250
+          ],
+          "successors": [
+            "5B8A"
+          ]
+        },
+        "5B8A": {
+          "address": "5B8A",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B8B",
+          "failure": null,
+          "successors": [
+            "5B8B"
+          ]
+        },
+        "5B8B": {
+          "address": "5B8B",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B8E",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 0,
+          "pc": "5B85",
+          "saved": [
+            8,
+            3,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 0,
+          "cost": 0,
+          "pc": "5B8A",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 0,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "5B85",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 0,
+          "pc": "5B8A",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 0,
+          "pc": "5B85",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 0,
+          "pc": "5B8A",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 0,
+          "pc": "5B85",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 0,
+          "pc": "5B8A",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 0,
+          "pc": "5B85",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 0,
+          "pc": "5B8A",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 0,
+          "pc": "5B85",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 0,
+          "pc": "5B8A",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 5,
+          "cost": 1,
+          "pc": "5B8B",
+          "saved": [
+            8,
+            3,
+            8
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            7,
+            136,
+            228,
+            251,
+            255,
+            7,
+            173,
+            229,
+            251,
+            250,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "wait_action",
+      "actor": 3,
+      "program": [
+        1,
+        49,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 1,
+          "kind": 1,
+          "operation": "azione senza argomenti",
+          "raw": "01 31",
+          "size": 2,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B82",
+          "failure": "5B82",
+          "action": 49,
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "5B82"
+          ]
+        },
+        "5B82": {
+          "address": "5B82",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B83",
+          "failure": null,
+          "successors": [
+            "5B83"
+          ]
+        },
+        "5B83": {
+          "address": "5B83",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B86",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 5,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            1,
+            49,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            1,
+            49,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 5,
+          "pc": "5B82",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            1,
+            49,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B83",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            1,
+            49,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "label": "erase_once",
+      "actor": 3,
+      "program": [
+        162,
+        49,
+        255,
+        255,
+        135,
+        91,
+        15,
+        15,
+        14,
+        128,
+        91
+      ],
+      "initialCounter": null,
+      "graph": {
+        "5B80": {
+          "address": "5B80",
+          "opcode": 162,
+          "kind": 2,
+          "operation": "azione con argomenti",
+          "raw": "a2 31 ff ff 87 5b",
+          "size": 6,
+          "erase_on_success": true,
+          "request_restriction_flag": false,
+          "success": "5B87",
+          "failure": "5B86",
+          "action": 49,
+          "args": [
+            255,
+            255
+          ],
+          "successors": [
+            "5B86",
+            "5B87"
+          ]
+        },
+        "5B86": {
+          "address": "5B86",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B87",
+          "failure": null,
+          "successors": [
+            "5B87"
+          ]
+        },
+        "5B87": {
+          "address": "5B87",
+          "opcode": 15,
+          "kind": 15,
+          "operation": "cede con costo 1",
+          "raw": "0f",
+          "size": 1,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B88",
+          "failure": null,
+          "successors": [
+            "5B88"
+          ]
+        },
+        "5B88": {
+          "address": "5B88",
+          "opcode": 14,
+          "kind": 14,
+          "operation": "salto assoluto",
+          "raw": "0e 80 5b",
+          "size": 3,
+          "erase_on_success": false,
+          "request_restriction_flag": false,
+          "success": "5B8B",
+          "failure": null,
+          "jump": "5B80",
+          "successors": [
+            "5B80"
+          ]
+        }
+      },
+      "rows": [
+        {
+          "visit": 0,
+          "cost": 5,
+          "pc": "5B87",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 1,
+          "cost": 1,
+          "pc": "5B88",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 2,
+          "cost": 1,
+          "pc": "5B87",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 3,
+          "cost": 1,
+          "pc": "5B88",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            15,
+            14,
+            128,
+            91
+          ]
+        },
+        {
+          "visit": 4,
+          "cost": 1,
+          "pc": "5B87",
+          "saved": [
+            255,
+            255,
+            255
+          ],
+          "contexts": [],
+          "counters": [],
+          "signals": [],
+          "fixture_bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            15,
+            14,
+            128,
+            91
+          ]
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": 45,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 3,
+      "native_fare": 2
+    },
+    {
+      "source": 45,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 1,
+      "native_fare": 6
+    },
+    {
+      "source": 5,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 3,
+      "native_fare": 2
+    },
+    {
+      "source": 5,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 1,
+      "native_fare": 6
+    },
+    {
+      "source": 45,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 7,
+      "native_fare": 4
+    },
+    {
+      "source": 45,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 5,
+      "native_fare": 12
+    },
+    {
+      "source": 10,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 7,
+      "native_fare": 4
+    },
+    {
+      "source": 10,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 5,
+      "native_fare": 12
+    },
+    {
+      "source": 45,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 45,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 12,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 12,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 45,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 19,
+      "native_fare": 8
+    },
+    {
+      "source": 45,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 17,
+      "native_fare": 24
+    },
+    {
+      "source": 14,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 19,
+      "native_fare": 8
+    },
+    {
+      "source": 14,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 17,
+      "native_fare": 24
+    },
+    {
+      "source": 45,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 45,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 18,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 18,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 45,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 7,
+      "native_fare": 4
+    },
+    {
+      "source": 45,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 5,
+      "native_fare": 12
+    },
+    {
+      "source": 24,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 7,
+      "native_fare": 4
+    },
+    {
+      "source": 24,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 5,
+      "native_fare": 12
+    },
+    {
+      "source": 45,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 45,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 28,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 28,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 45,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 6,
+      "native_fare": 4
+    },
+    {
+      "source": 45,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 4,
+      "native_fare": 12
+    },
+    {
+      "source": 32,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 6,
+      "native_fare": 4
+    },
+    {
+      "source": 32,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 4,
+      "native_fare": 12
+    },
+    {
+      "source": 45,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 13,
+      "native_fare": 6
+    },
+    {
+      "source": 45,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 11,
+      "native_fare": 18
+    },
+    {
+      "source": 40,
+      "target": 45,
+      "furiously": false,
+      "native_duration": 13,
+      "native_fare": 6
+    },
+    {
+      "source": 40,
+      "target": 45,
+      "furiously": true,
+      "native_duration": 11,
+      "native_fare": 18
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 10,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 10,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 5,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 25,
+      "native_fare": 12
+    },
+    {
+      "source": 5,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 23,
+      "native_fare": 36
+    },
+    {
+      "source": 12,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 25,
+      "native_fare": 12
+    },
+    {
+      "source": 12,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 23,
+      "native_fare": 36
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 26,
+      "native_fare": 12
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 24,
+      "native_fare": 36
+    },
+    {
+      "source": 14,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 26,
+      "native_fare": 12
+    },
+    {
+      "source": 14,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 24,
+      "native_fare": 36
+    },
+    {
+      "source": 5,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 5,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 18,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 18,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 5,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 6,
+      "native_fare": 4
+    },
+    {
+      "source": 5,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 4,
+      "native_fare": 12
+    },
+    {
+      "source": 24,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 6,
+      "native_fare": 4
+    },
+    {
+      "source": 24,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 4,
+      "native_fare": 12
+    },
+    {
+      "source": 5,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 15,
+      "native_fare": 8
+    },
+    {
+      "source": 5,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 13,
+      "native_fare": 24
+    },
+    {
+      "source": 28,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 15,
+      "native_fare": 8
+    },
+    {
+      "source": 28,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 13,
+      "native_fare": 24
+    },
+    {
+      "source": 5,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 24,
+      "native_fare": 10
+    },
+    {
+      "source": 5,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 22,
+      "native_fare": 30
+    },
+    {
+      "source": 32,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 24,
+      "native_fare": 10
+    },
+    {
+      "source": 32,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 22,
+      "native_fare": 30
+    },
+    {
+      "source": 5,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 9,
+      "native_fare": 4
+    },
+    {
+      "source": 5,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 7,
+      "native_fare": 12
+    },
+    {
+      "source": 40,
+      "target": 5,
+      "furiously": false,
+      "native_duration": 9,
+      "native_fare": 4
+    },
+    {
+      "source": 40,
+      "target": 5,
+      "furiously": true,
+      "native_duration": 7,
+      "native_fare": 12
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 12,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 12,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 14,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 14,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 10,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 10,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 18,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 18,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 10,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 19,
+      "native_fare": 8
+    },
+    {
+      "source": 10,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 17,
+      "native_fare": 24
+    },
+    {
+      "source": 24,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 19,
+      "native_fare": 8
+    },
+    {
+      "source": 24,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 17,
+      "native_fare": 24
+    },
+    {
+      "source": 10,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 2,
+      "native_fare": 2
+    },
+    {
+      "source": 10,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 0,
+      "native_fare": 6
+    },
+    {
+      "source": 28,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 2,
+      "native_fare": 2
+    },
+    {
+      "source": 28,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 0,
+      "native_fare": 6
+    },
+    {
+      "source": 10,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 4,
+      "native_fare": 2
+    },
+    {
+      "source": 10,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 2,
+      "native_fare": 6
+    },
+    {
+      "source": 32,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 4,
+      "native_fare": 2
+    },
+    {
+      "source": 32,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 2,
+      "native_fare": 6
+    },
+    {
+      "source": 10,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 15,
+      "native_fare": 8
+    },
+    {
+      "source": 10,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 13,
+      "native_fare": 24
+    },
+    {
+      "source": 40,
+      "target": 10,
+      "furiously": false,
+      "native_duration": 15,
+      "native_fare": 8
+    },
+    {
+      "source": 40,
+      "target": 10,
+      "furiously": true,
+      "native_duration": 13,
+      "native_fare": 24
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 3,
+      "native_fare": 2
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 1,
+      "native_fare": 6
+    },
+    {
+      "source": 14,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 3,
+      "native_fare": 2
+    },
+    {
+      "source": 14,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 1,
+      "native_fare": 6
+    },
+    {
+      "source": 12,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 12,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 18,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 18,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 12,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 30,
+      "native_fare": 14
+    },
+    {
+      "source": 12,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 28,
+      "native_fare": 42
+    },
+    {
+      "source": 24,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 30,
+      "native_fare": 14
+    },
+    {
+      "source": 24,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 28,
+      "native_fare": 42
+    },
+    {
+      "source": 12,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 12,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 28,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 20,
+      "native_fare": 10
+    },
+    {
+      "source": 28,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 18,
+      "native_fare": 30
+    },
+    {
+      "source": 12,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 17,
+      "native_fare": 8
+    },
+    {
+      "source": 12,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 15,
+      "native_fare": 24
+    },
+    {
+      "source": 32,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 17,
+      "native_fare": 8
+    },
+    {
+      "source": 32,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 15,
+      "native_fare": 24
+    },
+    {
+      "source": 12,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 25,
+      "native_fare": 12
+    },
+    {
+      "source": 12,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 23,
+      "native_fare": 36
+    },
+    {
+      "source": 40,
+      "target": 12,
+      "furiously": false,
+      "native_duration": 25,
+      "native_fare": 12
+    },
+    {
+      "source": 40,
+      "target": 12,
+      "furiously": true,
+      "native_duration": 23,
+      "native_fare": 36
+    },
+    {
+      "source": 14,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 13,
+      "native_fare": 6
+    },
+    {
+      "source": 14,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 11,
+      "native_fare": 18
+    },
+    {
+      "source": 18,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 13,
+      "native_fare": 6
+    },
+    {
+      "source": 18,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 11,
+      "native_fare": 18
+    },
+    {
+      "source": 14,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 28,
+      "native_fare": 12
+    },
+    {
+      "source": 14,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 26,
+      "native_fare": 36
+    },
+    {
+      "source": 24,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 28,
+      "native_fare": 12
+    },
+    {
+      "source": 24,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 26,
+      "native_fare": 36
+    },
+    {
+      "source": 14,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 17,
+      "native_fare": 8
+    },
+    {
+      "source": 14,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 15,
+      "native_fare": 24
+    },
+    {
+      "source": 28,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 17,
+      "native_fare": 8
+    },
+    {
+      "source": 28,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 15,
+      "native_fare": 24
+    },
+    {
+      "source": 14,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 9,
+      "native_fare": 4
+    },
+    {
+      "source": 14,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 7,
+      "native_fare": 12
+    },
+    {
+      "source": 32,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 9,
+      "native_fare": 4
+    },
+    {
+      "source": 32,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 7,
+      "native_fare": 12
+    },
+    {
+      "source": 14,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 11,
+      "native_fare": 6
+    },
+    {
+      "source": 14,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 9,
+      "native_fare": 18
+    },
+    {
+      "source": 40,
+      "target": 14,
+      "furiously": false,
+      "native_duration": 11,
+      "native_fare": 6
+    },
+    {
+      "source": 40,
+      "target": 14,
+      "furiously": true,
+      "native_duration": 9,
+      "native_fare": 18
+    },
+    {
+      "source": 18,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 11,
+      "native_fare": 6
+    },
+    {
+      "source": 18,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 9,
+      "native_fare": 18
+    },
+    {
+      "source": 24,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 11,
+      "native_fare": 6
+    },
+    {
+      "source": 24,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 9,
+      "native_fare": 18
+    },
+    {
+      "source": 18,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 16,
+      "native_fare": 8
+    },
+    {
+      "source": 18,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 14,
+      "native_fare": 24
+    },
+    {
+      "source": 28,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 16,
+      "native_fare": 8
+    },
+    {
+      "source": 28,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 14,
+      "native_fare": 24
+    },
+    {
+      "source": 18,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 18,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 32,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 18,
+      "native_fare": 8
+    },
+    {
+      "source": 32,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 16,
+      "native_fare": 24
+    },
+    {
+      "source": 18,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 3,
+      "native_fare": 2
+    },
+    {
+      "source": 18,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 1,
+      "native_fare": 6
+    },
+    {
+      "source": 40,
+      "target": 18,
+      "furiously": false,
+      "native_duration": 3,
+      "native_fare": 2
+    },
+    {
+      "source": 40,
+      "target": 18,
+      "furiously": true,
+      "native_duration": 1,
+      "native_fare": 6
+    },
+    {
+      "source": 24,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 15,
+      "native_fare": 8
+    },
+    {
+      "source": 24,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 13,
+      "native_fare": 24
+    },
+    {
+      "source": 28,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 15,
+      "native_fare": 8
+    },
+    {
+      "source": 28,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 13,
+      "native_fare": 24
+    },
+    {
+      "source": 24,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 24,
+      "native_fare": 10
+    },
+    {
+      "source": 24,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 22,
+      "native_fare": 30
+    },
+    {
+      "source": 32,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 24,
+      "native_fare": 10
+    },
+    {
+      "source": 32,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 22,
+      "native_fare": 30
+    },
+    {
+      "source": 24,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 13,
+      "native_fare": 6
+    },
+    {
+      "source": 24,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 11,
+      "native_fare": 18
+    },
+    {
+      "source": 40,
+      "target": 24,
+      "furiously": false,
+      "native_duration": 13,
+      "native_fare": 6
+    },
+    {
+      "source": 40,
+      "target": 24,
+      "furiously": true,
+      "native_duration": 11,
+      "native_fare": 18
+    },
+    {
+      "source": 28,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 28,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 32,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 12,
+      "native_fare": 6
+    },
+    {
+      "source": 32,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 10,
+      "native_fare": 18
+    },
+    {
+      "source": 28,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 19,
+      "native_fare": 8
+    },
+    {
+      "source": 28,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 17,
+      "native_fare": 24
+    },
+    {
+      "source": 40,
+      "target": 28,
+      "furiously": false,
+      "native_duration": 19,
+      "native_fare": 8
+    },
+    {
+      "source": 40,
+      "target": 28,
+      "furiously": true,
+      "native_duration": 17,
+      "native_fare": 24
+    },
+    {
+      "source": 32,
+      "target": 40,
+      "furiously": false,
+      "native_duration": 22,
+      "native_fare": 10
+    },
+    {
+      "source": 32,
+      "target": 40,
+      "furiously": true,
+      "native_duration": 20,
+      "native_fare": 30
+    },
+    {
+      "source": 40,
+      "target": 32,
+      "furiously": false,
+      "native_duration": 22,
+      "native_fare": 10
+    },
+    {
+      "source": 40,
+      "target": 32,
+      "furiously": true,
+      "native_duration": 20,
+      "native_fare": 30
+    }
+  ],
+  "money": [
+    {
+      "amount": -16384,
+      "encoded": 32768,
+      "decoded": -16384
+    },
+    {
+      "amount": -1000,
+      "encoded": 63512,
+      "decoded": -1000
+    },
+    {
+      "amount": -128,
+      "encoded": 65280,
+      "decoded": -128
+    },
+    {
+      "amount": -1,
+      "encoded": 65407,
+      "decoded": -1
+    },
+    {
+      "amount": 0,
+      "encoded": 0,
+      "decoded": 0
+    },
+    {
+      "amount": 1,
+      "encoded": 1,
+      "decoded": 1
+    },
+    {
+      "amount": 127,
+      "encoded": 127,
+      "decoded": 127
+    },
+    {
+      "amount": 128,
+      "encoded": 256,
+      "decoded": 128
+    },
+    {
+      "amount": 255,
+      "encoded": 383,
+      "decoded": 255
+    },
+    {
+      "amount": 1000,
+      "encoded": 1896,
+      "decoded": 1000
+    },
+    {
+      "amount": 16383,
+      "encoded": 32639,
+      "decoded": 16383
+    }
+  ],
+  "payments": [
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": 1248,
+      "received": -8,
+      "pay": 8,
+      "success": true,
+      "balances": {
+        "0": 1240,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": 1248,
+      "received": -8,
+      "pay": 12,
+      "success": true,
+      "balances": {
+        "0": 1236,
+        "31": 4
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": 4,
+      "received": -8,
+      "pay": 8,
+      "success": false,
+      "balances": {
+        "0": 4,
+        "31": -8
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": -8,
+      "received": 1248,
+      "pay": 4,
+      "success": true,
+      "balances": {
+        "0": -12,
+        "31": 1252
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": 0,
+      "received": 0,
+      "pay": 0,
+      "success": true,
+      "balances": {
+        "0": 0,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": 16383,
+      "received": 16383,
+      "pay": 1,
+      "success": true,
+      "balances": {
+        "0": 16382,
+        "31": -16384
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 31,
+      "funds": -16384,
+      "received": 0,
+      "pay": 1,
+      "success": true,
+      "balances": {
+        "0": 16383,
+        "31": 1
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": 1248,
+      "received": -8,
+      "pay": 8,
+      "success": true,
+      "balances": {
+        "0": 0,
+        "31": 1240
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": 1248,
+      "received": -8,
+      "pay": 12,
+      "success": true,
+      "balances": {
+        "0": 4,
+        "31": 1236
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": 4,
+      "received": -8,
+      "pay": 8,
+      "success": false,
+      "balances": {
+        "0": -8,
+        "31": 4
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": -8,
+      "received": 1248,
+      "pay": 4,
+      "success": true,
+      "balances": {
+        "0": 1252,
+        "31": -12
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": 0,
+      "received": 0,
+      "pay": 0,
+      "success": true,
+      "balances": {
+        "0": 0,
+        "31": 0
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": 16383,
+      "received": 16383,
+      "pay": 1,
+      "success": true,
+      "balances": {
+        "0": -16384,
+        "31": 16382
+      }
+    },
+    {
+      "sender": 31,
+      "recipient": 0,
+      "funds": -16384,
+      "received": 0,
+      "pay": 1,
+      "success": true,
+      "balances": {
+        "0": 1,
+        "31": 16383
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": 1248,
+      "received": -8,
+      "pay": 8,
+      "success": true,
+      "balances": {
+        "0": 1240,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": 1248,
+      "received": -8,
+      "pay": 12,
+      "success": true,
+      "balances": {
+        "0": 1236,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": 4,
+      "received": -8,
+      "pay": 8,
+      "success": false,
+      "balances": {
+        "0": 4,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": -8,
+      "received": 1248,
+      "pay": 4,
+      "success": true,
+      "balances": {
+        "0": -12,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": 0,
+      "received": 0,
+      "pay": 0,
+      "success": true,
+      "balances": {
+        "0": 0,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": 16383,
+      "received": 16383,
+      "pay": 1,
+      "success": true,
+      "balances": {
+        "0": 16382,
+        "31": 0
+      }
+    },
+    {
+      "sender": 0,
+      "recipient": 3,
+      "funds": -16384,
+      "received": 0,
+      "pay": 1,
+      "success": true,
+      "balances": {
+        "0": 16383,
+        "31": 0
+      }
+    }
+  ]
+}

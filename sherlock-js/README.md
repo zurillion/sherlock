@@ -55,7 +55,7 @@ Il flusso è `Lexer → Parser → Game → World/Text → scheduler → present
 node --test test/*.test.mjs
 ```
 
-Le fixture sono risultati congelati dell'originale, non chiamate al vecchio motore durante i test. Il confronto di una frase normalizza spaziatura e maiuscole: non certifica l'output grafico esatto. Sono presenti 214 test automatici, compreso il confronto del selettore testuale con 1.280 esecuzioni controllate originali. La parità di seed e della sequenza di gioco non è ancora implementata. `results/verification.json` registra l'ambito delle prove; `results/tests.tap` ne conserva il risultato.
+Le fixture sono risultati congelati dell'originale, non chiamate al vecchio motore durante i test. Il confronto di una frase normalizza spaziatura e maiuscole: non certifica l'output grafico esatto. Sono presenti 236 test automatici, compreso il confronto del selettore testuale con 1.280 esecuzioni controllate originali. La parità di seed e della sequenza di gioco non è ancora implementata. `results/verification.json` registra l'ambito delle prove; `results/tests.tap` ne conserva il risultato.
 
 ## Dati e salvataggi
 
@@ -70,3 +70,5 @@ node tools/build-data.mjs --project "/Users/giovanni/Documents/Development/Sherl
 L'estrattore legge anche le sezioni dati del payload originale, senza eseguirlo. Conserviamo gli identificatori delle parole e dei frammenti per poterli confrontare con le analisi. La riscrittura è indipendente dal codice eseguibile originale, non dagli asset e dai contenuti del gioco.
 
 I nuovi salvataggi `sherlock-js-save` memorizzano entità, locazioni, tempo, domanda di chiarimento pendente e presentazione. La versione 3 conserva anche il programma, i contatori e gli ordini di Watson. Le versioni 1 e 2 sono caricabili con gli NPC disabilitati come in precedenza; Riavvia attiva il nuovo profilo. Sono controllati tramite checksum e non contengono RAM o registri. I vecchi snapshot del ponte Z80 non sono compatibili. La ripresa deterministica è verificata per il nucleo attuale; non è ancora una promessa sulle scelte casuali degli NPC, la cui sorgente resta da tradurre.
+
+Il lavoro sul kernel condiviso degli NPC è descritto in [NPC-FOUNDATIONS.md](NPC-FOUNDATIONS.md). Programmi semantici, continuazioni, arena dei record e aritmetica del cab sono implementati e confrontati separatamente; i tre NPC completi non sono ancora disponibili nella pagina. Per rigenerare i dati occorre prima esportare `ai/results/domain-programs.json` con il comando documentato in quel file.

@@ -1,0 +1,65 @@
+{
+  "status": "foundations implemented; requested complete NPC behaviour unfinished",
+  "playable_profile_changed": false,
+  "full_watson": false,
+  "full_cabbie": false,
+  "full_lestrade": false,
+  "same_seed_gameplay_parity": false,
+  "program_catalog": {
+    "actors": 23,
+    "domain_instructions": 791,
+    "rule_contracts": 66,
+    "cpu_instructions_packaged": 0
+  },
+  "translated_components": [
+    "NPC domain program control and deferred scopes",
+    "signals and typed prefab order interface",
+    "private counter primitives",
+    "record arena and linked lists",
+    "context-return metadata behaviour",
+    "cab route costs and fares",
+    "signed account arithmetic and payment effects"
+  ],
+  "primitive_bodies": [
+    "counter.create",
+    "counter.decrement",
+    "counter.delete",
+    "wait.tick",
+    "location.save",
+    "parent.save",
+    "entity.at",
+    "actor.withPlayer",
+    "entity.samePlace",
+    "entity.sameContainer",
+    "entity.ownedAndPerceived",
+    "clock.hour",
+    "balance.negative",
+    "balance.positive",
+    "balance.settled"
+  ],
+  "reference": {
+    "file": "test/fixtures/npc-foundations.json",
+    "program_fixtures": 9,
+    "step_comparisons": 96,
+    "cab_route_mode_comparisons": 180,
+    "money_codec_cases": 11,
+    "payment_cases": 21,
+    "record_arena_operations": 140,
+    "context_return_cases": 5,
+    "all_game_actors_active": false,
+    "complete_game_comparison": false,
+    "random_gameplay_inputs_generated": false
+  },
+  "tests": {
+    "passed": 236,
+    "failed": 0,
+    "file": "tests.tap"
+  },
+  "blocking_dependencies": [
+    "Complete source-state projection for original random inputs",
+    "Shared action/rule header execution and remaining predicates/bodies",
+    "NPC request execution, statement/fact memory and callbacks",
+    "Remaining world actors, including trains and Straker",
+    "Integration and full-game differential traces before enabling the new program driver"
+  ]
+}

@@ -40,7 +40,9 @@ for(const r of rooms)if(r.description)ensure(r.description);
 for(const e of entities)if(e.description)ensure(e.description);
 const assets=await read('locazioni/spectrum-assets.json');
 const cabCatalog=await read('cab/results/cab-data.json');
-const data={cab:{streets:cabCatalog.destinations.map(d=>d.id)},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+const npcPrograms=await read('ai/results/domain-programs.json');
+if(npcPrograms.source_sha256!==sha)throw Error('NPC programs refer to a different source payload');
+const data={npcPrograms,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');
