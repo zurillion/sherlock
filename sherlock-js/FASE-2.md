@@ -11,7 +11,7 @@ La selezione cambia pagina esplicitamente; non c'è un ripiego automatico per un
 
 La partita originale rimane nella sessione RAM del server; tornando alla pagina viene mostrata la scena corrente. Da questa versione la partita JS viene conservata anche nella `sessionStorage` della scheda, con cronologia, domanda pendente, presentazione e mappa: si può passare all'originale e poi riprendere il nuovo motore. La chiusura della scheda o il riavvio del server originale possono perdere queste sessioni temporanee: per conservarle usare Salva partita.
 
-Durante un comando o un MORE il selettore è disabilitato; completare prima l'uscita. I server locali devono essere entrambi avviati. Le porte rimangono quelle già usate dal progetto. Modificare le pagine non richiede di riavviare il server originale e non ne azzera le partite.
+Il selettore resta disponibile anche durante l'avvio, la stampa e il MORE. Se la stampa JS è incompleta, al ritorno viene ridisegnata l'ultima risposta conservando lo stato logico, senza rieseguire le azioni. I server locali devono essere entrambi avviati. Le porte rimangono quelle già usate dal progetto. Modificare le pagine non richiede di riavviare il server originale e non ne azzera le partite.
 
 ## ALL dopo una domanda
 

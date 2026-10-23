@@ -23,7 +23,7 @@ Nel terminale, `:save /percorso/partita.json`, `:load /percorso/partita.json` e 
 
 ## Scelta del motore
 
-Il selettore **Motore** in alto passa fra **Originale · Z80** (porta 8766) e **Nuovo · JavaScript autonomo** (porta 8768). Le partite sono separate: il nuovo conserva la propria sessione nella scheda e l’originale nel server già esistente. Non viene convertita una partita da un formato all’altro. Il cambio è disponibile quando il comando e il MORE sono completati. Dettagli e limiti: [FASE-2.md](FASE-2.md).
+Il selettore **Motore** in alto passa fra **Originale · Z80** (porta 8766) e **Nuovo · JavaScript autonomo** (porta 8768). Le partite sono separate: il nuovo conserva la propria sessione nella scheda e l’originale nel server già esistente. Non viene convertita una partita da un formato all’altro. Il cambio è disponibile anche durante l’avvio, la stampa e il MORE. Dettagli e limiti: [FASE-2.md](FASE-2.md).
 
 ## Cosa provare
 

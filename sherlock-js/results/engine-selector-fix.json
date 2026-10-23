@@ -1,0 +1,31 @@
+{
+  "executed_utc": "2026-10-23 00:24:07 UTC",
+  "cause": "The engine picker incorrectly followed the command busy flag, including startup and MORE pauses.",
+  "fix": "Picker remains enabled independently of command rendering; incomplete JS presentation is redrawn from the saved response without resubmitting commands.",
+  "automated_tests": {
+    "passed": 177,
+    "failed": 0,
+    "file": "tests.tap"
+  },
+  "browser_checks": {
+    "original_engine_enabled_while_loading": true,
+    "javascript_startup": {
+      "waiting_reason": "startup",
+      "picker_enabled": true,
+      "engine_switch_succeeded": true
+    },
+    "javascript_more": {
+      "waiting_reason": "more",
+      "picker_enabled": true,
+      "round_trip_succeeded": true
+    },
+    "clarification_preserved_on_round_trip": true,
+    "all_after_round_trip": {
+      "opened_doors": 2,
+      "clock": "Mon 08:02am"
+    },
+    "reload_preserved_clock": true
+  },
+  "screenshot": "engine-selector-enabled.png",
+  "server_restart_required": false
+}

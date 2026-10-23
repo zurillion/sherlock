@@ -244,7 +244,7 @@ async function api(path,body){
  const request=(async()=>{const options=body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)};const res=await fetch(path,options);const value=await res.json();if(!res.ok)throw new Error(value.error||'Richiesta non riuscita');return value;})();
  pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}
 }
-function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=value||persisting;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
 function update(s){const previousRoom=state?.room;state=s;$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);$('game-status').hidden=!s.game_over;if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
@@ -257,7 +257,7 @@ function update(s){const previousRoom=state?.room;state=s;$('seed').value=s.seed
 function waitControls(job,allowed){activeJob=job;canInterrupt=Boolean(allowed);$('interrupt-wait').hidden=!canInterrupt;$('interrupt-wait').disabled=interruptRequested;}
 function interruptWait(){if(!activeJob||!canInterrupt||spectrum.waiting)return;interruptRequested=true;$('interrupt-wait').disabled=true;}
 $('interrupt-wait').onclick=interruptWait;
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
+document.addEventListener('keydown',e=>{if(e.target?.closest?.('#engine-select'))return;if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
 async function consumeCommand(result,epoch){
  let continuing=false;
  while(epoch===operationEpoch){

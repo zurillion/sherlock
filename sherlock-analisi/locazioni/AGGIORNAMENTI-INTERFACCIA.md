@@ -32,4 +32,4 @@ Sono rimossi sottotitolo, banner introduttivo, etichetta «ti trovi qui» e fras
 
 ## Selettore del motore
 
-Il controllo Motore, sopra le altre opzioni, consente di aprire l’originale su 8766 oppure la riscrittura autonoma JS su 8768. Il testo specifica quale implementazione è attiva. Le partite e i salvataggi sono separati; il cambio non riavvia il server originale né converte lo stato. Le funzionalità mancanti nel JS non vengono delegate automaticamente allo Z80. Completare un comando o il MORE prima del cambio. Dettagli e limiti della nuova implementazione: `../../sherlock-js/FASE-2.md`.
+Il controllo Motore, sopra le altre opzioni, consente di aprire l’originale su 8766 oppure la riscrittura autonoma JS su 8768. Il testo specifica quale implementazione è attiva. Le partite e i salvataggi sono separati; il cambio non riavvia il server originale né converte lo stato. Le funzionalità mancanti nel JS non vengono delegate automaticamente allo Z80. Il selettore resta disponibile anche durante avvio, stampa e MORE; non segue più lo stato occupato dei comandi. Dettagli e limiti della nuova implementazione: `../../sherlock-js/FASE-2.md`.
