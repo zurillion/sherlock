@@ -21,11 +21,15 @@ node tools/play.mjs
 
 Nel terminale, `:save /percorso/partita.json`, `:load /percorso/partita.json` e `:exit` gestiscono la sessione.
 
+## Scelta del motore
+
+Il selettore **Motore** in alto passa fra **Originale · Z80** (porta 8766) e **Nuovo · JavaScript autonomo** (porta 8768). Le partite sono separate: il nuovo conserva la propria sessione nella scheda e l’originale nel server già esistente. Non viene convertita una partita da un formato all’altro. Il cambio è disponibile quando il comando e il MORE sono completati. Dettagli e limiti: [FASE-2.md](FASE-2.md).
+
 ## Cosa provare
 
 ```text
 OPEN DOOR
-YOUR
+ALL
 WEST
 DOWN
 OPEN FRONT DOOR
@@ -39,9 +43,11 @@ Oppure, dopo un riavvio: `TAKE LAMP`, `INVENTORY`, `GIVE LAMP TO WATSON`, `COUNT
 
 **Watson e gli altri personaggi sono statici.** Il saluto iniziale è una sequenza già tradotta, ma l'AI successiva, cab, treni e storia restano da riscrivere. Un comportamento non tradotto produce un avviso esplicito fuori dal testo del gioco. Non esiste un ripiego automatico al motore originale. Il seed è disabilitato finché non avremo ricostruito il generatore e tutte le dipendenze che ne determinano le estrazioni.
 
+Lo stesso esperimento funziona con `YOUR` per aprire soltanto la propria porta. Sono supportati anche `OPEN ALL DOORS`, `CLOSE ALL`, `TAKE ALL`, `DROP ALL` e `GIVE ALL TO WATSON` nelle varianti generiche già tradotte; BUT/EXCEPT resta esplicitamente mancante.
+
 ## Sorgenti e verifiche
 
-Il flusso è `Lexer → Parser → Game → World/Text → presentazione`. [ARCHITETTURA.md](ARCHITETTURA.md) lo descrive con esempi. [COPERTURA.md](COPERTURA.md) distingue ciò che funziona, ciò che è parziale e ciò che manca.
+Il flusso è `Lexer → Parser → Game → World/Text → scheduler → presentazione`. [ARCHITETTURA.md](ARCHITETTURA.md) lo descrive con esempi. [COPERTURA.md](COPERTURA.md) distingue ciò che funziona, ciò che è parziale e ciò che manca.
 
 ```sh
 node --test test/*.test.mjs
@@ -61,4 +67,4 @@ node tools/build-data.mjs --project "/Users/giovanni/Documents/Development/Sherl
 
 L'estrattore legge anche le sezioni dati del payload originale, senza eseguirlo. Conserviamo gli identificatori delle parole e dei frammenti per poterli confrontare con le analisi. La riscrittura è indipendente dal codice eseguibile originale, non dagli asset e dai contenuti del gioco.
 
-I nuovi salvataggi `sherlock-js-save` memorizzano entità, locazioni, tempo, domanda di chiarimento pendente e presentazione. Sono controllati tramite checksum e non contengono RAM o registri. I vecchi snapshot del ponte Z80 non sono compatibili. La ripresa deterministica è verificata per il nucleo attuale; non è ancora una promessa sulle scelte casuali degli NPC, che non sono implementate.
+I nuovi salvataggi `sherlock-js-save` memorizzano entità, locazioni, tempo, domanda di chiarimento pendente e presentazione. La versione 2 include anche lo scheduler; la versione 1 viene migrata. Sono controllati tramite checksum e non contengono RAM o registri. I vecchi snapshot del ponte Z80 non sono compatibili. La ripresa deterministica è verificata per il nucleo attuale; non è ancora una promessa sulle scelte casuali degli NPC, che non sono implementate.

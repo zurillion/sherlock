@@ -16,3 +16,9 @@ node tools/serve.mjs --port 8768
 Aprire <http://127.0.0.1:8768/>. La porta diversa rende esplicito quale implementazione si sta provando. Il nuovo server serve solamente file statici; il gameplay è eseguito dai moduli JavaScript nel browser.
 
 Prossimo blocco funzionale: inizializzazione, scheduler e casualità, seguiti da primitive condivise, Watson, Lestrade e cab. Ogni port richiede confronto di effetti, messaggi e tempo su fixture dichiarate, senza introdurre un ripiego al vecchio motore.
+
+## Aggiornamento: selettore e seconda fase
+
+Entrambe le pagine hanno ora il selettore Motore: Originale · Z80 (8766) oppure Nuovo · JavaScript autonomo (8768). Il cambio conserva partite separate; la sessione JS viene ricordata nella scheda. Nessun comando mancante attiva un ripiego automatico all’originale.
+
+ALL dopo una domanda è ora tradotto. Il ciclo comune dei 24 attori e la parte aritmetica della casualità sono implementati e confrontati con dati originali; non sono ancora collegati i 23 programmi NPC né ricostruiti tutti gli ingressi casuali. L’inizializzazione completa degli attori resta da portare. Dettagli: `sherlock-js/FASE-2.md`.

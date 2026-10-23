@@ -61,7 +61,7 @@ export class Parser {
      else current.subject={...emptyGroup(),pronoun:word==='he'?'he':'it'};
      workingMode=2;if(!verb())fail();continue;
     }
-    if(word==='all'){if(!current.verb||current.all)fail();current.all=true;continue;}
+    if(word==='all'){if((!current.verb&&!pending)||current.all)fail();current.all=true;continue;}
     if(word==='but'){
      if(!current.all)fail();finish();current={...node(),exclusion:true};const g=nominal();if(!g)fail();current.groups.push(g);continue;
     }
@@ -87,13 +87,13 @@ export class Parser {
     if(!pending)fail();
    }
    const group=nominal();
-   if(group){if(current.groups.length>=2)fail();current.groups.push(group);continue;}
+   if(group){if(current.all&&!current.groups.length&&group.relations.length)current.groups.push(emptyGroup());if(current.groups.length>=2)fail();current.groups.push(group);continue;}
    // A verb reached without a conjunction can start another statement; ordinary
    // commands require the explicit separator handled above.
    if(workingMode===2&&STATEMENTS.has(meaning(peek()))){finish();const old=current;current=node();current.subject=clone(old.groups[0]||old.subject);verb();continue;}
    fail();
   }
-  if(pending){const answer=nodes[0];if(!answer.verb){const merged=clone(pending.node),target=merged.groups[pending.slot]||(merged.groups[pending.slot]=emptyGroup()),source=answer.groups[0]||emptyGroup();if(!target.noun)target.noun=source.noun;for(const q of source.qualifiers)if(target.qualifiers.length<2)target.qualifiers.push(q);nodes[0]=merged;}}
+  if(pending){const answer=nodes[0];if(!answer.verb){const merged=clone(pending.node),target=merged.groups[pending.slot]||(merged.groups[pending.slot]=emptyGroup()),source=answer.groups[0]||emptyGroup();if(!target.noun)target.noun=source.noun;for(const q of source.qualifiers)if(target.qualifiers.length<2)target.qualifiers.push(q);merged.all=merged.all||answer.all;if(answer.all)merged.allSlot=pending.slot;nodes[0]=merged;}}
   return {nodes,next:index,mode:workingMode,outcome:'ok'};
  }
  quoted(quote){const units=[];let index=0,mode=0;while(index<quote.tokens.length&&quote.tokens[index].type!==192){const out=this.unit(quote.tokens,index,{mode});if(out.next<=index)fail();units.push(...out.nodes);index=out.next;mode=out.mode;}return {nodes:units,mode};}

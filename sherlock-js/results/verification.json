@@ -7,11 +7,12 @@
     "python": false,
     "original_executable": false,
     "backend_game_logic": false,
-    "external_packages": false
+    "external_packages": false,
+    "gameplay_scheduler": "Functional actor loop, player program connected; other 23 actor programs explicitly disabled"
   },
   "automated_tests": {
     "file": "tests.tap",
-    "passed": 128,
+    "passed": 172,
     "failed": 0
   },
   "reference_comparisons": {
@@ -40,7 +41,7 @@
     "static_room_rendering_file": "rooms.json"
   },
   "still_untranslated": [
-    "full bootstrap and actor scheduler",
+    "full actor bootstrap and NPC programs; common scheduler translated",
     "RNG and seed parity",
     "NPC AI",
     "dialogue and knowledge execution",
@@ -55,5 +56,7 @@
     "native-compatible saves",
     "original RNG choice sequence"
   ],
-  "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407"
+  "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "current_phase": 2,
+  "phase2_report": "phase2-verification.json"
 }

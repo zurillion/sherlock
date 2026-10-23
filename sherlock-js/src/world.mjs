@@ -1,3 +1,4 @@
+import {ActorScheduler,playerPromptScheduler} from './scheduler.mjs';
 export const DIRECTION_NAMES=['','north','south','east','west','northeast','northwest','southeast','southwest','up','down'];
 export const joinList=items=>items.length<2?(items[0]||''):items.length===2?items.join(' and '):items.slice(0,-1).join(', ')+' and '+items.at(-1);
 export class UnsupportedFeature extends Error {
@@ -6,7 +7,10 @@ export class UnsupportedFeature extends Error {
 
 export class World {
  constructor(data){this.data=data;this.reset();}
- reset(){this.entities=structuredClone(this.data.entities);this.rooms=structuredClone(this.data.rooms);this.player=0;this.explored=new Set([8]);this.lastListed=[];this.tick=1;this.playerDue=1;this.minutes=8*60;}
+ reset(){this.entities=structuredClone(this.data.entities);this.rooms=structuredClone(this.data.rooms);this.player=0;this.explored=new Set([8]);this.lastListed=[];this.scheduler=playerPromptScheduler(this.data);}
+ get tick(){return this.scheduler.tick;}set tick(value){this.scheduler.tick=value;}
+ get minutes(){return this.scheduler.minutes;}set minutes(value){this.scheduler.minutes=value;}
+ get playerDue(){return this.scheduler.actor(0).due;}set playerDue(value){this.scheduler.actor(0).due=value;}
  entity(id){const e=this.entities[id];if(!e)throw Error('Unknown entity');return e;}
  roomOf(id=this.player){return this.entity(id).rooms[0];}
  owns(owner,id){const seen=new Set();for(let p=this.entity(id).parent;p!==null;p=this.entity(p).parent){if(p===owner)return true;if(seen.has(p))throw Error('Containment cycle');seen.add(p);}return false;}
@@ -44,14 +48,15 @@ export class World {
   return indefinite?(({0:'the ',4096:'a ',8192:'an ',12288:'some '})[room.nameWords[0]&12288])+room.name:room.name;
  }
  clock(){const day=Math.floor(this.minutes/1440),minute=this.minutes%60,h=Math.floor(this.minutes/60)%24,hour=h%12||12,period=h<12?'am':'pm';return {tick:this.tick,due:this.playerDue,day,minute,hour,period,label:`${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day%7]} ${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}${period}`};}
- consume(cost){
+ consume(cost,{action=null,args=[]}={}){
   if(!cost)return [];
-  const due=this.playerDue+cost,target=Math.max(this.tick+1,due);
-  if(target>65535)throw new UnsupportedFeature('riporto del contatore temporale oltre 65535 tick');
-  this.playerDue=due;const frames=[];
-  while(this.tick<target){this.tick++;this.minutes++;frames.push(this.clock());}
-  return frames;
+  const actor=this.scheduler.actor(0);actor.savedAction=action;actor.savedArgs=structuredClone(args);
+  return this.scheduler.finishPlayer(cost,()=>this.clock());
  }
- dump(){return {entities:structuredClone(this.entities),rooms:structuredClone(this.rooms),player:this.player,explored:[...this.explored],lastListed:[...this.lastListed],tick:this.tick,playerDue:this.playerDue,minutes:this.minutes};}
- restore(state){this.entities=structuredClone(state.entities);this.rooms=structuredClone(state.rooms);this.player=state.player;this.explored=new Set(state.explored);this.lastListed=[...state.lastListed];this.tick=state.tick;this.playerDue=state.playerDue;this.minutes=state.minutes;}
+ dump(){return {entities:structuredClone(this.entities),rooms:structuredClone(this.rooms),player:this.player,explored:[...this.explored],lastListed:[...this.lastListed],tick:this.tick,playerDue:this.playerDue,minutes:this.minutes,scheduler:this.scheduler.dump()};}
+ restore(state){
+  this.entities=structuredClone(state.entities);this.rooms=structuredClone(state.rooms);this.player=state.player;this.explored=new Set(state.explored);this.lastListed=[...state.lastListed];
+  this.scheduler=state.scheduler?ActorScheduler.load(state.scheduler):playerPromptScheduler(this.data,{tick:state.tick,minutes:state.minutes,due:state.playerDue});
+  if(this.tick!==state.tick||this.minutes!==state.minutes||this.playerDue!==state.playerDue)throw Error('Inconsistent scheduler clock');
+ }
 }

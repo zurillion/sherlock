@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-23",
+  "checks": [
+    {
+      "operation": "OPEN DOOR in JS",
+      "result": "WHICH DOOR ?"
+    },
+    {
+      "operation": "Select Originale Z80",
+      "result": "8766 and original-engine description visible"
+    },
+    {
+      "operation": "Read original startup/MORE only",
+      "before_clock": "Mon 08:00am",
+      "after_clock": "Mon 08:00am"
+    },
+    {
+      "operation": "Select JavaScript autonomo",
+      "result": "Pending OPEN DOOR and transcript restored from tab checkpoint"
+    },
+    {
+      "operation": "ALL after returning to JS",
+      "messages": [
+        "You open your door.",
+        "You open the plain door."
+      ],
+      "clock": "Mon 08:02am",
+      "room": 8
+    },
+    {
+      "operation": "Engine picker labels",
+      "options": [
+        "Originale · Z80",
+        "Nuovo · JavaScript autonomo"
+      ],
+      "selected": "javascript"
+    }
+  ],
+  "screenshots": [
+    "phase2-engine-selector.png",
+    "phase2-all-browser.png"
+  ],
+  "scope": "Browser workflow and observed clocks; not a full comparison of original and JS world states."
+}

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-23",
+  "phase": 2,
+  "engine_selection": {
+    "explicit": true,
+    "ports": {
+      "original": 8766,
+      "javascript": 8768
+    },
+    "independent_games": true,
+    "js_tab_checkpoint": true,
+    "original_server_restarted": false
+  },
+  "collective": {
+    "reference_sequences": 20,
+    "commands": 36,
+    "supported_actions": [
+      "OPEN",
+      "CLOSE",
+      "TAKE",
+      "CARRY",
+      "GET",
+      "DROP",
+      "GIVE first argument",
+      "generic EXAMINE"
+    ],
+    "exclusions": "not translated"
+  },
+  "scheduler": {
+    "source": "original recorded loop traces",
+    "cases": 12,
+    "reschedules": 353,
+    "visits_not_eligible": 127,
+    "zero_cost_returns": 275,
+    "callback_dispatches": 353,
+    "test_driver": "Recorded original costs; not a translation of the source NPC programs",
+    "playable_enabled_actors": [
+      0
+    ],
+    "untranslated_actors": 23,
+    "bootstrap": "Domain initialization of playable subset; full native actor startup not yet translated"
+  },
+  "random": {
+    "arithmetic_calls": 446,
+    "inputs": "recorded original byte pairs",
+    "world_entropy_model": "not translated",
+    "seed_parity_claimed": false
+  },
+  "save_format": {
+    "version": 2,
+    "migrates_version": 1,
+    "original_vm_saves_compatible": false
+  },
+  "automated_tests": {
+    "passed": 172,
+    "failed": 0,
+    "report": "tests.tap"
+  },
+  "browser_report": "phase2-browser.json",
+  "isolated_package_report": "packaging.json"
+}

@@ -1,0 +1,4807 @@
+{
+  "scope": "Original engine; historical prompt snapshot, free start, NPC visits disabled; no claim about NPC timing.",
+  "sequences": [
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN DOOR",
+            "normalised": "OPEN DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL",
+            "normalised": "ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN DOOR",
+            "normalised": "OPEN DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "EVERYTHING",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "EVERYTHING",
+            "normalised": "EVERYTHING",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN DOOR",
+            "normalised": "OPEN DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "ALL BUT YOUR DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL BUT YOUR DOOR",
+            "normalised": "ALL BUT YOUR DOOR",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "97E7",
+                    "raw": "00 40 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": [
+                          {
+                            "raw": "09F2",
+                            "offset": "09F2",
+                            "word": "your",
+                            "unresolved_bits": "0000"
+                          }
+                        ]
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "97E7",
+                    "raw": "00 40 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": [
+                          {
+                            "raw": "09F2",
+                            "offset": "09F2",
+                            "word": "your",
+                            "unresolved_bits": "0000"
+                          }
+                        ]
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "97E7",
+                    "raw": "00 40 00 00 00 00 00 00 6e 02 f2 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": [
+                          {
+                            "raw": "09F2",
+                            "offset": "09F2",
+                            "word": "your",
+                            "unresolved_bits": "0000"
+                          }
+                        ]
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN ALL DOORS",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN ALL DOORS",
+            "normalised": "OPEN ALL DOORS",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN ALL",
+            "normalised": "OPEN ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "TAKE ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You take the oil lamp."
+            },
+            {
+              "kind": "error",
+              "text": "YOU CANNOT TAKE THE DAILY CHRONICLE."
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "TAKE ALL",
+            "normalised": "TAKE ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 41,
+                "arguments": [
+                  22,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 41,
+                "arguments": [
+                  25,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "TAKE ALL BUT LAMP",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You take the oil lamp."
+            },
+            {
+              "kind": "error",
+              "text": "YOU CANNOT TAKE THE DAILY CHRONICLE."
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "TAKE ALL BUT LAMP",
+            "normalised": "TAKE ALL BUT LAMP",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "9808",
+                    "raw": "00 40 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "04B9",
+                          "offset": "04B9",
+                          "word": "lamp",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "9808",
+                    "raw": "00 40 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "04B9",
+                          "offset": "04B9",
+                          "word": "lamp",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "9808",
+                    "raw": "00 40 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "04B9",
+                          "offset": "04B9",
+                          "word": "lamp",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 41,
+                "arguments": [
+                  22,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 41,
+                "arguments": [
+                  25,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN DOOR",
+            "normalised": "OPEN DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL",
+            "normalised": "ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        },
+        {
+          "input": "CLOSE DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "CLOSE DOOR",
+            "normalised": "CLOSE DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "b7 01 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "01B7",
+                      "offset": "01B7",
+                      "word": "close",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        },
+        {
+          "input": "ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You close your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You close the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 5,
+            "due": 5,
+            "minute": 4,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:04am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL",
+            "normalised": "ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "b7 81 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "01B7",
+                      "offset": "01B7",
+                      "word": "close",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "b7 81 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "01B7",
+                      "offset": "01B7",
+                      "word": "close",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "b7 81 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "01B7",
+                      "offset": "01B7",
+                      "word": "close",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 14,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 14,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "TAKE LAMP",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You take the oil lamp."
+            }
+          ],
+          "clock": {
+            "tick": 2,
+            "due": 2,
+            "minute": 1,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:01am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "TAKE LAMP",
+            "normalised": "TAKE LAMP",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "87 08 00 00 00 00 00 00 b9 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0887",
+                      "offset": "0887",
+                      "word": "take",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "04B9",
+                          "offset": "04B9",
+                          "word": "lamp",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 41,
+                "arguments": [
+                  22,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "DROP ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You drop the oil lamp."
+            },
+            {
+              "kind": "narrative",
+              "text": "You drop your money."
+            }
+          ],
+          "clock": {
+            "tick": 4,
+            "due": 4,
+            "minute": 3,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:03am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "DROP ALL",
+            "normalised": "DROP ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "7c 82 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "027C",
+                      "offset": "027C",
+                      "word": "drop",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "7c 82 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "027C",
+                      "offset": "027C",
+                      "word": "drop",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "7c 82 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "027C",
+                      "offset": "027C",
+                      "word": "drop",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 16,
+                "arguments": [
+                  22,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 16,
+                "arguments": [
+                  27,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN DOOR",
+            "normalised": "OPEN DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "ALL BUT PLAIN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL BUT PLAIN DOOR",
+            "normalised": "ALL BUT PLAIN DOOR",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "97E7",
+                    "raw": "00 40 00 00 00 00 00 00 6e 02 99 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": [
+                          {
+                            "raw": "0699",
+                            "offset": "0699",
+                            "word": "plain",
+                            "unresolved_bits": "0000"
+                          }
+                        ]
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "97E7",
+                    "raw": "00 40 00 00 00 00 00 00 6e 02 99 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": [
+                          {
+                            "raw": "0699",
+                            "offset": "0699",
+                            "word": "plain",
+                            "unresolved_bits": "0000"
+                          }
+                        ]
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  },
+                  {
+                    "address": "97E7",
+                    "raw": "00 40 00 00 00 00 00 00 6e 02 99 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": null,
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": true,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": [
+                          {
+                            "raw": "0699",
+                            "offset": "0699",
+                            "word": "plain",
+                            "unresolved_bits": "0000"
+                          }
+                        ]
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHAT ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL",
+            "normalised": "ALL",
+            "outcome": "syntax_error",
+            "continuation_slot": 0,
+            "units": [],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commands": [
+        {
+          "input": "OPEN DOOR",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "error",
+              "text": "WHICH DOOR ?"
+            }
+          ],
+          "clock": {
+            "tick": 1,
+            "due": 1,
+            "minute": 0,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:00am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "OPEN DOOR",
+            "normalised": "OPEN DOOR",
+            "outcome": "clarification",
+            "continuation_slot": 8,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 06 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": []
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 128
+            }
+          ]
+        },
+        {
+          "input": "ALL",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You open your door."
+            },
+            {
+              "kind": "narrative",
+              "text": "You open the plain door."
+            }
+          ],
+          "clock": {
+            "tick": 3,
+            "due": 3,
+            "minute": 2,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:02am"
+          },
+          "room": 8,
+          "analysis": {
+            "input": "ALL",
+            "normalised": "ALL",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              },
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "0b 86 00 00 00 00 00 00 6e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "060B",
+                      "offset": "060B",
+                      "word": "open",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": true,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": {
+                          "raw": "026E",
+                          "offset": "026E",
+                          "word": "door",
+                          "unresolved_bits": "0000"
+                        },
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  21,
+                  255
+                ]
+              },
+              {
+                "actor": 0,
+                "id": 36,
+                "arguments": [
+                  50,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        },
+        {
+          "input": "WEST",
+          "messages": [
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You go west."
+            },
+            {
+              "kind": "narrative",
+              "text": ""
+            },
+            {
+              "kind": "narrative",
+              "text": "You are in a hall. To the east there is your door. Below there is the stairway."
+            }
+          ],
+          "clock": {
+            "tick": 5,
+            "due": 5,
+            "minute": 4,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:04am"
+          },
+          "room": 7,
+          "analysis": {
+            "input": "WEST",
+            "normalised": "WEST",
+            "outcome": "ok",
+            "continuation_slot": 0,
+            "units": [
+              {
+                "mode": 1,
+                "nodes": [
+                  {
+                    "address": "9829",
+                    "raw": "92 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+                    "verb": {
+                      "raw": "0992",
+                      "offset": "0992",
+                      "word": "west",
+                      "unresolved_bits": "0000"
+                    },
+                    "verb_modifier": null,
+                    "all": false,
+                    "exclusion": false,
+                    "groups": [
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      },
+                      {
+                        "relations": [],
+                        "referent": null,
+                        "qualifiers": []
+                      }
+                    ],
+                    "subject": {
+                      "referent": null,
+                      "qualifiers": [],
+                      "he_flag": false,
+                      "it_they_flag": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "actions": [
+              {
+                "actor": 0,
+                "id": 4,
+                "arguments": [
+                  255,
+                  255
+                ]
+              }
+            ]
+          },
+          "records": [
+            {
+              "id": 0,
+              "parent": null,
+              "rooms": [
+                7
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 3,
+              "parent": 24,
+              "rooms": [
+                8
+              ],
+              "attributes": 224
+            },
+            {
+              "id": 21,
+              "parent": null,
+              "rooms": [
+                7,
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 22,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 148
+            },
+            {
+              "id": 24,
+              "parent": null,
+              "rooms": [
+                8
+              ],
+              "attributes": 160
+            },
+            {
+              "id": 25,
+              "parent": 3,
+              "rooms": [
+                8
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 27,
+              "parent": 0,
+              "rooms": [
+                7
+              ],
+              "attributes": 128
+            },
+            {
+              "id": 50,
+              "parent": null,
+              "rooms": [
+                65,
+                68,
+                98,
+                99,
+                34,
+                36,
+                8,
+                9,
+                57,
+                59
+              ],
+              "attributes": 160
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

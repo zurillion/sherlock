@@ -1,5 +1,6 @@
 import {SpectrumTerminal} from './spectrum.mjs';
 import {ClientSession} from './session.mjs';
+import {rememberTab,recallTab,TAB_SESSION_KEY} from './tab-session.mjs';
 const bundle=await fetch('./data/game.json').then(response=>{if(!response.ok)throw Error('Dati del gioco non disponibili');return response.json();});
 const SPECTRUM_ASSETS=bundle.spectrum,session=new ClientSession(bundle);
 'use strict';
@@ -14,6 +15,13 @@ const spectrum=new SpectrumTerminal({canvas:$('spectrum-screen'),input:$('spectr
 function preference(key,fallback){try{return localStorage.getItem(key)??fallback;}catch{return fallback;}}
 function savePreference(key,value){try{localStorage.setItem(key,String(value));}catch{}}
 function focusCommand(){if(spectrum.active)spectrum.focus();else $('command').focus({preventScroll:true});}
+function presentation(){return {version:1,compatibility:spectrum.active,spectrum:spectrum.snapshot(),transcript:transcriptRows.slice(-200),history:history.slice(-200),view:[...view]};}
+function checkpointTab(){if(!busy&&state)rememberTab(sessionStorage,session.game,presentation());}
+window.addEventListener('sherlock:engine-change',event=>{
+ if(busy||persisting){event.preventDefault();notice('Completa il comando o il MORE prima di cambiare motore.');return;}
+ try{checkpointTab();}catch(error){event.preventDefault();notice('Non posso conservare la partita in questa scheda: '+error.message);}
+});
+window.addEventListener('pagehide',()=>{try{checkpointTab();}catch{}});
 function displayCompatibility(enabled){$('compatibility').checked=enabled;document.body.classList.toggle('compatibility-mode',enabled);$('spectrum-panel').hidden=!enabled;spectrum.setActive(enabled);$('compat-picture-mode').disabled=!enabled;$('compat-scale').disabled=!enabled;savePreference('sherlock-compatibility',enabled);}
 $('compat-picture-mode').value=preference('sherlock-compat-picture-mode','svg');spectrum.pictureMode=$('compat-picture-mode').value;
 $('compat-scale').value=preference('sherlock-compat-scale','2');spectrum.setScale($('compat-scale').value);
@@ -53,7 +61,7 @@ let picturesEnabled=true;try{picturesEnabled=localStorage.getItem('sherlock-pict
 setPictures(picturesEnabled);$('pictures').onchange=()=>setPictures($('pictures').checked);
 async function engineRequest(operation,body){const request=Promise.resolve().then(()=>session.request(operation,body));pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}}
 
-function setBusy(value){busy=value;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=true;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=value||persisting;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=true;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
 function update(s){const previousRoom=state?.room;state=s;$('seed').value='';$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);$('game-status').hidden=!s.game_over;if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
@@ -62,6 +70,7 @@ function update(s){const previousRoom=state?.room;state=s;$('seed').value='';$('
  if(previousRoom!==undefined&&previousRoom!==s.room&&(previousRoom===1||s.room===1))centerRoom(s.room);
  $('exits').replaceChildren();for(const e of s.exits){const row=el('div',undefined,'exit'),button=el('button',e.direction),desc=el('div',`${String(e.target).padStart(3,'0')} ${e.target_name||'destinazione non attiva'}`);button.title='Esegui il movimento, rispettando gli ostacoli';button.onclick=()=>command(e.direction);desc.append(el('small',`${e.gate_name?e.gate_name+' · ':''}${e.status}`));row.append(button,desc);$('exits').append(row);}if(!s.exits.length)$('exits').append(el('span','Nessuna uscita direzionale.'));
  $('objects').replaceChildren();for(const o of s.visible){const item=el('span',o.name,'entity');item.title=`Entità ${o.id}${s.objects.some(x=>x.id===o.id)?' · elencata nella scena':''}`;$('objects').append(item);}if(!s.visible.length)$('objects').append(el('span',s.dark?'È buio: nessun elenco visivo disponibile.':'Nessuna entità percepibile.'));
+ if($('scheduler-state'))$('scheduler-state').textContent=JSON.stringify(s.scheduler,null,2);
  if(s.analysis){const a=s.analysis;$('analysis').textContent=JSON.stringify({esito:a.outcome,riga:a.normalised,unita:a.units,controlli:a.controls},null,2);}}
 function waitControls(job,allowed){activeJob=job;canInterrupt=Boolean(allowed);$('interrupt-wait').hidden=!canInterrupt;$('interrupt-wait').disabled=interruptRequested;}
 function interruptWait(){if(!activeJob||!canInterrupt||spectrum.waiting)return;interruptRequested=true;$('interrupt-wait').disabled=true;}
@@ -89,8 +98,8 @@ function notice(text){$('session-notice').textContent=text;}
 async function saveGame(){
  if(busy||!state)return;
  try{
-  const presentation={version:1,compatibility:spectrum.active,spectrum:spectrum.snapshot(),transcript:transcriptRows.slice(-200),history:history.slice(-200),view:[...view]};
-  persisting=true;setBusy(true);const result=await engineRequest('save',{presentation});
+  const savedPresentation=presentation();
+  persisting=true;setBusy(true);const result=await engineRequest('save',{presentation:savedPresentation});
   const blob=new Blob([JSON.stringify(result.save,null,2)+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),link=el('a');
   link.href=url;link.download=`sherlock-js-${state.clock.day}-${state.clock.hour}-${state.clock.minute}${state.clock.period}.json`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
   notice('Partita salvata nel file scaricato.');
@@ -118,7 +127,7 @@ $('load-file').onchange=async()=>{
   }else{
    history=[];historyAt=0;update(result.state);if(state.game_over){spectrum.resumeSession();await showMessages(state.ending_messages||[]);}else{if(!state.opening)spectrum.resumeSession();await showMessages([{kind:'narrative',text:state.opening||state.initial,screen_events:state.opening_screen||state.initial_screen}]);}
   }
-  if(epoch===operationEpoch)notice('Partita ripristinata, compreso lo stato casuale.');
+  if(epoch===operationEpoch)notice('Partita JavaScript ripristinata.');
  }catch(error){notice(error.message);}finally{persisting=false;setBusy(false);focusCommand();}
 };
 async function teleport(id){if(busy||state?.game_over)return;$('search-results').hidden=true;$('search').value='';await perform('teleport',{room:id},false);}
@@ -183,6 +192,7 @@ $('command').addEventListener('keydown',e=>{if(e.key==='ArrowUp'||e.key==='Arrow
 for(const b of document.querySelectorAll('[data-command]'))b.onclick=()=>command(b.dataset.command);
 $('reset').onclick=async()=>{
  if(restarting||persisting||!data)return;const epoch=++operationEpoch;restarting=true;notice('');
+ try{sessionStorage.removeItem(TAB_SESSION_KEY);}catch{}
  waitControls(null,false);interruptRequested=false;
  spectrum.reset();$('transcript').replaceChildren();transcriptRows=[];$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
  $('search').value='';$('search-results').hidden=true;setBusy(true);
@@ -204,4 +214,20 @@ $('map').addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-d
 window.addEventListener('pointerup',()=>{drag=null;$('map').classList.remove('dragging');});
 $('map').addEventListener('pointercancel',()=>{drag=null;$('map').classList.remove('dragging');});
 $('search').addEventListener('input',()=>{const q=$('search').value.trim().toLowerCase(),list=$('search-results');list.replaceChildren();list.hidden=!q;if(!q)return;const found=data.rooms.filter(r=>r.id&&(r.name_hint.toLowerCase().includes(q)||String(r.id).padStart(3,'0').includes(q))).slice(0,18);for(const r of found){const b=el('button',`${String(r.id).padStart(3,'0')} · ${r.name_hint} →`);b.onclick=()=>{centerRoom(r.id);teleport(r.id);};list.append(b);}if(!found.length)list.append(el('p','Nessun luogo corrispondente.'));});
-(async()=>{const epoch=++operationEpoch;setBusy(true);try{data=await engineRequest('data');spectrum.configure(SPECTRUM_ASSETS,data.pictures,SPECTRUM_ASSETS.pixels);buildGraph();const initialState=await engineRequest('state');if(epoch!==operationEpoch)return;update(initialState);centerRoom(state.room);setBusy(true);if(initialState.command_running){spectrum.resumeSession();await consumeCommand({running:true,job:initialState.job,can_interrupt:initialState.can_interrupt,clock:initialState.clock,messages:[]},epoch);}else if(initialState.game_over){spectrum.resumeSession();await showMessages(initialState.ending_messages||[]);}else{if(!initialState.opening)spectrum.resumeSession();await showMessages([{kind:'narrative',text:initialState.opening||initialState.initial,screen_events:initialState.opening_screen||initialState.initial_screen,image_room:initialState.room}]);}}catch(error){if(epoch===operationEpoch)append('error',`Start the Python server to use the explorer. ${error.message}`);}finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}})();
+(async()=>{
+ const epoch=++operationEpoch;setBusy(true);
+ try{
+  data=await engineRequest('data');spectrum.configure(SPECTRUM_ASSETS,data.pictures,SPECTRUM_ASSETS.pixels);buildGraph();
+  let restored=null;try{restored=recallTab(sessionStorage,bundle,validatePresentation);}catch(error){notice('Sessione della scheda non ripristinata: '+error.message);}
+  if(restored)session.game=restored.game;
+  const initialState=await engineRequest('state');if(epoch!==operationEpoch)return;
+  update(initialState);centerRoom(state.room);setBusy(true);
+  if(restored?.presentation){
+   const p=restored.presentation;displayCompatibility(p.compatibility);await spectrum.restore(p.spectrum);setPictures(p.spectrum.pictures);$('compat-picture-mode').value=p.spectrum.pictureMode;
+   replayingTranscript=true;try{for(const row of p.transcript){if(row.kind==='command')append(row.kind,row.text);else appendScene(row);}}finally{replayingTranscript=false;}
+   transcriptRows=structuredClone(p.transcript);history=[...p.history];historyAt=history.length;view=[...p.view];applyView();update(initialState);notice('Ripresa la partita JavaScript di questa scheda.');
+  }else if(initialState.game_over){spectrum.resumeSession();await showMessages(initialState.ending_messages||[]);}
+  else{if(!initialState.opening)spectrum.resumeSession();await showMessages([{kind:'narrative',text:initialState.opening||initialState.initial,screen_events:initialState.opening_screen||initialState.initial_screen,image_room:initialState.room}]);}
+ }catch(error){if(epoch===operationEpoch)append('error','Impossibile avviare il motore JavaScript. '+error.message);}
+ finally{if(epoch===operationEpoch){setBusy(false);focusCommand();}}
+})();

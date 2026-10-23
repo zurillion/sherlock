@@ -28,14 +28,14 @@ export class ClientSession {
    // no CPU running in the background. The not-yet-ported NPC layer is explicit.
    const after=this.game.world.clock(),elapsed=this.game.world.minutes-(before.day*1440+(before.hour%12+(before.period==='pm'?12:0))*60+before.minute);
    if(operation==='start-command'&&elapsed>1){
-    const clocks=[];for(let minute=1;minute<=elapsed;minute++){const date=before.day*1440+(before.hour%12+(before.period==='pm'?12:0))*60+before.minute+minute,h=Math.floor(date/60)%24;clocks.push({tick:before.tick+minute,due:after.due,day:Math.floor(date/1440),hour:h%12||12,minute:date%60,period:h<12?'am':'pm',label:`${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][Math.floor(date/1440)%7]} ${String(h%12||12).padStart(2,'0')}:${String(date%60).padStart(2,'0')}${h<12?'am':'pm'}`});}
+    const clocks=[];for(let minute=1;minute<=elapsed;minute++){const date=before.day*1440+(before.hour%12+(before.period==='pm'?12:0))*60+before.minute+minute,h=Math.floor(date/60)%24;clocks.push({tick:(before.tick+minute)&65535,due:after.due,day:Math.floor(date/1440),hour:h%12||12,minute:date%60,period:h<12?'am':'pm',label:`${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][Math.floor(date/1440)%7]} ${String(h%12||12).padStart(2,'0')}:${String(date%60).padStart(2,'0')}${h<12?'am':'pm'}`});}
     this.job={id:String(++this.serial),clocks,index:0,messages,canInterrupt:out.state.analysis.actions.length===1&&out.state.analysis.actions[0].id===50};return this.request('continue-command',{job:this.job.id});
    }
    return {running:false,state:this.state(),messages};
   }
   if(operation==='continue-command'){
    const job=this.job;if(!job||job.id!==body.job)throw Error('Comando non più attivo.');
-   if(body.interrupt&&job.canInterrupt){const frame=job.clocks[Math.max(0,job.index-1)];this.game.world.tick=frame.tick;this.game.world.playerDue=frame.tick;this.game.world.minutes=frame.day*1440+(frame.hour%12+(frame.period==='pm'?12:0))*60+frame.minute;job.index=job.clocks.length;}
+   if(body.interrupt&&job.canInterrupt){const frame=job.clocks[Math.max(0,job.index-1)];this.game.world.tick=frame.tick;this.game.world.playerDue=frame.tick;this.game.world.minutes=frame.day*1440+(frame.hour%12+(frame.period==='pm'?12:0))*60+frame.minute;this.game.world.scheduler.trace=[];this.game.world.scheduler.emit({event:"wait_interrupt"});job.index=job.clocks.length;}
    if(job.index>=job.clocks.length){this.job=null;return {running:false,state:this.state(),messages:[]};}
    const index=job.index++;return {running:true,job:job.id,clock:job.clocks[index],messages:index===0?job.messages:[],can_interrupt:job.canInterrupt};
   }

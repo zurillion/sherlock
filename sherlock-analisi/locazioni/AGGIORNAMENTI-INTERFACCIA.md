@@ -29,3 +29,7 @@ I nodi sono riquadri con ID e nome su più righe. La disposizione riprende le co
 La mappa parte dall'area del giocatore; **Qui** la inquadra nuovamente e **Tutta la mappa** mostra tutte le componenti. Ricerca, pan, zoom e trasferimento tramite clic restano disponibili.
 
 Sono rimossi sottotitolo, banner introduttivo, etichetta «ti trovi qui» e frase iniziale del taccuino. Il tasto ? apre la guida senza occupare l'area narrativa.
+
+## Selettore del motore
+
+Il controllo Motore, sopra le altre opzioni, consente di aprire l’originale su 8766 oppure la riscrittura autonoma JS su 8768. Il testo specifica quale implementazione è attiva. Le partite e i salvataggi sono separati; il cambio non riavvia il server originale né converte lo stato. Le funzionalità mancanti nel JS non vengono delegate automaticamente allo Z80. Completare un comando o il MORE prima del cambio. Dettagli e limiti della nuova implementazione: `../../sherlock-js/FASE-2.md`.

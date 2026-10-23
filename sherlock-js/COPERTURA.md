@@ -10,29 +10,31 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Struttura degli oggetti e contenitori, propagazione della posizione, filtro di percezione, condizioni di luce, descrizioni per fascia oraria, prima visita e LOOK.
 - Varianti generiche di movimento, OPEN/CLOSE, TAKE/CARRY/GET, DROP, GIVE, INVENTORY, LOOK, EXAMINE e COUNT MONEY.
 - WAIT di cinque minuti e presentazione dei minuti; WAIT UNTIL è ancora provvisorio.
-- Salvataggio dello stato logico, inclusa una domanda di chiarimento pendente, e ripresa verificata sulle azioni tradotte.
+- Scheduler funzionale dei 24 attori, ordine, scadenze, contesti sospesi e code; nel gioco è collegato soltanto il programma del giocatore.
+- ALL dopo una domanda, OPEN/CLOSE/TAKE/DROP/GIVE collettivi e alcune varianti di esame; [FASE-2.md](FASE-2.md) precisa la copertura.
+- Salvataggio dello stato logico e dello scheduler, inclusa una domanda di chiarimento pendente, e migrazione dei vecchi file JS.
 - Mappa, teletrasporto di analisi, SVG/pixel, presentazione Spectrum riutilizzata e collegata al motore locale.
 
 L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 27 hanno una regola generica parziale: questo **non** significa che quei 27 siano completamente equivalenti all'originale.
 
 ## Limiti precisi delle parti presenti
 
-- Il riconoscimento sintattico di citazioni, asserzioni e ALL/EXCEPT è disponibile; l'esecuzione di dialoghi, ordini, deduzioni e azioni su insiemi non lo è.
+- Il riconoscimento sintattico di citazioni, asserzioni e ALL/EXCEPT è disponibile; l'esecuzione di dialoghi, ordini, deduzioni ed esclusioni non lo è.
 - Sono verificate le risposte `YOUR` e `YOUR DOOR` a `OPEN DOOR`. Non è ancora completa la ripresa di tutte le code di comandi dopo chiarimenti e conversazioni.
 - La lettera Z provoca una lettura oltre il dizionario nell'originale: non riproduciamo quell'accesso accidentale. Formati numerici anomali, overflow e tutti i limiti dell'editor non sono certificati. La UI consente al massimo 128 caratteri, limite di questa implementazione.
 - Gli algoritmi di visibilità sono tradotti, ma non ogni combinazione dinamica di luce, contenitori, peso, capacità e overflow a 8 bit è verificata.
 - Tutte le 105 locazioni possono essere renderizzate nello stato statico disponibile. Questo non dimostra che ogni testo dinamico sia ricostruito: selezioni casuali e composizioni con argomenti ancora mancanti generano un avviso.
 - OPEN/CLOSE riguarda le porte ordinarie. Casseforti, chiavi, serrature, biglietti e oggetti con regole locali speciali restano da tradurre.
 - GIVE trasferisce l'oggetto; non riproduce ancora la reazione del destinatario. COUNT riguarda il denaro.
-- Calendario e costo del giocatore sono parziali. WAIT UNTIL, interruzioni, attraversamento della mezzanotte e interazione con eventi non sono certificati; oltre 65.535 tick il motore segnala un limite esplicito.
+- Calendario e costo del giocatore sono parziali. WAIT UNTIL, interruzioni, attraversamento della mezzanotte e interazione con eventi non sono certificati; il riporto del tick a 16 bit è ora gestito dal ciclo e verificato separatamente. I riporti del calendario su lunghi periodi restano da certificare.
 - I personaggi iniziano dalle posizioni nei dati, senza eseguire i programmi di inizializzazione originali: le loro posizioni possono differire dal primo prompt dell'originale. Il buongiorno di Watson è tradotto separatamente, non è l'esecuzione della sua AI.
 - La presentazione a caratteri è stata riutilizzata. La corrispondenza esatta dei nuovi pacchetti di testo con paginazione, spaziatura e contatori dell'originale richiederà prove specifiche.
 - I controlli testuali SAVE, LOAD, QUIT, PAUSE, PRINT e NOPRINT sono riconosciuti ma non eseguiti come nel gioco. I pulsanti Salva, Carica e Riavvia sono strumenti della nuova UI.
 
 ## Ancora da tradurre
 
-1. **Inizializzazione completa, scheduler dei 24 attori e casualità.** Ordine dei turni, scadenze, code, generatore e sue dipendenze. Nessuna promessa di equivalenza del seed finché questi elementi non saranno ricostruiti. I vecchi test del seed riguardavano il ponte Z80.
-2. **Regole semantiche e azioni mancanti.** Entrare e uscire da contenitori, sedersi, FOLLOW, COME WITH, PUT, TAKE FROM/OFF/OUT OF, WEAR, LOCK/UNLOCK, esame approfondito, ALL/EXCEPT, azioni composte e comandi di sistema.
+1. **Inizializzazione completa, collegamento dei programmi NPC e casualità.** Il ciclo dei 24 attori è ora tradotto; restano i programmi e le dipendenze della sorgente casuale. Il calcolo aritmetico della sorgente è verificato su ingressi registrati, non ancora generati dal modello. Nessuna promessa di equivalenza del seed finché questi elementi non saranno ricostruiti. I vecchi test del seed riguardavano il ponte Z80.
+2. **Regole semantiche e azioni mancanti.** Entrare e uscire da contenitori, sedersi, FOLLOW, COME WITH, PUT, TAKE FROM/OFF/OUT OF, WEAR, LOCK/UNLOCK, esame approfondito, ulteriori forme di ALL e BUT/EXCEPT, azioni composte e comandi di sistema.
 3. **Conoscenze e conversazione.** Pronomi nel contesto di gioco, destinatari, richieste, fatti, deduzioni, reazioni e ordini tra attori.
 4. **AI degli NPC.** Watson, Lestrade e tutti gli altri programmi. Eventi e scelte dinamiche, oltre alle sequenze scriptate.
 5. **Trasporti e denaro.** Cab, destinazioni, pagamento/resto/debito, reazioni del cabbie, treni e orari.
@@ -50,4 +52,6 @@ L'inventario [results/action-coverage.json](results/action-coverage.json) elenca
 
 ## Ordine di lavoro successivo
 
-Completare inizializzazione e scheduler funzionale, poi ricostruire casualità e primitive condivise dagli attori. Con queste basi, portare Watson, Lestrade e il cab usando le analisi già disponibili. Ogni passaggio avrà una traccia di confronto esplicita, prima delle regole della storia e delle prove di partita completa.
+Il ciclo funzionale è presente: completare l’inizializzazione, ricostruire gli ingressi casuali e le primitive condivise dagli attori. Con queste basi, portare Watson, Lestrade e il cab usando le analisi già disponibili. Ogni passaggio avrà una traccia di confronto esplicita, prima delle regole della storia e delle prove di partita completa.
+
+Aggiornamento fase 2: 20 sequenze di confronto per ALL, 12 replay del ciclo usando costi registrati, 446 estrazioni per il calcolo casuale e prove di selezione/persistenza della scheda. Nessuna di queste prove dichiara tradotti i programmi NPC; vedere [FASE-2.md](FASE-2.md).
