@@ -3,6 +3,7 @@ import {readFile,writeFile,mkdir,copyFile,readdir} from 'node:fs/promises';
 import {resolve,dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {buildRandomInputs} from './build-random-inputs.mjs';
 const target=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const project=process.argv.includes('--project')?resolve(process.argv[process.argv.indexOf('--project')+1]):resolve(target,'..');
 const analysis=join(project,'sherlock-analisi'),read=async path=>JSON.parse(await readFile(join(analysis,path),'utf8'));
@@ -17,7 +18,8 @@ const entities=catalog.entities.map(e=>({id:e.id,name:e.name,noun:parseInt(e.nam
 const rooms=catalog.rooms.map(r=>({id:r.id,name:r.name_hint,flags:r.flags,nameWords:[word(parseInt(r.record,16)+1),word(parseInt(r.record,16)+3),word(parseInt(r.record,16)+5)],description:r.description,coordinates:r.coordinates,exits:r.exits.map(e=>({source:e.source,target:e.target,direction:e.direction,direction_id:e.direction_id,gate:e.gate,gate_name:e.gate_name}))}));
 const actions=(await read('locazioni/results/gameplay-action-inventory.json')).models.map(a=>({id:a.id,words:a.words,rule:a.general_rule}));
 // Decode the *data language* used for compressed prose into a semantic AST.
-// The packaged game contains this JSON, never the original binary or CPU code.
+// The runtime dispatches this semantic AST only. Separately, verified source
+// byte VALUES are packaged solely as immutable inputs to the original RNG.
 const frequent=Array.from({length:32},(_,i)=>word(0x67b7+2*i));
 function packed(p,count){let bits='';for(let n=0;n<Math.ceil(count*5/8);n++)bits+=byte(p+n).toString(2).padStart(8,'0');return Array.from({length:count},(_,i)=>String.fromCharCode(96+parseInt(bits.slice(i*5,i*5+5),2))).join('');}
 const commands=['nameArgument','wordArgument','jump','wordSubject','nameArgument','relationArgument','actorName','objectName','backspace','otherName','choice','call','actorPossessive','newline','objectPossessive','time','actorIs','objectIs','repeat','argumentIs','time','time','time','time','compose','textArgument','jumpArgument','toggleUpper','noop','endLine','endSentence','end'];
@@ -47,10 +49,11 @@ if(npcPrograms.source_sha256!==sha)throw Error('NPC programs refer to a differen
 const conversationTopics={};let topicCursor=0xE22A;
 while(byte(topicCursor)!==255){const actor=byte(topicCursor++),topics={};while(byte(topicCursor)!==255){const id=byte(topicCursor),text=word(topicCursor+1).toString(16).toUpperCase();topics[id]=text;ensure(text);topicCursor+=3;}topicCursor++;conversationTopics[actor]=topics;}
 if(topicCursor!==0xE28C)throw Error('Unexpected TELL table boundary');
-const data={conversationTopics,npcPrograms,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+const randomInputs=await buildRandomInputs(project,payload,npcPrograms);
+const data={randomInputs,conversationTopics,npcPrograms,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');
 await mkdir(join(target,'test/fixtures'),{recursive:true});
 for(const [source,name] of [['parser/results/commands.json','parser.json'],['parser/results/lookup-checks.json','lookup.json'],['parser/results/literals-and-boundary.json','literals.json'],['parser/results-special/special-cases.json','special.json']])await writeFile(join(target,'test/fixtures',name),JSON.stringify(await read(source))+'\n');
-console.log(`Extracted data: ${dictionary.length} words, ${rooms.length} rooms, ${entities.length} entities, ${Object.keys(texts).length} text entries. No Z80 executable packaged.`);
+console.log(`Extracted data: ${dictionary.length} words, ${rooms.length} rooms, ${entities.length} entities, ${Object.keys(texts).length} text entries. Read-only firmware/code values are packaged as entropy only; no CPU execution.`);

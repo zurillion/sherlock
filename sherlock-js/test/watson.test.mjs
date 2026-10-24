@@ -25,19 +25,19 @@ test('Watson save/load keeps delayed requests, ALL cursors and suspended FOLLOW'
  }
 });
 test('An invalid quote, ambiguity or lexical error gives no actor a turn',()=>{
- const g=new Game(data),before=g.world.dump();for(const c of ['XYZZY','OPEN DOOR','SAY TO WATSON "THE"']){g.submit(c);assert.deepEqual(g.world.dump(),before);}
+ const g=new Game(data),before=domain(g);for(const c of ['XYZZY','OPEN DOOR','SAY TO WATSON "THE"']){g.submit(c);assert.deepEqual(domain(g),before);}
 });
 test('Watson requests are executed at his deadline rather than on SAY',()=>{
  const g=new Game(data);g.submit('SAY TO WATSON "WAIT"');g.submit('SAY TO WATSON "TAKE LAMP"');assert.equal(g.world.entity(22).parent,null);
  g.submit('WAIT');assert.equal(g.world.entity(22).parent,3);
 });
 test('Unknown NPC programs and unported conversation do not become invented replies',()=>{
- for(const command of ['SAY TO WATSON "BASIL KILLED MRS BROWN"','SAY TO WATSON "TELL ME ABOUT LESTRADE"']){
-  const g=new Game(data),before=g.world.dump();const out=g.submit(command);assert.equal(out.state.analysis.outcome,'not_translated');assert.deepEqual(g.world.dump(),before);
+ for(const command of ['SAY TO WATSON "BASIL KILLED MRS BROWN"']){
+  const g=new Game(data),before=domain(g);const out=g.submit(command);assert.equal(out.state.analysis.outcome,'not_translated');assert.deepEqual(domain(g),before);
  }
 });
-test('The ungenerated second random counter suspends the program once, with explicit provenance',()=>{
- const g=new Game(data);let replies=[];for(let n=0;n<3;n++)replies.push(g.submit('WAIT'));
+test('Legacy random-free games keep their explicit reading suspension',()=>{
+ const g=new Game(data,{npc_random:false});let replies=[];for(let n=0;n<3;n++)replies.push(g.submit('WAIT'));
  const native=reference.cases.find(t=>t.label==='reading_boundary');
  for(let i=0;i<3;i++)assert.equal(norm(replies[i].messages.filter(m=>m.kind==='narrative').map(m=>m.text).join(' ')),norm(native.commands[i].messages.filter(m=>m.kind==='narrative').map(m=>m.text).join(' ')));
  assert.equal(g.world.scheduler.actor(3).behavior.phase,'awaiting-random');assert(!g.world.scheduler.actor(3).enabled);
@@ -46,6 +46,8 @@ test('The ungenerated second random counter suspends the program once, with expl
  const a=Game.load(data,JSON.parse(JSON.stringify(g.dump())));assert.deepEqual(a.submit('LOOK'),g.submit('LOOK'));
 });
 test('New requests during an active deferred FOLLOW are explicit until its request gates are ported',()=>{
- const g=new Game(data);g.submit('SAY TO WATSON "FOLLOW ME"');const before=g.world.dump();const out=g.submit('SAY TO WATSON "WAIT"');
- assert.equal(out.state.analysis.outcome,'not_translated');assert.deepEqual(g.world.dump(),before);
+ const g=new Game(data);g.submit('SAY TO WATSON "FOLLOW ME"');const before=domain(g);const out=g.submit('SAY TO WATSON "WAIT"');
+ assert.equal(out.state.analysis.outcome,'not_translated');assert.deepEqual(domain(g),before);
 });
+
+function domain(game){const value=game.world.dump();delete value.display;return value;}

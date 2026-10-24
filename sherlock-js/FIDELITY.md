@@ -1,14 +1,16 @@
 # Functional equivalence is the target
 
-23 October 2026. This supersedes the provisional greeting policy in SALUTI-E-CAB.md.
+24 October 2026. This supersedes the provisional greeting policy in SALUTI-E-CAB.md.
 
 The autonomous engine is an incomplete reconstruction. It is **not functionally indistinguishable from the original**, and same-seed sequence equivalence is **not implemented**. Passing isolated tests does not establish either property. A plausible response, a similar frequency distribution or an original phrase selected by a substitute policy does not meet the requirement.
 
 ## What was wrong
 
-The previous patch always selected the time-of-day alternative in Watson’s greeting. That was an approximation. It has been removed. Quoted HELLO requests now produce an explicit prototype notice outside the game text, before they enqueue a request, consume time or modify the world. HELLO without a quotation retains the independently verified original HI. response in the command area.
+The earlier fixed time-of-day greeting was an approximation and remains removed. New games now use the original random arithmetic and generated inputs for a declared, isolated historical Watson profile. HELLO and TELL run in the playable JavaScript engine. This does not certify true seeded startup or a game with every actor active.
 
-Old logical saves with an already pending greeting remain loadable. If that request runs, Watson is suspended at the unsupported random text operation with an explicit notice; no substitute answer is generated. Old saves were created by a partial model and cannot be promoted to original-equivalent states just by adding a seed label.
+Saves from before version 4 remain loadable with their previous behaviour. They have no reconstructed random/source state and are not silently promoted. Save an old game if needed, then use **Riavvia** to activate the new profile. The page identifies these older sessions.
+
+See [WATSON-RUNTIME.md](WATSON-RUNTIME.md) and `results/runtime-watson-verification.json` for the actual compared sequences, generated inputs and first unsupported boundary. The recorded oracle trace is test data only; gameplay never reads it.
 
 ## What the original actually does
 
@@ -18,7 +20,7 @@ Text fragment 6920 uses a random choice in 6918 between Hello and the time-filte
 count - 1 - absolute_draw(count - 1)
 ```
 
-For two options, an absolute draw of one selects Hello; zero selects the time-of-day greeting. A conventional uniform array choice is not a replacement. The selection formula has now been translated in `OriginalRandom.chooseIndex` and compared with 1,280 controlled executions of the original selector: option counts 1, 2, 3, 4 and 8, with every raw byte value. These tests certify this operation with supplied inputs, **not the complete random source**. The selector is not connected to fabricated inputs in gameplay.
+For two options, an absolute draw of one selects Hello; zero selects the time-of-day greeting. A conventional uniform array choice is not a replacement. The selection formula has now been translated in `OriginalRandom.chooseIndex` and compared with 1,280 controlled executions of the original selector: option counts 1, 2, 3, 4 and 8, with every raw byte value. These tests certify this operation with supplied inputs, **not the complete random source**. Gameplay connects this selector only to the explicit generated-input resolver; missing sources raise an unavailable-path notice.
 
 D2AD maintains an eight-bit accumulator and a 16-bit cursor. For each attempt it advances the cursor high byte first and mixes:
 
@@ -29,7 +31,7 @@ D2AD maintains an eight-bit accumulator and a 16-bit cursor. For each attempt it
 
 If the raw result equals the previous accumulator it retries at another cursor. The raw accumulator is saved before the range reduction. `contextOffset` is the value in DE at the native call. The generator uses ROM bytes, display and attribute bytes, buffers, stack, world data and mutable program state. Some of the original code bytes are themselves data inputs to randomness; reconstructing their role does not require executing that code, but silently replacing them changes behaviour.
 
-There is one shared stream. Other NPCs advance it even when their activity produces no visible message. The current JS game does not run those programs and does not generate all the source inputs. The fixed historical Watson counter 15 is also not a seeded initialization.
+There is one shared stream. Other NPCs advance it even when their activity produces no visible message. The current JS game runs only Watson and does not generate every source input. The new callback preserves Watson’s invisible information-check draws as well as visible choices. The fixed historical Watson counter 15 is also not a seeded initialization.
 
 ## Repeated-greeting evidence
 
@@ -61,4 +63,6 @@ These criteria apply to the whole rewrite. Existing partial rules retain their d
 
 ## Current outcome and next dependency
 
-The invented greeting has been removed; the backward text selector is reconstructed and tested. **Seeded greetings and full functional equivalence remain unfinished.** The next foundation is a functionally generated startup and the shared state/random-input projection, followed by the actor programs that advance it. More isolated cosmetic responses will not close this gap. The older Z80 reference remains available for checking the actual original behaviour.
+The original-arithmetic greeting and TELL now work in new games in the historical Watson-only profile. The second reading counter, encounter callbacks and note/departure branch are also connected within that scope. Screen and input bytes used by the verified draws are produced by domain operations, not copied from fixtures.
+
+Full seeded initialization, remaining input regions, complete information/request semantics and every other actor remain required. In particular the long historical greeting run first reaches an unsupported source at command 33 ($5C00); the engine rejects and rolls back that action instead of guessing. The new runtime report records this boundary. Full-game equivalence and same-seed full-game parity remain false. The older Z80 reference remains an offline oracle.

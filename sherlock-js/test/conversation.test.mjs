@@ -55,9 +55,9 @@ test('Original cab account payments, driver turns disabled in both compared prof
  }
 });
 test('PAY validates currency and person classes without spending time',()=>{
- const g=new Game(data),before=g.world.dump();
+ const g=new Game(data),before=domain(g);
  for(const command of ['PAY TO WATSON','PAY LAMP TO WATSON','PAY 1/- TO LAMP','PAY 8:30 TO WATSON']){
-  const out=g.submit(command);assert.equal(out.messages[0].text,"DON'T BE SILLY.");assert.deepEqual(g.world.dump(),before);
+  const out=g.submit(command);assert.equal(out.messages[0].text,"DON'T BE SILLY.");assert.deepEqual(domain(g),before);
  }
 });
 test('A payment and a pending quoted payment survive a logical save/load',()=>{
@@ -70,8 +70,10 @@ test('A payment and a pending quoted payment survive a logical save/load',()=>{
 test('Money display preserves period and whole-pound conventions',()=>{
  for(const [pence,text] of [[0,'0d.'],[1,'1d.'],[6,'6d.'],[12,'1/-'],[240,'£1'],[246,'£1 6d.'],[252,'£1 1/-'],[16383,'£68 5/3']])assert.equal(formatMoney(pence),text);
 });
-test('TELL never chooses a substitute says/remarks prefix in the playable engine',()=>{
- const g=new Game(data),before=g.world.dump();for(const input of ['TELL WATSON ABOUT LESTRADE','SAY TO WATSON "TELL ME ABOUT LESTRADE"']){
-  const out=g.submit(input);assert.equal(out.state.analysis.outcome,'not_translated');assert(out.messages.every(m=>m.kind==='system'));assert.deepEqual(g.world.dump(),before);
+test('A legacy game without random state never invents a says/remarks prefix',()=>{
+ const g=new Game(data,{npc_random:false}),before=domain(g);for(const input of ['TELL WATSON ABOUT LESTRADE','SAY TO WATSON "TELL ME ABOUT LESTRADE"']){
+  const out=g.submit(input);assert.equal(out.state.analysis.outcome,'not_translated');assert(out.messages.every(m=>m.kind==='system'));assert.deepEqual(domain(g),before);
  }
 });
+
+function domain(game){const value=game.world.dump();delete value.display;return value;}

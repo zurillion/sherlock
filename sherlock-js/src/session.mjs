@@ -2,10 +2,10 @@ import {Game} from './game.mjs';
 import {presentationPackets} from './spectrum.mjs';
 import {seal,verify} from './save.mjs';
 
-function packets(text,{leading=false}={}){
- const raw=text.replace(/ +"/g,'"');
+function packets(text,{leading=false,formatted=false}={}){
+ const raw=formatted?(text.endsWith('\n')?text.slice(0,-1):text):text.replace(/ +"/g,'"');
  const events=presentationPackets(raw);
- for(const e of events)if(/^[A-Z]/.test(e.text||''))e.capitalize=true;
+ for(const e of events){if(formatted)e.formatted=true;else if(/^[A-Z]/.test(e.text||''))e.capitalize=true;}
  return leading?[{op:'word',text:'',delimiter:'\r',capitalize:true,force:false},...events]:events;
 }
 export class ClientSession {
@@ -15,7 +15,7 @@ export class ClientSession {
   const before=this.game.world.dump();try{this.game.world.restore(frame.world);const s=this.game.state();if(s.analysis)s.analysis={...s.analysis,actions:s.analysis.actions.slice(0,frame.actionCount)};return {...s,command_running:true,job:this.job?.id};}finally{this.game.world.restore(before);}
  }
  state(){const s=this.job?this.frameState(this.job.frames[Math.max(0,this.job.index-1)]):this.game.state();return {...s,initial_screen:packets(s.initial),opening_screen:s.opening?packets(s.opening,{leading:true}):null};}
- messages(messages){return messages.map(m=>m.kind==='narrative'?{...m,screen_events:[...(m.image_room? [{op:'picture',room:m.image_room}]:[]),...packets(m.text,{leading:Boolean(m.paragraph_before)})]}:m);}
+ messages(messages){return messages.map(m=>m.kind==='narrative'?{...m,screen_events:[...(m.image_room? [{op:'picture',room:m.image_room}]:[]),...packets(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),formatted:m.raw_text!==undefined})]}:m);}
  request(operation,body={}){
   if(operation==='data')return this.publicData();
   if(operation==='state')return this.state();
@@ -53,4 +53,10 @@ export class ClientSession {
   }
   throw Error('Operazione del motore sconosciuta: '+operation);
  }
+}
+
+export function engineStatus(state){
+ return state.random_state
+  ? 'Partite separate. Watson v4: saluti e TELL attivi nel profilo storico; AI completa ancora in lavorazione.'
+  : 'Partite separate. Partita JS precedente: salva se vuoi conservarla, poi premi Riavvia per attivare i nuovi dialoghi di Watson.';
 }

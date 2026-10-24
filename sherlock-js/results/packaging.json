@@ -1,15 +1,19 @@
 {
-  "date": "2026-10-23",
-  "isolated_bundle_tests": 254,
+  "date": "2026-10-24",
+  "isolated_bundle_tests": 269,
+  "isolated_bundle_failures": 0,
   "isolated_bundle_dependencies": "Node standard library only",
+  "isolated_bundle_run": "Fresh copy under OS temporary directory; no parent project, Python, executable or original game service",
   "http_status": {
     "GET /": 200,
     "GET /data/game.json": 200,
-    "GET /src/scheduler.mjs": 200,
-    "GET /src/random.mjs": 200,
+    "GET /src/app.mjs": 200,
+    "GET /src/runtime-random.mjs": 200,
+    "GET /src/random-display.mjs": 200,
     "GET /api/state": 404,
     "POST /api/command": 405
   },
   "current_test_report": "tests.tap",
-  "http_status_provenance": "Static routes rechecked on port 8768; see conversation-http.json"
+  "http_status_provenance": "runtime-watson-http.json",
+  "scope_report": "runtime-watson-verification.json"
 }

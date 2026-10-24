@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "implementation": "javascript-autonomous",
   "status": "partial_functional_rewrite",
   "runtime": {
@@ -8,11 +8,13 @@
     "original_executable": false,
     "backend_game_logic": false,
     "external_packages": false,
-    "gameplay_scheduler": "Functional loop: player and partial Watson connected; other 22 actors explicitly disabled"
+    "gameplay_scheduler": "Functional loop: player and partial Watson connected; other 22 actors explicitly disabled",
+    "generated_random_input_profile": "historical-prompt-watson-v4",
+    "immutable_firmware_code_values": "Read-only entropy assets in JSON, never CPU-dispatched"
   },
   "automated_tests": {
     "file": "tests.tap",
-    "passed": 254,
+    "passed": 269,
     "failed": 0
   },
   "reference_comparisons": {
@@ -42,9 +44,7 @@
   },
   "still_untranslated": [
     "full bootstrap",
-    "world inputs to original random arithmetic and seed parity",
-    "Watson second random counter and note/departure branch",
-    "Watson encounter callbacks",
+    "Remaining shared random-input regions, full actor contributions and seed parity",
     "information, statements and deductions",
     "Lestrade and remaining NPCs",
     "cab driver dialogue, waiting, travel, fare demands, change and reactions; trains and story"
@@ -84,15 +84,17 @@
       "greeting: random text choice unavailable",
       "reading_boundary: continuation after new random counter unavailable"
     ],
-    "full_game_seed_parity": false
+    "full_game_seed_parity": false,
+    "runtime_update": "runtime-watson-verification.json supersedes historical missing-greeting/second-counter coverage; older normalized corpus retains its declared scope"
   },
   "phase3_browser_report": "watson-browser.json",
   "feedback_report": "feedback-verification.json",
   "feedback_browser_report": "feedback-browser.json",
   "fidelity_report": "fidelity-audit.json",
-  "current_greeting_status": "unimplemented-original-random-source; previous fixed variant removed",
+  "current_greeting_status": "Playable original arithmetic + generated inputs in historical Watson-only profile v4; strict unsupported-region rollback",
   "full_game_equivalence": false,
   "original_seed_parity": false,
   "npc_foundations_report": "npc-foundations.json",
-  "conversation_report": "conversation-verification.json"
+  "conversation_report": "conversation-verification.json",
+  "runtime_watson_report": "runtime-watson-verification.json"
 }

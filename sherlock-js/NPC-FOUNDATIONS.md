@@ -1,8 +1,8 @@
 # Shared NPC implementation: current work
 
-The requested full behaviour of Watson, the cabbie and Lestrade is **not complete**. These modules implement necessary shared components. They are not enabled as a substitute NPC engine in the page. The page retains its documented partial profile and the explicit missing greeting notice. There is no statistical or scripted substitute for the original random source.
+The requested full behaviour of Watson, the cabbie and Lestrade is **not complete**. These modules implement necessary shared components. They are not enabled as a substitute NPC engine in the page. The page now connects generated-input HELLO/TELL and the historical Watson branches described in [WATSON-RUNTIME.md](WATSON-RUNTIME.md); the generic kernel described here remains component work. There is no statistical or scripted substitute for the original random source.
 
-Subsequent work on the TELL table, generated text-choice context and the playable ordinary PAY action is documented in [CONVERSATIONS.md](CONVERSATIONS.md). The current isolated suite has 254 passing tests. That work does not resolve the missing playable conversations or complete any of the three NPCs.
+Subsequent work on the TELL table, generated text-choice context and the playable ordinary PAY action is documented in [CONVERSATIONS.md](CONVERSATIONS.md). The current test count is in results/verification.json. The subsequent runtime work enables conversations in a declared profile, but does not complete any of the three NPCs.
 
 ## Code added
 

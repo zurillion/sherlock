@@ -27,7 +27,9 @@ Aprire una cassaforte richiede una regola diversa. Il motore non usa OPEN generi
 | `scheduler.mjs` | Turni, ordine, scadenze, calendario, contesti sospesi, segnali e richieste |
 | `watson.mjs` | Richieste, primo contatore storico, seguito autonomo, FOLLOW esplicito e saluti differiti |
 | `cab.mjs` | Rete stradale, disponibilità e arrivo del cab; contesto successivo sospeso |
-| `random.mjs` | Calcolo casuale su ingressi espliciti; modello degli ingressi ancora mancante |
+| `random.mjs` | Calcolo casuale originale su ingressi espliciti |
+| `runtime-random.mjs` | Risoluzione degli ingressi generati e dei valori immutabili; rifiuto delle regioni non ricostruite |
+| `random-display.mjs` | Proiezione canonica di testo, input e byte video per il profilo storico Watson |
 | `tab-session.mjs` | Ripresa della partita JS dopo un cambio di motore nella stessa scheda |
 | `text.mjs` | Formato dei testi compressi convertito in dati semantici, descrizioni ed elenchi |
 | `game.mjs` | Risoluzione dei riferimenti, regole di azione, effetti e stato logico |
@@ -50,8 +52,8 @@ La seconda fase usa il ciclo anche per le singole esecuzioni espanse da ALL. Le 
 
 La terza fase introduce un contesto esplicito per l’attore nelle azioni condivise e una macchina a stati funzionale per Watson, senza bytecode originale. Ogni minuto conserva uno stato logico per presentazione e interruzione; i salvataggi versione 3 includono le continuazioni di Watson. Il profilo iniziale e la sospensione al confine della casualità sono dichiarati in [FASE-3.md](FASE-3.md).
 
-La correzione descritta in [SALUTI-E-CAB.md](SALUTI-E-CAB.md) marca il primo messaggio narrativo di ogni azione del giocatore con `paragraph_before`; `session.mjs` lo converte nel CR precedente il testo. Le risposte degli NPC e i lotti dei minuti non creano paragrafi aggiuntivi. Il saluto casuale è ora sospeso con un avviso esplicito; la precedente variante temporale fissa è stata rimossa. La chiamata del cab muove il contenitore e i suoi discendenti; il programma del cocchiere rimane sospeso al confine non tradotto.
+La correzione descritta in [SALUTI-E-CAB.md](SALUTI-E-CAB.md) marca il primo messaggio narrativo di ogni azione del giocatore con `paragraph_before`; `session.mjs` lo converte nel CR precedente il testo. Le risposte degli NPC e i lotti dei minuti non creano paragrafi aggiuntivi. Nel precedente profilo v3 il saluto casuale era sospeso; la precedente variante temporale fissa è stata rimossa. La chiamata del cab muove il contenitore e i suoi discendenti; il programma del cocchiere rimane sospeso al confine non tradotto.
 
-Il criterio vincolante è ora esplicitato in [FIDELITY.md](FIDELITY.md). La politica provvisoria del saluto temporale è stata rimossa; il modello non possiede ancora una sorgente casuale globale originale. Il selettore testuale tradotto in `random.mjs` è verificato con ingressi controllati e non viene collegato a ingressi sostitutivi. Le richieste HELLO citate sono bloccate prima di modificare il mondo.
+Il criterio vincolante resta [FIDELITY.md](FIDELITY.md). I saluti citati e TELL sono ora collegati alla sorgente generata nel profilo storico Watson v4. Il bundle include anche valori numerici immutabili di ROM/codice consultati dalla sorgente originale: non sono istruzioni da eseguire. Le zone non possedute dalla proiezione restano assenti e provocano rollback, senza ricorrere a una RAM iniziale. [WATSON-RUNTIME.md](WATSON-RUNTIME.md) distingue le prove dalla parità globale ancora mancante.
 
 I nuovi componenti `npc-program.mjs`, `npc-primitives.mjs`, `record-arena.mjs` e `cab-economy.mjs` costituiscono il kernel condiviso in costruzione. Sono verificati separatamente e non sostituiscono ancora il driver parziale usato dalla pagina. [NPC-FOUNDATIONS.md](NPC-FOUNDATIONS.md) distingue i risultati dai requisiti ancora da completare.

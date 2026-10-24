@@ -1,6 +1,6 @@
 # Copertura della riscrittura autonoma
 
-Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzionalità della precedente pagina basata sullo Z80.** La precedente pagina resta un banco di confronto. I suoi risultati e le sue prove non diventano automaticamente risultati di questa riscrittura.
+Data: 24 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzionalità della precedente pagina basata sullo Z80.** La precedente pagina resta un banco di confronto. I suoi risultati e le sue prove non diventano automaticamente risultati di questa riscrittura.
 
 ## Già ricostruito nel motore JS
 
@@ -9,7 +9,7 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Grammatica dei comandi ordinari, gruppi nominali, coordinazioni, ALL/EXCEPT, citazioni, modalità dichiarativa e completamento di un riferimento ambiguo.
 - Struttura degli oggetti e contenitori, propagazione della posizione, filtro di percezione, condizioni di luce, descrizioni per fascia oraria, prima visita e LOOK.
 - Varianti generiche di movimento, OPEN/CLOSE, TAKE/CARRY/GET, DROP, GIVE, INVENTORY, LOOK, EXAMINE, COUNT MONEY e PAY valuta TO persona.
-- HELLO nella zona comandi. Il precedente saluto temporale fisso di Watson è stato rimosso: il saluto citato è esplicitamente mancante finché non viene generata la sorgente casuale originale globale. Il selettore delle alternative è tradotto e verificato separatamente, senza ingressi inventati.
+- HELLO nella zona comandi; saluto citato e TELL nelle nuove partite Watson v4, con ingressi generati nel profilo storico isolato. Nessuna risposta temporale fissa. [WATSON-RUNTIME.md](WATSON-RUNTIME.md) dichiara prove e primo confine non tradotto.
 - HAIL CAB sulle dieci strade della rete, arrivo con cocchiere e denaro, GET INTO CAB e GET OUT OF CAB. Il programma del cocchiere successivo all’arrivo è sospeso.
 - WAIT di cinque minuti e presentazione dei minuti; WAIT UNTIL è ancora provvisorio.
 - Scheduler funzionale dei 24 attori, ordine, scadenze, contesti sospesi e code; nel gioco sono collegati Holmes e il programma parziale di Watson.
@@ -17,7 +17,7 @@ Data: 23 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzion
 - Salvataggio dello stato logico e dello scheduler, inclusa una domanda di chiarimento pendente, e migrazione dei vecchi file JS.
 - Mappa, teletrasporto di analisi, SVG/pixel, presentazione Spectrum riutilizzata e collegata al motore locale.
 
-L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 36 hanno almeno una regola giocabile parziale: questo **non** significa che quei 36 siano completamente equivalenti all'originale. TELL ha ora un corpo e una tabella verificati separatamente, ma resta indisponibile nella pagina per la sorgente casuale mancante.
+L'inventario [results/action-coverage.json](results/action-coverage.json) elenca tutti i 54 modelli d'azione. 38 hanno almeno una regola giocabile parziale: questo **non** significa che siano completamente equivalenti all'originale. TELL è collegato nel profilo Watson v4; le varianti non risolte restano esplicite.
 
 ## Limiti precisi delle parti presenti
 
@@ -29,16 +29,16 @@ L'inventario [results/action-coverage.json](results/action-coverage.json) elenca
 - OPEN/CLOSE riguarda le porte ordinarie. Casseforti, chiavi, serrature, biglietti e oggetti con regole locali speciali restano da tradurre.
 - GIVE trasferisce l'oggetto; non riproduce ancora la reazione del destinatario. COUNT riguarda il denaro.
 - Calendario e costo del giocatore sono parziali. WAIT UNTIL, interruzioni, attraversamento della mezzanotte e interazione con eventi non sono certificati; il riporto del tick a 16 bit è ora gestito dal ciclo e verificato separatamente. I riporti del calendario su lunghi periodi restano da certificare.
-- Watson parte dal primo prompt storico, con il contatore privato 15 dichiarato; il secondo contatore casuale sospende esplicitamente il programma. Le callback degli incontri restano da tradurre. Gli altri personaggi iniziano dalle posizioni nei dati, senza eseguire i programmi di inizializzazione originali: le loro posizioni possono differire dal primo prompt dell'originale. Il buongiorno di Watson è tradotto separatamente, non è l'esecuzione della sua AI.
+- Watson parte dal primo prompt storico, con il contatore privato 15 dichiarato; sono collegati il secondo contatore, il biglietto/partenza e le callback nel profilo verificato. Alcune zone di ingresso casuale restano da generare e causano rollback. Gli altri personaggi iniziano dalle posizioni nei dati, senza eseguire i programmi di inizializzazione originali: le loro posizioni possono differire dal primo prompt dell'originale. Il buongiorno di Watson è tradotto separatamente, non è l'esecuzione della sua AI.
 - La presentazione a caratteri è stata riutilizzata. Due WAIT consecutivi sono ora confrontati con le righe, i contatori e gli scroll originali; è verificato anche che i lotti dei minuti non aggiungano righe vuote. La corrispondenza completa in tutti i contesti resta da certificare.
 - I controlli testuali SAVE, LOAD, QUIT, PAUSE, PRINT e NOPRINT sono riconosciuti ma non eseguiti come nel gioco. I pulsanti Salva, Carica e Riavvia sono strumenti della nuova UI.
 
 ## Ancora da tradurre
 
-1. **Inizializzazione completa, collegamento dei programmi NPC e casualità.** Il ciclo dei 24 attori è ora tradotto; restano i programmi e le dipendenze della sorgente casuale. Il calcolo aritmetico della sorgente è verificato su ingressi registrati, non ancora generati dal modello. Nessuna promessa di equivalenza del seed finché questi elementi non saranno ricostruiti. I vecchi test del seed riguardavano il ponte Z80.
+1. **Inizializzazione completa, collegamento dei programmi NPC e casualità.** Il ciclo dei 24 attori è ora tradotto; restano i programmi e le dipendenze della sorgente casuale. Il calcolo aritmetico è collegato a ingressi generati nel profilo Watson v4; restano altre regioni e i contributi degli attori disabilitati. Nessuna promessa di equivalenza del seed finché questi elementi non saranno ricostruiti. I vecchi test del seed riguardavano il ponte Z80.
 2. **Regole semantiche e azioni mancanti.** Completare contenitori e sedute oltre le varianti ordinarie verificate sulle poltrone; FOLLOW/COME WITH del giocatore oltre agli ordini di Watson; PUT, TAKE FROM/OFF/OUT OF, WEAR, LOCK/UNLOCK, esame approfondito, ulteriori forme di ALL e BUT/EXCEPT, azioni composte e comandi di sistema.
 3. **Conoscenze e conversazione.** Pronomi nel contesto di gioco, destinatari, richieste, fatti, deduzioni, reazioni e ordini tra attori.
-4. **AI degli NPC.** Completare lettura, nota/partenza e callback di Watson; Lestrade e tutti gli altri programmi. Eventi e scelte dinamiche, oltre alle sequenze scriptate.
+4. **AI degli NPC.** Completare semantica delle richieste e memoria delle informazioni di Watson oltre ai rami verificati; Lestrade e tutti gli altri programmi. Eventi e scelte dinamiche, oltre alle sequenze scriptate.
 5. **Trasporti e denaro.** Dopo chiamata e salita nel cab: dialogo e reazioni del cocchiere, attese, destinazioni, viaggio, pagamento/resto/debito; treni e orari.
 6. **Storia e regole locali.** Indizi, eventi temporali, omicidio, sospetti, arresti, combattimento, morte, vittoria e fine partita.
 7. **Equivalenza della sessione completa.** Salvataggi dell'AI e della casualità, replay con lo stesso seed, editor e MORE nei casi limite, partite complete di regressione.
@@ -65,3 +65,5 @@ Aggiornamento saluti e cab: 212 test complessivi. Sei nuove sequenze / 15 comand
 Revisione del criterio di fedeltà: la risposta fissa di Watson è rimossa. Le due tracce sui saluti conservate nel corpus precedente non sono più dichiarate confronti equivalenti del gioco: restano come riferimento del lavoro da completare. Le quattro tracce del cab (8 comandi, cocchieri disabilitati) continuano a passare. 214 test attuali; 1.280 selezioni testuali controllate confrontate con il codice originale. La nuova indagine registra 401 comandi originali su sei seed, senza dichiarare che il motore JS li riproduca. [FIDELITY.md](FIDELITY.md) e `results/fidelity-audit.json` riportano criterio, prove e dipendenze mancanti.
 
 Kernel NPC in costruzione: 236 test complessivi, con nuovi confronti di continuazioni, record, segnali, contatori, rotte e pagamenti. Sono esportati tutti i 23 programmi non giocatore, senza eseguire i corpi Z80. Watson completo, cabbie completo, Lestrade completo e parità casuale globale restano non implementati. Questi componenti non sono ancora attivati nella pagina; vedere [NPC-FOUNDATIONS.md](NPC-FOUNDATIONS.md).
+
+Aggiornamento runtime Watson v4: [WATSON-RUNTIME.md](WATSON-RUNTIME.md) e results/runtime-watson-verification.json sostituiscono il precedente stato dei saluti bloccati. I rapporti delle fasi precedenti restano documenti storici con il loro ambito originale.

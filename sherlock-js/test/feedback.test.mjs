@@ -35,19 +35,19 @@ test('A legacy pending greeting remains loadable but never invents a reply',asyn
  const out=g.submit('WAIT');assert(out.messages.some(m=>m.kind==='system'&&m.text.includes('casuale')));
  assert(!out.messages.some(m=>/Watson says/.test(m.text)));
 });
-test('Unimplemented seeded greetings are refused before queuing or advancing the world',()=>{
- const g=new Game(data),before=g.world.dump();
+test('Legacy games without random state refuse greetings before queuing a turn',()=>{
+ const g=new Game(data,{npc_random:false}),before=domain(g);
  for(let i=0;i<8;i++){
   const out=g.submit('SAY TO WATSON "HELLO"');assert.equal(out.state.analysis.outcome,'not_translated');
-  assert(out.messages.every(m=>m.kind==='system'));assert.deepEqual(g.world.dump(),before);
+  assert(out.messages.every(m=>m.kind==='system'));assert.deepEqual(domain(g),before);
  }
  assert.equal(g.state().greeting_variant,'unimplemented-original-random-source');
  assert.equal(g.state().fidelity.original_seed_parity,false);
  assert.throws(()=>g.text.greeting(3),/casuale/);
 });
 test('Unquoted HELLO retains the original HI. response without taking a turn',()=>{
- const g=new Game(data),before=g.world.dump();
- for(const command of ['HELLO','HELLO WATSON']){const out=g.submit(command);assert.equal(out.state.analysis.outcome,'ok');assert.equal(out.messages[0].text,'HI.');assert.equal(out.messages[0].kind,'error');assert.deepEqual(g.world.dump(),before);}
+ const g=new Game(data),before=domain(g);
+ for(const command of ['HELLO','HELLO WATSON']){const out=g.submit(command);assert.equal(out.state.analysis.outcome,'ok');assert.equal(out.messages[0].text,'HI.');assert.equal(out.messages[0].kind,'error');assert.deepEqual(domain(g),before);}
 });
 test('The cab arrives on every road in its original network, with driver and money descendants',()=>{
  for(const room of data.cab.streets){const g=new Game(data,{npcs:false});g.teleport(room);const out=g.submit('HAIL CAB');assert.equal(out.state.analysis.outcome,'ok');assert.equal(g.world.roomOf(30),room);assert.equal(g.world.roomOf(31),room);assert.equal(g.world.roomOf(32),room);assert(out.state.characters.some(c=>c.id===31&&c.rooms.includes(room)&&c.badge==='C1'));}
@@ -57,3 +57,5 @@ test('Cab call and containment survive a logical save; unported journeys stay ex
  assert.deepEqual(a.submit('GET OUT OF CAB'),b.submit('GET OUT OF CAB'));assert.equal(a.world.entity(27).parent,0);
  const before=a.world.dump(),out=a.submit('SAY TO CABBIE "GO TO BUCKINGHAM PALACE ROAD"');assert.equal(out.state.analysis.outcome,'not_translated');assert.deepEqual(a.world.dump(),before);assert.equal(a.state().cab_scope,'arrival-and-containment');
 });
+
+function domain(game){const value=game.world.dump();delete value.display;return value;}

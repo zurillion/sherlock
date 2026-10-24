@@ -515,8 +515,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Tabella e corpo TELL verificati come componenti con ingressi casuali forniti; conversazione giocabile ancora bloccata dalla sorgente originale mancante. Vedere CONVERSATIONS.md."
+      "status": "partial_functional_rule",
+      "note": "TELL actor/topic table and original random prefix with generated inputs in historical Watson v4; multiple/unresolved topics and remaining random-source regions unavailable."
     },
     {
       "id": 48,
@@ -526,8 +526,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Tabella e corpo TELL verificati come componenti con ingressi casuali forniti; conversazione giocabile ancora bloccata dalla sorgente originale mancante. Vedere CONVERSATIONS.md."
+      "status": "partial_functional_rule",
+      "note": "TELL actor/topic table and original random prefix with generated inputs in historical Watson v4; multiple/unresolved topics and remaining random-source regions unavailable."
     },
     {
       "id": 49,
@@ -595,5 +595,6 @@
       "status": "not_translated",
       "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
     }
-  ]
+  ],
+  "runtime_update": "runtime-watson-verification.json"
 }

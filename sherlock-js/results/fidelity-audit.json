@@ -3,7 +3,7 @@
   "full_game_equivalence": false,
   "original_seed_parity": false,
   "fixed_greeting_removed": true,
-  "greeting_gameplay_status": "explicitly unavailable; request rejected before world mutation",
+  "greeting_gameplay_status": "Playable original arithmetic + generated inputs in historical Watson-only profile v4; strict unsupported-region rollback",
   "native_audit": {
     "file": "greeting-audit.json",
     "scenarios": 14,
@@ -143,7 +143,7 @@
   },
   "tests": {
     "file": "tests.tap",
-    "passed": 254,
+    "passed": 269,
     "failed": 0
   },
   "acceptance": {
@@ -153,13 +153,19 @@
     "save_load_preserves_future_choices": true,
     "meaning": "Required criteria, not yet achieved by the autonomous game"
   },
-  "browser": {
+  "native_arithmetic_additional_draws": 1271,
+  "runtime_update": {
+    "date": "2026-10-24",
+    "report": "runtime-watson-verification.json",
+    "full_game_equivalence": false,
+    "original_seed_parity": false
+  },
+  "historical_browser": {
     "file": "fidelity-browser.json",
     "screenshot": "fidelity-browser.png",
     "quoted_greeting_explicitly_unimplemented": true,
     "clock_unchanged": "Mon 08:00am",
     "substitute_reply_printed": false,
     "engine_picker_enabled": true
-  },
-  "native_arithmetic_additional_draws": 1271
+  }
 }

@@ -55,7 +55,7 @@ export class ActorScheduler {
    this.emit({event:'reschedule',actor:actor.id,old_due:oldDue,cost:result.cost,new_due:actor.due});
    // Effects are already visible in the shared world when callbacks and the
    // next actor run. No simultaneous end-of-tick commit is introduced.
-   driver.callback?.(actor,this.current.context,this);
+   driver.callback?.(actor,this.current.context,this,oldDue);
    this.emit({event:'callback',actor:actor.id});this.current=null;this.index++;
   }
   throw new SchedulerLimit('Il programma di un attore non restituisce tempo o input.');
@@ -71,7 +71,7 @@ export class ActorScheduler {
    prepare:(actor,s)=>driver.prepare?.(actor,s)||{},
    step:(actor,context,s)=>{if(actor.id!==0)return driver.step?.(actor,context,s)||{type:'blocked',feature:'NPC program not translated'};if(paid)return {type:'input'};paid=true;return {cost};},
    clock:()=>{const frame=clock();frames.push(frame);driver.clock?.(this);},
-   callback:(actor,context,s)=>driver.callback?.(actor,context,s)
+   callback:(actor,context,s,oldDue)=>driver.callback?.(actor,context,s,oldDue)
   });
   if(result.type!=='input')throw Error('A non-translated actor was enabled');
   return frames;

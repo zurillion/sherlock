@@ -11,5 +11,7 @@ test('The playable bundle has no CPU, original binary or backend dependency',asy
  }
  const assets=await readdir(new URL('data/',root));assert.deepEqual(assets,['game.json']);
  const data=JSON.parse(await readFile(new URL('data/game.json',root),'utf8'));assert(!('memory' in data)&&!('registers' in data)&&!('rom' in data));
+ assert.equal(data.randomInputs.version,1);assert(data.randomInputs.ranges.some(r=>r.start===0&&r.kind==='immutable-firmware-entropy'&&r.values.length===16384));
+ assert(data.randomInputs.constants.length>0,'Read-only source byte values are deliberately packaged as entropy, never executed');
  assert.equal(data.entities.length,110);assert.equal(data.rooms.length,106);assert.equal(data.dictionary.length,592);
 });

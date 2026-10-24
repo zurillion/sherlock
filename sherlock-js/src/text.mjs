@@ -4,17 +4,17 @@ import {UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 // This renderer interprets semantic text operations, not CPU instructions.
 export class Text {
  constructor(data,dictionary,world,{chooseIndex}={}){this.data=data;this.dictionary=dictionary;this.world=world;this.chooseIndex=chooseIndex;}
- greeting(actor){return this.render('6920',{actor});}
+ greeting(actor,context={}){return this.render('6920',{...context,actor});}
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
   let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false;const fragments=[];
   const feed=text=>{for(let c of String(text)){
-   if(c==='\b'){result=result.slice(0,-1);continue;}
+   if(c==='\b'){result=result.slice(0,-1);context.sink?.(c);continue;}
    if(/[A-Z]/.test(c))c=c.toLowerCase();
-   if(c==='"')result+=' ';
+   if(c==='"'){result+=' ';context.sink?.(' ');}
    if(c==='.'||c==='"')capitalize=true;
    else if(/[a-z]/.test(c)&&(capitalize||force)){c=c.toUpperCase();capitalize=false;}
-   result+=c;
+   result+=c;context.sink?.(c);
   }};
   const name=(id,be=false)=>w.name(id)+(be?(id===w.player?' are':' is'):'');
   const feedName=(id,be=false)=>{

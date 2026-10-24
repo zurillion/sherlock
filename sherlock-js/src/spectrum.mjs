@@ -1,5 +1,5 @@
 'use strict';
-// Presentation only: world, parser and clock still come from the Python server.
+// Presentation only: world, parser and clock come from the autonomous session.
 class SpectrumBuffer {
  constructor(columns=36, rows=18){this.columns=columns;this.rows=rows;this.clear();}
  clear(){this.lines=Array(this.rows).fill('');this.counter=0;this.scrolls=0;this.cursor=0;this.remaining=this.columns;this.started=false;this.capitalize=true;}
@@ -29,12 +29,18 @@ class SpectrumBuffer {
   else if(character>='a'&&character<='z'&&(this.capitalize||force)){character=character.toUpperCase();this.capitalize=false;}
   yield* this.raw(character);
  }
+ *verbatim(character){
+  if(!this.started&&character===' ')return;
+  if(character==='\r')this.started=false;else this.started=true;
+  const full=this.remaining===1;yield* this.raw(character);if(full)this.started=false;
+ }
  *packet(event){
+  const write=event.formatted?c=>this.verbatim(c):c=>this.formatted(c,event.force);
   this.capitalize=event.capitalize;const text=event.text||'',exact=this.remaining===text.length;
-  if(text.length&&this.remaining<text.length)yield* this.formatted('\r',event.force);
-  for(const character of text)yield* this.formatted(character,event.force);
+  if(text.length&&this.remaining<text.length)yield* write('\r');
+  for(const character of text)yield* write(character);
   if(text.length&&exact)this.started=false;
-  if(event.delimiter)yield* this.formatted(event.delimiter,event.force);
+  if(event.delimiter)yield* write(event.delimiter);
  }
  visible(){return this.lines.map(line=>line.padEnd(36,' '));}
 }

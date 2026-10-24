@@ -1,6 +1,6 @@
 # Conversazioni e pagamento: stato del lavoro
 
-**L'integrazione completa di Watson, cabbie e Lestrade non è terminata. Il problema segnalato — gli NPC non rispondono alle conversazioni — non è risolto da questo aggiornamento.** Non è stato riattivato un saluto fisso né introdotto un generatore sostitutivo. La pagina continua a segnalare le conversazioni casuali come mancanti prima di modificare il mondo, dove è possibile verificarlo in anticipo.
+**Aggiornamento 24 ottobre 2026:** saluti e TELL sono ora attivi nelle nuove partite Watson v4. Ricaricare e premere Riavvia; i vecchi salvataggi conservano il profilo precedente. La sorgente genera gli ingressi delle prove dichiarate, senza replay. [WATSON-RUNTIME.md](WATSON-RUNTIME.md) e il relativo rapporto sostituiscono il precedente stato di conversazioni bloccate. L'integrazione completa di Watson, cabbie e Lestrade resta incompleta.
 
 ## Disponibile nella pagina
 
@@ -25,11 +25,11 @@ Sono preservati gli effetti verificati dell'originale: costo di un minuto, ricer
 
 `src/text.mjs` gestisce l'argomento testuale della risposta e un selettore esplicito. Il contesto del selettore è derivato dalle operazioni del testo: riferimenti relativi, parole, nomi, possessivi, copula e ritorno dal frammento. Non viene copiato dall'osservazione originale. In particolare il saluto arriva a FFF4 e il prefisso `says`/`remarks` a FFF3 attraverso riferimenti diversi. La selezione continua a usare la formula inversa del generatore originale.
 
-La dipendenza casuale riguarda anche il prefisso della risposta. Avere decodificato il contenuto di `TELL ME ABOUT LESTRADE` non autorizza a scegliere sempre `Watson says`. Il motore giocabile non riceve un provider casuale fittizio. Le selezioni annidate, che nell'originale condividono i contatori del selettore, sono rifiutate esplicitamente invece di applicare una normale ricorsione. I nomi propri degli NPC e quelli generici, come `the cabbie`, conservano ora le maiuscole distinte.
+La dipendenza casuale riguarda anche il prefisso della risposta. Avere decodificato il contenuto di `TELL ME ABOUT LESTRADE` non autorizza a scegliere sempre `Watson says`. Il nuovo profilo giocabile riceve il provider di ingressi generati; i vecchi file senza stato casuale restano esplicitamente bloccati. Le selezioni annidate, che nell'originale condividono i contatori del selettore, sono rifiutate esplicitamente invece di applicare una normale ricorsione. I nomi propri degli NPC e quelli generici, come `the cabbie`, conservano ora le maiuscole distinte.
 
 ## Prove e loro limiti
 
-254 test passano nel pacchetto isolato, senza Python o un backend di gioco. Le nuove prove comprendono:
+Il rapporto corrente dei test è in results/verification.json; il pacchetto isolato usa solo Node, senza Python o un backend di gioco. Le nuove prove comprendono:
 
 - 90 esecuzioni originali isolate del corpo TELL: tabella attore/soggetto, testo con maiuscole conservate e spaziatura normalizzata, contesto generato della scelta, aritmetica e stato successivo del generatore.
 - 48 casi originali di testo, su sei accumulatori iniziali: contesto all'ingresso, parola, parola frequente, possessivo, copula, letterale, ritorno da una chiamata e saluto. Si confrontano contesto, indirizzi e valori letti, stato casuale e testo.
@@ -37,7 +37,7 @@ La dipendenza casuale riguarda anche il prefisso della risposta. Avere decodific
 - 16 confini lessicali originali per numeri, punti, virgolette e separatori, compresi i casi che devono essere rifiutati.
 - Salvataggio/caricamento dopo trasferimenti e con un ordine di pagamento ancora pendente.
 
-**I byte sorgente delle estrazioni sono forniti dalle fixture soltanto nei test. Non sono replay del gioco eseguiti dalla pagina e non dimostrano che il modello generi quelle sorgenti.** Non viene dichiarata la parità di seed o di una partita con tutti gli attori attivi. I confronti testuali non certificano i pacchetti di schermo completi.
+**Nelle prove di componente elencate sopra, i byte sorgente delle estrazioni sono forniti dalle fixture soltanto nei test. Non sono replay del gioco eseguiti dalla pagina e non dimostrano che il modello generi quelle sorgenti.** Non viene dichiarata la parità di seed o di una partita con tutti gli attori attivi. I confronti testuali non certificano i pacchetti di schermo completi.
 
 Per riprodurre le nuove osservazioni offline:
 
@@ -48,4 +48,4 @@ python3 tools/probe-number-periods.py --project "/Users/giovanni/Documents/Devel
 node --test test/*.test.mjs
 ```
 
-Resta da generare la sorgente casuale condivisa con tutte le sue dipendenze, completare la selezione semantica delle richieste, fatti/affermazioni/deduzioni e callback, collegare servizio cab e programmi degli altri attori, e confrontare le sequenze complete e i salvataggi. I criteri restano quelli di [FIDELITY.md](FIDELITY.md).
+Le prove runtime successive generano gli ingressi senza fornirli dalla fixture e sono documentate in WATSON-RUNTIME.md. Resta da completare la sorgente casuale condivisa con tutte le sue dipendenze, completare la selezione semantica delle richieste, fatti/affermazioni/deduzioni e callback, collegare servizio cab e programmi degli altri attori, e confrontare le sequenze complete e i salvataggi. I criteri restano quelli di [FIDELITY.md](FIDELITY.md).

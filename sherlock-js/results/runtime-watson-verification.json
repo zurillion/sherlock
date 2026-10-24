@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-24",
+  "implementation": "javascript-autonomous",
+  "full_npcs_complete": false,
+  "full_game_equivalence": false,
+  "original_seed_parity": false,
+  "playable_watson_greeting": true,
+  "playable_watson_tell": true,
+  "scope": {
+    "profile": "historical-prompt-watson-v4",
+    "actors_active": [
+      0,
+      3
+    ],
+    "graphics": "Historical native graphics disabled; canonical generated text-only source screen, independent of UI image preferences",
+    "initial_accumulator": 77,
+    "initial_cursor": 512,
+    "initial_reading_counter": 15,
+    "seeded_bootstrap": false,
+    "seed_variations": "Six accumulators applied AFTER the first historical prompt, cursor zero; not six equivalent original startups",
+    "input_protocol": "Synchronous injected uppercase printable keys + Enter; native pause keys injected immediately; no keyboard idle timeouts",
+    "free_initial_look": true
+  },
+  "references": {
+    "probe": "tools/probe-runtime-watson.py",
+    "fixture": "test/fixtures/runtime-watson-reference.json",
+    "recorded_commands": 221,
+    "verified_commands": 217,
+    "verified_random_draws": 572,
+    "verified_source_reads": 1174,
+    "verified_upper_bitmap_hashes": 217,
+    "verified_ui_text_row_states": 217,
+    "input_values_supplied_to_js_runtime": false,
+    "fields": [
+      "Draw order, actor, width, context offset, starting accumulator/cursor, every input address/value, absolute result and successor accumulator/cursor",
+      "Narrative/error prose: case preserved, whitespace and quote spacing normalized",
+      "Upper bitmap: exact SHA256 over 144*32 bytes generated from domain screen state",
+      "Actual web session packets replayed through SpectrumBuffer: exact upper text rows match the generated source screen",
+      "Full clock object, Watson deadline and three encounter counters",
+      "Parents and rooms of entities 0,3,21,22,23,24,25,26"
+    ]
+  },
+  "scenarios": [
+    {
+      "label": "historical_repeated",
+      "accumulator_after_prompt": null,
+      "commands": 32,
+      "random_draws": 78,
+      "source_reads": 176,
+      "replies": "HHGGGGGHHHGHHHHGGHGGGGHGGHHHGHGG"
+    },
+    {
+      "label": "questions",
+      "accumulator_after_prompt": null,
+      "commands": 16,
+      "random_draws": 40,
+      "source_reads": 80,
+      "replies": "GGGHGHGH"
+    },
+    {
+      "label": "delayed",
+      "accumulator_after_prompt": null,
+      "commands": 6,
+      "random_draws": 17,
+      "source_reads": 36,
+      "replies": "HGGH"
+    },
+    {
+      "label": "following",
+      "accumulator_after_prompt": null,
+      "commands": 7,
+      "random_draws": 19,
+      "source_reads": 38,
+      "replies": "GGG"
+    },
+    {
+      "label": "reading_and_note",
+      "accumulator_after_prompt": null,
+      "commands": 12,
+      "random_draws": 71,
+      "source_reads": 142,
+      "replies": ""
+    },
+    {
+      "label": "after_prompt_seed_0",
+      "accumulator_after_prompt": 0,
+      "commands": 24,
+      "random_draws": 61,
+      "source_reads": 122,
+      "replies": "GHGHGGGHGHHGGGHGHHHGHHHH"
+    },
+    {
+      "label": "after_prompt_seed_1",
+      "accumulator_after_prompt": 1,
+      "commands": 24,
+      "random_draws": 57,
+      "source_reads": 114,
+      "replies": "GGHHHHGGGGHHHGHHGGGHHGHH"
+    },
+    {
+      "label": "after_prompt_seed_7",
+      "accumulator_after_prompt": 7,
+      "commands": 24,
+      "random_draws": 54,
+      "source_reads": 110,
+      "replies": "GGHHHHGGGGGGHHHGGGHGHGGH"
+    },
+    {
+      "label": "after_prompt_seed_42",
+      "accumulator_after_prompt": 42,
+      "commands": 24,
+      "random_draws": 56,
+      "source_reads": 112,
+      "replies": "GGGHHHHGGHHGGHHGHGHGHGGH"
+    },
+    {
+      "label": "after_prompt_seed_127",
+      "accumulator_after_prompt": 127,
+      "commands": 24,
+      "random_draws": 60,
+      "source_reads": 120,
+      "replies": "GGGGGGGGHHGGHGGHGHGGHHHG"
+    },
+    {
+      "label": "after_prompt_seed_255",
+      "accumulator_after_prompt": 255,
+      "commands": 24,
+      "random_draws": 59,
+      "source_reads": 124,
+      "replies": "GHGHGGGGHHHHGHGGHGHGHHHG"
+    }
+  ],
+  "source_inputs": {
+    "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "firmware_sha256": "d55daa439b673b0e3f5897f99ac37ecb45f974d1862b4dadb85dec34af99cb42",
+    "immutable_ranges": [
+      {
+        "start": 0,
+        "kind": "immutable-firmware-entropy",
+        "size": 16384
+      },
+      {
+        "start": 23936,
+        "kind": "immutable-lexicon-and-prose",
+        "size": 9432
+      },
+      {
+        "start": 62988,
+        "kind": "immutable-vector-picture-data",
+        "size": 2548
+      }
+    ],
+    "immutable_code_value_count": 18798,
+    "mutable_input_projection": [
+      "Upper text, word buffer, wrapping and scroll",
+      "Lower command history and transient Enter cursor",
+      "Known normalized input buffer prefix",
+      "Parsed quote-list head cleared before action execution"
+    ],
+    "no_cpu_or_ram_snapshot": true,
+    "unknown_regions": "Unavailable: strict rollback, no initial-RAM fallback"
+  },
+  "save_load": {
+    "format_version": 4,
+    "future_choices_verified": true,
+    "restores": [
+      "Accumulator/cursor/draw count",
+      "Generated screen state, known input prefix and source validity",
+      "Watson phases/counters/encounters and pending requests"
+    ],
+    "old_saves": "Load with original partial profile; Riavvia activates new runtime without fabricating a migrated state"
+  },
+  "first_unsupported_boundary": {
+    "scenario": "historical_repeated",
+    "command": 33,
+    "address": "5C00",
+    "later_reference_reads": [
+      "5D00",
+      "5CF5"
+    ],
+    "outcome": "Explicit prototype notice; action/random/world/frame rollback. Input echo changes as typed.",
+    "known_prefix": 32
+  },
+  "remaining": [
+    "Full seeded bootstrap",
+    "Remaining system, stack, stale buffer, parser/allocation and mutable source projections",
+    "Complete Watson request gates, information, statements, deductions and reactions",
+    "Cabbie service/dialogue/journeys/fare/refunds/reactions",
+    "Lestrade and every other actor, including invisible random draws",
+    "Full IO/event/graphics fidelity and complete game comparisons"
+  ],
+  "browser_validation": {
+    "actual_client_session_test": true,
+    "actual_presentation_buffer_compared": true,
+    "graphical_browser_session": "Not available in this run; no fresh screenshot claimed"
+  },
+  "tests": {
+    "file": "tests.tap",
+    "passed": 269,
+    "failed": 0
+  }
+}

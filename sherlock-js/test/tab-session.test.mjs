@@ -1,4 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
+import {ClientSession,engineStatus} from '../src/session.mjs';
 import {Game} from '../src/game.mjs';import {rememberTab,recallTab,TAB_SESSION_KEY,capturePresentation,lastResponse} from '../src/tab-session.mjs';
 const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url),'utf8'));
 const storage=()=>({rows:new Map(),getItem(key){return this.rows.get(key)||null;},setItem(key,value){this.rows.set(key,value);}});
@@ -13,7 +14,7 @@ test('A tab checkpoint is not a conversion of the original engine save',()=>{
 });
 test('Version-one JS saves migrate to a logical scheduler without losing a clarification',()=>{
  const game=new Game(data,{npcs:false});game.submit('OPEN DOOR');const saved=game.dump();saved.version=1;delete saved.world.scheduler;
- const restored=Game.load(data,saved);assert.deepEqual(restored.submit('ALL'),game.submit('ALL'));assert.equal(restored.dump().version,3);
+ const restored=Game.load(data,saved);assert.deepEqual(restored.submit('ALL'),game.submit('ALL'));assert.equal(restored.dump().version,4);
 });
 test('The engine selector describes both implementations without an automatic fallback',async()=>{
  const html=await readFile(new URL('../index.html',import.meta.url),'utf8');assert(html.includes('id="engine-select"'));assert(html.includes('Originale · Z80'));assert(html.includes('JavaScript autonomo'));assert(html.includes("'8766':'8768'"));assert(html.includes('Partite separate.'));
@@ -30,4 +31,12 @@ for(const phase of ['startup','more','printing','clock-animation'])test('Switchi
 test('A completed display retains its exact terminal snapshot',()=>{
  const snapshot={completed:true},terminal={active:true,processing:false,waiting:false,snapshot:()=>snapshot};
  const p=capturePresentation(terminal,{transcript:[],history:[],view:[0,0,620,650],allowIncomplete:true});assert.equal(p.spectrum,snapshot);assert.equal(p.redraw,undefined);
+});
+
+test('The page distinguishes new Watson dialogues from an old restored session',async()=>{
+ const session=new ClientSession(data);assert.match(engineStatus(session.state()),/Watson v4: saluti e TELL attivi/);
+ const old=JSON.parse(await readFile(new URL('./fixtures/legacy-pending-hello.json',import.meta.url),'utf8'));
+ const restored=Game.load(data,old);assert.match(engineStatus(restored.state()),/Partita JS precedente.*Riavvia/);
+ const app=await readFile(new URL('../src/app.mjs',import.meta.url),'utf8');assert(app.includes('engineStatus(s)'));
+ const reply=session.request('reset',{});assert(reply.state.random_state);assert.match(engineStatus(reply.state),/Watson v4/);
 });

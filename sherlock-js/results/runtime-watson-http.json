@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-24",
+  "port": 8768,
+  "static_only": true,
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "method": "GET",
+      "path": "/src/app.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "new_engine_status_present": true
+    },
+    {
+      "method": "GET",
+      "path": "/src/session.mjs",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "method": "GET",
+      "path": "/src/runtime-random.mjs",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "method": "GET",
+      "path": "/src/random-display.mjs",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "method": "GET",
+      "path": "/data/game.json",
+      "status": 200,
+      "cache_control": "no-store",
+      "random_asset_version": 1
+    },
+    {
+      "method": "GET",
+      "path": "/api/state",
+      "status": 404,
+      "cache_control": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/command",
+      "status": 405
+    }
+  ]
+}

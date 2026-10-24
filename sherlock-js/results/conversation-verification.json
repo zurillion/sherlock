@@ -45,5 +45,8 @@
     "Lestrade itinerary and dependent actors",
     "Exact complete IO and future choices across save/load"
   ],
-  "http_report": "conversation-http.json"
+  "http_report": "conversation-http.json",
+  "historical_report": true,
+  "superseded_runtime_report": "runtime-watson-verification.json",
+  "watson_greetings_tell_now_playable_in_new_games": true
 }
