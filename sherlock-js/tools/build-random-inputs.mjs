@@ -39,6 +39,8 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  if(loader.length!==256||hash(loader)!=='189679d90ca23d74b07181fa809f428c7076be66f81f54cf06fc78699aaa2b1c')throw Error('Unexpected loader data');
  const inventory=JSON.parse(await readFile(join(project,'sherlock-analisi/inventory.json'),'utf8')),header=inventory.blocks.at(-1),editorInitial=[...loader],headerBytes=[header.type,...Buffer.from(header.name),header.declared_length&255,header.declared_length>>>8,header.parameter1&255,header.parameter1>>>8,header.parameter2&255,header.parameter2>>>8];
  editorInitial.splice(30,17,...headerBytes);editorInitial[47]=1;
+ const basic=await readFile(join(project,'sherlock-analisi/block-02.bin'));
+ if(hash(basic)!=='fcd8b87a6c41db725a5af0694ffc04423d824993d6f7eb7ce7edfda360e680b0')throw Error('Unexpected BASIC bootstrap');
  const cab=JSON.parse(await readFile(join(project,'sherlock-analisi/cab/results/cab-data.json'),'utf8'));worldLayout.tables.push({start:0x9B7F,values:[...cab.routes.flatMap(r=>[r.source,r.target,r.duration]),255]});
  // Native tape IO is an explicitly unavailable command; the typed CODE
  // header remains its source value. Browser JSON save/load never modifies it.
@@ -48,7 +50,7 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // evaluator's referenced entries, not by disassembling this data as code.
  const factStarts=[0x9965,0x9973,0x9981,0x9997,0x99A9,0x99BB,0x99C5,0x99CF,0x99D9,0x99E3,0x99F1,0x99FB];
  worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
- return {version:1,worldLayout,editorInitial,source_sha256:hash(payload),firmware_sha256:hash(firmware),
+ return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',
   ranges,constants,npcBytes,ruleBytes,excludedWrites:[...written].sort((a,b)=>a-b),
   historicalPrompt:{profile:'historical-prompt-watson-v4',seed:77,cursor:512,encounters:[30,0,0]}};

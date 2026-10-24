@@ -1,0 +1,16 @@
+{
+  "text": "",
+  "screen_events": [],
+  "a": 3,
+  "z": false,
+  "carry": false,
+  "listed": [],
+  "events": [
+    {
+      "pc": "D078",
+      "a": 54
+    }
+  ],
+  "steps": 9803,
+  "cost": 2
+}

@@ -70,34 +70,62 @@ export class Text {
   const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);fragments.push(key);for(const t of tokens)emit(t);fragments.pop();depth--;};
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
- scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null}={}){
+ scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look'}={}){
   const w=this.world,r=w.rooms[room],text=[];w.lastListed=[];
   if(w.dark()&&!remote)return 'It is too dark to see.';
   const parent=remote?null:w.entity(w.player).parent;
-  if(parent!==null){
-   full=full&&Boolean(r.description);
-   const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id));
-   text.push('You are in '+w.name(parent,{indefinite:true})+(full&&names.length?' with '+joinList(names):'')+'.');
-   if(full){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;}if(r.description)text.push(this.render(r.description));}
-   else text.push((w.name(parent)[0].toUpperCase()+w.name(parent).slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');
-   const exits=r.exits.filter(e=>!e.gate||((w.entity(e.gate).attributes&128)&&w.perceived(e.gate))).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+joinList(exits)+'.');
-   return text.join(' ');
-  }
-  if(full&&r.description)text.push(this.render(r.description));
-  else text.push(remote?`You can see ${w.roomName(room)}.`:`You are ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
-  if(full)for(const edge of r.exits){if(!edge.gate||!(w.entity(edge.gate).attributes&128))continue;const d=DIRECTION_NAMES[edge.direction_id];text.push(`${edge.direction_id===9?'Above':edge.direction_id===10?'Below':'To the '+d} there is ${w.name(edge.gate,{indefinite:true})}.`);}
-  const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
-  if(exits.length)text.push((full?'You can go ':'Visible exits are ')+joinList(exits)+'.');
+  // D526's recursive list frame adds six bytes per level. A LOOK enters
+  // D102 four bytes shallower than CA9E's movement notification; describing
+  // fellow passengers in D113 adds two bytes relative to the room list.
+  const listFrame=depth=>0x5D18+(source==='look'?4:0)-(parent!==null?2:0)-6*depth;
   const list=parent=>w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&e.rooms.length<2&&!w.owns(w.player,e.id)&&w.perceived(e.id));
   const renderChildren=(parent,depth=0)=>{
    const children=list(parent);if(!children.length)return;
    const names=children.map(e=>w.name(e.id,{indefinite:true}));
-   if(parent===null)text.push('You can see '+joinList(names)+'.');
-   else{const container=w.entity(parent);if(container.person)text.push(w.name(parent)+' is carrying '+joinList(names)+'.');else text.push(`${({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In'} ${w.name(parent)} there ${children.length===1?'is':'are'} ${joinList(names)}.`);}
+   let prefix;
+   if(parent===null){prefix='You can see ';text.push(prefix+joinList(names)+'.');}
+   else{const container=w.entity(parent);if(container.person){
+    const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
+    if(trace)trace.push({start,end:start+name.length,kind:'carrying-name',parent,depth,frame:listFrame(depth)});
+    if(trace)trace.push({start:start+name.length+1,end:start+name.length+3,kind:'carrying-is',parent,depth,frame:listFrame(depth)});
+    if(trace)trace.push({start:start+name.length+4,end:start+name.length+12,kind:'carrying-verb',parent,depth,frame:listFrame(depth)+2});
+    text.push(name+' is carrying '+joinList(names)+'.');
+   }else{prefix=`${({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In'} ${w.name(parent)} there ${children.length===1?'is':'are'} `;text.push(prefix+joinList(names)+'.');}}
+   if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768))trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
    for(const e of children){w.lastListed.push(e.id);if(mark)e.status|=128;}
    for(const e of children)renderChildren(e.id,depth+1);
   };
+  const describePassages=()=>{for(const edge of r.exits){if(!edge.gate||!(w.entity(edge.gate).attributes&128))continue;const d=DIRECTION_NAMES[edge.direction_id];text.push(`${edge.direction_id===9?'Above':edge.direction_id===10?'Below':'To the '+d} there is ${w.name(edge.gate,{indefinite:true})}.`);}};
+  const describe=()=>{
+   const previous=text.join(' ');
+   if(trace?.some(e=>e.kind==='personal-contents'&&e.end===previous.length)){
+    // A414 leaves the last inventory word pending. The description's first
+    // actor-is argument supplies its delimiter; each compressed CALL adds
+    // eight bytes to that rendering path. Thus two equal inventory lists
+    // can leave different working fields before different descriptions.
+    let id=r.description,calls=0,first=this.data.texts[id]?.[0];
+    while(first?.op==='call'&&calls<24){calls++;id=first.text;first=this.data.texts[id]?.[0];}
+    if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:0x5D1A+(source==='look'?4:0)-8*calls});}
+   }
+   text.push(this.render(r.description));
+  };
+  if(parent!==null){
+   const expand=full&&Boolean(r.description);
+   const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id));
+   text.push('You are in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
+   if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
+   if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
+   else text.push((w.name(parent)[0].toUpperCase()+w.name(parent).slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');
+   if(full)describePassages();
+   const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
+   return text.join(' ');
+  }
+  if(full&&r.description)describe();
+  else text.push(remote?`You can see ${w.roomName(room)}.`:`You are ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
+  if(full)describePassages();
+  const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
+  if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
   renderChildren(null);
   return text.join(' ');
  }

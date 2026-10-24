@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-24",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "original_seed_parity": false,
+  "reference": {
+    "probe": "tools/probe-transport-regressions.py",
+    "fixture": "test/fixtures/transport-reference.json",
+    "sha256": "6e4ff4b9556aaa2fb120bf39f3afbaefe760fae2110c7b1620c47a157bf856e7",
+    "scope": "True seeded bootstrap 1; all original actors active; free initial LOOK; graphics disabled after first prompt; no teleport; uppercase injected keys, immediate MORE, no idle timeouts.",
+    "fixture_values_supplied_to_runtime": false
+  },
+  "compared_fields": [
+    "Every draw: actor, width, context, seed/cursor, every input address/value, result, successor seed/cursor",
+    "Full clock",
+    "106 room flags",
+    "24 actor program points, root saved arguments, deadlines",
+    "110 entities: containment, rooms, attributes, status",
+    "Counters, signals, contexts: exact record pointers and payloads",
+    "Owned working fields: expected byte values, without supplying them to the runtime",
+    "Exact upper-screen SHA-256 per command and bootstrap",
+    "Web word packets produce the same rows as the generated source screen"
+  ],
+  "scenarios": [
+    {
+      "label": "buckingham",
+      "seed": 1,
+      "commands": 14,
+      "random_draws": 100,
+      "source_reads": 222,
+      "last_clock": "Mon 08:35am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "camden",
+      "seed": 1,
+      "commands": 16,
+      "random_draws": 120,
+      "source_reads": 260,
+      "last_clock": "Mon 08:45am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "kings_short",
+      "seed": 1,
+      "commands": 10,
+      "random_draws": 69,
+      "source_reads": 142,
+      "last_clock": "Mon 08:22am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "after_look",
+      "seed": 1,
+      "commands": 13,
+      "random_draws": 95,
+      "source_reads": 208,
+      "last_clock": "Mon 08:33am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "after_clarification",
+      "seed": 1,
+      "commands": 13,
+      "random_draws": 91,
+      "source_reads": 204,
+      "last_clock": "Mon 08:32am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "train",
+      "seed": 1,
+      "commands": 45,
+      "random_draws": 442,
+      "source_reads": 938,
+      "last_clock": "Mon 10:49am",
+      "exact_upper_bitmap": true
+    }
+  ],
+  "totals": {
+    "commands": 111,
+    "random_draws": 917,
+    "source_reads": 1974,
+    "exact_upper_bootstraps": 6,
+    "exact_upper_commands": 111
+  },
+  "regressions": {
+    "full_names": [
+      "BUCKINGHAM PALACE ROAD",
+      "CAMDEN STREET",
+      "KINGS CROSS ROAD"
+    ],
+    "ambiguous_kings_cross": "Original and JS discard the quoted request on failed semantic resolution; no invented destination",
+    "after_look": true,
+    "after_clarification": true,
+    "passenger_train": true,
+    "root_scope_on_hidden_arrival": true,
+    "minute_presentation_save_load": true,
+    "final_frame_prototype_notice_visible": true,
+    "controlled_name_layouts": 4
+  },
+  "save_load": {
+    "version": 5,
+    "branch": "New save at 09:25 while aboard; uninterrupted and loaded branches compared through 10:49, including minute frames",
+    "older_saves": "Remain loadable with their saved state. No arbitrary repair of earlier divergent randomness."
+  },
+  "tests": {
+    "passed": 294,
+    "failed": 0,
+    "file": "transport-tests.tap",
+    "isolated_node_only": {
+      "passed": 294,
+      "failed": 0,
+      "file": "transport/isolated-tests.tap",
+      "fixtures": "Frozen observations used by tests only"
+    }
+  },
+  "browser_validation": {
+    "static_module_bytes_checked": true,
+    "report": "transport/http.json",
+    "graphical_browser": false,
+    "user_session_reset": false
+  },
+  "remaining": [
+    "Complete random/source projection and native graphics dependencies",
+    "Parser record lifetimes and complete lower error-channel projection",
+    "Information, deductions, advanced events and endings",
+    "All seeds and histories; exact IO packet and physical input timing equivalence"
+  ]
+}

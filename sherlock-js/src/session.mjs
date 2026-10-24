@@ -62,3 +62,8 @@ export function engineStatus(state){
   ? 'Partite separate. Watson v4: saluti e TELL attivi nel profilo storico; AI completa ancora in lavorazione.'
   : 'Partite separate. Partita JS precedente: salva se vuoi conservarla, poi premi Riavvia per attivare i nuovi dialoghi di Watson.';
 }
+
+export function gameStatus(state){
+ const suspended=state.scheduler.actors.filter(a=>a.suspension);
+ return state.game_over?'Partita terminata. Usa Riavvia per ricominciare.':state.prototype_notice&&!state.command_running?'Messaggio del prototipo: '+state.prototype_notice:suspended.length?'Motore JavaScript: '+suspended.map(a=>a.suspension.feature).join('; '):'';
+}

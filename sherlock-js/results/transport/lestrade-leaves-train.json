@@ -1,0 +1,56 @@
+{
+  "text": "Inspector Lestrade goes south.",
+  "screen_events": [
+    {
+      "op": "word",
+      "text": "",
+      "delimiter": " ",
+      "capitalize": true,
+      "force": false
+    },
+    {
+      "op": "word",
+      "text": "inspector",
+      "delimiter": " ",
+      "capitalize": true,
+      "force": false
+    },
+    {
+      "op": "word",
+      "text": "lestrade",
+      "delimiter": " ",
+      "capitalize": true,
+      "force": false
+    },
+    {
+      "op": "word",
+      "text": "goES",
+      "delimiter": " ",
+      "capitalize": false,
+      "force": false
+    },
+    {
+      "op": "word",
+      "text": "south.",
+      "delimiter": "\r",
+      "capitalize": false,
+      "force": false
+    }
+  ],
+  "a": 3,
+  "z": false,
+  "carry": false,
+  "listed": [],
+  "events": [
+    {
+      "pc": "D078",
+      "a": 53
+    },
+    {
+      "pc": "D078",
+      "a": 0
+    }
+  ],
+  "steps": 66840,
+  "cost": 2
+}

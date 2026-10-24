@@ -4,6 +4,8 @@
 
 See [NPC-RUNTIME.md](NPC-RUNTIME.md) and `results/world-npc-verification.json` for profiles, fields, known teleport IO differences, missing dependencies and save v5. Historical v4 saves keep their prior profile; restart explicitly to use the new host. The former command-33 keyboard boundary has been reconstructed for the declared injected-key protocol; other unknown inputs remain explicit failures.
 
+The subsequent transport regression pass is documented in [TRASPORTI.md](TRASPORTI.md) and `results/transport-verification.json`: six natural-play scenarios, all actors active, through riding the train with Lestrade and disembarking at 10:49. It adds exact room-flag and owned renderer-field comparisons, and verifies a save/load branch during the journey. It remains a declared seed-1 corpus, not universal parity.
+
 The earlier audit below is retained as historical evidence. Its limitations and numerical results describe that earlier runtime, not the current browser default. Its acceptance criteria continue to apply.
 
 # Functional equivalence is the target

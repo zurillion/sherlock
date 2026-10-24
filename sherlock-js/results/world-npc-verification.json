@@ -179,7 +179,7 @@
     "Advanced rules/events/endings, evening callbacks and some visible relocation notifications",
     "Remaining system/stack/buffer source dependencies and native graphics as RNG input",
     "Parser allocation lifetimes for syntax errors, clarification, ALL and multiple units; these invalidate record-source ownership",
-    "New LOOK/EXAMINE paths invalidate bootstrap scratch instead of publishing stale bytes",
+    "LOOK and transport renderer ownership extended; EXAMINE and remaining paths still invalidate unknown scratch",
     "Full IO and physical input timing equivalence"
   ],
   "browser_validation": {
@@ -197,5 +197,10 @@
       "failed": 0,
       "file": "world-npc-isolated-tests.tap"
     }
+  },
+  "follow_up": {
+    "report": "transport-verification.json",
+    "guide": "../TRASPORTI.md",
+    "scope": "Six seed-1 natural transport cases, all actors active; train passenger through 10:49, exact room flags and owned working fields, save/load branch"
   }
 }

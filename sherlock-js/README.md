@@ -4,6 +4,8 @@
 
 La guida aggiornata, le sequenze da provare e i limiti sono in [NPC-RUNTIME.md](NPC-RUNTIME.md). Il rapporto delle prove è `results/world-npc-verification.json`. La ricostruzione resta parziale; le sezioni storiche sotto descrivono le fasi precedenti e non costituiscono la copertura attuale.
 
+Le correzioni successive del cab e del viaggio in treno con Lestrade sono in [TRASPORTI.md](TRASPORTI.md): includono corse dopo LOOK/chiarimento e il percorso come passeggero fino alle 10:49, con salvataggio e caricamento a bordo.
+
 # Sherlock: riscrittura autonoma in JavaScript
 
 Questa è la prima parte di una riscrittura funzionale di Sherlock. **Non è ancora il gioco completo.** Il motore contiene regole JavaScript su oggetti logici e non esegue il programma Z80. Il vecchio esperimento web in `sherlock-analisi/locazioni` rimane uno strumento di riferimento separato.

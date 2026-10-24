@@ -6,33 +6,40 @@ export class RandomDisplay {
  constructor(data,world){this.data=data;this.world=world;}
  initialize(opening,{sceneTrace=[]}={}){this.world.display={version:1,profile:'historical-text-only',upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
   if(this.data.randomInputs.editorInitial){this.state.input=this.data.randomInputs.editorInitial.slice(0,129);this.state.inputKnown=this.state.input.map(()=>true);this.state.tokens=this.data.randomInputs.editorInitial.slice(129);this.state.tokenKnown=this.state.tokens.map(()=>true);}
-  this.feed('\n');for(let i=0;i<=opening.length;i++){
-   const event=sceneTrace.find(e=>e.end===i&&e.kind==='container-contents'&&e.depth===1);
-   if(event&&event.child!==null&&this.world.entity(event.child).person&&this.world.entity(event.child).noun===(0x8000|0x971)){
-    this.flush();const x=2+this.state.cursor*7,address=0x5020+Math.floor(x/8);
-    // C388–C38B preserve the renderer's character/comparison state, room
-    // counter, dictionary reference and glyph address on this recursive
-    // contents-list path. These are generated values, not captured stack bytes.
-    // Only the cells whose ownership is established on this initial contents
-    // path are published. Other preserved slots depend on later glyph paths.
-    this.state.scratch[0x5D00]=address&255;this.state.scratch[0x5D01]=address>>>8;this.state.scratch[0x5CF5]=address>>>8;
-   }
-   const carrying=sceneTrace.find(e=>e.end===i&&e.kind==='personal-contents'&&e.depth===2);
-   // The later carrying-list verb is rendered with a shallower frame. Its
-   // cross-byte glyph path C3B3/C3B4/C3B8 replaces the comparison scratch:
-   // INC restores a nonzero shift 1..7, with carry clear, hence no flag bits.
-   // The paired glyph value is the final scan of the final 'g' of carrying;
-   // C39D/C3B8 preserve that value, calculated from the same font asset.
-   if(carrying){this.state.scratch[0x5D06]=0;this.state.scratch[0x5D07]=this.data.spectrum.glyphs['g'.charCodeAt(0)-this.data.spectrum.first][7];}
-   if(i<opening.length)this.feed(opening[i]);
-  }if(!opening.endsWith('\n'))this.feed('\n');this.prompt();}
+  // ROM 0616–062B allocates a LOAD header after the BASIC program, its
+  // variable terminator and the five-byte LOAD "" editor line. It fills
+  // eleven bytes with spaces. The USR calculator replaces the first five;
+  // the untouched filename tail remains until a deeper renderer owns it.
+  if(this.data.randomInputs.basicProgramLength){const workspace=0x5CCB+this.data.randomInputs.basicProgramLength+6;for(let i=5;i<11;i++)this.state.scratch[workspace+i]=32;}
+  this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');this.prompt();}
+ scene(text,sceneTrace=[]){for(let i=0;i<=text.length;i++){
+   // D5C4 renders the last word of the carrying person's name and the
+   // copula via the actor-is text argument. Its glyph frame differs from
+   // the literal name in the preceding contents list. A wrapped word also
+   // clears a row (C316/C374), publishing the final space's scan state.
+   const role=sceneTrace.find(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
+   this.glyphFrame=role?.frame??null;
+   if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
+   if(i<text.length)this.feed(text[i]);
+   // A word is flushed by the following delimiter, within the same owner.
+   if(role&&i+1===role.end){this.flush();if(role.kind==='literal-person-name')this.glyphResidue(' ',role.frame+12,this.state.cursor);this.glyphFrame=null;}
+  }this.glyphFrame=null;}
+ glyphResidue(c,frame,column){
+  if(!frame)return;
+  const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
+  const put=(at,v)=>{if(at>=0x5CEE&&at<=0x5D07)s[at]=v;};
+  // C38B retains the glyph address; C39C the last scan and bit shift;
+  // C39D/C3B8 the unshifted final scan. Only established fields are owned.
+  put(frame-8,address&255);put(frame-7,address>>>8);
+  put(frame-10,shift);put(frame-9,1);put(frame-12,0);put(frame-11,glyph[7]);
+ }
  get state(){return this.world.display;}
  invalidateScratch(){if(this.state)this.state.scratch={};}
  newline(){const s=this.state;if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
- put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining)this.newline();}
- flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length)this.newline();const exact=s.remaining===word.length;for(const c of word)this.put(c);s.pending='';if(exact)s.started=false;}
+ put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35);this.newline();}}
+ flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35);this.newline();}const exact=s.remaining===word.length;for(const c of word){this.glyphResidue(c,this.glyphFrame,s.cursor);this.put(c);}s.pending='';if(exact)s.started=false;}
  feed(c){const s=this.state;if(!s)return;if(c==='\b'){s.pending=s.pending.slice(0,-1);return;}if(![' ','\n','\r','"'].includes(c)){s.pending+=c;return;}this.flush();if(c==='\n'||c==='\r')this.newline();else if(c!==' '||s.started)this.put(c);}
- write(text,{leading=false}={}){if(!this.state)return;if(leading)this.feed('\n');for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
  prompt(){const s=this.state;if(!s)return;s.lower[4]='> +';s.lowerKnown[4]=true;}
  command(normalized){const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.

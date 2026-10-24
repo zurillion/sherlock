@@ -1,0 +1,54 @@
+{
+  "url": "http://127.0.0.1:8768/",
+  "checked": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "5bdb6b3c7234cc34bad14e5d5532bbf8ea1e57ed20c6eb24effbbad74569289b"
+    },
+    {
+      "path": "src/app.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "f96abdcc4297e08eea22a3b090dcd31f437e0974c547f9cfd1a61bb16183e8ae"
+    },
+    {
+      "path": "src/game.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "c9ea7799b5d957920c0b98e1c78cc7ee884863b5be70a665b3264481c4ca0f62"
+    },
+    {
+      "path": "src/npc-runtime.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "4b0100de3fd3c0ad4c50bc8f522b111eea38d05b6b605aaf1b8f3c05a6f17c29"
+    },
+    {
+      "path": "src/text.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "f296b48b8b1c6b9d6f185c08f2438d41f8a5aacc7ea7ba4112cbea422c251c85"
+    },
+    {
+      "path": "src/random-display.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "7b16c7a722513d428732d86dadc454c4dc61e07db7868fe81d5d0da3a51c6964"
+    },
+    {
+      "path": "src/session.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "a0199b4fb3bdb0154e3fa4d0fd3a634d4fa02e38a2421f6b3b7d03f510482a4d"
+    },
+    {
+      "path": "data/game.json",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "fd9ec55283b30eb3b5e274d028d57153e8bb0572ff420e0e843b74693782641d"
+    }
+  ],
+  "graphical_browser": false
+}

@@ -168,5 +168,15 @@
     "substitute_reply_printed": false,
     "engine_picker_enabled": true
   },
-  "current_runtime_report": "world-npc-verification.json"
+  "current_runtime_report": "world-npc-verification.json",
+  "transport_regressions": {
+    "report": "transport-verification.json",
+    "all_actors": true,
+    "seed": 1,
+    "commands": 111,
+    "random_draws": 917,
+    "reads": 1974,
+    "last_clock": "Mon 10:49am",
+    "whole_game_equivalence": false
+  }
 }

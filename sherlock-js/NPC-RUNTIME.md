@@ -1,6 +1,6 @@
 # Programmi dei personaggi nella pagina: NPC v5
 
-24 ottobre 2026. Il nuovo profilo avvia tutti i 24 posti della tabella degli attori: Holmes e 23 programmi di personaggi, veicoli e treni. È una ricostruzione autonoma ancora parziale. Non è una certificazione dell’intera partita.
+24 ottobre 2026. Il nuovo profilo avvia tutti i 24 posti della tabella degli attori: Holmes e 23 programmi di personaggi, veicoli e treni. È una ricostruzione autonoma ancora parziale. Non è una certificazione dell’intera partita. Le successive correzioni di cab, notifiche e viaggio come passeggero sono documentate in [TRASPORTI.md](TRASPORTI.md), con confronti fino alle 10:49 e salvataggio a bordo.
 
 ## Attivazione
 
@@ -53,7 +53,7 @@ Al cancello dei Brown, il poliziotto avverte i personaggi percepiti al proprio t
 - `npc-runtime.mjs` collega i programmi al mondo JS, alla risoluzione degli argomenti, alle callback e al generatore condiviso. I corpi delle regole comprese sono funzioni di dominio; quelli mancanti generano un avviso esplicito.
 - `record-arena.mjs` ricostruisce il deposito di record di 752 byte, le liste e le anomalie dell’allocatore. Le citazioni usano nodi sintattici di 30 byte e richieste di 8; segnali e contatori usano record di 2.
 - `world-source.mjs` proietta record di stanze e oggetti dallo stato logico. L’host proietta anche righe degli attori, contesti, contatori, calendario e alcuni campi di lavoro.
-- `random-display.mjs` genera lo schermo canonico e i buffer conosciuti. Il suffisso non scritto dell’input deriva dalla copia del loader TAP e dal suo ultimo header, non da una fotografia della RAM. Alcuni residui della stampa iniziale sono calcolati dal layout e dai glifi. Le celle prive di una provenienza ricostruita restano indisponibili. Le varianti controllate in `probe-bootstrap-scratch.py` mostrano perché non si può generalizzare un intero frame iniziale a qualsiasi frase; vengono pubblicate solo le celle possedute sul percorso originale. LOOK/EXAMINE successivi invalidano questi residui iniziali finché la nuova profondità di stampa non è ricostruita.
+- `random-display.mjs` genera lo schermo canonico e i buffer conosciuti. Il suffisso non scritto dell’input deriva dalla copia del loader TAP e dal suo ultimo header. I campi posseduti dalla stampa vengono calcolati da glifi, layout, liste ricorsive e richiami del testo, anche per LOOK e scene durante il viaggio. Una parte del workspace ROM deriva dalle operazioni del bootstrap BASIC. Le celle prive di provenienza ricostruita restano indisponibili; EXAMINE e percorsi del parser ancora sconosciuti mantengono le invalidazioni. Si vedano `probe-bootstrap-scratch.py` e [TRASPORTI.md](TRASPORTI.md).
 
 I valori immutabili di ROM, codice e dati consultati dal generatore originale restano ingressi numerici. Il runtime non esegue Z80, non chiama Python, non contatta il vecchio motore e non legge le registrazioni delle prove. Gli indirizzi nei cataloghi indicano provenienza e identità dei record.
 

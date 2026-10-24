@@ -78,7 +78,7 @@ export class NpcRuntime {
  parsed(node){this.use(({records})=>{const p=this.syntaxRecord(node,records),quotes=(node.quotes||[node.quote]).filter(Boolean).map(()=>records.arena.allocate(2));records.arena.release(p);for(const q of quotes)records.arena.release(q);});}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
- invalidateParserProjection(){this.state.recordsSourceKnown=false;this.game.sourceDisplay.invalidateScratch();}
+ invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
  canHail(vehicle){return this.use(({vm})=>vm.state(vehicle+1).contexts.length===0);}
  hail(vehicle,customer){this.use(runtime=>{
   const s=runtime.vm.state(vehicle+1),origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
@@ -102,7 +102,9 @@ export class NpcRuntime {
    if(node&&![21,22,29,30,45].includes(action)){
     const out=this.game.executeAs(node,actor);this.showAction(out,actor,messages,actions);result={...yes(out.cost,{args:out.args}),success:out.cost>0||action===32};
    }else{
-    if(node){args=this.resolveRequest(node,action,actor);if(!args)throw new UnsupportedFeature('risoluzione della destinazione o del destinatario di questa richiesta NPC');}
+    // B191's failed semantic resolution returns to B9B4/B9AC: an NPC
+    // discards the remaining request, without asking the player to clarify.
+    if(node){args=this.resolveRequest(node,action,actor);if(!args){cancel();return {handled:true,cost:0};}}
     result=this.action(action,args,ctx,messages,actions);
    }
    if(job.syntax[job.index])this.active.records.arena.release(job.syntax[job.index]);job.index++;if(!job.nodes||job.index>=job.nodes.length){release();delete state.pending[actor];}else if(job.record)this.active.records.arena.putWord(job.record+5,job.syntax[job.index]);
@@ -191,11 +193,14 @@ export class NpcRuntime {
    case 'counter.decrement':if(!counter)return no();{const n=(records.arena.byte(counter+1)-1)&255;records.arena.putByte(counter+1,n);if(!n){records.remove('counters',counter);return no();}result=yes();break;}
    case 'counter.delete':if(!counter)return no();records.remove('counters',counter);result=yes();break;
    case 'unimplemented.F198':result=first>=g.runtimeRandom.percent({actor,mixOffset:5,purpose:'probability-predicate'})?yes():no();break;
-   case 'entity.relocate':this.relocate(first,second,messages);result=yes(2);break;
+   case 'entity.relocate':result=yes(2,{observerScopeLost:this.relocate(first,second,messages,{actor,direction:w.entity(first).attributes&64?w.rooms[w.roomOf(first)].exits[0]?.direction_id:null})});break;
    case 'location.exitDirection':{const edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.target===first&&e.direction_id<=10);if(!edge)return no();context.saved[1]=edge.direction_id;result=yes();break;}
    case 'unimplemented.E4C9':{
     const travel=[2,3,4].includes(first);w.entity(actor).attributes=travel?w.entity(actor).attributes&127:w.entity(actor).attributes|128;
-    if(travel)this.print('7611',actor,{},messages);this.relocate(actor,first,messages);w.rooms[first].flags&=~64;result=yes();break;
+    if(travel)this.print('7611',actor,{},messages);
+    // E4F6 clears the destination's seen flag before CA7F/CA9E prints the
+    // passenger's scene. That display sets it again; later visits are brief.
+    w.rooms[first].flags&=~64;result=yes(0,{observerScopeLost:this.relocate(actor,first,messages,{actor})});break;
    }
    case 'unimplemented.DDBE':result=yes(first);break;
    case 'unimplemented.EBD5':context.saved[0]=(first+1)&255;result=yes();break;
@@ -205,7 +210,7 @@ export class NpcRuntime {
    case 'unimplemented.F1F6':w.entity(first).attributes|=128;result=yes();break;
    case 'unimplemented.F203':w.entity(first).attributes&=~1;result=yes();break;
    case 'unimplemented.F210':w.entity(first).attributes|=1;result=yes();break;
-   case 'cab.arrive':w.entity(actor-1).attributes|=128;this.relocate(actor-1,first,messages);result=yes();break;
+   case 'cab.arrive':w.entity(actor-1).attributes|=128;result=yes(0,{observerScopeLost:this.relocate(actor-1,first,messages,{actor})});break;
    case 'cab.customerPresent':if(w.entity(first).parent!==actor-1||first===actor)return no();{const frame=this.active.vm.state(actor).contexts.at(-1);if(frame){frame.saved[1]=first;records.arena.putByte(frame.record+3,first);}result=yes();break;}
    case 'cab.warnDebtor':{const frame=this.active.vm.state(actor).contexts.at(-1);this.print('6C54',actor,{},messages,{force:frame?.saved[1]===0});result=yes();break;}
    case 'cab.demandPayment':this.demand(actor,first,second,messages);result=yes();break;
@@ -213,7 +218,17 @@ export class NpcRuntime {
    case 'money.pay':{const amount=this.state.literal&32767,pence=(amount&127)+(amount>>>8)*128;if(!transferMoney(w,actor,second,pence))return no();this.sayPayment(actor,second,pence,messages);result=yes(1);break;}
    default:result=this.active.primitives.body(name,args,context);
   }
-  if(result.success)this.bind(context,args);return result;
+  if(result.success)this.bind(context,args);
+  if(result.observerScopeLost){
+   // CBEA–CBFF fail to restore the observer on an imperceptible arrival.
+   // CD91/D026 then commits the working scope through Holmes while IY
+   // still identifies the visiting actor. Without a Holmes context this
+   // overwrites that actor's ROOT, even while its child scope is suspended.
+   const frame=this.state.foreignContexts[w.player]?.at(-1);
+   if(frame){frame.saved=[...context.saved];records.arena.putByte(frame.record+3,context.saved[1]);records.arena.putByte(frame.record+4,context.saved[2]);records.arena.putByte(frame.record+6,context.saved[0]);}
+   else this.active.vm.state(actor).saved.splice(0,3,...context.saved);
+  }
+  return result;
  }
  node(action,args){
   const model=this.game.data.actions.find(a=>a.id===action);if(!model)throw new UnsupportedFeature('azione interna NPC '+action);
@@ -237,21 +252,32 @@ export class NpcRuntime {
   const visible=!this.w.dark()&&this.w.perceived(actor);if(visible){const shown=out.messages.filter(m=>m.kind==='narrative');messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32)actions.push({actor,id:out.action,arguments:out.args});
  }
- relocate(id,room,messages){
-  const w=this.w,g=this.game,before=w.roomOf(),visible=w.perceived(id),old=w.roomOf(id);w.move(id,room);this.moved(room);
+ relocate(id,room,messages,notification={}){
+  const w=this.w,g=this.game,before=w.roomOf(),visible=w.perceived(id),old=w.roomOf(id),actorOld=notification.actor===undefined?null:w.roomOf(notification.actor),directional=id===notification.actor&&notification.direction>=1&&notification.direction<=10;
+  // E4B0 selects the FIRST exit of the old room for a walking entity. CA76
+  // announces that action before E49B moves it, even when Holmes is in a train.
+  if(directional&&visible&&!w.dark()){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
+  w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
-   const room=w.rooms[w.roomOf()],full=!(room.flags&64),text=g.text.scene({full}),message={kind:'narrative',text,image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
+   const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
   }else if(old!==room&&id!==w.player&&[30,33].includes(id)&&w.perceived(id)){
    const message={kind:'narrative',text:w.name(id)+' is in '+w.roomName(room)+'.'};message.text=message.text[0].toUpperCase()+message.text.slice(1);messages.push(message);g.projectMessages([message]);
-  }else if(old!==room&&w.entity(id).person&&(visible||w.perceived(id))){
+  }else if(old!==room&&!visible&&w.perceived(id)&&!w.dark()){
+   // CAAF/CBC2 announce the outermost arriving entity; a vehicle's
+   // passengers are described by their own subsequent actions.
+   let outer=id;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;
+   const name=w.name(outer,{indefinite:true}),message={kind:'narrative',text:name[0].toUpperCase()+name.slice(1)+' enters.'};messages.push(message);g.projectMessages([message]);
+  }else if(!directional&&old!==room&&w.entity(id).person&&(visible||w.perceived(id))){
    throw new UnsupportedFeature('notifica visibile di ricollocazione del personaggio '+id);
   }
+  if(notification.actor!==undefined&&before===w.roomOf()&&actorOld!==before&&w.roomOf(notification.actor)===before){let outer=notification.actor;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;return !w.perceived(outer);}
+  return false;
  }
  travel(actor,target,furiously,messages){
   const w=this.w,vehicle=actor-1,route=this.routes.find(w.roomOf(vehicle),target,{furiously});if(!route){this.print('6C34',actor,{},messages);return yes();}
   const customer=this.active.vm.saved(actor)[1],playerBefore=w.roomOf();
   const money=account(w,actor);if(money)money.pence=wrapMoney(money.pence-route.fare);
-  w.entity(vehicle).attributes&=127;this.relocate(vehicle,1,messages);w.rooms[1].flags&=~64;
+  w.entity(vehicle).attributes&=127;w.rooms[1].flags&=~64;this.relocate(vehicle,1,messages);
   // 9B44 explicitly reloads the service customer into argument 2. CBEA has
   // an early return which leaves the current actor set to Holmes when a
   // notification cannot perceive its subject. Deferred contexts then belong
