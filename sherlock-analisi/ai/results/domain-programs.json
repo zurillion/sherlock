@@ -10996,6 +10996,30 @@
       "implemented": false,
       "program": "E08F"
     },
+    "cab.travel": {
+      "source": "9AF4",
+      "classes": [
+        4,
+        0
+      ],
+      "requiresLight": false,
+      "cost": 0,
+      "masks": [],
+      "predicateSource": null,
+      "implemented": false
+    },
+    "cab.travelFast": {
+      "source": "9AE1",
+      "classes": [
+        4,
+        0
+      ],
+      "requiresLight": false,
+      "cost": 0,
+      "masks": [],
+      "predicateSource": null,
+      "implemented": false
+    },
     "cab.warnDebtor": {
       "source": "E70E",
       "classes": [
@@ -11236,6 +11260,30 @@
       "cost": 0,
       "masks": [],
       "predicateSource": "DD91",
+      "implemented": false
+    },
+    "unimplemented.9A99": {
+      "source": "9A99",
+      "classes": [
+        4,
+        0
+      ],
+      "requiresLight": false,
+      "cost": 0,
+      "masks": [],
+      "predicateSource": null,
+      "implemented": false
+    },
+    "unimplemented.9ACB": {
+      "source": "9ACB",
+      "classes": [
+        4,
+        0
+      ],
+      "requiresLight": false,
+      "cost": 0,
+      "masks": [],
+      "predicateSource": null,
       "implemented": false
     },
     "unimplemented.9E6A": {
@@ -11699,6 +11747,21 @@
       "implemented": false,
       "program": "E79C"
     }
+  },
+  "internalActions": {
+    "128": "entity.relocate",
+    "129": "entity.samePlace",
+    "130": "entity.sameContainer",
+    "131": "entity.at",
+    "132": "unimplemented.F210",
+    "133": "unimplemented.F203",
+    "134": "unimplemented.EB8B",
+    "135": "unimplemented.ED28",
+    "136": "clock.hour",
+    "137": "unimplemented.EB9B",
+    "138": "unimplemented.EDE9",
+    "139": "unimplemented.EDDD",
+    "140": "unimplemented.F2A5"
   },
   "installedPrograms": {
     "cabService": "F2B6",

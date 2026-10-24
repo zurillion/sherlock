@@ -2,7 +2,7 @@ import {SpectrumTerminal} from './spectrum.mjs';
 import {ClientSession,engineStatus} from './session.mjs';
 import {rememberTab,recallTab,TAB_SESSION_KEY,capturePresentation,lastResponse} from './tab-session.mjs';
 const bundle=await fetch('./data/game.json').then(response=>{if(!response.ok)throw Error('Dati del gioco non disponibili');return response.json();});
-const SPECTRUM_ASSETS=bundle.spectrum,session=new ClientSession(bundle);
+const SPECTRUM_ASSETS=bundle.spectrum,session=new ClientSession(bundle,{npc_profile:'world-v5',seed:1});
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
 let operationEpoch=0,restarting=false,persisting=false;
@@ -60,9 +60,9 @@ let picturesEnabled=true;try{picturesEnabled=localStorage.getItem('sherlock-pict
 setPictures(picturesEnabled);$('pictures').onchange=()=>setPictures($('pictures').checked);
 async function engineRequest(operation,body){const request=Promise.resolve().then(()=>session.request(operation,body));pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}}
 
-function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=true;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
-function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value='';$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);const suspended=s.scheduler.actors.filter(a=>a.suspension);$('game-status').hidden=!s.game_over&&!suspended.length;if(suspended.length)$('game-status').textContent='Motore JavaScript: '+suspended.map(a=>a.suspension.feature).join('; ');if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
+function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);const suspended=s.scheduler.actors.filter(a=>a.suspension);$('game-status').hidden=!s.game_over&&!suspended.length;if(suspended.length)$('game-status').textContent='Motore JavaScript: '+suspended.map(a=>a.suspension.feature).join('; ');if(s.game_over)$('game-status').textContent='Partita terminata. Usa Riavvia per ricominciare.';$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
  updateCharacters(s);
@@ -211,7 +211,7 @@ $('reset').onclick=async()=>{
  try{
   // Let an already submitted action finish before replacing its session.
   await Promise.allSettled([...pendingRequests]);
-  const r=await engineRequest('reset',{start_mode:$('start-mode').value});if(epoch!==operationEpoch)return;
+  const r=await engineRequest('reset',{start_mode:$('start-mode').value,seed:Number($('seed').value)});if(epoch!==operationEpoch)return;
   update(r.state);centerRoom(r.state.room);restarting=false;setBusy(true);
   await showMessages(r.messages);
  }catch(error){if(epoch===operationEpoch)append('error',error.message);}

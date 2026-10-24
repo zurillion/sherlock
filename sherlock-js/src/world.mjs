@@ -7,7 +7,7 @@ export class UnsupportedFeature extends Error {
 
 export class World {
  constructor(data){this.data=data;this.reset();}
- reset(){this.entities=structuredClone(this.data.entities);this.rooms=structuredClone(this.data.rooms);this.player=0;this.explored=new Set([8]);this.lastListed=[];this.random=null;this.display=null;this.scheduler=playerPromptScheduler(this.data);}
+ reset(){this.entities=structuredClone(this.data.entities);this.rooms=structuredClone(this.data.rooms);this.player=0;this.explored=new Set([8]);this.lastListed=[];this.random=null;this.display=null;this.npcs=null;this.scheduler=playerPromptScheduler(this.data);}
  get tick(){return this.scheduler.tick;}set tick(value){this.scheduler.tick=value;}
  get minutes(){return this.scheduler.minutes;}set minutes(value){this.scheduler.minutes=value;}
  get playerDue(){return this.scheduler.actor(0).due;}set playerDue(value){this.scheduler.actor(0).due=value;}
@@ -53,12 +53,13 @@ export class World {
   const actor=this.scheduler.actor(0);actor.savedAction=action;actor.savedArgs=structuredClone(args);
   return this.scheduler.finishPlayer(cost,()=>this.clock(),driver);
  }
- dump(){return {entities:structuredClone(this.entities),rooms:structuredClone(this.rooms),player:this.player,explored:[...this.explored],lastListed:[...this.lastListed],tick:this.tick,playerDue:this.playerDue,minutes:this.minutes,scheduler:this.scheduler.dump(),random:structuredClone(this.random),display:structuredClone(this.display)};}
+ dump(){return {entities:structuredClone(this.entities),rooms:structuredClone(this.rooms),player:this.player,explored:[...this.explored],lastListed:[...this.lastListed],tick:this.tick,playerDue:this.playerDue,minutes:this.minutes,scheduler:this.scheduler.dump(),random:structuredClone(this.random),display:structuredClone(this.display),npcs:structuredClone(this.npcs)};}
  restore(state){
   this.entities=structuredClone(state.entities);this.rooms=structuredClone(state.rooms);this.player=state.player;this.explored=new Set(state.explored);this.lastListed=[...state.lastListed];
   this.scheduler=state.scheduler?ActorScheduler.load(state.scheduler):playerPromptScheduler(this.data,{tick:state.tick,minutes:state.minutes,due:state.playerDue});
   this.random=structuredClone(state.random??null);
   this.display=structuredClone(state.display??null);
+  this.npcs=structuredClone(state.npcs??null);
   if(this.tick!==state.tick||this.minutes!==state.minutes||this.playerDue!==state.playerDue)throw Error('Inconsistent scheduler clock');
  }
 }

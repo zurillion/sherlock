@@ -33,10 +33,10 @@ test('A completed display retains its exact terminal snapshot',()=>{
  const p=capturePresentation(terminal,{transcript:[],history:[],view:[0,0,620,650],allowIncomplete:true});assert.equal(p.spectrum,snapshot);assert.equal(p.redraw,undefined);
 });
 
-test('The page distinguishes new Watson dialogues from an old restored session',async()=>{
- const session=new ClientSession(data);assert.match(engineStatus(session.state()),/Watson v4: saluti e TELL attivi/);
+test('The page distinguishes new NPC programs from an old restored session',async()=>{
+ const session=new ClientSession(data);assert.match(engineStatus(session.state()),/Sessione Watson v4 precedente.*Riavvia/);
  const old=JSON.parse(await readFile(new URL('./fixtures/legacy-pending-hello.json',import.meta.url),'utf8'));
  const restored=Game.load(data,old);assert.match(engineStatus(restored.state()),/Partita JS precedente.*Riavvia/);
  const app=await readFile(new URL('../src/app.mjs',import.meta.url),'utf8');assert(app.includes('engineStatus(s)'));
- const reply=session.request('reset',{});assert(reply.state.random_state);assert.match(engineStatus(reply.state),/Watson v4/);
+ const reply=session.request('reset',{});assert(reply.state.random_state);assert.match(engineStatus(reply.state),/NPC v5/);
 });

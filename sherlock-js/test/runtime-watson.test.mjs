@@ -14,8 +14,6 @@ for(const trace of reference.cases)test('Generated runtime inputs and Watson exc
  const deliver=events=>{for(const e of events){if(e.op==='counter')screen.counter=e.value;else if(e.op==='wide')screen.setColumns(36);else if(e.op==='word')for(const op of screen.packet(e))if(op==='line')while(!screen.newline())screen.more();}};
  deliver(session.state().opening_screen);if(trace.seed_after_prompt!==null){g.world.random.seed=trace.seed_after_prompt;g.world.random.cursor=0;}
  for(const [i,row] of trace.commands.entries()){
-  // The next command reaches unprojected keyboard/stack state.
-  if(trace.label==='historical_repeated'&&i===32)break;
   const before=g.world.random.draws,out=session.request('command',{command:row.input}),count=g.world.random.draws-before,calls=count?g.world.random.trace.slice(-count):[];
   assert.equal(out.state.analysis.outcome,'ok',JSON.stringify({i,input:row.input,messages:out.messages}));
   assert.equal(calls.length,row.random.length,'draw count at '+i);
@@ -40,9 +38,9 @@ test('The actual web session returns a greeting in the upper output',()=>{
 });
 
 test('An unknown random input rolls back its action and speculative clock frames',()=>{
- const s=new ClientSession(data);for(let i=0;i<32;i++)s.request('command',{command:'SAY TO WATSON "HELLO"'});
+ const s=new ClientSession(data);s.game.world.random.cursor=0x5B10;
  const before=s.game.world.dump(),reply=s.request('start-command',{command:'SAY TO WATSON "HELLO"'});
  assert.equal(reply.running,false);assert.equal(reply.state.analysis.outcome,'not_translated');
- assert(reply.messages.some(m=>m.kind==='system'&&m.text.includes('$5C00')));
+ assert(reply.messages.some(m=>m.kind==='system'&&m.text.includes('$5C10')));
  const after=s.game.world.dump();delete before.display;delete after.display;assert.deepEqual(after,before);assert.equal(s.game.lastFrames.length,0);
 });

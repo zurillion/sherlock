@@ -15,6 +15,7 @@ export class RuntimeRandom {
  get available(){return Boolean(this.world.random);}
  read(address){
   if(!Number.isInteger(address)||address<0||address>65535)throw Error('Invalid random source address');
+  if(this.projector){const projected=this.projector(address);if(projected!==null)return projected;}
   for(const range of this.inputs.source.ranges)if(address>=range.start&&address<range.start+range.values.length)return range.values[address-range.start];
   if(address>=0x4000&&address<0x5D80&&this.display){const value=this.display.read(address);if(value!==null)return value;}
   // By the time actions run, the quotation list has been parsed and transferred
@@ -31,16 +32,17 @@ export class RuntimeRandom {
  absolute(width,{mixOffset,actor=3,purpose='npc'}={}){
   const state=this.world.random;if(!state)throw new RandomInputsUnavailable('Stato casuale originale assente in questa partita precedente: salva e usa Riavvia.');
   const generator=new OriginalRandom(state),reads=[];
-  const result=generator.absolute(width,{mixOffset,inputs:({cursor,mixOffset})=>{
+  let result;try{result=generator.absolute(width,{mixOffset,inputs:({cursor,mixOffset})=>{
+   this.inFlight={actor,cursor};
    const second=(cursor+mixOffset+1)&65535,firstValue=this.read(cursor),secondValue=this.read(second);
    reads.push({address:cursor,value:firstValue},{address:second,value:secondValue});return {first:firstValue,second:secondValue};
-  }});
+  }});}finally{this.inFlight=null;}
   state.trace.push({actor,purpose,width,mixOffset,seed:state.seed,cursor:state.cursor,reads,result,next_seed:generator.seed,next_cursor:generator.cursor});
   if(state.trace.length>256)state.trace.shift();state.seed=generator.seed;state.cursor=generator.cursor;state.draws++;return result;
  }
  percent(context){return this.absolute(99,context)+1;}
  static validate(state){
   if(state===null||state===undefined)return;
-  if(state.version!==1||state.profile!=='historical-prompt-watson-v4'||!Number.isInteger(state.seed)||state.seed<0||state.seed>255||!Number.isInteger(state.cursor)||state.cursor<0||state.cursor>65535||!Number.isSafeInteger(state.draws)||state.draws<0||!Array.isArray(state.trace)||state.trace.length>256)throw Error('Stato casuale JS non valido.');
+  if(state.version!==1||!['historical-prompt-watson-v4','world-v5'].includes(state.profile)||!Number.isInteger(state.seed)||state.seed<0||state.seed>255||!Number.isInteger(state.cursor)||state.cursor<0||state.cursor>65535||!Number.isSafeInteger(state.draws)||state.draws<0||!Array.isArray(state.trace)||state.trace.length>256)throw Error('Stato casuale JS non valido.');
  }
 }

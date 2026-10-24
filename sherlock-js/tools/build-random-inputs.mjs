@@ -25,13 +25,30 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  const ranges=[{start:0,kind:'immutable-firmware-entropy',values:[...firmware]},
   {start:base,kind:'immutable-lexicon-and-prose',values:[...payload.subarray(0,0x8258-base)]},
   {start:0xF60C,kind:'immutable-vector-picture-data',values:[...payload.subarray(0xF60C-base)]}];
- const constants=[...code].filter(([at])=>at>=0x9A7F).sort((a,b)=>a[0]-b[0]);
- const npcBytes=[];for(const op of Object.values(npcPrograms.instructions))if(!op.erase){const start=parseInt(op.source,16);for(let i=0;i<op.size;i++)if(!written.has(start+i))npcBytes.push([start+i,byte(start+i)]);}
+ const constants=[...code].filter(([at])=>at>=0x9921).sort((a,b)=>a[0]-b[0]);
+ const npcBytes=[];for(const op of Object.values(npcPrograms.instructions)){const start=parseInt(op.source,16);for(let i=0;i<op.size;i++)if(!written.has(start+i))npcBytes.push([start+i,byte(start+i)]);}
  const catalog=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/locations.json'),'utf8')),
   actions=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/gameplay-action-inventory.json'),'utf8'));
  const headers=new Set([...catalog.entities.flatMap(e=>e.rules.map(r=>r.rule_pointer)),...actions.models.map(a=>a.general_rule),...Object.values(npcPrograms.rules).map(r=>r.source)].filter(Boolean));
  const ruleBytes=[];for(const h of headers){const at=parseInt(h,16),flags=byte(at),size=2+(flags&64?2:0)+(flags&16?5:0);for(let i=0;i<size;i++)if(!written.has(at+i))ruleBytes.push([at+i,byte(at+i)]);}
- return {version:1,source_sha256:hash(payload),firmware_sha256:hash(firmware),
+ const worldLayout={rooms:catalog.rooms.map(r=>({id:r.id,start:parseInt(r.record,16),size:r.size})),entities:catalog.entities.map(e=>({id:e.id,start:parseInt(e.record,16),size:e.size,rulePairs:e.rules.map(r=>[r.action_id,r.value])})),tables:[{start:0x8B6F,values:[...catalog.entities.flatMap(e=>[e.id,parseInt(e.record,16)&255,parseInt(e.record,16)>>>8]),255]},{start:0x8258,values:[...payload.subarray(0x8258-base,Math.min(...catalog.rooms.map(r=>parseInt(r.record,16)))-base)]}]};
+ // The editor reuses the relocated tape loader. Unwritten input suffixes
+ // therefore retain loader VALUES, including its last CODE header and status.
+ // Reconstruct the copy/header operations, rather than reading a RAM snapshot.
+ const loader=await readFile(join(project,'sherlock-analisi/block-04.bin'));
+ if(loader.length!==256||hash(loader)!=='189679d90ca23d74b07181fa809f428c7076be66f81f54cf06fc78699aaa2b1c')throw Error('Unexpected loader data');
+ const inventory=JSON.parse(await readFile(join(project,'sherlock-analisi/inventory.json'),'utf8')),header=inventory.blocks.at(-1),editorInitial=[...loader],headerBytes=[header.type,...Buffer.from(header.name),header.declared_length&255,header.declared_length>>>8,header.parameter1&255,header.parameter1>>>8,header.parameter2&255,header.parameter2>>>8];
+ editorInitial.splice(30,17,...headerBytes);editorInitial[47]=1;
+ const cab=JSON.parse(await readFile(join(project,'sherlock-analisi/cab/results/cab-data.json'),'utf8'));worldLayout.tables.push({start:0x9B7F,values:[...cab.routes.flatMap(r=>[r.source,r.target,r.duration]),255]});
+ // Native tape IO is an explicitly unavailable command; the typed CODE
+ // header remains its source value. Browser JSON save/load never modifies it.
+ worldLayout.tables.push({start:0xC0FE,values:[...payload.subarray(0xC0FE-base,0xC10F-base)]});
+ // Fact records have a six-byte subject/predicate/object/flags/handler prefix,
+ // followed by source reference terms. Boundaries are established by the
+ // evaluator's referenced entries, not by disassembling this data as code.
+ const factStarts=[0x9965,0x9973,0x9981,0x9997,0x99A9,0x99BB,0x99C5,0x99CF,0x99D9,0x99E3,0x99F1,0x99FB];
+ worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
+ return {version:1,worldLayout,editorInitial,source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',
   ranges,constants,npcBytes,ruleBytes,excludedWrites:[...written].sort((a,b)=>a-b),
   historicalPrompt:{profile:'historical-prompt-watson-v4',seed:77,cursor:512,encounters:[30,0,0]}};

@@ -1,3 +1,5 @@
+> Aggiornamento 24 ottobre 2026: la pagina avvia ora **NPC v5**. Per architettura, prove e limiti attuali vedere [NPC-RUNTIME.md](NPC-RUNTIME.md) e `results/world-npc-verification.json`. Questo documento conserva l’ambito della fase precedente; le affermazioni sul solo Watson attivo o sul cab non collegato non descrivono le nuove partite.
+
 # Copertura della riscrittura autonoma
 
 Data: 24 ottobre 2026. **Questa versione non sostituisce ancora tutte le funzionalità della precedente pagina basata sullo Z80.** La precedente pagina resta un banco di confronto. I suoi risultati e le sue prove non diventano automaticamente risultati di questa riscrittura.

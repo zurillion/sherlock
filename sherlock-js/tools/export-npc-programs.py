@@ -39,11 +39,16 @@ def drain():
   if len(instructions)>10000:raise ValueError('Program graph failed to close')
 drain()
 # Include the cab's externally installed service and deferred journeys.
-extra=[0xf2b6,0xf3ad,0xe452,0xe08d,0xe506]
+extra=[0xf2b6,0xf3ad,0xe452,0xe08d,0xe506,0x9af4,0x9ae1,0x9a99,0x9acb]
 # Root export is repeated below for extra programs through the same decoder.
 for addr in extra:
- if addr in [0xe452,0xe08d,0xe506]:rule(addr)
+ if addr not in [0xf2b6,0xf3ad]:rule(addr)
  else:pending.append(f'{addr:04X}')
 drain()
-result={'source_sha256':hashlib.sha256(payload).hexdigest(),'language':'NPC domain instructions, not CPU instructions','actors':actors,'instructions':dict(sorted(instructions.items())),'rules':dict(sorted(rules.items())),'installedPrograms':{'cabService':'F2B6','cabJourney':'F3AD'}}
+internal_actions={}
+for i in range(25):
+ addr=word(0x9fab+i*2);key=names.get(addr,f'unimplemented.{addr:04X}')
+ if key in rules:internal_actions[str(i+128)]=key
+drain()
+result={'source_sha256':hashlib.sha256(payload).hexdigest(),'language':'NPC domain instructions, not CPU instructions','actors':actors,'instructions':dict(sorted(instructions.items())),'rules':dict(sorted(rules.items())),'internalActions':internal_actions,'installedPrograms':{'cabService':'F2B6','cabJourney':'F3AD'}}
 a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(result,indent=2)+'\n');print(len(instructions),'semantic instructions;',len(rules),'rule contracts;',len(actors),'NPC entries')

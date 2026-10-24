@@ -23,7 +23,7 @@ export class NpcProgram {
  // Deferred actions retain the originating operation and a new argument scope.
  // The return handler reloads the previous scope, rather than leaking child args.
  defer(actor,op,result,args,{request=false,environment}={}){
-  const s=this.state(actor),frame={origin:op.source,request,saved:[this.saved(actor)[0],...clone(result.args||args)]};if(environment?.enterContext)frame.record=environment.enterContext({actor,frame});s.contexts.push(frame);s.pc=result.defer;
+  const s=this.state(actor),frame={origin:op.source,request,saved:[this.saved(actor)[0],...clone(result.args||args)]},owner=result.scopeOwner??actor;if(environment?.enterContext)frame.record=environment.enterContext({actor:owner,frame});if(owner===actor)s.contexts.push(frame);else environment.foreignContext?.({actor:owner,frame});s.pc=result.defer;
  }
  step(actor,environment,{maxInternal=10000}={}){
   const s=this.state(actor);
@@ -35,9 +35,10 @@ export class NpcProgram {
    if(op.op==='trap')throw new UnsupportedFeature('trappola del programma NPC '+op.source);
    if(op.op.startsWith('return.')){
     const frame=s.contexts.at(-1);if(!frame)throw Error('NPC return without a suspended context');
-    let rootSaved;const returned=environment.leaveContext?.({actor,frame});if(s.contexts.length===1&&!frame.request){if(!returned&&typeof environment.returnSaved!=='function')throw new UnsupportedFeature('metadati condivisi al ritorno del contesto NPC');rootSaved=returned||environment.returnSaved({actor,frame});if(!Array.isArray(rootSaved)||rootSaved.length!==3)throw Error('Invalid context root values');}
+    let rootSaved;const returned=environment.leaveContext?.({actor,frame});if(s.contexts.length===1&&!frame.request&&!frame.external){if(!returned&&typeof environment.returnSaved!=='function')throw new UnsupportedFeature('metadati condivisi al ritorno del contesto NPC');rootSaved=returned||environment.returnSaved({actor,frame});if(!Array.isArray(rootSaved)||rootSaved.length!==3)throw Error('Invalid context root values');}
     s.contexts.pop();if(rootSaved)s.saved.splice(0,3,...rootSaved);
-    s.pc=frame.origin;
+    s.pc=frame.external?frame.resume:frame.origin;
+    if(frame.external)return {cost:0};
     if(frame.request)return {cost:0};
     const origin=this.node(frame.origin),failedLoop=this.branch(actor,origin,op.op==='return.success');
     if(failedLoop)return {cost:1};if(op.op==='return.failure')continue;return {cost:0};
@@ -55,8 +56,8 @@ export class NpcProgram {
    const context={actor,saved,operation:op},args=(op.args||[255,255]).map(v=>this.resolve(v,actor,saved));let result;
    switch(op.op){
     case 'yield':result={success:true,cost:1};break;
-    case 'signal.send':this.scheduler.sendSignal(actor,op.recipient);result={success:true,cost:0};break;
-    case 'signal.take':result={success:this.scheduler.consumeSignal(actor,op.sender),cost:0};break;
+    case 'signal.send':this.scheduler.sendSignal(actor,op.recipient);environment.signalSend?.(actor,op.recipient);result={success:true,cost:0};break;
+    case 'signal.take':{const success=this.scheduler.consumeSignal(actor,op.sender);if(success)environment.signalTake?.(actor,op.sender);result={success,cost:0};break;}
     case 'order':{
      const recipient=this.resolve(op.recipient,actor,saved),action=op.action;
      if(typeof environment.order!=='function')throw new UnsupportedFeature('testo di un ordine fra NPC');

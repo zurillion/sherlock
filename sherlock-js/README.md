@@ -1,3 +1,9 @@
+# Aggiornamento: NPC v5 nella pagina
+
+24 ottobre 2026. Ricarica la pagina sulla porta 8768 e premi **Riavvia**: ora vengono eseguiti tutti i programmi degli attori, con richieste al cab, viaggio, conto/resto, percorso di Lestrade e avvertimenti dei poliziotti. Il seed iniziale è selezionabile e i salvataggi v5 conservano il nuovo stato. Le sessioni precedenti restano nel proprio profilo.
+
+La guida aggiornata, le sequenze da provare e i limiti sono in [NPC-RUNTIME.md](NPC-RUNTIME.md). Il rapporto delle prove è `results/world-npc-verification.json`. La ricostruzione resta parziale; le sezioni storiche sotto descrivono le fasi precedenti e non costituiscono la copertura attuale.
+
 # Sherlock: riscrittura autonoma in JavaScript
 
 Questa è la prima parte di una riscrittura funzionale di Sherlock. **Non è ancora il gioco completo.** Il motore contiene regole JavaScript su oggetti logici e non esegue il programma Z80. Il vecchio esperimento web in `sherlock-analisi/locazioni` rimane uno strumento di riferimento separato.

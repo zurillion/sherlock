@@ -3,7 +3,7 @@
   "full_game_equivalence": false,
   "original_seed_parity": false,
   "fixed_greeting_removed": true,
-  "greeting_gameplay_status": "Playable original arithmetic + generated inputs in historical Watson-only profile v4; strict unsupported-region rollback",
+  "greeting_gameplay_status": "Playable shared original source and seeded domain-program host, all actor slots active; only declared prefixes verified. See world-npc-verification.json.",
   "native_audit": {
     "file": "greeting-audit.json",
     "scenarios": 14,
@@ -167,5 +167,6 @@
     "clock_unchanged": "Mon 08:00am",
     "substitute_reply_printed": false,
     "engine_picker_enabled": true
-  }
+  },
+  "current_runtime_report": "world-npc-verification.json"
 }

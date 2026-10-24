@@ -179,7 +179,9 @@
       "5CF5"
     ],
     "outcome": "Explicit prototype notice; action/random/world/frame rollback. Input echo changes as typed.",
-    "known_prefix": 32
+    "known_prefix": 32,
+    "historical_only": true,
+    "current_status": "Reconstructed for declared injected-key bootstrap; current runtime rejects other unowned inputs explicitly."
   },
   "remaining": [
     "Full seeded bootstrap",
@@ -198,5 +200,7 @@
     "file": "tests.tap",
     "passed": 269,
     "failed": 0
-  }
+  },
+  "historical_report": true,
+  "superseded_for_new_browser_games_by": "world-npc-verification.json"
 }

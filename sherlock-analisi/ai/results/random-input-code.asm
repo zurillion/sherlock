@@ -1,5 +1,53 @@
 ; Entropy source listing. Original bytes are never executed by JavaScript.
 
+    ORG $99FC
+; CODE: typed fact evaluation handlers. Runtime-written absolute targets are excluded by the JS exporter.
+    CALL $9A74                          ; $99FC cd 74 9a
+    LD HL,$7079                         ; $99FF 21 79 70
+    JP $A59F                            ; $9A02 c3 9f a5
+    LD HL,$99FA                         ; $9A05 21 fa 99
+    SET 1,(HL)                          ; $9A08 cb ce
+    CALL $9A74                          ; $9A0A cd 74 9a
+    LD HL,$70E3                         ; $9A0D 21 e3 70
+    JP $A59F                            ; $9A10 c3 9f a5
+    LD A,($9976)                        ; $9A13 3a 76 99
+    AND $02                             ; $9A16 e6 02
+    JR Z,$9A2F                          ; $9A18 28 15
+    LD A,($9984)                        ; $9A1A 3a 84 99
+    AND $02                             ; $9A1D e6 02
+    JR Z,$9A2F                          ; $9A1F 28 0e
+    CALL $9A74                          ; $9A21 cd 74 9a
+    LD HL,$99B2                         ; $9A24 21 b2 99
+    SET 1,(HL)                          ; $9A27 cb ce
+    LD HL,$7099                         ; $9A29 21 99 70
+    JP $A59F                            ; $9A2C c3 9f a5
+    RES 1,(IX+$03)                      ; $9A2F dd cb 03 8e
+    RES 0,(IX+$03)                      ; $9A33 dd cb 03 86
+    LD HL,$7265                         ; $9A37 21 65 72
+    JP $A59F                            ; $9A3A c3 9f a5
+    CALL $9A74                          ; $9A3D cd 74 9a
+    LD A,$01                            ; $9A40 3e 01
+    LD ($9E88),A                        ; $9A42 32 88 9e
+    LD HL,$70F0                         ; $9A45 21 f0 70
+    JP $A59F                            ; $9A48 c3 9f a5
+    CALL $9A74                          ; $9A4B cd 74 9a
+    LD HL,$9976                         ; $9A4E 21 76 99
+    SET 1,(HL)                          ; $9A51 cb ce
+    LD HL,$6FAB                         ; $9A53 21 ab 6f
+    JP $A59F                            ; $9A56 c3 9f a5
+    CALL $9A74                          ; $9A59 cd 74 9a
+    LD A,$5F                            ; $9A5C 3e 5f
+    CALL $D237                          ; $9A5E cd 37 d2
+    LD (IX+$01),$FF                     ; $9A61 dd 36 01 ff
+    LD (IX+$0F),$00                     ; $9A65 dd 36 0f 00
+    LD HL,$9984                         ; $9A69 21 84 99
+    SET 1,(HL)                          ; $9A6C cb ce
+    LD HL,$6FCA                         ; $9A6E 21 ca 6f
+    JP $A59F                            ; $9A71 c3 9f a5
+    SET 1,(IX+$03)                      ; $9A74 dd cb 03 ce
+    RES 0,(IX+$03)                      ; $9A78 dd cb 03 86
+    RET                                 ; $9A7C c9
+
     ORG $A0F7
 ; CODE: list navigation. Runtime-written absolute targets are excluded by the JS exporter.
     PUSH HL                             ; $A0F7 e5

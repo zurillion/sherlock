@@ -1,0 +1,201 @@
+{
+  "date": "2026-10-24",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "original_seed_parity": false,
+  "seeded_bootstrap": true,
+  "active_actor_slots": 24,
+  "domain_actor_programs": 23,
+  "domain_nodes": 791,
+  "rule_contracts": 70,
+  "playable": {
+    "watson_greetings": true,
+    "watson_follow": true,
+    "cab_service": true,
+    "cab_journey": true,
+    "cab_fare_refund": true,
+    "police_encounter": true,
+    "lestrade_route_and_signals": true
+  },
+  "reference": {
+    "probe": "tools/probe-world-npcs.py",
+    "fixture": "test/fixtures/world-npc-reference.json",
+    "sha256": "161bea5db4f2b32c11098ef8f115376b0ca539b4dd5f0ae5c35d0dbd21057ee5",
+    "scope": "True seeded boot (per-case seed), all original actors active, free initial LOOK, graphics disabled after first prompt, injected keys without idle timeout. Teleport is explicit where present.",
+    "protocol": "Uppercase injected printable keys and Enter, immediate MORE, no keyboard idle timeout; native tape started with RETURN, released; game keys bypass ROM scanner",
+    "free_initial_look": true,
+    "graphics": "Disabled after first native prompt; generated text-only source independent of browser images",
+    "fixture_values_supplied_to_runtime": false
+  },
+  "compared_fields": [
+    "Every draw: actor, width, context, initial accumulator/cursor, all input addresses/values, result, successor accumulator/cursor",
+    "Full clock",
+    "24 actor program points, root saved arguments and deadlines",
+    "110 entities: parent, rooms, attributes, status",
+    "Exact record pointers and payloads for counters, contexts and signals",
+    "Narrative/errors: case preserved, whitespace and quote padding normalized",
+    "Exact native upper bitmap SHA256 in natural-play scenarios and all bootstraps",
+    "Actual ClientSession packets through SpectrumBuffer match generated upper text rows"
+  ],
+  "known_difference": {
+    "teleport": "NativeWorld.teleport runs an action plus an extra scene call, discarding the first text while retaining its bitmap effects; JS map displays one brief scene. Teleport scenarios have NO original upper-bitmap certificate.",
+    "full_io_packets": "Not certified; prose normalization has narrower scope than exact IO",
+    "physical_input": "Other real key timing/held-key and interrupt histories are not certified"
+  },
+  "scenarios": [
+    {
+      "label": "initial",
+      "seed": 1,
+      "teleport": null,
+      "commands": 2,
+      "random_draws": 22,
+      "source_reads": 44,
+      "last_clock": "Mon 08:06am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "cab",
+      "seed": 1,
+      "teleport": 5,
+      "commands": 10,
+      "random_draws": 96,
+      "source_reads": 216,
+      "last_clock": "Mon 08:32am",
+      "exact_upper_bitmap": false
+    },
+    {
+      "label": "police",
+      "seed": 1,
+      "teleport": 62,
+      "commands": 2,
+      "random_draws": 20,
+      "source_reads": 40,
+      "last_clock": "Mon 08:05am",
+      "exact_upper_bitmap": false
+    },
+    {
+      "label": "lestrade",
+      "seed": 1,
+      "teleport": 10,
+      "commands": 6,
+      "random_draws": 71,
+      "source_reads": 146,
+      "last_clock": "Mon 08:26am",
+      "exact_upper_bitmap": false
+    },
+    {
+      "label": "long_wait",
+      "seed": 1,
+      "teleport": null,
+      "commands": 35,
+      "random_draws": 435,
+      "source_reads": 904,
+      "last_clock": "Mon 10:55am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "greetings",
+      "seed": 1,
+      "teleport": null,
+      "commands": 40,
+      "random_draws": 149,
+      "source_reads": 328,
+      "last_clock": "Mon 08:40am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "following",
+      "seed": 1,
+      "teleport": null,
+      "commands": 10,
+      "random_draws": 38,
+      "source_reads": 78,
+      "last_clock": "Mon 08:16am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "walk_cab",
+      "seed": 1,
+      "teleport": null,
+      "commands": 13,
+      "random_draws": 87,
+      "source_reads": 196,
+      "last_clock": "Mon 08:30am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "greetings_seed_0",
+      "seed": 0,
+      "teleport": null,
+      "commands": 12,
+      "random_draws": 47,
+      "source_reads": 94,
+      "last_clock": "Mon 08:12am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "greetings_seed_42",
+      "seed": 42,
+      "teleport": null,
+      "commands": 12,
+      "random_draws": 44,
+      "source_reads": 88,
+      "last_clock": "Mon 08:12am",
+      "exact_upper_bitmap": true
+    },
+    {
+      "label": "greetings_seed_255",
+      "seed": 255,
+      "teleport": null,
+      "commands": 12,
+      "random_draws": 48,
+      "source_reads": 96,
+      "last_clock": "Mon 08:12am",
+      "exact_upper_bitmap": true
+    }
+  ],
+  "totals": {
+    "commands": 154,
+    "random_draws": 1057,
+    "source_reads": 2230,
+    "exact_native_upper_bootstraps": 11,
+    "exact_native_upper_command_bitmaps": 136
+  },
+  "save_load": {
+    "version": 5,
+    "branch_verified": true,
+    "preserves": [
+      "initial seed and current random state",
+      "source screen/input/owned scratch and validity",
+      "all actor programs, deadlines and continuation frames",
+      "requests, signals, counters and native record layout",
+      "foreign-owner contexts and calendar"
+    ],
+    "old_versions": "Remain in their previous profile; explicit restart activates world-v5"
+  },
+  "remaining": [
+    "Complete information, statements, deductions and knowledge-dependent reactions",
+    "Advanced rules/events/endings, evening callbacks and some visible relocation notifications",
+    "Remaining system/stack/buffer source dependencies and native graphics as RNG input",
+    "Parser allocation lifetimes for syntax errors, clarification, ALL and multiple units; these invalidate record-source ownership",
+    "New LOOK/EXAMINE paths invalidate bootstrap scratch instead of publishing stale bytes",
+    "Full IO and physical input timing equivalence"
+  ],
+  "browser_validation": {
+    "client_session_and_terminal_buffer": true,
+    "static_server": "http://127.0.0.1:8768/",
+    "graphical_browser": "Unavailable in this run; no fresh browser screenshot claimed",
+    "static_module_bytes_checked": true
+  },
+  "tests": {
+    "file": "tests.tap",
+    "passed": 285,
+    "failed": 0,
+    "isolated_node_only": {
+      "passed": 285,
+      "failed": 0,
+      "file": "world-npc-isolated-tests.tap"
+    }
+  }
+}

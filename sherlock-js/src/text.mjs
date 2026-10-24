@@ -16,7 +16,7 @@ export class Text {
    else if(/[a-z]/.test(c)&&(capitalize||force)){c=c.toUpperCase();capitalize=false;}
    result+=c;context.sink?.(c);
   }};
-  const name=(id,be=false)=>w.name(id)+(be?(id===w.player?' are':' is'):'');
+  const name=(id,be=false)=>w.name(id,{indefinite:Boolean(w.entity(id).person)})+(be?(id===w.player?' are':' is'):'');
   const feedName=(id,be=false)=>{
    feed(' ');const e=w.entity(id);
    if(e.person&&(e.noun&32768)&&id!==w.player){for(const [i,part] of w.name(id).split(' ').entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
@@ -43,6 +43,13 @@ export class Text {
      if(typeof id!=='string')throw new UnsupportedFeature('argomento di testo della conversazione');
      walk(id);break;
     }
+    case 'compose':{
+     const action=context.action,model=this.data.actions.find(a=>a.id===action),args=context.args||[255,255];
+     if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
+     const roomName=id=>{const proper=Boolean(w.rooms[id].nameWords[0]&32768);for(const part of w.roomName(id).split(' ')){feed(' ');if(proper)capitalize=true;feed(part);}};
+     const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
+     feed(' ');feed(model.words[0]);if(model.words[3]){feed(' ');feed(model.words[3]);}if(model.words[1]){feed(' ');feed(model.words[1]);}argument(args[0],0);if(model.words[2]){feed(' ');feed(model.words[2]);}argument(args[1],1);feed('.');break;
+    }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
     case 'actorName':feedName(actor);break;
     case 'objectName':feedName(object);break;
@@ -63,22 +70,33 @@ export class Text {
   const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);fragments.push(key);for(const t of tokens)emit(t);fragments.pop();depth--;};
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
- scene({full=true,room=this.world.roomOf(),remote=false,mark=true}={}){
+ scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null}={}){
   const w=this.world,r=w.rooms[room],text=[];w.lastListed=[];
   if(w.dark()&&!remote)return 'It is too dark to see.';
+  const parent=remote?null:w.entity(w.player).parent;
+  if(parent!==null){
+   full=full&&Boolean(r.description);
+   const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id));
+   text.push('You are in '+w.name(parent,{indefinite:true})+(full&&names.length?' with '+joinList(names):'')+'.');
+   if(full){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;}if(r.description)text.push(this.render(r.description));}
+   else text.push((w.name(parent)[0].toUpperCase()+w.name(parent).slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');
+   const exits=r.exits.filter(e=>!e.gate||((w.entity(e.gate).attributes&128)&&w.perceived(e.gate))).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+joinList(exits)+'.');
+   return text.join(' ');
+  }
   if(full&&r.description)text.push(this.render(r.description));
   else text.push(remote?`You can see ${w.roomName(room)}.`:`You are ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
   if(full)for(const edge of r.exits){if(!edge.gate||!(w.entity(edge.gate).attributes&128))continue;const d=DIRECTION_NAMES[edge.direction_id];text.push(`${edge.direction_id===9?'Above':edge.direction_id===10?'Below':'To the '+d} there is ${w.name(edge.gate,{indefinite:true})}.`);}
   const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
-  if(exits.length)text.push('You can go '+joinList(exits)+'.');
+  if(exits.length)text.push((full?'You can go ':'Visible exits are ')+joinList(exits)+'.');
   const list=parent=>w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&e.rooms.length<2&&!w.owns(w.player,e.id)&&w.perceived(e.id));
-  const renderChildren=parent=>{
+  const renderChildren=(parent,depth=0)=>{
    const children=list(parent);if(!children.length)return;
-   const names=children.map(e=>w.name(e.id,{indefinite:parent===null||!w.entity(parent).person}));
+   const names=children.map(e=>w.name(e.id,{indefinite:true}));
    if(parent===null)text.push('You can see '+joinList(names)+'.');
    else{const container=w.entity(parent);if(container.person)text.push(w.name(parent)+' is carrying '+joinList(names)+'.');else text.push(`${({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In'} ${w.name(parent)} there ${children.length===1?'is':'are'} ${joinList(names)}.`);}
+   if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
    for(const e of children){w.lastListed.push(e.id);if(mark)e.status|=128;}
-   for(const e of children)renderChildren(e.id);
+   for(const e of children)renderChildren(e.id,depth+1);
   };
   renderChildren(null);
   return text.join(' ');

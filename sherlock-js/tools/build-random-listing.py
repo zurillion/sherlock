@@ -11,7 +11,7 @@ sys.path.insert(0,str(p/'skoolkit-10.1'))
 from skoolkit.traceutils import disassemble
 from skoolkit.z80 import Assembler
 m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
-regions=[(0xa0f7,0xa11a,'list navigation'),(0xa11c,0xa24d,'record allocation/release'),
+regions=[(0x99fc,0x9a7d,'typed fact evaluation handlers'),(0xa0f7,0xa11a,'list navigation'),(0xa11c,0xa24d,'record allocation/release'),
          (0xa2ab,0xa35d,'action rendering'),(0xa360,0xa55d,'arguments, names, money and input'),
          (0xa59f,0xa6d1,'text dispatch'),(0xa6d3,0xa7ea,'choice, calls and arguments'),
          (0xa7eb,0xa851,'name articles and word selection'),(0xa852,0xa85c,'case toggle'),

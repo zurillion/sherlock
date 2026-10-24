@@ -9,7 +9,7 @@ function packets(text,{leading=false,formatted=false}={}){
  return leading?[{op:'word',text:'',delimiter:'\r',capitalize:true,force:false},...events]:events;
 }
 export class ClientSession {
- constructor(data){this.data=data;this.game=new Game(data);this.job=null;this.serial=0;}
+ constructor(data,options={}){this.data=data;this.game=new Game(data,options);this.job=null;this.serial=0;}
  publicData(){return {rooms:this.data.rooms.map(r=>({...r,name_hint:r.name})),edges:this.data.rooms.flatMap(r=>r.exits),pictures:this.data.pictures};}
  frameState(frame){
   const before=this.game.world.dump();try{this.game.world.restore(frame.world);const s=this.game.state();if(s.analysis)s.analysis={...s.analysis,actions:s.analysis.actions.slice(0,frame.actionCount)};return {...s,command_running:true,job:this.job?.id};}finally{this.game.world.restore(before);}
@@ -19,7 +19,7 @@ export class ClientSession {
  request(operation,body={}){
   if(operation==='data')return this.publicData();
   if(operation==='state')return this.state();
-  if(operation==='reset'){this.game=new Game(this.data,{start_mode:body.start_mode});this.job=null;return {state:this.state(),messages:[{kind:'narrative',text:this.game.opening,screen_events:packets(this.game.opening,{leading:true})}]};}
+  if(operation==='reset'){this.game=new Game(this.data,{start_mode:body.start_mode,npc_profile:'world-v5',seed:body.seed??1});this.job=null;return {state:this.state(),messages:[{kind:'narrative',text:this.game.opening,screen_events:packets(this.game.opening,{leading:true})}]};}
   if(operation==='teleport'){const out=this.game.teleport(body.room);return {state:this.state(),messages:this.messages(out.messages)};}
   if(operation==='save'){if(this.job)throw Error('Completa il comando prima di salvare.');return seal(this.game.dump(),body.presentation??null).then(save=>({save}));}
   if(operation==='load'){if(this.job)throw Error('Completa il comando prima di caricare.');return verify(body.save).then(document=>{const loaded=Game.load(this.data,document);this.game=loaded;return {state:this.state(),presentation:document.presentation??null,messages:[]};});}
@@ -56,6 +56,8 @@ export class ClientSession {
 }
 
 export function engineStatus(state){
+ if(state.npc_profile==='world-v5')return 'Partite separate. NPC v5: programmi condivisi attivi, cab con viaggio e pagamento, Lestrade in movimento. Ricostruzione ancora parziale.';
+ if(state.random_state)return 'Partite separate. Sessione Watson v4 precedente: salva se vuoi conservarla, poi premi Riavvia per attivare NPC v5.';
  return state.random_state
   ? 'Partite separate. Watson v4: saluti e TELL attivi nel profilo storico; AI completa ancora in lavorazione.'
   : 'Partite separate. Partita JS precedente: salva se vuoi conservarla, poi premi Riavvia per attivare i nuovi dialoghi di Watson.';

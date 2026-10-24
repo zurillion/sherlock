@@ -1,3 +1,11 @@
+# Stato attuale: NPC v5
+
+24 October 2026. New browser games run all actor slots from a seeded bootstrap, with the shared domain-program host. Cab journeys/payment/refunds, police encounters and Lestrade’s route/signals are connected. The verified scenarios now compare generated random inputs with every original actor active; natural-play cases additionally compare the exact upper bitmap. This establishes the declared prefixes, **not full-game equivalence or unrestricted same-seed parity**.
+
+See [NPC-RUNTIME.md](NPC-RUNTIME.md) and `results/world-npc-verification.json` for profiles, fields, known teleport IO differences, missing dependencies and save v5. Historical v4 saves keep their prior profile; restart explicitly to use the new host. The former command-33 keyboard boundary has been reconstructed for the declared injected-key protocol; other unknown inputs remain explicit failures.
+
+The earlier audit below is retained as historical evidence. Its limitations and numerical results describe that earlier runtime, not the current browser default. Its acceptance criteria continue to apply.
+
 # Functional equivalence is the target
 
 24 October 2026. This supersedes the provisional greeting policy in SALUTI-E-CAB.md.

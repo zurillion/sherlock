@@ -61,8 +61,8 @@ export class ActorScheduler {
   throw new SchedulerLimit('Il programma di un attore non restituisce tempo o input.');
  }
 
- // The current playable subset supplies shared actions and a partial Watson
- // driver. Other actors are visibly disabled, without invented WAIT scripts.
+ // The driver supplies domain actor programs. A saved historical profile can
+ // still choose only Watson; new v5 sessions run every original actor slot.
  finishPlayer(cost,clock,driver={}){
   if(!word(cost)||cost===0)throw Error('Positive action cost required');
   if(this.current?.actor!==0||this.index!==0)throw Error('Not at Sherlock input');

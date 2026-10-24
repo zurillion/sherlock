@@ -1,3 +1,5 @@
+> Aggiornamento 24 ottobre 2026: la pagina avvia ora **NPC v5**. Per architettura, prove e limiti attuali vedere [NPC-RUNTIME.md](NPC-RUNTIME.md) e `results/world-npc-verification.json`. Questo documento conserva l’ambito della fase precedente; le affermazioni sul solo Watson attivo o sul cab non collegato non descrivono le nuove partite.
+
 # Dal comportamento originale alle regole JavaScript
 
 ## Il contratto
