@@ -12,8 +12,9 @@ import {RandomDisplay} from './random-display.mjs';
 import {NpcRuntime} from './npc-runtime.mjs';
 import {CommandHistory} from './command-history.mjs';
 import {characterBadge} from './characters.mjs';
+import {canPlace} from './objects.mjs';
 
-export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,31,32,33,34,35,36,37,40,41,46,47,48,49,50];
+export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,23,24,25,26,27,28,31,32,33,34,35,36,37,38,39,40,41,42,44,46,47,48,49,50];
 const clone=structuredClone;
 // Rules are domain functions over logical objects. No binary, RAM, CPU, address
 // dispatcher, server-side game logic, or fallback to the reference engine.
@@ -53,7 +54,8 @@ export class Game {
  canResolve(e,action,slot){
   const w=this.world,actor=this.actor;if(!w.perceived(e.id,actor))return false;
   if(action===36||action===14)return e.rules.some(r=>r.action===action);
-  if([11,23,41].includes(action))return this.canTake(e);
+  if([11,23,41,42,44].includes(action))return slot===0?this.canTake(e):true;
+  if([17,38,39].includes(action))return slot===0?w.owns(actor,e.id):true;
   if(action===26)return slot===0?w.owns(actor,e.id):e.person;
   if(action===16)return w.owns(actor,e.id);
   if([12,24,40].includes(action))return e.rules.some(r=>r.action===action);
@@ -63,12 +65,20 @@ export class Game {
   return true;
  }
  error(text){return {kind:'error',text};}
- referenceCandidates(node,action,slot=0){const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));return {nominal,possible:nominal.filter(e=>this.canResolve(e,action,slot))};}
+ referenceCandidates(node,action,slot=0){const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
+  if([17,38,39,42,44].includes(action)){
+   const other=node.groups[1-slot];const partners=(node.resolved?.[1-slot]!==undefined?[this.world.entity(node.resolved[1-slot])]:other?this.world.entities.filter(e=>this.world.nounMatches(e,other)):[]).filter(e=>this.world.perceived(e.id,this.actor));
+   // B29A counts a first argument only when EXACTLY one second argument
+   // survives. Two possible destinations can therefore reject the object,
+   // rather than asking which destination; preserve that original quirk.
+   if(partners.length||slot!==0)possible=possible.filter(e=>{const count=partners.filter(p=>[42,44].includes(action)?this.canResolve(p,action,1-slot):canPlace(this.world,slot===0?e:p,slot===0?p:e,this.actor)).length;return slot===0?count===1:count>0;});
+  }
+  return {nominal,possible};}
  needsClarification(node){
   // This preflight uses the same semantic candidates as resolve(). It only
   // determines whether B5B6 retains the parsed node; it executes no action.
   const action=this.action(node);if(node.all||node.exclusion||node.quote||node.subject||this.world.dark()||!SUPPORTED_ACTIONS.includes(action))return false;
-  const slots=action===37?[1]:action===26?[0,1]:[11,12,13,14,16,19,23,24,25,28,35,36,40,41,46,47,48].includes(action)?[0]:[];
+  const slots=action===37?[1]:[17,26,38,39,42,44].includes(action)?[0,1]:[11,12,13,14,16,19,23,24,25,28,35,36,40,41,46,47,48].includes(action)?[0]:[];
   for(const slot of slots){const group=node.groups[slot];if(!group?.noun&&!group?.qualifiers?.length)return false;const {possible}=this.referenceCandidates(node,action,slot);if(possible.length>1)return true;if(!possible.length)return false;}
   return false;
  }
@@ -80,9 +90,10 @@ export class Game {
   if(possible.length>1){this.pending={node:clone(node),slot};return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
+  if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase()}`)};
   if([12,13,24,25,40,46].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase()}`)};
   if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
-  if([11,23,41].includes(action)&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
+  if([11,23,41,42,44].includes(action)&&slot===0&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
   return {message:this.error(`YOU CANNOT ${verb} THE ${query}`)};
  }
  executeAs(node,actor){const previous=this.actingActor,pending=this.pending;this.actingActor=actor;try{return this.execute(node);}finally{this.actingActor=previous;this.pending=pending;}}
@@ -205,7 +216,14 @@ export class Game {
   }
   if(node.groups.some(g=>g.noun&32768))throw new UnsupportedFeature('argomenti letterali per questa azione');
   const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};const e=result.entity;
-  if([11,23,41].includes(action)){if(e.rules.some(r=>r.action===41))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return reject(`YOU CANNOT TAKE ${w.name(e.id).toUpperCase()}.`);w.move(e.id,w.roomOf(actor),actor);return ok([say('take',' '+w.name(e.id)+'.')],1,[e.id]);}
+  if([11,23,41,42,44].includes(action)){if(e.rules.some(r=>r.action===action||r.action===41))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return reject(`YOU CANNOT TAKE ${w.name(e.id).toUpperCase()}.`);let source=null;
+   if([42,44].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};source=target.entity;}
+   w.move(e.id,w.roomOf(actor),actor);return ok([say('take',' '+w.name(e.id)+(source?' '+(action===42?'from':'out of')+' '+w.name(source.id):'')+'.')],1,source?[e.id,source.id]:[e.id]);}
+  if([17,38,39].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
+   if(!canPlace(w,e,target.entity,actor))return reject(`YOU CANNOT ${this.word(node.verb).toUpperCase()} THE ${this.queryName(node.groups[0]||{qualifiers:[]}).toUpperCase()}`);
+   if(target.entity.attributes&64||!(target.entity.attributes&40))return {...reject(`${subject} cannot ${action===17?'drop':'put'} ${w.name(e.id)} ${action===39?'on':'in'} ${w.name(target.entity.id)}.`.toUpperCase()),args:[e.id,target.entity.id],semanticResolved:true};
+   if(target.entity.id===e.id||w.owns(e.id,target.entity.id))throw new UnsupportedFeature('ciclo di contenimento nella regola PUT');
+   w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say(action===17?'drop':'put',' '+w.name(e.id)+(action===39?' on ':' in ')+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===16){w.move(e.id,w.roomOf(actor),w.entity(actor).parent);return ok([say('drop',' '+w.name(e.id)+'.')],1,[e.id]);}
   if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say('give',' '+w.name(e.id)+' to '+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===36||action===14){const rule=e.rules.find(r=>r.action===action);if(!['openOrdinary','closeOrdinary'].includes(rule?.rule))throw new UnsupportedFeature('regola speciale '+this.word(node.verb)+' di '+e.name);
@@ -251,7 +269,7 @@ export class Game {
   const checkpoint={world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),conversation:clone(this.conversation),openingPending:this.openingPending};
   const cancel=()=>{this.world.restore(checkpoint.world);for(const key of ['pending','analysis','lastInput','ended','conversation','openingPending'])this[key]=clone(checkpoint[key]);this.lastFrames=[];};
   this.cancelFailedInput=cancel;
-  const messages=[],actions=[],units=[];this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1;
+  const messages=[],actions=[],units=[];this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1,lastOutcome=null;
   try{
    if(input.trim()==='@'){if(this.pending)throw new UnsupportedFeature('ripetizione @ durante un chiarimento');input=this.lastInput||'';}
    if(this.world.display)this.sourceDisplay.command(normalizeInput(input));
@@ -269,11 +287,11 @@ export class Game {
      try{
      for(const node of this.collective(originalNode)){
      const before=this.world.dump(),messageCount=messages.length,actionCount=actions.length,frameCount=this.lastFrames.length;let outcome;
-     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,answer:parsed.continuationAnswer});syntaxAllocated=true;}outcome=this.execute(node);
+     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,answer:parsed.continuationAnswer});syntaxAllocated=true;}outcome=this.execute(node);lastOutcome=outcome;
       const paragraph=outcome.cost&&!outcome.suppressParagraph&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
       messages.push(...outcome.messages);
       if(!outcome.projected)this.projectMessages(outcome.messages);
-      if(this.world.npcs&&(outcome.cost||outcome.action===32))this.npcRuntime.playerAction(outcome);
+      if(this.world.npcs&&(outcome.cost||outcome.action===32||outcome.semanticResolved))this.npcRuntime.playerAction(outcome);
       if(outcome.cost){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.advance(outcome.cost,{action:outcome.action,args:outcome.args,messages,actions});}}
      catch(error){this.world.restore(before);if(before.npcs?.parserPending)this.pending=clone(pendingBefore);messages.length=messageCount;actions.length=actionCount;this.lastFrames.length=frameCount;throw error;}
 
@@ -291,11 +309,17 @@ export class Game {
     else throw error;
    }
   }
-  if(this.world.display&&this.analysis.outcome!=='not_translated'){if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'),{inline:this.analysis.outcome==='clarification'});this.sourceDisplay.prompt();}
+  if(this.world.display&&this.analysis.outcome!=='not_translated')try{
+   if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'),{inline:this.analysis.outcome==='clarification'});
+   if(this.world.npcs){const syntax=['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
+    this.npcRuntime.playerInputFailures(syntax?['9923']:failed?['9937','992D','9923']:['992D','9923'],messages,actions);}
+   this.sourceDisplay.prompt();
+  }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}
   if(this.pending)this.analysis.continuation_slot=this.pending.slot;
   return {state:this.state(),messages};
  }
  advance(cost,{action,args,messages,actions}){
+  if(this.world.npcs)this.world.npcs.playerFailures=0;
   const driver=this.world.npcs?this.npcRuntime.driver(messages,actions):this.watson.driver(messages,actions);
   driver.clock=()=>this.lastFrames.push({clock:this.world.clock(),world:this.world.dump(),messageCount:messages.length,actionCount:actions.length});
   this.world.consume(cost,{action,args,driver});

@@ -1,5 +1,10 @@
 # Stato attuale: NPC v5
 
+25 October, objects: [OGGETTI-E-CONTENITORI.md](OGGETTI-E-CONTENITORI.md)
+and `results/objects-verification.json` add ordinary placement/retrieval,
+description-search allocations and the player's ten-rule failure budget.
+The current completion order is [STATO-E-PROSSIMI-PASSI.md](STATO-E-PROSSIMI-PASSI.md).
+
 25 October, command recovery: [COMANDI-ERRORI-E-SIGLE.md](COMANDI-ERRORI-E-SIGLE.md)
 and `results/error-recovery-verification.json` add 73 native command comparisons,
 including exact lower-channel bitmaps and editor/token buffers. SAY accepts

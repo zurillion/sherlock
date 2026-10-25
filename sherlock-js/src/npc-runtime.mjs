@@ -5,6 +5,7 @@ import {NpcPrimitives} from './npc-primitives.mjs';
 import {UnsupportedFeature,DIRECTION_NAMES} from './world.mjs';
 import {CabRoutes,account,balance,transferMoney,formatMoney,encodeMoney,wrapMoney} from './cab-economy.mjs';
 import {nodeWords} from './parser.mjs';
+import {searchDescription} from './description-search.mjs';
 
 const yes=(cost=0,extra={})=>({success:true,cost,...extra}),no=()=>({success:false,cost:0});
 const clone=structuredClone;
@@ -31,6 +32,8 @@ export class NpcRuntime {
   w.npcs.initialSeed=seed;
   w.npcs.printerEnabled=g.data.randomInputs.bootOptions.printerEnabled;
   w.npcs.recordsSourceKnown=true;
+  w.npcs.playerFailures=0;
+  w.npcs.playerProgramCounter='9923';
   w.npcs.parserPending=null;
   w.tick=1;w.minutes=480;g.sourceDisplay.initialize(g.initial,{sceneTrace:g.bootstrapSceneTrace});const messages=[],actions=[];
   // The initial LOOK has consumed the player's first turn. Run the remaining
@@ -91,7 +94,10 @@ export class NpcRuntime {
    else records.arena.release(pending);
   }else if(answer)this.state.recordsSourceKnown=false; // Earlier save lacks this lifetime.
   records.heads.syntax=retain?current:0;this.state.parserPending=retain?current:null;
+  const action=this.game.action(node);let rejected=false;
+  if([17,38,39,42,44].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){searchDescription(this.game.data,this.w,records,group,this.w.player);rejected=true;break;}if(candidates.possible.length>1)break;}}
   if(collective&&!retain)records.heads.parsed=current;
+  else if(rejected){records.heads.parsed=current;this.state.parserRejected=current;}
   else if(!retain)records.arena.release(current);
  });}
  recordQuotes(node,records){for(const quote of(node.quotes||[node.quote]).filter(Boolean)){records.append('quotes',[quote.tokenPointer&255,quote.tokenPointer>>>8]);this.game.sourceDisplay.quoted(quote);}}
@@ -281,7 +287,7 @@ export class NpcRuntime {
   if([29,30].includes(action)&&[31,34].includes(actor))return this.travel(actor,input[0],action===30,messages);
   if(action===45&&[31,34].includes(actor))return {cost:0,defer:'E08F',args:input};
   if([21,22].includes(action))return {cost:0,defer:'E456',args:[input[0],255]};
-  const classByAction={12:8,13:8,24:8,25:8,40:8,31:8,19:8,41:9,11:9,23:9,16:10,36:8,14:8,26:10,32:0,49:0};
+  const classByAction={12:8,13:8,24:8,25:8,40:8,31:8,19:8,41:9,42:9,44:9,11:9,23:9,16:10,17:10,38:10,39:10,36:8,14:8,26:10,32:0,49:0};
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
   else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0));if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
@@ -329,6 +335,14 @@ export class NpcRuntime {
   return {cost:route.cost,defer:'F3AD',args:[target,customer],scopeOwner:hiddenArrival?w.player:actor};
  }
  playerAction(outcome){this.use(({records})=>{const saved=[outcome.action,outcome.args?.[0]??255,outcome.args?.[1]??255],frame=this.state.foreignContexts[this.w.player]?.at(-1);if(frame){frame.saved=saved;records.arena.putByte(frame.record+3,saved[1]);records.arena.putByte(frame.record+4,saved[2]);records.arena.putByte(frame.record+6,saved[0]);}else this.state.playerRootSaved=saved;});}
+ playerInputFailures(stages,messages,actions){
+  if(this.state.playerFailures===undefined)throw new UnsupportedFeature('contatore dei tentativi del giocatore assente da questo salvataggio precedente');
+  // CEB8 counts failed DOMAIN rules, not rejected input lines. CC8C yields
+  // one minute at ten failures; empty node/token checks count too. Each
+  // stage names the player program's continuation after the failed rule.
+  for(const pc of stages){if(pc==='992D'&&this.state.parserRejected)this.use(({records})=>{records.remove('parsed',this.state.parserRejected);delete this.state.parserRejected;});if(++this.state.playerFailures===10){this.state.playerProgramCounter=pc;const [action,...args]=this.state.playerRootSaved;this.game.advance(1,{action,args,messages,actions});}}
+  this.state.playerProgramCounter='9923';
+ }
  demand(actor,recipient,owner,messages){
   const amount=balance(this.w,owner);if(amount===null)return;
   const g=this.game,visible=!this.w.dark()&&this.w.perceived(actor),c=visible?g.npcTextContext(actor):{};
@@ -386,7 +400,7 @@ export class NpcRuntime {
   if(address>=0x9C85&&address<0x9CA1){const callbacks=[[2,this.state.flags.strakerMet?0x9D95:0x9DFF],[3,0x9D13],[4,0x9D30],[11,0x9D48],[12,0x9D73],[8,0x9ED1],[9,0x9ECB],[5,0x9EC1],[6,0x9CA2]];return [...callbacks.flatMap(([id,at])=>[id,at&255,at>>>8]),255][address-0x9C85];}
   if(address===0x9CA1)return this.state.burningNoteTicks;
   const head=Object.entries(RECORD_HEADS).find(([,at])=>address===at||address===at+1);if(head||address===0x9FE3||address===0x9FE4)return this.state.recordsSourceKnown?this.use(({records})=>{const value=head?records.heads[head[0]]:records.arena.freeHead,at=head?head[1]:0x9FE3;return address===at?value&255:value>>>8;}):null;
-  if(address>=0x9860&&address<0x9920){const index=Math.floor((address-0x9860)/8),a=this.w.scheduler.actors[index],s=a.id===0?{pc:'9923',saved:this.state.playerRootSaved}:this.active?.vm.state(a.id)||this.state.program.states[a.id],pc=parseInt(s.pc,16);return [a.id,pc&255,pc>>>8,...s.saved,a.due&255,a.due>>>8][(address-0x9860)%8];}
+  if(address>=0x9860&&address<0x9920){const index=Math.floor((address-0x9860)/8),a=this.w.scheduler.actors[index],s=a.id===0?{pc:this.state.playerProgramCounter??'9923',saved:this.state.playerRootSaved}:this.active?.vm.state(a.id)||this.state.program.states[a.id],pc=parseInt(s.pc,16);return [a.id,pc&255,pc>>>8,...s.saved,a.due&255,a.due>>>8][(address-0x9860)%8];}
   const encounterCells={0x9D92:this.state.encounters[2][0],0x9D93:this.state.encounters[2][2],0x9D94:this.state.encounters[2][1]};for(const [id,start]of[[3,0x9D10],[4,0x9D2E],[11,0x9D45],[12,0x9D70]])for(const [i,v]of this.state.encounters[id].entries())encounterCells[start+i]=v;if(address in encounterCells)return encounterCells[address];
   if(address===0x9D90)return Number(this.state.flags.strakerMet);if(address===0x9D91)return Number(this.state.flags.lestradeMet);
   if(address===0x5C00)return 255; // ROM KSTATE: no key held in the injected-key protocol.
@@ -397,6 +411,8 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  if(s.playerFailures!==undefined&&(!Number.isInteger(s.playerFailures)||s.playerFailures<0||s.playerFailures>9))throw Error('Contatore tentativi del giocatore non valido');
+  if(s.playerProgramCounter!==undefined&&s.playerProgramCounter!=='9923')throw Error('Continuazione del giocatore fuori dal prompt');
   if(s.printerEnabled!==undefined&&typeof s.printerEnabled!=='boolean')throw Error('Stato della stampante non valido');
   if(s?.version!==1||s.profile!=='world-v5'||this.w.random?.profile!=='world-v5'||!byte(s.initialSeed)||typeof s.recordsSourceKnown!=='boolean'||!triple(s.playerRootSaved)||!s.pending||!s.foreignContexts||!s.flags||Object.values(s.flags).some(v=>typeof v!=='boolean')||!byte(s.burningNoteTicks))throw Error('Stato NPC v5 non valido');
   for(const [id,n]of[[2,3],[3,3],[4,2],[11,3],[12,3]])if(!Array.isArray(s.encounters?.[id])||s.encounters[id].length!==n||!s.encounters[id].every(byte))throw Error('Contatori incontri NPC non validi');

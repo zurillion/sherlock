@@ -1,5 +1,5 @@
 {
-  "scope": "Implementazione autonoma iniziale; riconoscere un modello non equivale a riprodurne ogni effetto.",
+  "scope": "Modelli delle azioni del giocatore nel motore autonomo world-v5: una regola parziale non certifica ogni variante o l’intera partita. I programmi NPC possono implementare separatamente alcuni modelli non ancora disponibili al giocatore.",
   "actions": [
     {
       "id": 1,
@@ -10,7 +10,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 3,
@@ -32,7 +32,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 4,
@@ -43,7 +43,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 5,
@@ -54,7 +54,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 6,
@@ -65,7 +65,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 7,
@@ -76,7 +76,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 8,
@@ -87,7 +87,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 9,
@@ -98,7 +98,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 10,
@@ -109,7 +109,7 @@
         "go"
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 11,
@@ -120,7 +120,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 12,
@@ -131,7 +131,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 13,
@@ -142,7 +142,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 14,
@@ -153,7 +153,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 15,
@@ -164,7 +164,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 16,
@@ -175,7 +175,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 17,
@@ -185,8 +185,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Corpi ordinari e confronto oggetti: OGGETTI-E-CONTENITORI.md. IN mantiene il lookup originale; regole locali e collettivi restano parziali."
     },
     {
       "id": 18,
@@ -197,7 +197,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 19,
@@ -208,7 +208,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 20,
@@ -219,7 +219,7 @@
         "closely"
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 21,
@@ -229,8 +229,8 @@
         null,
         null
       ],
-      "status": "partial_npc_order_only",
-      "note": "FOLLOW/COME WITH eseguiti su ordine a Watson; non azione del giocatore. Vedere FASE-3.md."
+      "status": "not_translated",
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 22,
@@ -240,8 +240,8 @@
         null,
         null
       ],
-      "status": "partial_npc_order_only",
-      "note": "FOLLOW/COME WITH eseguiti su ordine a Watson; non azione del giocatore. Vedere FASE-3.md."
+      "status": "not_translated",
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 23,
@@ -252,7 +252,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 24,
@@ -263,7 +263,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 25,
@@ -274,7 +274,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 26,
@@ -285,7 +285,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 27,
@@ -296,7 +296,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 28,
@@ -307,7 +307,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 29,
@@ -318,7 +318,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 30,
@@ -329,7 +329,7 @@
         "furiously"
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 31,
@@ -340,7 +340,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "HAIL: arrivo e contenimento del cab; viaggio e pagamento mancanti."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 32,
@@ -351,7 +351,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "HELLO del giocatore: HI. nella zona comandi. Risposte citate NPC mancanti; nessuna variante fissa o casualità sostitutiva."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 33,
@@ -362,7 +362,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 34,
@@ -373,7 +373,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 35,
@@ -384,7 +384,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 36,
@@ -395,7 +395,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 37,
@@ -406,7 +406,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "PAY valuta TO persona: trasferimento ordinario, conto diretto, errori e formato monetario verificati; servizio del cab e PAY senza TO ancora incompleti. Vedere CONVERSATIONS.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 38,
@@ -416,8 +416,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Corpi ordinari e confronto oggetti: OGGETTI-E-CONTENITORI.md. IN mantiene il lookup originale; regole locali e collettivi restano parziali."
     },
     {
       "id": 39,
@@ -427,8 +427,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Corpi ordinari e confronto oggetti: OGGETTI-E-CONTENITORI.md. IN mantiene il lookup originale; regole locali e collettivi restano parziali."
     },
     {
       "id": 40,
@@ -439,7 +439,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 41,
@@ -450,7 +450,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 42,
@@ -460,8 +460,8 @@
         null,
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Corpi ordinari e confronto oggetti: OGGETTI-E-CONTENITORI.md. IN mantiene il lookup originale; regole locali e collettivi restano parziali."
     },
     {
       "id": 43,
@@ -472,7 +472,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 44,
@@ -482,8 +482,8 @@
         "of",
         null
       ],
-      "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "status": "partial_functional_rule",
+      "note": "Corpi ordinari e confronto oggetti: OGGETTI-E-CONTENITORI.md. IN mantiene il lookup originale; regole locali e collettivi restano parziali."
     },
     {
       "id": 45,
@@ -494,7 +494,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 46,
@@ -505,7 +505,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 47,
@@ -516,7 +516,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "TELL actor/topic table and original random prefix with generated inputs in historical Watson v4; multiple/unresolved topics and remaining random-source regions unavailable."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 48,
@@ -527,7 +527,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "TELL actor/topic table and original random prefix with generated inputs in historical Watson v4; multiple/unresolved topics and remaining random-source regions unavailable."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 49,
@@ -538,7 +538,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 50,
@@ -549,7 +549,7 @@
         null
       ],
       "status": "partial_functional_rule",
-      "note": "Varianti generiche; per contenitori e citazioni vedere FASE-3.md e COPERTURA.md."
+      "note": "Ambito corrente e limiti: STATO-E-PROSSIMI-PASSI.md; nessuna dichiarazione di equivalenza completa."
     },
     {
       "id": 51,
@@ -560,7 +560,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 52,
@@ -571,7 +571,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 53,
@@ -582,7 +582,7 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     },
     {
       "id": 54,
@@ -593,8 +593,9 @@
         null
       ],
       "status": "not_translated",
-      "note": "Riconoscimento sintattico disponibile; esecuzione non tradotta."
+      "note": "Esecuzione del giocatore da completare; eventuali percorsi NPC sono distinti."
     }
   ],
-  "runtime_update": "runtime-watson-verification.json"
+  "runtime_update": "objects-verification.json",
+  "date": "2026-10-25"
 }

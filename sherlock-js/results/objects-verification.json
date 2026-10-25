@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-25",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "unrestricted_seed_parity": false,
+  "source_runtime": "Standalone JavaScript domain logic. The original executable is an offline oracle; fixtures are never runtime inputs. Description search uses a separately decoded typed text-data stream, not native instructions.",
+  "native_profile": {
+    "seed": 1,
+    "active_actor_slots": 24,
+    "free_initial_look": true,
+    "graphics": "Off after first native prompt",
+    "input": "Uppercase injected keys, no idle timeout, immediate MORE",
+    "teleports": 0
+  },
+  "references": [
+    {
+      "fixture": "test/fixtures/object-containers-reference.json",
+      "sha256": "73610fab4988493dad013bc4f9e2a2e166244c78c14e873497aa514d1017a580",
+      "commands": 26,
+      "draws": 48,
+      "source_reads": 96,
+      "last_clock": "Mon 08:16am"
+    },
+    {
+      "fixture": "test/fixtures/object-requests-reference.json",
+      "sha256": "195467565512e3a2431579d9d0b051c7353e65d305e6df61c6c1e84e9020283a",
+      "commands": 23,
+      "draws": 60,
+      "source_reads": 120,
+      "last_clock": "Mon 08:21am"
+    }
+  ],
+  "compared": [
+    "Every draw: actor, width, mixOffset, seed/cursor, exact source addresses and bytes, result and successor",
+    "Full clock and random successor",
+    "All 24 actor program points, saved arguments and deadlines",
+    "All 110 entities: parent, rooms, attributes and status",
+    "All 106 room flags",
+    "Every arena byte, including released records; free head and six list payloads",
+    "Exact 129 editor bytes and 127 token bytes, including E0 payloads",
+    "Exact upper bitmap SHA256 and all 1280 lower bitmap bytes",
+    "Every owned field among 5CEE, 5CF5, 5D00..5D0F",
+    "Original error messages and retained source validity"
+  ],
+  "normalization": "None for random, state, buffer or bitmap comparisons",
+  "controlled_rules": {
+    "fixture": "test/fixtures/object-capacity-reference.json",
+    "sha256": "fe0f950d3402dfd4453490b592e13426dbe79949f01c4b05a0605b04482cd7e8",
+    "preflight_cases": 94,
+    "execution_cases": 52,
+    "full_command_mask_errors": 2,
+    "scope": "Controlled native DEC1/DED9 calls from fixed seeded startup data, with bulk/capacity/flag variations. The two mask-error cases additionally execute full commands with all actors. These setups are separate from natural-play sequence parity."
+  },
+  "save_load": {
+    "save_after_command": 9,
+    "failure_budget_at_save": 9,
+    "remaining_commands": 17,
+    "compared": "Every response and complete logical dump, including the next one-minute failure yield and all subsequent NPC choices"
+  },
+  "source_findings": [
+    "D2ED sums direct-child bulk with signed overflow saturation; remaining space must be strictly positive",
+    "C79A ignores attribute-mask failures during preflight and enforces them during execution",
+    "B29A only counts a first argument when exactly one second argument survives",
+    "TAKE FROM/OUT OF does not require the named source to be the actual parent",
+    "B6FD/B77F description search creates and releases two-byte call records and has a packed-literal-space quirk",
+    "CC8C/CEB8 yields after ten failed domain rules, including empty-node/token checks; a rejected node can remain allocated during that yield",
+    "E0 tokens retain two value bytes even when ignored by the grammar",
+    "IN aliases to VISIT in the supplied distribution; IN and INTO are not silently repaired"
+  ],
+  "limits": [
+    "Disguises, alternate player identities, clue-specific local rules, locks and deeper examinations remain incomplete",
+    "ALL/EXCEPT and all parser/containment combinations are not certified",
+    "Old saves missing the new failure budget require a normal paid action to establish known state; no prior count is invented",
+    "Original containment-cycle paths are safely rejected by the prototype",
+    "No claim of whole-game, graphical-source or unrestricted seed equivalence"
+  ],
+  "tests": {
+    "focused_log": "results/objects/focused-tests.log",
+    "suite_command": "node --test --test-concurrency=1 test/*.test.mjs",
+    "suite_log": "results/objects/full-suite.log",
+    "total": 331,
+    "passed": 331,
+    "failed": 0,
+    "cancelled": 0
+  },
+  "listing": {
+    "file": "results/objects/object-rules.asm",
+    "verification": "results/objects/listing-verification.json",
+    "instructions": 251,
+    "bytes_roundtripped": 546,
+    "scope": "Known code/data boundaries; byte identity is not itself a functional proof"
+  },
+  "delivery": {
+    "local_url": "http://127.0.0.1:8768/",
+    "static_server_reactivated": true,
+    "new_modules_http_status": 200,
+    "interactive_browser_qa_performed": false
+  }
+}

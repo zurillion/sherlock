@@ -4,6 +4,7 @@ import {resolve,dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {buildRandomInputs} from './build-random-inputs.mjs';
+import {buildDescriptionSearch} from './build-description-search.mjs';
 const target=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const project=process.argv.includes('--project')?resolve(process.argv[process.argv.indexOf('--project')+1]):resolve(target,'..');
 const analysis=join(project,'sherlock-analisi'),read=async path=>JSON.parse(await readFile(join(analysis,path),'utf8'));
@@ -50,7 +51,8 @@ const conversationTopics={};let topicCursor=0xE22A;
 while(byte(topicCursor)!==255){const actor=byte(topicCursor++),topics={};while(byte(topicCursor)!==255){const id=byte(topicCursor),text=word(topicCursor+1).toString(16).toUpperCase();topics[id]=text;ensure(text);topicCursor+=3;}topicCursor++;conversationTopics[actor]=topics;}
 if(topicCursor!==0xE28C)throw Error('Unexpected TELL table boundary');
 const randomInputs=await buildRandomInputs(project,payload,npcPrograms);
-const data={randomInputs,conversationTopics,npcPrograms,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+const descriptionSearch=buildDescriptionSearch(payload,rooms);
+const data={randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');

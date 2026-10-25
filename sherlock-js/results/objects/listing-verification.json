@@ -1,0 +1,62 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 251,
+  "bytes_roundtripped": 546,
+  "regions": [
+    {
+      "start": "B6DA",
+      "end_exclusive": "B77E",
+      "kind": "code",
+      "label": "Scenery matching and nominal groups"
+    },
+    {
+      "start": "B77E",
+      "end_exclusive": "B77F",
+      "kind": "data",
+      "label": "Mutable end-of-fragment flag"
+    },
+    {
+      "start": "B77F",
+      "end_exclusive": "B83C",
+      "kind": "code",
+      "label": "Text-data search reader and two-byte call records"
+    },
+    {
+      "start": "D2ED",
+      "end_exclusive": "D33C",
+      "kind": "code",
+      "label": "Direct-child bulk, recursive weight, signed overflow clamp"
+    },
+    {
+      "start": "DCA2",
+      "end_exclusive": "DCC1",
+      "kind": "code",
+      "label": "Ordinary TAKE predicate"
+    },
+    {
+      "start": "DCC1",
+      "end_exclusive": "DCC5",
+      "kind": "data",
+      "label": "TAKE header: class 9, duration 1, predicate DCA2"
+    },
+    {
+      "start": "DCC5",
+      "end_exclusive": "DCD2",
+      "kind": "code",
+      "label": "Ordinary TAKE body"
+    },
+    {
+      "start": "DEC1",
+      "end_exclusive": "DECA",
+      "kind": "data",
+      "label": "Placement header: classes A/8, duration 1, masks and predicate DED9"
+    },
+    {
+      "start": "DECA",
+      "end_exclusive": "DF02",
+      "kind": "code",
+      "label": "Placement body and bulk predicate"
+    }
+  ],
+  "scope": "Known observed boundaries only; byte identity alone does not establish classification or functional parity."
+}

@@ -70,7 +70,7 @@ export class Parser {
     fail();
    }
    if(peek().type===144&&peek().value===0){
-    take();const tokenPointer=0x5B81+tokens.slice(0,index).reduce((n,t)=>n+([128,160,176,192,224].includes(t.type)?1:3),0),inner=[];while(peek().type!==192&&!(peek().type===144&&peek().value===0))inner.push(take());if(peek().type!==144)fail();take();
+    take();const tokenPointer=0x5B81+tokens.slice(0,index).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0),inner=[];while(peek().type!==192&&!(peek().type===144&&peek().value===0))inner.push(take());if(peek().type!==144)fail();take();
     if(!current.verb)current.verb=this.dictionary.lookup('TALK').value;
     const quote={tokens:[...inner,{type:192,value:0,word:null}],source:inner.map(t=>t.source).join(' '),tokenPointer};
     (current.quotes??=[]).push(quote);current.quote=current.quotes[0];continue;

@@ -1,0 +1,15 @@
+✔ The playable bundle has no CPU, original binary or backend dependency (25.007708ms)
+✔ Original containers with every actor: placement, retrieval, rejections and failure yields (550.643667ms)
+✔ Original containers with every actor: Watson orders, remote source and ambiguous source (601.266791ms)
+✔ Original placement capacity, direct bulk, flags and signed overflow: 94 controlled cases (125.049375ms)
+✔ A placement mask failure follows semantic success, binds the action, prints the original refusal and retains the object (74.905834ms)
+✔ Save/load preserves a partially used failure budget and subsequent NPC choices (824.417084ms)
+✔ Unsupported actions do not consume the original failure budget (160.595209ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2575.319875

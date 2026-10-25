@@ -1,5 +1,10 @@
 # Aggiornamento: NPC v5 nella pagina
 
+25 ottobre: l'inventario corrente delle parti mancanti e l'ordine di lavoro
+sono in [STATO-E-PROSSIMI-PASSI.md](STATO-E-PROSSIMI-PASSI.md). Il primo
+passaggio sulle azioni degli oggetti è documentato in
+[OGGETTI-E-CONTENITORI.md](OGGETTI-E-CONTENITORI.md).
+
 24 ottobre 2026. Ricarica la pagina sulla porta 8768 e premi **Riavvia**: ora vengono eseguiti tutti i programmi degli attori, con richieste al cab, viaggio, conto/resto, percorso di Lestrade e avvertimenti dei poliziotti. Il seed iniziale è selezionabile e i salvataggi v5 conservano il nuovo stato. Le sessioni precedenti restano nel proprio profilo.
 
 La guida aggiornata, le sequenze da provare e i limiti sono in [NPC-RUNTIME.md](NPC-RUNTIME.md). Il rapporto delle prove è `results/world-npc-verification.json`. La ricostruzione resta parziale; le sezioni storiche sotto descrivono le fasi precedenti e non costituiscono la copertura attuale.
