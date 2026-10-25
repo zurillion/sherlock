@@ -65,7 +65,7 @@ class SpectrumTerminal {
   for(const event of ['paste','drop','cut'])input.addEventListener(event,e=>e.preventDefault());
   input.addEventListener('input',()=>{input.value=this.draft;});
   canvas.parentElement.addEventListener('click',()=>{if(this.waiting)this.more();else this.focus();});
-  document.addEventListener('keydown',e=>{if(this.active&&this.waiting){if(e.target!==this.input&&e.target?.closest?.('input,select,button,textarea,a'))return;e.preventDefault();e.stopImmediatePropagation();this.more();}},true);
+  document.addEventListener('keydown',e=>{if(e.target?.closest?.('dialog[open]'))return;if(this.active&&this.waiting){if(e.target!==this.input&&e.target?.closest?.('input,select,button,textarea,a'))return;e.preventDefault();e.stopImmediatePropagation();this.more();}},true);
   this.blink=setInterval(()=>{if(this.active&&this.waitingReason==='more')this.render();},320);
  }
  configure(assets,pictures,pixels){this.assets=assets;this.urls={svg:pictures||{},pixel:pixels||{}};this.render();}

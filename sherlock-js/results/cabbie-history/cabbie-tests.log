@@ -1,0 +1,13 @@
+✔ Native ALL lifetime → cab greeting → fare, all actors: following_all (621.870666ms)
+✔ Native ALL lifetime → cab greeting → fare, all actors: following_direct_all (528.9755ms)
+✔ Native ALL lifetime → cab greeting → fare, all actors: following_your (519.925875ms)
+✔ Native ALL lifetime → cab greeting → fare, all actors: following_all_seed42 (568.255417ms)
+✔ Save at WHICH DOOR and after ALL preserves the later greetings, trip and payment (1802.99975ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4266.171583

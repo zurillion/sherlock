@@ -187,6 +187,18 @@
     "random_draws": 627,
     "source_reads": 1342,
     "full_arena_comparison": true,
-    "simple_clarification_lifetime": "Reconstructed; ALL, syntax errors and multiple units still have explicit unavailable boundaries."
+    "simple_clarification_lifetime": "Reconstructed, including supported first-argument ALL; syntax errors, exclusions and multiple-unit lifetimes still have explicit unavailable boundaries."
+  },
+  "cabbie_hello_and_command_history": {
+    "report": "cabbie-history-verification.json",
+    "guide": "../CRONOLOGIA-E-SALUTO-CAB.md",
+    "date": "2026-10-25",
+    "commands": 87,
+    "random_draws": 575,
+    "source_reads": 1266,
+    "full_arena_comparison": true,
+    "guard_removed": false,
+    "history_is_diagnostic_metadata": true,
+    "whole_game_equivalence": false
   }
 }

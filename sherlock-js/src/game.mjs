@@ -10,6 +10,7 @@ import {RuntimeRandom} from './runtime-random.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
 import {RandomDisplay} from './random-display.mjs';
 import {NpcRuntime} from './npc-runtime.mjs';
+import {CommandHistory} from './command-history.mjs';
 
 export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,31,32,33,34,35,36,37,40,41,46,47,48,49,50];
 const clone=structuredClone;
@@ -25,7 +26,9 @@ export class Game {
   this.bootstrapSceneTrace=[];this.initial=this.text.scene({trace:this.bootstrapSceneTrace});this.opening=this.initial+'\n'+this.text.render('6DEB');
   if(npcs&&npc_profile==='world-v5'){this.runtimeRandom.projector=a=>this.npcRuntime.read(a);const boot=this.npcRuntime.initialize(seed);this.opening=this.initial+'\n'+boot.filter(m=>m.kind==='narrative').map(m=>m.text).join('\n');}
   else if(this.world.random)this.sourceDisplay.initialize(this.opening,{sceneTrace:this.bootstrapSceneTrace});
+  this.history=new CommandHistory(this.historyMeta());
  }
+ historyMeta(){return {seed:this.world.npcs?.initialSeed??null,startMode:this.startMode,profile:this.world.npcs?.profile??this.world.scheduler.actor(3).behavior?.profile??null,source_sha256:this.data.source_sha256};}
  configureRandom(){this.text.chooseIndex=this.world.random?(count,ctx)=>this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+ctx.fragment}):undefined;}
  npcTextContext(actor){if(!this.world.display||this.world.dark()||!this.world.perceived(actor))return {};const characters=[];return {characters,sink:c=>{characters.push(c);this.sourceDisplay.feed(c);}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
@@ -191,6 +194,7 @@ export class Game {
  }
  // ALL selects references, rather than turning into one synthetic action with
  // a multiplied cost. Each object is executed and scheduled separately.
+ supportsCollective(node){return !node.exclusion&&!(node.allSlot||0)&&[11,14,16,19,23,26,36,41].includes(this.action(node));}
  *collective(node){
   if(!node.all){yield node;return;}
   const action=this.action(node),w=this.world,actor=this.actor,slot=node.allSlot||0;
@@ -212,6 +216,12 @@ export class Game {
  }
  submit(input){
   if(this.ended)return {state:this.state(),messages:[]};
+  const entry=this.history.begin('command',input,this.world);
+  try{const out=this.submitCommand(input);this.history.finish(entry,this.world,{outcome:out.state.analysis?.outcome??'ok',errors:out.messages.filter(m=>['error','system'].includes(m.kind)).map(m=>m.text)});return out;}
+  catch(error){this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}
+ }
+ submitCommand(input){
+  if(this.ended)return {state:this.state(),messages:[]};
   const messages=[],actions=[],units=[];this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1;
   try{
    if(input.trim()==='@'){if(this.pending)throw new InputError('syntax_error','WHAT ?');input=this.lastInput||'';}
@@ -220,16 +230,17 @@ export class Game {
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
-    if(this.world.npcs&&(parsed.nodes.length>1||parsed.nodes.some(n=>n.all||n.quotes?.length>1)))this.npcRuntime.invalidateParserProjection();
+    if(this.world.npcs&&(parsed.nodes.length>1||parsed.nodes.some(n=>n.all&&!this.supportsCollective(n)||n.quotes?.length>1)))this.npcRuntime.invalidateParserProjection();
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;
      throw new UnsupportedFeature('controllo '+parsed.control+' (usare i pulsanti del motore JS)');
     }
     if(parsed.nodes.some(node=>node.exclusion))throw new UnsupportedFeature('esecuzione delle esclusioni BUT/EXCEPT');
     for(const originalNode of parsed.nodes){let syntaxAllocated=false;
+     try{
      for(const node of this.collective(originalNode)){
      const before=this.world.dump(),messageCount=messages.length,actionCount=actions.length,frameCount=this.lastFrames.length;let outcome;
-     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),answer:parsed.continuationAnswer});syntaxAllocated=true;}outcome=this.execute(node);
+     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,answer:parsed.continuationAnswer});syntaxAllocated=true;}outcome=this.execute(node);
       const paragraph=outcome.cost&&!outcome.suppressParagraph&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
       messages.push(...outcome.messages);
       if(!outcome.projected)this.projectMessages(outcome.messages);
@@ -239,6 +250,7 @@ export class Game {
 
      if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)this.npcRuntime.invalidateParserProjection({preserveDisplay:true});break;}
      }
+     }finally{if(this.world.npcs&&originalNode.all&&syntaxAllocated)this.npcRuntime.finishCollective();}
      if(this.pending)break;
     }
     if(this.pending)break;
@@ -261,8 +273,9 @@ export class Game {
  state(){const w=this.world,room=w.rooms[w.roomOf()],dark=w.dark();
   return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:w.npcs?.initialSeed??null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>e.person&&![1,100].includes(e.id)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:e.id===0?'SH':e.id===3?'W':e.id===2?'IL':e.id===31?'C1':e.id===34?'C2':String(e.id),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,prototype_notice:this.analysis?.notice??null,engine:'javascript-autonomous',ai:w.npcs?'domain-programs-partial':w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.npcs?.profile??w.scheduler.actor(3).behavior?.profile??null,greeting_variant:w.npcs?'original-arithmetic-shared-world':w.random?'original-arithmetic-historical-watson':'unimplemented-original-random-source',random_state:w.random?{profile:w.random.profile,accumulator:w.random.seed,cursor:w.random.cursor,draws:w.random.draws}:null,fidelity:{status:'partial-functional-rewrite',original_seed_parity:false,full_game_equivalence:false},cab_scope:w.npcs?'service-program-journey-fare-refund':'arrival-and-containment',scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
  }
- teleport(room){if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene({full:!this.world.npcs}),messages=[{kind:'narrative',text:scene,image_room:room}];this.projectMessages(messages);return {state:this.state(),messages};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}
- dump(){return {format:'sherlock-js-save',version:this.world.npcs?5:4,source_sha256:this.data.source_sha256,world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),openingPending:this.openingPending,opening:this.opening,startMode:this.startMode,conversation:clone(this.conversation)};}
+ teleport(room){if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const entry=this.history.begin('teleport',String(room).padStart(3,'0')+' · '+this.world.rooms[room].name,this.world);try{const out=this.teleportWorld(room);this.history.finish(entry,this.world,{outcome:out.messages.some(m=>m.kind==='system')?'not_translated':'ok',errors:out.messages.filter(m=>m.kind==='system').map(m=>m.text)});return out;}catch(error){this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}}
+ teleportWorld(room){const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene({full:!this.world.npcs}),messages=[{kind:'narrative',text:scene,image_room:room}];this.projectMessages(messages);return {state:this.state(),messages};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}
+ dump(){return {format:'sherlock-js-save',version:this.world.npcs?5:4,source_sha256:this.data.source_sha256,world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),openingPending:this.openingPending,opening:this.opening,startMode:this.startMode,conversation:clone(this.conversation),command_history:this.history.dump()};}
  static load(data,save){
   if(save?.format!=='sherlock-js-save'||![1,2,3,4,5].includes(save.version)||save.source_sha256!==data.source_sha256)throw Error('Questo file non è un salvataggio del motore JavaScript autonomo.');
   if(save.version>=2&&!save.world?.scheduler)throw Error('Salvataggio privo dello scheduler.');
@@ -272,6 +285,6 @@ export class Game {
   for(const [i,e] of s.entities.entries())if(e.id!==i||!Array.isArray(e.rooms)||!e.rooms.every(r=>Number.isInteger(r)&&r>=0&&r<106)||e.parent!==null&&(!Number.isInteger(e.parent)||e.parent<0||e.parent>=110))throw Error('Entità nel salvataggio non valida.');
   for(const e of s.entities){const seen=new Set([e.id]);let parent=e.parent;while(parent!==null){if(seen.has(parent))throw Error('Ciclo nei contenitori del salvataggio.');seen.add(parent);parent=s.entities[parent].parent;}}
   RuntimeRandom.validate(s.random);RandomDisplay.validate(s.display);if(Boolean(s.random)!==Boolean(s.display))throw Error('Salvataggio casuale privo dello stato sorgente completo.');if(save.version<4&&s.random)throw Error('Stato casuale inatteso in un salvataggio precedente.');
-  const g=new Game(data,{start_mode:save.startMode,npcs:false});g.world.restore(s);g.configureRandom();for(const key of ['pending','analysis','lastInput','ended','openingPending','opening','conversation'])g[key]=clone(save[key]);if(s.npcs){g.runtimeRandom.projector=a=>g.npcRuntime.read(a);g.npcRuntime.validate();}else g.watson.validateState();g.cab.validateState();g.state();return g;
+  const g=new Game(data,{start_mode:save.startMode,npcs:false});g.world.restore(s);g.configureRandom();for(const key of ['pending','analysis','lastInput','ended','openingPending','opening','conversation'])g[key]=clone(save[key]);g.history=CommandHistory.load(save.command_history,g.historyMeta());if(s.npcs){g.runtimeRandom.projector=a=>g.npcRuntime.read(a);g.npcRuntime.validate();}else g.watson.validateState();g.cab.validateState();g.state();return g;
  }
 }

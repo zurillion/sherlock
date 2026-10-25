@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-25",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "original_seed_parity": false,
+  "regression": {
+    "notice": "metadati dei contesti dopo questo percorso del parser",
+    "trigger": "Watson greeting, wait for newspaper, FOLLOW ME, OPEN DOOR → ALL (or OPEN ALL DOORS), walk to Baker Street, HAIL CAB, SAY \"HELLO\" TO CABBIE",
+    "cause": "ALL parsed node released before the paid iterations and intervening NPC visits; conservative context guard then rejected a request while Watson followed.",
+    "fix": "Retain parsed head through iterative actions until exhausted semantic search; reconstruct original quote queue token pointer.",
+    "guard_removed": false
+  },
+  "reference": {
+    "probe": "tools/probe-cabbie-hello.py",
+    "fixture": "test/fixtures/cabbie-hello-reference.json",
+    "sha256": "2d23e64e0111ed2af038a7bf30b596a5381e66c36051e4e94f1c32472439ab84",
+    "scope": "Per-case true seeded bootstrap, all 24 actors, free initial LOOK, text-only native source after first prompt, injected uppercase keys, immediate MORE, no idle timeouts, natural walk without teleport. Observations are assertions, never runtime inputs.",
+    "fixture_values_supplied_to_runtime": false
+  },
+  "compared_fields": [
+    "Every random draw: actor, width, mixOffset, seed/cursor, all read addresses and values, result and successor seed/cursor",
+    "Clock; 24 actor program points, saved arguments and deadlines",
+    "110 entities parent, rooms, attributes, status; 106 room flags",
+    "Pointers and payloads of counters, signals, contexts, requests, pending syntax and parsed node",
+    "Every 752-byte arena snapshot and free-list head",
+    "Exact upper bitmap hash after bootstrap and each command",
+    "Exact lower-channel message strings and actual browser-session output packet rows"
+  ],
+  "scenarios": [
+    {
+      "label": "following_all",
+      "seed": 1,
+      "commands": 22,
+      "random_draws": 143,
+      "source_reads": 318,
+      "last_clock": "Mon 08:55am"
+    },
+    {
+      "label": "following_direct_all",
+      "seed": 1,
+      "commands": 21,
+      "random_draws": 143,
+      "source_reads": 318,
+      "last_clock": "Mon 08:55am"
+    },
+    {
+      "label": "following_your",
+      "seed": 1,
+      "commands": 22,
+      "random_draws": 142,
+      "source_reads": 312,
+      "last_clock": "Mon 08:54am"
+    },
+    {
+      "label": "following_all_seed42",
+      "seed": 42,
+      "commands": 22,
+      "random_draws": 147,
+      "source_reads": 318,
+      "last_clock": "Mon 08:55am"
+    }
+  ],
+  "totals": {
+    "commands": 87,
+    "random_draws": 575,
+    "source_reads": 1266
+  },
+  "save_load": {
+    "branches": [
+      "WHICH DOOR before ALL",
+      "Immediately after ALL"
+    ],
+    "future": "Exact session responses and dumps through greeting, trip, disembarkation, fare and change",
+    "legacy_unknown_records": "Remain unknown; no retroactive invented allocation history"
+  },
+  "command_history": {
+    "version": 1,
+    "source": "Raw submitted inputs, not normalized parse",
+    "world_random_dependency": false,
+    "teleports": true,
+    "wait_interruptions": true,
+    "failures": true,
+    "limit": null,
+    "in_save_files": true,
+    "in_tab_checkpoints": true,
+    "legacy": "Explicitly partial; recover short UI command history when available",
+    "tests": "215 inputs without truncation; error then portable save; reload; reset; metadata inspection without world mutations; interrupted wait; invalid history rejection"
+  },
+  "tests": {
+    "file": "cabbie-history/tests.log",
+    "passed": 311,
+    "failed": 0,
+    "isolated_node_only": {
+      "file": "cabbie-history/isolated-tests.log",
+      "passed": 311,
+      "failed": 0
+    }
+  },
+  "browser_validation": {
+    "url": "http://127.0.0.1:8768/",
+    "separate_session": "sherlock-history-qa",
+    "graphical_browser": true,
+    "user_session_reset": false,
+    "server_restarted": false,
+    "walk_all_greet_and_trip": true,
+    "copy_real_button": "Cronologia copiata.",
+    "clipboard_without_gesture": "Graceful select-text fallback",
+    "modal_visual_check": "850px dialog, 800px text field, no horizontal overflow at 1280px viewport",
+    "reload": "All 15 raw commands and seed retained at Mon 08:31am",
+    "during_wait": "History opens while busy; Enter in dialog does not interrupt WAIT UNTIL 08:40",
+    "during_spectrum_startup": "History opens while busy; dialog key does not consume startup key",
+    "during_spectrum_more": "History opens at counter 15 with MORE active; Enter inside dialog preserves waiting state, clock, rows and counter.",
+    "static_files_match": true,
+    "static_report": "cabbie-history/http.json"
+  },
+  "remaining": [
+    "Unverified parser error and multiple-unit lifetimes",
+    "ALL on second argument and exclusions",
+    "Unknown source/system bytes and graphical random source inputs",
+    "Complete information, deductions, advanced events and endings",
+    "Unrestricted seed/history parity and full-game equivalence"
+  ]
+}

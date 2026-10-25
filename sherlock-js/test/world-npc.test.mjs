@@ -61,11 +61,11 @@ test('Unresolved dependencies reject and restore the whole world, including shar
  const before=s.game.world.dump(),out=s.request('start-command',{command:'SAY TO WATSON "HELLO"'});assert.equal(out.state.analysis.outcome,'not_translated');assert.equal(out.running,false);assert.equal(s.game.lastFrames.length,0);
  const after=s.game.world.dump();delete before.display;delete after.display;assert.deepEqual(after,before);
 });
-test('Clarification and ALL remain playable; unverified allocation bytes are not supplied to randomness',()=>{
+test('Clarification and ALL preserve the understood parser allocation lifetime',()=>{
  const s=new ClientSession(data,{npc_profile:'world-v5'});
  assert.equal(s.request('command',{command:'OPEN DOOR'}).state.analysis.outcome,'clarification');
  const out=s.request('command',{command:'ALL'});assert.equal(out.state.analysis.outcome,'ok');assert.deepEqual(out.messages.filter(m=>m.kind==='narrative').map(m=>m.text),['You open your door.','You open the plain door.']);
- assert.equal(s.game.world.npcs.recordsSourceKnown,false);assert.throws(()=>s.game.runtimeRandom.read(0x9570),/non ancora ricostruito/);
- const loaded=Game.load(data,JSON.parse(JSON.stringify(s.game.dump())));assert.equal(loaded.world.npcs.recordsSourceKnown,false);
+ assert.equal(s.game.world.npcs.recordsSourceKnown,true);assert.equal(s.game.world.npcs.records.heads.parsed,0);
+ const loaded=Game.load(data,JSON.parse(JSON.stringify(s.game.dump())));assert.equal(loaded.world.npcs.recordsSourceKnown,true);
  assert.deepEqual(loaded.submit('SAY TO WATSON "HELLO"'),s.game.submit('SAY TO WATSON "HELLO"'));
 });

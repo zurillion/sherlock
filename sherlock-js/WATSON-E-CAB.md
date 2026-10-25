@@ -22,7 +22,7 @@ La destinazione era riconosciuta. La mancanza riguardava l’interazione fra con
 - **D83B–D848:** il nodo risultante viene liberato dopo la risoluzione semantica, prima dell’esecuzione dell’azione.
 - **B973/B976 e B9D4/B9D7:** una richiesta NPC conserva l’iteratore finale della ricerca nominale e aggiorna il puntatore al nodo sintattico successivo, anche quando questo diventa zero. La memoria liberata mantiene quei valori e può essere consultata in seguito.
 
-La proiezione ora segue questa durata. Il controllo di affidabilità non è stato semplicemente rimosso: rimane per percorsi ancora sconosciuti, fra cui ALL, errori sintattici e unità multiple. Il precontrollo che decide se conservare il nodo usa gli stessi candidati semantici di `resolve()` e non esegue azioni o estrazioni.
+La proiezione ora segue questa durata. Il controllo di affidabilità rimane per percorsi ancora sconosciuti, fra cui errori sintattici e unità multiple. L'approfondimento successivo in `CRONOLOGIA-E-SALUTO-CAB.md` ricostruisce anche la durata di ALL sul primo argomento. Il precontrollo che decide se conservare il nodo usa gli stessi candidati semantici di `resolve()` e non esegue azioni o estrazioni.
 
 La durata del nodo viene salvata insieme al suo puntatore. Un comando respinto dal prototipo durante il chiarimento ripristina sia il contesto logico sia il record; il salvataggio resta caricabile. I salvataggi precedenti privi di questa durata non ricevono dati inventati né vengono marcati retroattivamente come equivalenti all’originale.
 

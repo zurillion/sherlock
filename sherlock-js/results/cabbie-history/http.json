@@ -1,0 +1,79 @@
+[
+  {
+    "path": "index.html",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "3ab9532d228bbb547806c09bd1f94ab3526ec550547279533e0892f45071ca9f"
+  },
+  {
+    "path": "style.css",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "e00bdcedb62dc0218670cb278fc15fdb252d46043d998c21a38cc11ea0d9c00d"
+  },
+  {
+    "path": "src/app.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "30d48e377f452823a316a0a31d4ed46cea7f94c696e74f61fddbf8b192af9078"
+  },
+  {
+    "path": "src/game.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "a50a40a3f9c74b1742dec0ff523fca1fe7354016420575ea1549d1a859cfaec1"
+  },
+  {
+    "path": "src/command-history.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "5eeac2d1e6083bea122e50788a2ae9f494dbcb2a9b5e4d5873741cc4774657b1"
+  },
+  {
+    "path": "src/npc-runtime.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "c59cd7fc94b32e836586e694e660734d1e01b1165aab43f1ab2b7d2b0eceb1b0"
+  },
+  {
+    "path": "src/parser.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "5a0c5c6fb29df1635f94e3be6d92f26d7edc24c297b82eb9cdd1122fa477740a"
+  },
+  {
+    "path": "src/record-arena.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "0df2e64e47534407f408fa0616ad8a8d67a5247b2146b1a751fe3597a2e4a4dc"
+  },
+  {
+    "path": "src/save.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "67015d24c64f5373fc333b353928b85ca7fefcdbdc51b3ce4a4caeb73f6275e2"
+  },
+  {
+    "path": "src/session.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "c76553af4c73992b8766086d4025eb0952d2f14b146a44623aeba08b6c8713c3"
+  },
+  {
+    "path": "src/spectrum.mjs",
+    "status": 200,
+    "cache_control": "no-store",
+    "matches_disk": true,
+    "sha256": "46dea000582dd6889e9f267d4c7aa4c9e85d2cf6ecdd833699bb80ac08d543ae"
+  }
+]

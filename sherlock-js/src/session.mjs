@@ -45,6 +45,8 @@ export class ClientSession {
     const scheduler=this.game.world.scheduler;scheduler.actor(0).due=frame.clock.tick;
     scheduler.phase='visit';scheduler.index=0;scheduler.current={actor:0,context:{},steps:0};
     this.game.analysis.actions.length=frame.actionCount;scheduler.emit({event:'wait_interrupt'});
+    const command=this.game.history.entries.findLast(e=>e.kind==='command');if(command)this.game.history.finish(command,this.game.world,{outcome:'ok',errors:command.errors});
+    const event=this.game.history.begin('interrupt',frame.clock.label,this.game.world);this.game.history.finish(event,this.game.world);
     this.job=null;return {running:false,state:this.state(),messages:[]};
    }
    if(job.index>=job.frames.length){this.job=null;return {running:false,state:this.state(),messages:[]};}

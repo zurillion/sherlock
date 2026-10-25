@@ -78,8 +78,8 @@ export class NpcRuntime {
  }
  writeSyntax(node,records,p){nodeWords(node).forEach((v,i)=>records.arena.putWord(p+2*i,v));}
  syntaxRecord(node,records){const p=records.arena.allocate(30);this.writeSyntax(node,records,p);return p;}
- parsed(node,{retain=false,answer=null}={}){this.use(({records})=>{
-  const raw=answer??node,p=this.syntaxRecord(raw,records),quotes=(raw.quotes||[raw.quote]).filter(Boolean).map(()=>records.arena.allocate(2));let current=p;
+ parsed(node,{retain=false,collective=false,answer=null}={}){this.use(({records})=>{
+  const raw=answer??node,p=this.syntaxRecord(raw,records),quotes=(raw.quotes||[raw.quote]).filter(Boolean).map(quote=>{const q=records.arena.allocate(2);if(quote.tokenPointer)records.arena.putWord(q,quote.tokenPointer);return q;});let current=p;
   const pending=this.state.parserPending;
   if(pending){
    // AE6A appends the answer to the pending list. AD6C merges a verbless
@@ -90,9 +90,13 @@ export class NpcRuntime {
    else records.arena.release(pending);
   }else if(answer)this.state.recordsSourceKnown=false; // Earlier save lacks this lifetime.
   records.heads.syntax=retain?current:0;this.state.parserPending=retain?current:null;
-  if(!retain)records.arena.release(current);
+  if(collective&&!retain)records.heads.parsed=current;
+  else if(!retain)records.arena.release(current);
   for(const q of quotes)records.arena.release(q);
  });}
+ // D835 preserves the current node while ALL's search has more references.
+ // The final unsuccessful search (D86A) releases it, after the last paid turn.
+ finishCollective(){this.use(({records})=>{if(records.heads.parsed)records.remove('parsed',records.heads.parsed);});}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
  invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}

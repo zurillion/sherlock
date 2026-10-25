@@ -14,7 +14,7 @@ const rooms=new Map(),nodes=new Map(),edgeEls=[];
 const spectrum=new SpectrumTerminal({canvas:$('spectrum-screen'),input:$('spectrum-input'),upper:$('spectrum-upper'),lower:$('spectrum-lower'),status:$('spectrum-status'),onCommand:text=>command(text)});
 function preference(key,fallback){try{return localStorage.getItem(key)??fallback;}catch{return fallback;}}
 function savePreference(key,value){try{localStorage.setItem(key,String(value));}catch{}}
-function focusCommand(){if(spectrum.active)spectrum.focus();else $('command').focus({preventScroll:true});}
+function focusCommand(){if(document.querySelector('dialog[open]'))return;if(spectrum.active)spectrum.focus();else $('command').focus({preventScroll:true});}
 function presentation(options={}){return capturePresentation(spectrum,{transcript:transcriptRows,history,view,...options});}
 function checkpointTab(){if(state)rememberTab(sessionStorage,session.game,presentation({allowIncomplete:true,inProgress:busy||persisting}));}
 window.addEventListener('sherlock:engine-change',event=>{
@@ -58,7 +58,12 @@ function appendScene(message){
 function setPictures(enabled){spectrum.setPictures(enabled);$('pictures').checked=enabled;document.body.classList.toggle('pictures-off',!enabled);try{localStorage.setItem('sherlock-pictures',String(enabled));}catch{}}
 let picturesEnabled=true;try{picturesEnabled=localStorage.getItem('sherlock-pictures')!=='false';}catch{}
 setPictures(picturesEnabled);$('pictures').onchange=()=>setPictures($('pictures').checked);
-async function engineRequest(operation,body){const request=Promise.resolve().then(()=>session.request(operation,body));pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);}}
+async function engineRequest(operation,body){const request=Promise.resolve().then(()=>session.request(operation,body));pendingRequests.add(request);try{return await request;}finally{pendingRequests.delete(request);renderHistory();}}
+
+function renderHistory(){if(!$('command-history').open)return;const area=$('history-text'),value=session.game.history.format({clock:state?.clock.label,running:busy});if(area.value!==value){const end=area.selectionEnd,start=area.selectionStart,scroll=area.scrollTop;area.value=value;area.setSelectionRange(start,end);area.scrollTop=scroll;}}
+$('show-history').onclick=()=>{$('history-status').textContent='';$('command-history').showModal();renderHistory();};
+$('close-history').onclick=()=>$('command-history').close();
+$('copy-history').onclick=async()=>{renderHistory();const area=$('history-text');try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(area.value);$('history-status').textContent='Cronologia copiata.';}catch{area.focus();area.select();$('history-status').textContent=document.execCommand('copy')?'Cronologia copiata.':'Testo selezionato: premi ⌘C o Ctrl+C per copiarlo.';}};
 
 function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
@@ -78,7 +83,7 @@ function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$(
 function waitControls(job,allowed){activeJob=job;canInterrupt=Boolean(allowed);$('interrupt-wait').hidden=!canInterrupt;$('interrupt-wait').disabled=interruptRequested;}
 function interruptWait(){if(!activeJob||!canInterrupt||spectrum.waiting)return;interruptRequested=true;$('interrupt-wait').disabled=true;}
 $('interrupt-wait').onclick=interruptWait;
-document.addEventListener('keydown',e=>{if(e.target?.closest?.('#engine-select'))return;if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
+document.addEventListener('keydown',e=>{if(e.target?.closest?.('#engine-select,dialog[open]'))return;if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
 async function consumeCommand(result,epoch){
  let continuing=false;
  while(epoch===operationEpoch){
@@ -95,7 +100,7 @@ async function consumeCommand(result,epoch){
   result=await engineRequest('continue-command',{job:activeJob,interrupt});
  }
 }
-async function perform(path,body,focus=true){if(busy||state?.game_over)return;const epoch=++operationEpoch;interruptRequested=false;$('game-status').hidden=true;setBusy(true);try{const r=await engineRequest(path,body);if(epoch!==operationEpoch)return;if(path==='start-command')await consumeCommand(r,epoch);else{update(r.state);await showMessages(r.messages);}}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){waitControls(null,false);setBusy(false);if(focus||spectrum.active)focusCommand();}}}
+async function perform(path,body,focus=true){if(busy||state?.game_over)return;const epoch=++operationEpoch;interruptRequested=false;$('game-status').hidden=true;setBusy(true);try{const r=await engineRequest(path,body);if(epoch!==operationEpoch)return;if(path==='start-command')await consumeCommand(r,epoch);else{update(r.state);await showMessages(r.messages);}}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){waitControls(null,false);setBusy(false);renderHistory();try{checkpointTab();}catch(error){notice('Cronologia disponibile, ma non conservata al ricaricamento: '+error.message);}if(focus||spectrum.active)focusCommand();}}}
 async function command(text){if(busy||!text.trim())return;const control=text.trim().toUpperCase().replace(/\.$/,'');if(control==='SAVE'){await saveGame();return;}if(control==='LOAD'){chooseLoad();return;}if(state?.game_over)return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('start-command',{command:text});}
 function notice(text){$('session-notice').textContent=text;}
 async function saveGame(){
@@ -116,6 +121,7 @@ function validatePresentation(p){
  else SpectrumTerminal.validateSnapshot(p.spectrum);
 }
 async function restorePresentation(p,current){
+ session.game.history.recover(p.history);
  displayCompatibility(p.compatibility);
  if(p.redraw){spectrum.reset();spectrum.resumeSession();setPictures(p.pictures);await spectrum.setPictureMode(p.pictureMode);}
  else{await spectrum.restore(p.spectrum);setPictures(p.spectrum.pictures);}
@@ -133,7 +139,7 @@ $('save-game').onclick=saveGame;$('load-game').onclick=chooseLoad;
 $('load-file').onchange=async()=>{
  const file=$('load-file').files[0];if(!file||busy)return;persisting=true;setBusy(true);
  try{
-  if(file.size>1800000)throw new Error('File di salvataggio troppo grande.');
+  if(file.size>20000000)throw new Error('File di salvataggio troppo grande.');
   const document=JSON.parse(await file.text());validatePresentation(document.presentation);setBusy(true);
   const result=await engineRequest('load',{save:document});const epoch=++operationEpoch;
   spectrum.reset();$('transcript').replaceChildren();$('analysis').textContent='';$('command').value='';transcriptRows=[];
