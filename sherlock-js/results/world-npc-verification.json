@@ -202,5 +202,15 @@
     "report": "transport-verification.json",
     "guide": "../TRASPORTI.md",
     "scope": "Six seed-1 natural transport cases, all actors active; train passenger through 10:49, exact room flags and owned working fields, save/load branch"
+  },
+  "clarification_follow_cab": {
+    "report": "follow-cab-verification.json",
+    "guide": "../WATSON-E-CAB.md",
+    "date": "2026-10-25",
+    "commands": 86,
+    "random_draws": 627,
+    "source_reads": 1342,
+    "full_arena_comparison": true,
+    "simple_clarification_lifetime": "Reconstructed; ALL, syntax errors and multiple units still have explicit unavailable boundaries."
   }
 }

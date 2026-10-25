@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-25",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "original_seed_parity": false,
+  "regression": {
+    "trigger": "Greeting, wait for paper, FOLLOW, OPEN DOOR → YOUR, walk to Baker Street, hail and enter cab, GO TO KINGS CROSS ROAD",
+    "previous_notice": "Funzione non ancora ricostruita in JavaScript: metadati dei contesti dopo questo percorso del parser",
+    "cause": "The logical clarification was preserved, but its native record lifetime was not. Unknown record metadata then blocked Watson returning from FOLLOW while a typed cab request was queued.",
+    "fixed_by": [
+      "Retained 30-byte clarification node and temporary answer lifetime",
+      "Known simple clarification preserves parser-source validity",
+      "Completed typed request iterator and next-syntax pointer before release",
+      "Generated buffered list-tail and inventory-article renderer fields at cab departure"
+    ],
+    "guard_removed": false
+  },
+  "reference": {
+    "probe": "tools/probe-follow-cab.py",
+    "fixture": "test/fixtures/follow-cab-reference.json",
+    "sha256": "53245a304475dc01f7d8a058f07f920c385eda027f15e5289df8799993a4b6c1",
+    "scope": "True per-case seeded bootstrap; all 24 actors active; free initial LOOK; native graphics disabled after first prompt; injected uppercase keys, immediate MORE, no idle timeouts; no teleport. Raw arena observations are test evidence only.",
+    "fixture_values_supplied_to_runtime": false
+  },
+  "compared_fields": [
+    "Every random draw: actor, width, mixOffset, seed/cursor, every input address/value, result, successor seed/cursor",
+    "Full clock",
+    "24 actor program points, root saved arguments and deadlines",
+    "110 entities: parent, rooms, attributes, status",
+    "106 room flags",
+    "Pointers and payloads: counters, signals, contexts, requests, pending syntax; parsed head empty at prompt",
+    "Every one of 752 arena bytes, including released records, and free-list head",
+    "Owned renderer working fields per command, including fields not consulted by the draw",
+    "Exact upper bitmap SHA-256 after every command and bootstrap",
+    "Exact clarification/error strings; actual web word packets match source screen rows"
+  ],
+  "scenarios": [
+    {
+      "label": "clarification",
+      "seed": 1,
+      "commands": 21,
+      "random_draws": 149,
+      "source_reads": 322,
+      "last_clock": "Mon 08:57am"
+    },
+    {
+      "label": "specific_doors",
+      "seed": 1,
+      "commands": 20,
+      "random_draws": 149,
+      "source_reads": 322,
+      "last_clock": "Mon 08:57am"
+    },
+    {
+      "label": "longer_reading",
+      "seed": 1,
+      "commands": 24,
+      "random_draws": 180,
+      "source_reads": 372,
+      "last_clock": "Mon 09:12am"
+    },
+    {
+      "label": "seed_42",
+      "seed": 42,
+      "commands": 21,
+      "random_draws": 149,
+      "source_reads": 326,
+      "last_clock": "Mon 08:57am"
+    }
+  ],
+  "totals": {
+    "commands": 86,
+    "random_draws": 627,
+    "source_reads": 1342,
+    "arena_bytes_per_snapshot": 752,
+    "exact_upper_bootstraps": 4,
+    "exact_upper_commands": 86
+  },
+  "save_load": {
+    "version": 5,
+    "branch": "Save at WHICH DOOR, load fresh ClientSession, compare through payment and subsequent WAIT including minute frames",
+    "retains": [
+      "Logical pending command",
+      "Retained syntax record pointer and allocation",
+      "Shared actor contexts, queued requests and arena",
+      "Full current RNG and generated input state"
+    ],
+    "unsupported_reply_rollback_verified": true,
+    "older_incomplete_saves": "Remain loadable and untrusted; no invented reconstruction of their earlier record lifetime"
+  },
+  "tests": {
+    "file": "follow-cab/tests.tap",
+    "passed": 301,
+    "failed": 0,
+    "isolated_node_only": {
+      "file": "follow-cab/isolated-tests.tap",
+      "passed": 301,
+      "failed": 0,
+      "dependencies": "Node standard library, bundled data, test observations only; no executable/Python/native service"
+    }
+  },
+  "browser_validation": {
+    "static_files_match": true,
+    "report": "follow-cab/http.json",
+    "url": "http://127.0.0.1:8768/",
+    "graphical_browser": false,
+    "user_session_reset": false
+  },
+  "remaining": [
+    "ALL, syntactic errors and multiple-unit allocation lifetimes outside covered paths",
+    "Remaining system/source bytes and graphics in the RNG projection",
+    "Complete lower error-channel screen projection",
+    "Information, deductions, advanced events and endings",
+    "Unrestricted seed/history parity and full-game equivalence"
+  ]
+}

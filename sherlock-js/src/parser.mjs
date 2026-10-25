@@ -93,8 +93,9 @@ export class Parser {
    if(workingMode===2&&STATEMENTS.has(meaning(peek()))){finish();const old=current;current=node();current.subject=clone(old.groups[0]||old.subject);verb();continue;}
    fail();
   }
+  const continuationAnswer=pending?clone(nodes[0]):null;
   if(pending){const answer=nodes[0];if(!answer.verb){const merged=clone(pending.node),target=merged.groups[pending.slot]||(merged.groups[pending.slot]=emptyGroup()),source=answer.groups[0]||emptyGroup();if(!target.noun)target.noun=source.noun;for(const q of source.qualifiers)if(target.qualifiers.length<2)target.qualifiers.push(q);merged.all=merged.all||answer.all;if(answer.all)merged.allSlot=pending.slot;nodes[0]=merged;}}
-  return {nodes,next:index,mode:workingMode,outcome:'ok'};
+  return {nodes,next:index,mode:workingMode,outcome:'ok',...(continuationAnswer?{continuationAnswer}: {})};
  }
  quoted(quote){const units=[];let index=0,mode=0;while(index<quote.tokens.length&&quote.tokens[index].type!==192){const out=this.unit(quote.tokens,index,{mode});if(out.next<=index)fail();units.push(...out.nodes);index=out.next;mode=out.mode;}return {nodes:units,mode};}
 }

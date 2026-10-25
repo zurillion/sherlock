@@ -4,6 +4,8 @@
 
 ## Attivazione
 
+L’aggiornamento del 25 ottobre corregge anche il percorso saluto → lettura → FOLLOW → chiarimento della porta → cab: [WATSON-E-CAB.md](WATSON-E-CAB.md). I nuovi confronti verificano tutti i byte dell’area dei record e il salvataggio durante `WHICH DOOR ?`.
+
 Ricarica la pagina sulla porta **8768** e premi **Riavvia**. La nota del motore deve iniziare con **NPC v5**. Una sessione già aperta o un salvataggio v4 mantiene il vecchio esecutore di Watson; non viene convertito di nascosto. Salvalo prima di riavviare se vuoi conservarlo.
 
 **Seed iniziale**, da 0 a 255, ora è utilizzabile. Il valore viene applicato al prossimo Riavvia; l’accumulatore corrente continua a cambiare durante la partita. Salva/Carica v5 conserva anche programmi, scadenze, segnali, richieste, contesti, allocatore e ingressi casuali generati.
@@ -76,7 +78,7 @@ Restano da completare:
 - informazioni, affermazioni, deduzioni e reazioni legate alla conoscenza;
 - regole/eventi avanzati e finali, comprese le reazioni serali e alcune notifiche visibili di ricollocazione non tradotte;
 - l’intera proiezione di stack, stato di sistema e buffer; una lunga sequenza di soli WAIT oltre il tratto verificato raggiunge ancora celle non possedute;
-- la durata esatta delle allocazioni in errori sintattici, ALL, risposte di chiarimento e frasi multiple. Dopo questi percorsi la sorgente dei record viene marcata non disponibile: se un’estrazione o un ripristino dipende da quei metadati, si interrompe esplicitamente invece di fornire byte ipotizzati;
+- la durata esatta delle allocazioni in errori sintattici, ALL e frasi multiple. Il chiarimento singolo è ora ricostruito e mantiene la validità dei record nei percorsi verificati. I percorsi ancora sconosciuti marcano la sorgente non disponibile e interrompono le dipendenze da quei metadati;
 - tutti i pacchetti di IO, le immagini nella sorgente casuale e il comportamento con tempi fisici diversi dell’input.
 
 Un percorso mancante annulla il passo e i fotogrammi temporali speculativi e mostra un messaggio del prototipo fuori dal testo originale. Non viene sostituito con un messaggio inventato del personaggio. I salvataggi riprendono esattamente il futuro del modello implementato, senza trasformarlo in una ricostruzione completa.

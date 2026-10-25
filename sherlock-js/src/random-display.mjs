@@ -17,12 +17,12 @@ export class RandomDisplay {
    // copula via the actor-is text argument. Its glyph frame differs from
    // the literal name in the preceding contents list. A wrapped word also
    // clears a row (C316/C374), publishing the final space's scan state.
-   const role=sceneTrace.find(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
+   const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
    this.glyphFrame=role?.frame??null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    if(i<text.length)this.feed(text[i]);
    // A word is flushed by the following delimiter, within the same owner.
-   if(role&&i+1===role.end){this.flush();if(role.kind==='literal-person-name')this.glyphResidue(' ',role.frame+12,this.state.cursor);this.glyphFrame=null;}
+   if(role&&i+1===role.end){this.flush();if(role.kind==='literal-person-name'||role.spaceAfter)this.glyphResidue(' ',role.frame+12,this.state.cursor);this.glyphFrame=null;}
   }this.glyphFrame=null;}
  glyphResidue(c,frame,column){
   if(!frame)return;

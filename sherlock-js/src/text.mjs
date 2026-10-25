@@ -77,7 +77,8 @@ export class Text {
   // D526's recursive list frame adds six bytes per level. A LOOK enters
   // D102 four bytes shallower than CA9E's movement notification; describing
   // fellow passengers in D113 adds two bytes relative to the room list.
-  const listFrame=depth=>0x5D18+(source==='look'?4:0)-(parent!==null?2:0)-6*depth;
+  const entryOffset=['look','cab-departure'].includes(source)?4:0;
+  const listFrame=depth=>0x5D18+entryOffset-(parent!==null?2:0)-6*depth;
   const list=parent=>w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&e.rooms.length<2&&!w.owns(w.player,e.id)&&w.perceived(e.id));
   const renderChildren=(parent,depth=0)=>{
    const children=list(parent);if(!children.length)return;
@@ -86,9 +87,19 @@ export class Text {
    if(parent===null){prefix='You can see ';text.push(prefix+joinList(names)+'.');}
    else{const container=w.entity(parent);if(container.person){
     const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
+    // The last noun of the preceding list is still buffered. The first
+    // literal name argument of this carrying phrase flushes it, including
+    // its trailing space, before the carrier's own name is printed.
+    const previous=text.join(' '),tail=previous.match(/\S+$/);
+    if(trace&&tail)trace.push({start:previous.length-tail[0].length,end:previous.length,kind:'list-tail-delimited-by-carrier',frame:listFrame(depth)-20,spaceAfter:true});
     if(trace)trace.push({start,end:start+name.length,kind:'carrying-name',parent,depth,frame:listFrame(depth)});
     if(trace)trace.push({start:start+name.length+1,end:start+name.length+3,kind:'carrying-is',parent,depth,frame:listFrame(depth)});
     if(trace)trace.push({start:start+name.length+4,end:start+name.length+12,kind:'carrying-verb',parent,depth,frame:listFrame(depth)+2});
+    // D526 names the carried objects after the carrying verb. Their article
+    // and qualifiers flush through D3E8/A815; a wrapped article can reach
+    // working fields that the verb itself never touches.
+    let offset=0;const inventory=joinList(names);
+    if(trace)for(const item of names){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',frame:listFrame(depth)+4});offset+=item.length;}
     text.push(name+' is carrying '+joinList(names)+'.');
    }else{prefix=`${({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In'} ${w.name(parent)} there ${children.length===1?'is':'are'} `;text.push(prefix+joinList(names)+'.');}}
    if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768))trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
@@ -106,7 +117,7 @@ export class Text {
     // can leave different working fields before different descriptions.
     let id=r.description,calls=0,first=this.data.texts[id]?.[0];
     while(first?.op==='call'&&calls<24){calls++;id=first.text;first=this.data.texts[id]?.[0];}
-    if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:0x5D1A+(source==='look'?4:0)-8*calls});}
+    if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:0x5D1A+entryOffset-8*calls});}
    }
    text.push(this.render(r.description));
   };

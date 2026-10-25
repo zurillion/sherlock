@@ -56,11 +56,20 @@ export class Game {
   return true;
  }
  error(text){return {kind:'error',text};}
+ referenceCandidates(node,action,slot=0){const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));return {nominal,possible:nominal.filter(e=>this.canResolve(e,action,slot))};}
+ needsClarification(node){
+  // This preflight uses the same semantic candidates as resolve(). It only
+  // determines whether B5B6 retains the parsed node; it executes no action.
+  const action=this.action(node);if(node.all||node.exclusion||node.quote||node.subject||this.world.dark()||!SUPPORTED_ACTIONS.includes(action))return false;
+  const slots=action===37?[1]:action===26?[0,1]:[11,12,13,14,16,19,23,24,25,28,35,36,40,41,46,47,48].includes(action)?[0]:[];
+  for(const slot of slots){const group=node.groups[slot];if(!group?.noun&&!group?.qualifiers?.length)return false;const {possible}=this.referenceCandidates(node,action,slot);if(possible.length>1)return true;if(!possible.length)return false;}
+  return false;
+ }
  resolve(node,action,slot=0){
   if(node.resolved?.[slot]!==undefined)return {entity:this.world.entity(node.resolved[slot])};
   const w=this.world,group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]};
   if(!group.noun&&!group.qualifiers.length){return {message:this.error(`${this.word(node.verb).toUpperCase()} WHAT ?`)};}
-  const nominal=w.entities.filter(e=>w.nounMatches(e,group)),possible=nominal.filter(e=>this.canResolve(e,action,slot));
+  const {nominal,possible}=this.referenceCandidates(node,action,slot);
   if(possible.length>1){this.pending={node:clone(node),slot};return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
@@ -210,24 +219,25 @@ export class Game {
    lexed=this.lexer.scan(input);this.lastInput=input;if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
-    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:this.pending,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
-    if(this.world.npcs&&(pendingBefore||parsed.nodes.length>1||parsed.nodes.some(n=>n.all||n.quotes?.length>1)))this.npcRuntime.invalidateParserProjection({preserveDisplay:Boolean(pendingBefore)&&parsed.nodes.length===1&&!parsed.nodes.some(n=>n.all||n.quotes?.length>1)});
+    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    if(this.world.npcs&&(parsed.nodes.length>1||parsed.nodes.some(n=>n.all||n.quotes?.length>1)))this.npcRuntime.invalidateParserProjection();
     if(parsed.outcome==='control'){
+     this.pending=pendingBefore;
      throw new UnsupportedFeature('controllo '+parsed.control+' (usare i pulsanti del motore JS)');
     }
     if(parsed.nodes.some(node=>node.exclusion))throw new UnsupportedFeature('esecuzione delle esclusioni BUT/EXCEPT');
     for(const originalNode of parsed.nodes){let syntaxAllocated=false;
      for(const node of this.collective(originalNode)){
      const before=this.world.dump(),messageCount=messages.length,actionCount=actions.length,frameCount=this.lastFrames.length;let outcome;
-     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode);syntaxAllocated=true;}outcome=this.execute(node);
+     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),answer:parsed.continuationAnswer});syntaxAllocated=true;}outcome=this.execute(node);
       const paragraph=outcome.cost&&!outcome.suppressParagraph&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
       messages.push(...outcome.messages);
       if(!outcome.projected)this.projectMessages(outcome.messages);
       if(this.world.npcs&&(outcome.cost||outcome.action===32))this.npcRuntime.playerAction(outcome);
       if(outcome.cost){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.advance(outcome.cost,{action:outcome.action,args:outcome.args,messages,actions});}}
-     catch(error){this.world.restore(before);messages.length=messageCount;actions.length=actionCount;this.lastFrames.length=frameCount;throw error;}
+     catch(error){this.world.restore(before);if(before.npcs?.parserPending)this.pending=clone(pendingBefore);messages.length=messageCount;actions.length=actionCount;this.lastFrames.length=frameCount;throw error;}
 
-     if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs)this.npcRuntime.invalidateParserProjection({preserveDisplay:true});break;}
+     if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)this.npcRuntime.invalidateParserProjection({preserveDisplay:true});break;}
      }
      if(this.pending)break;
     }

@@ -178,5 +178,15 @@
     "reads": 1974,
     "last_clock": "Mon 10:49am",
     "whole_game_equivalence": false
+  },
+  "clarification_follow_cab": {
+    "report": "follow-cab-verification.json",
+    "guide": "../WATSON-E-CAB.md",
+    "date": "2026-10-25",
+    "commands": 86,
+    "random_draws": 627,
+    "source_reads": 1342,
+    "full_arena_comparison": true,
+    "simple_clarification_lifetime": "Reconstructed; ALL, syntax errors and multiple units still have explicit unavailable boundaries."
   }
 }

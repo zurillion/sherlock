@@ -6,6 +6,8 @@ See [NPC-RUNTIME.md](NPC-RUNTIME.md) and `results/world-npc-verification.json` f
 
 The subsequent transport regression pass is documented in [TRASPORTI.md](TRASPORTI.md) and `results/transport-verification.json`: six natural-play scenarios, all actors active, through riding the train with Lestrade and disembarking at 10:49. It adds exact room-flag and owned renderer-field comparisons, and verifies a save/load branch during the journey. It remains a declared seed-1 corpus, not universal parity.
 
+25 October: [WATSON-E-CAB.md](WATSON-E-CAB.md) and `results/follow-cab-verification.json` extend the reconstruction to a retained clarification node, Watson's FOLLOW and a queued cab request in the same history. Four cases (seeds 1 and 42) compare 86 commands, every draw and every byte of the 752-byte record arena, including released bytes. A save/load branch starts at the clarification prompt. Other parser lifetimes and full-game equivalence remain unverified.
+
 The earlier audit below is retained as historical evidence. Its limitations and numerical results describe that earlier runtime, not the current browser default. Its acceptance criteria continue to apply.
 
 # Functional equivalence is the target

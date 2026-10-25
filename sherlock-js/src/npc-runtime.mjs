@@ -4,6 +4,7 @@ import {RecordLists,RECORD_HEADS} from './record-arena.mjs';
 import {NpcPrimitives} from './npc-primitives.mjs';
 import {UnsupportedFeature,DIRECTION_NAMES} from './world.mjs';
 import {CabRoutes,account,balance,transferMoney,formatMoney,encodeMoney,wrapMoney} from './cab-economy.mjs';
+import {nodeWords} from './parser.mjs';
 
 const yes=(cost=0,extra={})=>({success:true,cost,...extra}),no=()=>({success:false,cost:0});
 const clone=structuredClone;
@@ -29,6 +30,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.initialSeed=seed;
   w.npcs.recordsSourceKnown=true;
+  w.npcs.parserPending=null;
   w.tick=1;w.minutes=480;g.sourceDisplay.initialize(g.initial,{sceneTrace:g.bootstrapSceneTrace});const messages=[],actions=[];
   // The initial LOOK has consumed the player's first turn. Run the remaining
   // actor visits of that SAME tick before opening the next editor prompt.
@@ -74,8 +76,23 @@ export class NpcRuntime {
  queue(sender,recipient,nodes){
   this.use(({records})=>{const syntax=nodes.map(n=>this.syntaxRecord(n,records));for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,1]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax});this.w.scheduler.requests[0].record=p;});
  }
- syntaxRecord(node,records){const bytes=Array(30).fill(0),word=(at,v)=>{bytes[at]=v&255;bytes[at+1]=v>>>8;};word(0,node.verb|(node.all?32768:0)|(node.exclusion?16384:0));word(2,node.modifier);for(const [i,g]of node.groups.entries()){if(i>=2)break;const at=4+10*i;word(at,g.relations[0]||0);word(at+2,g.relations[1]||0);word(at+4,g.noun||0);word(at+6,g.qualifiers[0]||0);word(at+8,g.qualifiers[1]||0);}if(node.subject){word(24,node.subject.noun||0);word(26,node.subject.qualifiers[0]||0);word(28,node.subject.qualifiers[1]||0);}const p=records.arena.allocate(30);bytes.forEach((v,i)=>records.arena.putByte(p+i,v));return p;}
- parsed(node){this.use(({records})=>{const p=this.syntaxRecord(node,records),quotes=(node.quotes||[node.quote]).filter(Boolean).map(()=>records.arena.allocate(2));records.arena.release(p);for(const q of quotes)records.arena.release(q);});}
+ writeSyntax(node,records,p){nodeWords(node).forEach((v,i)=>records.arena.putWord(p+2*i,v));}
+ syntaxRecord(node,records){const p=records.arena.allocate(30);this.writeSyntax(node,records,p);return p;}
+ parsed(node,{retain=false,answer=null}={}){this.use(({records})=>{
+  const raw=answer??node,p=this.syntaxRecord(raw,records),quotes=(raw.quotes||[raw.quote]).filter(Boolean).map(()=>records.arena.allocate(2));let current=p;
+  const pending=this.state.parserPending;
+  if(pending){
+   // AE6A appends the answer to the pending list. AD6C merges a verbless
+   // answer into that retained node and frees ONLY the answer; a new verb
+   // replaces the pending node. The free-list residue is observable later.
+   records.arena.putWord(pending-2,p);
+   if(answer&&!answer.verb){this.writeSyntax(node,records,pending);records.arena.putWord(pending-2,0);records.arena.release(p);current=pending;}
+   else records.arena.release(pending);
+  }else if(answer)this.state.recordsSourceKnown=false; // Earlier save lacks this lifetime.
+  records.heads.syntax=retain?current:0;this.state.parserPending=retain?current:null;
+  if(!retain)records.arena.release(current);
+  for(const q of quotes)records.arena.release(q);
+ });}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
  invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
@@ -107,7 +124,16 @@ export class NpcRuntime {
     if(node){args=this.resolveRequest(node,action,actor);if(!args){cancel();return {handled:true,cost:0};}}
     result=this.action(action,args,ctx,messages,actions);
    }
-   if(job.syntax[job.index])this.active.records.arena.release(job.syntax[job.index]);job.index++;if(!job.nodes||job.index>=job.nodes.length){release();delete state.pending[actor];}else if(job.record)this.active.records.arena.putWord(job.record+5,job.syntax[job.index]);
+   if(node&&job.record&&[21,22,29,30].includes(action)){
+    // B973/B976 preserve the exhausted first-argument search iterator.
+    // Entity searches end at the index terminator; location searches keep
+    // the room ordinal in the high byte (D39B/D3CD), with initial low byte 0.
+    const iterator=[29,30].includes(action)?this.w.rooms.length<<8:0x8B6F+3*this.w.entities.length;
+    this.active.records.arena.putWord(job.record+3,iterator);
+   }
+   if(job.syntax[job.index])this.active.records.arena.release(job.syntax[job.index]);job.index++;
+   if(job.record)this.active.records.arena.putWord(job.record+5,job.syntax[job.index]||0);
+   if(!job.nodes||job.index>=job.nodes.length){release();delete state.pending[actor];}
    if(result.defer)return result;
    if(result.cost)return {handled:true,cost:result.cost};
    if(!state.pending[actor])return {handled:true,cost:0};
@@ -259,7 +285,7 @@ export class NpcRuntime {
   if(directional&&visible&&!w.dark()){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
-   const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
+   const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full,source:notification.sceneSource??'arrival'}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
   }else if(old!==room&&id!==w.player&&[30,33].includes(id)&&w.perceived(id)){
    const message={kind:'narrative',text:w.name(id)+' is in '+w.roomName(room)+'.'};message.text=message.text[0].toUpperCase()+message.text.slice(1);messages.push(message);g.projectMessages([message]);
   }else if(old!==room&&!visible&&w.perceived(id)&&!w.dark()){
@@ -277,7 +303,7 @@ export class NpcRuntime {
   const w=this.w,vehicle=actor-1,route=this.routes.find(w.roomOf(vehicle),target,{furiously});if(!route){this.print('6C34',actor,{},messages);return yes();}
   const customer=this.active.vm.saved(actor)[1],playerBefore=w.roomOf();
   const money=account(w,actor);if(money)money.pence=wrapMoney(money.pence-route.fare);
-  w.entity(vehicle).attributes&=127;w.rooms[1].flags&=~64;this.relocate(vehicle,1,messages);
+  w.entity(vehicle).attributes&=127;w.rooms[1].flags&=~64;this.relocate(vehicle,1,messages,{sceneSource:'cab-departure'});
   // 9B44 explicitly reloads the service customer into argument 2. CBEA has
   // an early return which leaves the current actor set to Holmes when a
   // notification cannot perceive its subject. Deferred contexts then belong
@@ -348,6 +374,7 @@ export class NpcRuntime {
    if(records.arena.base!==0x9570||records.arena.bytes.length!==752||Object.keys(vm.states).length!==23)throw Error('Archivio dei programmi NPC non valido');
    for(const root of this.game.data.npcPrograms.actors){const state=vm.state(root.id),a=this.w.scheduler.actor(root.id);if(!a.enabled||a.program!=='domain')throw Error('Attore NPC v5 disabilitato');vm.node(state.pc);for(const frame of state.contexts)if(!records.records('contexts').includes(frame.record))throw Error('Contesto sospeso privo del record');}
    for(const [id,job]of Object.entries(s.pending)){vm.state(Number(id));if(!Array.isArray(job.syntax)||!Number.isInteger(job.index)||job.index<0||job.nodes&&job.index>=job.nodes.length)throw Error('Richiesta pendente non valida');}
+   if(s.parserPending!=null&&(!this.game.pending||records.heads.syntax!==s.parserPending||records.arena.allocated.get(s.parserPending)!==30))throw Error('Chiarimento privo del nodo conservato');
    for(const frames of Object.values(s.foreignContexts)){if(!Array.isArray(frames))throw Error('Contesti esterni non validi');for(const frame of frames)if(!triple(frame.saved)||!records.records('contexts').includes(frame.record))throw Error('Contesto esterno privo del record');}
   });
  }
