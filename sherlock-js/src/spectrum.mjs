@@ -2,7 +2,7 @@
 // Presentation only: world, parser and clock come from the autonomous session.
 class SpectrumBuffer {
  constructor(columns=36, rows=18){this.columns=columns;this.rows=rows;this.clear();}
- clear(){this.lines=Array(this.rows).fill('');this.counter=0;this.scrolls=0;this.cursor=0;this.remaining=this.columns;this.started=false;this.capitalize=true;}
+ clear(){this.lines=Array(this.rows).fill('');this.counter=0;this.scrolls=0;this.cursor=0;this.remaining=this.columns;this.started=false;this.capitalize=true;this.lastSpacePrinted=false;}
  startPage(){this.counter=0;}
  setColumns(columns){this.columns=columns;this.cursor=0;this.remaining=columns;}
  newline(){
@@ -30,9 +30,9 @@ class SpectrumBuffer {
   yield* this.raw(character);
  }
  *verbatim(character){
-  if(!this.started&&character===' ')return;
+  if(!this.started&&character===' '){this.lastSpacePrinted=false;return;}
   if(character==='\r')this.started=false;else this.started=true;
-  const full=this.remaining===1;yield* this.raw(character);if(full)this.started=false;
+  const full=this.remaining===1;yield* this.raw(character);this.lastSpacePrinted=character===' ';if(full)this.started=false;
  }
  *packet(event){
   const write=event.formatted?c=>this.verbatim(c):c=>this.formatted(c,event.force);
@@ -40,7 +40,7 @@ class SpectrumBuffer {
   if(text.length&&this.remaining<text.length)yield* write('\r');
   for(const character of text)yield* write(character);
   if(text.length&&exact)this.started=false;
-  if(event.delimiter)yield* write(event.delimiter);
+  if(event.delimiter){if(event.formatted&&event.delimiter==='"'&&!this.started&&!this.lastSpacePrinted)yield* this.raw(' ');yield* write(event.delimiter);}
  }
  visible(){return this.lines.map(line=>line.padEnd(36,' '));}
 }
@@ -82,7 +82,7 @@ class SpectrumTerminal {
  reset(){this.cancel();this.ended=false;this.clock='Mon 08:00am';this.clockVisible=false;this.promptVisible=false;this.startupPending=true;this.model.clear();this.lowerHistory=[];this.lowerLine='';this.draft='';this.input.value='';this.clearPicture();this.render();}
  snapshot(){
   if(this.processing||this.waiting)throw new Error('Attendi la fine del testo prima di salvare.');
-  const model={};for(const key of ['columns','rows','lines','counter','scrolls','cursor','remaining','started','capitalize'])model[key]=structuredClone(this.model[key]);
+  const model={};for(const key of ['columns','rows','lines','counter','scrolls','cursor','remaining','started','capitalize','lastSpacePrinted'])model[key]=structuredClone(this.model[key]);
   return {model,lowerHistory:[...this.lowerHistory],lowerLine:this.lowerLine,draft:this.draft,clockVisible:this.clockVisible,promptVisible:this.promptVisible,startupPending:this.startupPending,
    picture:this.picture?{room:this.picture.room,scrollOrigin:this.picture.scrollOrigin}:null,pictureTop:this.pictureTop,pictureNarrow:this.pictureNarrow,pictureMode:this.pictureMode,pictures:this.pictures};
  }
@@ -92,6 +92,7 @@ class SpectrumTerminal {
   for(const key of ['counter','scrolls','cursor','remaining'])if(!Number.isSafeInteger(m[key])||m[key]<0)fail();
   if(m.counter>255||m.cursor>m.columns||m.remaining!==m.columns-m.cursor)fail();
   for(const key of ['started','capitalize'])if(typeof m[key]!=='boolean')fail();
+  if(m.lastSpacePrinted!==undefined&&typeof m.lastSpacePrinted!=='boolean')fail();
   for(const key of ['clockVisible','promptVisible','startupPending','pictureNarrow','pictures'])if(typeof value[key]!=='boolean')fail();
   if(!['svg','pixel'].includes(value.pictureMode)||!Array.isArray(value.lowerHistory)||value.lowerHistory.length>40||!value.lowerHistory.every(s=>typeof s==='string'&&s.length<=34)||typeof value.lowerLine!=='string'||value.lowerLine.length>34||typeof value.draft!=='string'||value.draft.length>128)fail();
   if(!Number.isSafeInteger(value.pictureTop)||value.pictureTop<0)fail();

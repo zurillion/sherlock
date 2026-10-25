@@ -1,5 +1,13 @@
 # Programmi dei personaggi nella pagina: NPC v5
 
+25 ottobre: [LESTRADE-ISPEZIONI.md](LESTRADE-ISPEZIONI.md) e
+`results/lestrade-verification.json` aggiungono gli annunci di partenza, le
+richieste TELL prefabbricate, gli interrogatori in casa e il confronto naturale
+con seed 1 fino alle 13:00. Una richiesta immediata completata non lega i suoi
+argomenti al programma sospeso del destinatario. Il ramo senza fatti attivati
+del callback di Lestrade conserva DE=2 dalle scansioni dei fatti; le deduzioni
+attive restano un confine esplicito da ricostruire.
+
 24 ottobre 2026. Il nuovo profilo avvia tutti i 24 posti della tabella degli attori: Holmes e 23 programmi di personaggi, veicoli e treni. È una ricostruzione autonoma ancora parziale. Non è una certificazione dell’intera partita. Le successive correzioni di cab, notifiche e viaggio come passeggero sono documentate in [TRASPORTI.md](TRASPORTI.md), con confronti fino alle 10:49 e salvataggio a bordo.
 
 ## Attivazione

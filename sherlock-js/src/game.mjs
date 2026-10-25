@@ -90,11 +90,16 @@ export class Game {
    for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
    if(action!==46)throw new UnsupportedFeature('citazioni per questa forma di conversazione');
   }
-  if(!action){if(this.word(node.verb)==='pay')throw new UnsupportedFeature('forma PAY senza TO e relativo passaggio al turno seguente');return reject(`I DO NOT KNOW THE VERB"${this.word(node.verb).toUpperCase()} "`);}
+  if(!action){if(this.word(node.verb)==='pay'){
+   // PAY's first argument must be a money literal; PAY CABBIE fails that
+   // semantic preflight before a recipient/action can be selected.
+   if(node.groups.length===1&&node.groups[0].noun&&!(node.groups[0].noun&32768))return reject("DON'T BE SILLY.");
+   throw new UnsupportedFeature('forma PAY senza TO e relativo passaggio al turno seguente');
+  }return reject(`I DO NOT KNOW THE VERB"${this.word(node.verb).toUpperCase()} "`);}
   if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
   if(w.dark(actor)&&![33,49,50].includes(action))return reject('SORRY IT IS TOO DARK.');
   if(action===34)return ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf()}]);
-  if(action===33){const items=w.entities.filter(e=>e.parent===actor).map(e=>w.name(e.id,{indefinite:true}));return ok(['You are carrying '+(items.length?joinList(items):'nothing')+'.']);}
+  if(action===33){const listed=w.entities.filter(e=>e.parent===actor&&e.rooms.length<2&&w.perceived(e.id,actor));for(const e of listed)e.status|=128;const items=listed.map(e=>w.name(e.id,{indefinite:true}));return ok(['You are carrying '+(items.length?joinList(items):'nothing')+'.']);}
   if(action===32){if(actor===w.player)return ok([this.error(this.text.render('6915').toUpperCase())],0);const context=this.npcTextContext(actor),out=ok([this.textMessage(this.text.greeting(actor,context),context)],0);out.projected=Boolean(context.sink);return out;}
   if(action===37){
    const literal=node.groups[0]?.noun;
@@ -114,7 +119,9 @@ export class Game {
    const group=node.groups[1];
    // Class 7 deliberately includes off-stage people and things, independently
    // of visibility; perceived recipient is checked separately by class D.
-   const topics=group?w.entities.filter(e=>w.nounMatches(e,group)):[];
+   // Prefabricated NPC orders already contain resolved entity identities;
+   // their second argument does not pass through another noun phrase.
+   const topics=node.resolved?.[1]!==undefined?[w.entity(node.resolved[1])]:group?w.entities.filter(e=>w.nounMatches(e,group)):[];
    if(topics.length!==1)throw new UnsupportedFeature('risoluzione del soggetto TELL: zero o più riferimenti');
    const context=this.npcTextContext(actor);
    const out=ok([this.textMessage(this.dialogue.tell(actor,target.entity.id,topics[0].id,context),context)],1,[target.entity.id,topics[0].id]);out.projected=Boolean(context.sink);out.suppressParagraph=true;return out;
@@ -173,7 +180,13 @@ export class Game {
    if(!edge||!edge.target||w.entity(actor).parent!==null||(gate&&(!(gate.attributes&40)||gate.size<w.entity(actor).size)))return failure();
    if(action===35){const saved=w.dump();w.move(actor,edge.target);let scene;try{scene=this.text.scene({full:false,remote:true,mark:false});}finally{w.restore(saved);}return ok([`You look through ${w.name(gate.id)}.\n${scene}`],2,[gate.id]);}
    const room=edge.target,first=!(w.rooms[room].flags&64),visibleBefore=w.perceived(actor);w.move(actor,room);if(w.npcs)this.npcRuntime.moved(room);
-   if(actor!==w.player){const visibleAfter=w.perceived(actor);return ok(visibleAfter?[`${w.name(actor)} enters.`]:visibleBefore?[`${w.name(actor)} leaves.`]:[],2,[]);}
+   if(actor!==w.player){const visibleAfter=w.perceived(actor),messages=[];
+    // CA3A/CA76 announces the action before relocation; CAAF/CBC2 adds an
+    // arrival only when the actor becomes perceptible from elsewhere.
+    if(visibleBefore&&!w.dark())messages.push(action===28?`${w.name(actor)} goes through ${w.name(gate.id)}.`:`${w.name(actor)} goes ${DIRECTION_NAMES[direction]}.`);
+    if(!visibleBefore&&visibleAfter&&!w.dark())messages.push(`${w.name(actor)} enters.`);
+    return {...ok(messages,2,[]),visibilityResolved:true};
+   }
    w.rooms[room].flags|=64;w.explored.add(room);
    const movement=action===28?`You go through ${w.name(gate.id)}.`:`You go ${DIRECTION_NAMES[direction]}.`;
    return ok([movement,{...this.sceneMessage({full:first}),image_room:first?room:null}],2,[]);
@@ -188,7 +201,7 @@ export class Game {
    if(action===36&&open)return reject(w.name(e.id).toUpperCase()+' IS OPEN');if(action===14&&!open)return reject(w.name(e.id).toUpperCase()+' IS CLOSED');
    e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([say(action===36?'open':'close',' '+w.name(e.id)+'.')],1,[e.id]);
   }
-  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs)this.sourceDisplay.invalidateScratch();e.status|=64;return ok([`You examine ${w.name(e.id)}.\n`+(e.description?this.text.render(e.description,{object:e.id}):`You see ${w.name(e.id,{indefinite:true})}.`)],1,[e.id]);}
+  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs&&!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();e.status|=64;return ok([`You examine ${w.name(e.id)}.\n`+(e.description?this.text.render(e.description,{object:e.id}):`You see ${w.name(e.id,{indefinite:true})}.`)],1,[e.id]);}
   if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');return ok([`You count ${w.name(e.id)}.\nIt totals ${formatMoney(e.pence&16383)}`],1,[e.id]);}
   throw new UnsupportedFeature('azione '+action);
  }

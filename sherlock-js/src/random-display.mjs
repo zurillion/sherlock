@@ -19,28 +19,48 @@ export class RandomDisplay {
    // clears a row (C316/C374), publishing the final space's scan state.
    const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
    this.glyphFrame=role?.frame??null;
+   this.glyphSpaceDescriptor=null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
+   // A887 inserts a space before the next dictionary reference. That space
+   // flushes the previous name word, with DE already naming the next word.
+   if(role&&['carrying-name','literal-person-name','container-name'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(role.kind==='container-name'?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
    if(i<text.length)this.feed(text[i]);
    // A word is flushed by the following delimiter, within the same owner.
-   if(role&&i+1===role.end){this.flush();if(role.kind==='literal-person-name'||role.spaceAfter)this.glyphResidue(' ',role.frame+12,this.state.cursor);this.glyphFrame=null;}
-  }this.glyphFrame=null;}
- glyphResidue(c,frame,column){
+   if(role&&i+1===role.end){this.flush();if(this.state.started&&(role.kind==='literal-person-name'||role.spaceAfter))this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphFrame=null;}
+  }this.glyphFrame=null;this.glyphSpaceDescriptor=null;}
+ glyphResidue(c,frame,column,descriptor=0x5C0B){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
-  const put=(at,v)=>{if(at>=0x5CEE&&at<=0x5D07)s[at]=v;};
+  const put=(at,v)=>{if(at>=0x5CEE&&at<=0x5D0F)s[at]=v;};
+  // C388/C389 also overwrite AF and BC. Their flags/caller count are not
+  // projected here: an older glyph's values cannot remain owned in those
+  // cells. If randomness later needs one, fail explicitly until reconstructed.
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEE&&at<=0x5D0F)delete s[at];
   // C38B retains the glyph address; C39C the last scan and bit shift;
   // C39D/C3B8 the unshifted final scan. Only established fields are owned.
   put(frame-8,address&255);put(frame-7,address>>>8);
+  // C38A saves the current text descriptor. While A9DF flushes a word it
+  // points at the word buffer; the following delimiter restores the caller's
+  // descriptor (A815/D438: $5000 | noun). C374's row clear uses $5A20.
+  put(frame-6,descriptor&255);put(frame-5,descriptor>>>8);
   put(frame-10,shift);put(frame-9,1);put(frame-12,0);put(frame-11,glyph[7]);
  }
  get state(){return this.world.display;}
  invalidateScratch(){if(this.state)this.state.scratch={};}
  newline(){const s=this.state;if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
- put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35);this.newline();}}
- flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35);this.newline();}const exact=s.remaining===word.length;for(const c of word){this.glyphResidue(c,this.glyphFrame,s.cursor);this.put(c);}s.pending='';if(exact)s.started=false;}
- feed(c){const s=this.state;if(!s)return;if(c==='\b'){s.pending=s.pending.slice(0,-1);return;}if(![' ','\n','\r','"'].includes(c)){s.pending+=c;return;}this.flush();if(c==='\n'||c==='\r')this.newline();else if(c!==' '||s.started)this.put(c);}
+ put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
+ flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const c of word){this.glyphResidue(c,this.glyphFrame,s.cursor);this.put(c);}s.pending='';if(exact)s.started=false;}
+ feed(c){
+  const s=this.state;if(!s)return;
+  if(c==='\b'){s.pending=s.pending.slice(0,-1);return;}
+  if(![' ','\n','\r','"'].includes(c)){s.lastSpacePrinted=false;s.pending+=c;return;}
+  this.flush();
+  if(c==='\n'||c==='\r'){this.newline();s.lastSpacePrinted=false;}
+  else if(c===' '){const printed=s.started;if(printed){if(this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',this.glyphFrame+12,s.cursor,this.glyphSpaceDescriptor);this.put(c);}s.lastSpacePrinted=printed;}
+  else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.lastSpacePrinted=false;}
+ }
  write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
- prompt(){const s=this.state;if(!s)return;s.lower[4]='> +';s.lowerKnown[4]=true;}
+ prompt(){const s=this.state;if(!s)return;s.lower[4]='> +';s.lowerKnown[4]=true;s.lowerCursor=16;}
  command(normalized){const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.
   const line='> '+normalized.toUpperCase();s.lower[4]=line.slice(0,36);s.lowerKnown[4]=true;
@@ -48,6 +68,7 @@ export class RandomDisplay {
   // ENTER has already scrolled the completed command before NPC execution;
   // the channel leaves its cursor at x=2. The next editor adds "> " later.
   s.lower.shift();s.lowerKnown.shift();s.lower.push('+');s.lowerKnown.push(true);
+  s.lowerCursor=2;
   for(let i=0;i<normalized.length;i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;
   s.counter=0;s.cursor=0;s.remaining=36; // D719/C142, following lexical preflight.
  }
@@ -63,6 +84,13 @@ export class RandomDisplay {
  }
  read(address){
   const s=this.state;if(!s)throw new RandomInputsUnavailable('Proiezione video assente nel salvataggio.');
+  if(address>=0xC1F4&&address<=0xC1FB){
+   // C1F4..FB are the two formatter channels' width, bitmap pointer and
+   // pixel shift. ENTER resets the lower channel to x=2 on its last row;
+   // the subsequent prompt advances it by two seven-pixel characters.
+   const lower=s.lowerCursor??(s.lower[4]==='> +'?16:2),upper=2+s.cursor*7,lp=0x50E0+Math.floor(lower/8),up=0x5020+Math.floor(upper/8);
+   return [36-Math.floor((lower-2)/7),s.remaining,lp&255,lp>>>8,up&255,up>>>8,upper&7,lower&7][address-0xC1F4];
+  }
   if(address>=0x5800&&address<0x5B00)return 56; // canonical INK 0 / PAPER 7, no graphics
   // Declared oracle protocol: the tape was started with RETURN, it has been
   // released, and game keys are injected above the ROM scanner. Unheld KSTATE
@@ -81,5 +109,5 @@ export class RandomDisplay {
   if(x>=8&&x<clock.length*7+24){result=0;for(let col=0;col<clock.length;col++){const c=clock[col],glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-32];for(let bit=0;bit<8;bit++){const px=16+col*7+bit;if(px>=x&&px<x+8)result=(result&~(128>>(px-x)))|((glyph[scan]&(128>>bit))?(128>>(px-x)):0);}}}
   return result;
  }
- static validate(s){if(s===null||s===undefined)return;if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean')throw Error('Proiezione video casuale non valida.');}
+ static validate(s){if(s===null||s===undefined)return;if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
 }

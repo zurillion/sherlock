@@ -1,5 +1,14 @@
 # Stato attuale: NPC v5
 
+25 October, Lestrade continuation: [LESTRADE-ISPEZIONI.md](LESTRADE-ISPEZIONI.md)
+and `results/lestrade-verification.json` document departure notices, the 11:42
+EXAMINE/source-field failure, house interviews and the seed-1 natural route
+through 13:00. Every draw, actor state, entity state, room flag, arena byte and
+upper bitmap is compared. Active deductions remain an explicit unsupported
+branch. The historical map helper's first bitmap-dependent draw at user event
+121 remains outside the certificate; full-game and unrestricted seed parity
+are still false.
+
 24 October 2026. New browser games run all actor slots from a seeded bootstrap, with the shared domain-program host. Cab journeys/payment/refunds, police encounters and Lestrade’s route/signals are connected. The verified scenarios now compare generated random inputs with every original actor active; natural-play cases additionally compare the exact upper bitmap. This establishes the declared prefixes, **not full-game equivalence or unrestricted same-seed parity**.
 
 See [NPC-RUNTIME.md](NPC-RUNTIME.md) and `results/world-npc-verification.json` for profiles, fields, known teleport IO differences, missing dependencies and save v5. Historical v4 saves keep their prior profile; restart explicitly to use the new host. The former command-33 keyboard boundary has been reconstructed for the declared injected-key protocol; other unknown inputs remain explicit failures.

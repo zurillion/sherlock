@@ -45,12 +45,15 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // Native tape IO is an explicitly unavailable command; the typed CODE
  // header remains its source value. Browser JSON save/load never modifies it.
  worldLayout.tables.push({start:0xC0FE,values:[...payload.subarray(0xC0FE-base,0xC10F-base)]});
+ // AF6B/AF9B: immutable word/handler pairs for the two parser modes.
+ // The parser reads these tables; no handler writes their entries.
+ worldLayout.tables.push({start:0xAF6B,values:[...payload.subarray(0xAF6B-base,0xAFB3-base)]});
  // Fact records have a six-byte subject/predicate/object/flags/handler prefix,
  // followed by source reference terms. Boundaries are established by the
  // evaluator's referenced entries, not by disassembling this data as code.
  const factStarts=[0x9965,0x9973,0x9981,0x9997,0x99A9,0x99BB,0x99C5,0x99CF,0x99D9,0x99E3,0x99F1,0x99FB];
  worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
- return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,source_sha256:hash(payload),firmware_sha256:hash(firmware),
+ return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{printerEnabled:Boolean(byte(0xA008))},source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',
   ranges,constants,npcBytes,ruleBytes,excludedWrites:[...written].sort((a,b)=>a-b),
   historicalPrompt:{profile:'historical-prompt-watson-v4',seed:77,cursor:512,encounters:[30,0,0]}};

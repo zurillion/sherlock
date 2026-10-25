@@ -1,0 +1,15 @@
+✔ Lestrade followed on foot: all actors, every draw, all record bytes and exact upper screen (4279.357ms)
+✔ Save/load during the house interviews preserves the remaining natural playthrough (5568.881541ms)
+✔ The original time-class branch keeps noon in morning and midnight in night (6.966041ms)
+✔ Submitted history prefix through the garden: every draw/state; known map IO difference is explicit (2785.464ms)
+✔ The complete submitted history passes 11:42 and the subsequent interviews without prototype errors (4015.766291ms)
+✔ Ordinary EXAMINE preserves proven untouched low fields; unknown text contracts still invalidate them (17.803375ms)
+✔ Formatter coordinates derive from both channels, including their state across save/load (12.945042ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16914.828834

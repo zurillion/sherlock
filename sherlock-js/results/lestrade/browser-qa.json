@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-25",
+  "url": "http://127.0.0.1:8768/",
+  "session": "sherlock-lestrade-qa",
+  "isolated_from_user_game": true,
+  "page": "Sherlock · JavaScript autonomo",
+  "loaded_file": "results/lestrade/sherlock-seed1-1142-restored.json",
+  "loaded_clock": "Mon 11:42am",
+  "load_notice": "Partita JavaScript ripristinata.",
+  "presentation": "Restored Spectrum presentation is complete, clock visible, input enabled; three following commands tested through the ordinary form with compatibility animation disabled.",
+  "steps": [
+    {
+      "command": "I",
+      "clock": "Mon 11:43am",
+      "last_output": "Chief Constable Straker opens the large oak door."
+    },
+    {
+      "command": "I",
+      "clock": "Mon 11:44am",
+      "last_output": "Chief Constable Straker goes through the large oak door."
+    },
+    {
+      "command": "I",
+      "clock": "Mon 11:45am",
+      "last_output": "Inspector Lestrade goes south."
+    }
+  ],
+  "prototype_errors": 0,
+  "user_session_reloaded_or_reset": false
+}

@@ -200,5 +200,16 @@
     "guard_removed": false,
     "history_is_diagnostic_metadata": true,
     "whole_game_equivalence": false
+  },
+  "lestrade_continuation": {
+    "report": "lestrade-verification.json",
+    "date": "2026-10-25",
+    "natural_commands": 159,
+    "last_clock": "Mon 01:00pm",
+    "random_draws": 776,
+    "source_reads": 1636,
+    "exact_upper_bitmap": true,
+    "all_actor_slots_active": true,
+    "full_game_equivalence": false
   }
 }

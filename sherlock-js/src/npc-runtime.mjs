@@ -29,6 +29,7 @@ export class NpcRuntime {
   w.npcs.program=vm.dump();w.random={version:1,profile:'world-v5',seed,cursor:0,draws:0,trace:[]};g.configureRandom();
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.initialSeed=seed;
+  w.npcs.printerEnabled=g.data.randomInputs.bootOptions.printerEnabled;
   w.npcs.recordsSourceKnown=true;
   w.npcs.parserPending=null;
   w.tick=1;w.minutes=480;g.sourceDisplay.initialize(g.initial,{sceneTrace:g.bootstrapSceneTrace});const messages=[],actions=[];
@@ -276,10 +277,13 @@ export class NpcRuntime {
   else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0));if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
   const out=g.executeAs(this.node(action,args),actor);this.showAction(out,actor,messages,actions);
-  if(out.cost||action===32){this.bind(context,args);return yes(out.cost,{args});}return no();
+  // B9B4 executes a queued command in its own working arguments. A completed
+  // immediate request does not bind the suspended program's root arguments;
+  // deferred requests get their own context via NpcProgram.defer instead.
+  if(out.cost||action===32){if(!context.request)this.bind(context,args);return yes(out.cost,{args});}return no();
  }
  showAction(out,actor,messages,actions){
-  const visible=!this.w.dark()&&this.w.perceived(actor);if(visible){const shown=out.messages.filter(m=>m.kind==='narrative');messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
+  const visible=out.visibilityResolved||!this.w.dark()&&this.w.perceived(actor);if(visible){const shown=out.messages.filter(m=>m.kind==='narrative');messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32)actions.push({actor,id:out.action,arguments:out.args});
  }
  relocate(id,room,messages,notification={}){
@@ -330,23 +334,38 @@ export class NpcRuntime {
   if(![2,3,4,11,12].includes(id))return;
   this.use(()=>{
    const counters=this.state.encounters[id],near=target=>w.roomOf(target)===w.roomOf(id)&&w.perceived(target,id);
-   const encounter=(target,i,offset,text='6929',permanent=false)=>{
-    if(!near(target)){counters[i]=Math.max(0,counters[i]-1);return;}
-    if(counters[i])return;counters[i]=30+this.game.runtimeRandom.absolute(15,{actor:id,mixOffset:offset,purpose:'encounter:'+target});if(permanent)counters[i]=1;if(text)this.print(text,id,{object:target},messages);
+   const encounter=(target,i,offset,text='6929',permanent=false,returnLink=0x9CEC)=>{
+    // 9CF2's early path POPs its own return link into DE. The following
+    // encounter's random call sees that link, not a fixed greeting context.
+    if(!near(target)){counters[i]=Math.max(0,counters[i]-1);return returnLink;}
+    if(counters[i])return returnLink;counters[i]=30+this.game.runtimeRandom.absolute(15,{actor:id,mixOffset:offset,purpose:'encounter:'+target});if(permanent)counters[i]=1;if(text)this.print(text,id,{object:target},messages);return offset;
    };
-   if(id===3){for(const [i,target] of [0,2,4].entries())encounter(target,i,i===0?oldDue:0x9CEC);const ctx={actor:3,mixOffset:0x9CEC,purpose:'watson-information'};if(this.game.runtimeRandom.percent(ctx)>=50)this.game.runtimeRandom.percent(ctx);return;}
+   if(id===3){let offset=oldDue;for(const [i,target] of [0,2,4].entries())offset=encounter(target,i,offset);const ctx={actor:3,mixOffset:offset,purpose:'watson-information'};if(this.game.runtimeRandom.percent(ctx)>=50)this.game.runtimeRandom.percent(ctx);return;}
    if(id===11||id===12){if(!this.state.flags.strakerMet)for(const [i,target]of[0,3,7].entries())encounter(target,i,i===0?oldDue:0x9CEC,'6D9A',true);return;}
-   if(id===4){if(this.state.flags.strakerMet){encounter(0,0,oldDue);encounter(3,1,0x9CEC);}return;}
+   if(id===4){if(this.state.flags.strakerMet){const offset=encounter(0,0,oldDue);encounter(3,1,offset);}return;}
    if(id===2){
     if(near(4)&&near(0)&&!this.state.flags.strakerMet){this.state.flags.strakerMet=true;counters[0]=1;for(const room of [62,92])w.rooms[room].exits[0].gate=0;this.print(this.state.flags.lestradeMet?'7207':'7224',2,{object:4},messages);this.state.flags.lestradeMet=true;return;}
-    if(near(0)&&!this.state.flags.lestradeMet){encounter(0,0,oldDue,'71ED');this.state.flags.lestradeMet=true;}else encounter(0,0,oldDue);
-    encounter(0,1,oldDue,null,true);
-    encounter(3,2,0x9CEC);
+    let offset;if(near(0)&&!this.state.flags.lestradeMet){offset=encounter(0,0,oldDue,'71ED',false,0x9DCA);this.state.flags.lestradeMet=true;}else offset=encounter(0,0,oldDue,'6929',false,0x9DCA);
+    const inspectFacts=near(0)&&!counters[1];
+    offset=encounter(0,1,offset,null,true,0x9DDB);
+    if(inspectFacts){
+     // A successful 9DD8 continues through BC46/BC9C/BC74. With no
+     // activated facts these scans emit nothing and BE5B leaves DE=2.
+     // The early POP-return skips those scans. Active deductions still
+     // need their evaluator; do not substitute an empty result for them.
+     if(this.state.facts.some(f=>f.flags&1))throw new UnsupportedFeature('valutazione delle deduzioni attive nel colloquio con Lestrade');
+     offset=2;
+    }
+    encounter(3,2,offset);
     for(const at of [0x99E3,0x99F1,0x99A9])this.state.facts.find(f=>f.start===at).flags&=~1;
    }
   });
  }
  read(address){const worldValue=this.worldSource.read(address);if(worldValue!==null)return worldValue;
+  if(address>=0xC1F4&&address<=0xC1FB)return this.game.sourceDisplay.read(address);
+  // A008 is the optional ZX Printer flag, not a darkness/room byte. PRINT
+  // and NOPRINT remain unsupported controls, so older JS saves retain boot.
+  if(address===0xA008)return Number(this.state.printerEnabled??this.game.data.randomInputs.bootOptions.printerEnabled);
   const fact=this.state.facts.find(f=>address>=f.start&&address<f.start+6+2*f.terms.length);if(fact){const bytes=[fact.subject,fact.predicate,fact.object,fact.flags,fact.handler&255,fact.handler>>>8,...fact.terms.flatMap(v=>[v&255,v>>>8])];return bytes[address-fact.start];}
   if(address>=0x9FF6&&address<0xA002)return [...this.state.information.he,...this.state.information.it][address-0x9FF6];
   if(address>=0xA002&&address<0xA008)return this.state.information.addressee[address-0xA002];
@@ -369,6 +388,7 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  if(s.printerEnabled!==undefined&&typeof s.printerEnabled!=='boolean')throw Error('Stato della stampante non valido');
   if(s?.version!==1||s.profile!=='world-v5'||this.w.random?.profile!=='world-v5'||!byte(s.initialSeed)||typeof s.recordsSourceKnown!=='boolean'||!triple(s.playerRootSaved)||!s.pending||!s.foreignContexts||!s.flags||Object.values(s.flags).some(v=>typeof v!=='boolean')||!byte(s.burningNoteTicks))throw Error('Stato NPC v5 non valido');
   for(const [id,n]of[[2,3],[3,3],[4,2],[11,3],[12,3]])if(!Array.isArray(s.encounters?.[id])||s.encounters[id].length!==n||!s.encounters[id].every(byte))throw Error('Contatori incontri NPC non validi');
   for(const k of ['he','it','addressee'])if(!Array.isArray(s.information?.[k])||s.information[k].length!==6||!s.information[k].every(byte))throw Error('Contesto informazioni non valido');

@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-25",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "unrestricted_seed_parity": false,
+  "source_runtime": "Standalone JavaScript; no original executable, CPU interpreter, Python service or test fixture replay.",
+  "natural_reference": {
+    "fixture": "test/fixtures/lestrade-natural-reference.json",
+    "sha256": "1ae831ec6b3e03a5105785970033a2ea7569b46ac6cf19eb75d3592295ee35b6",
+    "events": 159,
+    "commands": 159,
+    "teleports": 0,
+    "draws": 776,
+    "source_reads": 1636,
+    "last_clock": "Mon 01:00pm",
+    "seed": 1,
+    "active_actor_slots": 24,
+    "free_initial_look": true,
+    "graphics": "Off after first native prompt; text-only generated source independent of UI image setting.",
+    "input": "Uppercase injected keys, RETURN released after boot; no idle timeout, immediate MORE.",
+    "compared": [
+      "Every draw: actor, width, mixOffset, accumulator/cursor, input addresses/values, result, successor accumulator/cursor",
+      "Full clock",
+      "All 24 actor program points, root arguments and deadlines",
+      "All 110 entities: parent, rooms, attributes, status",
+      "All 106 room flags",
+      "Exact pointers/payloads for counters, signals, contexts, requests, syntax and parsed lists",
+      "All 752 arena bytes including released bytes; free-list head",
+      "Exact upper bitmap SHA256 at startup and after every command",
+      "Every owned renderer field among 5CEE, 5CF5, 5D00..5D07; unprojected overwritten AF/BC lose ownership",
+      "Actual ClientSession word packets rendered through SpectrumBuffer equal the generated source text rows"
+    ],
+    "normalization": "None for the bitmap or random/state comparisons."
+  },
+  "submitted_history_reference": {
+    "fixture": "test/fixtures/lestrade-user-reference.json",
+    "sha256": "b586d343b9fc65f79db76d9957806819710359108bf478bece65fb7845941a64",
+    "certified_events": {
+      "events": 120,
+      "commands": 106,
+      "teleports": 14,
+      "draws": 540,
+      "source_reads": 1136,
+      "last_clock": "Mon 11:31am"
+    },
+    "exact_bitmap": "Only before the first teleport; known native helper double-scene difference is retained.",
+    "first_uncertified_random_input": {
+      "event": 121,
+      "input": "EXAMINE NOTE",
+      "reason": "First random bitmap read after the historical native map helper has printed an extra discarded scene. The suffix is not claimed equivalent."
+    }
+  },
+  "availability": {
+    "submitted_events": 141,
+    "additional_inventory_commands": 40,
+    "last_clock": "Mon 12:25pm",
+    "prototype_errors": 0,
+    "scope": "JavaScript functionality/save-load test, not original suffix parity."
+  },
+  "save_load": {
+    "interviews": {
+      "save_after_event": 114,
+      "remaining_commands": 45,
+      "compared": "Every response plus complete logical dump through 13:00"
+    },
+    "submitted_history": {
+      "save_after_event": 181,
+      "remaining_commands": 1,
+      "compared": "Response and complete logical dump"
+    },
+    "restored_file": {
+      "path": "results/lestrade/sherlock-seed1-1142-restored.json",
+      "sha256": "0411ba1712ce96f7d6b5a470cce55493b7d079f80a4df28b1eaf2d680b5c9ea2",
+      "rebuilt_events": 138,
+      "clock": "Mon 11:42am",
+      "room": 63,
+      "origin": "Rebuilt from submitted commands and teleports using the autonomous JS engine; before the three cancelled I commands.",
+      "next_three_commands_identical_after_load": true
+    }
+  },
+  "regression": {
+    "command": "node --test --test-concurrency=1 test/*.test.mjs",
+    "tests": 318,
+    "passed": 318,
+    "failed": 0,
+    "cancelled": 0,
+    "log": "results/lestrade/full-suite.log"
+  },
+  "remaining": [
+    "Active fact/deduction evaluator in Lestrade encounters; rejected explicitly until reconstructed",
+    "Accusations, consequences and game endings",
+    "Other unsupported commands and parser/source lifetimes",
+    "Original graphics as random inputs, arbitrary physical-key/interrupt histories",
+    "Full-game equivalence and universal seed parity"
+  ],
+  "browser": {
+    "report": "results/lestrade/browser-qa.json",
+    "load_and_next_three_inventory_commands": true,
+    "departure_notice_visible": true,
+    "user_session_untouched": true
+  }
+}

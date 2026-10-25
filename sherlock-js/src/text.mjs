@@ -5,6 +5,16 @@ import {UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 export class Text {
  constructor(data,dictionary,world,{chooseIndex}={}){this.data=data;this.dictionary=dictionary;this.world=world;this.chooseIndex=chooseIndex;}
  greeting(actor,context={}){return this.render('6920',{...context,actor});}
+ examinePreservesLowScratch(description){
+  // DF49/DF5B's ordinary inspection stays above $5D1E at its deepest
+  // announcement glyph. Flat description text is shallower; each nested
+  // text invocation adds at most six bytes. Up to two such levels still
+  // cannot touch the owned low renderer cells ($5CEE..$5D0F).
+  // Unknown token contracts or deeper invocations remain conservative.
+  const flat=new Set(['word','literal','end','endLine','endSentence','newline','backspace','toggleUpper','noop']);
+  const visit=(id,depth,seen)=>{if(depth>2||seen.has(id)||!this.data.texts[id])return false;const next=new Set([...seen,id]);return this.data.texts[id].every(t=>flat.has(t.op)||['call','jump'].includes(t.op)&&visit(t.text,depth+1,next));};
+  return !description||visit(description,0,new Set());
+ }
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
   let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false;const fragments=[];
@@ -48,6 +58,9 @@ export class Text {
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
      const roomName=id=>{const proper=Boolean(w.rooms[id].nameWords[0]&32768);for(const part of w.roomName(id).split(' ')){feed(' ');if(proper)capitalize=true;feed(part);}};
      const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
+     // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;
+     // A3C8/A3CE prints "me" when the first argument is the speaker.
+     if(action===47||action===48){feed(' tell');if(args[0]===actor)feed(' me');else argument(args[0],0);if(action===48)feed(' about');argument(args[1],1);feed('.');break;}
      feed(' ');feed(model.words[0]);if(model.words[3]){feed(' ');feed(model.words[3]);}if(model.words[1]){feed(' ');feed(model.words[1]);}argument(args[0],0);if(model.words[2]){feed(' ');feed(model.words[2]);}argument(args[1],1);feed('.');break;
     }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
@@ -77,7 +90,8 @@ export class Text {
   // D526's recursive list frame adds six bytes per level. A LOOK enters
   // D102 four bytes shallower than CA9E's movement notification; describing
   // fellow passengers in D113 adds two bytes relative to the room list.
-  const entryOffset=['look','cab-departure'].includes(source)?4:0;
+  // D1B2's brief scene skips D102's three pushes and D113's call (8 bytes).
+  const entryOffset=['look','cab-departure'].includes(source)?4:full?0:8;
   const listFrame=depth=>0x5D18+entryOffset-(parent!==null?2:0)-6*depth;
   const list=parent=>w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&e.rooms.length<2&&!w.owns(w.player,e.id)&&w.perceived(e.id));
   const renderChildren=(parent,depth=0)=>{
@@ -91,7 +105,7 @@ export class Text {
     // literal name argument of this carrying phrase flushes it, including
     // its trailing space, before the carrier's own name is printed.
     const previous=text.join(' '),tail=previous.match(/\S+$/);
-    if(trace&&tail)trace.push({start:previous.length-tail[0].length,end:previous.length,kind:'list-tail-delimited-by-carrier',frame:listFrame(depth)-20,spaceAfter:true});
+    if(trace&&tail)trace.push({start:previous.length-tail[0].length,end:previous.length,kind:'list-tail-delimited-by-carrier',parent,frame:listFrame(depth)-20,spaceAfter:true});
     if(trace)trace.push({start,end:start+name.length,kind:'carrying-name',parent,depth,frame:listFrame(depth)});
     if(trace)trace.push({start:start+name.length+1,end:start+name.length+3,kind:'carrying-is',parent,depth,frame:listFrame(depth)});
     if(trace)trace.push({start:start+name.length+4,end:start+name.length+12,kind:'carrying-verb',parent,depth,frame:listFrame(depth)+2});
@@ -101,7 +115,15 @@ export class Text {
     let offset=0;const inventory=joinList(names);
     if(trace)for(const item of names){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',frame:listFrame(depth)+4});offset+=item.length;}
     text.push(name+' is carrying '+joinList(names)+'.');
-   }else{prefix=`${({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In'} ${w.name(parent)} there ${children.length===1?'is':'are'} `;text.push(prefix+joinList(names)+'.');}}
+   }else{const relation=({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In',name=w.name(parent),start=text.join(' ').length+(text.length?1:0);
+    prefix=`${relation} ${name} there ${children.length===1?'is':'are'} `;
+    if(trace){const nameEnd=start+relation.length+1+name.length;trace.push({kind:'container-name',parent,start:start+relation.length+1,end:nameEnd,frame:listFrame(depth)});
+     // D5C1/68D9 flushes THERE at the name's depth; the copula is two
+     // bytes shallower. A wrapped THERE can reach the low working cells.
+     trace.push({kind:'container-there',start:nameEnd+1,end:nameEnd+6,frame:listFrame(depth)});
+     trace.push({kind:'container-copula',start:nameEnd+7,end:start+prefix.length-1,frame:listFrame(depth)+2});
+     let offset=0;const inventory=joinList(names);for(const item of names){offset=inventory.indexOf(item,offset);const prefixLength=item.lastIndexOf(' ');if(prefixLength>0)trace.push({kind:'carried-object-prefix',start:start+prefix.length+offset,end:start+prefix.length+offset+prefixLength,frame:listFrame(depth)+4});offset+=item.length;}}
+    text.push(prefix+joinList(names)+'.');}}
    if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768))trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
    for(const e of children){w.lastListed.push(e.id);if(mark)e.status|=128;}

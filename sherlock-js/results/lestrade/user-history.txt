@@ -1,0 +1,142 @@
+# Seed: 1; free initial LOOK; submitted history, 2026-10-25.
+SAY "HELLO" TO WATSON
+WAIT
+WAIT
+WAIT
+SAY "FOLLOW ME" TO WATSON
+OPEN YOUR DOOR
+W
+D
+OPEN DOOR
+S
+HAIL CAB
+SAY "HELLO" TO CABBIE
+CLIMB INTO CAB
+SAY "GO TO KINGS CROSS ROAD" TO CABBIE
+WAIT
+WAIT
+WAIT
+PAY CABBIE
+PAY 6D TO CABBIE
+CLIMB OUT
+NE
+NE
+NE
+NE
+SAY TO LESTRADE "GOOD MORNING"
+SAY TO LESTRADE "HELLO"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+CLIMB INTO TRAIN
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+S
+CLIMB OUT
+S
+I
+I
+I
+I
+S
+N
+S
+S
+S
+S
+N
+N
+N
+# Teletrasporto: 053 · leatherhead station
+# Teletrasporto: 089 · west side
+I
+I
+I
+I
+I
+I
+# Teletrasporto: 087 · winding garden path
+I
+# Teletrasporto: 090 · south side
+I
+I
+SAY "HELLO" TO LESTRADE
+I
+I
+I
+I
+I
+# Teletrasporto: 081 · winding garden path
+I
+# Teletrasporto: 083 · winding garden path
+LOOK
+LOOK
+I
+# Teletrasporto: 084 · winding garden path
+I
+LOOK
+# Teletrasporto: 085 · winding garden path
+LOOK
+# Teletrasporto: 086 · winding garden path
+LOOK
+I
+# Teletrasporto: 076 · garden path
+I
+I
+# Teletrasporto: 077 · winding garden path
+WAIT
+# Teletrasporto: 079 · winding garden path
+I
+EXAMINE STREAM
+# Teletrasporto: 089 · west side
+I
+I
+# Teletrasporto: 088 · east side
+EXAMINE NOTE
+SAY "HELLO" TO STRAKER
+I
+# Teletrasporto: 089 · west side
+I
+I
+# Teletrasporto: 078 · winding garden path
+I
+I
+# Teletrasporto: 077 · winding garden path
+I
+I
+# Teletrasporto: 076 · garden path
+I
+I
+# Teletrasporto: 062 · browns front gate
+# Teletrasporto: 053 · leatherhead station
+# Teletrasporto: 063 · browns front door
+I
+I
+I

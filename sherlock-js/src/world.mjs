@@ -19,7 +19,7 @@ export class World {
   const a=this.barrier(actor);if(a===id)return true;const e=this.entity(id);if(!(e.attributes&128))return false;
   const b=this.barrier(id);if(b===actor)return true;if(b!==a)return false;if(b!==null)return true;return e.rooms.includes(this.roomOf(actor));
  }
- timeClass(){const hour=Math.floor(this.minutes/60)%24;if(hour>=20||hour<6)return 1;if(hour===19)return 2;if(hour>=12)return 3;if(hour===6)return 5;return 4;}
+ timeClass(){const hour=Math.floor(this.minutes/60)%24;if(hour>=20||hour<6)return 1;if(hour===19)return 2;if(hour===12)return 4;if(hour>=13)return 3;if(hour===6)return 5;return 4;}
  dark(actor=this.player){
   const a=this.entity(actor);if(!(a.properties&128))return false;
   if(this.barrier(actor)===null&&((this.rooms[this.roomOf(actor)].flags&128)||this.timeClass()!==1))return false;
