@@ -45,15 +45,16 @@ export class RecordArena {
   const a=new RecordArena({base:s.base,length:s.bytes.length});a.bytes=Uint8Array.from(s.bytes);a.free=structuredClone(s.free);a.allocated=new Map(s.allocated);return a;
  }
 }
-export const RECORD_HEADS={counters:0x9fe5,signals:0x9fe7,contexts:0x9fe9,requests:0x9fee,syntax:0x9ff0,parsed:0x9ff2,facts:0x9ff4};
+export const RECORD_HEADS={counters:0x9fe5,signals:0x9fe7,contexts:0x9fe9,quotes:0x9fec,requests:0x9fee,syntax:0x9ff0,parsed:0x9ff2,facts:0x9ff4};
 export class RecordLists {
  constructor(arena=new RecordArena()){this.arena=arena;this.heads=Object.fromEntries(Object.keys(RECORD_HEADS).map(k=>[k,0]));}
  prepend(list,values){if(!(list in this.heads))throw Error('Unknown record list');const p=this.arena.allocate(values.length);this.arena.putWord(p-2,this.heads[list]);values.forEach((v,i)=>this.arena.putByte(p+i,v));this.heads[list]=p;return p;}
+ append(list,values){const tail=this.records(list).at(-1),p=this.arena.allocate(values.length);values.forEach((v,i)=>this.arena.putByte(p+i,v));if(tail)this.arena.putWord(tail-2,p);else this.heads[list]=p;return p;}
  records(list){const out=[],seen=new Set();for(let p=this.heads[list];p;p=this.arena.word(p-2)){if(seen.has(p))throw Error('Record list cycle');seen.add(p);out.push(p);}return out;}
  remove(list,pointer){const all=this.records(list),i=all.indexOf(pointer);if(i<0)throw Error('Record not in list');const successor=this.arena.word(pointer-2),predecessor=i?all[i-1]:null;if(predecessor)this.arena.putWord(predecessor-2,successor);else this.heads[list]=successor;this.arena.release(pointer);return predecessor;}
  // CFCF reloads from the predecessor rather than the actor row when no outer
  // context for this actor remains. Preserve that observable original quirk.
  returnSaved(predecessor){return predecessor?[this.arena.byte(predecessor+3),this.arena.byte(predecessor+4),this.arena.byte(predecessor+5)]:[this.heads.requests&255,this.heads.requests>>>8,this.heads.syntax&255];}
  dump(){return {version:1,arena:this.arena.dump(),heads:structuredClone(this.heads)};}
- static load(s){const heads={parsed:0,...s?.heads};if(s?.version!==1||!s.heads||Object.keys(RECORD_HEADS).some(k=>!Number.isInteger(heads[k])||heads[k]<0||heads[k]>65535))throw Error('Invalid record lists save');const x=new RecordLists(RecordArena.load(s.arena));x.heads=structuredClone(heads);for(const k of Object.keys(RECORD_HEADS))x.records(k);return x;}
+ static load(s){const heads={parsed:0,quotes:0,...s?.heads};if(s?.version!==1||!s.heads||Object.keys(RECORD_HEADS).some(k=>!Number.isInteger(heads[k])||heads[k]<0||heads[k]>65535))throw Error('Invalid record lists save');const x=new RecordLists(RecordArena.load(s.arena));x.heads=structuredClone(heads);for(const k of Object.keys(RECORD_HEADS))x.records(k);return x;}
 }

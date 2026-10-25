@@ -1,0 +1,24 @@
+✔ Original error recovery, all actors: cab, optional TO, absent recipient and errors (353.672125ms)
+✔ Original error recovery, all actors: clarification, rejected quotation and 40 further minutes (733.029041ms)
+✔ Unsupported commands cancel the entire input without poisoning the next command or clarification (176.805875ms)
+✔ A missing dependency after an earlier action in the same line also cancels its minute frames (59.609875ms)
+✔ An unexpected exception restores the last valid input state before reaching the UI (22.345542ms)
+✔ Save/load after an error preserves quotation residue and the complete future source (1649.054875ms)
+✔ Map and roster expose readable initials for every secondary character (16.654709ms)
+✔ Native transport with all actors and generated sources: buckingham (449.090125ms)
+✔ Native transport with all actors and generated sources: camden (486.824166ms)
+✔ Native transport with all actors and generated sources: kings_short (235.813584ms)
+✔ Native transport with all actors and generated sources: after_look (369.530875ms)
+✔ Native transport with all actors and generated sources: after_clarification (407.971958ms)
+✔ Native transport with all actors and generated sources: train (1578.798334ms)
+✔ Passenger save/load resumes through Lestrade leaving and the next platform (3148.396708ms)
+✔ A prototype limit cancels partial minute frames and keeps its notice across save/load (51.751875ms)
+✔ Renderer working fields follow glyph layout across controlled name lengths (67.868625ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7015.317125

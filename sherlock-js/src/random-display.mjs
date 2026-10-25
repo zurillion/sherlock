@@ -60,20 +60,27 @@ export class RandomDisplay {
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.lastSpacePrinted=false;}
  }
  write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
- prompt(){const s=this.state;if(!s)return;s.lower[4]='> +';s.lowerKnown[4]=true;s.lowerCursor=16;}
+ lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;}
+ prompt(){const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lower[4]+='+';s.lowerKnown[4]=true;}
  command(normalized){const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.
-  const line='> '+normalized.toUpperCase();s.lower[4]=line.slice(0,36);s.lowerKnown[4]=true;
-  for(let at=36;at<line.length;at+=36){s.lower.shift();s.lowerKnown.shift();s.lower.push(line.slice(at,at+36));s.lowerKnown.push(true);}
+  const column=((s.lowerCursor??16)-2)/7,line=s.lower[4].slice(0,column)+normalized.toUpperCase();s.lower[4]=line.slice(0,36);s.lowerKnown[4]=true;
+  // Filling the final column scrolls immediately; ENTER then scrolls again.
+  for(let at=36;at<=line.length;at+=36){s.lower.shift();s.lowerKnown.shift();s.lower.push(line.slice(at,at+36));s.lowerKnown.push(true);}
   // ENTER has already scrolled the completed command before NPC execution;
   // the channel leaves its cursor at x=2. The next editor adds "> " later.
   s.lower.shift();s.lowerKnown.shift();s.lower.push('+');s.lowerKnown.push(true);
   s.lowerCursor=2;
   for(let i=0;i<normalized.length;i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;
-  s.counter=0;s.cursor=0;s.remaining=36; // D719/C142, following lexical preflight.
  }
- error(){const s=this.state;if(s)s.lowerKnown=s.lowerKnown.map(()=>false);}
- lexed(tokens){const s=this.state;if(!s?.tokens)return;for(let i=0;i<96;i++){s.tokens[i]=0;s.tokenKnown[i]=true;}const bytes=tokens.flatMap(t=>[t.type,...([128,160,176,192,224].includes(t.type)?[]:[t.value&255,t.value>>>8])]);for(const [i,v]of bytes.entries()){s.tokens[i]=v;s.tokenKnown[i]=true;}if(tokens.some(t=>t.type===144&&t.value===0))for(let i=0;i<bytes.length;i++)s.tokenKnown[i]=false;}
+ error(messages,{inline=false}={}){const s=this.state;if(!s)return;
+  // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
+  // including the dictionary's initial space; CR scrolls before the prompt.
+  for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));
+ }
+ lexed(tokens){const s=this.state;if(!s?.tokens)return;s.counter=0;s.cursor=0;s.remaining=36; // D719/C142, after successful preflight.
+  for(let i=0;i<96;i++){s.tokens[i]=0;s.tokenKnown[i]=true;}const bytes=tokens.flatMap(t=>[t.type,...([128,160,176,192,224].includes(t.type)?[]:[t.value>>>8,t.value&255])]);for(const [i,v]of bytes.entries()){s.tokens[i]=v;s.tokenKnown[i]=true;}}
+ quoted(quote,{consumed=false}={}){const s=this.state;if(!s?.tokens)return;const size=quote.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192,224].includes(t.type)?1:3),0),at=quote.tokenPointer-0x5B81+size;if(at>=0&&at<s.tokens.length){s.tokens[at]=consumed?144:192;s.tokenKnown[at]=true;}}
  rowByte(text,row,byteX){
   let result=0;for(let column=0;column<36;column++){
    const c=text[column]||' ',code=c==='£'?96:c.charCodeAt(0),glyph=this.data.spectrum.glyphs[code-this.data.spectrum.first];

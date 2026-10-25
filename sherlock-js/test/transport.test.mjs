@@ -47,11 +47,10 @@ test('Passenger save/load resumes through Lestrade leaving and the next platform
   assert.equal(left.state.clock.label,row.after.clock.label);assert.equal(left.state.analysis.outcome,'ok');assert.deepEqual(a.game.dump(),b.game.dump());
  }
 });
-test('A prototype limit stays visible after the final empty minute-animation frame',()=>{
- const s=new ClientSession(data,{npc_profile:'world-v5'});let out=s.request('start-command',{command:'WAIT THEN KILL WATSON'});assert(out.running);
- while(out.running)out=s.request('continue-command',{job:out.job});
- assert.deepEqual(out.messages,[]);assert.equal(out.state.clock.label,'Mon 08:05am');assert.equal(out.state.analysis.outcome,'not_translated');assert.match(gameStatus(out.state),/Messaggio del prototipo:.*52/);
- assert(!out.messages.some(m=>m.kind==='narrative'));
+test('A prototype limit cancels partial minute frames and keeps its notice across save/load',()=>{
+ const s=new ClientSession(data,{npc_profile:'world-v5'}),before=s.game.world.dump(),out=s.request('start-command',{command:'WAIT THEN KILL WATSON'});assert.equal(out.running,false);
+ assert.deepEqual(s.game.world.dump(),before);assert.equal(s.game.lastFrames.length,0);assert.equal(out.state.clock.label,'Mon 08:00am');assert.equal(out.state.analysis.outcome,'not_translated');assert.match(gameStatus(out.state),/Messaggio del prototipo:.*52/);
+ assert(out.messages.every(m=>m.kind==='system'));
  const restored=Game.load(data,JSON.parse(JSON.stringify(s.game.dump())));assert.equal(gameStatus(restored.state()),gameStatus(out.state));
 });
 test('Renderer working fields follow glyph layout across controlled name lengths',async()=>{

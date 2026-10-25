@@ -11,6 +11,7 @@ import {RandomInputsUnavailable} from './random.mjs';
 import {RandomDisplay} from './random-display.mjs';
 import {NpcRuntime} from './npc-runtime.mjs';
 import {CommandHistory} from './command-history.mjs';
+import {characterBadge} from './characters.mjs';
 
 export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,23,24,25,26,27,28,31,32,33,34,35,36,37,40,41,46,47,48,49,50];
 const clone=structuredClone;
@@ -40,7 +41,10 @@ export class Game {
   const verb=this.word(node.verb),modifier=this.word(node.modifier),relations=node.groups.flatMap(g=>g.relations).map(id=>this.word(id));
   if(verb==='sit'&&!relations.length)return 40;
   if(['get','climb'].includes(verb)&&relations.join(' ')==='out')return verb==='get'?25:13;
-  if(DIRECTION_NAMES.includes(verb)&&verb)return DIRECTION_NAMES.indexOf(verb);
+  // The conversation form accepts the optional TO: SAY CABBIE and SAY TO
+  // CABBIE select the same action, with the same nominal argument/quote.
+  if(verb==='talk'&&!modifier&&!relations.length&&node.groups.length===1)return 46;
+  if(DIRECTION_NAMES.includes(verb)&&verb&&!modifier&&!relations.length)return DIRECTION_NAMES.indexOf(verb);
   return this.data.actions.find(a=>a.words[0]===verb&&JSON.stringify(a.words.slice(1,3).filter(Boolean))===JSON.stringify(relations)&&(a.words[3]||'')===modifier)?.id
     ||(verb==='wait'&&relations.length===0?49:0);
  }
@@ -86,16 +90,16 @@ export class Game {
   const w=this.world,action=this.action(node),actor=this.actor,subject=actor===w.player?'You':w.name(actor),verb=(base,third=base+'s')=>actor===w.player?base:third,say=(base,tail,third)=>`${subject} ${verb(base,third)}${tail}`,narrative=text=>({kind:'narrative',text}),ok=(messages,cost=1,args=[])=>({messages:messages.map(m=>typeof m==='string'?narrative(m):m),cost,action,args}),reject=text=>({messages:[this.error(text)],cost:0,action,args:[]});
   if(node.all||node.exclusion)throw new UnsupportedFeature('questa forma di ALL/EXCEPT');
   if(node.subject)throw new UnsupportedFeature('asserzioni, informazioni e deduzioni');
-  if(node.quote){
-   for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
-   if(action!==46)throw new UnsupportedFeature('citazioni per questa forma di conversazione');
+  if(node.quote&&action!==46){
+   if(!w.npcs)for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
+   throw new UnsupportedFeature('citazioni per questa forma di conversazione');
   }
   if(!action){if(this.word(node.verb)==='pay'){
    // PAY's first argument must be a money literal; PAY CABBIE fails that
    // semantic preflight before a recipient/action can be selected.
    if(node.groups.length===1&&node.groups[0].noun&&!(node.groups[0].noun&32768))return reject("DON'T BE SILLY.");
    throw new UnsupportedFeature('forma PAY senza TO e relativo passaggio al turno seguente');
-  }return reject(`I DO NOT KNOW THE VERB"${this.word(node.verb).toUpperCase()} "`);}
+  }const words=[node.modifier,node.verb,...node.groups.flatMap(g=>g.relations)].filter(Boolean).map(id=>' '+this.word(id).toUpperCase()).join('');return reject(`I DO NOT KNOW THE VERB"${words}"`);}
   if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
   if(w.dark(actor)&&![33,49,50].includes(action))return reject('SORRY IT IS TOO DARK.');
   if(action===34)return ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf()}]);
@@ -140,15 +144,23 @@ export class Game {
   }
   if(action===46){
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
+   let commands=[];
+   if(node.quote){
+    if(w.npcs&&actor===w.player)this.npcRuntime.consumeQuotes(node);
+    for(const quote of node.quotes||[node.quote])try{commands.push(...this.parser.quoted(quote).nodes);}catch(error){
+     if(!(error instanceof InputError))throw error;
+     if(w.npcs&&error.detail.partialNodes){this.npcRuntime.failedQuote(error.detail.partialNodes);commands=[];break;}
+     throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
+    }
+   }
    if(w.npcs){
     this.npcRuntime.addressee(node.groups[0]);
     if(!w.scheduler.actors.some(a=>a.id===target.entity.id&&a.enabled))throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
-    if(node.quote){const commands=(node.quotes||[node.quote]).flatMap(q=>this.parser.quoted(q).nodes);if(!commands.length)throw new UnsupportedFeature('citazione senza ordine eseguibile');if(commands.some(n=>n.subject))throw new UnsupportedFeature('affermazioni e memoria degli attori');this.npcRuntime.queue(actor,target.entity.id,commands);}
+    if(commands.some(n=>n.subject))throw new UnsupportedFeature('affermazioni e memoria degli attori');if(commands.length)this.npcRuntime.queue(actor,target.entity.id,commands);
     return ok([say('talk',' to '+w.name(target.entity.id)+'.')],1,[target.entity.id]);
    }
    if(target.entity.id!==3||!w.scheduler.actor(3).enabled)throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
    if(node.quote){
-    const commands=(node.quotes||[node.quote]).flatMap(q=>this.parser.quoted(q).nodes);
     if(commands.some(n=>n.subject))throw new UnsupportedFeature('affermazioni e memoria di Watson');
     this.watson.validateRequest(commands);
     if(commands.some(n=>this.action(n)===32)&&!w.random)throw new UnsupportedFeature('saluto di Watson: questa partita precedente non conserva lo stato casuale; salva e usa Riavvia');
@@ -231,19 +243,23 @@ export class Game {
   if(this.ended)return {state:this.state(),messages:[]};
   const entry=this.history.begin('command',input,this.world);
   try{const out=this.submitCommand(input);this.history.finish(entry,this.world,{outcome:out.state.analysis?.outcome??'ok',errors:out.messages.filter(m=>['error','system'].includes(m.kind)).map(m=>m.text)});return out;}
-  catch(error){this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}
+  catch(error){this.cancelFailedInput?.();this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}
+  finally{delete this.cancelFailedInput;}
  }
  submitCommand(input){
   if(this.ended)return {state:this.state(),messages:[]};
+  const checkpoint={world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),conversation:clone(this.conversation),openingPending:this.openingPending};
+  const cancel=()=>{this.world.restore(checkpoint.world);for(const key of ['pending','analysis','lastInput','ended','conversation','openingPending'])this[key]=clone(checkpoint[key]);this.lastFrames=[];};
+  this.cancelFailedInput=cancel;
   const messages=[],actions=[],units=[];this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1;
   try{
-   if(input.trim()==='@'){if(this.pending)throw new InputError('syntax_error','WHAT ?');input=this.lastInput||'';}
+   if(input.trim()==='@'){if(this.pending)throw new UnsupportedFeature('ripetizione @ durante un chiarimento');input=this.lastInput||'';}
    if(this.world.display)this.sourceDisplay.command(normalizeInput(input));
    lexed=this.lexer.scan(input);this.lastInput=input;if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
-    if(this.world.npcs&&(parsed.nodes.length>1||parsed.nodes.some(n=>n.all&&!this.supportsCollective(n)||n.quotes?.length>1)))this.npcRuntime.invalidateParserProjection();
+    if(this.world.npcs&&(parsed.nodes.length>1||parsed.nodes.some(n=>n.all&&!this.supportsCollective(n)||n.quotes?.length>1)))throw new UnsupportedFeature('durata dei record per questa forma di comando multiplo o collettivo');
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;
      throw new UnsupportedFeature('controllo '+parsed.control+' (usare i pulsanti del motore JS)');
@@ -261,7 +277,7 @@ export class Game {
       if(outcome.cost){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.advance(outcome.cost,{action:outcome.action,args:outcome.args,messages,actions});}}
      catch(error){this.world.restore(before);if(before.npcs?.parserPending)this.pending=clone(pendingBefore);messages.length=messageCount;actions.length=actionCount;this.lastFrames.length=frameCount;throw error;}
 
-     if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)this.npcRuntime.invalidateParserProjection({preserveDisplay:true});break;}
+     if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)throw new UnsupportedFeature('durata dei record per questo chiarimento');break;}
      }
      }finally{if(this.world.npcs&&originalNode.all&&syntaxAllocated)this.npcRuntime.finishCollective();}
      if(this.pending)break;
@@ -269,11 +285,13 @@ export class Game {
     if(this.pending)break;
    }
   }catch(error){
-   if(error instanceof InputError){if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind))this.npcRuntime.invalidateParserProjection();this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£'),...(error.kind==='syntax_error'?{screen_events:[{op:'counter',value:0},{op:'wide'}]}:{})});}
-   else if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature??'original-random-input',notice:error.message,units,actions};messages.push({kind:'system',text:error.message});}
-   else throw error;
+   if(error instanceof InputError){if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£'),...(error.kind==='syntax_error'?{screen_events:[{op:'counter',value:0},{op:'wide'}]}:{})});}
+   else{cancel();messages.length=0;actions.length=0;
+    if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature??'original-random-input',notice:error.message,units,actions};messages.push({kind:'system',text:error.message});}
+    else throw error;
+   }
   }
-  if(this.world.display){if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error();this.sourceDisplay.prompt();}
+  if(this.world.display&&this.analysis.outcome!=='not_translated'){if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'),{inline:this.analysis.outcome==='clarification'});this.sourceDisplay.prompt();}
   if(this.pending)this.analysis.continuation_slot=this.pending.slot;
   return {state:this.state(),messages};
  }
@@ -284,7 +302,7 @@ export class Game {
  }
  scene(){const before=this.world.dump();try{return this.text.scene({full:!this.world.dark()});}finally{this.world.restore(before);}}
  state(){const w=this.world,room=w.rooms[w.roomOf()],dark=w.dark();
-  return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:w.npcs?.initialSeed??null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>e.person&&![1,100].includes(e.id)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:e.id===0?'SH':e.id===3?'W':e.id===2?'IL':e.id===31?'C1':e.id===34?'C2':String(e.id),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,prototype_notice:this.analysis?.notice??null,engine:'javascript-autonomous',ai:w.npcs?'domain-programs-partial':w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.npcs?.profile??w.scheduler.actor(3).behavior?.profile??null,greeting_variant:w.npcs?'original-arithmetic-shared-world':w.random?'original-arithmetic-historical-watson':'unimplemented-original-random-source',random_state:w.random?{profile:w.random.profile,accumulator:w.random.seed,cursor:w.random.cursor,draws:w.random.draws}:null,fidelity:{status:'partial-functional-rewrite',original_seed_parity:false,full_game_equivalence:false},cab_scope:w.npcs?'service-program-journey-fare-refund':'arrival-and-containment',scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
+  return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:w.npcs?.initialSeed??null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>e.person&&![1,100].includes(e.id)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:characterBadge(e,w.player),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,prototype_notice:this.analysis?.notice??null,engine:'javascript-autonomous',ai:w.npcs?'domain-programs-partial':w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.npcs?.profile??w.scheduler.actor(3).behavior?.profile??null,greeting_variant:w.npcs?'original-arithmetic-shared-world':w.random?'original-arithmetic-historical-watson':'unimplemented-original-random-source',random_state:w.random?{profile:w.random.profile,accumulator:w.random.seed,cursor:w.random.cursor,draws:w.random.draws}:null,fidelity:{status:'partial-functional-rewrite',original_seed_parity:false,full_game_equivalence:false},cab_scope:w.npcs?'service-program-journey-fare-refund':'arrival-and-containment',scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
  }
  teleport(room){if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const entry=this.history.begin('teleport',String(room).padStart(3,'0')+' · '+this.world.rooms[room].name,this.world);try{const out=this.teleportWorld(room);this.history.finish(entry,this.world,{outcome:out.messages.some(m=>m.kind==='system')?'not_translated':'ok',errors:out.messages.filter(m=>m.kind==='system').map(m=>m.text)});return out;}catch(error){this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}}
  teleportWorld(room){const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene({full:!this.world.npcs}),messages=[{kind:'narrative',text:scene,image_room:room}];this.projectMessages(messages);return {state:this.state(),messages};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}

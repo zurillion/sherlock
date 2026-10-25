@@ -18,9 +18,10 @@ export class RuntimeRandom {
   if(this.projector){const projected=this.projector(address);if(projected!==null)return projected;}
   for(const range of this.inputs.source.ranges)if(address>=range.start&&address<range.start+range.values.length)return range.values[address-range.start];
   if(address>=0x4000&&address<0x5D80&&this.display){const value=this.display.read(address);if(value!==null)return value;}
-  // By the time actions run, the quotation list has been parsed and transferred
-  // to typed requests. Its head (9FEC/9FED) is therefore empty, not the request head.
-  if(address===0x9FEC||address===0x9FED)return 0;
+  // The historical Watson host consumes quotations eagerly. In world-v5 the
+  // domain projector owns this list: failed recipient resolution can retain
+  // nodes, so an unknown head must never fall back to an invented zero.
+  if(!this.world.npcs&&(address===0x9FEC||address===0x9FED))return 0;
   if(this.inputs.npcBytes.has(address)){
    if(this.world.scheduler.actors.some(a=>a.enabled&&![0,3].includes(a.id)))throw new RandomInputsUnavailable('Proiezione dei programmi degli altri NPC ancora da collegare.');
    return this.inputs.npcBytes.get(address);

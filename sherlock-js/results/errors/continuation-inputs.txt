@@ -1,0 +1,53 @@
+OPEN DOOR
+JUMP
+YOUR
+SAY WATSON "OPEN YOUR DOOR WEST"
+I
+SAY WATSON "HELLO"
+I
+OPEN DOOR
+NORTH SOUTH
+YOUR
+I
+BOGUS
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I

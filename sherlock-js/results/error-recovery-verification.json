@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-25",
+  "implementation": "javascript-autonomous",
+  "profile": "world-v5",
+  "full_game_equivalence": false,
+  "unrestricted_seed_parity": false,
+  "source_runtime": "Standalone JavaScript domain operations. Native executable is an offline oracle only; fixtures are never runtime inputs.",
+  "native_profile": {
+    "seed": 1,
+    "active_actor_slots": 24,
+    "free_initial_look": true,
+    "graphics": "Off after first native prompt",
+    "input": "Uppercase injected keys, no idle timeouts, immediate MORE",
+    "teleports": 0
+  },
+  "references": [
+    {
+      "fixture": "test/fixtures/command-errors-reference.json",
+      "sha256": "126cfdac1032cd1096da8f7b75adad90afd2c6deb9a5848aeb01edbbb85d2f91",
+      "recorded_commands": 22,
+      "certified_commands": 20,
+      "draws": 60,
+      "source_reads": 120,
+      "last_clock": "Mon 08:19am",
+      "excluded_suffix": "Last two native observations include EXCEPT, which remains unimplemented."
+    },
+    {
+      "fixture": "test/fixtures/command-errors-continuation-reference.json",
+      "sha256": "9943d0aefb24e8e3b416cd3e66282e6a05123f4c30761ac7ffbe9d6e0722beeb",
+      "recorded_commands": 53,
+      "certified_commands": 53,
+      "draws": 126,
+      "source_reads": 258,
+      "last_clock": "Mon 08:47am"
+    }
+  ],
+  "compared": [
+    "Every random draw: actor, width, mixOffset, seed, cursor, exact input addresses and values, result, successor seed and cursor",
+    "Full clock and random successor",
+    "All 24 actor program points, saved arguments and deadlines",
+    "All 110 entities: parent, rooms, attributes and status",
+    "All 106 room flags",
+    "All 752 arena bytes including released bytes, free-list head and six syntax/context/request list payloads",
+    "Exact 129 editor bytes and 127 token bytes",
+    "Exact upper bitmap SHA256 and all 1280 lower bitmap bytes",
+    "Every owned working field among 5CEE, 5CF5, 5D00..5D0F",
+    "Original error messages and parser-source validity"
+  ],
+  "normalization": "None for random inputs, state or bitmaps.",
+  "save_load": {
+    "save_after_command": 17,
+    "additional_inventory_commands": 40,
+    "comparison": "Every response and complete logical dump, including retained quotation residue and random-source dependencies"
+  },
+  "prototype_protection": {
+    "scope": "Whole-input atomic cancellation for missing features or dependencies, distinct from original in-game errors",
+    "checks": [
+      "Unsupported input during a clarification preserves its retained record and allows the next valid reply",
+      "WAIT followed by an unsupported action in the same line cancels world effects, time and presentation frames",
+      "Unexpected exceptions restore the last valid state before reaching the UI",
+      "Diagnostic history retains attempted commands independently of the game/random source"
+    ]
+  },
+  "badges": ["SH", "IL", "W", "CS", "DS", "BP", "PF", "G", "CK", "MD", "P1", "P2", "TF", "C1", "C2", "MB", "MJ", "GA"],
+  "tests": {
+    "command": "node --test --test-concurrency=1 test/*.test.mjs",
+    "log": "results/errors/full-suite.log",
+    "focused_cases": 7,
+    "total": 325,
+    "passed": 325,
+    "failed": 0,
+    "cancelled": 0
+  },
+  "browser": {
+    "confirmed": false,
+    "reason": "Final QA result retrieval was not executed: automatic approval review failed due to exhausted usage allowance. This is not a reported gameplay test failure.",
+    "user_game_modified": false,
+    "server_restarted": false
+  },
+  "limits": [
+    "Stale retained quotation followed by another quotation is explicitly unsupported and safely cancelled",
+    "Older saves already lacking reconstructed source data are not retroactively repaired",
+    "Evidence covers the declared profiles and commands, not all parser forms or seeds"
+  ]
+}

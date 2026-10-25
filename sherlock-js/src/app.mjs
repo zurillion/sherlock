@@ -35,7 +35,7 @@ $('compat-scale').onchange=()=>{savePreference('sherlock-compat-scale',$('compat
 async function showMessages(messages,options){
  const native=[];
  for(const message of messages){
-  if(message.kind==='system'){$('game-status').textContent='Messaggio del prototipo: '+message.text;$('game-status').hidden=false;continue;}
+  if(message.kind==='system'){$('game-status').textContent=state?.prototype_notice===message.text?gameStatus(state):'Messaggio del prototipo: '+message.text;$('game-status').hidden=false;continue;}
   appendScene(message);native.push(message);
  }
  if(spectrum.active)await spectrum.writeMessages(native,options);

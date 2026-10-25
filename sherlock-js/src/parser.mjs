@@ -20,6 +20,7 @@ export class Parser {
  }
  unit(tokens,start=0,{pending=null,mode=1}={}){
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false;
+  const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current])});};
   const peek=()=>tokens[index]||{type:192},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
   const nominal=()=>{
    const group=emptyGroup();let article=false,started=false,qualified=false;

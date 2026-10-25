@@ -80,7 +80,7 @@ export class NpcRuntime {
  writeSyntax(node,records,p){nodeWords(node).forEach((v,i)=>records.arena.putWord(p+2*i,v));}
  syntaxRecord(node,records){const p=records.arena.allocate(30);this.writeSyntax(node,records,p);return p;}
  parsed(node,{retain=false,collective=false,answer=null}={}){this.use(({records})=>{
-  const raw=answer??node,p=this.syntaxRecord(raw,records),quotes=(raw.quotes||[raw.quote]).filter(Boolean).map(quote=>{const q=records.arena.allocate(2);if(quote.tokenPointer)records.arena.putWord(q,quote.tokenPointer);return q;});let current=p;
+  const raw=answer??node,p=this.syntaxRecord(raw,records);this.recordQuotes(raw,records);let current=p;
   const pending=this.state.parserPending;
   if(pending){
    // AE6A appends the answer to the pending list. AD6C merges a verbless
@@ -93,8 +93,17 @@ export class NpcRuntime {
   records.heads.syntax=retain?current:0;this.state.parserPending=retain?current:null;
   if(collective&&!retain)records.heads.parsed=current;
   else if(!retain)records.arena.release(current);
-  for(const q of quotes)records.arena.release(q);
  });}
+ recordQuotes(node,records){for(const quote of(node.quotes||[node.quote]).filter(Boolean)){records.append('quotes',[quote.tokenPointer&255,quote.tokenPointer>>>8]);this.game.sourceDisplay.quoted(quote);}}
+ consumeQuotes(node){this.use(({records})=>{const quotes=(node.quotes||[node.quote]).filter(Boolean);if(records.records('quotes').length!==quotes.length)throw new UnsupportedFeature('citazione precedente rimasta nella coda del parser');for(const quote of quotes){const p=records.heads.quotes;if(!p||records.arena.word(p)!==quote.tokenPointer)throw new UnsupportedFeature('citazione precedente rimasta nella coda del parser');records.remove('quotes',p);this.game.sourceDisplay.quoted(quote,{consumed:true});}});}
+ failedParse(nodes){this.use(({records})=>{
+  // AAB2 allocates before parsing. D7B3/D7B6 release both temporary lists
+  // on failure, leaving the written bytes (and any quotation nodes) intact.
+  for(const node of nodes){const p=this.syntaxRecord(node,records),tail=records.records('syntax').at(-1);if(tail)records.arena.putWord(tail-2,p);else records.heads.syntax=p;this.recordQuotes(node,records);}
+  for(const list of ['syntax','parsed'])while(records.heads[list])records.remove(list,records.heads[list]);
+  this.state.parserPending=null;
+ });}
+ failedQuote(nodes){this.use(({records})=>{const temporary=[];for(const node of nodes){const p=this.syntaxRecord(node,records);if(temporary.length)records.arena.putWord(temporary.at(-1)-2,p);temporary.push(p);}for(const p of temporary)records.arena.release(p);});}
  // D835 preserves the current node while ALL's search has more references.
  // The final unsuccessful search (D86A) releases it, after the last paid turn.
  finishCollective(){this.use(({records})=>{if(records.heads.parsed)records.remove('parsed',records.heads.parsed);});}

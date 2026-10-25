@@ -64,7 +64,7 @@ export class Lexer {
     }
    }
    else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));}
-   if(!result||result.type===208){const source=normalized.slice(start).split(' ')[0].replaceAll('.',' ');throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized});}
+   if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized});}
    tokens.push({...result,start,end:pos,source:normalized.slice(start,pos)});
   }
   tokens.push({type:192,value:0,word:null,start:pos,end:pos,source:''});

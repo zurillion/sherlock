@@ -1,5 +1,12 @@
 # Stato attuale: NPC v5
 
+25 October, command recovery: [COMANDI-ERRORI-E-SIGLE.md](COMANDI-ERRORI-E-SIGLE.md)
+and `results/error-recovery-verification.json` add 73 native command comparisons,
+including exact lower-channel bitmaps and editor/token buffers. SAY accepts
+optional TO. Reconstructed errors preserve parser/source lifetimes; unsupported
+inputs roll back the entire line as an explicit prototype protection. This
+extends the declared corpus, not whole-game parity.
+
 25 October, Lestrade continuation: [LESTRADE-ISPEZIONI.md](LESTRADE-ISPEZIONI.md)
 and `results/lestrade-verification.json` document departure notices, the 11:42
 EXAMINE/source-field failure, house interviews and the seed-1 natural route

@@ -67,5 +67,5 @@ export function engineStatus(state){
 
 export function gameStatus(state){
  const suspended=state.scheduler.actors.filter(a=>a.suspension);
- return state.game_over?'Partita terminata. Usa Riavvia per ricominciare.':state.prototype_notice&&!state.command_running?'Messaggio del prototipo: '+state.prototype_notice:suspended.length?'Motore JavaScript: '+suspended.map(a=>a.suspension.feature).join('; '):'';
+ return state.game_over?'Partita terminata. Usa Riavvia per ricominciare.':state.prototype_notice&&!state.command_running?'Messaggio del prototipo: '+state.prototype_notice+' Comando annullato: puoi continuare con un altro comando.':suspended.length?'Motore JavaScript: '+suspended.map(a=>a.suspension.feature).join('; '):'';
 }
