@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {buildRandomInputs} from './build-random-inputs.mjs';
 import {buildDescriptionSearch} from './build-description-search.mjs';
+import {extendObjectPrograms} from './build-object-programs.mjs';
 const target=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const project=process.argv.includes('--project')?resolve(process.argv[process.argv.indexOf('--project')+1]):resolve(target,'..');
 const analysis=join(project,'sherlock-analisi'),read=async path=>JSON.parse(await readFile(join(analysis,path),'utf8'));
@@ -43,7 +44,7 @@ for(const r of rooms)if(r.description)ensure(r.description);
 for(const e of entities)if(e.description)ensure(e.description);
 const assets=await read('locazioni/spectrum-assets.json');
 const cabCatalog=await read('cab/results/cab-data.json');
-const npcPrograms=await read('ai/results/domain-programs.json');
+const npcPrograms=extendObjectPrograms(await read('ai/results/domain-programs.json'),payload);
 if(npcPrograms.source_sha256!==sha)throw Error('NPC programs refer to a different source payload');
 // TELL is an actor/topic table, not a search in descriptions or fact memory.
 // FE is the default speaker, used only when that actor has no own table.

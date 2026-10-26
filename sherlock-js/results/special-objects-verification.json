@@ -1,0 +1,502 @@
+{
+  "date": "2026-10-26",
+  "point": 1,
+  "status": "functional implementation completed for the supplied game database",
+  "implementation": "standalone JavaScript domain logic; no CPU or original-engine backend",
+  "profile": "world-v5",
+  "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "full_game_equivalence": false,
+  "unrestricted_seed_parity": false,
+  "native_profile": {
+    "active_actor_slots": 24,
+    "free_initial_look": true,
+    "graphics": "Disabled after first original prompt",
+    "input": "Uppercase injected keys; immediate MORE; no idle timeouts",
+    "natural_play_reference": "special-disguises-reference.json",
+    "controlled_setup_scope": "Explicit # Setup rows change only declared logical fields, without output. These are controlled native cases, not natural-play certificates."
+  },
+  "features": [
+    "Identity transfer 0/1/100, direct possessions, context ownership and exact identity references",
+    "Burning, singed and burnt note stages, including callbacks between stages",
+    "Both safes, repeated OPEN, calendar branches and local story endings",
+    "Drawer/false bottom, trash/torn note, bookcase/passages and detailed inspection table",
+    "Tuesday east-bank stream clue with and without Lestrade",
+    "Original LOCK/UNLOCK refusals; this database contains no executable lock/unlock rules",
+    "Recursive eight-bit weight, containment barriers, perception and light",
+    "Working versus persistent NPC arguments after failed child returns; consecutive deferred requests",
+    "Original text spaces, case switches on buffered words and early return without CR",
+    "Exact browser word packets and save/load of new state"
+  ],
+  "references": [
+    {
+      "fixture": "test/fixtures/special-disguises-reference.json",
+      "sha256": "466ee43556ffc761998499523d988c99cbff74f002d546d6e6e6ce09c991cf55",
+      "inputs": "results/special-objects/disguises-inputs.txt",
+      "seed": 1,
+      "commands": 23,
+      "controlled_setups": 0,
+      "draws": 68,
+      "source_reads": 164,
+      "last_clock": "Mon 08:25am"
+    },
+    {
+      "fixture": "test/fixtures/special-clues-reference.json",
+      "sha256": "3017a306de1567863c07f560660d475c4ee86b0ce7e8e578b6b448052ad7d445",
+      "inputs": "results/special-objects/clues-inputs.txt",
+      "seed": 1,
+      "commands": 30,
+      "controlled_setups": 5,
+      "draws": 221,
+      "source_reads": 474,
+      "last_clock": "Mon 09:28am"
+    },
+    {
+      "fixture": "test/fixtures/special-controls-reference.json",
+      "sha256": "3b8c641b013ade8195ce33307e7c7ea6020d53e4d566d937cc03dece29f45b85",
+      "inputs": "results/special-objects/controls-inputs.txt",
+      "seed": 1,
+      "commands": 14,
+      "controlled_setups": 0,
+      "draws": 38,
+      "source_reads": 76,
+      "last_clock": "Mon 08:13am"
+    },
+    {
+      "fixture": "test/fixtures/special-disguise-objects-reference.json",
+      "sha256": "e409933590054d9f4ed732e4eb62cb952926499735f122715961fc96cfada107",
+      "inputs": "results/special-objects/disguise-object-inputs.txt",
+      "seed": 1,
+      "commands": 15,
+      "controlled_setups": 5,
+      "draws": 85,
+      "source_reads": 186,
+      "last_clock": "Mon 08:32am"
+    },
+    {
+      "fixture": "test/fixtures/special-note-reference.json",
+      "sha256": "e40f947fd79bccaee981d3f03a2a746396509da6727360377a0557d2fbe5070e",
+      "inputs": "results/special-objects/note-inputs.txt",
+      "seed": 1,
+      "commands": 12,
+      "controlled_setups": 4,
+      "draws": 33,
+      "source_reads": 66,
+      "last_clock": "Mon 08:11am"
+    },
+    {
+      "fixture": "test/fixtures/special-stream-reference.json",
+      "sha256": "70ed9ac7df7f44be4beee930fc9c6818053676964142f9f41263b3a05751238b",
+      "inputs": "results/special-objects/stream-inputs.txt",
+      "seed": 1,
+      "commands": 10,
+      "controlled_setups": 5,
+      "draws": 94,
+      "source_reads": 220,
+      "last_clock": "Tue 08:41am"
+    },
+    {
+      "fixture": "test/fixtures/special-safe-tuesday-reference.json",
+      "sha256": "7711115051c01709614aaba8ff35a75a3d0369c18129da02ed8ab4af592da512",
+      "inputs": "results/special-objects/safe-tuesday-inputs.txt",
+      "seed": 1,
+      "commands": 6,
+      "controlled_setups": 1,
+      "draws": 129,
+      "source_reads": 280,
+      "last_clock": "Tue 08:50am"
+    },
+    {
+      "fixture": "test/fixtures/special-safe-alone-reference.json",
+      "sha256": "611698521f540ea5bd7140cfb25865cf2b6128779c7f9106226d6789ef16b213",
+      "inputs": "results/special-objects/safe-monday-alone-inputs.txt",
+      "seed": 1,
+      "commands": 1,
+      "controlled_setups": 1,
+      "draws": 0,
+      "source_reads": 0,
+      "last_clock": "Mon 08:00am"
+    },
+    {
+      "fixture": "test/fixtures/special-safe-basil-reference.json",
+      "sha256": "2933f3952f19046d3169b54d36ee49cd4153bc00a6e0bbf99784da73d8171a89",
+      "inputs": "results/special-objects/safe-monday-basil-inputs.txt",
+      "seed": 1,
+      "commands": 1,
+      "controlled_setups": 1,
+      "draws": 0,
+      "source_reads": 0,
+      "last_clock": "Mon 08:00am"
+    },
+    {
+      "fixture": "test/fixtures/special-requests-reference.json",
+      "sha256": "b9a7a39145b25195f3e16f4a5a816b9bb702a76a65ff9e255e3e01370b224a87",
+      "inputs": "results/special-objects/requests-inputs.txt",
+      "seed": 1,
+      "commands": 16,
+      "controlled_setups": 3,
+      "draws": 47,
+      "source_reads": 94,
+      "last_clock": "Mon 08:24am"
+    }
+  ],
+  "totals": {
+    "commands": 128,
+    "controlled_setups": 25,
+    "draws": 715,
+    "source_reads": 1560
+  },
+  "compared": [
+    "Complete initial state and every subsequent event",
+    "Every draw: actor, width, mixOffset, seed/cursor, each source address and value, result and successor",
+    "Clock, all 24 actor program points, arguments and deadlines, player identity and failure budget",
+    "All 110 entity parents, rooms, attributes, status, properties, noun, qualifiers and descriptions; monetary qualifier storage is separately encoded money",
+    "All 106 room flags and all eleven fact records",
+    "All 752 arena bytes, free head and list payloads, including released records",
+    "129 editor bytes, 127 token bytes, exact upper SHA256 and all 1280 lower bitmap bytes",
+    "All owned fields among 5CEE, 5CF5 and 5D00..5D0F",
+    "Original errors and actual browser text packets, with no normalization"
+  ],
+  "controlled_physics": {
+    "fixture": "test/fixtures/object-physics-reference.json",
+    "sha256": "cb5ff0e69de29f0b3040fe0b36b926d8e91a94a896584ccf209dd88fe7f41ab3",
+    "recursive_weight": 448,
+    "perception_barriers": 576,
+    "light": 2240,
+    "scope": "Isolated original D2F2/C8C6, C863/C821 and D078 after an explicit logical setup; no actor turns or random draws. All other light sources disabled in light cases.",
+    "prior_direct_bulk_cases": 94
+  },
+  "save_load": "Exact state roundtrip and remaining native sequence after both identities, revealed clues, buffered bookcase text, pending Watson object request, opened safe and both terminal branches",
+  "mixed_listing": {
+    "roundtrip_equal": true,
+    "instructions": 394,
+    "bytes_roundtripped": 1020,
+    "regions": [
+      {
+        "start": "B6DA",
+        "end_exclusive": "B77E",
+        "kind": "code",
+        "label": "Scenery matching and nominal groups"
+      },
+      {
+        "start": "B77E",
+        "end_exclusive": "B77F",
+        "kind": "data",
+        "label": "Mutable end-of-fragment flag"
+      },
+      {
+        "start": "B77F",
+        "end_exclusive": "B83C",
+        "kind": "code",
+        "label": "Text-data search reader and two-byte call records"
+      },
+      {
+        "start": "D2ED",
+        "end_exclusive": "D33C",
+        "kind": "code",
+        "label": "Direct-child bulk, recursive weight, signed overflow clamp"
+      },
+      {
+        "start": "DCA2",
+        "end_exclusive": "DCC1",
+        "kind": "code",
+        "label": "Ordinary TAKE predicate"
+      },
+      {
+        "start": "DCC1",
+        "end_exclusive": "DCC5",
+        "kind": "data",
+        "label": "TAKE header: class 9, duration 1, predicate DCA2"
+      },
+      {
+        "start": "DCC5",
+        "end_exclusive": "DCD2",
+        "kind": "code",
+        "label": "Ordinary TAKE body"
+      },
+      {
+        "start": "DE9D",
+        "end_exclusive": "DEA4",
+        "kind": "data",
+        "label": "Rule header: object.open"
+      },
+      {
+        "start": "DEA4",
+        "end_exclusive": "DEAF",
+        "kind": "code",
+        "label": "OPEN body"
+      },
+      {
+        "start": "DEC1",
+        "end_exclusive": "DECA",
+        "kind": "data",
+        "label": "Placement header: classes A/8, duration 1, masks and predicate DED9"
+      },
+      {
+        "start": "DECA",
+        "end_exclusive": "DF02",
+        "kind": "code",
+        "label": "Placement body and bulk predicate"
+      },
+      {
+        "start": "DF49",
+        "end_exclusive": "DF7E",
+        "kind": "code",
+        "label": "EXAMINE and shared inspection"
+      },
+      {
+        "start": "DF7E",
+        "end_exclusive": "DF80",
+        "kind": "data",
+        "label": "Rule header: object.takeNote"
+      },
+      {
+        "start": "DF80",
+        "end_exclusive": "DF85",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "DF85",
+        "end_exclusive": "DF8A",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "DF8A",
+        "end_exclusive": "DF8B",
+        "kind": "data",
+        "label": "Object domain operation: return.success"
+      },
+      {
+        "start": "DF8B",
+        "end_exclusive": "DF8D",
+        "kind": "data",
+        "label": "Rule header: object.quenchNote"
+      },
+      {
+        "start": "DF8D",
+        "end_exclusive": "DFA7",
+        "kind": "code",
+        "label": "Quench or retain burnt note"
+      },
+      {
+        "start": "DFA7",
+        "end_exclusive": "DFAB",
+        "kind": "data",
+        "label": "Rule header: object.openSafe"
+      },
+      {
+        "start": "DFAB",
+        "end_exclusive": "DFB0",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "DFB0",
+        "end_exclusive": "DFB5",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "DFB5",
+        "end_exclusive": "DFB6",
+        "kind": "data",
+        "label": "Object domain operation: return.success"
+      },
+      {
+        "start": "DFB6",
+        "end_exclusive": "DFB8",
+        "kind": "data",
+        "label": "Rule header: object.safeEvent"
+      },
+      {
+        "start": "DFB8",
+        "end_exclusive": "DFE3",
+        "kind": "code",
+        "label": "Safe calendar test and terminal branches"
+      },
+      {
+        "start": "E03A",
+        "end_exclusive": "E08D",
+        "kind": "code",
+        "label": "Transfer actor identity and context ownership"
+      },
+      {
+        "start": "E0A0",
+        "end_exclusive": "E0A2",
+        "kind": "data",
+        "label": "Rule header: object.inspectStream"
+      },
+      {
+        "start": "E0A2",
+        "end_exclusive": "E0A7",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "E0A7",
+        "end_exclusive": "E0AC",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "E0AC",
+        "end_exclusive": "E0AD",
+        "kind": "data",
+        "label": "Object domain operation: return.success"
+      },
+      {
+        "start": "E0AD",
+        "end_exclusive": "E0B1",
+        "kind": "data",
+        "label": "Rule header: object.streamClue"
+      },
+      {
+        "start": "E0B1",
+        "end_exclusive": "E0E0",
+        "kind": "code",
+        "label": "Tuesday stream clue"
+      },
+      {
+        "start": "E0E0",
+        "end_exclusive": "E0E2",
+        "kind": "data",
+        "label": "Rule header: object.inspectTrash"
+      },
+      {
+        "start": "E0E2",
+        "end_exclusive": "E0E7",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "E0E7",
+        "end_exclusive": "E0EA",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "E0EA",
+        "end_exclusive": "E0EB",
+        "kind": "data",
+        "label": "Object domain operation: return.success"
+      },
+      {
+        "start": "E0EB",
+        "end_exclusive": "E0ED",
+        "kind": "data",
+        "label": "Rule header: object.revealNote"
+      },
+      {
+        "start": "E0ED",
+        "end_exclusive": "E0F2",
+        "kind": "code",
+        "label": "Reveal torn note"
+      },
+      {
+        "start": "E0F2",
+        "end_exclusive": "E0F4",
+        "kind": "data",
+        "label": "Rule header: object.inspectDrawer"
+      },
+      {
+        "start": "E0F4",
+        "end_exclusive": "E0F9",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "E0F9",
+        "end_exclusive": "E0FC",
+        "kind": "data",
+        "label": "Object domain operation: rule"
+      },
+      {
+        "start": "E0FC",
+        "end_exclusive": "E0FD",
+        "kind": "data",
+        "label": "Object domain operation: return.success"
+      },
+      {
+        "start": "E0FD",
+        "end_exclusive": "E0FF",
+        "kind": "data",
+        "label": "Rule header: object.revealBottom"
+      },
+      {
+        "start": "E0FF",
+        "end_exclusive": "E104",
+        "kind": "code",
+        "label": "Reveal false bottom"
+      },
+      {
+        "start": "E104",
+        "end_exclusive": "E106",
+        "kind": "data",
+        "label": "Rule header: object.inspectBookcase"
+      },
+      {
+        "start": "E106",
+        "end_exclusive": "E135",
+        "kind": "code",
+        "label": "Bookcase discovery and early return"
+      },
+      {
+        "start": "E135",
+        "end_exclusive": "E13E",
+        "kind": "data",
+        "label": "Rule header: object.inspectClosely"
+      },
+      {
+        "start": "E13E",
+        "end_exclusive": "E16B",
+        "kind": "code",
+        "label": "Detailed inspection body and table lookup"
+      },
+      {
+        "start": "E16B",
+        "end_exclusive": "E17B",
+        "kind": "data",
+        "label": "Detailed inspection entity/text table; FF terminator"
+      }
+    ],
+    "scope": "Known observed boundaries only; byte identity alone does not establish classification or functional parity."
+  },
+  "tests": {
+    "command": "node --test --test-concurrency=2 test/*.test.mjs",
+    "tests": 344,
+    "passed": 344,
+    "failed": 0,
+    "log": "results/special-objects/tests.log",
+    "log_sha256": "4c97353371c70d63940c7d4febce2a2e2843ef14a3ec34e86a1d15269e217059",
+    "additional_initial_state_tests": {
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "log": "results/special-objects/initial-state-tests.log",
+      "log_sha256": "83ac51758fe0c6ff209154d1121e45b5afd0089e70d67d8a78eb1dd5624587f1"
+    }
+  },
+  "http_verification": {
+    "file": "results/special-objects/http.json",
+    "sha256": "fa564ea7247d3b10e16462a0060faf9d7498f02f99e92e94d22e1f924913247f",
+    "assets": 4
+  },
+  "runtime_sha256": {
+    "src/identity.mjs": "82e7658a33068e0f7d129fb79988e3c38e11ea9ae2740f7aa5084e11fb4015a4",
+    "src/special-objects.mjs": "0e2b660591096fe733db93b0cd4c530374a60156fc116285f71373c48948ef7c",
+    "src/npc-program.mjs": "f2610ecb9f061d7ec73b741b994d188737bba2586b82f89e277d4be41ca5a054",
+    "src/npc-runtime.mjs": "2f987622c2561b58705b06a32166d984102628170a90c91185571d341d6a2f83",
+    "src/game.mjs": "f1519bd99384270e214fd8f20e7b686b4a67c2a1025f380decacf50d4ee5d7d4",
+    "src/random-display.mjs": "72620c55a130d33e90519197c14684d78b8013d2702ba39af8a4dfd7260a2d64",
+    "src/text.mjs": "72d38661def1748f1f47afee0c74cdffcd3fc12ed86170ae0c3cf77f0faf78a8",
+    "src/session.mjs": "b50d72916b792666a8e1f3203118fc693ba568739a4ad56d0fa916d64757feba",
+    "src/world.mjs": "798df592b637b2c435c07376942d554f8937bd5505e05765f88131c680bcff50",
+    "src/scheduler.mjs": "0505bc624f2132a3aa59026414c64dc7f7f3059169b735c16fa111e1ddc0f446"
+  },
+  "limits": [
+    "Controlled setups do not establish reachability by ordinary play",
+    "Arbitrary seeds, keyboard timing, native image entropy and complete-game equivalence remain roadmap point 7",
+    "Information/deduction rules, other advanced NPC branches, complex language and other endings remain separate roadmap items"
+  ]
+}

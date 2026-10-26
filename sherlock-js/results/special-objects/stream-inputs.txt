@@ -1,0 +1,16 @@
+# Controlled branches, not a natural-play certificate.
+# Setup: {"room":88,"entities":[{"id":2,"parent":null,"room":88}]}
+EXAMINE CLOSELY STREAM
+# Setup: {"day":1,"room":89}
+EXAMINE CLOSELY STREAM
+# Setup: {"room":88,"entities":[{"id":2,"parent":null,"room":11}]}
+EXAMINE CLOSELY STREAM
+# Setup: {"room":88,"entities":[{"id":2,"parent":null,"room":88}]}
+EXAMINE CLOSELY STREAM
+LOOK
+EXAMINE CLOSELY BRIDGE
+EXAMINE CLOSELY CORPSE
+# Setup: {"room":61}
+EXAMINE CLOSELY BASILS BED
+EXAMINE CLOSELY WINDOW
+EXAMINE WINDOW CLOSELY

@@ -1,0 +1,2 @@
+# Setup: {"room":58,"entities":[{"id":6,"parent":null,"room":35}]}
+OPEN SAFE

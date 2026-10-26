@@ -1,0 +1,7 @@
+# Setup: {"room":58,"day":1}
+OPEN SAFE
+LOOK
+OPEN SAFE
+CLOSE SAFE
+OPEN SAFE
+LOOK

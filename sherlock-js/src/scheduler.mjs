@@ -65,11 +65,11 @@ export class ActorScheduler {
  // still choose only Watson; new v5 sessions run every original actor slot.
  finishPlayer(cost,clock,driver={}){
   if(!word(cost)||cost===0)throw Error('Positive action cost required');
-  if(this.current?.actor!==0||this.index!==0)throw Error('Not at Sherlock input');
+  if(this.current?.actor!==this.actors[0].id||this.index!==0)throw Error('Not at Sherlock input');
   let paid=false;const frames=[];
   const result=this.run({
    prepare:(actor,s)=>driver.prepare?.(actor,s)||{},
-   step:(actor,context,s)=>{if(actor.id!==0)return driver.step?.(actor,context,s)||{type:'blocked',feature:'NPC program not translated'};if(paid)return {type:'input'};paid=true;return {cost};},
+   step:(actor,context,s)=>{if(actor!==this.actors[0])return driver.step?.(actor,context,s)||{type:'blocked',feature:'NPC program not translated'};if(paid)return {type:'input'};paid=true;return {cost};},
    clock:()=>{const frame=clock();frames.push(frame);driver.clock?.(this);},
    callback:(actor,context,s,oldDue)=>driver.callback?.(actor,context,s,oldDue)
   });
@@ -78,7 +78,7 @@ export class ActorScheduler {
  }
  dump(){return {version:1,actors:copy(this.actors),tick:this.tick,minutes:this.minutes,index:this.index,phase:this.phase,current:copy(this.current),service:this.service,signals:copy(this.signals),requests:copy(this.requests),trace:copy(this.trace)};}
  static load(saved){
-  if(saved?.version!==1||!Array.isArray(saved.actors)||saved.actors.length!==24||saved.actors.some((a,i)=>a.id!==ACTOR_ORDER[i]||!word(a.due)||typeof a.enabled!=='boolean')||!word(saved.tick)||!Number.isSafeInteger(saved.minutes)||saved.minutes<0||!Number.isInteger(saved.index)||saved.index<0||saved.index>24||!['tick','visit'].includes(saved.phase)||!Array.isArray(saved.signals)||!Array.isArray(saved.requests)||!Array.isArray(saved.trace))throw Error('Invalid actor scheduler save');
+  if(saved?.version!==1||!Array.isArray(saved.actors)||saved.actors.length!==24||saved.actors.some((a,i)=>(i===0?![0,1,100].includes(a.id):a.id!==ACTOR_ORDER[i])||!word(a.due)||typeof a.enabled!=='boolean')||!word(saved.tick)||!Number.isSafeInteger(saved.minutes)||saved.minutes<0||!Number.isInteger(saved.index)||saved.index<0||saved.index>24||!['tick','visit'].includes(saved.phase)||!Array.isArray(saved.signals)||!Array.isArray(saved.requests)||!Array.isArray(saved.trace))throw Error('Invalid actor scheduler save');
   if(saved.current&&(saved.phase!=='visit'||saved.index>=24||saved.current.actor!==saved.actors[saved.index].id))throw Error('Invalid suspended actor');
   const scheduler=new ActorScheduler(saved.actors);for(const key of ['tick','minutes','index','phase','current','service','signals','requests','trace'])scheduler[key]=copy(saved[key]);return scheduler;
  }

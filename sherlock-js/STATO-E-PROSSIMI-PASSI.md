@@ -1,7 +1,7 @@
 # Stato del gameplay e ordine di completamento
 
-25 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
-le correzioni dei comandi e il primo passaggio sugli oggetti. I documenti delle
+26 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
+il completamento delle regole degli oggetti e delle identità. I documenti delle
 fasi precedenti conservano risultati storici: il cab e gli itinerari di Lestrade
 sono già collegati, non vanno considerati interamente mancanti.
 
@@ -12,21 +12,26 @@ sono già collegati, non vanno considerati interamente mancanti.
 risoluzione congiunta degli argomenti, errori e relativo stato sorgente.
 Vedere [OGGETTI-E-CONTENITORI.md](OGGETTI-E-CONTENITORI.md).
 
-Restano:
+**Secondo passaggio completato:** identità 0/1/100 e travestimenti WEAR/TAKE
+OFF; nota che brucia e sue fasi; casseforti e finali locali; cassetto/falso
+fondo, rifiuti, libreria, ruscello e tabella degli esami approfonditi.
+Sono conservati i rifiuti originali di LOCK/UNLOCK: nel database di questa
+versione non ci sono regole operative per queste azioni.
 
-- travestimenti `WEAR` e `TAKE OFF`: cambiano l'identità nella prima riga della
-  tabella attori, non soltanto un attributo del vestito. Servono identità
-  alternative 0/1/100, proprietà/inventario, pronomi e reazioni degli altri;
-- regole locali della nota che brucia, casseforti, cassetto, falso fondo,
-  esami approfonditi e altri oggetti speciali;
-- `LOCK`/`UNLOCK` dove esistono regole locali; non introdurre un'azione generica
-  per oggetti che l'originale non consente di chiudere a chiave;
-- tutte le combinazioni di luce, peso, possesso e contenitori annidati oltre
-  i confronti dichiarati.
+Peso ricorsivo a otto bit, barriere di contenimento e luce sono confrontati
+in 3.264 casi controllati, oltre ai 94 di ingombro del primo passaggio.
+La verifica include gli ordini differiti a Watson, il cambio d'identità
+nello scheduler e nei contesti, e la ripresa dei nuovi stati da salvataggio.
+Vedere [IDENTITA-E-INDIZI.md](IDENTITA-E-INDIZI.md) e
+`results/special-objects-verification.json`.
 
-**Prossimo intervento consigliato:** identità e travestimenti, prima delle loro
-reazioni NPC. Evita di aggiungere un WEAR che conservi erroneamente Holmes
-come attore zero.
+Questo chiude l'implementazione funzionale del punto 1. L'estensione delle
+prove a ogni combinazione, seed e temporizzazione rimane il punto 7;
+le reazioni dipendenti da informazioni, accuse e identità nei rami ancora
+mancanti restano ai punti 2, 3 e 5.
+
+**Prossimo intervento consigliato:** punto 2, informazioni e deduzioni,
+partendo dall'acquisizione degli indizi e dal loro uso nei colloqui.
 
 ## 2. Informazioni e deduzioni
 
@@ -60,7 +65,7 @@ del tempo e della disponibilità dei personaggi, non solo i messaggi finali.
 ## 6. Comandi, trasporti e calendario ai limiti
 
 FOLLOW/COME WITH e GO TO del giocatore oltre ai percorsi differiti degli NPC;
-LOOK THROUGH/EXAMINE CLOSELY e varianti ancora mancanti; PAY senza TO con
+LOOK THROUGH e varianti non ancora certificate; PAY senza TO con
 importo; servizi testuali SAVE/LOAD/QUIT/PAUSE/PRINT/NOPRINT rispetto ai pulsanti
 del prototipo. Ampliare attese e interruzioni, lunghe permanenze sui mezzi,
 scadenze, mezzanotte e riporti del calendario.

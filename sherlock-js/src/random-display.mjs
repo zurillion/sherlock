@@ -28,14 +28,17 @@ export class RandomDisplay {
    // A word is flushed by the following delimiter, within the same owner.
    if(role&&i+1===role.end){this.flush();if(this.state.started&&(role.kind==='literal-person-name'||role.spaceAfter))this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphFrame=null;}
   }this.glyphFrame=null;this.glyphSpaceDescriptor=null;}
- glyphResidue(c,frame,column,descriptor=0x5C0B){
+ glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
   const put=(at,v)=>{if(at>=0x5CEE&&at<=0x5D0F)s[at]=v;};
-  // C388/C389 also overwrite AF and BC. Their flags/caller count are not
-  // projected here: an older glyph's values cannot remain owned in those
-  // cells. If randomness later needs one, fail explicitly until reconstructed.
+  // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
+  // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
+  // after AND 0. A9F5 supplies the remaining word length as the caller's B.
   for(let at=frame-4;at<frame;at++)if(at>=0x5CEE&&at<=0x5D0F)delete s[at];
+  const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
+  put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
+  if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
   // C38B retains the glyph address; C39C the last scan and bit shift;
   // C39D/C3B8 the unshifted final scan. Only established fields are owned.
   put(frame-8,address&255);put(frame-7,address>>>8);
@@ -49,7 +52,7 @@ export class RandomDisplay {
  invalidateScratch(){if(this.state)this.state.scratch={};}
  newline(){const s=this.state;if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
- flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const c of word){this.glyphResidue(c,this.glyphFrame,s.cursor);this.put(c);}s.pending='';if(exact)s.started=false;}
+ flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}
  feed(c){
   const s=this.state;if(!s)return;
   if(c==='\b'){s.pending=s.pending.slice(0,-1);return;}
@@ -78,7 +81,7 @@ export class RandomDisplay {
   // including the dictionary's initial space; CR scrolls before the prompt.
   for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));
  }
- lexed(tokens){const s=this.state;if(!s?.tokens)return;s.counter=0;s.cursor=0;s.remaining=36; // D719/C142, after successful preflight.
+ lexed(tokens){const s=this.state;if(!s?.tokens)return;s.counter=0;s.cursor=0;s.remaining=36;s.pending=''; // D719/C142 reset the formatter and word-buffer pointer.
   for(let i=0;i<96;i++){s.tokens[i]=0;s.tokenKnown[i]=true;}const bytes=tokens.flatMap(t=>[t.type,...([128,160,176,192].includes(t.type)?[]:[t.value>>>8,t.value&255])]);for(const [i,v]of bytes.entries()){s.tokens[i]=v;s.tokenKnown[i]=true;}}
  quoted(quote,{consumed=false}={}){const s=this.state;if(!s?.tokens)return;const size=quote.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0),at=quote.tokenPointer-0x5B81+size;if(at>=0&&at<s.tokens.length){s.tokens[at]=consumed?144:192;s.tokenKnown[at]=true;}}
  rowByte(text,row,byteX){

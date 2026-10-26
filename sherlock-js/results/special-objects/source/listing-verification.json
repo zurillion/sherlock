@@ -1,0 +1,296 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 394,
+  "bytes_roundtripped": 1020,
+  "regions": [
+    {
+      "start": "B6DA",
+      "end_exclusive": "B77E",
+      "kind": "code",
+      "label": "Scenery matching and nominal groups"
+    },
+    {
+      "start": "B77E",
+      "end_exclusive": "B77F",
+      "kind": "data",
+      "label": "Mutable end-of-fragment flag"
+    },
+    {
+      "start": "B77F",
+      "end_exclusive": "B83C",
+      "kind": "code",
+      "label": "Text-data search reader and two-byte call records"
+    },
+    {
+      "start": "D2ED",
+      "end_exclusive": "D33C",
+      "kind": "code",
+      "label": "Direct-child bulk, recursive weight, signed overflow clamp"
+    },
+    {
+      "start": "DCA2",
+      "end_exclusive": "DCC1",
+      "kind": "code",
+      "label": "Ordinary TAKE predicate"
+    },
+    {
+      "start": "DCC1",
+      "end_exclusive": "DCC5",
+      "kind": "data",
+      "label": "TAKE header: class 9, duration 1, predicate DCA2"
+    },
+    {
+      "start": "DCC5",
+      "end_exclusive": "DCD2",
+      "kind": "code",
+      "label": "Ordinary TAKE body"
+    },
+    {
+      "start": "DE9D",
+      "end_exclusive": "DEA4",
+      "kind": "data",
+      "label": "Rule header: object.open"
+    },
+    {
+      "start": "DEA4",
+      "end_exclusive": "DEAF",
+      "kind": "code",
+      "label": "OPEN body"
+    },
+    {
+      "start": "DEC1",
+      "end_exclusive": "DECA",
+      "kind": "data",
+      "label": "Placement header: classes A/8, duration 1, masks and predicate DED9"
+    },
+    {
+      "start": "DECA",
+      "end_exclusive": "DF02",
+      "kind": "code",
+      "label": "Placement body and bulk predicate"
+    },
+    {
+      "start": "DF49",
+      "end_exclusive": "DF7E",
+      "kind": "code",
+      "label": "EXAMINE and shared inspection"
+    },
+    {
+      "start": "DF7E",
+      "end_exclusive": "DF80",
+      "kind": "data",
+      "label": "Rule header: object.takeNote"
+    },
+    {
+      "start": "DF80",
+      "end_exclusive": "DF85",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "DF85",
+      "end_exclusive": "DF8A",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "DF8A",
+      "end_exclusive": "DF8B",
+      "kind": "data",
+      "label": "Object domain operation: return.success"
+    },
+    {
+      "start": "DF8B",
+      "end_exclusive": "DF8D",
+      "kind": "data",
+      "label": "Rule header: object.quenchNote"
+    },
+    {
+      "start": "DF8D",
+      "end_exclusive": "DFA7",
+      "kind": "code",
+      "label": "Quench or retain burnt note"
+    },
+    {
+      "start": "DFA7",
+      "end_exclusive": "DFAB",
+      "kind": "data",
+      "label": "Rule header: object.openSafe"
+    },
+    {
+      "start": "DFAB",
+      "end_exclusive": "DFB0",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "DFB0",
+      "end_exclusive": "DFB5",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "DFB5",
+      "end_exclusive": "DFB6",
+      "kind": "data",
+      "label": "Object domain operation: return.success"
+    },
+    {
+      "start": "DFB6",
+      "end_exclusive": "DFB8",
+      "kind": "data",
+      "label": "Rule header: object.safeEvent"
+    },
+    {
+      "start": "DFB8",
+      "end_exclusive": "DFE3",
+      "kind": "code",
+      "label": "Safe calendar test and terminal branches"
+    },
+    {
+      "start": "E03A",
+      "end_exclusive": "E08D",
+      "kind": "code",
+      "label": "Transfer actor identity and context ownership"
+    },
+    {
+      "start": "E0A0",
+      "end_exclusive": "E0A2",
+      "kind": "data",
+      "label": "Rule header: object.inspectStream"
+    },
+    {
+      "start": "E0A2",
+      "end_exclusive": "E0A7",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "E0A7",
+      "end_exclusive": "E0AC",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "E0AC",
+      "end_exclusive": "E0AD",
+      "kind": "data",
+      "label": "Object domain operation: return.success"
+    },
+    {
+      "start": "E0AD",
+      "end_exclusive": "E0B1",
+      "kind": "data",
+      "label": "Rule header: object.streamClue"
+    },
+    {
+      "start": "E0B1",
+      "end_exclusive": "E0E0",
+      "kind": "code",
+      "label": "Tuesday stream clue"
+    },
+    {
+      "start": "E0E0",
+      "end_exclusive": "E0E2",
+      "kind": "data",
+      "label": "Rule header: object.inspectTrash"
+    },
+    {
+      "start": "E0E2",
+      "end_exclusive": "E0E7",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "E0E7",
+      "end_exclusive": "E0EA",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "E0EA",
+      "end_exclusive": "E0EB",
+      "kind": "data",
+      "label": "Object domain operation: return.success"
+    },
+    {
+      "start": "E0EB",
+      "end_exclusive": "E0ED",
+      "kind": "data",
+      "label": "Rule header: object.revealNote"
+    },
+    {
+      "start": "E0ED",
+      "end_exclusive": "E0F2",
+      "kind": "code",
+      "label": "Reveal torn note"
+    },
+    {
+      "start": "E0F2",
+      "end_exclusive": "E0F4",
+      "kind": "data",
+      "label": "Rule header: object.inspectDrawer"
+    },
+    {
+      "start": "E0F4",
+      "end_exclusive": "E0F9",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "E0F9",
+      "end_exclusive": "E0FC",
+      "kind": "data",
+      "label": "Object domain operation: rule"
+    },
+    {
+      "start": "E0FC",
+      "end_exclusive": "E0FD",
+      "kind": "data",
+      "label": "Object domain operation: return.success"
+    },
+    {
+      "start": "E0FD",
+      "end_exclusive": "E0FF",
+      "kind": "data",
+      "label": "Rule header: object.revealBottom"
+    },
+    {
+      "start": "E0FF",
+      "end_exclusive": "E104",
+      "kind": "code",
+      "label": "Reveal false bottom"
+    },
+    {
+      "start": "E104",
+      "end_exclusive": "E106",
+      "kind": "data",
+      "label": "Rule header: object.inspectBookcase"
+    },
+    {
+      "start": "E106",
+      "end_exclusive": "E135",
+      "kind": "code",
+      "label": "Bookcase discovery and early return"
+    },
+    {
+      "start": "E135",
+      "end_exclusive": "E13E",
+      "kind": "data",
+      "label": "Rule header: object.inspectClosely"
+    },
+    {
+      "start": "E13E",
+      "end_exclusive": "E16B",
+      "kind": "code",
+      "label": "Detailed inspection body and table lookup"
+    },
+    {
+      "start": "E16B",
+      "end_exclusive": "E17B",
+      "kind": "data",
+      "label": "Detailed inspection entity/text table; FF terminator"
+    }
+  ],
+  "scope": "Known observed boundaries only; byte identity alone does not establish classification or functional parity."
+}

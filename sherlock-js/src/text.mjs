@@ -17,16 +17,18 @@ export class Text {
  }
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
-  let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false;const fragments=[];
+  let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false,pending='',pendingCap=true;const fragments=[];
   const feed=text=>{for(let c of String(text)){
-   if(c==='\b'){result=result.slice(0,-1);context.sink?.(c);continue;}
+   if(c==='\b'){result=result.slice(0,-1);pending=pending.slice(0,-1);context.sink?.(c);continue;}
+   if([' ','\n','\r','"'].includes(c))pending='';
+   else{if(!pending)pendingCap=capitalize;pending+=c;}
    if(/[A-Z]/.test(c))c=c.toLowerCase();
    if(c==='"'){result+=' ';context.sink?.(' ');}
    if(c==='.'||c==='"')capitalize=true;
    else if(/[a-z]/.test(c)&&(capitalize||force)){c=c.toUpperCase();capitalize=false;}
    result+=c;context.sink?.(c);
   }};
-  const name=(id,be=false)=>w.name(id,{indefinite:Boolean(w.entity(id).person)})+(be?(id===w.player?' are':' is'):'');
+  const name=(id,be=false)=>w.name(id,{indefinite:Boolean(w.entity(id).person)})+(be?(id===0?' are':' is'):'');
   const feedName=(id,be=false)=>{
    feed(' ');const e=w.entity(id);
    if(e.person&&(e.noun&32768)&&id!==w.player){for(const [i,part] of w.name(id).split(' ').entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
@@ -69,13 +71,19 @@ export class Text {
     case 'otherName':feedName(other);break;
     case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;break;
     case 'objectIs':feedName(object,true);mixOffset=object===0?0x007A:0x0485;break;
-    case 'actorPossessive':feed(actor===w.player?'your':'his');mixOffset=actor===0?0x09F2:0x0414;break;
-    case 'objectPossessive':feed(object===w.player?'your':'his');mixOffset=object===0?0x09F2:0x0414;break;
+    case 'actorPossessive':feed(actor===0?'your':'his');mixOffset=actor===0?0x09F2:0x0414;break;
+    case 'objectPossessive':feed(object===0?'your':'his');mixOffset=object===0?0x09F2:0x0414;break;
     case 'newline':feed('\n');break;
     case 'endLine':mixOffset=mixOffset===null?null:0x6000|(mixOffset&255);feed('\n');break;
     case 'endSentence':mixOffset=mixOffset===null?null:0x3000|(mixOffset&255);feed('.\n');break;
     case 'backspace':feed('\b');break;
-    case 'toggleUpper':force=!force;break;
+    case 'toggleUpper':{
+     force=!force;
+     // A9B7 buffers a whole word, including punctuation. AA59 reads the
+     // case mode only when its following delimiter flushes that buffer.
+     // A toggle before that delimiter therefore also affects this suffix.
+     const buffered=pending;if(buffered){for(let i=0;i<buffered.length;i++){result=result.slice(0,-1);context.sink?.('\b');}capitalize=pendingCap;pending='';feed(buffered);}break;
+    }
     case 'end':case 'noop':break;
     default:throw new UnsupportedFeature('operazione di testo '+t.op);
    }
@@ -84,7 +92,7 @@ export class Text {
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
  scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look'}={}){
-  const w=this.world,r=w.rooms[room],text=[];w.lastListed=[];
+  const w=this.world,r=w.rooms[room],text=[],actorName=w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
   if(w.dark()&&!remote)return 'It is too dark to see.';
   const parent=remote?null:w.entity(w.player).parent;
   // D526's recursive list frame adds six bytes per level. A LOOK enters
@@ -98,7 +106,9 @@ export class Text {
    const children=list(parent);if(!children.length)return;
    const names=children.map(e=>w.name(e.id,{indefinite:true}));
    let prefix;
-   if(parent===null){prefix='You can see ';text.push(prefix+joinList(names)+'.');}
+   if(parent===null){prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
+    if(trace){let offset=0;const inventory=joinList(names);for(const item of names){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4});offset+=item.length;}}
+   }
    else{const container=w.entity(parent);if(container.person){
     const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
     // The last noun of the preceding list is still buffered. The first
@@ -117,12 +127,12 @@ export class Text {
     text.push(name+' is carrying '+joinList(names)+'.');
    }else{const relation=({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In',name=w.name(parent),start=text.join(' ').length+(text.length?1:0);
     prefix=`${relation} ${name} there ${children.length===1?'is':'are'} `;
-    if(trace){const nameEnd=start+relation.length+1+name.length;trace.push({kind:'container-name',parent,start:start+relation.length+1,end:nameEnd,frame:listFrame(depth)});
+    if(trace){const nameEnd=start+relation.length+1+name.length;trace.push({kind:'container-relation',start,end:start+relation.length+1,frame:listFrame(depth)-2});trace.push({kind:'container-name',parent,start:start+relation.length+1,end:nameEnd,frame:listFrame(depth)});
      // D5C1/68D9 flushes THERE at the name's depth; the copula is two
      // bytes shallower. A wrapped THERE can reach the low working cells.
      trace.push({kind:'container-there',start:nameEnd+1,end:nameEnd+6,frame:listFrame(depth)});
      trace.push({kind:'container-copula',start:nameEnd+7,end:start+prefix.length-1,frame:listFrame(depth)+2});
-     let offset=0;const inventory=joinList(names);for(const item of names){offset=inventory.indexOf(item,offset);const prefixLength=item.lastIndexOf(' ');if(prefixLength>0)trace.push({kind:'carried-object-prefix',start:start+prefix.length+offset,end:start+prefix.length+offset+prefixLength,frame:listFrame(depth)+4});offset+=item.length;}}
+     let offset=0;const inventory=joinList(names);for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});offset+=item.length;}}
     text.push(prefix+joinList(names)+'.');}}
    if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768))trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
@@ -146,20 +156,22 @@ export class Text {
   if(parent!==null){
    const expand=full&&Boolean(r.description);
    const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id));
-   text.push('You are in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
+   text.push(actorIs+' in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
    if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
    if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
    else text.push((w.name(parent)[0].toUpperCase()+w.name(parent).slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');
    if(full)describePassages();
    const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
-   return text.join(' ');
+   return text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   }
   if(full&&r.description)describe();
-  else text.push(remote?`You can see ${w.roomName(room)}.`:`You are ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
+  else text.push(remote?`${actorName} can see ${w.roomName(room)}.`:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
   if(full)describePassages();
   const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
   if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
   renderChildren(null);
-  return text.join(' ');
+  const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
+  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:0x5D14+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:0x5D16+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
+  return output;
  }
 }

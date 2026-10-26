@@ -1,5 +1,10 @@
 # Aggiornamento: NPC v5 nella pagina
 
+26 ottobre: travestimenti con cambio d'identità, indizi e oggetti speciali
+sono ora collegati al motore autonomo. Comandi, algoritmi e prove sono in
+[IDENTITA-E-INDIZI.md](IDENTITA-E-INDIZI.md). Ricaricare la pagina carica i nuovi
+moduli; **Riavvia** avvia una partita di prova da zero.
+
 25 ottobre: l'inventario corrente delle parti mancanti e l'ordine di lavoro
 sono in [STATO-E-PROSSIMI-PASSI.md](STATO-E-PROSSIMI-PASSI.md). Il primo
 passaggio sulle azioni degli oggetti è documentato in

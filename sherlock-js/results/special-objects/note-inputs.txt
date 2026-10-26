@@ -1,0 +1,17 @@
+# Restore each branch explicitly; actor turns remain active.
+# Setup: {"room":35,"note_ticks":15,"entities":[{"id":85,"attributes":160,"parent":84,"room":35,"qualifiers":[343,0],"description":"8158"}]}
+TAKE NOTE
+EXAMINE SINGED NOTE
+TAKE SINGED NOTE
+DROP SINGED NOTE
+TAKE SINGED NOTE
+# Setup: {"room":35,"note_ticks":1,"entities":[{"id":85,"attributes":160,"parent":84,"room":35,"qualifiers":[343,0],"description":"8158"}]}
+TAKE NOTE
+EXAMINE NOTE
+# Setup: {"room":35,"note_ticks":15,"entities":[{"id":85,"attributes":160,"parent":84,"room":35,"qualifiers":[343,0],"description":"8158"}]}
+CARRY NOTE
+I
+EXAMINE NOTE
+# Setup: {"room":35,"note_ticks":0,"entities":[{"id":85,"attributes":160,"parent":84,"room":35,"qualifiers":[347,0],"description":null}]}
+TAKE NOTE
+EXAMINE NOTE

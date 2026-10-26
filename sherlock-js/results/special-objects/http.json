@@ -1,0 +1,33 @@
+{
+  "url": "http://127.0.0.1:8768/",
+  "checks": [
+    {
+      "path": "/src/identity.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "82e7658a33068e0f7d129fb79988e3c38e11ea9ae2740f7aa5084e11fb4015a4",
+      "matches_workspace": true
+    },
+    {
+      "path": "/src/special-objects.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "0e2b660591096fe733db93b0cd4c530374a60156fc116285f71373c48948ef7c",
+      "matches_workspace": true
+    },
+    {
+      "path": "/src/npc-program.mjs",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "f2610ecb9f061d7ec73b741b994d188737bba2586b82f89e277d4be41ca5a054",
+      "matches_workspace": true
+    },
+    {
+      "path": "/data/game.json",
+      "status": 200,
+      "cache_control": "no-store",
+      "sha256": "b1ddc17b668ac987ff2ab28fb9ed67296b7197edf1ca589ff6323eb0e9bd07c6",
+      "matches_workspace": true
+    }
+  ]
+}

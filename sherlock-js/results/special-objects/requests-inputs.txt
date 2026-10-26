@@ -1,0 +1,19 @@
+# Setup: {"room":72,"entities":[{"id":3,"parent":null,"room":72}]}
+SAY TO WATSON "EXAMINE CLOSELY DRAWER"
+I
+I
+I
+I
+I
+I
+LOOK
+# Setup: {"room":39,"entities":[{"id":3,"parent":null,"room":39}]}
+SAY TO WATSON "EXAMINE CLOSELY TRASH PILE"
+WAIT
+I
+LOOK
+# Setup: {"room":94,"entities":[{"id":3,"parent":null,"room":94}]}
+SAY TO WATSON "EXAMINE CLOSELY BOOKCASE"
+WAIT
+I
+LOOK

@@ -1,5 +1,17 @@
 # Stato attuale: NPC v5
 
+26 October, point 1: [IDENTITA-E-INDIZI.md](IDENTITA-E-INDIZI.md) and
+`results/special-objects-verification.json` add player identities 0/1/100,
+special clue programs, burning note stages, safes and their local endings,
+original LOCK/UNLOCK refusals and 3,264 controlled weight/perception/light
+comparisons. Native histories compare every random draw and source byte,
+all record bytes, exact upper/lower bitmaps and actual browser text packets.
+Declared logical setups are separate from natural-play evidence. Buffered
+case/spacing and an early return without CR are preserved. Failed NPC child
+returns keep working arguments distinct from the actor row until a successful
+operation or a timed failure yield commits them; suspended object requests
+preserve both. Full-game and unrestricted seed parity remain false.
+
 25 October, objects: [OGGETTI-E-CONTENITORI.md](OGGETTI-E-CONTENITORI.md)
 and `results/objects-verification.json` add ordinary placement/retrieval,
 description-search allocations and the player's ten-rule failure budget.

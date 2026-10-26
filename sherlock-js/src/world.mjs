@@ -10,7 +10,7 @@ export class World {
  reset(){this.entities=structuredClone(this.data.entities);this.rooms=structuredClone(this.data.rooms);this.player=0;this.explored=new Set([8]);this.lastListed=[];this.random=null;this.display=null;this.npcs=null;this.scheduler=playerPromptScheduler(this.data);}
  get tick(){return this.scheduler.tick;}set tick(value){this.scheduler.tick=value;}
  get minutes(){return this.scheduler.minutes;}set minutes(value){this.scheduler.minutes=value;}
- get playerDue(){return this.scheduler.actor(0).due;}set playerDue(value){this.scheduler.actor(0).due=value;}
+ get playerDue(){return this.scheduler.actors[0].due;}set playerDue(value){this.scheduler.actors[0].due=value;}
  entity(id){const e=this.entities[id];if(!e)throw Error('Unknown entity');return e;}
  roomOf(id=this.player){return this.entity(id).rooms[0];}
  owns(owner,id){const seen=new Set();for(let p=this.entity(id).parent;p!==null;p=this.entity(p).parent){if(p===owner)return true;if(seen.has(p))throw Error('Containment cycle');seen.add(p);}return false;}
@@ -30,8 +30,12 @@ export class World {
   this.entity(id).parent=parent;this.entity(id).rooms=[room];
   const pending=[id],seen=new Set();while(pending.length){const p=pending.pop();if(seen.has(p))throw Error('Containment cycle');seen.add(p);for(const e of this.entities)if(e.parent===p){e.rooms=[room];pending.push(e.id);}}
  }
- weight(id){return this.entity(id).weight+this.entities.filter(e=>e.parent===id).reduce((n,e)=>n+this.weight(e.id),0);}
- remainingCapacity(id){return this.entity(id).weight-this.entities.filter(e=>e.parent===id).reduce((n,e)=>n+this.weight(e.id),0);}
+ contentsWeight(id){
+  const visit=(parent,total)=>{for(const child of this.entities)if(child.parent===parent){const sum=(total+child.weight)&255;if(!((total^child.weight)&128)&&((total^sum)&128))return 255;total=visit(child.id,sum);}return total;};
+  return visit(id,0);
+ }
+ weight(id){return Math.min(255,this.entity(id).weight+this.contentsWeight(id));}
+ remainingCapacity(id){return (this.entity(id).weight-this.contentsWeight(id))&255;}
  nounMatches(e,group){
   const names=[e.noun,...e.qualifiers].filter(Boolean).map(x=>x&4095),q=group.qualifiers.map(x=>x&4095);
   return (!group.noun||names.includes(group.noun&4095))&&q.every(id=>names.includes(id));
@@ -39,18 +43,18 @@ export class World {
  name(id,{indefinite=false,proper=true}={}){
   const e=this.entity(id);let name=e.name;
   if(e.person&&proper&&(e.noun&32768))name=name.replace(/\b\w/g,c=>c.toUpperCase());
-  if((e.noun&32768)||id===this.player)return name;
+  if(e.noun&32768)return name;
   const article=({0:'the ',4096:'a ',8192:'an ',12288:'some '})[e.noun&12288];
   return (indefinite?article:'the ')+name;
  }
  roomName(id,{indefinite=true}={}){
-  const room=this.rooms[id];if(room.nameWords[0]&32768)return /^your\b/.test(room.name)?room.name:room.name.replace(/\b\w/g,c=>c.toUpperCase());
+  const room=this.rooms[id];if(room.nameWords[0]&32768)return this.player===0&&/^your\b/.test(room.name)?room.name:room.name.replace(/\b\w/g,c=>c.toUpperCase());
   return indefinite?(({0:'the ',4096:'a ',8192:'an ',12288:'some '})[room.nameWords[0]&12288])+room.name:room.name;
  }
  clock(){const day=Math.floor(this.minutes/1440),minute=this.minutes%60,h=Math.floor(this.minutes/60)%24,hour=h%12||12,period=h<12?'am':'pm';return {tick:this.tick,due:this.playerDue,day,minute,hour,period,label:`${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day%7]} ${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}${period}`};}
  consume(cost,{action=null,args=[],driver={}}={}){
   if(!cost)return [];
-  const actor=this.scheduler.actor(0);actor.savedAction=action;actor.savedArgs=structuredClone(args);
+  const actor=this.scheduler.actors[0];actor.savedAction=action;actor.savedArgs=structuredClone(args);
   return this.scheduler.finishPlayer(cost,()=>this.clock(),driver);
  }
  dump(){return {entities:structuredClone(this.entities),rooms:structuredClone(this.rooms),player:this.player,explored:[...this.explored],lastListed:[...this.lastListed],tick:this.tick,playerDue:this.playerDue,minutes:this.minutes,scheduler:this.scheduler.dump(),random:structuredClone(this.random),display:structuredClone(this.display),npcs:structuredClone(this.npcs)};}

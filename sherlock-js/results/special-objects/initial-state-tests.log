@@ -1,0 +1,21 @@
+✔ Special objects / native comparison: both disguises and identity references (25739.159333ms)
+✔ Special objects / native comparison: drawer, trash, bookcase, note and safe (12752.8195ms)
+✔ Special objects / native comparison: lock refusals, inspection and clarification (1039.5935ms)
+✔ Special objects / native comparison: stream and detailed clues (8398.434708ms)
+✔ Special objects / native comparison: burning note phases (1478.55125ms)
+✔ Special objects / native comparison: safe on Tuesday (3043.437167ms)
+✔ Special objects / native comparison: safe ending alone (136.217834ms)
+✔ Special objects / native comparison: safe ending with Basil (570.496ms)
+✔ Special objects / native comparison: object rules while disguised (12311.727375ms)
+✔ Special objects / native comparison: Watson deferred object requests (2652.071917ms)
+✔ Original recursive weight and modulo capacity: 448 controlled cases (1475.149333ms)
+✔ Original barriers and perception in nested containers: 576 controlled cases (1944.245333ms)
+✔ Original light, daylight, actor and perceived lamps: 2240 controlled cases (15161.60975ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87733.027667
