@@ -38,7 +38,7 @@ test('WAIT UNTIL interruption restores NPC state and queues at the displayed min
 test('Minute animation releases Watson text only in its minute and never leaks a future suspended branch on interruption',()=>{
  const s=new ClientSession(data),messages=[];s.game=new Game(data,{npc_random:false});let r=s.request('start-command',{command:'WAIT UNTIL 9:00'});
  for(let n=0;n<3;n++){messages.push(...r.messages);assert.equal(r.clock.minute,n+1);if(n<2)r=s.request('continue-command',{job:r.job});}
- assert.equal(messages.filter(m=>m.kind==='narrative').map(m=>m.text).join(' '),'You wait.');
+ assert.equal(messages.filter(m=>m.kind==='narrative').map(m=>m.text).join(' '),'');
  assert(!messages.some(m=>m.kind==='system'));s.request('continue-command',{job:r.job,interrupt:true});
  assert.equal(s.game.world.scheduler.actor(3).behavior.remaining,12);assert(s.game.world.scheduler.actor(3).enabled);
  assert.equal(s.game.world.scheduler.actor(3).suspension,undefined);

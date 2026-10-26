@@ -30,7 +30,7 @@ export class ActorScheduler {
     if(this.service)return {type:'service',service:this.service};
     this.tick=(this.tick+1)&65535;this.minutes++;this.index=0;this.phase='visit';
     if(interrupt&&this.actors[0].savedAction===50){this.actors[0].due=this.tick;interrupt=false;}
-    this.emit({event:'tick'});driver.clock?.(this);
+    this.emit({event:'tick'});if(driver.clock?.(this)?.type==='pause')return {type:'pause'};
    }
    if(this.index===this.actors.length){this.phase='tick';this.current=null;continue;}
    const actor=this.actors[this.index];

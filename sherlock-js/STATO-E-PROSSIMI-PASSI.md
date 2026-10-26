@@ -75,6 +75,10 @@ del tempo e della disponibilità dei personaggi, non solo i messaggi finali.
 
 ## 6. Comandi, trasporti e calendario ai limiti
 
+WAIT UNTIL singola nella pagina è ora incrementale, con interruzione Invio
+e pulsante, eventi visibili e ripresa confrontati con l’originale.
+Vedere [WAIT-UNTIL.md](WAIT-UNTIL.md). Restano i limiti generali sotto.
+
 FOLLOW/COME WITH e GO TO del giocatore oltre ai percorsi differiti degli NPC;
 LOOK THROUGH e varianti non ancora certificate; PAY senza TO con
 importo; servizi testuali SAVE/LOAD/QUIT/PAUSE/PRINT/NOPRINT rispetto ai pulsanti

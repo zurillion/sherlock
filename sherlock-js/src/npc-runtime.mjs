@@ -309,7 +309,7 @@ export class NpcRuntime {
    case 'cab.customerPresent':if(w.entity(first).parent!==actor-1||first===actor)return no();{const frame=this.active.vm.state(actor).contexts.at(-1);if(frame){frame.saved[1]=first;records.arena.putByte(frame.record+3,first);}result=yes();break;}
    case 'cab.warnDebtor':{const frame=this.active.vm.state(actor).contexts.at(-1);this.print('6C54',actor,{},messages,{force:frame?.saved[1]===0});result=yes();break;}
    case 'cab.demandPayment':this.demand(actor,first,second,messages);result=yes();break;
-   case 'money.balanceAsLiteral':this.state.literal=encodeMoney(balance(w,first));context.saved[1]=254;result=yes();break;
+   case 'money.balanceAsLiteral':this.state.literal=encodeMoney(balance(w,first))|128;context.saved[1]=254;result=yes();break;
    case 'money.pay':{const amount=this.state.literal&32767,pence=(amount&127)+(amount>>>8)*128;if(!transferMoney(w,actor,second,pence))return no();this.sayPayment(actor,second,pence,messages);result=yes(1);break;}
    default:result=name.startsWith('object.')?specialObjectBody(this,name,args,context,messages):this.active.primitives.body(name,args,context);
   }
@@ -451,6 +451,7 @@ export class NpcRuntime {
   if(address>=0xA002&&address<0xA008)return this.state.information.addressee[address-0xA002];
   if(address>=0xDCFF&&address<=0xDD02){const room=this.state.lastRelocationRoom,ptr=room===undefined?0:this.worldSource.layout.rooms.find(r=>r.id===room).start;return [ptr&255,ptr>>>8,room??0,0][address-0xDCFF];}
   if(address>=0x9FDD&&address<=0x9FE2){const c=this.w.clock();return [c.tick&255,c.tick>>>8,c.minute,c.hour,c.day,c.period==='am'?97:112][address-0x9FDD];}
+  if(address===0xA02F||address===0xA030)return address===0xA02F?this.state.literal&255:this.state.literal>>>8;
   if(address===0xA036)return this.game.runtimeRandom.inFlight?.actor??null;
   if(address===0xA037)return this.w.random.seed;
   if(address===0xA039||address===0xA03A){const cursor=this.game.runtimeRandom.inFlight?.cursor??this.w.random.cursor;return address===0xA039?cursor&255:cursor>>>8;}

@@ -1,0 +1,19 @@
+✔ Original WAIT UNTIL arithmetic: 576 AM/PM, equality, noon and numeric-hour cases (1.349667ms)
+✔ WAIT UNTIL original minute frames, state and randomness: clock_and_news (320.968584ms)
+✔ WAIT UNTIL original minute frames, state and randomness: enter_interrupt (183.499459ms)
+✔ WAIT UNTIL original minute frames, state and randomness: interrupt_long_target (84.44575ms)
+✔ WAIT UNTIL original minute frames, state and randomness: interrupt_then_pay (143.614ms)
+✔ WAIT UNTIL original minute frames, state and randomness: house_arrivals (2712.614667ms)
+✔ A distant WAIT UNTIL can be interrupted before any future unimplemented branch is evaluated (22.64525ms)
+✔ A partially displayed wait cannot export an invalid prompt save; after ENTER its future is portable (74.796583ms)
+✔ An unknown future minute preserves the visible past and leaves a usable prompt (51.858417ms)
+✔ A boundary before the first minute cancels only the new input and does not retry the same NPC forever (19.595417ms)
+✔ The synchronous model API and the incremental page reach the same complete original state (439.019458ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4254.205958

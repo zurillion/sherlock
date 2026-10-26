@@ -1,5 +1,9 @@
 # Aggiornamento: NPC v5 nella pagina
 
+26 ottobre: WAIT UNTIL avanza ora davvero un minuto alla volta. Invio o
+**Interrompi attesa** fermano il comando; i messaggi non lo interrompono.
+Uso e confronto con l’originale: [WAIT-UNTIL.md](WAIT-UNTIL.md).
+
 26 ottobre, cronologia reale di Basil: completato il confronto di 115 comandi
 con l’originale e la ripresa verificata alle 11:54. Il salvataggio ricostruito
 e le istruzioni sono in [CRONOLOGIA-BASIL-UTENTE.md](CRONOLOGIA-BASIL-UTENTE.md).

@@ -60,7 +60,7 @@ export class Lexer {
     if(result&&(result.literal.kind==='money'||result.literal.period)){
      while(normalized[pos]==='.')pos++;
      if(pos<normalized.length&&!/[ ,\"]/.test(normalized[pos]))result=null;
-     else if(normalized[pos]==='"')pos--; // DB5F returns before the quote.
+     else if(normalized[pos]==='"'||pos===normalized.length)pos--; // DB5F returns before quote/CR; the last period is scanned again.
     }
    }
    else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));}

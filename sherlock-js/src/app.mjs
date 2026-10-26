@@ -81,8 +81,8 @@ function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$(
  if($('scheduler-state'))$('scheduler-state').textContent=JSON.stringify({random:s.random_state,...s.scheduler},null,2);
  if(s.analysis){const a=s.analysis;$('analysis').textContent=JSON.stringify({esito:a.outcome,riga:a.normalised,unita:a.units,controlli:a.controls},null,2);}}
 function waitControls(job,allowed){activeJob=job;canInterrupt=Boolean(allowed);$('interrupt-wait').hidden=!canInterrupt;$('interrupt-wait').disabled=interruptRequested;}
-function interruptWait(){if(!activeJob||!canInterrupt||spectrum.waiting)return;interruptRequested=true;$('interrupt-wait').disabled=true;}
-$('interrupt-wait').onclick=interruptWait;
+function interruptWait({allowMore=false}={}){if(!activeJob||!canInterrupt||spectrum.waiting&&!allowMore)return;interruptRequested=true;if(spectrum.waiting){spectrum.more();$('interrupt-wait').disabled=false;}else $('interrupt-wait').disabled=true;}
+$('interrupt-wait').onclick=()=>interruptWait({allowMore:true});
 document.addEventListener('keydown',e=>{if(e.target?.closest?.('#engine-select,dialog[open]'))return;if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
 async function consumeCommand(result,epoch){
  let continuing=false;

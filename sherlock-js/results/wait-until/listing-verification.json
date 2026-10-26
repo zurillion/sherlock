@@ -1,0 +1,31 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 106,
+  "bytes_roundtripped": 225,
+  "regions": [
+    {
+      "start": "A068",
+      "end_exclusive": "A0A5",
+      "kind": "code",
+      "label": "Calendar update, clock display, ENTER poll before actor visits"
+    },
+    {
+      "start": "DDCB",
+      "end_exclusive": "DDD0",
+      "kind": "data",
+      "label": "Current and target 12-hour totals, selected AM/PM"
+    },
+    {
+      "start": "DDD0",
+      "end_exclusive": "DDD4",
+      "kind": "data",
+      "label": "WAIT UNTIL rule header"
+    },
+    {
+      "start": "DDD4",
+      "end_exclusive": "DE6F",
+      "kind": "code",
+      "label": "12-hour target selection and original unsigned cost"
+    }
+  ]
+}

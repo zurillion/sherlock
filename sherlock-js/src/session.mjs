@@ -1,4 +1,6 @@
 import {Game} from './game.mjs';
+import {UnsupportedFeature} from './world.mjs';
+import {RandomInputsUnavailable} from './random.mjs';
 import {presentationPackets} from './spectrum.mjs';
 import {seal,verify} from './save.mjs';
 
@@ -13,12 +15,29 @@ function rawPackets(text,buffer){
 }
 export class ClientSession {
  constructor(data,options={}){this.data=data;this.game=new Game(data,options);this.job=null;this.serial=0;}
+ continueWait(interrupt){
+  const job=this.job,g=this.game,wait=g.pendingWait,checkpoint=g.world.dump(),count=wait.messages.length,actionCount=wait.actions.length,paid=wait.paid;
+  let result;
+  try{result=g.continueWait({interrupt});}
+  catch(error){
+   g.world.restore(checkpoint);wait.messages.length=count;wait.actions.length=actionCount;wait.paid=paid;
+   if(!(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable))throw error;
+   // Preserve already displayed minutes. Do not roll back the whole WAIT or
+   // install the future state from a precomputed execution.
+   if(!paid)wait.cancelInput();else g.continueWait({interrupt:true});g.analysis={...g.analysis,outcome:'not_translated',notice:error.message,recovery:'requires-engine-update',missing_address:error.address??null};
+   wait.messages.push({kind:'system',text:error.message});const entry=g.history.entries.findLast(e=>e.kind==='command');if(entry)g.history.finish(entry,g.world,{outcome:'not_translated',errors:[error.message]});result={running:false,messages:wait.messages};
+  }
+  const batch=result.messages.slice(job.sent);job.sent=result.messages.length;
+  const messages=this.messages(batch,{buffer:job.buffer});if(job.first&&(result.running||g.analysis?.outcome!=='not_translated')){let first=messages.find(m=>m.kind!=='system');if(!first){first={kind:'narrative',text:'',screen_events:[]};messages.unshift(first);}first.screen_events=[{op:'counter',value:0},{op:'wide'},...(first.screen_events||[])];job.first=false;}
+  if(!result.running){this.job=null;return {running:false,state:this.state(),messages};}
+  return {running:true,job:job.id,state:this.state(),clock:g.world.clock(),messages,can_interrupt:true};
+ }
  publicData(){return {rooms:this.data.rooms.map(r=>({...r,name_hint:r.name})),edges:this.data.rooms.flatMap(r=>r.exits),pictures:this.data.pictures};}
  frameState(frame){
   const before=this.game.world.dump();try{this.game.world.restore(frame.world);const s=this.game.state();if(s.analysis)s.analysis={...s.analysis,actions:s.analysis.actions.slice(0,frame.actionCount)};return {...s,command_running:true,job:this.job?.id};}finally{this.game.world.restore(before);}
  }
- state(){const s=this.job?this.frameState(this.job.frames[Math.max(0,this.job.index-1)]):this.game.state();return {...s,initial_screen:packets(s.initial),opening_screen:s.opening?packets(s.opening,{leading:true}):null};}
- messages(messages,{pending=''}={}){const buffer={word:pending};return messages.map(m=>{if(m.kind!=='narrative')return m;let events;
+ state(){if(this.job?.liveWait)return {...this.game.state(),command_running:true,job:this.job.id};const s=this.job?this.frameState(this.job.frames[Math.max(0,this.job.index-1)]):this.game.state();return {...s,initial_screen:packets(s.initial),opening_screen:s.opening?packets(s.opening,{leading:true}):null};}
+ messages(messages,{pending='',buffer={word:pending}}={}){return messages.map(m=>{if(m.kind!=='narrative')return m;let events;
   if(m.screen_clear)events=Array.from({length:18},()=>[{op:'counter',value:0},{op:'word',text:'',delimiter:'\r',formatted:true}]).flat();
   else if(m.raw_text!==undefined)events=rawPackets((m.paragraph_before?'\n':'')+m.raw_text,buffer);
   else{events=packets(m.text,{leading:Boolean(m.paragraph_before)});if(buffer.word&&events.length){events[0]={...events[0],text:buffer.word+events[0].text,formatted:true};buffer.word='';}}
@@ -32,7 +51,10 @@ export class ClientSession {
   if(operation==='load'){if(this.job)throw Error('Completa il comando prima di caricare.');return verify(body.save).then(document=>{const loaded=Game.load(this.data,document);this.game=loaded;return {state:this.state(),presentation:document.presentation??null,messages:[]};});}
   if(operation==='command'||operation==='start-command'){
    if(this.job)throw Error('Un comando è già in corso.');
-   const out=this.game.submit(body.command),messages=this.messages(out.messages);
+   const liveWait=operation==='start-command'&&this.game.canStreamWait(body.command);
+   const out=this.game.submit(body.command,{streamWait:liveWait});
+   if(this.game.pendingWait){this.job={id:String(++this.serial),liveWait:true,sent:0,buffer:{word:''},first:true,canInterrupt:true};return this.continueWait(false);}
+   const messages=this.messages(out.messages);
    if(this.game.analysis?.outcome!=='lexical_error'&&messages.length){const first=messages.find(m=>m.kind!=='system');if(first)first.screen_events=[{op:'counter',value:0},{op:'wide'},...(first.screen_events||[])];}
    // Domain transitions stay synchronous. Presentation releases their messages
    // in minute order; WAIT UNTIL interruption restores the complete domain state
@@ -46,6 +68,7 @@ export class ClientSession {
   }
   if(operation==='continue-command'){
    const job=this.job;if(!job||job.id!==body.job)throw Error('Comando non più attivo.');
+   if(job.liveWait)return this.continueWait(Boolean(body.interrupt));
    if(body.interrupt&&job.canInterrupt){
     const frame=job.frames[Math.max(0,job.index-1)];
     this.game.world.restore(frame.world);

@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-26",
+  "engine": "Autonomous JavaScript world-v5",
+  "protocol": "Seed 1, all 24 actors, free initial LOOK, graphics off, injected uppercase keys, immediate MORE, no idle timeout. Frames pause at A074 before the ENTER poll and actor visits.",
+  "actors": 24,
+  "seed": 1,
+  "native_arithmetic_cases": 576,
+  "sequences": [
+    {
+      "label": "clock_and_news",
+      "natural_prefix_commands": 0,
+      "frames": 26,
+      "end": "Mon 08:24am"
+    },
+    {
+      "label": "enter_interrupt",
+      "natural_prefix_commands": 0,
+      "frames": 11,
+      "end": "Mon 08:09am"
+    },
+    {
+      "label": "interrupt_long_target",
+      "natural_prefix_commands": 0,
+      "frames": 4,
+      "end": "Mon 08:03am"
+    },
+    {
+      "label": "interrupt_then_pay",
+      "natural_prefix_commands": 0,
+      "frames": 5,
+      "end": "Mon 08:04am"
+    },
+    {
+      "label": "house_arrivals",
+      "natural_prefix_commands": 98,
+      "frames": 10,
+      "end": "Mon 12:03pm"
+    }
+  ],
+  "observed_states": 56,
+  "random_draws": 156,
+  "source_reads": 318,
+  "same_world_at_every_minute": true,
+  "saved_after_interrupt_future_equal": true,
+  "complete_future_evaluated_before_display": false,
+  "tests_passed": 361,
+  "browser_checks": [
+    "Stop button followed by MORE, then prompt at 08:16",
+    "Reload only the agent-created test tab",
+    "ENTER from 13:43 stops at 13:44",
+    "INVENTORY succeeds and reaches 13:45"
+  ],
+  "limitations": [
+    "Single WAIT UNTIL in world-v5 uses the live path; compound and historical commands keep the previous path",
+    "Declared injected-key protocol only; no unrestricted seed/native graphics certificate",
+    "Other unimplemented gameplay branches remain explicit",
+    "Deductions deliberately deferred until the user tests waiting"
+  ]
+}

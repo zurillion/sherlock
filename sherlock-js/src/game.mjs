@@ -5,6 +5,7 @@ import {Text} from './text.mjs';
 import {Watson} from './watson.mjs';
 import {Cab} from './cab.mjs';
 import {Conversation} from './conversation.mjs';
+import {waitUntilCost} from './wait-until.mjs';
 import {transferMoney,decodeMoney,formatMoney} from './cab-economy.mjs';
 import {RuntimeRandom} from './runtime-random.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
@@ -131,6 +132,7 @@ export class Game {
   if(action===37){
    const literal=node.groups[0]?.noun;
    if(!(literal&32768)||!(literal&128))return reject("DON'T BE SILLY.");
+   if(w.npcs)w.npcs.literal=literal;
    const group=node.groups[1];
    if(group){const nominal=w.entities.filter(e=>w.nounMatches(e,group));if(nominal.length&&!nominal.some(e=>e.person))return reject("DON'T BE SILLY.");}
    const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
@@ -154,10 +156,9 @@ export class Game {
    const out=ok([this.textMessage(this.dialogue.tell(actor,target.entity.id,topics[0].id,context),context)],1,[target.entity.id,topics[0].id]);out.projected=Boolean(context.sink);out.suppressParagraph=true;return out;
   }
   if(action===49)return ok([say('wait','.')],5);
-  if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');const hour=(literal>>>8)&63,minute=literal&63;if(hour<1||hour>12)return reject('YOU CANNOT WAIT UNTIL THAT TIME.');let target=(hour%12)*60+minute;
-   if(literal&16384){}else if(literal&64)target+=720;else if(Math.floor(w.minutes/720)%2)target+=720;
-   let absolute=Math.floor(w.minutes/1440)*1440+target;if(absolute<=w.minutes)absolute+=(literal&16448)?1440:720;
-   return ok(['You wait.'],absolute-w.minutes,[{hour,minute}]);
+  if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');
+   if(w.npcs){w.npcs.literal=literal;if(actor===w.player)w.npcs.playerProgramCounter='9945';}
+   return ok([],waitUntilCost(literal,w.clock()),[254]);
   }
   if(action===31){
    const group=node.groups[0]||{noun:0,qualifiers:[]};if(!group.noun&&!group.qualifiers.length)return reject('HAIL WHAT ?');
@@ -274,17 +275,17 @@ export class Game {
   }
   if(!found)yield {...node,all:false};
  }
- submit(input){
+ submit(input,{streamWait=false}={}){
   if(this.ended)return {state:this.state(),messages:[]};
-  const entry=this.history.begin('command',input,this.world);
-  try{const out=this.submitCommand(input);this.history.finish(entry,this.world,{outcome:out.state.analysis?.outcome??'ok',errors:out.messages.filter(m=>['error','system'].includes(m.kind)).map(m=>m.text)});return out;}
+  const entry=this.history.begin('command',input,this.world);this.streamWait=streamWait;
+  try{const out=this.submitCommand(input);this.history.finish(entry,this.world,{outcome:this.pendingWait?'running':out.state.analysis?.outcome??'ok',errors:out.messages.filter(m=>['error','system'].includes(m.kind)).map(m=>m.text)});return out;}
   catch(error){this.cancelFailedInput?.();this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}
-  finally{delete this.cancelFailedInput;}
+  finally{delete this.cancelFailedInput;delete this.streamWait;}
  }
  submitCommand(input){
   if(this.ended)return {state:this.state(),messages:[]};
   const checkpoint={world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),conversation:clone(this.conversation),openingPending:this.openingPending};
-  const cancel=()=>{this.world.restore(checkpoint.world);for(const key of ['pending','analysis','lastInput','ended','conversation','openingPending'])this[key]=clone(checkpoint[key]);this.lastFrames=[];};
+  const cancel=()=>{this.world.restore(checkpoint.world);for(const key of ['pending','analysis','lastInput','ended','conversation','openingPending'])this[key]=clone(checkpoint[key]);this.lastFrames=[];delete this.pendingWait;};
   this.cancelFailedInput=cancel;
   const messages=[],actions=[],units=[];this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1,lastOutcome=null;
   try{
@@ -332,20 +333,43 @@ export class Game {
    }
   }
   if(this.ended)this.analysis.outcome='game_over';
-  if(this.world.display&&this.analysis.outcome!=='not_translated'&&!this.ended)try{
+  if(this.world.display&&this.analysis.outcome!=='not_translated'&&!this.ended&&!this.pendingWait)try{
    if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'),{inline:this.analysis.outcome==='clarification'});
    if(this.world.npcs){const syntax=['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.collectiveExhausted||lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
     this.npcRuntime.playerInputFailures(syntax?['9923']:failed?['9937','992D','9923']:['992D','9923'],messages,actions);}
    this.sourceDisplay.prompt();
   }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}
+  if(this.pendingWait)this.pendingWait.cancelInput=cancel;
   if(this.pending)this.analysis.continuation_slot=this.pending.slot;
   return {state:this.state(),messages};
  }
  advance(cost,{action,args,messages,actions}){
   if(this.world.npcs)this.world.npcs.playerFailures=0;
+  if(this.streamWait&&this.world.npcs&&action===50){this.pendingWait={cost,action,args,paid:false,messages,actions};this.world.npcs.playerProgramCounter='9945';return;}
+
   const driver=this.world.npcs?this.npcRuntime.driver(messages,actions):this.watson.driver(messages,actions);
   driver.clock=()=>this.lastFrames.push({clock:this.world.clock(),world:this.world.dump(),messageCount:messages.length,actionCount:actions.length});
   this.world.consume(cost,{action,args,driver});
+ }
+ canStreamWait(input){
+  if(!this.world.npcs)return false;
+  try{const parsed=this.parser.analyze(input.trim()==='@'?this.lastInput||'':input);return parsed.units.length===1&&parsed.units[0].nodes.length===1&&this.action(parsed.units[0].nodes[0])===50;}catch{return false;}
+ }
+ continueWait({interrupt=false}={}){
+  const wait=this.pendingWait;if(!wait)throw Error('Nessuna attesa in corso.');
+  const w=this.world,s=w.scheduler,driver=this.npcRuntime.driver(wait.messages,wait.actions);
+  if(interrupt&&wait.paid){s.actors[0].due=s.tick;s.emit({event:'wait_interrupt'});}
+  const result=s.run({
+   prepare:(actor,scheduler)=>driver.prepare(actor,scheduler),
+   step:(actor,context,scheduler)=>{if(actor===s.actors[0]){if(wait.paid)return {type:'input'};wait.paid=true;actor.savedAction=wait.action;actor.savedArgs=[...wait.args];return {cost:wait.cost};}return driver.step(actor,context,scheduler);},
+   callback:driver.callback,clock:()=>({type:'pause'})
+  });
+  if(result.type==='pause')return {running:true,messages:wait.messages};
+  if(result.type!=='input')throw new UnsupportedFeature('continuazione dell’attesa');
+  this.npcRuntime.playerInputFailures(['992D','9923'],wait.messages,wait.actions);this.sourceDisplay.prompt();delete this.pendingWait;
+  const entry=this.history.entries.findLast(e=>e.kind==='command');if(entry)this.history.finish(entry,w,{outcome:this.analysis.outcome});
+  if(interrupt){const event=this.history.begin('interrupt',w.clock().label,w);this.history.finish(event,w);}
+  return {running:false,messages:wait.messages};
  }
  scene(){const before=this.world.dump();try{return this.text.scene({full:!this.world.dark()});}finally{this.world.restore(before);}}
  state(){const w=this.world,room=w.rooms[w.roomOf()],dark=w.dark();
@@ -353,7 +377,7 @@ export class Game {
  }
  teleport(room){if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const entry=this.history.begin('teleport',String(room).padStart(3,'0')+' · '+this.world.rooms[room].name,this.world);try{const out=this.teleportWorld(room);this.history.finish(entry,this.world,{outcome:out.messages.some(m=>m.kind==='system')?'not_translated':'ok',errors:out.messages.filter(m=>m.kind==='system').map(m=>m.text)});return out;}catch(error){this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}}
  teleportWorld(room){const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene({full:!this.world.npcs}),messages=[{kind:'narrative',text:scene,image_room:room}];this.projectMessages(messages);return {state:this.state(),messages};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}
- dump(){return {format:'sherlock-js-save',version:this.world.npcs?5:4,source_sha256:this.data.source_sha256,world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),openingPending:this.openingPending,opening:this.opening,startMode:this.startMode,conversation:clone(this.conversation),command_history:this.history.dump()};}
+ dump(){if(this.pendingWait)throw Error('Interrompi l’attesa prima di salvare.');return {format:'sherlock-js-save',version:this.world.npcs?5:4,source_sha256:this.data.source_sha256,world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),openingPending:this.openingPending,opening:this.opening,startMode:this.startMode,conversation:clone(this.conversation),command_history:this.history.dump()};}
  static load(data,save){
   if(save?.format!=='sherlock-js-save'||![1,2,3,4,5].includes(save.version)||save.source_sha256!==data.source_sha256)throw Error('Questo file non è un salvataggio del motore JavaScript autonomo.');
   if(save.version>=2&&!save.world?.scheduler)throw Error('Salvataggio privo dello scheduler.');

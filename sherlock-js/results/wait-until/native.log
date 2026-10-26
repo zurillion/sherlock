@@ -1,0 +1,8 @@
+clock_and_news WAIT UNTIL 8:20 Mon 08:20am
+clock_and_news WAIT UNTIL 8:23 Mon 08:23am
+enter_interrupt WAIT UNTIL 9:00 Mon 08:04am
+enter_interrupt WAIT UNTIL 8:08 Mon 08:08am
+interrupt_long_target WAIT UNTIL 7:00AM Mon 08:02am
+interrupt_then_pay WAIT UNTIL 8:10 Mon 08:02am
+house_arrivals WAIT UNTIL 12:02 Mon 12:02pm
+576 native time-cost cases

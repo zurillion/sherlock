@@ -1,0 +1,50 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "81a00f910269ffdb16b2a4c9fc705e51797c0185d253f97cac6d3d2b53802912",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/app.mjs",
+    "sha256": "d4da3a086396aa79670a265c268879e6ee0055496d30f6adcf2a497864e94b14",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/game.mjs",
+    "sha256": "cdd6dd69e3cca06b5ae06e1c310ffc5dcf8267ab359d2bff4196b2bb49964b71",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/session.mjs",
+    "sha256": "1d9f8fc73e87c1098883a71ed52419315562b09aa4299e54ae0259690c3e74ac",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/scheduler.mjs",
+    "sha256": "b81292db2a1dfd0f553c117b70ede0851bc0026a6c0803c6ce1905b4a81279bb",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/wait-until.mjs",
+    "sha256": "cccd72fcd81108969c1e59e497b392ab68e1a0dd779c0311f79c0df60de4fe1d",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/lexer.mjs",
+    "sha256": "abd2e8095dff1b47c9d3fb7c78033506957acbda73aa3278ee3e48a933a1d0dd",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/npc-runtime.mjs",
+    "sha256": "49c00cadded6b52e88631a513e70fb1f72e07d175e49a901918599d8bb337381",
+    "equal_to_disk": true,
+    "cache_control": "no-store"
+  }
+]

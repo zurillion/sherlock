@@ -1,5 +1,12 @@
 # Stato attuale: NPC v5
 
+26 October, WAIT UNTIL: [WAIT-UNTIL.md](WAIT-UNTIL.md) and
+`results/wait-until-verification.json` add live minute-by-minute scheduling,
+ENTER at the original pre-visit boundary, exact literal metadata, 576 native
+time calculations and five all-actor frame comparisons. Visible messages
+do not stop the wait. The page does not execute the complete future first.
+Compound commands and historical profiles keep their earlier path.
+
 26 October, exact submitted Basil history: [CRONOLOGIA-BASIL-UTENTE.md](CRONOLOGIA-BASIL-UTENTE.md)
 and `results/basil-user-verification.json` compare 115 natural commands,
 623 draws, 1,316 reads, both bitmaps, complete arena and the future loaded
