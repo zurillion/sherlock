@@ -1,0 +1,139 @@
+{
+  "protocol": "Seed 1, all 24 actors, free initial LOOK, graphics off after startup, uppercase injected keys, immediate MORE, no idle timeout; no teleports.",
+  "commands": [
+    "WAIT UNTIL 11",
+    "WAIT UNTIL 11PM"
+  ],
+  "stop": "Mon 01:07pm",
+  "original_door_record": {
+    "id": 50,
+    "address": "90CC",
+    "bytes": [
+      10,
+      255,
+      255,
+      255,
+      0,
+      128,
+      0,
+      110,
+      18,
+      153,
+      6,
+      0,
+      0,
+      0,
+      0,
+      65,
+      68,
+      98,
+      99,
+      34,
+      36,
+      8,
+      9,
+      57,
+      59
+    ],
+    "rooms": [
+      65,
+      68,
+      98,
+      99,
+      34,
+      36,
+      8,
+      9,
+      57,
+      59
+    ]
+  },
+  "door_actions": [
+    {
+      "time": "Mon 11:58am",
+      "actor": 4,
+      "actor_name": "chief constable straker",
+      "actor_room": 68,
+      "door": 50,
+      "action": 36,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 12:01pm",
+      "actor": 4,
+      "actor_name": "chief constable straker",
+      "actor_room": 65,
+      "door": 50,
+      "action": 14,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 12:06pm",
+      "actor": 4,
+      "actor_name": "chief constable straker",
+      "actor_room": 65,
+      "door": 50,
+      "action": 36,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 12:09pm",
+      "actor": 4,
+      "actor_name": "chief constable straker",
+      "actor_room": 68,
+      "door": 50,
+      "action": 14,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 12:59pm",
+      "actor": 2,
+      "actor_name": "inspector lestrade",
+      "actor_room": 99,
+      "door": 50,
+      "action": 36,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 01:02pm",
+      "actor": 2,
+      "actor_name": "inspector lestrade",
+      "actor_room": 98,
+      "door": 50,
+      "action": 14,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 01:03pm",
+      "actor": 2,
+      "actor_name": "inspector lestrade",
+      "actor_room": 98,
+      "door": 50,
+      "action": 36,
+      "player_room": 8
+    },
+    {
+      "time": "Mon 01:06pm",
+      "actor": 2,
+      "actor_name": "inspector lestrade",
+      "actor_room": 99,
+      "door": 50,
+      "action": 14,
+      "player_room": 8
+    }
+  ],
+  "original_messages_for_distant_actions": [],
+  "javascript_messages_after_fix": [],
+  "states_and_exact_upper_lower_bitmaps_compared": 8,
+  "original_filter": "CB01 calls D471; CB06 prints only if NPC room has an exit to Holmes room",
+  "regression_before_fix": "11:59am upper bitmap differed; original emitted no door message",
+  "adjacent_diningroom_notification_preserved": true,
+  "served_sha256": "f5567f36d36566026978507923691db7bb31d993dde65158f600cafafd2642fc",
+  "served_matches_disk": true,
+  "cache_control": "no-store",
+  "regressions": {
+    "tests": 362,
+    "passed": 362,
+    "failed": 0
+  }
+}

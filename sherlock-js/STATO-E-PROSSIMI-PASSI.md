@@ -96,3 +96,5 @@ nuova non la riceve per supposizione.
 
 Il motore rimane una ricostruzione parziale: le prove locali dichiarate non
 certificano ancora equivalenza dell'intero gioco o di tutti i seed.
+
+Correzione porte lontane: vedere [PORTE-E-NOTIFICHE.md](PORTE-E-NOTIFICHE.md). Il filtro CB01/D471 ora impedisce notifiche di porte condivise tra edifici diversi; rimangono le notifiche dalle stanze realmente adiacenti.

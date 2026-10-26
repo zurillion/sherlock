@@ -351,9 +351,11 @@ export class NpcRuntime {
   const w=this.w,visible=out.visibilityResolved||!w.dark()&&w.perceived(actor);
   // CAAF/CAF0: a shared door can be acted on from another room. Announce
   // its change to an observer in either room, replacing the unseen actor
-  // with the original anonymous subject ($A036 = FF).
+  // with the original anonymous subject ($A036 = FF). CB01/D471 also
+  // requires an exit from the ACTOR room to Holmes' room: the same door
+  // entity is reused in distant buildings, which must not leak messages.
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
-  const anonymous=!visible&&!w.dark()&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id);
+  const anonymous=!visible&&!w.dark()&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
   if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32||out.objectRule)actions.push({actor,id:out.action,arguments:out.args});
  }
