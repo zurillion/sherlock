@@ -2,6 +2,11 @@
 
 26 ottobre 2026. Correzione del blocco ripetuto su `$99FB` nel motore autonomo.
 
+Aggiornamento successivo: la cronologia effettiva dell’utente ha rivelato
+anche divergenze precedenti che avevano condotto il vecchio modello a quella
+lettura. Analisi, confronto naturale e ripresa verificata sono in
+[CRONOLOGIA-BASIL-UTENTE.md](CRONOLOGIA-BASIL-UTENTE.md).
+
 ## Causa
 
 Il generatore casuale originale consulta byte dello stato globale e valori

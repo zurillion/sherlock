@@ -36,6 +36,7 @@ export class Text {
     // nested name call is active. Its last noun is flushed after return.
     if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);}feed(' ');});capitalize=true;feed(parts.at(-1));}
     else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
+   else if(actorToken&&context.actorNamePrefix&&id!==w.player){const parts=w.name(id,{indefinite:Boolean(e.person)}).split(' ');context.actorNamePrefix(()=>{feed(parts.slice(0,-1).join(' '));feed(' ');});feed(parts.at(-1)+(be?' is':''));}
    else feed(name(id,be));
   };
   const emit=t=>{
@@ -110,8 +111,12 @@ export class Text {
    const children=list(parent);if(!children.length)return;
    const names=children.map(e=>w.name(e.id,{indefinite:true}));
    let prefix;
-   if(parent===null){prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
-    if(trace){let offset=0;const inventory=joinList(names);for(const item of names){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4});offset+=item.length;}}
+   // A414 leaves the final exit/passage noun buffered. The room-list
+   // introduction provides its delimiter, then SEE flushes in the first
+   // object's naming call. AND is a separate dictionary invocation.
+   if(parent===null){const previous=text.join(' '),tail=previous.match(/\S+$/);if(trace&&tail&&/^(Visible exits are |To the |Above |Below )/.test(text.at(-1)))trace.push({kind:'room-list-delimits-exits',start:previous.length-tail[0].length,end:previous.length,frame:listFrame(depth)-2});prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
+    if(trace)trace.push({kind:'room-list-see',start:start+prefix.length-4,end:start+prefix.length-1,frame:listFrame(depth)+4});
+    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const item of names){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4});offset+=item.length;}}
    }
    else{const container=w.entity(parent);if(container.person){
     const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
@@ -127,7 +132,7 @@ export class Text {
     // and qualifiers flush through D3E8/A815; a wrapped article can reach
     // working fields that the verb itself never touches.
     let offset=0;const inventory=joinList(names);
-    if(trace)for(const item of names){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',frame:listFrame(depth)+4});offset+=item.length;}
+    if(trace)for(const item of names){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8});offset+=item.length;}
     text.push(name+' is carrying '+joinList(names)+'.');
    }else{const relation=({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In',name=w.name(parent),start=text.join(' ').length+(text.length?1:0);
     prefix=`${relation} ${name} there ${children.length===1?'is':'are'} `;
@@ -138,7 +143,7 @@ export class Text {
      trace.push({kind:'container-copula',start:nameEnd+7,end:start+prefix.length-1,frame:listFrame(depth)+2});
      let offset=0;const inventory=joinList(names);for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});offset+=item.length;}}
     text.push(prefix+joinList(names)+'.');}}
-   if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768))trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
+   if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768)&&list(children[0].id).length)trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
    for(const e of children){w.lastListed.push(e.id);if(mark)e.status|=128;}
    for(const e of children)renderChildren(e.id,depth+1);
@@ -161,9 +166,14 @@ export class Text {
    const expand=full&&Boolean(r.description);
    const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id));
    text.push(actorIs+' in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
+   // D144/D147 flush the final container noun through A414. When D182
+   // then has no room prose, D197 temporarily makes that container the
+   // subject; its name prefix flushes inside the actor-is text argument.
+   if(trace&&!expand){const first=text.join(' '),tail=first.match(/\S+$/);if(tail)trace.push({kind:'container-introduction-tail',start:first.length-tail[0].length,end:first.length,frame:0x5D14+entryOffset});}
+
    if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
    if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
-   else text.push((w.name(parent)[0].toUpperCase()+w.name(parent).slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');
+   else{const start=text.join(' ').length+1,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
    if(full)describePassages();
    const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
    return text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');

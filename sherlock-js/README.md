@@ -1,5 +1,10 @@
 # Aggiornamento: NPC v5 nella pagina
 
+26 ottobre, cronologia reale di Basil: completato il confronto di 115 comandi
+con l’originale e la ripresa verificata alle 11:54. Il salvataggio ricostruito
+e le istruzioni sono in [CRONOLOGIA-BASIL-UTENTE.md](CRONOLOGIA-BASIL-UTENTE.md).
+È preferibile al vecchio stato casuale già divergente.
+
 26 ottobre: corretto il blocco ripetuto dopo l’alibi di Basil su `$99FB`,
 con continuazione e caricamento verificati. **Salvare prima di ricaricare
 la pagina, poi caricare il salvataggio**: non occorre riavviare la partita v5.

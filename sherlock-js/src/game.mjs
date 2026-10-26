@@ -12,7 +12,7 @@ import {RandomDisplay} from './random-display.mjs';
 import {NpcRuntime} from './npc-runtime.mjs';
 import {CommandHistory} from './command-history.mjs';
 import {characterBadge} from './characters.mjs';
-import {canPlace} from './objects.mjs';
+import {canPlace,fitsContainer} from './objects.mjs';
 import {changeIdentity} from './identity.mjs';
 import {objectRuleFor} from './special-objects.mjs';
 
@@ -202,7 +202,7 @@ export class Game {
     if(w.entity(actor).parent!==e.id)return reject('YOU CANNOT GET OUT OF '+w.name(e.id).toUpperCase());
     w.move(actor,w.roomOf(actor),e.parent);return ok([say(this.word(node.verb),' out of '+w.name(e.id)+'.')],2,[e.id]);
    }
-   if(w.entity(actor).parent!==null||w.owns(actor,e.id)||e.size<w.entity(actor).size||(rule.rule!=='enterCab'&&w.weight(actor)>w.remainingCapacity(e.id)))return reject('YOU CANNOT GET INTO '+w.name(e.id).toUpperCase());
+   if(w.owns(e.id,actor)||w.owns(actor,e.id)||e.size<w.entity(actor).size||(rule.rule!=='enterCab'&&!fitsContainer(w,w.entity(actor),e)))return reject('YOU CANNOT GET INTO '+w.name(e.id).toUpperCase());
    w.move(actor,w.roomOf(actor),e.id);return ok([say(this.word(node.verb),(action===40?' in ':' into ')+w.name(e.id)+'.')],2,[e.id]);
   }
   if(action<=10||[18,27,28,35].includes(action)){
@@ -220,11 +220,11 @@ export class Game {
     // arrival only when the actor becomes perceptible from elsewhere.
     if(visibleBefore&&!w.dark())messages.push(action===28?`${w.name(actor)} goes through ${w.name(gate.id)}.`:`${w.name(actor)} goes ${DIRECTION_NAMES[direction]}.`);
     if(!visibleBefore&&visibleAfter&&!w.dark())messages.push(`${w.name(actor)} enters.`);
-    return {...ok(messages,2,[]),visibilityResolved:true};
+    return {...ok(messages,2,action===28?[gate.id]:[]),visibilityResolved:true};
    }
    w.rooms[room].flags|=64;w.explored.add(room);
    const movement=action===28?say('go',' through '+w.name(gate.id)+'.'):say('go',' '+DIRECTION_NAMES[direction]+'.');
-   return ok([movement,{...this.sceneMessage({full:first}),image_room:first?room:null}],2,[]);
+   return ok([movement,{...this.sceneMessage({full:first}),image_room:first?room:null}],2,action===28?[gate.id]:[]);
   }
   if(node.groups.some(g=>g.noun&32768))throw new UnsupportedFeature('argomenti letterali per questa azione');
   const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};const e=result.entity;
@@ -316,6 +316,9 @@ export class Game {
      if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)throw new UnsupportedFeature('durata dei record per questo chiarimento');break;}
      }
      }finally{if(this.world.npcs&&originalNode.all&&syntaxAllocated)this.npcRuntime.finishCollective();}
+     // D85B/D86D returns failure after ALL exhausts its search, even when
+     // the final selected action succeeded. It counts as a DOMAIN failure.
+     if(originalNode.all&&!this.pending&&lastOutcome)lastOutcome={...lastOutcome,collectiveExhausted:true};
      if(this.pending)break;
      if(this.ended)break;
     }
@@ -331,7 +334,7 @@ export class Game {
   if(this.ended)this.analysis.outcome='game_over';
   if(this.world.display&&this.analysis.outcome!=='not_translated'&&!this.ended)try{
    if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'),{inline:this.analysis.outcome==='clarification'});
-   if(this.world.npcs){const syntax=['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
+   if(this.world.npcs){const syntax=['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.collectiveExhausted||lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
     this.npcRuntime.playerInputFailures(syntax?['9923']:failed?['9937','992D','9923']:['992D','9923'],messages,actions);}
    this.sourceDisplay.prompt();
   }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}

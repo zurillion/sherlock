@@ -1,5 +1,14 @@
 # Stato attuale: NPC v5
 
+26 October, exact submitted Basil history: [CRONOLOGIA-BASIL-UTENTE.md](CRONOLOGIA-BASIL-UTENTE.md)
+and `results/basil-user-verification.json` compare 115 natural commands,
+623 draws, 1,316 reads, both bitmaps, complete arena and the future loaded
+at 11:54. The original does not read 99FB in this natural corpus: earlier
+renderer/entry differences led the old JS there. The immutable terminator
+fix remains independently tested. A recovered save is replayed from the
+first 98 user commands, without installing a native snapshot or resetting
+the current random state by hand. Full deductions remain outside coverage.
+
 26 October: [BASIL-E-CONFINE-DEI-FATTI.md](BASIL-E-CONFINE-DEI-FATTI.md)
 and `results/fact-boundary-verification.json` fix omitted immutable fact-table
 terminator and player rule headers. A controlled cursor after the natural

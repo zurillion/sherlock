@@ -35,6 +35,11 @@ partendo dall'acquisizione degli indizi e dal loro uso nei colloqui.
 
 ## 2. Informazioni e deduzioni
 
+La cronologia reale del blocco di Basil è ora confrontata con l’originale
+per 115 comandi. Correzioni di ingombro, ALL, stampa e dipendenze casuali,
+con salvataggio ricostruito alle 11:54:
+[CRONOLOGIA-BASIL-UTENTE.md](CRONOLOGIA-BASIL-UTENTE.md).
+
 Corretto il blocco tecnico dopo l’alibi di Basil: terminatore della tabella
 dei fatti e intestazioni del programma del giocatore ora esportati. Prova
 controllata di continuazione e caricamento in

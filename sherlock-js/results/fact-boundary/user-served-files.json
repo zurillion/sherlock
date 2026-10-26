@@ -1,0 +1,51 @@
+{
+  "modules": [
+    {
+      "file": "src/game.mjs",
+      "status": 200,
+      "matches_disk": true,
+      "cache_control": "no-store",
+      "sha256": "c0684a2455a1546e8823da6b34549eaa86065bd7028fa58a0c02da9b4885c932"
+    },
+    {
+      "file": "src/npc-runtime.mjs",
+      "status": 200,
+      "matches_disk": true,
+      "cache_control": "no-store",
+      "sha256": "4dffae7cda829c0f64d1826a82a6d0a28c85962d2ae31153711a11bfbd93243e"
+    },
+    {
+      "file": "src/objects.mjs",
+      "status": 200,
+      "matches_disk": true,
+      "cache_control": "no-store",
+      "sha256": "bb641920a34877ff6ec66747280161e0d818ee0f224c0878a91b179d0348861d"
+    },
+    {
+      "file": "src/world.mjs",
+      "status": 200,
+      "matches_disk": true,
+      "cache_control": "no-store",
+      "sha256": "f146f057f48f176dd0f14ae26041006f76d563701cdbc186eda988d934d9831f"
+    },
+    {
+      "file": "src/random-display.mjs",
+      "status": 200,
+      "matches_disk": true,
+      "cache_control": "no-store",
+      "sha256": "3868d0ac3a6faff1617f25a15197ef79884167002d4b640c99aa4da41cd4c2a3"
+    },
+    {
+      "file": "src/text.mjs",
+      "status": 200,
+      "matches_disk": true,
+      "cache_control": "no-store",
+      "sha256": "a86b8860043f394eaf8a40e3708dea8b1b971c9b71f83a1a099d37ba9a996957"
+    }
+  ],
+  "recovery_file": {
+    "path": "results/fact-boundary/sherlock-seed1-ripresa-1154.json",
+    "sha256": "1ccbcc4714f4d2aa362ee6fd45673fe9e50007dadb756f6077b8c293cbfcba24",
+    "availability": "Local file for the existing Load dialog; results are intentionally outside the static server allowlist."
+  }
+}

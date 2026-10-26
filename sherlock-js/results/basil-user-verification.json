@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-26",
+  "profile": "world-v5",
+  "initial_seed": 1,
+  "actors": 24,
+  "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "commands": 115,
+  "user_commands_before_first_teleport": 105,
+  "extra_inventory_commands": 10,
+  "random_draws": 623,
+  "source_reads": 1316,
+  "original_reads_99FB": false,
+  "tail_end": "Mon 12:11pm",
+  "recovered_save": {
+    "file": "fact-boundary/sherlock-seed1-ripresa-1154.json",
+    "commands_replayed": 98,
+    "clock": "Mon 11:54am",
+    "room": 67,
+    "history_origin": "rebuilt-user-history-before-stall",
+    "native_snapshot_installed": false,
+    "random_state_set_by_hand": false
+  },
+  "compared": [
+    "Every random draw, source read and successor",
+    "All 24 actors and deadlines",
+    "Entities including native money encoding",
+    "All facts and room flags",
+    "Full 752-byte arena including released bytes",
+    "Editor, token buffers and owned renderer fields",
+    "Exact upper and lower bitmaps",
+    "Actual browser text packets",
+    "Loaded response and successor at every command after 11:54"
+  ],
+  "original_protocol": "Free initial LOOK; graphics off after first prompt; uppercase injected keys; immediate MORE; no idle timeouts",
+  "complete_supplied_journal": {
+    "commands": 106,
+    "teleports": 2,
+    "final_clock": "Mon 12:02pm",
+    "final_room": 67,
+    "scope": "JavaScript usability only; map teleport IO is outside native equivalence"
+  },
+  "tests_passed": 350,
+  "limitations": [
+    "Full deductions remain unimplemented",
+    "No unrestricted seed, physical keyboard timing or native graphics certificate",
+    "Old saves retain earlier divergent choices; use the replayed save for this verified future"
+  ],
+  "fixture": "test/fixtures/basil-user-reference.json"
+}

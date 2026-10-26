@@ -27,7 +27,7 @@
   "recovery": "Old v5 state resumes with corrected immutable tables; no invented mutable save fields",
   "limitations": [
     "Controlled cursor is not a naturally reached state certificate",
-    "User exact failing history was not supplied",
+    "This controlled corpus is distinct from the later supplied-history corpus; see results/basil-user-verification.json",
     "Graphics, different input timings and unrestricted seeds are not certified",
     "Full deductions remain unimplemented"
   ],

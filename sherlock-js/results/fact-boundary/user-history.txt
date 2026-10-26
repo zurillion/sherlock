@@ -1,0 +1,132 @@
+# Sherlock · cronologia comandi
+# Motore: JavaScript · world-v5 · cronologia v1
+# Seed iniziale: 1
+# Avvio: 08:00 (descrizione iniziale gratuita)
+# Cronologia completa dall’avvio.
+# Orologio visualizzato: Mon 11:54am
+
+SAY "HELLO" TO WATSON
+OPEN ALL
+N
+GET CHINA MAN
+# YOU CANNOT GET THE CHINA MAN
+TAKE CHINA MANS
+S
+WAIT
+WAIT
+SAY WATSON "FOLLOW ME"
+W
+D
+OPEN DOOR
+S
+HAIL CAB
+CLIMB INTO CAB
+SAY TO CABBIE "GO TO KINGS CROSS ROAD"
+WAIT
+WAIT
+WAIT
+PAY 6D TO CABBIE
+GET OUT
+NE
+NE
+NE
+NE
+SAY "HELLO" TO LESTRADE
+WAIT
+WAIT
+WAIT
+WAIT
+CLIMB INTO TRAIN
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+GET OUT
+I
+S
+SAY "HELLO" TO STRAKER
+I
+S
+W
+S
+SW
+S
+SW
+E
+I
+I
+I
+I
+W
+I
+E
+I
+SE
+I
+E
+I
+N
+I
+N
+EXAMINE HEDGE
+N
+N
+NW
+N
+W
+SW
+S
+SE
+I
+SW
+E
+W
+N
+N
+NE
+S
+I
+GO THROUGH LARGE OAK DOOR
+I
+E
+I
+I
+I
+I
+I
+I
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+I
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+I
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+I
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+I
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+LOOK
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+LOOK
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+# Teletrasporto: 065 · large kitchen
+LOOK
+# Esito: not_translated · Mon 11:54am
+# Ingresso casuale originale non ancora ricostruito: $99FB. Il comando non è stato applicato.
+# Teletrasporto: 067 · sitting room

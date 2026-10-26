@@ -26,16 +26,18 @@ export class RandomDisplay {
    if(role&&['carrying-name','literal-person-name','container-name'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(role.kind==='container-name'?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
    if(i<text.length)this.feed(text[i]);
    // A word is flushed by the following delimiter, within the same owner.
-   if(role&&i+1===role.end){this.flush();if(this.state.started&&(role.kind==='literal-person-name'||role.spaceAfter))this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphFrame=null;}
+   // After a carried-name prefix, A887 emits the separating space from
+   // its caller. Filling column 35 clears the next row at that caller depth.
+   if(role&&i+1===role.end){this.flush();if(role.spaceClearFrame&&this.state.cursor===35)this.glyphResidue(' ',role.spaceClearFrame,35,0x5A20);if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter))this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphFrame=null;}
   }this.glyphFrame=null;this.glyphSpaceDescriptor=null;}
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
-  const put=(at,v)=>{if(at>=0x5CEE&&at<=0x5D0F)s[at]=v;};
+  const put=(at,v)=>{if(at>=0x5CEC&&at<=0x5D0F)s[at]=v;};
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEE&&at<=0x5D0F)delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&at<=0x5D0F)delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}

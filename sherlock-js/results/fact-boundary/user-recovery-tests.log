@@ -1,0 +1,11 @@
+✔ Exact user Basil history: native seed-1 sequence crosses the former stall without a controlled cursor and retains its save/load future (3235.211542ms)
+✔ Complete supplied journal, including former retries and map teleports, remains executable (2379.831125ms)
+✔ Published recovered save restores the verified 11:54 state and continues with the original future (360.492ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6124.318167

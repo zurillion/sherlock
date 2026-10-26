@@ -1,0 +1,20 @@
+✔ Exact user Basil history: native seed-1 sequence crosses the former stall without a controlled cursor and retains its save/load future (3585.71375ms)
+✔ Complete supplied journal, including former retries and map teleports, remains executable (2595.180584ms)
+✔ The fact table terminator is an immutable table entry, separate from mutable facts and handler code (22.526375ms)
+✔ A missing random dependency repeats after rollback and must not promise that another command will work (65.236583ms)
+✔ After Basil alibi: controlled original $99FB read, all actors and exact future state after load (3494.620541ms)
+✔ Lestrade followed on foot: all actors, every draw, all record bytes and exact upper screen (3946.159459ms)
+✔ Save/load during the house interviews preserves the remaining natural playthrough (4040.366333ms)
+✔ The original time-class branch keeps noon in morning and midnight in night (5.982333ms)
+✔ Submitted history prefix through the garden: every draw/state; known map IO difference is explicit (2466.505875ms)
+✔ The complete submitted history passes 11:42 and the subsequent interviews without prototype errors (2711.103791ms)
+✔ Ordinary EXAMINE preserves proven untouched low fields; unknown text contracts still invalidate them (14.685291ms)
+✔ Formatter coordinates derive from both channels, including their state across save/load (9.863542ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13444.0925

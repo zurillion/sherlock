@@ -13,7 +13,7 @@ from explorer import Game
 from extract_locations import extract
 from native_world import word
 g=Game(p,extract(p),seed=args.seed,active_npcs=None);w=g.world;w.m[0xa011]=0
-cells=[0x5cee,0x5cf5,*range(0x5d00,0x5d10)]+([*range(0x9873,0x9876),0x9833,0x9834]if args.watch else[])
+cells=[0x5cee,0x5cf5,*range(0x5d00,0x5d10)]+([*range(0x5ce8,0x5d00),*range(0x9873,0x9876),0x9833,0x9834]if args.watch else[])
 def snapshot():
  m=w.m;lists={};entities=[]
  for name,head,size in [('counters',0x9fe5,2),('signals',0x9fe7,2),('contexts',0x9fe9,7),('requests',0x9fee,8),('syntax',0x9ff0,30),('parsed',0x9ff2,30)]:
@@ -40,6 +40,8 @@ def observe(m,r,R):
  if pending is not None and pc==0xd2ec:
   v=r[R.A];pending.update(result=abs(v if v<128 else v-256),next_seed=m[0xa037],next_cursor=word(m,0xa039));pending=None
  if pc in(0xa2e4,0xcaaf,0xcbc2,0xca76):events.append(dict(at=f'{pc:04X}',actor=m[0xa036],action=m[0xa033],object=m[0xa034],other=m[0xa035],tick=word(m,0x9fdd)))
+ if args.watch and watch_active and pc==0xc388 and (r[R.B]==1 or r[R.A]==46):events.append(dict(at='glyph-name',actor=m[0xa036],word=bytes(m[0x5c0b:0x5c20]).decode('latin1'),character=r[R.A],sp=r[R.SP],cursor=list(m[0xc1f4:0xc1fc]),stack=[word(m,at)for at in range(r[R.SP],min(0x5d80,r[R.SP]+80),2)]))
+ if args.watch and pc in(0xe3f5,0xdee4,0xdeff,0xdf00,0xe413):events.append(dict(at=f'{pc:04X}',actor=m[0xa036],action=m[0xa033],object=m[0xa034],tick=word(m,0x9fdd),ix=r[R.IXh]*256+r[R.IXl],iy=r[R.IYh]*256+r[R.IYl],a=r[R.A],b=r[R.B],c=r[R.C],f=r[R.F],mode=m[0xa00b],restriction=m[0xb934]))
  if args.watch and m[0xa036]==3 and pc in(0xcc82,0xd03b,0xe491,0xd008):events.append(dict(at=f'{pc:04X}',program=f'{word(m,0x9fd9):04X}',saved=list(m[0x9fd6:0x9fd9]),root=list(m[0x9873:0x9876]),actor_room=m[word(m,0x8b70+9)+15],player_room=m[word(m,0x8b70)+15],first_record=word(m,0xa013),context=word(m,0x9fe9),requests=word(m,0x9fee),syntax=word(m,0x9ff0)))
 w.observer=observe
 steps=[]
@@ -94,7 +96,7 @@ for i,(kind,value)in enumerate(sequence()):
    if 'description'in e:w.engine.put(w.sim,q+13,int(e['description'],16)if e['description']else 0)
   if i+1>=args.record_from:result['steps'].append(dict(kind=kind,input=value,after=snapshot(),messages=[],random=[]));args.output.write_text(json.dumps(result,indent=2)+'\n')
   continue
- watch_active=args.watch
+ watch_active=args.watch and i+1>=args.record_from
  start=len(calls);ev=len(events);out=g.command(value)if kind=='command'else g.teleport(value)
  row=dict(kind=kind,input=value,messages=out['messages'],outcome=out['state']['analysis']['outcome']if kind=='command'else None,random=calls[start:],events=events[ev:],writers=dict(writers),after=snapshot())
  if i+1>=args.record_from:result['steps'].append(row);args.output.write_text(json.dumps(result,indent=2)+'\n')

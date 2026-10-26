@@ -137,6 +137,10 @@ export class NpcRuntime {
   records.heads.syntax=retain?current:0;this.state.parserPending=retain?current:null;
   const action=this.game.action(node);let rejected=false;this.state.sceneryFailure=null;
   if([17,19,20,21,22,38,39,42,43,44,46,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
+  // A failed class-9 lookup with no perceived nominal target searches the
+  // room description, just like other absent references. A visible object
+  // rejected by the TAKE predicate retains its separate execution refusal.
+  if([11,23,41].includes(action)&&!retain&&!collective){const group=node.groups[0],candidates=this.game.referenceCandidates(node,action,0);if(group&&!candidates.possible.length&&!candidates.nominal.some(e=>this.w.perceived(e.id))){this.state.sceneryFailure={action,slot:0,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;}}
   if(collective&&!retain)records.heads.parsed=current;
   else if(rejected){records.heads.parsed=current;this.state.parserRejected=current;}
   else if(!retain)records.arena.release(current);
@@ -398,6 +402,7 @@ export class NpcRuntime {
  demand(actor,recipient,owner,messages){
   const amount=balance(this.w,owner);if(amount===null)return;
   const g=this.game,visible=!this.w.dark()&&this.w.perceived(actor),c=visible?g.npcTextContext(actor):{};
+  if(visible)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame;g.sourceDisplay.glyphFrame=0x5D1A;try{write();}finally{g.sourceDisplay.glyphFrame=previous;}};
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner});const suffix=' '+formatMoney((-amount)&16383)+' "\n';if(c.sink)for(const ch of suffix)c.sink(ch);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }

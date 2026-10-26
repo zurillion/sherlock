@@ -1,0 +1,14 @@
+✔ Exact user Basil history: native seed-1 sequence crosses the former stall without a controlled cursor and retains its save/load future (3375.6505ms)
+✔ Complete supplied journal, including former retries and map teleports, remains executable (2393.822333ms)
+✔ Published recovered save restores the verified 11:54 state and continues with the original future (348.9985ms)
+✔ The fact table terminator is an immutable table entry, separate from mutable facts and handler code (17.939417ms)
+✔ A missing random dependency repeats after rollback and must not promise that another command will work (57.45675ms)
+✔ After Basil alibi: controlled original $99FB read, all actors and exact future state after load (3371.8005ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6305.390417

@@ -1,0 +1,118 @@
+# Exact user commands through the last LOOK before the first teleport.
+# Formerly cancelled commands now execute, as they do in the original.
+SAY "HELLO" TO WATSON
+OPEN ALL
+N
+GET CHINA MAN
+TAKE CHINA MANS
+S
+WAIT
+WAIT
+SAY WATSON "FOLLOW ME"
+W
+D
+OPEN DOOR
+S
+HAIL CAB
+CLIMB INTO CAB
+SAY TO CABBIE "GO TO KINGS CROSS ROAD"
+WAIT
+WAIT
+WAIT
+PAY 6D TO CABBIE
+GET OUT
+NE
+NE
+NE
+NE
+SAY "HELLO" TO LESTRADE
+WAIT
+WAIT
+WAIT
+WAIT
+CLIMB INTO TRAIN
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+GET OUT
+I
+S
+SAY "HELLO" TO STRAKER
+I
+S
+W
+S
+SW
+S
+SW
+E
+I
+I
+I
+I
+W
+I
+E
+I
+SE
+I
+E
+I
+N
+I
+N
+EXAMINE HEDGE
+N
+N
+NW
+N
+W
+SW
+S
+SE
+I
+SW
+E
+W
+N
+N
+NE
+S
+I
+GO THROUGH LARGE OAK DOOR
+I
+E
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+LOOK
+LOOK
+# Additional verification continuation.
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I

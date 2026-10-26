@@ -31,7 +31,8 @@ export class World {
   const pending=[id],seen=new Set();while(pending.length){const p=pending.pop();if(seen.has(p))throw Error('Containment cycle');seen.add(p);for(const e of this.entities)if(e.parent===p){e.rooms=[room];pending.push(e.id);}}
  }
  contentsWeight(id){
-  const visit=(parent,total)=>{for(const child of this.entities)if(child.parent===parent){const sum=(total+child.weight)&255;if(!((total^child.weight)&128)&&((total^sum)&128))return 255;total=visit(child.id,sum);}return total;};
+  // D305 begins enumeration after entry zero, even in recursive scans.
+  const visit=(parent,total)=>{for(const child of this.entities)if(child.id!==0&&child.parent===parent){const sum=(total+child.weight)&255;if(!((total^child.weight)&128)&&((total^sum)&128))return 255;total=visit(child.id,sum);}return total;};
   return visit(id,0);
  }
  weight(id){return Math.min(255,this.entity(id).weight+this.contentsWeight(id));}

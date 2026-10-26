@@ -1,8 +1,68 @@
 {
   "roundtrip_equal": true,
-  "instructions": 78,
-  "bytes_roundtripped": 195,
+  "instructions": 334,
+  "bytes_roundtripped": 705,
   "regions": [
+    {
+      "start": "D206",
+      "end_exclusive": "D224",
+      "kind": "code",
+      "label": "Entity iterator advances before reading: entry zero is skipped"
+    },
+    {
+      "start": "D2ED",
+      "end_exclusive": "D33C",
+      "kind": "code",
+      "label": "Direct bulk and recursive weight scans"
+    },
+    {
+      "start": "E3EA",
+      "end_exclusive": "E3F3",
+      "kind": "data",
+      "label": "Enter-cab rule header"
+    },
+    {
+      "start": "E3F3",
+      "end_exclusive": "E40A",
+      "kind": "code",
+      "label": "Entry predicates and bulk check"
+    },
+    {
+      "start": "E40A",
+      "end_exclusive": "E413",
+      "kind": "data",
+      "label": "Enter-container rule header"
+    },
+    {
+      "start": "E413",
+      "end_exclusive": "E432",
+      "kind": "code",
+      "label": "Entry body and exit predicate"
+    },
+    {
+      "start": "D835",
+      "end_exclusive": "D870",
+      "kind": "code",
+      "label": "Collective search exhaustion returns DOMAIN failure"
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glyph caller fields, shift and last scan"
+    },
+    {
+      "start": "A414",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Sentence period remains in the word buffer"
+    },
+    {
+      "start": "D60B",
+      "end_exclusive": "D6B8",
+      "kind": "code",
+      "label": "Passage and free-exit descriptions"
+    },
     {
       "start": "99F1",
       "end_exclusive": "99FB",
