@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26",
+  "tests_passed": 347,
+  "profile": "world-v5",
+  "initial_seed": 1,
+  "actors": 24,
+  "natural_prefix_commands": 109,
+  "natural_prefix_end": "Mon 11:53am",
+  "controlled_setup": {
+    "random_cursor": 39163
+  },
+  "tail_commands": 20,
+  "tail_end": "Mon 12:13pm",
+  "random_draws": 64,
+  "source_reads": 132,
+  "compared": [
+    "Every random input and successor",
+    "All actor PCs, saved arguments and deadlines",
+    "Entities, facts and room flags",
+    "All 752 record arena bytes and lists",
+    "Exact upper and lower bitmaps",
+    "Editor, token buffers and owned renderer fields",
+    "Actual browser text packets",
+    "Save/load response and future state at every tail command"
+  ],
+  "original_protocol": "Free initial LOOK; graphics off after first prompt; uppercase injected keys; immediate MORE; no idle timeouts",
+  "recovery": "Old v5 state resumes with corrected immutable tables; no invented mutable save fields",
+  "limitations": [
+    "Controlled cursor is not a naturally reached state certificate",
+    "User exact failing history was not supplied",
+    "Graphics, different input timings and unrestricted seeds are not certified",
+    "Full deductions remain unimplemented"
+  ],
+  "source_listing": "fact-boundary/boundaries.asm",
+  "fixture": "test/fixtures/fact-boundary-reference.json",
+  "input_history": "fact-boundary/after-basil-inputs.txt"
+}

@@ -1,7 +1,9 @@
 // Arithmetic part of the original random source, expressed as pure game logic.
 // Its input provider is explicit. A full world-dependent entropy model has NOT
 // yet been reconstructed, so this component is not wired to invented NPC AI.
-export class RandomInputsUnavailable extends Error {}
+export class RandomInputsUnavailable extends Error {
+ constructor(message,{address=null}={}){super(message);this.address=address;}
+}
 const byte=n=>Number.isInteger(n)&&n>=0&&n<=255;
 
 export class OriginalRandom {

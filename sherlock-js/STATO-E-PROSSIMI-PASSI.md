@@ -35,6 +35,12 @@ partendo dall'acquisizione degli indizi e dal loro uso nei colloqui.
 
 ## 2. Informazioni e deduzioni
 
+Corretto il blocco tecnico dopo l’alibi di Basil: terminatore della tabella
+dei fatti e intestazioni del programma del giocatore ora esportati. Prova
+controllata di continuazione e caricamento in
+[BASIL-E-CONFINE-DEI-FATTI.md](BASIL-E-CONFINE-DEI-FATTI.md). Questo non
+esegue ancora le deduzioni descritte sotto.
+
 Le normali interrogazioni TELL e le interviste dei programmi NPC sono già
 presenti nei percorsi verificati. Mancano la gestione completa delle
 affermazioni, la memoria delle informazioni, la valutazione delle prove e

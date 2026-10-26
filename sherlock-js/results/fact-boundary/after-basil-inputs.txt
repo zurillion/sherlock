@@ -1,0 +1,132 @@
+# Replay the existing natural seed-1 prefix through Basil's alibi.
+SAY "HELLO" TO WATSON
+WAIT
+WAIT
+WAIT
+SAY "FOLLOW ME" TO WATSON
+OPEN YOUR DOOR
+W
+D
+OPEN DOOR
+S
+HAIL CAB
+SAY "HELLO" TO CABBIE
+CLIMB INTO CAB
+SAY "GO TO KINGS CROSS ROAD" TO CABBIE
+WAIT
+WAIT
+WAIT
+PAY CABBIE
+PAY 6D TO CABBIE
+CLIMB OUT
+NE
+NE
+NE
+NE
+SAY TO LESTRADE "GOOD MORNING"
+SAY TO LESTRADE "HELLO"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+CLIMB INTO TRAIN
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+WAIT
+S
+CLIMB OUT
+S
+I
+S
+W
+S
+SW
+S
+SW
+E
+I
+I
+I
+W
+I
+E
+I
+SE
+I
+E
+I
+N
+I
+N
+I
+N
+N
+NW
+N
+W
+SW
+S
+SE
+I
+SW
+E
+I
+W
+N
+N
+NE
+S
+I
+S
+I
+I
+E
+I
+I
+# Controlled random-cursor boundary, not a natural-history claim.
+# Setup: {"random_cursor": 39163}
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I

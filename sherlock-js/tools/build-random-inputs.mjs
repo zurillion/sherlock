@@ -30,6 +30,10 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  const catalog=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/locations.json'),'utf8')),
   actions=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/gameplay-action-inventory.json'),'utf8'));
  const headers=new Set([...catalog.entities.flatMap(e=>e.rules.map(r=>r.rule_pointer)),...actions.models.map(a=>a.general_rule),...Object.values(npcPrograms.rules).map(r=>r.source)].filter(Boolean));
+ // The six conditional rule operations in the player's DOMAIN program
+ // reference the editor/lexer/parser/semantic headers just like NPC rules.
+ // D7FA/D7FB is the two-byte semantic-rule header, not mutable scratch.
+ for(let p=0x9923;p<=0x993C;p+=5){if(byte(p)!==0x13)throw Error('Unexpected player rule operation');headers.add((byte(p+1)|byte(p+2)<<8).toString(16).toUpperCase());}
  const ruleBytes=[];for(const h of headers){const at=parseInt(h,16),flags=byte(at),size=2+(flags&64?2:0)+(flags&16?5:0);for(let i=0;i<size;i++)if(!written.has(at+i))ruleBytes.push([at+i,byte(at+i)]);}
  const worldLayout={rooms:catalog.rooms.map(r=>({id:r.id,start:parseInt(r.record,16),size:r.size})),entities:catalog.entities.map(e=>({id:e.id,start:parseInt(e.record,16),size:e.size,rulePairs:e.rules.map(r=>[r.action_id,r.value])})),tables:[{start:0x8B6F,values:[...catalog.entities.flatMap(e=>[e.id,parseInt(e.record,16)&255,parseInt(e.record,16)>>>8]),255]},{start:0x8258,values:[...payload.subarray(0x8258-base,Math.min(...catalog.rooms.map(r=>parseInt(r.record,16)))-base)]}]};
  // The editor reuses the relocated tape loader. Unwritten input suffixes
@@ -52,6 +56,10 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // followed by source reference terms. Boundaries are established by the
  // evaluator's referenced entries, not by disassembling this data as code.
  const factStarts=[0x9965,0x9973,0x9981,0x9997,0x99A9,0x99BB,0x99C5,0x99CF,0x99D9,0x99E3,0x99F1,0x99FB];
+ // BC4E/BC7A/BCA2 scan until the FF subject at 99FB. This byte is a
+ // table terminator, not another mutable fact or an instruction at 99FC.
+ const terminator=factStarts.at(-1);if(byte(terminator)!==255)throw Error('Invalid fact table terminator');
+ worldLayout.tables.push({start:terminator,values:[255],kind:'fact-table-terminator'});
  worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
  return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{printerEnabled:Boolean(byte(0xA008))},source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',

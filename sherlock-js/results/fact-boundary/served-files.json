@@ -1,0 +1,37 @@
+[
+  {
+    "file": "data/game.json",
+    "status": 200,
+    "matches_disk": true,
+    "cache_control": "no-store",
+    "sha256": "020fee9d5fb8136d18f25c6b6e3efa9eec14b57340931e906a1ef76fb38446d3"
+  },
+  {
+    "file": "src/game.mjs",
+    "status": 200,
+    "matches_disk": true,
+    "cache_control": "no-store",
+    "sha256": "c40ff511326fc23ed1e37f02a61a0d494e6601e9f60a1f2ac7598e825d0aa521"
+  },
+  {
+    "file": "src/npc-runtime.mjs",
+    "status": 200,
+    "matches_disk": true,
+    "cache_control": "no-store",
+    "sha256": "652f747e421c10cc8cdd4e6f1d7b09e76a3d71c951f3688678ec5eaa0798191d"
+  },
+  {
+    "file": "src/session.mjs",
+    "status": 200,
+    "matches_disk": true,
+    "cache_control": "no-store",
+    "sha256": "d5c41d47cf54c0af237269b02a30f471acbaa70a1b7c43164b2a34936ff42958"
+  },
+  {
+    "file": "src/text.mjs",
+    "status": 200,
+    "matches_disk": true,
+    "cache_control": "no-store",
+    "sha256": "d2e67a49d1016efd6988443be8decfc64a263d9982c716ecef734d30d5de41a3"
+  }
+]

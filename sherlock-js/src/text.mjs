@@ -29,9 +29,13 @@ export class Text {
    result+=c;context.sink?.(c);
   }};
   const name=(id,be=false)=>w.name(id,{indefinite:Boolean(w.entity(id).person)})+(be?(id===0?' are':' is'):'');
-  const feedName=(id,be=false)=>{
+  const feedName=(id,be=false,actorToken=false)=>{
    feed(' ');const e=w.entity(id);
-   if(e.person&&(e.noun&32768)&&id!==w.player){for(const [i,part] of w.name(id).split(' ').entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
+   if(e.person&&(e.noun&32768)&&id!==w.player){const parts=w.name(id).split(' ');
+    // In the prefab TELL path, the actor-name prefix flushes while the
+    // nested name call is active. Its last noun is flushed after return.
+    if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);}feed(' ');});capitalize=true;feed(parts.at(-1));}
+    else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
    else feed(name(id,be));
   };
   const emit=t=>{
@@ -66,7 +70,7 @@ export class Text {
      feed(' ');feed(model.words[0]);if(model.words[3]){feed(' ');feed(model.words[3]);}if(model.words[1]){feed(' ');feed(model.words[1]);}argument(args[0],0);if(model.words[2]){feed(' ');feed(model.words[2]);}argument(args[1],1);feed('.');break;
     }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
-    case 'actorName':feedName(actor);break;
+    case 'actorName':feedName(actor,false,true);break;
     case 'objectName':feedName(object);break;
     case 'otherName':feedName(other);break;
     case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;break;

@@ -1,0 +1,44 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 78,
+  "bytes_roundtripped": 195,
+  "regions": [
+    {
+      "start": "99F1",
+      "end_exclusive": "99FB",
+      "kind": "data",
+      "label": "Last mutable fact: six-byte prefix and reference terms"
+    },
+    {
+      "start": "99FB",
+      "end_exclusive": "99FC",
+      "kind": "data",
+      "label": "Immutable fact-table terminator: subject FF"
+    },
+    {
+      "start": "99FC",
+      "end_exclusive": "9A0D",
+      "kind": "code",
+      "label": "Fact handler and excerpt that modifies 99FA, not the terminator"
+    },
+    {
+      "start": "BC46",
+      "end_exclusive": "BCC9",
+      "kind": "code",
+      "label": "Three fact scanners: compare subject with FF"
+    },
+    {
+      "start": "CAF0",
+      "end_exclusive": "CB12",
+      "kind": "code",
+      "label": "Announce shared-object action with anonymous actor FF"
+    },
+    {
+      "start": "D7FA",
+      "end_exclusive": "D7FC",
+      "kind": "data",
+      "label": "Player semantic-rule header: classes zero, zero duration"
+    }
+  ],
+  "scope": "Known boundaries and excerpts only; byte roundtrip alone does not prove functional equivalence."
+}

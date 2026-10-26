@@ -7,7 +7,7 @@ separate from the natural-play disguise history.
 import argparse,hashlib,json,sys
 from pathlib import Path
 sys.dont_write_bytecode=True
-ap=argparse.ArgumentParser();ap.add_argument('--history',type=Path,default=Path('results/special-objects/disguises-inputs.txt'));ap.add_argument('--output',type=Path,required=True);ap.add_argument('--stop',type=int);ap.add_argument('--extra',type=int,default=0);ap.add_argument('--seed',type=int,default=1);ap.add_argument('--watch',action='store_true');ap.add_argument('--follow-until',type=int,help='After the prefix, choose walking/I inputs from the native map until this calendar minute. Test controller only.');args=ap.parse_args()
+ap=argparse.ArgumentParser();ap.add_argument('--history',type=Path,default=Path('results/special-objects/disguises-inputs.txt'));ap.add_argument('--output',type=Path,required=True);ap.add_argument('--stop',type=int);ap.add_argument('--record-from',type=int,default=1);ap.add_argument('--extra',type=int,default=0);ap.add_argument('--seed',type=int,default=1);ap.add_argument('--watch',action='store_true');ap.add_argument('--follow-until',type=int,help='After the prefix, choose walking/I inputs from the native map until this calendar minute. Test controller only.');args=ap.parse_args()
 p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'sherlock-analisi/locazioni'))
 from explorer import Game
 from extract_locations import extract
@@ -24,7 +24,7 @@ def snapshot():
   q=word(m,0x8b70+3*ident);entities.append(dict(id=ident,parent=None if m[q+1]==255 else m[q+1],rooms=list(m[q+15:q+15+m[q]]),attributes=m[q+5],status=m[q+6],properties=m[q+4],noun=word(m,q+7),qualifiers=[word(m,q+9),word(m,q+11)],description=f'{word(m,q+13):04X}'))
  bitmap=bytes(m[0x4000+((y&192)<<5)+((y&7)<<8)+((y&56)<<2)+x]for y in range(144)for x in range(32))
  return dict(player=w.player_id,player_failures=m[0xcc0b],facts=[list(m[a:b])for a,b in [(0x9965,0x9973),(0x9973,0x9981),(0x9981,0x9997),(0x9997,0x99a9),(0x99a9,0x99bb),(0x99bb,0x99c5),(0x99c5,0x99cf),(0x99cf,0x99d9),(0x99d9,0x99e3),(0x99e3,0x99f1),(0x99f1,0x99fb)]],clock=w.clock(),actors=[dict(id=m[q],pc=f'{word(m,q+1):04X}',saved=list(m[q+3:q+6]),due=word(m,q+6))for q in range(0x9860,0x9920,8)],entities=entities,rooms=[m[word(m,0x840b+2*i)]for i in range(106)],records=lists,arena=list(m[0x9570:0x9860]),free_head=word(m,0x9fe3),random_state=dict(seed=m[0xa037],cursor=word(m,0xa039)),upper_sha256=hashlib.sha256(bitmap).hexdigest(),working_cells={f'{at:04X}':m[at]for at in cells},input=list(m[0x5b00:0x5b81]),tokens=list(m[0x5b81:0x5c00]),lower_bitmap=list(m[0x4000+((y&192)<<5)+((y&7)<<8)+((y&56)<<2)+x]for y in range(152,192)for x in range(32)),mutable={f'{at:04X}':m[at]for at in [0xa01b,0xa019,0xa025,0xa024,0xd7e0,0xd6b8]})
-result=dict(scope='True seeded bootstrap, all 24 actors; free initial LOOK; graphics off after first prompt; uppercase injected keys, immediate MORE, no idle timeouts. Map travel uses the historical helper when explicit; those rows do not certify bitmap parity.',seed=args.seed,initial=snapshot(),steps=[])
+result=dict(skipped_prefix_events=args.record_from-1,scope='True seeded bootstrap, all 24 actors; free initial LOOK; graphics off after first prompt; uppercase injected keys, immediate MORE, no idle timeouts. Map travel uses the historical helper when explicit; those rows do not certify bitmap parity.',seed=args.seed,initial=snapshot(),steps=[])
 calls=[];pending=None;writers={};last=None;last_sp=None;previous={a:w.m[a]for a in cells};events=[];watch_active=False
 def observe(m,r,R):
  global pending,last,last_sp
@@ -84,6 +84,7 @@ for i,(kind,value)in enumerate(sequence()):
    w.m[word(w.m,0x840b+room*2)]|=64;g.explored.add(room)
   if 'day'in value:w.m[0x9fe1]=value['day']
   if 'note_ticks'in value:w.m[0x9ca1]=value['note_ticks']
+  if 'random_cursor'in value:w.engine.put(w.sim,0xa039,value['random_cursor'])
   for e in value.get('entities',[]):
    q=entity(e['id'])
    for key,offset in [('attributes',5),('status',6),('properties',4),('size',2),('weight',3),('room',15),('parent',1)]:
@@ -91,10 +92,11 @@ for i,(kind,value)in enumerate(sequence()):
    if 'qualifiers'in e:
     for j,n in enumerate(e['qualifiers']):w.engine.put(w.sim,q+9+j*2,n)
    if 'description'in e:w.engine.put(w.sim,q+13,int(e['description'],16)if e['description']else 0)
-  result['steps'].append(dict(kind=kind,input=value,after=snapshot(),messages=[],random=[]));args.output.write_text(json.dumps(result,indent=2)+'\n');continue
+  if i+1>=args.record_from:result['steps'].append(dict(kind=kind,input=value,after=snapshot(),messages=[],random=[]));args.output.write_text(json.dumps(result,indent=2)+'\n')
+  continue
  watch_active=args.watch
  start=len(calls);ev=len(events);out=g.command(value)if kind=='command'else g.teleport(value)
- row=dict(kind=kind,input=value,messages=out['messages'],outcome=out['state']['analysis']['outcome']if kind=='command'else None,random=calls[start:],events=events[ev:],writers=dict(writers),after=snapshot());result['steps'].append(row)
- args.output.write_text(json.dumps(result,indent=2)+'\n')
+ row=dict(kind=kind,input=value,messages=out['messages'],outcome=out['state']['analysis']['outcome']if kind=='command'else None,random=calls[start:],events=events[ev:],writers=dict(writers),after=snapshot())
+ if i+1>=args.record_from:result['steps'].append(row);args.output.write_text(json.dumps(result,indent=2)+'\n')
  print(i+1,kind,value,w.clock()['label'],'L='+str(row['after']['entities'][2]['rooms']),[m['text']for m in out['messages']if m['text']],flush=True)
  Path('/private/tmp/special-objects-native-state.json').write_text(json.dumps(dict(memory=list(w.m),registers=list(w.sim.registers))))

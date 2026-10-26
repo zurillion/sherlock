@@ -27,7 +27,7 @@ export class RuntimeRandom {
    return this.inputs.npcBytes.get(address);
   }
   if(this.inputs.fixed.has(address))return this.inputs.fixed.get(address);
-  throw new RandomInputsUnavailable('Ingresso casuale originale non ancora ricostruito: $'+address.toString(16).toUpperCase().padStart(4,'0')+'. Il comando non è stato applicato.');
+  throw new RandomInputsUnavailable('Ingresso casuale originale non ancora ricostruito: $'+address.toString(16).toUpperCase().padStart(4,'0')+'. Il comando non è stato applicato.',{address});
  }
  chooseIndex(count,context){return count-1-this.absolute(count-1,context);}
  absolute(width,{mixOffset,actor=3,purpose='npc'}={}){

@@ -1,0 +1,11 @@
+✔ The fact table terminator is an immutable table entry, separate from mutable facts and handler code (21.154208ms)
+✔ A missing random dependency repeats after rollback and must not promise that another command will work (59.71625ms)
+✔ After Basil alibi: controlled original $99FB read, all actors and exact future state after load (3288.306541ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3588.020542

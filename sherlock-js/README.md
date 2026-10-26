@@ -1,5 +1,10 @@
 # Aggiornamento: NPC v5 nella pagina
 
+26 ottobre: corretto il blocco ripetuto dopo l’alibi di Basil su `$99FB`,
+con continuazione e caricamento verificati. **Salvare prima di ricaricare
+la pagina, poi caricare il salvataggio**: non occorre riavviare la partita v5.
+Analisi e limiti: [BASIL-E-CONFINE-DEI-FATTI.md](BASIL-E-CONFINE-DEI-FATTI.md).
+
 26 ottobre: travestimenti con cambio d'identità, indizi e oggetti speciali
 sono ora collegati al motore autonomo. Comandi, algoritmi e prove sono in
 [IDENTITA-E-INDIZI.md](IDENTITA-E-INDIZI.md). Ricaricare la pagina carica i nuovi

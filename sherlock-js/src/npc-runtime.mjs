@@ -175,7 +175,7 @@ export class NpcRuntime {
    if(!job.prefab&&context.restriction&&[12,13,21,22,24,25,40,49,50].includes(action)){
     this.print('681A',actor,{object:job.sender},messages);cancel();return {handled:true,cost:0};
    }
-   const ctx={...context,request:true,node,sender:job.sender};
+   const ctx={...context,request:true,node,sender:job.sender,prefab:job.prefab};
    let result,objectSemantic=false;
    if(node&&![21,22,29,30,45].includes(action)){
     const out=this.game.executeAs(node,actor);objectSemantic=Boolean(out.objectRule);this.showAction(out,actor,messages,actions);result=out.objectRule?this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],{...ctx,saved:[action,...out.args,255].slice(0,3),isolated:true},messages,actions):{...yes(out.cost,{args:out.args}),success:out.cost>0||action===32};
@@ -336,7 +336,7 @@ export class NpcRuntime {
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
   else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0));if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
-  const out=g.executeAs(this.node(action,args),actor);this.showAction(out,actor,messages,actions);
+  const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});this.showAction(out,actor,messages,actions);
   if(out.objectRule)return this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],context,messages,actions);
   // B9B4 executes a queued command in its own working arguments. A completed
   // immediate request does not bind the suspended program's root arguments;
@@ -344,7 +344,13 @@ export class NpcRuntime {
   if(out.cost||action===32){if(!context.request)this.bind(context,args);return yes(out.cost,{args});}return no();
  }
  showAction(out,actor,messages,actions){
-  const visible=out.visibilityResolved||!this.w.dark()&&this.w.perceived(actor);if(visible){const shown=out.messages.filter(m=>m.kind==='narrative');messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
+  const w=this.w,visible=out.visibilityResolved||!w.dark()&&w.perceived(actor);
+  // CAAF/CAF0: a shared door can be acted on from another room. Announce
+  // its change to an observer in either room, replacing the unseen actor
+  // with the original anonymous subject ($A036 = FF).
+  const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
+  const anonymous=!visible&&!w.dark()&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id);
+  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32||out.objectRule)actions.push({actor,id:out.action,arguments:out.args});
  }
  relocate(id,room,messages,notification={}){

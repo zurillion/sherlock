@@ -1,5 +1,12 @@
 # Stato attuale: NPC v5
 
+26 October: [BASIL-E-CONFINE-DEI-FATTI.md](BASIL-E-CONFINE-DEI-FATTI.md)
+and `results/fact-boundary-verification.json` fix omitted immutable fact-table
+terminator and player rule headers. A controlled cursor after the natural
+Basil prefix compares twenty subsequent commands through 12:13, every draw,
+full state, both bitmaps and save/load futures. This controlled dependency
+test does not certify the user’s unavailable history or complete deductions.
+
 26 October, point 1: [IDENTITA-E-INDIZI.md](IDENTITA-E-INDIZI.md) and
 `results/special-objects-verification.json` add player identities 0/1/100,
 special clue programs, burning note stages, safes and their local endings,
