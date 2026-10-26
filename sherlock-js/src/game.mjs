@@ -180,7 +180,7 @@ export class Game {
    if(w.npcs){
     this.npcRuntime.addressee(node.groups[0]);
     if(!w.scheduler.actors.some(a=>a.id===target.entity.id&&a.enabled))throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
-    if(commands.some(n=>n.subject))throw new UnsupportedFeature('affermazioni e memoria degli attori');if(commands.length)this.npcRuntime.queue(actor,target.entity.id,commands);
+    if(commands.some(n=>n.subject)&&commands.some(n=>!n.subject))throw new UnsupportedFeature('citazione con ordini e affermazioni mescolati');if(commands.length)this.npcRuntime.queue(actor,target.entity.id,commands);
     return ok([say('talk',' to '+w.name(target.entity.id)+'.')],1,[target.entity.id]);
    }
    if(target.entity.id!==3||!w.scheduler.actor(3).enabled)throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);

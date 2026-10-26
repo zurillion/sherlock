@@ -1,5 +1,10 @@
 # Programmi dei personaggi nella pagina: NPC v5
 
+26 ottobre: il nucleo delle affermazioni e delle deduzioni è ora collegato
+ai colloqui e alle callback: [INFORMAZIONI-E-DEDUZIONI.md](INFORMAZIONI-E-DEDUZIONI.md).
+Questa estensione supera il precedente limite sulle deduzioni attive nei
+percorsi dichiarati; restano i limiti generali di copertura e casualità.
+
 25 ottobre: [LESTRADE-ISPEZIONI.md](LESTRADE-ISPEZIONI.md) e
 `results/lestrade-verification.json` aggiungono gli annunci di partenza, le
 richieste TELL prefabbricate, gli interrogatori in casa e il confronto naturale
@@ -83,7 +88,7 @@ Per gli scenari senza teletrasporto si confronta anche l’hash esatto della bit
 
 Restano da completare:
 
-- informazioni, affermazioni, deduzioni e reazioni legate alla conoscenza;
+- estensione delle informazioni e deduzioni oltre il corpus documentato in INFORMAZIONI-E-DEDUZIONI.md;
 - regole/eventi avanzati e finali, comprese le reazioni serali e alcune notifiche visibili di ricollocazione non tradotte;
 - l’intera proiezione di stack, stato di sistema e buffer; una lunga sequenza di soli WAIT oltre il tratto verificato raggiunge ancora celle non possedute;
 - la durata esatta delle allocazioni in errori sintattici e frasi multiple. Il chiarimento singolo e ALL sul primo argomento sono ora ricostruiti e mantengono la validità dei record nei percorsi verificati (vedi `CRONOLOGIA-E-SALUTO-CAB.md`). ALL su altri argomenti ed esclusioni restano fuori ambito. I percorsi ancora sconosciuti marcano la sorgente non disponibile e interrompono le dipendenze da quei metadati;

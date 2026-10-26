@@ -1,0 +1,44 @@
+[
+  {
+    "path": "src/information.mjs",
+    "sha256": "0ce7b86f3efb515fb70b81476e5fc14fb0a2d09eb83e1aae533d02e3a9227061",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/npc-runtime.mjs",
+    "sha256": "ea506b4d8f79cce9ff3d4e97183e1c8375b46bda4dbc3a40374de9c54fa950eb",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/text.mjs",
+    "sha256": "ada4f6bbbdbda6ec21a2df1f48397823c896e6e1b039bb5865475165744168d7",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/parser.mjs",
+    "sha256": "edba00b8f3d9943b60fec9d1d7e356d6f2a068dbec9e4f8a3247c5fda992efc2",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/random-display.mjs",
+    "sha256": "bf453b38a7fd5d4058aa0dc103e10cab130db086509292d494c066bca445aa69",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/game.mjs",
+    "sha256": "02a3eb9a4fd84eac8e9cd87861f8fdbfbc54041310a65032d5e60e6c915ec162",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "data/game.json",
+    "sha256": "d7ac3f6ff51ba2a48925aa079d57af24d6e2cd67fa6947668fea51c927bd82bd",
+    "matches_disk": true,
+    "cache_control": "no-store"
+  }
+]

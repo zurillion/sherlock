@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-26",
+  "engine": "Autonomous JavaScript world-v5",
+  "protocol": "Seed 1; all 24 actor slots; free initial LOOK; graphics off after boot; injected uppercase input; immediate MORE; no idle timeout.",
+  "statement_scenarios": 24,
+  "controlled_scenarios": 17,
+  "natural_user_prefix_commands": 98,
+  "subsequent_commands_compared": 74,
+  "random_draws_compared": 599,
+  "random_source_reads_compared": 1210,
+  "isolated_tree_evaluations": 88,
+  "saved_loaded_future_compared": true,
+  "exact_upper_and_lower_bitmaps_compared": true,
+  "complete_arena_bytes_compared": 752,
+  "memory_lists_and_pronoun_buffers_compared": true,
+  "regressions": {
+    "tests": 387,
+    "passed": 387,
+    "failed": 0
+  },
+  "source_listing": {
+    "roundtrip_equal": true,
+    "instructions": 647,
+    "bytes_roundtripped": 1711,
+    "regions": [
+      {
+        "start": "994D",
+        "end_exclusive": "9965",
+        "kind": "data",
+        "label": "Predicate lexicon"
+      },
+      {
+        "start": "9965",
+        "end_exclusive": "99FC",
+        "kind": "data",
+        "label": "Proof trees and FF terminator"
+      },
+      {
+        "start": "99FC",
+        "end_exclusive": "9A7D",
+        "kind": "code",
+        "label": "Deduction consequences"
+      },
+      {
+        "start": "9A7D",
+        "end_exclusive": "9A80",
+        "kind": "data",
+        "label": "Watson exception table terminator"
+      },
+      {
+        "start": "BA13",
+        "end_exclusive": "BA20",
+        "kind": "data",
+        "label": "Statement lookup working fields"
+      },
+      {
+        "start": "BA20",
+        "end_exclusive": "BA60",
+        "kind": "code",
+        "label": "Statement dispatch and request cleanup"
+      },
+      {
+        "start": "BA60",
+        "end_exclusive": "BA67",
+        "kind": "data",
+        "label": "Watson memory working fields"
+      },
+      {
+        "start": "BA67",
+        "end_exclusive": "BF59",
+        "kind": "code",
+        "label": "Watson acceptance, Lestrade proofs, observation trees, triple rendering"
+      },
+      {
+        "start": "E686",
+        "end_exclusive": "E6BC",
+        "kind": "code",
+        "label": "Watson recollection selector"
+      }
+    ]
+  },
+  "browser": "SAY TO WATSON \"BASIL KILLED MRS BROWN\" succeeds on the served page at 08:01, then prompt available; separate agent-created test tab.",
+  "limitations": [
+    "Specific declared corpus; not full-game equivalence or arbitrary seeds and input timing.",
+    "New Lestrade statement frames revoke stale AF/BC glyph scratch ownership. Unprojected future random dependencies remain explicit errors.",
+    "Quotes mixing commands and statements remain unsupported; game endings and advanced NPC branches remain separate roadmap work."
+  ]
+}

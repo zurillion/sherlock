@@ -62,7 +62,9 @@ export class RandomDisplay {
   this.flush();
   if(c==='\n'||c==='\r'){this.newline();s.lastSpacePrinted=false;}
   else if(c===' '){const printed=s.started;if(printed){if(this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',this.glyphFrame+12,s.cursor,this.glyphSpaceDescriptor);this.put(c);}s.lastSpacePrinted=printed;}
-  else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.lastSpacePrinted=false;}
+  // AA2A sets A025 before emitting a quote; a raw margin wrap does not
+  // clear it. Only the word-buffer exact-fit path or CR resets that flag.
+  else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
  write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;}

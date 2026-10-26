@@ -53,7 +53,9 @@ while(byte(topicCursor)!==255){const actor=byte(topicCursor++),topics={};while(b
 if(topicCursor!==0xE28C)throw Error('Unexpected TELL table boundary');
 const randomInputs=await buildRandomInputs(project,payload,npcPrograms);
 const descriptionSearch=buildDescriptionSearch(payload,rooms);
-const data={randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+if(byte(0x9A7D)!==255)throw Error('Unexpected nonempty Watson exception table');
+const informationRules={predicates:Array.from({length:11},(_,i)=>word(0x994D+2*i)),exceptions:[]};
+const data={informationRules,randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');

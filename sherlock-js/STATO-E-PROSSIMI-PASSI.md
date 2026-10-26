@@ -46,11 +46,17 @@ controllata di continuazione e caricamento in
 [BASIL-E-CONFINE-DEI-FATTI.md](BASIL-E-CONFINE-DEI-FATTI.md). Questo non
 esegue ancora le deduzioni descritte sotto.
 
-Le normali interrogazioni TELL e le interviste dei programmi NPC sono già
-presenti nei percorsi verificati. Mancano la gestione completa delle
-affermazioni, la memoria delle informazioni, la valutazione delle prove e
-le deduzioni attivate nei colloqui con Watson e Lestrade. Le strutture dei
-fatti e alcuni flag sono già esportati; ciò non equivale a eseguirne le regole.
+**Nucleo implementato:** affermazioni SAY a Watson e Lestrade, memoria delle
+triple e riuso dei record, collegamenti e richiami di Watson, valutazione
+degli undici alberi delle prove, richieste di prova di Lestrade e conseguenze
+delle conclusioni. Sono confrontati anche i colloqui dopo i 98 comandi
+naturali forniti dall’utente e il seguito da salvataggio. Vedere
+[INFORMAZIONI-E-DEDUZIONI.md](INFORMAZIONI-E-DEDUZIONI.md).
+
+Le citazioni miste ordini/affermazioni restano al punto 4; le fasi successive
+del caso al punto 5. L’estensione a ogni seed e ai campi temporanei del
+renderer non ancora posseduti resta al punto 7. Le normali interrogazioni
+TELL mantengono la propria tabella distinta dalle affermazioni.
 
 ## 3. Rami avanzati degli NPC
 

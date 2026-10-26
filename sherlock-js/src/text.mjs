@@ -54,6 +54,8 @@ export class Text {
      if(!Number.isInteger(index)||index<0||index>=t.options.length)throw Error('Invalid original text choice');
      inChoice=true;emit(t.options[index]);inChoice=false;break;
     }
+    case 'nameArgument':{const id=context.nameArguments?.[argumentsUsed++];if(!Number.isInteger(id))throw new UnsupportedFeature('nome nella memoria delle informazioni');feedName(id);break;}
+    case 'relationArgument':{const f=context.fact;if(!f)throw new UnsupportedFeature('relazione nella memoria delle informazioni');feedName(f.subject);const id=this.data.informationRules.predicates[f.predicate-1];feed(' ');const word=this.dictionary.word(id??93);if(!word)throw new UnsupportedFeature('predicato delle informazioni');feed(actor===0?word.stem:word.form);feedName(f.object);mixOffset=id;break;}
     case 'textArgument':{
      mixOffset=context.argumentContexts?.[argumentsUsed]??null;
      const id=context.textArguments?.[argumentsUsed++];

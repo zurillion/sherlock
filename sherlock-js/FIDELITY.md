@@ -1,5 +1,15 @@
 # Stato attuale: NPC v5
 
+26 October, information and deductions: [INFORMAZIONI-E-DEDUZIONI.md](INFORMAZIONI-E-DEDUZIONI.md)
+and `results/information-verification.json` add statement memory, original
+Watson recall/connection algorithms, all eleven proof trees, Lestrade proof
+requests and conclusion consequences. Twenty-four scenarios compare 74
+continuation commands, 599 draws, 1,210 reads, full arena, both bitmaps and
+save/load futures; one uses the natural 98-command user prefix. The 88
+isolated evaluations are controlled tests, not naturally reached states.
+New Lestrade frames revoke unprojected AF/BC scratch ownership; future
+unmapped reads still fail explicitly. Full-game seed parity remains false.
+
 26 October, WAIT UNTIL: [WAIT-UNTIL.md](WAIT-UNTIL.md) and
 `results/wait-until-verification.json` add live minute-by-minute scheduling,
 ENTER at the original pre-visit boundary, exact literal metadata, 576 native
@@ -51,7 +61,7 @@ extends the declared corpus, not whole-game parity.
 and `results/lestrade-verification.json` document departure notices, the 11:42
 EXAMINE/source-field failure, house interviews and the seed-1 natural route
 through 13:00. Every draw, actor state, entity state, room flag, arena byte and
-upper bitmap is compared. Active deductions remain an explicit unsupported
+upper bitmap is compared. In that earlier certificate, active deductions remained an unsupported
 branch. The historical map helper's first bitmap-dependent draw at user event
 121 remains outside the certificate; full-game and unrestricted seed parity
 are still false.

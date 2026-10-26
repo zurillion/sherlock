@@ -91,7 +91,7 @@ export class Parser {
    if(group){if(current.all&&!current.groups.length&&group.relations.length)current.groups.push(emptyGroup());if(current.groups.length>=2)fail();current.groups.push(group);continue;}
    // A verb reached without a conjunction can start another statement; ordinary
    // commands require the explicit separator handled above.
-   if(workingMode===2&&STATEMENTS.has(meaning(peek()))){finish();const old=current;current=node();current.subject=clone(old.groups[0]||old.subject);verb();continue;}
+   if(workingMode===2&&STATEMENTS.has(meaning(peek()))){finish();const old=current;current=node();current.subject=clone(old.subject||old.groups[0]);verb();continue;}
    fail();
   }
   const continuationAnswer=pending?clone(nodes[0]):null;

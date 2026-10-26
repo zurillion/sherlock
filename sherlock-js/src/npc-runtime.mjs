@@ -7,6 +7,7 @@ import {CabRoutes,account,balance,transferMoney,formatMoney,encodeMoney,wrapMone
 import {nodeWords} from './parser.mjs';
 import {searchDescription} from './description-search.mjs';
 import {specialObjectBody} from './special-objects.mjs';
+import {Information} from './information.mjs';
 
 const yes=(cost=0,extra={})=>({success:true,cost,...extra}),no=()=>({success:false,cost:0});
 const clone=structuredClone;
@@ -14,7 +15,7 @@ const clone=structuredClone;
 // Host for the game's DOMAIN programs. Each named rule below is a functional
 // translation of its contract; source labels are provenance, not CPU dispatch.
 export class NpcRuntime {
- constructor(game){this.game=game;this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
+ constructor(game){this.game=game;this.information=new Information(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
  use(operation){
@@ -119,7 +120,7 @@ export class NpcRuntime {
   const p=this.active.records.prepend('requests',[recipient,255,command.action,...command.args,0,0,0]);if(request)request.record=p;
  }
  queue(sender,recipient,nodes){
-  this.use(({records})=>{const syntax=nodes.map(n=>this.syntaxRecord(n,records));for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,1]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax});this.w.scheduler.requests[0].record=p;});
+  this.use(({records})=>{const syntax=nodes.map(n=>this.syntaxRecord(n,records));for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,nodes[0]?.subject?2:1]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax});this.w.scheduler.requests[0].record=p;});
  }
  writeSyntax(node,records,p){nodeWords(node).forEach((v,i)=>records.arena.putWord(p+2*i,v));}
  syntaxRecord(node,records){const p=records.arena.allocate(30);this.writeSyntax(node,records,p);return p;}
@@ -178,6 +179,16 @@ export class NpcRuntime {
    if(job.nodes){if(!node){delete state.pending[actor];return {handled:true,cost:0};}action=this.game.action(node);}
    if(!job.prefab&&context.restriction&&[12,13,21,22,24,25,40,49,50].includes(action)){
     this.print('681A',actor,{object:job.sender},messages);cancel();return {handled:true,cost:0};
+   }
+   if(node?.subject){
+    const resolved=context.operation.args?context.operation.args.map((v,i)=>v===255?context.saved[i+1]:this.active.vm.resolve(v,actor,context.saved)):context.saved.slice(1);context.saved[1]=resolved[0];context.saved[2]=resolved[1];const frame=this.active.vm.state(actor).contexts.at(-1);if(frame?.record){this.active.records.arena.putByte(frame.record+3,resolved[0]);this.active.records.arena.putByte(frame.record+4,resolved[1]);}
+    const nodes=job.nodes.slice(job.index),firstMessage=messages.length;if(actor===3)this.information.watson(nodes,messages);else if(actor===2){this.information.lestrade(nodes,messages);
+     // BA3E/BB94/BCxx return through additional AF/BC frames. Ordinary
+     // glyph projection does not own bytes overwritten by those frames.
+     // A future draw from an unprojected byte must fail explicitly.
+     this.game.sourceDisplay.invalidateScratch();}
+    const parts=messages.splice(firstMessage);if(parts.length)messages.push({kind:'narrative',text:parts.map(m=>m.text).join(' '),raw_text:parts.map(m=>m.raw_text??m.text).join('')});
+    cancel();return {handled:true,cost:0};
    }
    const ctx={...context,request:true,node,sender:job.sender,prefab:job.prefab};
    let result,objectSemantic=false;
@@ -422,7 +433,7 @@ export class NpcRuntime {
     if(!near(target)){counters[i]=Math.max(0,counters[i]-1);return returnLink;}
     if(counters[i])return returnLink;counters[i]=30+this.game.runtimeRandom.absolute(15,{actor:id,mixOffset:offset,purpose:'encounter:'+target});if(permanent)counters[i]=1;if(text)this.print(text,id,{object:target},messages);return offset;
    };
-   if(id===3){let offset=oldDue;for(const [i,target] of [0,2,4].entries())offset=encounter(target,i,offset);const ctx={actor:3,mixOffset:offset,purpose:'watson-information'};if(this.game.runtimeRandom.percent(ctx)>=50)this.game.runtimeRandom.percent(ctx);return;}
+   if(id===3){let offset=oldDue;for(const [i,target] of [0,2,4].entries())offset=encounter(target,i,offset);const ctx={actor:3,mixOffset:offset,purpose:'watson-information'};if(this.game.runtimeRandom.percent(ctx)>=50){const draw=this.game.runtimeRandom.percent(ctx);this.information.recall(id,draw,messages);}return;}
    if(id===11||id===12){if(!this.state.flags.strakerMet)for(const [i,target]of[0,3,7].entries())encounter(target,i,i===0?oldDue:0x9CEC,'6D9A',true);return;}
    if(id===4){if(this.state.flags.strakerMet){const offset=encounter(0,0,oldDue);encounter(3,1,offset);}return;}
    if(id===2){
@@ -433,9 +444,8 @@ export class NpcRuntime {
     if(inspectFacts){
      // A successful 9DD8 continues through BC46/BC9C/BC74. With no
      // activated facts these scans emit nothing and BE5B leaves DE=2.
-     // The early POP-return skips those scans. Active deductions still
-     // need their evaluator; do not substitute an empty result for them.
-     if(this.state.facts.some(f=>f.flags&1))throw new UnsupportedFeature('valutazione delle deduzioni attive nel colloquio con Lestrade');
+     // The early POP-return skips the complete proof scan.
+     const {complete,incomplete}=this.information.scan();if(complete.length&&!(complete[0].flags&16))this.information.accept(complete[0],2,messages);else if(!complete.length&&incomplete.length)this.information.print('722D',2,messages,{fact:incomplete.at(-1)});
      offset=2;
     }
     encounter(3,2,offset);
@@ -449,6 +459,7 @@ export class NpcRuntime {
   // and NOPRINT remain unsupported controls, so older JS saves retain boot.
   if(address===0xA008)return Number(this.state.printerEnabled??this.game.data.randomInputs.bootOptions.printerEnabled);
   const fact=this.state.facts.find(f=>address>=f.start&&address<f.start+6+2*f.terms.length);if(fact){const bytes=[fact.subject,fact.predicate,fact.object,fact.flags,fact.handler&255,fact.handler>>>8,...fact.terms.flatMap(v=>[v&255,v>>>8])];return bytes[address-fact.start];}
+  if(address===0x9E88)return this.state.flags.caseReady?1:0;
   if(address>=0x9FF6&&address<0xA002)return [...this.state.information.he,...this.state.information.it][address-0x9FF6];
   if(address>=0xA002&&address<0xA008)return this.state.information.addressee[address-0xA002];
   if(address>=0xDCFF&&address<=0xDD02){const room=this.state.lastRelocationRoom,ptr=room===undefined?0:this.worldSource.layout.rooms.find(r=>r.id===room).start;return [ptr&255,ptr>>>8,room??0,0][address-0xDCFF];}
