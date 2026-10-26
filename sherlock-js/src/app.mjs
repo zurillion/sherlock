@@ -83,7 +83,10 @@ function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$(
 function waitControls(job,allowed){activeJob=job;canInterrupt=Boolean(allowed);$('interrupt-wait').hidden=!canInterrupt;$('interrupt-wait').disabled=interruptRequested;}
 function interruptWait({allowMore=false}={}){if(!activeJob||!canInterrupt||spectrum.waiting&&!allowMore)return;interruptRequested=true;if(spectrum.waiting){spectrum.more();$('interrupt-wait').disabled=false;}else $('interrupt-wait').disabled=true;}
 $('interrupt-wait').onclick=()=>interruptWait({allowMore:true});
-document.addEventListener('keydown',e=>{if(e.target?.closest?.('#engine-select,dialog[open]'))return;if(e.key==='Enter'&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}});
+// Capture before the input's submit handler: browser microtasks may start
+// the wait before this same keydown reaches a document bubble listener.
+// A held submit key must not cancel the newly started wait through repeats.
+document.addEventListener('keydown',e=>{if(e.target?.closest?.('#engine-select,dialog[open]'))return;if(e.key==='Enter'&&!e.repeat&&activeJob&&canInterrupt&&!spectrum.waiting){e.preventDefault();interruptWait();}},true);
 async function consumeCommand(result,epoch){
  let continuing=false;
  while(epoch===operationEpoch){

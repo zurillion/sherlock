@@ -105,3 +105,23 @@ python3 tools/probe-wait-until.py --output test/fixtures/wait-until-reference.js
 Il terzo comando richiede il progetto originale e SkoolKit solo per la ricerca
 offline. La pagina e le prove JS restano autonome. Rapporto:
 `results/wait-until-verification.json`.
+
+## Correzione dell’Invio di conferma
+
+L’ascoltatore di interruzione ora opera nella fase di cattura, prima
+dell’input Spectrum. Nel browser le microtask avviate dal gestore dell’input
+possono già creare il job prima che lo stesso evento raggiunga il gestore
+del documento in risalita: l’Invio di conferma veniva quindi riutilizzato
+come interruzione al primo minuto. La cattura verifica l’attesa prima
+dell’invio del comando. Ignora anche l’autoripetizione del tasto tenuto premuto.
+Un nuovo Invio durante l’attesa continua a interromperla; MORE conserva
+la precedenza grazie al proprio ascoltatore di cattura registrato prima.
+
+Verifica nel browser, con eventi reali di tastiera in una scheda separata:
+prima della correzione `WAIT UNTIL 8:05` da 08:00 terminava a 08:01;
+dopo la correzione da 08:01 raggiunge 08:05 senza altri tasti. Una nuova
+attesa alle 08:09, interrotta con un secondo Invio, termina a 08:06;
+ripetendola senza interruzione raggiunge 08:09. Gli 11 test specifici del
+motore restano verdi. Evidenze: `results/wait-until/enter-key-verification.json`
+e `results/wait-until/browser-enter-fixed.png`. La precedente verifica del
+modello non copriva questa differenza nella propagazione degli eventi browser.
