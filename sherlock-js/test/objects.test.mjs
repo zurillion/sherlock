@@ -43,5 +43,5 @@ test('Save/load preserves a partially used failure budget and subsequent NPC cho
  for(const row of references[0].steps.slice(9)){assert.deepEqual(a.request('command',{command:row.input}),b.request('command',{command:row.input}));assert.deepEqual(a.game.dump(),b.game.dump());}
 });
 test('Unsupported actions do not consume the original failure budget',()=>{
- const g=new Game(data,{npc_profile:'world-v5'});for(const row of references[0].steps.slice(0,9))g.submit(row.input);const before=g.dump();assert.equal(g.submit('KILL WATSON').state.analysis.outcome,'not_translated');assert.deepEqual(g.world.dump(),before.world);const control=Game.load(data,before);assert.deepEqual(g.submit(references[0].steps[9].input),control.submit(references[0].steps[9].input));
+ const g=new Game(data,{npc_profile:'world-v5'});for(const row of references[0].steps.slice(0,9))g.submit(row.input);const before=g.dump();assert.equal(g.submit('FOLLOW WATSON').state.analysis.outcome,'not_translated');assert.deepEqual(g.world.dump(),before.world);const control=Game.load(data,before);assert.deepEqual(g.submit(references[0].steps[9].input),control.submit(references[0].steps[9].input));
 });

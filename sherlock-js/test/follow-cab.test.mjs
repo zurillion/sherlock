@@ -47,7 +47,7 @@ test('An old incomplete save does not acquire invented clarification records',()
  const loaded=Game.load(data,old);loaded.submit('YOUR');assert.equal(loaded.world.npcs.recordsSourceKnown,false);
 });
 test('A rejected reply preserves both the logical clarification and its retained record',()=>{
- for(const command of ['KILL WATSON','SAVE']){const g=new Game(data,{npc_profile:'world-v5'});g.submit('OPEN DOOR');const pending=structuredClone(g.pending),pointer=g.world.npcs.parserPending,arena=structuredClone(g.world.npcs.records);
+ for(const command of ['FOLLOW WATSON','SAVE']){const g=new Game(data,{npc_profile:'world-v5'});g.submit('OPEN DOOR');const pending=structuredClone(g.pending),pointer=g.world.npcs.parserPending,arena=structuredClone(g.world.npcs.records);
   assert.equal(g.submit(command).state.analysis.outcome,'not_translated');assert.deepEqual(g.pending,pending);assert.equal(g.world.npcs.parserPending,pointer);assert.deepEqual(g.world.npcs.records,arena);
   const loaded=Game.load(data,JSON.parse(JSON.stringify(g.dump())));assert.equal(loaded.submit('YOUR').state.analysis.outcome,'ok');assert.equal(loaded.world.npcs.parserPending,null);
  }

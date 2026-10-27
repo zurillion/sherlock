@@ -94,9 +94,18 @@ certificazione di qualsiasi flusso di byte non sono la stessa cosa.
 
 ## 5. Conseguenze dell'indagine e fine partita
 
-Accuse, arresti, conseguenze delle prove, aggressioni/KILL, morte, vittoria e
-altri finali. Sono necessarie anche le rispettive variazioni dello stato,
-del tempo e della disponibilità dei personaggi, non solo i messaggi finali.
+**Implementato il percorso funzionale dei nove testi terminali**, con accuse
+attraverso le affermazioni, conseguenze delle prove, rifiuto originale di KILL,
+vittoria, morte e sconfitte. Il fine partita interrompe anche oggetti, ALL e
+turni ceduti dai rifiuti; conserva stato e continuazioni in Salva/Carica.
+La pagina attende un tasto prima della cancellazione finale. Vedere
+[CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md) e
+`results/endings-verification.json`.
+
+Le prove controllate dei finali non sono una soluzione naturale completa.
+Il seguito lungo delle accuse conserva il confine esplicito del renderer
+5D06 dopo le 08:30 nel caso 22; la scansione e la proprietà dei campi mancanti
+restano al punto 7. Non è dichiarata equivalenza di qualsiasi partita.
 
 ## 6. Comandi, trasporti e calendario ai limiti
 

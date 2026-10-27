@@ -1,0 +1,55 @@
+{
+  "port": 8768,
+  "all_equal": true,
+  "files": [
+    {
+      "path": "src/game.mjs",
+      "sha256": "96a3fb938056e8c7bd311ee2020f7e21f7acc3c9ec63b2541941870ea378be65",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/npc-runtime.mjs",
+      "sha256": "364a39b994bd63c82efdcc1f2455ba20eebfe0d6d1e94891840a08ae4f56ff65",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/advanced-npcs.mjs",
+      "sha256": "19b308adaf6d9eb8a1906acd6c094e9d5b652071c8c65285c5b636697a90c9cb",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/special-objects.mjs",
+      "sha256": "7238997794be61d077b200a3f51c6a504574988378996e5ef2b87e519a73d0cc",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/endings.mjs",
+      "sha256": "32f8269d1e66071ecafe7ac32e4acfa965af2b62d1ba2fc42000caeb70975e7a",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/session.mjs",
+      "sha256": "d6ac2cac7656fd03231e816da25a43d6e8189e097dc29841a6fca5fd73382e0c",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/spectrum.mjs",
+      "sha256": "ae6d65b4e42840f207679e65fa8ec99013cf21d8cfcf745657a55ea01f6b7d68",
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/random-display.mjs",
+      "sha256": "7508c7463c3a2405c0045eb7478f1779353124858949aa86d631051eb633928b",
+      "status": 200,
+      "cache_control": "no-store"
+    }
+  ],
+  "real_browser_visual_test": false
+}

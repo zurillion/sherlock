@@ -1,3 +1,9 @@
+27 ottobre, conclusione dell’indagine: vedere [CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md)
+e `results/endings-verification.json`. Il percorso terminale comune conserva
+la pausa prima della cancellazione e blocca anche oggetti, ALL, rifiuti e
+comandi composti; KILL segue il rifiuto originale. I contesti sospesi non
+ricevono gli argomenti dell’operazione successiva quando arriva una dichiarazione.
+
 # Programmi dei personaggi nella pagina: NPC v5
 
 27 ottobre, linguaggio: [LINGUAGGIO-COMPLESSO.md](LINGUAGGIO-COMPLESSO.md)

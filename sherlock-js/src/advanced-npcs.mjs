@@ -1,3 +1,4 @@
+import {finishStory} from './endings.mjs';
 // Functional bodies for the late NPC branches. Source labels identify
 // reconstructed rules, never instructions dispatched by a CPU interpreter.
 export class AdvancedNpcs {
@@ -17,8 +18,7 @@ export class AdvancedNpcs {
   row.due=(row.due+(256|((248+draw)&255)))&65535;rest[actor]=w.roomOf(actor);w.entity(actor).rooms=[actor===5?74:0];w.entity(actor).parent=null;this.describe(actor,0x7F0,16,false);
  }
  finish(text,actor,messages,{reason='story',entry='9E74'}={}){
-  const g=this.host.game;this.host.print(text,actor,{},messages,{force:true});g.ended={entry,reason,text_pointer:text};
-  for(let i=0;i<18;i++){g.sourceDisplay.state.counter=0;g.sourceDisplay.feed('\n');}messages.push({kind:'narrative',text:'',screen_clear:true});return {success:true,cost:0,ended:true};
+  return finishStory(this.host,text,actor,messages,{reason,entry});
  }
  policeTravel(actor,target,furious,messages,other=255){
   const h=this.host,w=this.w,source=w.roomOf(actor),duration=source===103&&target===50?112:source===50&&target===103?114:source===50&&target===18?94:null;

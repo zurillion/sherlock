@@ -1,0 +1,151 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 220,
+  "bytes_roundtripped": 532,
+  "regions": [
+    {
+      "start": "9A3D",
+      "end_exclusive": "9A4B",
+      "kind": "code",
+      "label": "Innocence conclusion sets case readiness"
+    },
+    {
+      "start": "9A4B",
+      "end_exclusive": "9A7D",
+      "kind": "code",
+      "label": "Murder conclusions and Mrs Jones removal"
+    },
+    {
+      "start": "9E48",
+      "end_exclusive": "9E4A",
+      "kind": "data",
+      "label": "Companion-ending DOMAIN header"
+    },
+    {
+      "start": "9E4A",
+      "end_exclusive": "9E6A",
+      "kind": "code",
+      "label": "Watson and Lestrade presence decision"
+    },
+    {
+      "start": "9E6A",
+      "end_exclusive": "9E6C",
+      "kind": "data",
+      "label": "Straker-ending DOMAIN header"
+    },
+    {
+      "start": "9E6C",
+      "end_exclusive": "9E85",
+      "kind": "code",
+      "label": "Straker flag, common terminal, acknowledgement and clear"
+    },
+    {
+      "start": "9E85",
+      "end_exclusive": "9E87",
+      "kind": "data",
+      "label": "Case-readiness DOMAIN header"
+    },
+    {
+      "start": "9E87",
+      "end_exclusive": "9EA2",
+      "kind": "code",
+      "label": "Major arrest and alternate reports; 9E88 mutable operand"
+    },
+    {
+      "start": "9EA2",
+      "end_exclusive": "9EA4",
+      "kind": "data",
+      "label": "Arrest-consequences DOMAIN header"
+    },
+    {
+      "start": "9EA4",
+      "end_exclusive": "9EC0",
+      "kind": "code",
+      "label": "Murder proofs and stolen plans endings"
+    },
+    {
+      "start": "9FC5",
+      "end_exclusive": "9FC9",
+      "kind": "data",
+      "label": "KILL class-zero header and predicate pointer"
+    },
+    {
+      "start": "9FC9",
+      "end_exclusive": "9FD4",
+      "kind": "code",
+      "label": "Always-failing KILL predicate and refusal printer"
+    },
+    {
+      "start": "A296",
+      "end_exclusive": "A2AA",
+      "kind": "code",
+      "label": "Eighteen unconditional CRs; reset counter after every CR"
+    },
+    {
+      "start": "B0AC",
+      "end_exclusive": "B0C6",
+      "kind": "code",
+      "label": "Post-ending restart service; web freezes BEFORE this entry"
+    },
+    {
+      "start": "BA20",
+      "end_exclusive": "BA60",
+      "kind": "code",
+      "label": "Statement request dispatch without loading next operation args"
+    },
+    {
+      "start": "C1FD",
+      "end_exclusive": "C240",
+      "kind": "code",
+      "label": "Lower output always redraws plus cursor"
+    },
+    {
+      "start": "C306",
+      "end_exclusive": "C316",
+      "kind": "code",
+      "label": "Flash divider cell and wait for key, no MORE counter reset"
+    },
+    {
+      "start": "CCA7",
+      "end_exclusive": "CCC7",
+      "kind": "code",
+      "label": "Request dispatch before operation argument resolution"
+    },
+    {
+      "start": "CD82",
+      "end_exclusive": "CD95",
+      "kind": "code",
+      "label": "Request return and commit"
+    },
+    {
+      "start": "DFCA",
+      "end_exclusive": "DFCC",
+      "kind": "data",
+      "label": "Basil death DOMAIN header"
+    },
+    {
+      "start": "DFCC",
+      "end_exclusive": "DFE3",
+      "kind": "code",
+      "label": "Basil already present or arriving"
+    },
+    {
+      "start": "E4C9",
+      "end_exclusive": "E4CB",
+      "kind": "data",
+      "label": "Train movement DOMAIN header"
+    },
+    {
+      "start": "E4CB",
+      "end_exclusive": "E4FC",
+      "kind": "code",
+      "label": "Train departure printed before hiding"
+    },
+    {
+      "start": "EF7F",
+      "end_exclusive": "EF8C",
+      "kind": "data",
+      "label": "Basil east/east, explicit Holmes encounter and terminal DOMAIN nodes"
+    }
+  ]
+}

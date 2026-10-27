@@ -52,7 +52,7 @@ export class RandomDisplay {
   put(frame-10,shift);put(frame-9,1);put(frame-12,0);put(frame-11,glyph[7]);
  }
  get state(){return this.world.display;}
- invalidateScratch(){if(this.state)this.state.scratch={};}
+ invalidateScratch(from=0x5CEC,to=0x5D0F){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}
@@ -68,8 +68,8 @@ export class RandomDisplay {
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
  write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
- lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;}
- prompt(){const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lower[4]+='+';s.lowerKnown[4]=true;}
+ lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
+ prompt(){const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
  repeat(){const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
  command(normalized){const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.

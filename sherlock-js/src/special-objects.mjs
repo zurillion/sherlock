@@ -1,4 +1,5 @@
 import {UnsupportedFeature} from './world.mjs';
+import {finishStory} from './endings.mjs';
 
 export const objectRuleFor=(entity,action)=>({takeBurningNote:'object.takeNote',openSafe:'object.openSafe','untranslated:E0A0':'object.inspectStream','untranslated:E0E0':'object.inspectTrash','untranslated:E0F2':'object.inspectDrawer','untranslated:E104':'object.inspectBookcase'})[entity.rules.find(r=>r.action===action)?.rule]??(action===20?'object.inspectClosely':null);
 
@@ -10,11 +11,7 @@ export function specialObjectBody(host,name,args,context,messages){
   case 'object.take':w.entity(first).parent=actor;return yes(1);
   case 'object.quenchNote':if(host.state.burningNoteTicks){host.state.burningNoteTicks=255;const e=w.entity(first);e.qualifiers[0]=0x7D5;e.name='singed note';}return yes();
   case 'object.open':{const e=w.entity(first);if(e.attributes&1||e.attributes&32){messages.push(g.error(w.name(first).toUpperCase()+(e.attributes&1?' IS LOCKED':' IS OPEN')));return no();}e.attributes|=32;return yes(1);}
-  case 'object.safeEvent':if(first===89&&Math.floor(w.minutes/1440)%256===0){const text=w.roomOf(6)===w.roomOf(actor)?'75D2':'759C';host.print(text,actor,{},messages,{force:true});g.ended={entry:'9E74',reason:'story',text_pointer:text};
-   // 9E74/A29C empties the upper window with eighteen unconditional CRs.
-   // The story has already been printed; the end checkpoint is the cleared
-   // screen awaiting the original restart interaction, with no new prompt.
-   for(let i=0;i<18;i++){g.sourceDisplay.state.counter=0;g.sourceDisplay.feed('\n');}messages.push({kind:'narrative',text:'',screen_clear:true});return {success:true,cost:0,ended:true};}return yes(15);
+  case 'object.safeEvent':if(first===89&&Math.floor(w.minutes/1440)%256===0)return finishStory(host,w.roomOf(6)===w.roomOf(actor)?'75D2':'759C',actor,messages);return yes(15);
   case 'object.streamClue':if(actor===0&&w.roomOf(actor)===88&&Math.floor(w.minutes/1440)%256===1){const e=w.entity(second);e.attributes|=128;e.status|=128;e.parent=first;e.rooms=[88];host.print('7B5A',actor,{},messages);}return yes();
   case 'object.revealNote':w.entity(81).attributes|=128;return yes();
   case 'object.revealBottom':w.entity(63).attributes|=128;return yes();

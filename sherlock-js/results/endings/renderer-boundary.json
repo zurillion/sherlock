@@ -1,0 +1,72 @@
+{
+  "scope": "Controlled case 22 only, offline original instruction-level write watch; no captured value is imported by JavaScript.",
+  "verified_prefix_end": "Mon 08:30am",
+  "next_input": "WAIT",
+  "missing_field": "5D06",
+  "native_draw": {
+    "actor": 5,
+    "width": 99,
+    "mixOffset": 5,
+    "seed": 252,
+    "cursor": 23552,
+    "reads": [
+      {
+        "address": 23808,
+        "value": 54
+      },
+      {
+        "address": 23814,
+        "value": 62
+      }
+    ],
+    "result": 87,
+    "next_seed": 12,
+    "next_cursor": 23808
+  },
+  "writer": {
+    "value": 62,
+    "pc": "C398",
+    "actor": 2,
+    "sp": 23814,
+    "word": "inspectord\u0000\u0001\u0000\u0001\u0000\u0006\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000<@\u0000\u00ff",
+    "stack": [
+      "503E",
+      "5A20",
+      "0107",
+      "2054",
+      "C377",
+      "5C0B",
+      "5020",
+      "0102",
+      "C2E2",
+      "0D83",
+      "0100",
+      "0009",
+      "A9F4",
+      "079B",
+      "54DC",
+      "09EE",
+      "2088",
+      "A89F",
+      "54DC",
+      "0100",
+      "09EE",
+      "67F7",
+      "A824",
+      "D445",
+      "FFF8",
+      "0208",
+      "A7CD",
+      "0000",
+      "A758",
+      "A720",
+      "A72A",
+      "A636",
+      "A5CA",
+      "A769",
+      "67FF"
+    ]
+  },
+  "lower_field_5D00_writer_in_this_history": null,
+  "explanation": "C398 retains the last row-clear glyph address during nested Inspector Lestrade text. The current functional renderer does not own this field after that path. Source record and bitmap comparisons stop before this draw; the web input rolls back."
+}

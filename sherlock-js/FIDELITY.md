@@ -1,5 +1,13 @@
 # Stato attuale: NPC v5
 
+27 October, investigation endings: [CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md)
+and `results/endings-verification.json` cover all nine terminal texts, KILL
+refusals, preserved suspended arguments, terminal stopping during local object
+programs/ALL/failure-budget yields, and the pre-clear acknowledgement. Controlled
+ending setups are separate from natural play. The long statement history has
+an explicit 5D06 renderer boundary after its verified 08:30 prefix; the native
+suffix is not claimed as parity. No complete-playthrough equivalence is claimed.
+
 27 October, complex language: [LINGUAGGIO-COMPLESSO.md](LINGUAGGIO-COMPLESSO.md)
 and `results/language-verification.json` cover coordinated record lifetimes,
 clarifications, ALL roles, original exclusion quirks, live quote queues, final

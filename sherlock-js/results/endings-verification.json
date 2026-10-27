@@ -1,0 +1,287 @@
+{
+  "date": "2026-10-27",
+  "engine": "Autonomous JavaScript world-v5",
+  "source_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "full_game_equivalence": false,
+  "native_state_imported_by_runtime": false,
+  "protocol": "All 24 actors, seed 1, free initial LOOK; graphics off after boot; injected uppercase input and immediate MORE/terminal acknowledgement. Setups explicitly mark positions, actor PCs/deadlines and acquired evidence; those histories are controlled, not naturally reached gameplay. Controlled setups execute I before their declared patches; natural histories do not. The source is frozen before B0AC restart service.",
+  "corpus": {
+    "fixture": "test/fixtures/endings-reference.json",
+    "sha256": "e1e2ec611ca777021fa5a271d0c618af12f0742a449e640345947209c6a1ac36",
+    "total_histories": 32,
+    "natural_histories": 9,
+    "natural_commands": 39,
+    "controlled_histories": 23,
+    "fully_compared_histories": 31,
+    "fully_compared_commands": 61,
+    "random_draws": 118,
+    "random_source_reads": 236,
+    "comparisons": [
+      "every random draw, source byte and successor",
+      "actor PCs, deadlines and saved arguments",
+      "entity state, room flags and all proof bytes",
+      "case readiness and Straker encounter flag",
+      "all 752 arena bytes and typed record lists",
+      "editor and token bytes",
+      "exact lower bitmap and exact upper SHA256",
+      "terminal scroll counter",
+      "same response and entire future after JSON save/load at each compared step"
+    ]
+  },
+  "terminal_texts": [
+    "693A",
+    "69BF",
+    "6A26",
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "759C",
+    "75D2"
+  ],
+  "scenarios": {
+    "basil_approach": [
+      23,
+      24
+    ],
+    "failure_budget_predicate": [
+      25
+    ],
+    "local_object_interruption": [
+      26
+    ],
+    "terminal_during_all": [
+      27,
+      28,
+      29
+    ],
+    "failure_budget_body": [
+      29,
+      30
+    ],
+    "kill_and_accusation_vocabulary": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "compound_terminal": [
+      31
+    ]
+  },
+  "bounded_history": {
+    "case": 22,
+    "controlled": true,
+    "fully_compared_prefix_commands": 9,
+    "random_draws": 78,
+    "random_source_reads": 160,
+    "verified_through": "Mon 08:30am",
+    "next_command": "WAIT",
+    "unimplemented_source": "5D06",
+    "native_suffix_not_compared": true,
+    "whole_input_rollback_checked": true,
+    "notice_is_prototype_not_original": true,
+    "case_ready": true,
+    "writer_evidence": "results/endings/renderer-boundary.json"
+  },
+  "web": {
+    "packet_cases": [
+      9,
+      13,
+      14,
+      15,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "pre_clear_upper_bitmap_compared": true,
+    "pre_clear_counter_compared": true,
+    "terminal_clear_counter_compared": true,
+    "keyboard_acknowledgement_unit_test": true,
+    "save_load_and_reset_test": true,
+    "commands_and_teleport_frozen": true,
+    "served_files": "results/endings/served-files.json",
+    "real_browser_visual_test": false,
+    "acknowledgement_widens_without_counter_reset": true,
+    "picture_removed_after_clear": true
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 220,
+    "bytes_roundtripped": 532,
+    "regions": [
+      {
+        "start": "9A3D",
+        "end_exclusive": "9A4B",
+        "kind": "code",
+        "label": "Innocence conclusion sets case readiness"
+      },
+      {
+        "start": "9A4B",
+        "end_exclusive": "9A7D",
+        "kind": "code",
+        "label": "Murder conclusions and Mrs Jones removal"
+      },
+      {
+        "start": "9E48",
+        "end_exclusive": "9E4A",
+        "kind": "data",
+        "label": "Companion-ending DOMAIN header"
+      },
+      {
+        "start": "9E4A",
+        "end_exclusive": "9E6A",
+        "kind": "code",
+        "label": "Watson and Lestrade presence decision"
+      },
+      {
+        "start": "9E6A",
+        "end_exclusive": "9E6C",
+        "kind": "data",
+        "label": "Straker-ending DOMAIN header"
+      },
+      {
+        "start": "9E6C",
+        "end_exclusive": "9E85",
+        "kind": "code",
+        "label": "Straker flag, common terminal, acknowledgement and clear"
+      },
+      {
+        "start": "9E85",
+        "end_exclusive": "9E87",
+        "kind": "data",
+        "label": "Case-readiness DOMAIN header"
+      },
+      {
+        "start": "9E87",
+        "end_exclusive": "9EA2",
+        "kind": "code",
+        "label": "Major arrest and alternate reports; 9E88 mutable operand"
+      },
+      {
+        "start": "9EA2",
+        "end_exclusive": "9EA4",
+        "kind": "data",
+        "label": "Arrest-consequences DOMAIN header"
+      },
+      {
+        "start": "9EA4",
+        "end_exclusive": "9EC0",
+        "kind": "code",
+        "label": "Murder proofs and stolen plans endings"
+      },
+      {
+        "start": "9FC5",
+        "end_exclusive": "9FC9",
+        "kind": "data",
+        "label": "KILL class-zero header and predicate pointer"
+      },
+      {
+        "start": "9FC9",
+        "end_exclusive": "9FD4",
+        "kind": "code",
+        "label": "Always-failing KILL predicate and refusal printer"
+      },
+      {
+        "start": "A296",
+        "end_exclusive": "A2AA",
+        "kind": "code",
+        "label": "Eighteen unconditional CRs; reset counter after every CR"
+      },
+      {
+        "start": "B0AC",
+        "end_exclusive": "B0C6",
+        "kind": "code",
+        "label": "Post-ending restart service; web freezes BEFORE this entry"
+      },
+      {
+        "start": "BA20",
+        "end_exclusive": "BA60",
+        "kind": "code",
+        "label": "Statement request dispatch without loading next operation args"
+      },
+      {
+        "start": "C1FD",
+        "end_exclusive": "C240",
+        "kind": "code",
+        "label": "Lower output always redraws plus cursor"
+      },
+      {
+        "start": "C306",
+        "end_exclusive": "C316",
+        "kind": "code",
+        "label": "Flash divider cell and wait for key, no MORE counter reset"
+      },
+      {
+        "start": "CCA7",
+        "end_exclusive": "CCC7",
+        "kind": "code",
+        "label": "Request dispatch before operation argument resolution"
+      },
+      {
+        "start": "CD82",
+        "end_exclusive": "CD95",
+        "kind": "code",
+        "label": "Request return and commit"
+      },
+      {
+        "start": "DFCA",
+        "end_exclusive": "DFCC",
+        "kind": "data",
+        "label": "Basil death DOMAIN header"
+      },
+      {
+        "start": "DFCC",
+        "end_exclusive": "DFE3",
+        "kind": "code",
+        "label": "Basil already present or arriving"
+      },
+      {
+        "start": "E4C9",
+        "end_exclusive": "E4CB",
+        "kind": "data",
+        "label": "Train movement DOMAIN header"
+      },
+      {
+        "start": "E4CB",
+        "end_exclusive": "E4FC",
+        "kind": "code",
+        "label": "Train departure printed before hiding"
+      },
+      {
+        "start": "EF7F",
+        "end_exclusive": "EF8C",
+        "kind": "data",
+        "label": "Basil east/east, explicit Holmes encounter and terminal DOMAIN nodes"
+      }
+    ]
+  },
+  "regression": {
+    "command": "node --test test/*.test.mjs",
+    "tests": 584,
+    "passed": 584,
+    "failed": 0,
+    "log": "results/endings/tests.log"
+  },
+  "remaining": [
+    "Nested renderer field 5D06 in the explicitly bounded controlled statement history; no recorded-byte fallback",
+    "Full natural solution from startup to victory is not certified by controlled final setups",
+    "Other seeds, graphics entropy, input timing and full-game random-source ownership remain backlog point 7",
+    "Textual QUIT and remaining controls/transports/calendar remain backlog point 6"
+  ]
+}
