@@ -166,3 +166,8 @@ i programmi TELL di Tricia/Mrs Jones, il cambio d’identità NPC e il valore
 probatorio del suo racconto, con prove controllate e ripresa da LOAD.
 Dettagli e confini in [FINALI-E-CONFESSIONI.md](FINALI-E-CONFESSIONI.md).
 I testi certificati naturalmente sono quattro; cinque rimangono da verificare.
+
+Il confronto esteso del ramo che scagiona Ffoulkes registra nell’originale
+6A33 giovedì 10:00, ma trova la prima differenza JavaScript già lunedì
+08:57 (record liberato 97B5, richiesta con due affermazioni AND).
+Riproduttore e limiti sono in `results/final-solution/RESEARCH.md`.

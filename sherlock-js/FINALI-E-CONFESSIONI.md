@@ -95,3 +95,28 @@ Fonti riproducibili: `tools/probe-other-endings.py`,
 `tools/probe-jones-dialogue.py`, `tools/build-final-solution-listing.py`.
 Il listato `results/final-solution/source.asm` distingue codice e dati e
 riassembla esattamente 406 byte, 181 istruzioni.
+
+## Esito del confronto esteso
+
+La raccolta originale del percorso `major-witness` è conclusa: 521
+checkpoint, finale **6A33 giovedì alle 10:00**. È conservata in forma
+compressa in `results/final-solution/witness-native-reference.json.gz`.
+Non è un nuovo certificato del motore JavaScript.
+
+Il primo confronto fallisce già al checkpoint 25, lunedì 08:57, dopo:
+
+```text
+SAY LESTRADE "MAJOR VISIT OPIUM DEN AND MAJOR IS INNOCENT"
+```
+
+Il byte 97B5, appartenente a un record del parser già liberato, conserva
+9 in JavaScript e 4 nell'originale. La risposta visibile coincide, ma
+questo residuo può modificare le successive estrazioni. Il blocco tecnico
+a 5D12 delle 05:18 è quindi un limite di esecuzione del prototipo, **non**
+il primo punto di divergenza dalla partita originale.
+
+Riproduzione: `node --test tools/compare-witness-research.mjs`. Questo
+confronto di ricerca è intenzionalmente ancora fallente ed è separato
+dalla suite di regressione: **657 test passati, zero errori**. Il prossimo
+intervento deve ricostruire la durata e il riuso dei record delle due
+affermazioni prima di certificare il resto della notte.

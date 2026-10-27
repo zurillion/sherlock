@@ -145,11 +145,57 @@
       }
     ]
   },
-  "research_cases": [],
+  "research_cases": [
+    {
+      "label": "major-witness",
+      "history": "results/final-solution/major-witness.txt",
+      "fixture": "results/final-solution/witness-native-reference.json.gz",
+      "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+      "checkpoints": 521,
+      "native_ending": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6A33"
+      },
+      "native_clock": {
+        "tick": 4441,
+        "due": 4501,
+        "minute": 0,
+        "hour": 10,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 10:00am"
+      },
+      "certified": false,
+      "first_divergence": {
+        "checkpoint": 25,
+        "input": "SAY LESTRADE \"MAJOR VISIT OPIUM DEN AND MAJOR IS INNOCENT\"",
+        "clock": {
+          "tick": 58,
+          "due": 58,
+          "minute": 57,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:57am"
+        },
+        "field": "released parser record at 97B5",
+        "js": 9,
+        "original": 4
+      },
+      "comparison": "node --test tools/compare-witness-research.mjs (known failing research test; excluded from passing regression suite)"
+    }
+  ],
   "limits": [
     "Declared seed-1 input/output protocol, not every seed or timing.",
     "Police-cab D187 scratch fields remain explicitly unowned.",
     "Natural acquisition of all murder/plan evidence remains to certify.",
     "Unknown mutable inputs remain null; no recorded value or native state is a runtime fallback."
-  ]
+  ],
+  "regression_suite": {
+    "command": "node --test --test-concurrency=3 test/*.test.mjs",
+    "tests": 657,
+    "passed": 657,
+    "failed": 0
+  }
 }
