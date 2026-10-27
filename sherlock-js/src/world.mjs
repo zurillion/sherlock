@@ -49,8 +49,9 @@ export class World {
   return (indefinite?article:'the ')+name;
  }
  roomName(id,{indefinite=true}={}){
-  const room=this.rooms[id];if(room.nameWords[0]&32768)return this.player===0&&/^your\b/.test(room.name)?room.name:room.name.replace(/\b\w/g,c=>c.toUpperCase());
-  return indefinite?(({0:'the ',4096:'a ',8192:'an ',12288:'some '})[room.nameWords[0]&12288])+room.name:room.name;
+  const room=this.rooms[id],word=value=>this.data.dictionary.find(w=>w.id===(value&4095)),name=[...room.nameWords.slice(1).filter(Boolean).map(v=>word(v).form),word(room.nameWords[0])?.stem].filter(Boolean).join(' ');
+  if(room.nameWords[0]&32768)return this.player===0&&/^your\b/.test(name)?name:name.replace(/\b\w/g,c=>c.toUpperCase());
+  return indefinite?(({0:'the ',4096:'a ',8192:'an ',12288:'some '})[room.nameWords[0]&12288])+name:name;
  }
  clock(){const day=Math.floor(this.minutes/1440)&255,minute=this.minutes%60,h=Math.floor(this.minutes/60)%24,hour=h%12||12,period=h<12?'am':'pm';return {tick:this.tick,due:this.playerDue,day,minute,hour,period,label:`${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day%7]} ${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}${period}`};}
  consume(cost,{action=null,args=[],driver={}}={}){

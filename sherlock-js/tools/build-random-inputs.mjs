@@ -41,6 +41,13 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  worldLayout.tables.push({start:0x9F38,values:generalActions});
  // Immutable player DOMAIN operations (9921..994C), with no erase flags.
  worldLayout.tables.push({start:0x9921,values:[...payload.subarray(0x9921-base,0x994D-base)]});
+ // A702 reads this dormant default text-word reference. No understood writer
+ // targets it; unlike neighbouring action-class fields, it is immutable DATA.
+ if(written.has(0xA00D)||written.has(0xA00E)||byte(0xA702)!==0xED||byte(0xA703)!==0x5B||byte(0xA704)!==0x0D||byte(0xA705)!==0xA0)throw Error('Default text reference contract changed');
+ worldLayout.tables.push({start:0xA00D,values:[byte(0xA00D),byte(0xA00E)]});
+ // Unreferenced padding between the live failure and request bytes.
+ if(written.has(0xCC0C))throw Error('DOMAIN padding has a writer');
+ worldLayout.tables.push({start:0xCC0C,values:[byte(0xCC0C)]});
  // The editor reuses the relocated tape loader. Unwritten input suffixes
  // therefore retain loader VALUES, including its last CODE header and status.
  // Reconstruct the copy/header operations, rather than reading a RAM snapshot.
@@ -66,7 +73,7 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  const terminator=factStarts.at(-1);if(byte(terminator)!==255)throw Error('Invalid fact table terminator');
  worldLayout.tables.push({start:terminator,values:[255],kind:'fact-table-terminator'});
  worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
- return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{printerEnabled:Boolean(byte(0xA008)),keyboard:{rawKey:13,decodedKey:13,releaseScans:2,releaseWindow:firmware[0x02F5],repeatDelay:35,repeatPeriod:5}},source_sha256:hash(payload),firmware_sha256:hash(firmware),
+ return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{initialFillColor:byte(0xF60B),printerEnabled:Boolean(byte(0xA008)),keyboard:{rawKey:13,decodedKey:13,releaseScans:2,releaseWindow:firmware[0x02F5],repeatDelay:35,repeatPeriod:5}},source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',
   ranges,constants,npcBytes,ruleBytes,excludedWrites:[...written].sort((a,b)=>a-b),
   historicalPrompt:{profile:'historical-prompt-watson-v4',seed:77,cursor:512,encounters:[30,0,0]}};

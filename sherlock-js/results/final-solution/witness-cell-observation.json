@@ -1,0 +1,20 @@
+{
+  "scope": "Research observation only; no full-history parity claim. Original seed 1, all actors, natural major-witness history. The cell 5D11 remained 1 from Mon 23:57 through Tue 03:25. This recording is not consumed by the JS runtime.",
+  "changes": [
+    {
+      "value": 1,
+      "pc": null,
+      "glyph": null,
+      "clock": {
+        "tick": 958,
+        "due": 958,
+        "minute": 57,
+        "hour": 11,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 11:57pm"
+      },
+      "actor": 0
+    }
+  ]
+}

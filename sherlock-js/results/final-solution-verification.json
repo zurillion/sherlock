@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-27",
+  "engine": "autonomous JavaScript world-v5",
+  "runtime_uses_original_cpu": false,
+  "full_game_equivalence": false,
+  "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+  "fixture": {
+    "path": "test/fixtures/final-solution-reference.json",
+    "sha256": "e517757fcc61f79c148e3b1c69b33eac2bcb8436e93a7b411faeaa1dd4c7d427"
+  },
+  "certified_natural_cases": [
+    {
+      "label": "major-arrest-present",
+      "history": "results/final-solution/major-arrest-present.txt",
+      "commands": 74,
+      "checkpoints": 171,
+      "draws": 2464,
+      "reads": 5192,
+      "clock": {
+        "tick": 1024,
+        "due": 1031,
+        "minute": 3,
+        "hour": 1,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 01:03am"
+      },
+      "ending": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "69BF"
+      }
+    }
+  ],
+  "controlled_dialogue": {
+    "protocol": "Controlled seed-1 tests, all actors. Place Tricia and Lestrade in room 8; Tricia root PC F192. Clothes are in room 8 or off-stage. Set only the three examination flags for body 72, bookcase 66 and clothes 67. No confession flags or native states are imported into JS.",
+    "fixture": {
+      "path": "test/fixtures/jones-dialogue-reference.json",
+      "sha256": "e3b5500cdfcddeec032596f733340a58c1d2afa70be18bd0501ae6bb68de4a05"
+    },
+    "passing_cases": 2,
+    "scope": "Visible clothes: identity 13 -> 95, confession, TELL proof, accepted accusation, all draws/state/arena/bitmap and future after LOAD. Absent clothes: native A9B0 hang recorded; JS explicitly cancels atomically (protection, not native parity)."
+  },
+  "naturally_verified_terminal_texts": [
+    "693A",
+    "69BF",
+    "6A26",
+    "759C"
+  ],
+  "remaining_natural_terminal_texts": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "source_listing": {
+    "roundtrip_equal": true,
+    "instructions": 181,
+    "bytes_roundtripped": 406,
+    "regions": [
+      {
+        "start": "A00D",
+        "end_exclusive": "A00F",
+        "kind": "data",
+        "label": "Default word reference, immutable payload"
+      },
+      {
+        "start": "A2E4",
+        "end_exclusive": "A301",
+        "kind": "code",
+        "label": "Darkness gate for failed-action announcements"
+      },
+      {
+        "start": "C374",
+        "end_exclusive": "C3C0",
+        "kind": "code",
+        "label": "Row clear and glyph stack residue"
+      },
+      {
+        "start": "CC0C",
+        "end_exclusive": "CC0D",
+        "kind": "data",
+        "label": "Padding between failure count and request flag"
+      },
+      {
+        "start": "CC29",
+        "end_exclusive": "CC78",
+        "kind": "code",
+        "label": "Output perception selection"
+      },
+      {
+        "start": "E03A",
+        "end_exclusive": "E08F",
+        "kind": "code",
+        "label": "General actor identity, direct possessions and context transfer"
+      },
+      {
+        "start": "E17B",
+        "end_exclusive": "E188",
+        "kind": "data",
+        "label": "Mrs Jones rule header and DOMAIN programme"
+      },
+      {
+        "start": "E188",
+        "end_exclusive": "E18A",
+        "kind": "data",
+        "label": "Evidence rule header"
+      },
+      {
+        "start": "E18A",
+        "end_exclusive": "E1A3",
+        "kind": "code",
+        "label": "Topic 16/17/67 sets fact 9996 bit 1"
+      },
+      {
+        "start": "E1A3",
+        "end_exclusive": "E1B2",
+        "kind": "data",
+        "label": "Tricia rule header and conditional DOMAIN programme"
+      },
+      {
+        "start": "E1B2",
+        "end_exclusive": "E1B4",
+        "kind": "data",
+        "label": "Identity reveal rule header"
+      },
+      {
+        "start": "E1B4",
+        "end_exclusive": "E1D6",
+        "kind": "code",
+        "label": "Clothes perception, NPC identity change, confession flag"
+      },
+      {
+        "start": "E1D6",
+        "end_exclusive": "E1D8",
+        "kind": "data",
+        "label": "Default TELL header"
+      },
+      {
+        "start": "E1D8",
+        "end_exclusive": "E201",
+        "kind": "code",
+        "label": "Default topic lookup and spoken reply"
+      }
+    ]
+  },
+  "research_cases": [],
+  "limits": [
+    "Declared seed-1 input/output protocol, not every seed or timing.",
+    "Police-cab D187 scratch fields remain explicitly unowned.",
+    "Natural acquisition of all murder/plan evidence remains to certify.",
+    "Unknown mutable inputs remain null; no recorded value or native state is a runtime fallback."
+  ]
+}

@@ -35,7 +35,7 @@ export class Game {
  }
  historyMeta(){return {seed:this.world.npcs?.initialSeed??null,startMode:this.startMode,profile:this.world.npcs?.profile??this.world.scheduler.actor(3).behavior?.profile??null,source_sha256:this.data.source_sha256};}
  configureRandom(){this.text.chooseIndex=this.world.random?(count,ctx)=>this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+ctx.fragment}):undefined;}
- npcTextContext(actor){if(!this.world.display||this.world.dark()||!this.world.perceived(actor))return {};const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;try{write();}finally{this.sourceDisplay.glyphFrame=previous;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
+ npcTextContext(actor){if(!this.world.display||!this.world.perceived(actor))return {};const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;try{write();}finally{this.sourceDisplay.glyphFrame=previous;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
  projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative')this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace});}
  sceneMessage(options={}){const scene_trace=[];return {kind:'narrative',text:this.text.scene({source:'arrival',...options,trace:scene_trace}),scene_trace};}
@@ -124,6 +124,7 @@ export class Game {
  execute(node){
   node=this.semanticNode(node);
   const w=this.world,action=this.action(node),actor=this.actor,subject=actor===0?'You':w.name(actor).replace(/^./,c=>c.toUpperCase()),verb=(base,third=this.dictionary.word(this.dictionary.lookup(base.toUpperCase()).value)?.form||base+'s')=>actor===0?base:third,say=(base,tail,third)=>`${subject} ${verb(base,third)}${tail}`,narrative=text=>({kind:'narrative',text}),ok=(messages,cost=1,args=[])=>({messages:messages.map(m=>typeof m==='string'?narrative(m):m),cost,action,args}),reject=text=>({messages:[this.error(text)],cost:0,action,args:[]});
+  if(w.npcs&&action)this.npcRuntime.setActionClasses(action);
   if(node.all||node.exclusion)throw new UnsupportedFeature('questa forma di ALL/EXCEPT');
   if(node.quote&&action!==46){
    if(!w.npcs)for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
@@ -140,7 +141,7 @@ export class Game {
   if(action===52)return reject(this.text.render('680B').toUpperCase());
   if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
   const lightFreeLocal=node.groups[0]&&w.entities.some(e=>w.nounMatches(e,node.groups[0])&&e.rules.some(r=>r.action===action&&['takeBurningNote','openSafe','untranslated:E0A0','untranslated:E0E0','untranslated:E0F2','untranslated:E104'].includes(r.rule)));
-  if(w.dark(actor)&&![33,43,49,50,51,53,54].includes(action)&&!lightFreeLocal)return reject('SORRY IT IS TOO DARK.');
+  if(w.dark(actor)&&![31,43,46,47,48,49,50,51,53,54].includes(action)&&!lightFreeLocal)return reject('SORRY IT IS TOO DARK.');
   if(action===34)return actor===w.player?ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf()}]):ok([],1);
   if(action===33){const listed=w.entities.filter(e=>e.parent===actor&&e.rooms.length<2&&w.perceived(e.id,actor));for(const e of listed)e.status|=128;const items=listed.map(e=>w.name(e.id,{indefinite:true}));const name=actor===0?'You are':w.name(actor,{indefinite:true})+' is';return ok([name.replace(/^./,c=>c.toUpperCase())+' carrying '+(items.length?joinList(items)+'.':'nothing')]);}
   if(action===32){if(actor===w.player)return ok([this.error(this.text.render('6915').toUpperCase())],0);const context=this.npcTextContext(actor),out=ok([this.textMessage(this.text.greeting(actor,context),context)],0);out.projected=Boolean(context.sink);return out;}
@@ -167,6 +168,8 @@ export class Game {
    // their second argument does not pass through another noun phrase.
    const topics=node.resolved?.[1]!==undefined?[w.entity(node.resolved[1])]:group?w.entities.filter(e=>w.nounMatches(e,group)):[];
    if(topics.length!==1)throw new UnsupportedFeature('risoluzione del soggetto TELL: zero o più riferimenti');
+   const specific={ 'untranslated:E17B':'npc.tellJones','untranslated:E1A3':'npc.tellTricia'}[w.entity(actor).rules.find(r=>r.action===action)?.rule];
+   if(specific)return {...ok([],0,[target.entity.id,topics[0].id]),objectRule:specific,semanticResolved:true,projected:true};
    const context=this.npcTextContext(actor);
    const out=ok([this.textMessage(this.dialogue.tell(actor,target.entity.id,topics[0].id,context),context)],1,[target.entity.id,topics[0].id]);out.projected=Boolean(context.sink);out.suppressParagraph=true;return out;
   }
@@ -239,8 +242,8 @@ export class Game {
    if(actor!==w.player){const visibleAfter=w.perceived(actor),messages=[];
     // CA3A/CA76 announces the action before relocation; CAAF/CBC2 adds an
     // arrival only when the actor becomes perceptible from elsewhere.
-    if(visibleBefore&&!w.dark())messages.push(action===28?`${w.name(actor)} goes through ${w.name(gate.id)}.`:`${w.name(actor)} goes ${DIRECTION_NAMES[direction]}.`);
-    if(!visibleBefore&&visibleAfter&&!w.dark())messages.push(`${w.name(actor)} enters.`);
+    if(visibleBefore)messages.push(action===28?`${w.name(actor)} goes through ${w.name(gate.id)}.`:`${w.name(actor)} goes ${DIRECTION_NAMES[direction]}.`);
+    if(!visibleBefore&&visibleAfter)messages.push(`${w.name(actor)} enters.`);
     return {...ok(messages,2,action===28?[gate.id]:[]),visibilityResolved:true};
    }
    w.rooms[room].flags|=64;w.explored.add(room);

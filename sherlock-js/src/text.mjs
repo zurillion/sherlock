@@ -66,7 +66,7 @@ export class Text {
     case 'compose':{
      const action=context.action,model=this.data.actions.find(a=>a.id===action),args=context.args||[255,255];
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
-     const roomName=id=>{const proper=Boolean(w.rooms[id].nameWords[0]&32768);for(const part of w.roomName(id).split(' ')){feed(' ');if(proper)capitalize=true;feed(part);}};
+     const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});for(const part of parts){feed(' ',{dict:true});if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});}};
      const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
      // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;
      // A3C8/A3CE prints "me" when the first argument is the speaker.
@@ -101,7 +101,7 @@ export class Text {
  }
  scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look'}={}){
   const w=this.world,r=w.rooms[room],text=[],actorName=remote&&w.entity(w.player).parent!==null?w.name(w.entity(w.player).parent).replace(/^./,c=>c.toUpperCase()):w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
-  if(w.dark()&&!remote)return 'It is too dark to see.';
+  const briefDark=!full&&!remote&&w.dark();
   const parent=remote?null:w.entity(w.player).parent;
   // D526's recursive list frame adds six bytes per level. A LOOK enters
   // D102 four bytes shallower than CA9E's movement notification; describing
@@ -178,18 +178,20 @@ export class Text {
    if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
    if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
    else{const start=text.join(' ').length+1,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
+   if(briefDark)return text.join(' ')+' '+this.render('68C1');
    if(full)describePassages();
    const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
    return text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   }
   if(full&&r.description)describe();
   else text.push(remote?`${actorName} can see ${w.roomName(room)}.`:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
+  if(briefDark)text.push(this.render('68C1'));
   if(full)describePassages();
-  const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
+  const exits=briefDark?[]:r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
   if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
-  renderChildren(null);
+  if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
-  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:0x5D14+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:0x5D16+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
+  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:(at===0&&full&&!r.description?0x5D1A:0x5D14)+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:(at===0&&full&&!r.description?0x5D1A:0x5D16)+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
   return output;
  }
 }

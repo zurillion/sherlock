@@ -1,0 +1,511 @@
+{
+  "protocol": "Offline seed 1; all actors; graphics off after boot; injected uppercase keys and immediate MORE. No actor/proof/PC patches.",
+  "history": "results/final-solution/closet-look.txt",
+  "from_command": 4,
+  "through_command": 4,
+  "clock": {
+    "tick": 7,
+    "due": 7,
+    "minute": 6,
+    "hour": 8,
+    "day": 0,
+    "period": "am",
+    "label": "Mon 08:06am"
+  },
+  "last_writes": {
+    "5D10": {
+      "value": 2,
+      "writer": "C39C",
+      "glyph": {
+        "character": "a",
+        "sp": "5D1A",
+        "descriptor": "5C0B",
+        "bc": "0102"
+      },
+      "clock": {
+        "tick": 6,
+        "due": 6,
+        "minute": 5,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:05am"
+      }
+    },
+    "5D11": {
+      "value": 1,
+      "writer": "C39C",
+      "glyph": {
+        "character": "a",
+        "sp": "5D1A",
+        "descriptor": "5C0B",
+        "bc": "0102"
+      },
+      "clock": {
+        "tick": 6,
+        "due": 6,
+        "minute": 5,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:05am"
+      }
+    },
+    "5D0E": {
+      "value": 0,
+      "writer": "C3B8",
+      "glyph": {
+        "character": "a",
+        "sp": "5D1A",
+        "descriptor": "5C0B",
+        "bc": "0102"
+      },
+      "clock": {
+        "tick": 6,
+        "due": 6,
+        "minute": 5,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:05am"
+      }
+    },
+    "5D0F": {
+      "value": 0,
+      "writer": "C39D",
+      "glyph": {
+        "character": "a",
+        "sp": "5D1A",
+        "descriptor": "5C0B",
+        "bc": "0102"
+      },
+      "clock": {
+        "tick": 6,
+        "due": 6,
+        "minute": 5,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:05am"
+      }
+    },
+    "5D0C": {
+      "value": 0,
+      "writer": "C39D",
+      "glyph": {
+        "character": ".",
+        "sp": "5D18",
+        "descriptor": "5C0B",
+        "bc": "0100"
+      },
+      "clock": {
+        "tick": 6,
+        "due": 6,
+        "minute": 5,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:05am"
+      }
+    },
+    "5D0D": {
+      "value": 0,
+      "writer": "C39D",
+      "glyph": {
+        "character": ".",
+        "sp": "5D18",
+        "descriptor": "5C0B",
+        "bc": "0100"
+      },
+      "clock": {
+        "tick": 6,
+        "due": 6,
+        "minute": 5,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:05am"
+      }
+    }
+  },
+  "glyph_frame_transitions": [
+    {
+      "character": "L",
+      "sp": "5D5C",
+      "descriptor": "0005",
+      "bc": "8000"
+    },
+    {
+      "character": ".",
+      "sp": "5D5A",
+      "descriptor": "0005",
+      "bc": "7B04"
+    },
+    {
+      "character": " ",
+      "sp": "5D5C",
+      "descriptor": "0005",
+      "bc": "7B03"
+    },
+    {
+      "character": " ",
+      "sp": "5D54",
+      "descriptor": "5860",
+      "bc": "2401"
+    },
+    {
+      "character": "+",
+      "sp": "5D5C",
+      "descriptor": "0005",
+      "bc": "7B02"
+    },
+    {
+      "character": " ",
+      "sp": "5D58",
+      "descriptor": "5A20",
+      "bc": "2402"
+    },
+    {
+      "character": "T",
+      "sp": "5D1E",
+      "descriptor": "5C0B",
+      "bc": "0302"
+    },
+    {
+      "character": " ",
+      "sp": "5D2A",
+      "descriptor": "41A2",
+      "bc": "0907"
+    },
+    {
+      "character": "c",
+      "sp": "5D1E",
+      "descriptor": "5C0B",
+      "bc": "0506"
+    },
+    {
+      "character": " ",
+      "sp": "5D2A",
+      "descriptor": "5546",
+      "bc": "0901"
+    },
+    {
+      "character": "m",
+      "sp": "5D32",
+      "descriptor": "5C0B",
+      "bc": "0300"
+    },
+    {
+      "character": " ",
+      "sp": "5D3E",
+      "descriptor": "0485",
+      "bc": "0905"
+    },
+    {
+      "character": "i",
+      "sp": "5D32",
+      "descriptor": "5C0B",
+      "bc": "0204"
+    },
+    {
+      "character": " ",
+      "sp": "5D3E",
+      "descriptor": "0450",
+      "bc": "0902"
+    },
+    {
+      "character": "i",
+      "sp": "5D34",
+      "descriptor": "5C0B",
+      "bc": "0201"
+    },
+    {
+      "character": " ",
+      "sp": "5D40",
+      "descriptor": "0001",
+      "bc": "0907"
+    },
+    {
+      "character": "a",
+      "sp": "5D36",
+      "descriptor": "5C0B",
+      "bc": "0106"
+    },
+    {
+      "character": " ",
+      "sp": "5D42",
+      "descriptor": "47F4",
+      "bc": "0905"
+    },
+    {
+      "character": "s",
+      "sp": "5D36",
+      "descriptor": "5C0B",
+      "bc": "0504"
+    },
+    {
+      "character": " ",
+      "sp": "5D42",
+      "descriptor": "51C2",
+      "bc": "0907"
+    },
+    {
+      "character": "c",
+      "sp": "5D2C",
+      "descriptor": "5C0B",
+      "bc": "0706"
+    },
+    {
+      "character": " ",
+      "sp": "5D38",
+      "descriptor": "58DB",
+      "bc": "0007"
+    },
+    {
+      "character": " ",
+      "sp": "5D30",
+      "descriptor": "5A20",
+      "bc": "2402"
+    },
+    {
+      "character": "T",
+      "sp": "5D2C",
+      "descriptor": "5C0B",
+      "bc": "0202"
+    },
+    {
+      "character": " ",
+      "sp": "5D38",
+      "descriptor": "589D",
+      "bc": "0000"
+    },
+    {
+      "character": "t",
+      "sp": "5D3A",
+      "descriptor": "5C0B",
+      "bc": "0307"
+    },
+    {
+      "character": " ",
+      "sp": "5D46",
+      "descriptor": "081A",
+      "bc": "0004"
+    },
+    {
+      "character": "s",
+      "sp": "5D2C",
+      "descriptor": "5C0B",
+      "bc": "0503"
+    },
+    {
+      "character": " ",
+      "sp": "5D38",
+      "descriptor": "08AA",
+      "bc": "0006"
+    },
+    {
+      "character": "t",
+      "sp": "5D2C",
+      "descriptor": "5C0B",
+      "bc": "0505"
+    },
+    {
+      "character": " ",
+      "sp": "5D38",
+      "descriptor": "5485",
+      "bc": "0000"
+    },
+    {
+      "character": "i",
+      "sp": "5D28",
+      "descriptor": "5C0B",
+      "bc": "0207"
+    },
+    {
+      "character": " ",
+      "sp": "5D34",
+      "descriptor": "0001",
+      "bc": "0005"
+    },
+    {
+      "character": "a",
+      "sp": "5D2A",
+      "descriptor": "5C0B",
+      "bc": "0104"
+    },
+    {
+      "character": " ",
+      "sp": "5D36",
+      "descriptor": "4699",
+      "bc": "0003"
+    },
+    {
+      "character": "p",
+      "sp": "5D2A",
+      "descriptor": "5C0B",
+      "bc": "0502"
+    },
+    {
+      "character": " ",
+      "sp": "5D36",
+      "descriptor": "526E",
+      "bc": "0005"
+    },
+    {
+      "character": "d",
+      "sp": "5D18",
+      "descriptor": "5C0B",
+      "bc": "0504"
+    },
+    {
+      "character": " ",
+      "sp": "5D24",
+      "descriptor": "089D",
+      "bc": "0907"
+    },
+    {
+      "character": " ",
+      "sp": "5D1C",
+      "descriptor": "5A20",
+      "bc": "2402"
+    },
+    {
+      "character": "T",
+      "sp": "5D1A",
+      "descriptor": "5C0B",
+      "bc": "0302"
+    },
+    {
+      "character": " ",
+      "sp": "5D26",
+      "descriptor": "41A2",
+      "bc": "0907"
+    },
+    {
+      "character": "c",
+      "sp": "5D1A",
+      "descriptor": "5C0B",
+      "bc": "0506"
+    },
+    {
+      "character": " ",
+      "sp": "5D26",
+      "descriptor": "5546",
+      "bc": "0901"
+    },
+    {
+      "character": "m",
+      "sp": "5D2C",
+      "descriptor": "5C0B",
+      "bc": "0300"
+    },
+    {
+      "character": " ",
+      "sp": "5D38",
+      "descriptor": "017C",
+      "bc": "0905"
+    },
+    {
+      "character": "c",
+      "sp": "5D2C",
+      "descriptor": "5C0B",
+      "bc": "0304"
+    },
+    {
+      "character": " ",
+      "sp": "5D38",
+      "descriptor": "5794",
+      "bc": "0901"
+    },
+    {
+      "character": "s",
+      "sp": "5D1E",
+      "descriptor": "5C0B",
+      "bc": "0300"
+    },
+    {
+      "character": " ",
+      "sp": "5D2A",
+      "descriptor": "005A",
+      "bc": "0905"
+    },
+    {
+      "character": "a",
+      "sp": "5D20",
+      "descriptor": "5C0B",
+      "bc": "0204"
+    },
+    {
+      "character": " ",
+      "sp": "5D2C",
+      "descriptor": "45FB",
+      "bc": "0902"
+    },
+    {
+      "character": "o",
+      "sp": "5D20",
+      "descriptor": "5C0B",
+      "bc": "0301"
+    },
+    {
+      "character": " ",
+      "sp": "5D2C",
+      "descriptor": "4549",
+      "bc": "0906"
+    },
+    {
+      "character": "m",
+      "sp": "5D20",
+      "descriptor": "5C0B",
+      "bc": "0405"
+    },
+    {
+      "character": " ",
+      "sp": "5D2C",
+      "descriptor": "5259",
+      "bc": "0901"
+    },
+    {
+      "character": " ",
+      "sp": "5D46",
+      "descriptor": "5A20",
+      "bc": "2402"
+    },
+    {
+      "character": "d",
+      "sp": "5D4C",
+      "descriptor": "5C0B",
+      "bc": "0902"
+    },
+    {
+      "character": " ",
+      "sp": "5D50",
+      "descriptor": "5A20",
+      "bc": "2402"
+    },
+    {
+      "character": " ",
+      "sp": "5D7C",
+      "descriptor": "BF6E",
+      "bc": "0B00"
+    },
+    {
+      "character": ">",
+      "sp": "5D5C",
+      "descriptor": "0005",
+      "bc": "0002"
+    }
+  ],
+  "current_cells": {
+    "5D08": 0,
+    "5D09": 0,
+    "5D0A": 7,
+    "5D0B": 1,
+    "5D0C": 0,
+    "5D0D": 0,
+    "5D0E": 0,
+    "5D0F": 0,
+    "5D10": 2,
+    "5D11": 1
+  }
+}

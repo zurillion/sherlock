@@ -1,0 +1,12 @@
+[
+  {
+    "label": "major-arrest-present",
+    "history": "results/final-solution/major-arrest-present.txt",
+    "expected": "69BF"
+  },
+  {
+    "label": "major-witness",
+    "history": "results/final-solution/major-witness.txt",
+    "expected": null
+  }
+]

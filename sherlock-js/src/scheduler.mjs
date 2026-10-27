@@ -79,7 +79,7 @@ export class ActorScheduler {
  }
  dump(){return {version:1,actors:copy(this.actors),tick:this.tick,minutes:this.minutes,index:this.index,phase:this.phase,current:copy(this.current),service:this.service,signals:copy(this.signals),requests:copy(this.requests),trace:copy(this.trace)};}
  static load(saved){
-  if(saved?.version!==1||!Array.isArray(saved.actors)||saved.actors.length!==24||saved.actors.some((a,i)=>(i===0?![0,1,100].includes(a.id):a.id!==ACTOR_ORDER[i])||!word(a.due)||typeof a.enabled!=='boolean')||!word(saved.tick)||!Number.isSafeInteger(saved.minutes)||saved.minutes<0||!Number.isInteger(saved.index)||saved.index<0||saved.index>24||!['tick','visit'].includes(saved.phase)||!Array.isArray(saved.signals)||!Array.isArray(saved.requests)||!Array.isArray(saved.trace))throw Error('Invalid actor scheduler save');
+  if(saved?.version!==1||!Array.isArray(saved.actors)||saved.actors.length!==24||saved.actors.some((a,i)=>(i===0?![0,1,100].includes(a.id):i===13?![13,95].includes(a.id):a.id!==ACTOR_ORDER[i])||!word(a.due)||typeof a.enabled!=='boolean')||!word(saved.tick)||!Number.isSafeInteger(saved.minutes)||saved.minutes<0||!Number.isInteger(saved.index)||saved.index<0||saved.index>24||!['tick','visit'].includes(saved.phase)||!Array.isArray(saved.signals)||!Array.isArray(saved.requests)||!Array.isArray(saved.trace))throw Error('Invalid actor scheduler save');
   if(saved.current&&(saved.phase!=='visit'||saved.index>=24||saved.current.actor!==saved.actors[saved.index].id))throw Error('Invalid suspended actor');
   const scheduler=new ActorScheduler(saved.actors);for(const key of ['tick','minutes','index','phase','current','service','signals','requests','trace'])scheduler[key]=copy(saved[key]);return scheduler;
  }

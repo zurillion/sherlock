@@ -1,6 +1,6 @@
 // Decode rule HEADERS and the small object DOMAIN programs as data. Bodies
 // are named functional contracts in special-objects.mjs, never native code.
-export const OBJECT_RULE_NAMES={DCC1:'object.take',DF8B:'object.quenchNote',DFB6:'object.safeEvent',DE9D:'object.open',E0AD:'object.streamClue',E135:'object.inspectClosely',E0EB:'object.revealNote',E0FD:'object.revealBottom',DF7E:'object.takeNote',DFA7:'object.openSafe',E0A0:'object.inspectStream',E0E0:'object.inspectTrash',E0F2:'object.inspectDrawer',E104:'object.inspectBookcase'};
+export const OBJECT_RULE_NAMES={E17B:'npc.tellJones',E188:'npc.jonesEvidence',E1A3:'npc.tellTricia',E1B2:'npc.revealJones',E1D6:'npc.tellBody',DCC1:'object.take',DF8B:'object.quenchNote',DFB6:'object.safeEvent',DE9D:'object.open',E0AD:'object.streamClue',E135:'object.inspectClosely',E0EB:'object.revealNote',E0FD:'object.revealBottom',DF7E:'object.takeNote',DFA7:'object.openSafe',E0A0:'object.inspectStream',E0E0:'object.inspectTrash',E0F2:'object.inspectDrawer',E104:'object.inspectBookcase'};
 export function extendObjectPrograms(original,payload){
  const result=structuredClone(original),byte=p=>payload[p-0x5d80],word=p=>byte(p)|byte(p+1)<<8,queue=[];
  for(const[source,key]of Object.entries(OBJECT_RULE_NAMES)){
@@ -13,7 +13,7 @@ export function extendObjectPrograms(original,payload){
  }
  while(queue.length){const p=queue.shift(),key=p.toString(16).toUpperCase();if(result.instructions[key])continue;const opcode=byte(p);let out;
   if(opcode===11)out={op:'return.success',source:key,size:1,next:(p+1).toString(16).toUpperCase()};
-  else if(opcode===3||opcode===7){const source=word(p+1).toString(16).toUpperCase(),rule=OBJECT_RULE_NAMES[source];if(!rule)throw Error('Unknown object rule '+source);const size=opcode===7?5:3,next=(p+size).toString(16).toUpperCase();out={op:'rule',source:key,size,next,success:next,failure:next,erase:false,restriction:false,rule,args:opcode===7?[byte(p+3),byte(p+4)]:[255,255]};queue.push(p+size);}
+  else if(opcode===3||opcode===7||opcode===23){const source=word(p+1).toString(16).toUpperCase(),rule=OBJECT_RULE_NAMES[source];if(!rule)throw Error('Unknown object rule '+source);const size=opcode===23?7:opcode===7?5:3,next=(p+size).toString(16).toUpperCase();out={op:'rule',source:key,size,next,success:next,failure:opcode===23?word(p+5).toString(16).toUpperCase():next,erase:false,restriction:false,rule,args:opcode!==3?[byte(p+3),byte(p+4)]:[255,255]};queue.push(p+size);if(opcode===23)queue.push(word(p+5));}
   else throw Error('Unknown object-domain operation '+key);
   result.instructions[key]=out;
  }

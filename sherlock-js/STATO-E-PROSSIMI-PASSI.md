@@ -157,3 +157,12 @@ Aggiornamento 27 ottobre: vedere [ALTRI-FINALI.md](ALTRI-FINALI.md) e
 fino alla cassaforte (stesso finale 759C); corretti la ricerca delle premesse
 annidate e il rifiuto originale degli ordini di movimento a Basil impegnato.
 Le altre sei varianti terminali restano da certificare con storie naturali.
+
+## Verifica successiva dei finali e delle confessioni
+
+Il finale 69BF dell’arresto in presenza di Holmes passa ora una storia
+naturale completa (171 checkpoint, 2.464 estrazioni). Ricostruiti inoltre
+i programmi TELL di Tricia/Mrs Jones, il cambio d’identità NPC e il valore
+probatorio del suo racconto, con prove controllate e ripresa da LOAD.
+Dettagli e confini in [FINALI-E-CONFESSIONI.md](FINALI-E-CONFESSIONI.md).
+I testi certificati naturalmente sono quattro; cinque rimangono da verificare.

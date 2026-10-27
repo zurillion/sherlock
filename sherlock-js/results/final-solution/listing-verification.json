@@ -1,0 +1,91 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 181,
+  "bytes_roundtripped": 406,
+  "regions": [
+    {
+      "start": "A00D",
+      "end_exclusive": "A00F",
+      "kind": "data",
+      "label": "Default word reference, immutable payload"
+    },
+    {
+      "start": "A2E4",
+      "end_exclusive": "A301",
+      "kind": "code",
+      "label": "Darkness gate for failed-action announcements"
+    },
+    {
+      "start": "C374",
+      "end_exclusive": "C3C0",
+      "kind": "code",
+      "label": "Row clear and glyph stack residue"
+    },
+    {
+      "start": "CC0C",
+      "end_exclusive": "CC0D",
+      "kind": "data",
+      "label": "Padding between failure count and request flag"
+    },
+    {
+      "start": "CC29",
+      "end_exclusive": "CC78",
+      "kind": "code",
+      "label": "Output perception selection"
+    },
+    {
+      "start": "E03A",
+      "end_exclusive": "E08F",
+      "kind": "code",
+      "label": "General actor identity, direct possessions and context transfer"
+    },
+    {
+      "start": "E17B",
+      "end_exclusive": "E188",
+      "kind": "data",
+      "label": "Mrs Jones rule header and DOMAIN programme"
+    },
+    {
+      "start": "E188",
+      "end_exclusive": "E18A",
+      "kind": "data",
+      "label": "Evidence rule header"
+    },
+    {
+      "start": "E18A",
+      "end_exclusive": "E1A3",
+      "kind": "code",
+      "label": "Topic 16/17/67 sets fact 9996 bit 1"
+    },
+    {
+      "start": "E1A3",
+      "end_exclusive": "E1B2",
+      "kind": "data",
+      "label": "Tricia rule header and conditional DOMAIN programme"
+    },
+    {
+      "start": "E1B2",
+      "end_exclusive": "E1B4",
+      "kind": "data",
+      "label": "Identity reveal rule header"
+    },
+    {
+      "start": "E1B4",
+      "end_exclusive": "E1D6",
+      "kind": "code",
+      "label": "Clothes perception, NPC identity change, confession flag"
+    },
+    {
+      "start": "E1D6",
+      "end_exclusive": "E1D8",
+      "kind": "data",
+      "label": "Default TELL header"
+    },
+    {
+      "start": "E1D8",
+      "end_exclusive": "E201",
+      "kind": "code",
+      "label": "Default topic lookup and spoken reply"
+    }
+  ]
+}
