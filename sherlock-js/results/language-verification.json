@@ -1,0 +1,265 @@
+{
+  "date": "2026-10-27",
+  "engine": "Autonomous JavaScript world-v5",
+  "protocol": "Natural fresh seed-1 startup; all 24 actors; free initial LOOK; graphics off after boot; injected uppercase keys; immediate MORE; no idle timeout. No world patches or teleports.",
+  "native_state_imported_by_runtime": false,
+  "full_game_equivalence": false,
+  "corpus": {
+    "fixture": "test/fixtures/language-reference.json",
+    "sha256": "fbb9d8854fb59b92cc39f93d06d32a4708b5fe8594434bcf3995512ee1b858f6",
+    "total_histories": 61,
+    "fully_compared_histories": 58,
+    "fully_compared_commands": 164,
+    "random_draws": 734,
+    "random_source_reads": 1468,
+    "comparisons": [
+      "all random draws, input bytes and successor",
+      "actor PCs, deadlines and arguments",
+      "entities, rooms and facts",
+      "all 752 arena bytes and list records",
+      "quotation pointers, pronouns and addressee",
+      "editor and token bytes",
+      "exact lower bitmap and upper bitmap SHA256",
+      "future after JSON save/load at every step"
+    ],
+    "boundary_prefix_commands": 3,
+    "boundary_prefix_draws": 16
+  },
+  "prototype_boundaries": [
+    {
+      "case": 34,
+      "commands": [
+        "SAY TO WATSON \"LOOK\" \"HELLO\"",
+        "SAY TO WATSON \"TAKE LAMP\"",
+        "I"
+      ],
+      "fault_command_index": 1,
+      "kind": "Residual quotation restores final terminator; subsequent scan leaves token buffer",
+      "native_parity": false,
+      "checks": [
+        "exact valid prefix",
+        "whole input rollback",
+        "subsequent INVENTORY usable"
+      ]
+    },
+    {
+      "case": 36,
+      "commands": [
+        "SAY TO WATSON \"THE\" \"HELLO\"",
+        "I",
+        "SAY TO WATSON \"HELLO\"",
+        "I"
+      ],
+      "fault_command_index": 2,
+      "kind": "Residual quotation restores final terminator; subsequent scan leaves token buffer",
+      "native_parity": false,
+      "checks": [
+        "exact valid prefix",
+        "whole input rollback",
+        "subsequent INVENTORY usable"
+      ]
+    },
+    {
+      "case": 45,
+      "commands": [
+        "I                                                                                                                                            ",
+        "I"
+      ],
+      "fault_command_index": 0,
+      "kind": "Editor closure overlaps token buffer; native research bridge token cap, not a game error",
+      "native_parity": false,
+      "checks": [
+        "exact valid prefix",
+        "whole input rollback",
+        "subsequent INVENTORY usable"
+      ]
+    }
+  ],
+  "numeric_and_editor": {
+    "fixture": "test/fixtures/language-numbers-reference.json",
+    "sha256": "48dfbe488bd29d43ba6010a0a900661aef2929543690ed319238d9cd2586ed85",
+    "protocol": "Controlled isolated original numeric scanner; input text followed by space, dot and CR. Editor invoked with injected ASCII keys and ENTER. No semantic/world state claimed.",
+    "numeric_cases": 46,
+    "editor_cases": 18,
+    "controlled": true
+  },
+  "web_packets": {
+    "histories": [
+      0,
+      1,
+      5,
+      6,
+      11,
+      16,
+      24,
+      33,
+      37,
+      54,
+      55
+    ],
+    "checks": [
+      "ClientSession start/continue packets through SpectrumBuffer",
+      "displayed rows",
+      "persistent scroll counter"
+    ],
+    "real_browser_visual_test": false,
+    "served_files": "results/language/served-files.json"
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 1890,
+    "bytes_roundtripped": 4108,
+    "regions": [
+      {
+        "start": "AAB2",
+        "end_exclusive": "AF6B",
+        "kind": "code",
+        "label": "Grammar, coordination, continuation and ordinary-tail list traversal"
+      },
+      {
+        "start": "AF6B",
+        "end_exclusive": "AFB3",
+        "kind": "data",
+        "label": "Special-token dispatch tables"
+      },
+      {
+        "start": "AFB3",
+        "end_exclusive": "B16D",
+        "kind": "code",
+        "label": "Special-token handlers"
+      },
+      {
+        "start": "B16D",
+        "end_exclusive": "B191",
+        "kind": "data",
+        "label": "Semantic lookup working fields"
+      },
+      {
+        "start": "B191",
+        "end_exclusive": "B39C",
+        "kind": "code",
+        "label": "Argument cardinality and candidate iteration"
+      },
+      {
+        "start": "B39C",
+        "end_exclusive": "B39D",
+        "kind": "data",
+        "label": "ALL lookup flag"
+      },
+      {
+        "start": "B39D",
+        "end_exclusive": "B4A2",
+        "kind": "code",
+        "label": "Semantic role extraction"
+      },
+      {
+        "start": "B4A2",
+        "end_exclusive": "B4A3",
+        "kind": "data",
+        "label": "First-argument iterator flag"
+      },
+      {
+        "start": "B4A3",
+        "end_exclusive": "B549",
+        "kind": "code",
+        "label": "First-argument selection and exclusion traversal"
+      },
+      {
+        "start": "B549",
+        "end_exclusive": "B54A",
+        "kind": "data",
+        "label": "Second-argument iterator flag"
+      },
+      {
+        "start": "B54A",
+        "end_exclusive": "B5B6",
+        "kind": "code",
+        "label": "Second-argument selection"
+      },
+      {
+        "start": "B5B6",
+        "end_exclusive": "B5D3",
+        "kind": "code",
+        "label": "Move ambiguous node to pending list"
+      },
+      {
+        "start": "B866",
+        "end_exclusive": "B86A",
+        "kind": "data",
+        "label": "Request and quote cursor working fields"
+      },
+      {
+        "start": "B86A",
+        "end_exclusive": "B934",
+        "kind": "code",
+        "label": "Quote consumption and deferred request allocation"
+      },
+      {
+        "start": "B934",
+        "end_exclusive": "B936",
+        "kind": "data",
+        "label": "Request-loop working fields"
+      },
+      {
+        "start": "B936",
+        "end_exclusive": "BA13",
+        "kind": "code",
+        "label": "NPC request execution and syntax-node release"
+      },
+      {
+        "start": "D7FC",
+        "end_exclusive": "D897",
+        "kind": "code",
+        "label": "Player semantic loop and list release"
+      },
+      {
+        "start": "D898",
+        "end_exclusive": "D9C3",
+        "kind": "code",
+        "label": "Editor, quote closure, capacity and repeat key"
+      },
+      {
+        "start": "DAEF",
+        "end_exclusive": "DB64",
+        "kind": "code",
+        "label": "Numeric time scanner and suffix/period cursor"
+      },
+      {
+        "start": "DB64",
+        "end_exclusive": "DB67",
+        "kind": "data",
+        "label": "Money fields"
+      },
+      {
+        "start": "DB67",
+        "end_exclusive": "DC13",
+        "kind": "code",
+        "label": "Currency scanner and rotating decimal accumulator"
+      },
+      {
+        "start": "E1D6",
+        "end_exclusive": "E1D8",
+        "kind": "data",
+        "label": "TELL rule header"
+      },
+      {
+        "start": "E1D8",
+        "end_exclusive": "E22A",
+        "kind": "code",
+        "label": "TELL topic lookup"
+      }
+    ]
+  },
+  "regression": {
+    "command": "node --test test/*.test.mjs",
+    "tests": 533,
+    "passed": 533,
+    "failed": 0,
+    "log": "results/language/tests.log"
+  },
+  "remaining": [
+    "Arbitrary memory scanning after quotation terminator corruption (two histories)",
+    "Token/editor overlap at physical capacity (one history)",
+    "Full-game equivalence remains unclaimed; next backlog point 5 separate"
+  ]
+}

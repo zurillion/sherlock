@@ -21,47 +21,55 @@ export class Dictionary {
 
 export function normalizeInput(raw){
  if(typeof raw!=='string'||/[^\x20-\x7e£]/.test(raw))throw new InputError('tool_limit','Only printable ASCII characters and £ are supported.');
- if(raw.length>128)throw new InputError('tool_limit','The reconstructed editor accepts at most 128 characters.');
- let text='',quoted=false;
+ let text='',quoted=false,capacity=128;
+ const period=()=>{if(!text.endsWith('.')){text+='.';capacity=(capacity-1)&255;}};
  for(const c of raw.toUpperCase().replaceAll('£','`')){
-  if(c==='"'){if(quoted&&!text.endsWith('.'))text+='.';quoted=!quoted;}
-  text+=c;
+  if(c.charCodeAt(0)<64&&!/[ ".,\/\-:0-9]/.test(c))continue;
+  if(c==='"'){quoted=!quoted;if(!quoted)period();}
+  if(capacity){text+=c;capacity=(capacity-1)&255;}
  }
- if(quoted){if(!text.endsWith('.'))text+='.';text+='"';}
- if(!text.endsWith('.'))text+='.';
- return text;
+ if(quoted){period();text+='"';}period();return text;
 }
 
 const rotate=value=>((value<<1)|(value>>>7))&255;
 // This reproduces the unusual 8-bit decimal accumulation, including overflow.
 export function decimalByte(text){let n=0;for(const c of text){const twice=rotate(n);n=(twice+rotate(rotate(twice))+Number(c))&255;}return n;}
-export function numericLiteral(text){
- const money=text.match(/^(?:`(\d+)(?:\/(\d+)\/(\d+|-))?|(\d+)(S|D)|(?:(\d+)\/(\d+|-)))$/);
- if(money){const pound=money[1]?decimalByte(money[1]):0,shilling=money[2]?decimalByte(money[2]):money[5]==='S'?decimalByte(money[4]):money[6]?decimalByte(money[6]):0,pence=money[3]&&money[3]!=='-'?decimalByte(money[3]):money[5]==='D'?decimalByte(money[4]):money[7]&&money[7]!=='-'?decimalByte(money[7]):0;
-  const total=((pound*20+shilling)*12+pence)&65535;if(total>=16384)return null;
-  return {type:240,value:32768|((total>>>7)<<8)|128|(total&127),word:null,literal:{kind:'money',pence:total}};
+// DAEF–DC12: value and cursor are separate results. The pound separator
+// is skipped only when another decimal field follows it; it need not be '/'.
+export function scanNumeric(text,start=0){
+ let at=start,pounds=0,shillings=0,pence=0;
+ const digit=c=>c!==undefined&&c>='0'&&c<='9';
+ const decimal=()=>{const begin=at;while(digit(text[at]))at++;return decimalByte(text.slice(begin,at));};
+ const money=()=>{const total=((pounds*20+shillings)*12+pence)&65535;if(total>=16384)return null;while(text[at]==='.')at++;if(text[at]==='\r'||text[at]==='"')at--;else if(![' ',','].includes(text[at]))return null;return {type:240,value:32768|((total>>>7)<<8)|128|(total&127),word:null,literal:{kind:'money',pence:total},next:at};};
+ let amount;
+ if(text[at]==='`'){at++;pounds=decimal();if(!digit(text[at+1]))return money();at++;amount=decimal();}
+ else{
+  if(!digit(text[at]))return null;amount=decimal();
+  if([':', 'A','P','.',',',' '].includes(text[at])){
+   if(amount>=60)return null;const hour=amount;let minute=0,period=null;
+   if(text[at]===':'){at++;minute=decimal();if(minute>=60)return null;}
+   if(!['.',',',' '].includes(text[at])){period=text[at];if(!['A','P'].includes(period)||text[++at]!=='M')return null;at++;while(text[at]==='.')at++;if(text[at]==='\r'||text[at]==='"')at--;else if(![' ',','].includes(text[at]))return null;}
+   return {type:240,value:((128|hour|(period==='A'?64:0))<<8)|minute|(period==='P'?64:0),word:null,literal:{kind:'time',hour,minute,period:period?period+'M':null},next:at};
+  }
  }
- const time=text.match(/^(\d+)(?::(\d*))?(AM|PM)?$/);
- if(!time)return null;const hour=decimalByte(time[1]),minute=decimalByte(time[2]||'0');if(hour>=60||minute>=60)return null;
- return {type:240,value:((128|hour|(time[3]==='AM'?64:0))<<8)|minute|(time[3]==='PM'?64:0),word:null,literal:{kind:'time',hour,minute,period:time[3]||null}};
+ if(text[at]==='S'){shillings=amount;at++;}
+ else if(text[at]==='D'){pence=amount;at++;}
+ else if(text[at]==='/'){shillings=amount;at++;if(text[at]==='-')at++;else{if(!digit(text[at]))return null;pence=decimal();}}
+ else return null;
+ return money();
 }
+export function numericLiteral(text){const result=scanNumeric(text+' .\r');if(!result)return null;const {next,...token}=result;return token;}
 
 export class Lexer {
  constructor(dictionary){this.dictionary=dictionary;}
  scan(raw){
-  const normalized=normalizeInput(raw),tokens=[];let pos=0;
+  const normalized=normalizeInput(raw),tokens=[];if(normalized.length>128)throw new InputError('tool_limit','Sovrapposizione originale fra buffer editor e token non ancora ricostruita: comando non applicato.');let pos=0;
   while(pos<normalized.length){const start=pos,c=normalized[pos];if(c===' '){pos++;continue;}
    const special={'.':176,',':160,'"':144}[c];if(special!==undefined){tokens.push({type:special,value:0,word:null,start,end:++pos,source:c});continue;}
    let result;
    if(/[0-9`]/.test(c)){
-    while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;result=numericLiteral(normalized.slice(start,pos));
-    // DB3D consumes periods following money or an explicit AM/PM suffix.
-    // In particular the dot in 6D. is not a command terminator.
-    if(result&&(result.literal.kind==='money'||result.literal.period)){
-     while(normalized[pos]==='.')pos++;
-     if(pos<normalized.length&&!/[ ,\"]/.test(normalized[pos]))result=null;
-     else if(normalized[pos]==='"'||pos===normalized.length)pos--; // DB5F returns before quote/CR; the last period is scanned again.
-    }
+    result=scanNumeric(normalized+'\r',pos);if(result)pos=result.next;else{while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;}
+
    }
    else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));}
    if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized});}

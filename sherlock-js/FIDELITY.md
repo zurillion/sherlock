@@ -1,5 +1,14 @@
 # Stato attuale: NPC v5
 
+27 October, complex language: [LINGUAGGIO-COMPLESSO.md](LINGUAGGIO-COMPLESSO.md)
+and `results/language-verification.json` cover coordinated record lifetimes,
+clarifications, ALL roles, original exclusion quirks, live quote queues, final
+request mode, repeat and numeric/editor algorithms. Fifty-eight full natural
+histories are compared separately from three explicit corrupted-buffer
+prototype boundaries. Eleven histories also compare actual UI packets.
+No whole-game or arbitrary-memory-scan parity is claimed.
+
+
 27 October, advanced NPC branches: [NPC-AVANZATI.md](NPC-AVANZATI.md) and
 `results/advanced-npcs-verification.json` document identity/knowledge scenes,
 rest callbacks, police events/transport and terminal scheduler boundaries.

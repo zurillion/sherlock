@@ -1,5 +1,11 @@
 # Programmi dei personaggi nella pagina: NPC v5
 
+27 ottobre, linguaggio: [LINGUAGGIO-COMPLESSO.md](LINGUAGGIO-COMPLESSO.md)
+ricostruisce anche i nodi ALL persistenti delle richieste NPC, il modo finale
+delle citazioni e le code che conservano puntatori ai token correnti. I tre
+confini di buffer dichiarati restano avvisi del prototipo, non testo originale.
+
+
 27 ottobre: [NPC-AVANZATI.md](NPC-AVANZATI.md) completa i corpi referenziati
 dai programmi NPC ancora mancanti, le callback serali e i rami di identità,
 conoscenze, polizia e finali. Il rapporto separa visite controllate e lunga

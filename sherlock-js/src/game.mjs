@@ -42,6 +42,7 @@ export class Game {
  word(id){return this.dictionary.word(id)?.stem||'';}
  queryName(group){return [...group.qualifiers,group.noun].filter(Boolean).map(id=>this.word(id)).join(' ')||'anything';}
  action(node){
+  if(!node.verb)return 1;
   const verb=this.word(node.verb),modifier=this.word(node.modifier),relations=node.groups.flatMap(g=>g.relations).map(id=>this.word(id));
   if(verb==='sit'&&!relations.length)return 40;
   if(['get','climb'].includes(verb)&&relations.join(' ')==='out')return verb==='get'?25:13;
@@ -50,11 +51,13 @@ export class Game {
   if(verb==='talk'&&!modifier&&!relations.length&&node.groups.length===1)return 46;
   if(DIRECTION_NAMES.includes(verb)&&verb&&!modifier&&!relations.length)return DIRECTION_NAMES.indexOf(verb);
   return this.data.actions.find(a=>a.words[0]===verb&&JSON.stringify(a.words.slice(1,3).filter(Boolean))===JSON.stringify(relations)&&(a.words[3]||'')===modifier)?.id
+    ||(verb!=='pay'?this.data.actions.find(a=>a.words[0]===verb&&(a.words[3]||'')===modifier&&relations.every(r=>a.words.slice(1,3).includes(r)))?.id:0)
     ||(verb==='wait'&&relations.length===0?49:0);
  }
  get actor(){return this.actingActor??this.world.player;}
  canTake(e){const w=this.world,actor=this.actor;return w.perceived(e.id,actor)&&e.rooms.length===1&&!e.person&&!w.owns(actor,e.id)&&!w.owns(e.id,actor)&&w.weight(e.id)<=w.remainingCapacity(actor)&&!w.entities.some(p=>p.person&&w.owns(p.id,e.id));}
  canResolve(e,action,slot){
+  if([47,48].includes(action)&&slot===1)return e.id!==0;
   if([21,22].includes(action))return e.id!==this.actor;
   if(action===43)return e.rules.some(r=>r.action===43)&&this.actor===(e.id===14?1:100);
   const w=this.world,actor=this.actor;if(!w.perceived(e.id,actor))return false;
@@ -66,25 +69,30 @@ export class Game {
   if(action===36||action===14)return e.rules.some(r=>r.action===action);
   if([11,23,41,42,44].includes(action))return slot===0?this.canTake(e):true;
   if([17,38,39].includes(action))return slot===0?w.owns(actor,e.id):true;
-  if(action===26)return slot===0?w.owns(actor,e.id):e.person;
+  if(action===26)return slot===0?w.owns(actor,e.id):e.person&&e.id!==actor;
   if(action===16)return w.owns(actor,e.id);
   if([12,24,40].includes(action))return e.rules.some(r=>r.action===action);
   if([13,25].includes(action))return w.entity(actor).parent===e.id;
   if(action===46)return e.person&&e.id!==actor;
-  if([37,47,48].includes(action))return e.person;
+  if([47,48].includes(action))return slot===0?e.person:e.id!==0;
+  if(action===37)return e.person;
   return true;
  }
  error(text){return {kind:'error',text};}
- referenceCandidates(node,action,slot=0){const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
+ semanticNode(node){if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}if(node.all&&node.groups.length===1&&node.groups[0].relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[{noun:0,qualifiers:[],relations:[]},node.groups[0]]};return node;}
+ referenceCandidates(node,action,slot=0){node=this.semanticNode(node);const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
   if([17,38,39,42,44].includes(action)){
-   const other=node.groups[1-slot];const partners=(node.resolved?.[1-slot]!==undefined?[this.world.entity(node.resolved[1-slot])]:other?this.world.entities.filter(e=>this.world.nounMatches(e,other)):[]).filter(e=>this.world.perceived(e.id,this.actor));
+   const other=node.groups[1-slot];const partners=(node.resolved?.[1-slot]!==undefined?[this.world.entity(node.resolved[1-slot])]:this.world.entities.filter(e=>!other||this.world.nounMatches(e,other))).filter(e=>this.world.perceived(e.id,this.actor));
    // B29A counts a first argument only when EXACTLY one second argument
    // survives. Two possible destinations can therefore reject the object,
    // rather than asking which destination; preserve that original quirk.
-   if(partners.length||slot!==0)possible=possible.filter(e=>{const count=partners.filter(p=>[42,44].includes(action)?this.canResolve(p,action,1-slot):canPlace(this.world,slot===0?e:p,slot===0?p:e,this.actor)).length;return slot===0?count===1:count>0;});
+   if(partners.length||!other||slot!==0)possible=possible.filter(e=>{const count=partners.filter(p=>[42,44].includes(action)?this.canResolve(p,action,1-slot):canPlace(this.world,slot===0?e:p,slot===0?p:e,this.actor)).length;return slot===0?count===1:count>0;});
   }
+  if([47,48].includes(action)&&slot===0){const topic=node.groups[1]||{noun:0,qualifiers:[]},topics=this.world.entities.filter(e=>e.id!==0&&this.world.nounMatches(e,topic));if(topics.length!==1)possible=[];}
   return {nominal,possible};}
  needsClarification(node){
+  node=this.semanticNode(node);
+  if(node.implicitMissing)return true;
   // This preflight uses the same semantic candidates as resolve(). It only
   // determines whether B5B6 retains the parsed node; it executes no action.
   const action=this.action(node);if(node.all||node.exclusion||node.quote||node.subject||this.world.dark()||!SUPPORTED_ACTIONS.includes(action))return false;
@@ -95,24 +103,24 @@ export class Game {
  resolve(node,action,slot=0){
   if(node.resolved?.[slot]!==undefined)return {entity:this.world.entity(node.resolved[slot])};
   const w=this.world,group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]};
-  if(!group.noun&&!group.qualifiers.length){return {message:this.error(`${this.word(node.verb).toUpperCase()} WHAT ?`)};}
+  if(!group.noun&&!group.qualifiers.length&&!node.collective){return {message:this.error(`${this.word(node.verb).toUpperCase()} WHAT ?`)};}
   const {nominal,possible}=this.referenceCandidates(node,action,slot);
   if(possible.length>1){this.pending={node:clone(node),slot};return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
-  if(scenery?.action===action&&scenery.slot===slot){const relations=this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[],modifier=this.word(node.modifier).toUpperCase();return {message:this.error(scenery.found?`YOU CANNOT ${[modifier,verb].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`)};}
-  if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase()}`)};
-  if([12,13,24,25,40,43,46,51,53,54].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase()}`)};
+  if(scenery?.action===action&&scenery.slot===slot){const relations=([47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();return {message:this.error(scenery.found?`YOU CANNOT ${[modifier,verb].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`)};}
+  if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
+  if([12,13,24,25,40,43,46,47,48,51,53,54].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
   if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
   if([11,23,41,42,44].includes(action)&&slot===0&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
   return {message:this.error(`YOU CANNOT ${verb} THE ${query}`)};
  }
  executeAs(node,actor,{textContext=null}={}){const previous=this.actingActor,pending=this.pending,priorText=this.actingTextContext;this.actingActor=actor;this.actingTextContext=textContext;try{return this.execute(node);}finally{this.actingActor=previous;this.actingTextContext=priorText;this.pending=pending;}}
  execute(node){
+  node=this.semanticNode(node);
   const w=this.world,action=this.action(node),actor=this.actor,subject=actor===0?'You':w.name(actor).replace(/^./,c=>c.toUpperCase()),verb=(base,third=this.dictionary.word(this.dictionary.lookup(base.toUpperCase()).value)?.form||base+'s')=>actor===0?base:third,say=(base,tail,third)=>`${subject} ${verb(base,third)}${tail}`,narrative=text=>({kind:'narrative',text}),ok=(messages,cost=1,args=[])=>({messages:messages.map(m=>typeof m==='string'?narrative(m):m),cost,action,args}),reject=text=>({messages:[this.error(text)],cost:0,action,args:[]});
   if(node.all||node.exclusion)throw new UnsupportedFeature('questa forma di ALL/EXCEPT');
-  if(node.subject)throw new UnsupportedFeature('asserzioni, informazioni e deduzioni');
   if(node.quote&&action!==46){
    if(!w.npcs)for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
    throw new UnsupportedFeature('citazioni per questa forma di conversazione');
@@ -126,8 +134,8 @@ export class Game {
   if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
   const lightFreeLocal=node.groups[0]&&w.entities.some(e=>w.nounMatches(e,node.groups[0])&&e.rules.some(r=>r.action===action&&['takeBurningNote','openSafe','untranslated:E0A0','untranslated:E0E0','untranslated:E0F2','untranslated:E104'].includes(r.rule)));
   if(w.dark(actor)&&![33,43,49,50,51,53,54].includes(action)&&!lightFreeLocal)return reject('SORRY IT IS TOO DARK.');
-  if(action===34)return ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf()}]);
-  if(action===33){const listed=w.entities.filter(e=>e.parent===actor&&e.rooms.length<2&&w.perceived(e.id,actor));for(const e of listed)e.status|=128;const items=listed.map(e=>w.name(e.id,{indefinite:true}));const name=actor===0?'You are':w.name(actor,{indefinite:true})+' is';return ok([name.replace(/^./,c=>c.toUpperCase())+' carrying '+(items.length?joinList(items):'nothing')+'.']);}
+  if(action===34)return actor===w.player?ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf()}]):ok([],1);
+  if(action===33){const listed=w.entities.filter(e=>e.parent===actor&&e.rooms.length<2&&w.perceived(e.id,actor));for(const e of listed)e.status|=128;const items=listed.map(e=>w.name(e.id,{indefinite:true}));const name=actor===0?'You are':w.name(actor,{indefinite:true})+' is';return ok([name.replace(/^./,c=>c.toUpperCase())+' carrying '+(items.length?joinList(items)+'.':'nothing')]);}
   if(action===32){if(actor===w.player)return ok([this.error(this.text.render('6915').toUpperCase())],0);const context=this.npcTextContext(actor),out=ok([this.textMessage(this.text.greeting(actor,context),context)],0);out.projected=Boolean(context.sink);return out;}
   if(action===37){
    const literal=node.groups[0]?.noun;
@@ -167,20 +175,20 @@ export class Game {
    this.cab.arrive(vehicle,actor);return ok([say('hail',' '+w.name(vehicle.id)+'.')],1,[vehicle.id]);
   }
   if(action===46){
+   if(node.implicitMissing){this.pending={node:clone({...node,implicitMissing:false}),slot:0};return reject('TALK TO WHAT ?');}
+   if(w.npcs)this.npcRuntime.addressee(node.groups[0]);
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
-   let commands=[];
-   if(node.quote){
-    if(w.npcs&&actor===w.player)this.npcRuntime.consumeQuotes(node);
-    for(const quote of node.quotes||[node.quote])try{commands.push(...this.parser.quoted(quote).nodes);}catch(error){
-     if(!(error instanceof InputError))throw error;
-     if(w.npcs&&error.detail.partialNodes){this.npcRuntime.failedQuote(error.detail.partialNodes);commands=[];break;}
-     throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
-    }
-   }
+   let commands=[],quoteMode=1;
+   const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote():node.quote;
+   if(quote){try{const parsed=this.parser.quoted(quote);commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
+    if(!(error instanceof InputError))throw error;
+    if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
+    else throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
+   }}
    if(w.npcs){
     this.npcRuntime.addressee(node.groups[0]);
     if(!w.scheduler.actors.some(a=>a.id===target.entity.id&&a.enabled))throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
-    if(commands.some(n=>n.subject)&&commands.some(n=>!n.subject))throw new UnsupportedFeature('citazione con ordini e affermazioni mescolati');if(commands.length)this.npcRuntime.queue(actor,target.entity.id,commands);
+    if(commands.length)this.npcRuntime.queue(actor,target.entity.id,commands,quoteMode);
     return ok([say('talk',' to '+w.name(target.entity.id)+'.')],1,[target.entity.id]);
    }
    if(target.entity.id!==3||!w.scheduler.actor(3).enabled)throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
@@ -232,7 +240,7 @@ export class Game {
   const objectRule=objectRuleFor(e,action);
   if(objectRule){if(!w.npcs)throw new UnsupportedFeature('regole degli oggetti speciali nel profilo storico');if(action===20&&e.person&&!e.rules.some(r=>r.action===20))return {...reject(`${subject} cannot closely examine ${w.name(e.id)}.`.toUpperCase()),args:[e.id],semanticResolved:true};const text=action===20?`${subject} closely ${verb('examine')} ${w.name(e.id)}.`:say(this.word(node.verb),' '+w.name(e.id)+'.');return {...ok([text],0,[e.id]),objectRule,semanticResolved:true};}
   if(action===51||action===43){const message=say(action===51?'wear':'take',' '+(action===43?'off ':'')+w.name(e.id)+'.'),room=changeIdentity(this,action===43?0:e.id===14?1:100);e.parent=0;e.rooms=[action===43?room:0];return ok([message],1,[e.id]);}
-  if([11,23,41,42,44].includes(action)){if(e.rules.some(r=>r.action===action))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return reject(`YOU CANNOT TAKE ${w.name(e.id).toUpperCase()}.`);let source=null;
+  if([11,23,41,42,44].includes(action)){if(e.rules.some(r=>r.action===action))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return {...reject(`YOU CANNOT TAKE ${w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};let source=null;
    if([42,44].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};source=target.entity;}
    w.move(e.id,w.roomOf(actor),actor);return ok([say(this.data.actions.find(a=>a.id===action).words[0],' '+w.name(e.id)+(source?' '+(action===42?'from':'out of')+' '+w.name(source.id):'')+'.')],1,source?[e.id,source.id]:[e.id]);}
   if([17,38,39].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
@@ -247,6 +255,7 @@ export class Game {
    if(action===36&&open)return reject(w.name(e.id).toUpperCase()+' IS OPEN');if(action===14&&!open)return reject(w.name(e.id).toUpperCase()+' IS CLOSED');
    e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([say(action===36?'open':'close',' '+w.name(e.id)+'.')],1,[e.id]);
   }
+  if(action===19&&e.person)return {...reject(`YOU CANNOT EXAMINE ${e.id===actor?'ME':w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};
   if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs&&!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();e.status|=64;
    const characters=[],description=e.description?this.text.render(e.description,{object:e.id,sink:c=>{if(c==='\b')characters.pop();else characters.push(c);}}):`${subject} see ${w.name(e.id,{indefinite:true})}.`,announcement=say('examine',' '+w.name(e.id)+'.')+'\n';
    return ok([{kind:'narrative',text:announcement+description,raw_text:announcement+(e.description?characters.join(''):description)+'\n'}],1,[e.id]);}
@@ -255,78 +264,79 @@ export class Game {
  }
  // ALL selects references, rather than turning into one synthetic action with
  // a multiplied cost. Each object is executed and scheduled separately.
- supportsCollective(node){return !node.exclusion&&!(node.allSlot||0)&&[11,14,16,19,23,26,36,41].includes(this.action(node));}
+ supportsCollective(node){return !node.exclusion&&SUPPORTED_ACTIONS.includes(this.action(node));}
  *collective(node){
+  node=this.semanticNode(node);
   if(!node.all){yield node;return;}
-  const action=this.action(node),w=this.world,actor=this.actor,slot=node.allSlot||0;
-  if(slot!==0||![11,14,16,19,23,26,36,41].includes(action))throw new UnsupportedFeature('ALL per questa azione o per il secondo argomento');
+  const action=this.action(node),w=this.world,actor=this.actor;
+  if(![11,12,13,14,16,17,19,20,23,24,25,26,28,31,35,36,37,38,39,40,41,42,43,44,46,47,48,51,53,54].includes(action)){yield {...node,all:false};return;}
   const group=node.groups[0]||{noun:0,qualifiers:[]};
-  const eligible=e=>{
-   if(!w.perceived(e.id,actor)||!w.nounMatches(e,group))return false;
-   if(action===14||action===36)return e.rules.some(r=>r.action===action);
-   if(action===16||action===26)return w.owns(actor,e.id);
-   if(action===19)return true;
-   return e.rooms.length===1&&!e.person&&!w.owns(actor,e.id)&&!w.owns(e.id,actor)&&w.weight(e.id)<=w.remainingCapacity(actor);
-  };
-  let found=false;
+  // B517 starts its exclusion scan AFTER the current index entry. In this
+  // game's unique ascending entity index it cannot return that same entity;
+  // BUT nodes remain allocated, but do not filter these selections.
   for(const entity of w.entities){
-   if(!eligible(entity))continue;found=true;
-   yield {...clone(node),all:false,resolved:[entity.id]};
+   if(!w.perceived(entity.id,actor)||!w.nounMatches(entity,group)||!([11,23,41].includes(action)?entity.rooms.length===1&&!entity.person&&!w.owns(actor,entity.id)&&!w.owns(entity.id,actor)&&w.weight(entity.id)<=w.remainingCapacity(actor):this.canResolve(entity,action,0)))continue;
+   if([17,38,39,42,44,47,48].includes(action)&&!this.referenceCandidates(node,action,0).possible.some(e=>e.id===entity.id))continue;
+   yield {...clone(node),all:false,collective:true,resolved:[entity.id]};
   }
-  if(!found)yield {...node,all:false};
  }
+
  submit(input,{streamWait=false}={}){
   if(this.ended)return {state:this.state(),messages:[]};
   const entry=this.history.begin('command',input,this.world);this.streamWait=streamWait;
   try{const out=this.submitCommand(input);this.history.finish(entry,this.world,{outcome:this.pendingWait?'running':out.state.analysis?.outcome??'ok',errors:out.messages.filter(m=>['error','system'].includes(m.kind)).map(m=>m.text)});return out;}
   catch(error){this.cancelFailedInput?.();this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}
-  finally{delete this.cancelFailedInput;delete this.streamWait;}
+  finally{delete this.cancelFailedInput;delete this.streamWait;delete this.currentInputEnd;}
  }
  submitCommand(input){
   if(this.ended)return {state:this.state(),messages:[]};
   const checkpoint={world:this.world.dump(),pending:clone(this.pending),analysis:clone(this.analysis),lastInput:this.lastInput,ended:clone(this.ended),conversation:clone(this.conversation),openingPending:this.openingPending};
   const cancel=()=>{this.world.restore(checkpoint.world);for(const key of ['pending','analysis','lastInput','ended','conversation','openingPending'])this[key]=clone(checkpoint[key]);this.lastFrames=[];delete this.pendingWait;};
   this.cancelFailedInput=cancel;
-  const messages=[],actions=[],units=[];this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1,lastOutcome=null;
+  const messages=[],actions=[],units=[],projectedErrors=new Set();this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1,lastOutcome=null;
   try{
-   if(input.trim()==='@'){if(this.pending)throw new UnsupportedFeature('ripetizione @ durante un chiarimento');input=this.lastInput||'';}
-   if(this.world.display)this.sourceDisplay.command(normalizeInput(input));
-   lexed=this.lexer.scan(input);this.lastInput=input;if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
+   const repeat=input.trim()==='@'&&!this.pending;
+   if(input.trim()==='@')input=this.pending?'':this.lastInput||'';
+   if(this.world.display){if(repeat)this.sourceDisplay.repeat();else this.sourceDisplay.command(normalizeInput(input));}
+   this.lastInput=input;lexed=this.lexer.scan(input);this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
+    if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
     const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
-    if(this.world.npcs&&(parsed.nodes.length>1||parsed.nodes.some(n=>n.all&&!this.supportsCollective(n)||n.quotes?.length>1)))throw new UnsupportedFeature('durata dei record per questa forma di comando multiplo o collettivo');
+    const pointers=this.world.npcs?this.npcRuntime.beginUnit(parsed.nodes,{answer:parsed.continuationAnswer,lookahead:parsed.lookahead,discarded:parsed.discarded}):[];
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;
      throw new UnsupportedFeature('controllo '+parsed.control+' (usare i pulsanti del motore JS)');
     }
-    if(parsed.nodes.some(node=>node.exclusion))throw new UnsupportedFeature('esecuzione delle esclusioni BUT/EXCEPT');
-    for(const originalNode of parsed.nodes){let syntaxAllocated=false;
+    for(const [nodeIndex,originalNode]of parsed.nodes.entries()){if(originalNode.exclusion)continue;let syntaxAllocated=false;
      try{
+     if(this.world.npcs){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,pointer:pointers[nodeIndex]});syntaxAllocated=true;}
      for(const node of this.collective(originalNode)){
      const before=this.world.dump(),messageCount=messages.length,actionCount=actions.length,frameCount=this.lastFrames.length;let outcome;
-     try{if(this.world.npcs&&!syntaxAllocated){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,answer:parsed.continuationAnswer});syntaxAllocated=true;}outcome=this.execute(node);lastOutcome=outcome;
+     try{outcome=this.execute(node);lastOutcome=outcome;
       const paragraph=(outcome.cost||outcome.objectRule)&&!outcome.suppressParagraph&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
       messages.push(...outcome.messages);
+      if(this.world.display){const errors=outcome.messages.filter(m=>m.kind==='error');if(errors.length){this.sourceDisplay.error(errors,{inline:Boolean(this.pending)});for(const e of errors)projectedErrors.add(e);}}
       if(!outcome.projected)this.projectMessages(outcome.messages);
       if(this.world.npcs&&(outcome.cost||outcome.action===32||outcome.semanticResolved))this.npcRuntime.playerAction(outcome);
       if(outcome.objectRule){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.npcRuntime.executePlayerObject(outcome.objectRule,outcome.action,outcome.args,messages,actions);}
       else if(outcome.cost){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.advance(outcome.cost,{action:outcome.action,args:outcome.args,messages,actions});}}
      catch(error){this.world.restore(before);if(before.npcs?.parserPending)this.pending=clone(pendingBefore);messages.length=messageCount;actions.length=actionCount;this.lastFrames.length=frameCount;throw error;}
 
+     if(originalNode.all&&outcome?.messages.some(m=>m.kind==='error')&&this.world.npcs)this.npcRuntime.playerInputFailures(['9937'],messages,actions);
      if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)throw new UnsupportedFeature('durata dei record per questo chiarimento');break;}
      }
      }finally{if(this.world.npcs&&originalNode.all&&syntaxAllocated)this.npcRuntime.finishCollective();}
      // D85B/D86D returns failure after ALL exhausts its search, even when
      // the final selected action succeeded. It counts as a DOMAIN failure.
-     if(originalNode.all&&!this.pending&&lastOutcome)lastOutcome={...lastOutcome,collectiveExhausted:true};
-     if(this.pending)break;
-     if(this.ended)break;
+     if(originalNode.all&&!this.pending)lastOutcome={...(lastOutcome||{messages:[],action:this.action(originalNode)}),collectiveExhausted:true};
+     if(this.pending||this.ended||lastOutcome?.messages.some(m=>m.kind==='error')&&!originalNode.all)break;
     }
-    if(this.pending||this.ended)break;
+    if(this.pending||this.ended||lastOutcome?.messages.some(m=>m.kind==='error')){if(this.world.display){const at=lexed.tokens.slice(0,index).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);this.world.display.tokens[at]=192;}if(this.world.npcs&&this.pending)this.npcRuntime.discardParsed();break;}
    }
   }catch(error){
-   if(error instanceof InputError){if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£'),...(error.kind==='syntax_error'?{screen_events:[{op:'counter',value:0},{op:'wide'}]}:{})});}
+   if(error instanceof InputError&&error.kind==='tool_limit'){cancel();this.analysis={input,outcome:'not_translated',feature:'editor-boundary',notice:error.message,units:[],actions:[]};messages.length=0;messages.push({kind:'system',text:error.message});}
+   else if(error instanceof InputError){if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
    else{cancel();messages.length=0;actions.length=0;
     if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature??'original-random-input',notice:error.message,...(error instanceof RandomInputsUnavailable?{recovery:'requires-engine-update',missing_address:error.address??null}:{}),units,actions};messages.push({kind:'system',text:error.message});}
     else throw error;
@@ -334,9 +344,9 @@ export class Game {
   }
   if(this.ended)this.analysis.outcome='game_over';
   if(this.world.display&&this.analysis.outcome!=='not_translated'&&!this.ended&&!this.pendingWait)try{
-   if(messages.some(m=>m.kind==='error'))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'),{inline:this.analysis.outcome==='clarification'});
+   if(messages.some(m=>m.kind==='error'&&!projectedErrors.has(m)))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'&&!projectedErrors.has(m)),{inline:this.analysis.outcome==='clarification'});
    if(this.world.npcs){const syntax=['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.collectiveExhausted||lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
-    this.npcRuntime.playerInputFailures(syntax?['9923']:failed?['9937','992D','9923']:['992D','9923'],messages,actions);}
+    this.npcRuntime.playerInputFailures(syntax?['9923']:failed?['9937','992D','9923']:['992D','9923'],messages,actions);if(!this.pending)this.npcRuntime.discardParsed();}
    this.sourceDisplay.prompt();
   }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}
   if(this.pendingWait)this.pendingWait.cancelInput=cancel;

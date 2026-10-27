@@ -10,7 +10,7 @@ export class Information {
  get rules(){return this.host.game.data.informationRules;}
  reference(entity){const r=this.host.worldSource.layout.entities[entity.id];return this.host.worldSource.entity(r).slice(0,6);}
  resolve(node){
-  const w=this.world,info=this.state.information,subject=node.subject.pronoun?info[node.subject.pronoun]:[node.subject.noun||0,...node.subject.qualifiers,0,0].slice(0,3).flatMap(n=>[n&255,n>>>8]);
+  const w=this.world,info=this.state.information,subject=node.subject?.pronoun?info[node.subject.pronoun]:[node.subject?.noun||0,...(node.subject?.qualifiers||[]),0,0].slice(0,3).flatMap(n=>[n&255,n>>>8]);
   const group=bytes=>({noun:bytes[0]|bytes[1]<<8,qualifiers:[bytes[2]|bytes[3]<<8,bytes[4]|bytes[5]<<8].filter(Boolean)});
   const predicate=this.rules.predicates.indexOf(node.verb&4095)+1;if(!predicate)return null;
   const find=g=>w.entities.filter(e=>e.id!==0&&w.nounMatches(e,g));

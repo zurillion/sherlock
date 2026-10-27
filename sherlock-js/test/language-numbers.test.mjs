@@ -1,0 +1,4 @@
+import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';import{scanNumeric,normalizeInput}from'../src/lexer.mjs';
+const ref=JSON.parse(await readFile(new URL('fixtures/language-numbers-reference.json',import.meta.url)));
+test('Original numeric values and returned cursors across unusual money/time formats',()=>{for(const r of ref.numbers){const out=scanNumeric(r.input+' .\r');assert.equal(out?.type??208,parseInt(r.type,16),r.input);assert.equal(out?.value??0,parseInt(r.offset,16),r.input);if(out)assert.equal(out.next,parseInt(r.next_input,16)-0x5B00,r.input+' cursor');}});
+test('Original editor: capacity, automatic period and quote closure at the boundary',()=>{for(const r of ref.editor)assert.equal(normalizeInput(r.input),r.buffer,JSON.stringify([r.length,r.quoted]));});

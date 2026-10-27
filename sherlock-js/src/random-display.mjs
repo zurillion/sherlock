@@ -70,6 +70,7 @@ export class RandomDisplay {
  write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;}
  prompt(){const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lower[4]+='+';s.lowerKnown[4]=true;}
+ repeat(){const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
  command(normalized){const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.
   const column=((s.lowerCursor??16)-2)/7,line=s.lower[4].slice(0,column)+normalized.toUpperCase();s.lower[4]=line.slice(0,36);s.lowerKnown[4]=true;
@@ -79,7 +80,7 @@ export class RandomDisplay {
   // the channel leaves its cursor at x=2. The next editor adds "> " later.
   s.lower.shift();s.lowerKnown.shift();s.lower.push('+');s.lowerKnown.push(true);
   s.lowerCursor=2;
-  for(let i=0;i<normalized.length;i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;
+  for(let i=0;i<Math.min(129,normalized.length);i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}if(normalized.length<129){s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;}
  }
  error(messages,{inline=false}={}){const s=this.state;if(!s)return;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,

@@ -1,0 +1,145 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 1890,
+  "bytes_roundtripped": 4108,
+  "regions": [
+    {
+      "start": "AAB2",
+      "end_exclusive": "AF6B",
+      "kind": "code",
+      "label": "Grammar, coordination, continuation and ordinary-tail list traversal"
+    },
+    {
+      "start": "AF6B",
+      "end_exclusive": "AFB3",
+      "kind": "data",
+      "label": "Special-token dispatch tables"
+    },
+    {
+      "start": "AFB3",
+      "end_exclusive": "B16D",
+      "kind": "code",
+      "label": "Special-token handlers"
+    },
+    {
+      "start": "B16D",
+      "end_exclusive": "B191",
+      "kind": "data",
+      "label": "Semantic lookup working fields"
+    },
+    {
+      "start": "B191",
+      "end_exclusive": "B39C",
+      "kind": "code",
+      "label": "Argument cardinality and candidate iteration"
+    },
+    {
+      "start": "B39C",
+      "end_exclusive": "B39D",
+      "kind": "data",
+      "label": "ALL lookup flag"
+    },
+    {
+      "start": "B39D",
+      "end_exclusive": "B4A2",
+      "kind": "code",
+      "label": "Semantic role extraction"
+    },
+    {
+      "start": "B4A2",
+      "end_exclusive": "B4A3",
+      "kind": "data",
+      "label": "First-argument iterator flag"
+    },
+    {
+      "start": "B4A3",
+      "end_exclusive": "B549",
+      "kind": "code",
+      "label": "First-argument selection and exclusion traversal"
+    },
+    {
+      "start": "B549",
+      "end_exclusive": "B54A",
+      "kind": "data",
+      "label": "Second-argument iterator flag"
+    },
+    {
+      "start": "B54A",
+      "end_exclusive": "B5B6",
+      "kind": "code",
+      "label": "Second-argument selection"
+    },
+    {
+      "start": "B5B6",
+      "end_exclusive": "B5D3",
+      "kind": "code",
+      "label": "Move ambiguous node to pending list"
+    },
+    {
+      "start": "B866",
+      "end_exclusive": "B86A",
+      "kind": "data",
+      "label": "Request and quote cursor working fields"
+    },
+    {
+      "start": "B86A",
+      "end_exclusive": "B934",
+      "kind": "code",
+      "label": "Quote consumption and deferred request allocation"
+    },
+    {
+      "start": "B934",
+      "end_exclusive": "B936",
+      "kind": "data",
+      "label": "Request-loop working fields"
+    },
+    {
+      "start": "B936",
+      "end_exclusive": "BA13",
+      "kind": "code",
+      "label": "NPC request execution and syntax-node release"
+    },
+    {
+      "start": "D7FC",
+      "end_exclusive": "D897",
+      "kind": "code",
+      "label": "Player semantic loop and list release"
+    },
+    {
+      "start": "D898",
+      "end_exclusive": "D9C3",
+      "kind": "code",
+      "label": "Editor, quote closure, capacity and repeat key"
+    },
+    {
+      "start": "DAEF",
+      "end_exclusive": "DB64",
+      "kind": "code",
+      "label": "Numeric time scanner and suffix/period cursor"
+    },
+    {
+      "start": "DB64",
+      "end_exclusive": "DB67",
+      "kind": "data",
+      "label": "Money fields"
+    },
+    {
+      "start": "DB67",
+      "end_exclusive": "DC13",
+      "kind": "code",
+      "label": "Currency scanner and rotating decimal accumulator"
+    },
+    {
+      "start": "E1D6",
+      "end_exclusive": "E1D8",
+      "kind": "data",
+      "label": "TELL rule header"
+    },
+    {
+      "start": "E1D8",
+      "end_exclusive": "E22A",
+      "kind": "code",
+      "label": "TELL topic lookup"
+    }
+  ]
+}

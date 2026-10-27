@@ -32,7 +32,7 @@ for(const [name,ref,limit]of references)test('Original error recovery, all actor
  }
 });
 test('Unsupported commands cancel the entire input without poisoning the next command or clarification',()=>{
- for(const command of ['KILL WATSON','EXAMINE ALL BUT LAMP','OPEN DOOR AND LAMP','OPEN ALL. KILL WATSON']){
+ for(const command of ['KILL WATSON','FOLLOW WATSON','OPEN ALL. KILL WATSON']){
   const g=new Game(data,{npc_profile:'world-v5'});g.submit('OPEN DOOR');const before=g.dump();
   const out=g.submit(command);assert.equal(out.state.analysis.outcome,'not_translated',command);assert(out.messages.every(m=>m.kind==='system'));assert.match(gameStatus(out.state),/puoi continuare/);
   assert.deepEqual(g.world.dump(),before.world,command+' complete world/source rollback');assert.deepEqual(g.pending,before.pending);assert.equal(g.lastInput,before.lastInput);assert.equal(g.lastFrames.length,0);

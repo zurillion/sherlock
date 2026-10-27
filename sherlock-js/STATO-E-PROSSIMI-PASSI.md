@@ -30,9 +30,9 @@ prove a ogni combinazione, seed e temporizzazione rimane il punto 7;
 le reazioni dipendenti da informazioni, accuse e identità nei rami ancora
 mancanti restano ai punti 2, 3 e 5.
 
-**Prossimo intervento consigliato:** punto 4, forme complesse del linguaggio,
-con particolare attenzione a citazioni e coordinazioni. I punti 2 e 3
-hanno ora un nucleo funzionale e confronti dedicati.
+**Prossimo intervento consigliato:** punto 5, conseguenze dell'indagine e
+comandi/finali ancora mancanti. I nuclei dei punti 2–4 sono implementati;
+i confini della certificazione restano espliciti nei rispettivi rapporti.
 
 ## 2. Informazioni e deduzioni
 
@@ -77,11 +77,20 @@ composto. Il protocollo RETURN di avvio è ora esplicitamente modellato.
 
 ## 4. Forme complesse del linguaggio
 
-Restano esclusioni BUT/EXCEPT, alcuni collettivi sul secondo argomento,
-coordinazioni e code dopo chiarimenti, citazioni multiple o residue, pronomi e
-affermazioni in contesto, ripetizione durante un chiarimento e alcuni formati
-numerici/limiti dell'editor. Il riconoscimento grammaticale e l'esecuzione
-completa sono due livelli distinti.
+Implementati coordinazioni e durata dei nodi, risposte multiple ai chiarimenti,
+ALL nei due ruoli semantici e negli ordini NPC, esclusioni con le anomalie
+originali, code di citazioni lette dai token vivi, modo finale delle richieste,
+pronomi/affermazioni in contesto, ripetizione @, lettore numerico con cursore
+e contatore dell'editor. Vedere [LINGUAGGIO-COMPLESSO.md](LINGUAGGIO-COMPLESSO.md)
+e `results/language-verification.json`.
+
+Sono confrontate integralmente 58 storie naturali con tutti gli attori. Tre
+storie di corruzione dei buffer rimangono fuori dalla parità: due ripristinano
+il terminatore della riga attraverso una citazione residua, una sovrappone
+editor e token. La pagina le annulla esplicitamente, conservando lo stato;
+non produce una risposta inventata del gioco. Questi confini della scansione
+oltre memoria restano aperti nel punto 7. Il formato grammaticale e la
+certificazione di qualsiasi flusso di byte non sono la stessa cosa.
 
 ## 5. Conseguenze dell'indagine e fine partita
 

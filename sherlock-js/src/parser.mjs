@@ -19,7 +19,7 @@ export class Parser {
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
  unit(tokens,start=0,{pending=null,mode=1}={}){
-  let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false;
+  let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
   const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current])});};
   const peek=()=>tokens[index]||{type:192},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
   const nominal=()=>{
@@ -50,7 +50,9 @@ export class Parser {
    }
    return hasVerb;
   };
-  const finish=()=>{if(!current.verb&&!current.exclusion&&!pending)fail();nodes.push(current);};
+  const finish=()=>{if(!current.verb&&!current.exclusion&&!pending&&!nodes.length)fail();nodes.push(current);};
+  if(workingMode===0){const saved=index,g=nominal();if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;workingMode=2;}else{index=saved;relations=0;workingMode=1;}}
+  if(workingMode===2&&!verb())fail();
   while(true){
    if(peek().type===176||peek().type===192){if(!nodes.length&&!current.verb&&!current.groups.length&&!pending)return {nodes:[],next:index+(peek().type===176?1:0),mode:workingMode,outcome:'empty'};finish();if(peek().type===176)take();break;}
    if(peek().type===144&&peek().value!==0){
@@ -76,19 +78,18 @@ export class Parser {
     (current.quotes??=[]).push(quote);current.quote=current.quotes[0];continue;
    }
    if(peek().type===160){
-    take();while(peek().type===160)take();finish();const previous=current;current=node();afterAnd=true;
+    take();while(peek().type===160)take();finish();const previous=current;current=node();afterAnd=true;if(previous.exclusion){nodes.pop();discarded.push({before:nodes.length,node:clone(previous)});current.suppressedInheritance=true;}
     const next=peek();if([80,96,16,112,128,240].includes(next.type)){current.verb=previous.verb;current.modifier=previous.modifier;current.subject=clone(previous.subject);if(previous.groups.length>1)current.groups=clone(previous.groups.slice(0,1));}
     else if(workingMode===2&&STATEMENTS.has(meaning(next))){current.subject=clone(previous.subject);}
-    else if([0,32,48,64,224].includes(next.type)&&workingMode===1)return {nodes,next:index,mode:workingMode,outcome:'ok'};
+    else if([0,32,48,64,224].includes(next.type)&&workingMode===1&&!pending){lookahead={...node(),verb:next.value};break;}
     continue;
    }
    if(!current.verb){
-    if(workingMode===0){const saved=index,g=nominal();if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;workingMode=2;}else{index=saved;relations=0;workingMode=1;}}
     if(verb())continue;
-    if(!pending)fail();
+    if(!pending&&!nodes.length)fail();
    }
    const group=nominal();
-   if(group){if(current.all&&!current.groups.length&&group.relations.length)current.groups.push(emptyGroup());if(current.groups.length>=2)fail();current.groups.push(group);continue;}
+   if(group){if(current.groups.length>=2)fail();current.groups.push(group);continue;}
    // A verb reached without a conjunction can start another statement; ordinary
    // commands require the explicit separator handled above.
    if(workingMode===2&&STATEMENTS.has(meaning(peek()))){finish();const old=current;current=node();current.subject=clone(old.subject||old.groups[0]);verb();continue;}
@@ -96,9 +97,13 @@ export class Parser {
   }
   const continuationAnswer=pending?clone(nodes[0]):null;
   if(pending){const answer=nodes[0];if(!answer.verb){const merged=clone(pending.node),target=merged.groups[pending.slot]||(merged.groups[pending.slot]=emptyGroup()),source=answer.groups[0]||emptyGroup();if(!target.noun)target.noun=source.noun;for(const q of source.qualifiers)if(target.qualifiers.length<2)target.qualifiers.push(q);merged.all=merged.all||answer.all;if(answer.all)merged.allSlot=pending.slot;nodes[0]=merged;}}
-  return {nodes,next:index,mode:workingMode,outcome:'ok',...(continuationAnswer?{continuationAnswer}: {})};
+  // AD6C merges the first clarification answer before AE19 propagates an
+  // omitted verb. Exclusion-tail replacement deliberately has no inherited verb.
+  for(let i=1;i<nodes.length;i++)if(!nodes[i].exclusion&&!nodes[i].verb&&!nodes[i].suppressedInheritance){nodes[i].verb=nodes[i-1].verb;nodes[i].modifier=nodes[i-1].modifier;}
+
+  return {nodes,next:index,mode:workingMode,outcome:'ok',...(lookahead?{lookahead}:{}),...(discarded.length?{discarded}:{}),...(continuationAnswer?{continuationAnswer}: {})};
  }
- quoted(quote){const units=[];let index=0,mode=0;while(index<quote.tokens.length&&quote.tokens[index].type!==192){const out=this.unit(quote.tokens,index,{mode});if(out.next<=index)fail();units.push(...out.nodes);index=out.next;mode=out.mode;}return {nodes:units,mode};}
+ quoted(quote){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
 }
 
 export function nodeWords(n){

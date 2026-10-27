@@ -120,35 +120,59 @@ export class NpcRuntime {
   const request=this.w.scheduler.requests.find(r=>r.sender===sender&&r.recipient===recipient&&!r.record);
   const p=this.active.records.prepend('requests',[recipient,255,command.action,...command.args,0,0,0]);if(request)request.record=p;
  }
- queue(sender,recipient,nodes){
-  this.use(({records})=>{const syntax=nodes.map(n=>this.syntaxRecord(n,records));for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,nodes[0]?.subject?2:1]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax});this.w.scheduler.requests[0].record=p;});
+ queue(sender,recipient,nodes,mode=nodes[0]?.subject?2:1){
+  this.use(({records})=>{const syntax=nodes.map(n=>this.syntaxRecord(n,records));for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,mode]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax,mode});this.w.scheduler.requests[0].record=p;});
  }
  writeSyntax(node,records,p){nodeWords(node).forEach((v,i)=>records.arena.putWord(p+2*i,v));}
  syntaxRecord(node,records){const p=records.arena.allocate(30);this.writeSyntax(node,records,p);return p;}
- parsed(node,{retain=false,collective=false,answer=null}={}){this.use(({records})=>{
-  const raw=answer??node,p=this.syntaxRecord(raw,records);this.recordQuotes(raw,records);let current=p;
-  const pending=this.state.parserPending;
-  if(pending){
-   // AE6A appends the answer to the pending list. AD6C merges a verbless
-   // answer into that retained node and frees ONLY the answer; a new verb
-   // replaces the pending node. The free-list residue is observable later.
-   records.arena.putWord(pending-2,p);
-   if(answer&&!answer.verb){this.writeSyntax(node,records,pending);records.arena.putWord(pending-2,0);records.arena.release(p);current=pending;}
+ beginUnit(nodes,{answer=null,lookahead=null,discarded=[]}={}){return this.use(({records})=>{
+  const pending=this.state.parserPending,raw=nodes.map((n,i)=>i===0&&answer?answer:n),pointers=[];
+  const allocations=[];
+  const allocate=n=>{const p=this.syntaxRecord(n,records);if(allocations.length)records.arena.putWord(allocations.at(-1).pointer-2,p);allocations.push({pointer:p,discarded:false});this.recordQuotes(n,records);return p;};
+  for(const [i,n]of raw.entries()){for(const d of discarded.filter(d=>d.before===i)){allocate(d.node);allocations.at(-1).discarded=true;}pointers.push(allocate(n));}
+  for(const [i,a]of allocations.entries())if(a.discarded){records.arena.putWord(allocations[i-1].pointer-2,allocations[i+1]?.pointer||0);records.arena.putWord(a.pointer-2,0); /* AEEA leaves this orphan allocated. */}
+  if(lookahead){const temp=this.syntaxRecord(lookahead,records);if(pointers.length)records.arena.putWord(pointers.at(-1)-2,temp);records.arena.release(temp);if(pointers.length)records.arena.putWord(pointers.at(-1)-2,0);}
+  if(pending&&pointers.length){
+   records.arena.putWord(pending-2,pointers[0]);
+   if(answer&&!answer.verb){this.writeSyntax(nodes[0],records,pending);records.arena.putWord(pending-2,pointers[1]||0);records.arena.release(pointers[0]);pointers[0]=pending;}
    else records.arena.release(pending);
-  }else if(answer)this.state.recordsSourceKnown=false; // Earlier save lacks this lifetime.
-  records.heads.syntax=retain?current:0;this.state.parserPending=retain?current:null;
-  const action=this.game.action(node);let rejected=false;this.state.sceneryFailure=null;
-  if([17,19,20,21,22,38,39,42,43,44,46,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
+  }else if(answer)this.state.recordsSourceKnown=false;
+  for(let i=0;i<nodes.length;i++)this.writeSyntax(nodes[i],records,pointers[i]);
+  records.heads.syntax=0;records.heads.parsed=pointers[0]||0;this.state.parserPending=null;return pointers;
+ });}
+ discardParsed(){this.use(({records})=>{while(records.heads.parsed)records.remove('parsed',records.heads.parsed);});}
+ popParsed(){this.use(({records})=>{if(records.heads.parsed)records.remove('parsed',records.heads.parsed);while(records.heads.parsed&&(records.arena.byte(records.heads.parsed+1)&64))records.remove('parsed',records.heads.parsed);});}
+ parsed(node,{retain=false,collective=false,answer=null,pointer=null}={}){
+  if(pointer===null)pointer=this.beginUnit([node],{answer})[0];
+  this.use(({records})=>{
+  const current=pointer;
+  if(retain){records.heads.syntax=current;this.state.parserPending=current;records.heads.parsed=records.arena.word(current-2);records.arena.putWord(current-2,0);}
+  node=this.game.semanticNode(node);
+  const action=this.game.action(node);let rejected=!!node.implicitMissing&&!retain;this.state.sceneryFailure=null;
+  if([17,19,20,21,22,38,39,42,43,44,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
   // A failed class-9 lookup with no perceived nominal target searches the
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
-  if([11,23,41].includes(action)&&!retain&&!collective){const group=node.groups[0],candidates=this.game.referenceCandidates(node,action,0);if(group&&!candidates.possible.length&&!candidates.nominal.some(e=>this.w.perceived(e.id))){this.state.sceneryFailure={action,slot:0,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;}}
-  if(collective&&!retain)records.heads.parsed=current;
-  else if(rejected){records.heads.parsed=current;this.state.parserRejected=current;}
-  else if(!retain)records.arena.release(current);
+  if([11,23,41].includes(action)&&!retain&&!collective){const group=node.groups[0],candidates=this.game.referenceCandidates(node,action,0);if(group&&!candidates.possible.length&&!candidates.nominal.some(e=>this.w.perceived(e.id)&&!e.person&&e.rooms.length===1&&!this.w.owns(this.w.player,e.id))){this.state.sceneryFailure={action,slot:0,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;}}
+  if(rejected)this.state.parserRejected=current;
+  else if(!retain&&!collective){this.popParsed();}
  });}
+
  recordQuotes(node,records){for(const quote of(node.quotes||[node.quote]).filter(Boolean)){records.append('quotes',[quote.tokenPointer&255,quote.tokenPointer>>>8]);this.game.sourceDisplay.quoted(quote);}}
- consumeQuotes(node){this.use(({records})=>{const quotes=(node.quotes||[node.quote]).filter(Boolean);if(records.records('quotes').length!==quotes.length)throw new UnsupportedFeature('citazione precedente rimasta nella coda del parser');for(const quote of quotes){const p=records.heads.quotes;if(!p||records.arena.word(p)!==quote.tokenPointer)throw new UnsupportedFeature('citazione precedente rimasta nella coda del parser');records.remove('quotes',p);this.game.sourceDisplay.quoted(quote,{consumed:true});}});}
+ consumeQuote(){return this.use(({records})=>{
+  const p=records.heads.quotes;if(!p)return null;
+  const pointer=records.arena.word(p);records.remove('quotes',p);
+  const bytes=this.w.display.tokens,tokens=[];let at=pointer-0x5B81;
+  for(let guard=0;guard<128&&at<bytes.length;guard++){
+   const start=at,type=bytes[at++],size=[128,160,176,192].includes(type)?1:3,value=size===1?0:(bytes[at++]<<8)|bytes[at++],word=this.game.dictionary.word(value)?.stem??null;
+   tokens.push({type,value,word,start,end:at,source:word??''});
+   if(type===192){if(0x5B81+start===this.game.currentInputEnd)throw new UnsupportedFeature('citazione residua che ripristina il terminatore della riga: scansione originale oltre i buffer');bytes[start]=144;break;}
+  }
+  if(tokens.at(-1)?.type!==192)tokens.push({type:192,value:0,word:null});
+  return {tokens,tokenPointer:pointer};
+ });}
+ consumeQuotes(){return this.consumeQuote();}
+
  failedParse(nodes){this.use(({records})=>{
   // AAB2 allocates before parsing. D7B3/D7B6 release both temporary lists
   // on failure, leaving the written bytes (and any quotation nodes) intact.
@@ -159,7 +183,7 @@ export class NpcRuntime {
  failedQuote(nodes){this.use(({records})=>{const temporary=[];for(const node of nodes){const p=this.syntaxRecord(node,records);if(temporary.length)records.arena.putWord(temporary.at(-1)-2,p);temporary.push(p);}for(const p of temporary)records.arena.release(p);});}
  // D835 preserves the current node while ALL's search has more references.
  // The final unsuccessful search (D86A) releases it, after the last paid turn.
- finishCollective(){this.use(({records})=>{if(records.heads.parsed)records.remove('parsed',records.heads.parsed);});}
+ finishCollective(){this.popParsed();}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
  invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
@@ -171,7 +195,7 @@ export class NpcRuntime {
  request(request,context,messages,actions){
   const state=this.state,actor=context.actor;
   let job=state.pending[actor];
-  if(!job){job={sender:request.sender,record:request.record,nodes:request.command.nodes||null,syntax:request.command.syntax||[],action:request.command.action,args:request.command.args,index:0,prefab:request.command.kind==='prefabricated'};state.pending[actor]=job;}
+  if(!job){job={sender:request.sender,record:request.record,nodes:request.command.nodes||null,mode:request.command.mode,syntax:request.command.syntax||[],action:request.command.action??null,args:request.command.args??null,index:0,prefab:request.command.kind==='prefabricated'};state.pending[actor]=job;}
   const release=()=>{if(job.record&&this.active.records.records('requests').includes(job.record))this.active.records.remove('requests',job.record);job.record=null;};
   const cancel=(advanceSyntax=false)=>{for(const [i,p]of job.syntax.entries()){if(i<job.index)continue;if(advanceSyntax&&job.record)this.active.records.arena.putWord(job.record+5,job.syntax[i+1]||0);this.active.records.arena.release(p);}release();delete state.pending[actor];};
   if(job.prefab)release();
@@ -181,7 +205,7 @@ export class NpcRuntime {
    if(!job.prefab&&context.restriction&&[12,13,21,22,24,25,40,49,50].includes(action)){
     this.print('681A',actor,{object:job.sender},messages);cancel();return {handled:true,cost:0};
    }
-   if(node?.subject){
+   if(job.mode===2||job.mode===undefined&&node?.subject){
     const resolved=context.operation.args?context.operation.args.map((v,i)=>v===255?context.saved[i+1]:this.active.vm.resolve(v,actor,context.saved)):context.saved.slice(1);context.saved[1]=resolved[0];context.saved[2]=resolved[1];const frame=this.active.vm.state(actor).contexts.at(-1);if(frame?.record){this.active.records.arena.putByte(frame.record+3,resolved[0]);this.active.records.arena.putByte(frame.record+4,resolved[1]);}
     const nodes=job.nodes.slice(job.index),firstMessage=messages.length;if(actor===3)this.information.watson(nodes,messages);else if(actor===2){this.information.lestrade(nodes,messages);
      // BA3E/BB94/BCxx return through additional AF/BC frames. Ordinary
@@ -190,6 +214,13 @@ export class NpcRuntime {
      this.game.sourceDisplay.invalidateScratch();}
     const parts=messages.splice(firstMessage);if(parts.length)messages.push({kind:'narrative',text:parts.map(m=>m.text).join(' '),raw_text:parts.map(m=>m.raw_text??m.text).join('')});
     cancel();return {handled:true,cost:0};
+   }
+   const collectiveNode=node?.all?node:null;
+   if(collectiveNode){
+    const previous=this.game.actingActor;this.game.actingActor=actor;
+    try{node=[...this.game.collective(collectiveNode)].find(n=>(n.resolved?.[0]??-1)>(job.collectiveCursor??-1));}finally{this.game.actingActor=previous;}
+    if(!node){if(job.record)this.active.records.arena.putByte(job.record+2,0);cancel(true);return {handled:true,cost:0};}
+    job.collectiveCursor=node.resolved[0];
    }
    const ctx={...context,request:true,node,sender:job.sender,prefab:job.prefab};
    let result,objectSemantic=false;
@@ -201,13 +232,15 @@ export class NpcRuntime {
     if(node){args=this.resolveRequest(node,action,actor);if(!args){cancel(true);return {handled:true,cost:0};}}
     result=this.action(action,args,ctx,messages,actions);
    }
-   if(node&&job.record&&([21,22,29,30].includes(action)||objectSemantic)){
+   if(node&&job.record&&(collectiveNode||node.groups.length||[21,22,29,30].includes(action)||objectSemantic)){
     // B973/B976 preserve the exhausted first-argument search iterator.
     // Entity searches end at the index terminator; location searches keep
     // the room ordinal in the high byte (D39B/D3CD), with initial low byte 0.
-    const iterator=[29,30].includes(action)?this.w.rooms.length<<8:0x8B6F+3*this.w.entities.length;
+    const iterator=collectiveNode?0x8B6F+3*job.collectiveCursor:[29,30].includes(action)?this.w.rooms.length<<8:0x8B6F+3*this.w.entities.length;
+    if(collectiveNode)this.active.records.arena.putByte(job.record+2,128);
     this.active.records.arena.putWord(job.record+3,iterator);
    }
+   if(collectiveNode)return result.defer?result:{handled:true,cost:result.cost};
    if(job.syntax[job.index])this.active.records.arena.release(job.syntax[job.index]);job.index++;
    if(job.record)this.active.records.arena.putWord(job.record+5,job.syntax[job.index]||0);
    if(!job.nodes||job.index>=job.nodes.length){release();delete state.pending[actor];}
