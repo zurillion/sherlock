@@ -1,5 +1,11 @@
 # Programmi dei personaggi nella pagina: NPC v5
 
+27 ottobre: [NPC-AVANZATI.md](NPC-AVANZATI.md) completa i corpi referenziati
+dai programmi NPC ancora mancanti, le callback serali e i rami di identità,
+conoscenze, polizia e finali. Il rapporto separa visite controllate e lunga
+attesa naturale. Non certifica ancora ogni percorso o ingresso casuale.
+
+
 26 ottobre: il nucleo delle affermazioni e delle deduzioni è ora collegato
 ai colloqui e alle callback: [INFORMAZIONI-E-DEDUZIONI.md](INFORMAZIONI-E-DEDUZIONI.md).
 Questa estensione supera il precedente limite sulle deduzioni attive nei

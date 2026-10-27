@@ -166,13 +166,14 @@ export class Text {
   };
   if(parent!==null){
    const expand=full&&Boolean(r.description);
-   const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id));
+   const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id,{indefinite:true}));
    text.push(actorIs+' in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
    // D144/D147 flush the final container noun through A414. When D182
    // then has no room prose, D197 temporarily makes that container the
    // subject; its name prefix flushes inside the actor-is text argument.
    if(trace&&!expand){const first=text.join(' '),tail=first.match(/\S+$/);if(tail)trace.push({kind:'container-introduction-tail',start:first.length-tail[0].length,end:first.length,frame:0x5D14+entryOffset});}
 
+   if(trace&&expand&&names.length){const inventory=joinList(names),base=text.join(' ').length-inventory.length-1;let offset=0;for(const [i,e]of peers.entries()){const name=names[i],prefix=name.lastIndexOf(' ');offset=inventory.indexOf(name,offset);if(prefix>0&&!(e.noun&32768))trace.push({kind:'passenger-name-prefix',parent:e.id,start:base+offset,end:base+offset+prefix,frame:listFrame(0)+4});offset+=name.length;}}
    if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
    if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
    else{const start=text.join(' ').length+1,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}

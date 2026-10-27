@@ -1,0 +1,65 @@
+[
+  {
+    "path": "src/advanced-npcs.mjs",
+    "bytes": 4137,
+    "sha256": "4083c9bf64438e48fed79550311eadda9d98f464d9a862adeb2ebfcf8063d66c",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/keyboard-profile.mjs",
+    "bytes": 747,
+    "sha256": "77fe26cf2e309cf27c865529caf8a3915fd71514f6a51051e3f9d4c8042cbeb5",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/game.mjs",
+    "bytes": 44204,
+    "sha256": "4c6719da76d920545f8305a26db9b5fcd1e4de562a32068287af0842fa0c27b6",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/npc-runtime.mjs",
+    "bytes": 50235,
+    "sha256": "8f7bba2c39533fd3c627fb9e92847bfd50cae1ec19a9e8f99c67ba5f462680cc",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/npc-program.mjs",
+    "bytes": 8636,
+    "sha256": "11fcab54121de3621f3fad012a9f1bf04eb2f2286ccffa49d3e8cab7da1ac7a4",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/scheduler.mjs",
+    "bytes": 6652,
+    "sha256": "3778d5e62a75b3ed150ea0cbb3b86cc46e6966fe642a823b9e3c15c0e5fcbb7f",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/text.mjs",
+    "bytes": 18683,
+    "sha256": "cd736cfa7ff9909b462d297451c17b73573a3477acc38a91d69175844f502604",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "src/random-display.mjs",
+    "bytes": 13665,
+    "sha256": "68bfb1e2799446104dd2c8a66489bef0b5b2d7dc36e73dbed73719e575f4a58d",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  },
+  {
+    "path": "data/game.json",
+    "bytes": 899062,
+    "sha256": "13777b4f90560d3ebcb90a1f69ac5a87321c0b19fe55194cc244a1a9e5c13c75",
+    "disk_equal": true,
+    "cache_control": "no-store"
+  }
+]

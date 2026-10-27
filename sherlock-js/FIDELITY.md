@@ -1,5 +1,15 @@
 # Stato attuale: NPC v5
 
+27 October, advanced NPC branches: [NPC-AVANZATI.md](NPC-AVANZATI.md) and
+`results/advanced-npcs-verification.json` document identity/knowledge scenes,
+rest callbacks, police events/transport and terminal scheduler boundaries.
+The natural two-WAIT sequence reaches the original 14:58 ending with every
+draw compared. Controlled visits and journeys remain distinct evidence.
+Boot RETURN release ageing is explicit input-protocol metadata, not seed-only
+parity. D187 compound-vehicle frames revoke ownership of 5D08–5D0F; full-game
+equivalence remains false.
+
+
 26 October, information and deductions: [INFORMAZIONI-E-DEDUZIONI.md](INFORMAZIONI-E-DEDUZIONI.md)
 and `results/information-verification.json` add statement memory, original
 Watson recall/connection algorithms, all eleven proof trees, Lestrade proof

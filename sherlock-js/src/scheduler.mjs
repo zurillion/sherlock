@@ -42,6 +42,7 @@ export class ActorScheduler {
     this.current={actor:actor.id,context:driver.prepare?.(actor,this)||{},steps:0};
    }
    const result=driver.step(actor,this.current.context,this)||{cost:0};
+   if(result.type==='ended')return result;
    if(result.type==='input'){this.emit({event:'input',actor:actor.id});return {type:'input',actor:actor.id};}
    if(result.type==='unavailable'){
     actor.enabled=false;this.emit({event:'unavailable',actor:actor.id,feature:result.feature});
@@ -73,7 +74,7 @@ export class ActorScheduler {
    clock:()=>{const frame=clock();frames.push(frame);driver.clock?.(this);},
    callback:(actor,context,s,oldDue)=>driver.callback?.(actor,context,s,oldDue)
   });
-  if(result.type!=='input')throw Error('A non-translated actor was enabled');
+  if(!['input','ended'].includes(result.type))throw Error('A non-translated actor was enabled');
   return frames;
  }
  dump(){return {version:1,actors:copy(this.actors),tick:this.tick,minutes:this.minutes,index:this.index,phase:this.phase,current:copy(this.current),service:this.service,signals:copy(this.signals),requests:copy(this.requests),trace:copy(this.trace)};}

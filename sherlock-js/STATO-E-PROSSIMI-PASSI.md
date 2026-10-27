@@ -1,6 +1,6 @@
 # Stato del gameplay e ordine di completamento
 
-26 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
+27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle
 fasi precedenti conservano risultati storici: il cab e gli itinerari di Lestrade
 sono già collegati, non vanno considerati interamente mancanti.
@@ -30,8 +30,9 @@ prove a ogni combinazione, seed e temporizzazione rimane il punto 7;
 le reazioni dipendenti da informazioni, accuse e identità nei rami ancora
 mancanti restano ai punti 2, 3 e 5.
 
-**Prossimo intervento consigliato:** punto 2, informazioni e deduzioni,
-partendo dall'acquisizione degli indizi e dal loro uso nei colloqui.
+**Prossimo intervento consigliato:** punto 4, forme complesse del linguaggio,
+con particolare attenzione a citazioni e coordinazioni. I punti 2 e 3
+hanno ora un nucleo funzionale e confronti dedicati.
 
 ## 2. Informazioni e deduzioni
 
@@ -60,10 +61,19 @@ TELL mantengono la propria tabella distinta dalle affermazioni.
 
 ## 3. Rami avanzati degli NPC
 
-Completare i corpi delle regole ancora esplicitamente mancanti, le reazioni
-legate a conoscenze e identità, le callback serali e alcune ricollocazioni
-visibili. Watson, cabbie e Lestrade non sono copioni di risposte registrate:
-eseguono già programmi di dominio, ma non ogni ramo è certificato.
+**Implementati i corpi ancora mancanti delle regole referenziate dai programmi
+NPC**, le tre callback serali, i rami di Basil dipendenti dalle identità,
+le reazioni del maggiore/Straker/poliziotto e i viaggi della polizia. Collegati
+i finali raggiunti da questi programmi e l'arresto dello scheduler anche
+durante WAIT UNTIL. Vedere [NPC-AVANZATI.md](NPC-AVANZATI.md) e
+`results/advanced-npcs-verification.json`.
+
+La lunga attesa naturale con tutti gli attori è confrontata fino all'esito
+originale delle 14:58. I percorsi impostati di sera, con altre identità o
+altri stati delle prove sono test controllati: non certificano una partita
+intera. Rimangono al punto 7 gli ingressi casuali non ancora ricostruiti,
+compresi alcuni frame temporanei D187 dopo l'arrivo in un veicolo dal nome
+composto. Il protocollo RETURN di avvio è ora esplicitamente modellato.
 
 ## 4. Forme complesse del linguaggio
 

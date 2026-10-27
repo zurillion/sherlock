@@ -1,0 +1,230 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 222,
+  "bytes_roundtripped": 567,
+  "mutable_operand": "9E88",
+  "regions": [
+    {
+      "start": "9A99",
+      "end_exclusive": "9A9B",
+      "kind": "data",
+      "label": "Police routes header"
+    },
+    {
+      "start": "9A9B",
+      "end_exclusive": "9ACB",
+      "kind": "code",
+      "label": "Police routes"
+    },
+    {
+      "start": "9ACB",
+      "end_exclusive": "9ACD",
+      "kind": "data",
+      "label": "Fast police travel header"
+    },
+    {
+      "start": "9ACD",
+      "end_exclusive": "9AE1",
+      "kind": "code",
+      "label": "Fast police travel"
+    },
+    {
+      "start": "9C43",
+      "end_exclusive": "9C6A",
+      "kind": "code",
+      "label": "Vehicle arrival and visibility"
+    },
+    {
+      "start": "9E48",
+      "end_exclusive": "9E4A",
+      "kind": "data",
+      "label": "Case companions header"
+    },
+    {
+      "start": "9E4A",
+      "end_exclusive": "9E6A",
+      "kind": "code",
+      "label": "Case companions"
+    },
+    {
+      "start": "9E6A",
+      "end_exclusive": "9E6C",
+      "kind": "data",
+      "label": "Straker knowledge and common terminal header"
+    },
+    {
+      "start": "9E6C",
+      "end_exclusive": "9E85",
+      "kind": "code",
+      "label": "Straker knowledge and common terminal"
+    },
+    {
+      "start": "9E85",
+      "end_exclusive": "9E87",
+      "kind": "data",
+      "label": "Case-ready terminal header"
+    },
+    {
+      "start": "9E87",
+      "end_exclusive": "9EA2",
+      "kind": "code",
+      "label": "Case-ready terminal"
+    },
+    {
+      "start": "9EA2",
+      "end_exclusive": "9EA4",
+      "kind": "data",
+      "label": "Arrest proofs header"
+    },
+    {
+      "start": "9EA4",
+      "end_exclusive": "9EC0",
+      "kind": "code",
+      "label": "Arrest proofs"
+    },
+    {
+      "start": "9EC0",
+      "end_exclusive": "9EC1",
+      "kind": "data",
+      "label": "Daphne saved room"
+    },
+    {
+      "start": "9EC1",
+      "end_exclusive": "9ECA",
+      "kind": "code",
+      "label": "Daphne rest callback"
+    },
+    {
+      "start": "9ECA",
+      "end_exclusive": "9ECB",
+      "kind": "data",
+      "label": "Cook saved room"
+    },
+    {
+      "start": "9ECB",
+      "end_exclusive": "9ED0",
+      "kind": "code",
+      "label": "Cook rest callback"
+    },
+    {
+      "start": "9ED0",
+      "end_exclusive": "9ED1",
+      "kind": "data",
+      "label": "Gardener saved room"
+    },
+    {
+      "start": "9ED1",
+      "end_exclusive": "9F38",
+      "kind": "code",
+      "label": "Shared rest and restoration"
+    },
+    {
+      "start": "CC29",
+      "end_exclusive": "CC37",
+      "kind": "code",
+      "label": "Actor scope projection"
+    },
+    {
+      "start": "D045",
+      "end_exclusive": "D04F",
+      "kind": "code",
+      "label": "Player room scope"
+    },
+    {
+      "start": "DFCA",
+      "end_exclusive": "DFCC",
+      "kind": "data",
+      "label": "Basil terminal header"
+    },
+    {
+      "start": "DFCC",
+      "end_exclusive": "DFE3",
+      "kind": "code",
+      "label": "Basil terminal"
+    },
+    {
+      "start": "ED39",
+      "end_exclusive": "ED3B",
+      "kind": "data",
+      "label": "Revive policeman header"
+    },
+    {
+      "start": "ED3B",
+      "end_exclusive": "ED4B",
+      "kind": "code",
+      "label": "Revive policeman"
+    },
+    {
+      "start": "EF9C",
+      "end_exclusive": "EF9E",
+      "kind": "data",
+      "label": "Basil scene one header"
+    },
+    {
+      "start": "EF9E",
+      "end_exclusive": "EFAC",
+      "kind": "code",
+      "label": "Basil scene one"
+    },
+    {
+      "start": "EFAC",
+      "end_exclusive": "EFAE",
+      "kind": "data",
+      "label": "Basil scene two header"
+    },
+    {
+      "start": "EFAE",
+      "end_exclusive": "EFB3",
+      "kind": "code",
+      "label": "Basil scene two"
+    },
+    {
+      "start": "EFB3",
+      "end_exclusive": "EFB5",
+      "kind": "data",
+      "label": "Sleeping descriptor header"
+    },
+    {
+      "start": "EFB5",
+      "end_exclusive": "EFC7",
+      "kind": "code",
+      "label": "Sleeping descriptor"
+    },
+    {
+      "start": "EFC7",
+      "end_exclusive": "EFC9",
+      "kind": "data",
+      "label": "Basil night branch header"
+    },
+    {
+      "start": "EFC9",
+      "end_exclusive": "EFF6",
+      "kind": "code",
+      "label": "Basil night branch"
+    },
+    {
+      "start": "F103",
+      "end_exclusive": "F105",
+      "kind": "data",
+      "label": "Policeman knowledge header"
+    },
+    {
+      "start": "F105",
+      "end_exclusive": "F110",
+      "kind": "code",
+      "label": "Policeman knowledge"
+    },
+    {
+      "start": "F1A8",
+      "end_exclusive": "F1AA",
+      "kind": "data",
+      "label": "Major and descriptor helper header"
+    },
+    {
+      "start": "F1AA",
+      "end_exclusive": "F1D6",
+      "kind": "code",
+      "label": "Major and descriptor helper"
+    }
+  ]
+}

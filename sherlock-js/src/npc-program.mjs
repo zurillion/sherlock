@@ -78,6 +78,7 @@ export class NpcProgram {
     case 'action':if(typeof environment.action!=='function')throw new UnsupportedFeature('azione del programma NPC');result=environment.action(this.resolve(op.action,actor,saved),args,context);break;
     default:throw new UnsupportedFeature('operazione NPC '+op.op);
    }
+   if(result?.ended)return {type:'ended'};
    if(!result||!Number.isInteger(result.cost)||result.cost<0||result.cost>65535)throw Error('Invalid NPC rule result');
    if(result.bindArgs)for(let i=0;i<2;i++)if(this.saved(actor)[i+1]===255)this.saved(actor)[i+1]=result.bindArgs[i];
    if(result.saved)this.saved(actor).splice(0,3,...result.saved);

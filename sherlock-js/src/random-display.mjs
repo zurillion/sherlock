@@ -1,4 +1,5 @@
 import {RandomInputsUnavailable} from './random.mjs';
+import {bootstrapKeyboard} from './keyboard-profile.mjs';
 // Canonical text-screen projection for random input, independent of the DOM,
 // display speed and SVG preference. It is rebuilt from output operations; no
 // original screen image or machine snapshot is installed here.
@@ -107,10 +108,10 @@ export class RandomDisplay {
   }
   if(address>=0x5800&&address<0x5B00)return 56; // canonical INK 0 / PAPER 7, no graphics
   // Declared oracle protocol: the tape was started with RETURN, it has been
-  // released, and game keys are injected above the ROM scanner. Unheld KSTATE
-  // groups retain their decoded key/repeat metadata. This is NOT a model of
+  // released with two empty scans, and game keys are injected above the
+  // ROM scanner. Its second KSTATE slot has not yet expired. This is NOT a model of
   // arbitrary physical-key timing on a real Spectrum.
-  if(address>=0x5C00&&address<0x5C0B)return [255,0,0,0,255,0,35,13,13,35,5][address-0x5C00];
+  if(address>=0x5C00&&address<0x5C0B)return bootstrapKeyboard(this.data.randomInputs.bootOptions.keyboard)[address-0x5C00];
   if(address>=0x5B00&&address<0x5B80){const i=address-0x5B00;if(s.inputKnown[i])return s.input[i];}
   if(address>=0x5B81&&address<0x5C00){const i=address-0x5B81;if(s.tokenKnown?.[i])return s.tokens[i];}
   if(address in (s.scratch||{}))return s.scratch[address];
