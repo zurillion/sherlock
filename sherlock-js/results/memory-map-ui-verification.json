@@ -1,0 +1,33 @@
+{
+  "url": "http://127.0.0.1:8768/src/memory.html",
+  "separate_tab": true,
+  "game_session_not_restarted": true,
+  "checks": [
+    "SVG click opens Lestrade DOMAIN listing below the map",
+    "Search $8540 opens room 008 and its field layout",
+    "Room description pointer $7D62 opens compressed text",
+    "Search $5B00 automatically enables buffer/stack scope, total 42240 bytes",
+    "Scope can return to payload-only, total 41600 bytes",
+    "Search $956A displays unknown bytes as DEFB, without CPU disassembly",
+    "Search $A040 displays annotated Z80 startup code",
+    "Clear filters restores every interval",
+    "FFFF marker bounds final row",
+    "Responsive 535px browser viewport renders map and detail without horizontal page scrolling"
+  ],
+  "automated_tests": {
+    "command": "node --test test/memory-map.test.mjs test/architecture.test.mjs",
+    "passed": 6,
+    "failed": 0
+  },
+  "preview": "results/memory-map/preview.jpg",
+  "code_sha256": {
+    "src/memory-map.mjs": "39c6b36b385d91072423f3bff7b7788ceb7ae42b911886c1207af41e5149bc94",
+    "src/memory-model.mjs": "f7286e94b66cd1f83503b5980e458d5b65cd1135e372f438bd77ec250b547b41",
+    "src/memory-map.css": "21780bf3e8030183b8744e5765476f909b1e85447061038c0d824e548b7db309",
+    "src/memory.html": "c0a355d721e1e24c2d4434f3f98a79683bb63309195fdbacc9d5509774fd9324"
+  },
+  "preview_size": [
+    535,
+    837
+  ]
+}
