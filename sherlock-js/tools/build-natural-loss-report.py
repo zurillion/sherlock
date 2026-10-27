@@ -1,0 +1,18 @@
+"""Build a bounded, source-backed natural-loss verification report."""
+import hashlib,json,re,urllib.request
+from pathlib import Path
+root=Path(__file__).resolve().parents[1]
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+p=root/'test/fixtures/natural-loss-reference.json';ref=json.loads(p.read_text());cases=[]
+for c in ref['cases']:
+ rows=c['steps'];draws=[d for s in rows for d in s['random']]
+ cases.append(dict(label=c['label'],prefix_commands=len(c['prefix']),input_commands=sum(bool(s['input'])for s in rows),checkpoints=len(rows),draws=len(draws),reads=sum(len(d['reads'])for d in draws),final_clock=rows[-1]['after']['clock'],ending=rows[-1]['ending'],source_gates=c['gates'],final_messages=[m['text']for m in rows[-1]['messages']if m.get('text')]))
+log=(root/'results/natural-loss/tests.log').read_text();tests={k:int(re.search(r'ℹ '+k+r' (\d+)',log).group(1))for k in ['tests','pass','fail']};assert tests['tests']==tests['pass']==650 and tests['fail']==0
+served=[]
+for rel in ['src/game.mjs','src/npc-runtime.mjs','src/parser.mjs','src/random-display.mjs','src/text.mjs','src/keyboard-profile.mjs','data/game.json']:
+ with urllib.request.urlopen('http://127.0.0.1:8768/'+rel,timeout=10)as response:body=response.read();cache=response.headers.get('Cache-Control')
+ assert body==(root/rel).read_bytes(),rel
+ served.append(dict(path=rel,sha256=sha(root/rel),served_equal=True,cache_control=cache))
+report=dict(date='2026-10-27',engine='autonomous JavaScript world-v5',full_game_equivalence=False,runtime_uses_original_cpu=False,fixture=dict(path=str(p.relative_to(root)),sha256=sha(p)),protocol=ref['protocol'],cases=cases,compared=['every random draw and read address/value, result and successor','all actor slots, deadlines and arguments','all entity/room/fact fields in assertOriginalState','all 752 arena bytes, including released nodes','editor/token buffers and exact upper/lower bitmaps','owned renderer scratch and literal','actual browser session display packets','portable load future compared at every subsequent wait minute','terminal freeze and final checkpoint save/load'],tests={**tests,'log':'results/natural-loss/tests.log'},listing=json.loads((root/'results/natural-loss/listing-verification.json').read_text()),word_workspace_provenance=dict(path='results/natural-loss/word-workspace-provenance.json',sha256=sha(root/'results/natural-loss/word-workspace-provenance.json'),description='Offline source write trace: unseen payment/demand leaves 3/- at 16:57; stale third byte read at 18:59. No captured byte is supplied to runtime.'),served=served,limits=['Only seed 1 and declared IO/startup protocol; times are observed programme progress, not universal deadlines','Two complete natural loss histories; no successful full investigation or other endings certified by this report','The second route includes the first 49 commands from the submitted journal; it is not the minimal possible route','Original graphics disabled; physical input timing and idle timeouts not covered','Raw names, synthetic alphabetic output and untouched workspace cells without proven ownership stay unknown','ROM SEED zero is a new-boot condition only; old saves do not receive absent workspace state','Other point-7 renderer/parser ownership and seed coverage boundaries remain','UI session packets are tested automatically; no manual browser playthrough is claimed'])
+(root/'results/natural-loss-verification.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+print(json.dumps(dict(tests=tests,cases=[{k:c[k]for k in ['label','checkpoints','draws','reads','ending']}for c in cases],served_equal=len(served)),indent=2))

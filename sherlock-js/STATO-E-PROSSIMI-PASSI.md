@@ -130,6 +130,15 @@ su ogni mezzo e ogni seed richiedono l'estensione delle prove del punto 7.
 
 ## 7. Equivalenza della partita completa
 
+**Primo passaggio naturale verificato:** attesa a Baker Street fino al finale
+693A (lunedì 14:58) e viaggio reale fino alla presentazione a Straker, seguito
+soltanto da attese fino all'arresto/sparatoria e rapporto 6A26 (martedì 01:03).
+Seed 1 e protocollo dichiarati; nessuna impostazione artificiale di prove,
+programmi o posizioni. 187 checkpoint, 3.603 estrazioni e futuro dopo LOAD.
+Vedere [FINALI-NATURALI.md](FINALI-NATURALI.md). I due finali di sconfitta non
+sono ancora una soluzione dell'indagine né una certificazione degli altri seed.
+
+
 Estendere i confronti a più seed, ordini delle azioni e partite lunghe;
 completare le dipendenze della casualità, incluse immagini native e diverse
 temporizzazioni dell'input. Per ogni nuova dipendenza, confrontare le letture

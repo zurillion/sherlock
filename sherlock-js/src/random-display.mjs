@@ -1,11 +1,11 @@
 import {RandomInputsUnavailable} from './random.mjs';
-import {bootstrapKeyboard} from './keyboard-profile.mjs';
+import {bootstrapKeyboard,bootstrapWordWorkspace} from './keyboard-profile.mjs';
 // Canonical text-screen projection for random input, independent of the DOM,
 // display speed and SVG preference. It is rebuilt from output operations; no
 // original screen image or machine snapshot is installed here.
 export class RandomDisplay {
  constructor(data,world){this.data=data;this.world=world;}
- initialize(opening,{sceneTrace=[]}={}){this.world.display={version:1,profile:'historical-text-only',upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
+ initialize(opening,{sceneTrace=[]}={}){this.world.display={version:1,profile:'historical-text-only',wordBuffer:bootstrapWordWorkspace(),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
   if(this.data.randomInputs.editorInitial){this.state.input=this.data.randomInputs.editorInitial.slice(0,129);this.state.inputKnown=this.state.input.map(()=>true);this.state.tokens=this.data.randomInputs.editorInitial.slice(129);this.state.tokenKnown=this.state.tokens.map(()=>true);}
   // ROM 0616–062B allocates a LOAD header after the BASIC program, its
   // variable terminator and the five-byte LOAD "" editor line. It fills
@@ -56,8 +56,10 @@ export class RandomDisplay {
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}
- feed(c){
-  const s=this.state;if(!s)return;
+ // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
+ bufferFeed(c,{known=true}={}){const s=this.state;if(!s)return;const b=s.wordBuffer??(s.wordBuffer={bytes:Array(128).fill(null),index:0});if([' ','\n','\r','"'].includes(c)){b.index=0;return;}if(c==='\b'){b.index=Math.max(0,b.index-1);return;}if(b.index>=128)throw new RandomInputsUnavailable('Buffer parola oltre il confine ricostruito');b.bytes[b.index++]=known?(c==='£'?96:c.charCodeAt(0)):null;}
+ feed(c,{buffer=true}={}){
+  const s=this.state;if(!s)return;if(buffer)this.bufferFeed(c,{known:!/[A-Za-z]/.test(c)});
   if(c==='\b'){s.pending=s.pending.slice(0,-1);return;}
   if(![' ','\n','\r','"'].includes(c)){s.lastSpacePrinted=false;s.pending+=c;return;}
   this.flush();
@@ -113,6 +115,7 @@ export class RandomDisplay {
   // ROM scanner. Its second KSTATE slot has not yet expired. This is NOT a model of
   // arbitrary physical-key timing on a real Spectrum.
   if(address>=0x5C00&&address<0x5C0B)return bootstrapKeyboard(this.data.randomInputs.bootOptions.keyboard)[address-0x5C00];
+  if(address>=0x5C0B&&address<0x5C8B)return s.wordBuffer?.bytes[address-0x5C0B]??null;
   if(address>=0x5B00&&address<0x5B80){const i=address-0x5B00;if(s.inputKnown[i])return s.input[i];}
   if(address>=0x5B81&&address<0x5C00){const i=address-0x5B81;if(s.tokenKnown?.[i])return s.tokens[i];}
   if(address in (s.scratch||{}))return s.scratch[address];
@@ -125,5 +128,5 @@ export class RandomDisplay {
   if(x>=8&&x<clock.length*7+24){result=0;for(let col=0;col<clock.length;col++){const c=clock[col],glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-32];for(let bit=0;bit<8;bit++){const px=16+col*7+bit;if(px>=x&&px<x+8)result=(result&~(128>>(px-x)))|((glyph[scan]&(128>>bit))?(128>>(px-x)):0);}}}
   return result;
  }
- static validate(s){if(s===null||s===undefined)return;if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
+ static validate(s){if(s===null||s===undefined)return;if(s.wordBuffer!==undefined&&(!s.wordBuffer||!Number.isInteger(s.wordBuffer.index)||s.wordBuffer.index<0||s.wordBuffer.index>128||!Array.isArray(s.wordBuffer.bytes)||s.wordBuffer.bytes.length!==128||s.wordBuffer.bytes.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Buffer parola non valido');if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
 }

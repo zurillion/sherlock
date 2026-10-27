@@ -1,0 +1,139 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 270,
+  "bytes_roundtripped": 733,
+  "regions": [
+    {
+      "start": "9DFF",
+      "end_exclusive": "9E48",
+      "kind": "code",
+      "label": "Lestrade encounter with Holmes and Straker"
+    },
+    {
+      "start": "9E6A",
+      "end_exclusive": "9E6C",
+      "kind": "data",
+      "label": "Early loss rule header"
+    },
+    {
+      "start": "9E6C",
+      "end_exclusive": "9E85",
+      "kind": "code",
+      "label": "Straker gate and common terminal"
+    },
+    {
+      "start": "9E85",
+      "end_exclusive": "9E87",
+      "kind": "data",
+      "label": "Case readiness header"
+    },
+    {
+      "start": "9E87",
+      "end_exclusive": "9EA2",
+      "kind": "code",
+      "label": "Unready case: arrest and alternative reports"
+    },
+    {
+      "start": "A419",
+      "end_exclusive": "A476",
+      "kind": "code",
+      "label": "Money writes raw digits, uppercase D and shilling slash/dash even off-stage"
+    },
+    {
+      "start": "A5AD",
+      "end_exclusive": "A5B6",
+      "kind": "code",
+      "label": "Preflight text clears announcement mode"
+    },
+    {
+      "start": "A9B5",
+      "end_exclusive": "A9B7",
+      "kind": "data",
+      "label": "Word workspace cursor"
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "AA14",
+      "kind": "code",
+      "label": "Append, backspace, flush and pointer reset"
+    },
+    {
+      "start": "AB4C",
+      "end_exclusive": "AB60",
+      "kind": "code",
+      "label": "Nominal copy followed by another nominal attempt"
+    },
+    {
+      "start": "AC24",
+      "end_exclusive": "AC30",
+      "kind": "code",
+      "label": "Clear ten-byte nominal workspace"
+    },
+    {
+      "start": "AC84",
+      "end_exclusive": "ACA6",
+      "kind": "code",
+      "label": "Noun store and relation/qualifier slots"
+    },
+    {
+      "start": "C4E8",
+      "end_exclusive": "C4EC",
+      "kind": "code",
+      "label": "Action verification mode"
+    },
+    {
+      "start": "C53A",
+      "end_exclusive": "C53F",
+      "kind": "code",
+      "label": "Action execution mode"
+    },
+    {
+      "start": "C59A",
+      "end_exclusive": "C59E",
+      "kind": "code",
+      "label": "Rule verification mode"
+    },
+    {
+      "start": "C5F4",
+      "end_exclusive": "C5F9",
+      "kind": "code",
+      "label": "Rule execution mode"
+    },
+    {
+      "start": "C929",
+      "end_exclusive": "C989",
+      "kind": "code",
+      "label": "Actor/object/global action lookup and no-rule failure"
+    },
+    {
+      "start": "CA35",
+      "end_exclusive": "CA3D",
+      "kind": "code",
+      "label": "Successful announcement mode"
+    },
+    {
+      "start": "CC0B",
+      "end_exclusive": "CC0E",
+      "kind": "data",
+      "label": "Current visit failure/request flags"
+    },
+    {
+      "start": "CC37",
+      "end_exclusive": "CC78",
+      "kind": "code",
+      "label": "Prepare current visit flags and visibility"
+    },
+    {
+      "start": "E932",
+      "end_exclusive": "E96E",
+      "kind": "data",
+      "label": "Lestrade DOMAIN gates, signal waits and relocation"
+    },
+    {
+      "start": "F0A4",
+      "end_exclusive": "F0FF",
+      "kind": "data",
+      "label": "Ffoulkes DOMAIN night programme and signals"
+    }
+  ]
+}

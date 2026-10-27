@@ -18,17 +18,17 @@ export class Parser {
   }
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
- unit(tokens,start=0,{pending=null,mode=1}={}){
+ unit(tokens,start=0,{pending=null,mode=1,onNominal=null}={}){
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
   const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current])});};
   const peek=()=>tokens[index]||{type:192},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
   const nominal=()=>{
-   const group=emptyGroup();let article=false,started=false,qualified=false;
+   const group=emptyGroup(),publish=()=>onNominal?.(clone(group));publish();let article=false,started=false,qualified=false;
    while(true){const t=peek();
     if(t.type===128){if(article||qualified)fail();article=true;take();started=true;continue;}
-    if(t.type===16||t.type===112){if(article||qualified||group.relations.length>=2||relations>=3)fail();group.relations.push(take().value);relations++;started=true;continue;}
-    if(t.type===96){if(group.qualifiers.length>=2)fail();qualified=true;article=true;group.qualifiers.push(take().value);started=true;continue;}
-    if(t.type===80||t.type===240){group.noun=take().value;started=true;break;}
+    if(t.type===16||t.type===112){if(article||qualified||group.relations.length>=2||relations>=3)fail();group.relations.push(take().value);publish();relations++;started=true;continue;}
+    if(t.type===96){if(group.qualifiers.length>=2)fail();qualified=true;article=true;group.qualifiers.push(take().value);publish();started=true;continue;}
+    if(t.type===80||t.type===240){group.noun=take().value;publish();started=true;break;}
     break;
    }
    return started?group:null;
@@ -54,7 +54,7 @@ export class Parser {
   if(workingMode===0){const saved=index,g=nominal();if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;workingMode=2;}else{index=saved;relations=0;workingMode=1;}}
   if(workingMode===2&&!verb())fail();
   while(true){
-   if(peek().type===176||peek().type===192){if(!nodes.length&&!current.verb&&!current.groups.length&&!pending)return {nodes:[],next:index+(peek().type===176?1:0),mode:workingMode,outcome:'empty'};finish();if(peek().type===176)take();break;}
+   if(peek().type===176||peek().type===192){if(current.groups.length)onNominal?.(emptyGroup());if(!nodes.length&&!current.verb&&!current.groups.length&&!pending)return {nodes:[],next:index+(peek().type===176?1:0),mode:workingMode,outcome:'empty'};finish();if(peek().type===176)take();break;}
    if(peek().type===144&&peek().value!==0){
     const t=take(),word=meaning(t);
     if(['quit','save','load','pause','print','noprint'].includes(word)){if(current.verb||current.groups.length||nodes.length)fail();return {nodes:[],next:index,mode:workingMode,outcome:'control',control:word};}
@@ -78,7 +78,7 @@ export class Parser {
     (current.quotes??=[]).push(quote);current.quote=current.quotes[0];continue;
    }
    if(peek().type===160){
-    take();while(peek().type===160)take();finish();const previous=current;current=node();afterAnd=true;if(previous.exclusion){nodes.pop();discarded.push({before:nodes.length,node:clone(previous)});current.suppressedInheritance=true;}
+    if(current.groups.length)onNominal?.(emptyGroup());take();while(peek().type===160)take();finish();const previous=current;current=node();afterAnd=true;if(previous.exclusion){nodes.pop();discarded.push({before:nodes.length,node:clone(previous)});current.suppressedInheritance=true;}
     const next=peek();if([80,96,16,112,128,240].includes(next.type)){current.verb=previous.verb;current.modifier=previous.modifier;current.subject=clone(previous.subject);if(previous.groups.length>1)current.groups=clone(previous.groups.slice(0,1));}
     else if(workingMode===2&&STATEMENTS.has(meaning(next))){current.subject=clone(previous.subject);}
     else if([0,32,48,64,224].includes(next.type)&&workingMode===1&&!pending){lookahead={...node(),verb:next.value};break;}
@@ -103,7 +103,7 @@ export class Parser {
 
   return {nodes,next:index,mode:workingMode,outcome:'ok',...(lookahead?{lookahead}:{}),...(discarded.length?{discarded}:{}),...(continuationAnswer?{continuationAnswer}: {})};
  }
- quoted(quote){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
+ quoted(quote,{onNominal=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
 }
 
 export function nodeWords(n){

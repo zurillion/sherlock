@@ -35,7 +35,7 @@ export class Game {
  }
  historyMeta(){return {seed:this.world.npcs?.initialSeed??null,startMode:this.startMode,profile:this.world.npcs?.profile??this.world.scheduler.actor(3).behavior?.profile??null,source_sha256:this.data.source_sha256};}
  configureRandom(){this.text.chooseIndex=this.world.random?(count,ctx)=>this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+ctx.fragment}):undefined;}
- npcTextContext(actor){if(!this.world.display||this.world.dark()||!this.world.perceived(actor))return {};const characters=[];return {characters,...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;try{write();}finally{this.sourceDisplay.glyphFrame=previous;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c);}};}
+ npcTextContext(actor){if(!this.world.display||this.world.dark()||!this.world.perceived(actor))return {};const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;try{write();}finally{this.sourceDisplay.glyphFrame=previous;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
  projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative')this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace});}
  sceneMessage(options={}){const scene_trace=[];return {kind:'narrative',text:this.text.scene({source:'arrival',...options,trace:scene_trace}),scene_trace};}
@@ -190,7 +190,7 @@ export class Game {
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
    const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote():node.quote;
-   if(quote){try{const parsed=this.parser.quoted(quote);commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
+   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
     if(!(error instanceof InputError))throw error;
     if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
     else throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
@@ -313,7 +313,7 @@ export class Game {
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
-    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;const control=parsed.control;this.analysis.control=control;(this.analysis.controls??=[]).push(control);if(this.world.npcs&&(!pendingBefore||control==='save'))this.npcRuntime.use(({records})=>{const p=this.npcRuntime.syntaxRecord({verb:0,modifier:0,groups:[],subject:null},records);if(control==='quit')records.heads.syntax=p;else records.arena.release(p);});
      if(!['pause','print','noprint','save','load','quit'].includes(control))throw new UnsupportedFeature('controllo '+control+' (porta nastro non ancora collegata)');

@@ -1,5 +1,15 @@
 # Stato attuale: NPC v5
 
+27 October, natural loss playthroughs: [FINALI-NATURALI.md](FINALI-NATURALI.md)
+and `results/natural-loss-verification.json` compare staying home through the
+14:58 loss and the real 49-command journey to Straker followed by waits through
+the Tue 01:03 arrest/shooting report. All actors, 187 checkpoints, 3,603 draws,
+7,472 reads, full arena and bitmaps, plus every future wait minute after LOAD.
+These two natural seed-1 losses do not certify a solved case or every seed.
+New source ownership includes nominal-workspace resets, live visit flags and
+raw word-buffer reuse, including off-stage payment numbers. Unproven raw names
+and stale fields remain unknown; no recorded bytes fill runtime gaps.
+
 27 October, investigation endings: [CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md)
 and `results/endings-verification.json` cover all nine terminal texts, KILL
 refusals, preserved suspended arguments, terminal stopping during local object

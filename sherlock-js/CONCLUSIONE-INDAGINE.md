@@ -153,3 +153,12 @@ Rapporto: `results/endings-verification.json`; prove: `test/endings.test.mjs`.
 Per provare la pagina aggiornata: ricaricare **http://127.0.0.1:8768/**.
 Il server statico non richiede un riavvio. Non cambiare il seed di un vecchio
 stato divergente per tentare di correggerlo: conservare salvataggio e cronologia.
+
+
+## Primo confronto naturale del punto 7
+
+[FINALI-NATURALI.md](FINALI-NATURALI.md) distingue ora il fallimento senza
+presentazione a Straker (14:58) dal successivo ramo dell'arresto/sparatoria,
+raggiunto dopo un viaggio naturale e attese (martedì 01:03, seed 1).
+Non sono timer universali né assetti preparati: sono due cronologie complete
+con tutti gli attori, confrontate fino al fine partita e dopo Salva/Carica.

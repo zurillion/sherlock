@@ -1,0 +1,327 @@
+{
+  "date": "2026-10-27",
+  "engine": "autonomous JavaScript world-v5",
+  "full_game_equivalence": false,
+  "runtime_uses_original_cpu": false,
+  "fixture": {
+    "path": "test/fixtures/natural-loss-reference.json",
+    "sha256": "35a961c5e50a1823060b0272689c9aa8032c0057dc78ba8ed740188afb7a21cb"
+  },
+  "protocol": "Seed 1, all 24 actor slots active, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE/terminal acknowledgement, no idle timeouts. No teleports, actor-PC patches, acquired-proof patches or native snapshots in the playable engine.",
+  "cases": [
+    {
+      "label": "stay-home",
+      "prefix_commands": 0,
+      "input_commands": 1,
+      "checkpoints": 44,
+      "draws": 1141,
+      "reads": 2368,
+      "final_clock": {
+        "tick": 419,
+        "due": 901,
+        "minute": 58,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:58pm"
+      },
+      "ending": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "693A"
+      },
+      "source_gates": [
+        {
+          "pc": "9E6C",
+          "actor": 2,
+          "clock": {
+            "tick": 419,
+            "due": 901,
+            "minute": 58,
+            "hour": 2,
+            "day": 0,
+            "period": "pm",
+            "label": "Mon 02:58pm"
+          },
+          "straker_met": 0,
+          "case_ready": 0
+        }
+      ],
+      "final_messages": [
+        "I do not think you are doing too well, surely Sherlock Holmes could do a better job than you have done so far. Perhaps you should try again."
+      ]
+    },
+    {
+      "label": "meet-straker-then-wait",
+      "prefix_commands": 49,
+      "input_commands": 51,
+      "checkpoints": 143,
+      "draws": 2462,
+      "reads": 5104,
+      "final_clock": {
+        "tick": 1024,
+        "due": 1381,
+        "minute": 3,
+        "hour": 1,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 01:03am"
+      },
+      "ending": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6A26"
+      },
+      "source_gates": [
+        {
+          "pc": "9E6C",
+          "actor": 2,
+          "clock": {
+            "tick": 417,
+            "due": 901,
+            "minute": 56,
+            "hour": 2,
+            "day": 0,
+            "period": "pm",
+            "label": "Mon 02:56pm"
+          },
+          "straker_met": 1,
+          "case_ready": 0
+        },
+        {
+          "pc": "9E87",
+          "actor": 2,
+          "clock": {
+            "tick": 1024,
+            "due": 1381,
+            "minute": 3,
+            "hour": 1,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 01:03am"
+          },
+          "straker_met": 1,
+          "case_ready": 0
+        }
+      ],
+      "final_messages": [
+        "Inspector Lestrade enters and says to you\" Well Holmes that wraps up this case, sorry you were not of more help but you cannot solve them all you know.\". Despite his assurances you cannot help feeling there should be more to this case. Perhaps you should try again."
+      ]
+    }
+  ],
+  "compared": [
+    "every random draw and read address/value, result and successor",
+    "all actor slots, deadlines and arguments",
+    "all entity/room/fact fields in assertOriginalState",
+    "all 752 arena bytes, including released nodes",
+    "editor/token buffers and exact upper/lower bitmaps",
+    "owned renderer scratch and literal",
+    "actual browser session display packets",
+    "portable load future compared at every subsequent wait minute",
+    "terminal freeze and final checkpoint save/load"
+  ],
+  "tests": {
+    "tests": 650,
+    "pass": 650,
+    "fail": 0,
+    "log": "results/natural-loss/tests.log"
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 270,
+    "bytes_roundtripped": 733,
+    "regions": [
+      {
+        "start": "9DFF",
+        "end_exclusive": "9E48",
+        "kind": "code",
+        "label": "Lestrade encounter with Holmes and Straker"
+      },
+      {
+        "start": "9E6A",
+        "end_exclusive": "9E6C",
+        "kind": "data",
+        "label": "Early loss rule header"
+      },
+      {
+        "start": "9E6C",
+        "end_exclusive": "9E85",
+        "kind": "code",
+        "label": "Straker gate and common terminal"
+      },
+      {
+        "start": "9E85",
+        "end_exclusive": "9E87",
+        "kind": "data",
+        "label": "Case readiness header"
+      },
+      {
+        "start": "9E87",
+        "end_exclusive": "9EA2",
+        "kind": "code",
+        "label": "Unready case: arrest and alternative reports"
+      },
+      {
+        "start": "A419",
+        "end_exclusive": "A476",
+        "kind": "code",
+        "label": "Money writes raw digits, uppercase D and shilling slash/dash even off-stage"
+      },
+      {
+        "start": "A5AD",
+        "end_exclusive": "A5B6",
+        "kind": "code",
+        "label": "Preflight text clears announcement mode"
+      },
+      {
+        "start": "A9B5",
+        "end_exclusive": "A9B7",
+        "kind": "data",
+        "label": "Word workspace cursor"
+      },
+      {
+        "start": "A9B7",
+        "end_exclusive": "AA14",
+        "kind": "code",
+        "label": "Append, backspace, flush and pointer reset"
+      },
+      {
+        "start": "AB4C",
+        "end_exclusive": "AB60",
+        "kind": "code",
+        "label": "Nominal copy followed by another nominal attempt"
+      },
+      {
+        "start": "AC24",
+        "end_exclusive": "AC30",
+        "kind": "code",
+        "label": "Clear ten-byte nominal workspace"
+      },
+      {
+        "start": "AC84",
+        "end_exclusive": "ACA6",
+        "kind": "code",
+        "label": "Noun store and relation/qualifier slots"
+      },
+      {
+        "start": "C4E8",
+        "end_exclusive": "C4EC",
+        "kind": "code",
+        "label": "Action verification mode"
+      },
+      {
+        "start": "C53A",
+        "end_exclusive": "C53F",
+        "kind": "code",
+        "label": "Action execution mode"
+      },
+      {
+        "start": "C59A",
+        "end_exclusive": "C59E",
+        "kind": "code",
+        "label": "Rule verification mode"
+      },
+      {
+        "start": "C5F4",
+        "end_exclusive": "C5F9",
+        "kind": "code",
+        "label": "Rule execution mode"
+      },
+      {
+        "start": "C929",
+        "end_exclusive": "C989",
+        "kind": "code",
+        "label": "Actor/object/global action lookup and no-rule failure"
+      },
+      {
+        "start": "CA35",
+        "end_exclusive": "CA3D",
+        "kind": "code",
+        "label": "Successful announcement mode"
+      },
+      {
+        "start": "CC0B",
+        "end_exclusive": "CC0E",
+        "kind": "data",
+        "label": "Current visit failure/request flags"
+      },
+      {
+        "start": "CC37",
+        "end_exclusive": "CC78",
+        "kind": "code",
+        "label": "Prepare current visit flags and visibility"
+      },
+      {
+        "start": "E932",
+        "end_exclusive": "E96E",
+        "kind": "data",
+        "label": "Lestrade DOMAIN gates, signal waits and relocation"
+      },
+      {
+        "start": "F0A4",
+        "end_exclusive": "F0FF",
+        "kind": "data",
+        "label": "Ffoulkes DOMAIN night programme and signals"
+      }
+    ]
+  },
+  "word_workspace_provenance": {
+    "path": "results/natural-loss/word-workspace-provenance.json",
+    "sha256": "23f84fbdacefa530ad6ce257220d7c153a71119442fccdae561a7a5f857f73a0",
+    "description": "Offline source write trace: unseen payment/demand leaves 3/- at 16:57; stale third byte read at 18:59. No captured byte is supplied to runtime."
+  },
+  "served": [
+    {
+      "path": "src/game.mjs",
+      "sha256": "f570ab76943a5e9d9ed0e630e8e5938de008c322fc784e771f2897cc32389907",
+      "served_equal": true,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/npc-runtime.mjs",
+      "sha256": "c3405e29dc5056c0a530fb180c3b47bc7515f2fd0ffdf4aa9b132ad929d6e46a",
+      "served_equal": true,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/parser.mjs",
+      "sha256": "a01a264fef72aa8fc4636c5ff299c86f687b472a0778d3dbc8b4fc4b72132806",
+      "served_equal": true,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/random-display.mjs",
+      "sha256": "ae24a708ef2b7d9146097e8d4b9f18411a43f6933e1a4762850494df18c7675b",
+      "served_equal": true,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/text.mjs",
+      "sha256": "f2547ffc6db1b9e855f7c1c4e4af68d556d1521663d2b05beb8afcca97480b2b",
+      "served_equal": true,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "src/keyboard-profile.mjs",
+      "sha256": "aa94371a9a7be6c03a21f36ae25d54b271aee1974a57a568732eeff25d8fdce7",
+      "served_equal": true,
+      "cache_control": "no-store"
+    },
+    {
+      "path": "data/game.json",
+      "sha256": "cd3364598da339420f576280e87a4de68017aad9077ec01721fc5dc3ffaac50c",
+      "served_equal": true,
+      "cache_control": "no-store"
+    }
+  ],
+  "limits": [
+    "Only seed 1 and declared IO/startup protocol; times are observed programme progress, not universal deadlines",
+    "Two complete natural loss histories; no successful full investigation or other endings certified by this report",
+    "The second route includes the first 49 commands from the submitted journal; it is not the minimal possible route",
+    "Original graphics disabled; physical input timing and idle timeouts not covered",
+    "Raw names, synthetic alphabetic output and untouched workspace cells without proven ownership stay unknown",
+    "ROM SEED zero is a new-boot condition only; old saves do not receive absent workspace state",
+    "Other point-7 renderer/parser ownership and seed coverage boundaries remain",
+    "UI session packets are tested automatically; no manual browser playthrough is claimed"
+  ]
+}

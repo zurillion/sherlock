@@ -18,7 +18,8 @@ export class Text {
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
   let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false,pending='',pendingCap=true;const fragments=[];
-  const feed=text=>{for(let c of String(text)){
+  let nameBuffer=false;
+  const feed=(text,{raw=text,dict=false,buffer=true}={})=>{if(buffer&&context.bufferSink&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))context.bufferSink(c,{known:!nameBuffer});for(let c of String(text)){
    if(c==='\b'){result=result.slice(0,-1);pending=pending.slice(0,-1);context.sink?.(c);continue;}
    if([' ','\n','\r','"'].includes(c))pending='';
    else{if(!pending)pendingCap=capitalize;pending+=c;}
@@ -29,7 +30,7 @@ export class Text {
    result+=c;context.sink?.(c);
   }};
   const name=(id,be=false)=>w.name(id,{indefinite:Boolean(w.entity(id).person)})+(be?(id===0?' are':' is'):'');
-  const feedName=(id,be=false,actorToken=false)=>{
+  const feedName=(id,be=false,actorToken=false)=>{const previousNameBuffer=nameBuffer;nameBuffer=true;try{
    feed(' ');const e=w.entity(id);
    if(e.person&&(e.noun&32768)&&id!==w.player){const parts=w.name(id).split(' ');
     // In the prefab TELL path, the actor-name prefix flushes while the
@@ -37,11 +38,11 @@ export class Text {
     if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);}feed(' ');});capitalize=true;feed(parts.at(-1));}
     else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
    else if(actorToken&&context.actorNamePrefix&&id!==w.player){const parts=w.name(id,{indefinite:Boolean(e.person)}).split(' ');context.actorNamePrefix(()=>{feed(parts.slice(0,-1).join(' '));feed(' ');});feed(parts.at(-1)+(be?' is':''));}
-   else feed(name(id,be));
+   else feed(name(id,be));}finally{nameBuffer=previousNameBuffer;}
   };
   const emit=t=>{
    switch(t.op){
-    case 'word':{mixOffset=t.randomContext??null;if(t.id){feed(' ');if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem);}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
+    case 'word':{mixOffset=t.randomContext??null;if(t.id){feed(' ',{dict:true});if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
     case 'call':case 'jump':mixOffset=t.relativeOffset===undefined?null:(t.relativeOffset-(t.op==='jump'?1:0))&65535;walk(t.text);break;
     case 'choice':{
@@ -69,8 +70,8 @@ export class Text {
      const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
      // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;
      // A3C8/A3CE prints "me" when the first argument is the speaker.
-     if(action===47||action===48){feed(' tell');if(args[0]===actor)feed(' me');else argument(args[0],0);if(action===48)feed(' about');argument(args[1],1);feed('.');break;}
-     feed(' ');feed(model.words[0]);if(model.words[3]){feed(' ');feed(model.words[3]);}if(model.words[1]){feed(' ');feed(model.words[1]);}argument(args[0],0);if(model.words[2]){feed(' ');feed(model.words[2]);}argument(args[1],1);feed('.');break;
+     if(action===47||action===48){feed(' tell',{dict:true});if(args[0]===actor)feed(' me',{dict:true});else argument(args[0],0);if(action===48)feed(' about',{dict:true});argument(args[1],1);feed('.');break;}
+     feed(' ',{dict:true});feed(model.words[0],{dict:true});if(model.words[3]){feed(' ',{dict:true});feed(model.words[3],{dict:true});}if(model.words[1]){feed(' ',{dict:true});feed(model.words[1],{dict:true});}argument(args[0],0);if(model.words[2]){feed(' ',{dict:true});feed(model.words[2],{dict:true});}argument(args[1],1);feed('.');break;
     }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
     case 'actorName':feedName(actor,false,true);break;
@@ -78,8 +79,8 @@ export class Text {
     case 'otherName':feedName(other);break;
     case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;break;
     case 'objectIs':feedName(object,true);mixOffset=object===0?0x007A:0x0485;break;
-    case 'actorPossessive':feed(actor===0?'your':'his');mixOffset=actor===0?0x09F2:0x0414;break;
-    case 'objectPossessive':feed(object===0?'your':'his');mixOffset=object===0?0x09F2:0x0414;break;
+    case 'actorPossessive':feed(actor===0?'your':'his',{dict:true});mixOffset=actor===0?0x09F2:0x0414;break;
+    case 'objectPossessive':feed(object===0?'your':'his',{dict:true});mixOffset=object===0?0x09F2:0x0414;break;
     case 'newline':feed('\n');break;
     case 'endLine':mixOffset=mixOffset===null?null:0x6000|(mixOffset&255);feed('\n');break;
     case 'endSentence':mixOffset=mixOffset===null?null:0x3000|(mixOffset&255);feed('.\n');break;
@@ -89,7 +90,7 @@ export class Text {
      // A9B7 buffers a whole word, including punctuation. AA59 reads the
      // case mode only when its following delimiter flushes that buffer.
      // A toggle before that delimiter therefore also affects this suffix.
-     const buffered=pending;if(buffered){for(let i=0;i<buffered.length;i++){result=result.slice(0,-1);context.sink?.('\b');}capitalize=pendingCap;pending='';feed(buffered);}break;
+     const buffered=pending;if(buffered){for(let i=0;i<buffered.length;i++){result=result.slice(0,-1);context.sink?.('\b');}capitalize=pendingCap;pending='';feed(buffered,{buffer:false});}break;
     }
     case 'end':case 'noop':break;
     default:throw new UnsupportedFeature('operazione di testo '+t.op);
