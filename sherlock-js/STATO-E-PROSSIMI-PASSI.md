@@ -30,9 +30,9 @@ prove a ogni combinazione, seed e temporizzazione rimane il punto 7;
 le reazioni dipendenti da informazioni, accuse e identità nei rami ancora
 mancanti restano ai punti 2, 3 e 5.
 
-**Prossimo intervento consigliato:** punto 5, conseguenze dell'indagine e
-comandi/finali ancora mancanti. I nuclei dei punti 2–4 sono implementati;
-i confini della certificazione restano espliciti nei rispettivi rapporti.
+**Prossimo intervento consigliato:** punto 7, ampliare le prove di partita
+completa e le dipendenze casuali ancora sconosciute. I nuclei dei punti 2–6
+sono implementati; i confini restano dichiarati nei rispettivi rapporti.
 
 ## 2. Informazioni e deduzioni
 
@@ -109,15 +109,24 @@ restano al punto 7. Non è dichiarata equivalenza di qualsiasi partita.
 
 ## 6. Comandi, trasporti e calendario ai limiti
 
-WAIT UNTIL singola nella pagina è ora incrementale, con interruzione Invio
-e pulsante, eventi visibili e ripresa confrontati con l’originale.
-Vedere [WAIT-UNTIL.md](WAIT-UNTIL.md). Restano i limiti generali sotto.
+**Nucleo implementato e confrontato:** FOLLOW/COME WITH del giocatore,
+ENTER/GO INTO adiacenti, LOOK THROUGH, PAY senza TO e relativi rifiuti.
+GO TO/GO FURIOUSLY TO/TAKE … TO conservano l'assenza di regole operative
+per Holmes in questa edizione, senza inventare un percorso globale.
 
-FOLLOW/COME WITH e GO TO del giocatore oltre ai percorsi differiti degli NPC;
-LOOK THROUGH e varianti non ancora certificate; PAY senza TO con
-importo; servizi testuali SAVE/LOAD/QUIT/PAUSE/PRINT/NOPRINT rispetto ai pulsanti
-del prototipo. Ampliare attese e interruzioni, lunghe permanenze sui mezzi,
-scadenze, mezzanotte e riporti del calendario.
+Collegati PAUSE, PRINT/NOPRINT con carta virtuale SVG, SAVE/LOAD al prompt
+e QUIT. Nastro e riavvio sono adattatori dichiarati della pagina, non
+emulazione delle periferiche originali. Confrontati mezzogiorno, mezzanotte,
+giorno 255/0 e scadenze/tick a 16 bit, conservando il confronto senza segno.
+
+38 storie native, 124 comandi/checkpoint e 645 estrazioni casuali, con tutti
+gli attori attivi e setup di calendario/periferiche espliciti. Vedere
+[COMANDI-E-CALENDARIO.md](COMANDI-E-CALENDARIO.md) e
+`results/command-limits-verification.json`.
+
+WAIT UNTIL singola è incrementale e interrompibile. Attese in righe composte
+e vecchi profili conservano il precedente percorso a frame; lunghe permanenze
+su ogni mezzo e ogni seed richiedono l'estensione delle prove del punto 7.
 
 ## 7. Equivalenza della partita completa
 

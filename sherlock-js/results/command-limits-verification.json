@@ -1,0 +1,337 @@
+{
+  "date": "2026-10-27",
+  "engine": "autonomous JavaScript world-v5",
+  "full_game_equivalence": false,
+  "status": "bounded point-6 implementations verified",
+  "runtime_uses_original_cpu": false,
+  "corpora": [
+    {
+      "name": "command-limits",
+      "fixture": "test/fixtures/command-limits-reference.json",
+      "sha256": "ac33d5079f1b0f265964232333e476598d9da7ebdfd2488f061490ef0efc043b",
+      "protocol": "All 24 actor slots, seed 1, free initial LOOK, graphics off after boot, injected uppercase keys, immediate MORE/PAUSE, no idle timeout. Connected printer ports are an explicit peripheral stub; the absent-printer case is declared. Calendar/tick setups patch only declared counters.",
+      "cases": 33,
+      "checkpoints": 100,
+      "draws": 425,
+      "random_reads": 850,
+      "controlled_setups": [
+        {
+          "case": 17,
+          "setup": {
+            "printer_connected": false
+          }
+        },
+        {
+          "case": 18,
+          "setup": {
+            "day": 0,
+            "hour": 11,
+            "minute": 58,
+            "period": "pm",
+            "tick": null
+          }
+        },
+        {
+          "case": 19,
+          "setup": {
+            "day": 6,
+            "hour": 11,
+            "minute": 58,
+            "period": "pm",
+            "tick": null
+          }
+        },
+        {
+          "case": 20,
+          "setup": {
+            "day": 255,
+            "hour": 11,
+            "minute": 58,
+            "period": "pm",
+            "tick": null
+          }
+        },
+        {
+          "case": 21,
+          "setup": {
+            "day": 0,
+            "hour": 11,
+            "minute": 58,
+            "period": "am",
+            "tick": null
+          }
+        },
+        {
+          "case": 22,
+          "setup": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0,
+            "period": "am",
+            "tick": 65534
+          }
+        },
+        {
+          "case": 30,
+          "setup": {
+            "gate_size": 1
+          }
+        },
+        {
+          "case": 31,
+          "setup": {
+            "parent": 24
+          }
+        }
+      ],
+      "printer_rows_compared": 66
+    },
+    {
+      "name": "calendar-waits",
+      "fixture": "test/fixtures/calendar-waits-reference.json",
+      "sha256": "037d8e9a862e0ab2c7907143a65ce4dd0128499f2588dfaf8210ebeb274dfb9f",
+      "protocol": "Seed 1, all 24 actors, free LOOK, original graphics off, uppercase injected keys and immediate MORE. Two natural long-target inputs interrupted by ENTER; other cases explicitly patch calendar/tick counters only.",
+      "cases": 5,
+      "checkpoints": 24,
+      "draws": 220,
+      "random_reads": 458,
+      "controlled_setups": [
+        {
+          "case": 2,
+          "setup": {
+            "day": 255,
+            "hour": 11,
+            "minute": 58,
+            "period": "pm"
+          }
+        },
+        {
+          "case": 3,
+          "setup": {
+            "day": 6,
+            "hour": 11,
+            "minute": 58,
+            "period": "pm"
+          }
+        },
+        {
+          "case": 4,
+          "setup": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0,
+            "period": "am",
+            "tick": 65534
+          }
+        }
+      ],
+      "printer_rows_compared": 0
+    }
+  ],
+  "comparison": [
+    "every random draw, read address/value and successor",
+    "all actor slots, entity fields and facts via assertOriginalState",
+    "all 752 arena bytes, including released records",
+    "input/editor/token state, exact upper/lower bitmap and owned scratch fields",
+    "literal, printer flag and exact printer raster paper",
+    "portable save/load roundtrip and future commands"
+  ],
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 191,
+    "bytes_roundtripped": 502,
+    "regions": [
+      {
+        "start": "A296",
+        "end_exclusive": "A2AA",
+        "kind": "code",
+        "label": "Eighteen clear CRs, counter reset after each"
+      },
+      {
+        "start": "AF6B",
+        "end_exclusive": "AF9B",
+        "kind": "data",
+        "label": "Control dictionary identifiers and handler pointers"
+      },
+      {
+        "start": "AFFF",
+        "end_exclusive": "B01C",
+        "kind": "code",
+        "label": "PRINT presence test and NOPRINT clear before disabling"
+      },
+      {
+        "start": "B09A",
+        "end_exclusive": "B0AC",
+        "kind": "code",
+        "label": "PAUSE key service; LOAD/QUIT pending restart service"
+      },
+      {
+        "start": "B0C6",
+        "end_exclusive": "B0E4",
+        "kind": "code",
+        "label": "SAVE scheduling, one minute, preserve current action"
+      },
+      {
+        "start": "BFD9",
+        "end_exclusive": "C03B",
+        "kind": "code",
+        "label": "Clock advance, midnight day byte and time classes"
+      },
+      {
+        "start": "C3E4",
+        "end_exclusive": "C415",
+        "kind": "code",
+        "label": "Printer receives old top row before scrolling"
+      },
+      {
+        "start": "D39B",
+        "end_exclusive": "D3D4",
+        "kind": "code",
+        "label": "Location matching filtered by adjacency"
+      },
+      {
+        "start": "DC19",
+        "end_exclusive": "DC20",
+        "kind": "data",
+        "label": "LOOK THROUGH multioccurrence header"
+      },
+      {
+        "start": "DC20",
+        "end_exclusive": "DC6C",
+        "kind": "code",
+        "label": "LOOK THROUGH temporary relocation and restore"
+      },
+      {
+        "start": "DD52",
+        "end_exclusive": "DD54",
+        "kind": "data",
+        "label": "Adjacent movement DOMAIN header"
+      },
+      {
+        "start": "DD54",
+        "end_exclusive": "DD62",
+        "kind": "data",
+        "label": "Adjacent movement DOMAIN operations, not Z80"
+      },
+      {
+        "start": "E452",
+        "end_exclusive": "E456",
+        "kind": "data",
+        "label": "FOLLOW/COME WITH class-12 header and predicate"
+      },
+      {
+        "start": "E456",
+        "end_exclusive": "E488",
+        "kind": "data",
+        "label": "FOLLOW deferred DOMAIN program, not Z80"
+      }
+    ]
+  },
+  "tests": {
+    "tests": 648,
+    "pass": 648,
+    "fail": 0,
+    "log": "results/command-limits/tests.log",
+    "browser_packet_histories": 24,
+    "asynchronous_pause_and_printer_tests": 2
+  },
+  "browser": {
+    "url": "http://127.0.0.1:8768/",
+    "isolated_test_tab": true,
+    "user_game_reset": false,
+    "sequence": [
+      "PAUSE (separate key resumes at 08:00)",
+      "PRINT",
+      "I (08:01)",
+      "NOPRINT (blank upper, still 08:01)",
+      "download printer SVG",
+      "SAVE (JSON download confirmed, 08:02)",
+      "QUIT (frozen at 08:02)"
+    ],
+    "screenshot": "results/command-limits/browser.png",
+    "served": [
+      {
+        "path": "index.html",
+        "sha256": "310e98ec1704f4ed4ba9702825c30b6db8f3f38c38e61a7d878ca44e5b2f892d",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/app.mjs",
+        "sha256": "e75886a2311d38cd8c848dccbad3bbc2b01c04da4c5932e21dc4a32462149788",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/game.mjs",
+        "sha256": "fd6b6c66ade01018303329cc2ec69706ba19d7a0b0bfb281df3c994c6a09866b",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/player-program.mjs",
+        "sha256": "3db7040f1d7286b261440b997da08da9e7b7cc9a8ca15ff3bdd5863c6566e5e2",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/virtual-printer.mjs",
+        "sha256": "17fb5ca698c8e3ca72b1bccb9699776310b6e1fc6c47434cf14e3bc5c4a62b0a",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/session.mjs",
+        "sha256": "4f4006dbba9d41d58f89c463f357f8c736aefd783c33f515ec751295e1dd995e",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/spectrum.mjs",
+        "sha256": "88d6de40fbaee93b65856bd3e62d979db784f32a5742b9d22d9d6f037f80661d",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/npc-runtime.mjs",
+        "sha256": "baae557fa05215a1bf4d5a06da430c05e7b1982099c7452f7fa2a7ba7c529798",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/random-display.mjs",
+        "sha256": "8d4d3c5d6e5983aebf7a5dd3d13e38647de36a699cc4dd97c9d782ff0c6cd00b",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/world.mjs",
+        "sha256": "09933b7f615a582ec987f0967deb95056ad14e205a4e6237e8e08de581763c45",
+        "served_equal": true,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "src/text.mjs",
+        "sha256": "b2b061b088801e1e936683d7c3d31f6946c15e89dcd997985ee553a4e2ef9857",
+        "served_equal": true,
+        "cache_control": "no-store"
+      }
+    ]
+  },
+  "peripheral_protocol": {
+    "printer_presence": "C03B port input, present/absent declared per case",
+    "printer_scan": "C40C port input 192, native scan and printer loop preserved",
+    "save": "C040 transport success stub with carry; native scheduler/control path compared",
+    "load": "browser JSON adapter, no native tape equivalence claimed"
+  },
+  "limits": [
+    "seed 1 / graphics off / explicit key and immediate MORE protocol; no universal seed or input-timing parity",
+    "controlled calendar/tick/entity setups are not naturally reached play histories",
+    "SAVE downloads portable JSON at next prompt; compound rest-of-line may already have run",
+    "LOAD cancellation retains current portable game; native tape loader/restart state not reconstructed",
+    "QUIT freezes before native restart service",
+    "PAUSE and screen clearing use Spectrum presentation; modern notebook keeps transcript",
+    "compound WAIT and historical profiles retain prior precomputed frame path",
+    "every long vehicle stay and remaining renderer ownership boundaries are point-7 work"
+  ]
+}

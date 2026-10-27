@@ -8,6 +8,7 @@ import {nodeWords} from './parser.mjs';
 import {searchDescription} from './description-search.mjs';
 import {specialObjectBody} from './special-objects.mjs';
 import {Information} from './information.mjs';
+import {runPlayerProgram} from './player-program.mjs';
 import {AdvancedNpcs} from './advanced-npcs.mjs';
 
 const yes=(cost=0,extra={})=>({success:true,cost,...extra}),no=()=>({success:false,cost:0});
@@ -110,7 +111,7 @@ export class NpcRuntime {
   throw new UnsupportedFeature('sequenza oggetto senza termine');
  }
  executePlayerObject(rule,action,args,messages,actions){
-  const meta=this.game.data.npcPrograms.rules[rule];if(meta.program)return this.runPlayerObject(meta.program,action,args,messages,actions);
+  const meta=this.game.data.npcPrograms.rules[rule];if(['unimplemented.E452','move.adjacent'].includes(rule))return runPlayerProgram(this,meta.program,action,args,messages,actions);if(meta.program)return this.runPlayerObject(meta.program,action,args,messages,actions);
   const out=this.use(()=>this.rule(rule,[args[0]??255,args[1]??255],{actor:this.w.player,saved:[action,args[0]??255,args[1]??255],local:true},messages,actions));
   if(out.ended)return;
   this.state.playerProgramCounter='9945';
@@ -126,8 +127,8 @@ export class NpcRuntime {
  }
  writeSyntax(node,records,p){nodeWords(node).forEach((v,i)=>records.arena.putWord(p+2*i,v));}
  syntaxRecord(node,records){const p=records.arena.allocate(30);this.writeSyntax(node,records,p);return p;}
- beginUnit(nodes,{answer=null,lookahead=null,discarded=[]}={}){return this.use(({records})=>{
-  const pending=this.state.parserPending,raw=nodes.map((n,i)=>i===0&&answer?answer:n),pointers=[];
+ beginUnit(nodes,{answer=null,lookahead=null,discarded=[],reusePending=false}={}){return this.use(({records})=>{
+  const pending=this.state.parserPending;if(reusePending&&pending){records.heads.syntax=0;records.heads.parsed=pending;this.state.parserPending=null;return [pending];}const raw=nodes.map((n,i)=>i===0&&answer?answer:n),pointers=[];
   const allocations=[];
   const allocate=n=>{const p=this.syntaxRecord(n,records);if(allocations.length)records.arena.putWord(allocations.at(-1).pointer-2,p);allocations.push({pointer:p,discarded:false});this.recordQuotes(n,records);return p;};
   for(const [i,n]of raw.entries()){for(const d of discarded.filter(d=>d.before===i)){allocate(d.node);allocations.at(-1).discarded=true;}pointers.push(allocate(n));}
@@ -150,7 +151,7 @@ export class NpcRuntime {
   if(retain){records.heads.syntax=current;this.state.parserPending=current;records.heads.parsed=records.arena.word(current-2);records.arena.putWord(current-2,0);}
   node=this.game.semanticNode(node);
   const action=this.game.action(node);let rejected=(!!node.implicitMissing||this.game.action(node)===52)&&!retain&&!collective;this.state.sceneryFailure=null;
-  if([17,19,20,21,22,38,39,42,43,44,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
+  if([17,18,19,20,21,22,27,29,30,35,38,39,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
   // A failed class-9 lookup with no perceived nominal target searches the
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
@@ -388,7 +389,9 @@ export class NpcRuntime {
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
   else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0));if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
-  const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});this.showAction(out,actor,messages,actions);
+  const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}
+  this.showAction(out,actor,messages,actions);
+  if(actor===w.player){const errors=out.messages.filter(m=>m.kind==='error');if(errors.length){for(const e of errors)e.lower_projected=true;messages.push(...errors);g.sourceDisplay.error(errors);}}
   if(out.objectRule)return this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],context,messages,actions);
   // B9B4 executes a queued command in its own working arguments. A completed
   // immediate request does not bind the suspended program's root arguments;
@@ -528,7 +531,7 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   if(s.playerFailures!==undefined&&(!Number.isInteger(s.playerFailures)||s.playerFailures<0||s.playerFailures>9))throw Error('Contatore tentativi del giocatore non valido');
-  if(s.playerProgramCounter!==undefined&&s.playerProgramCounter!=='9923'&&!(this.game.ended&&(s.playerLocal?.pc===s.playerProgramCounter||['9923','992D','9937','9945'].includes(s.playerProgramCounter))))throw Error('Continuazione del giocatore fuori dal prompt');
+  if(s.playerProgramCounter!==undefined&&s.playerProgramCounter!=='9923'&&!(this.game.ended&&(s.playerLocal?.pc===s.playerProgramCounter||['9923','992D','9932','9937','9945'].includes(s.playerProgramCounter))))throw Error('Continuazione del giocatore fuori dal prompt');
   if(s.nightRest!==undefined&&(!s.nightRest||![5,8,9].every(id=>byte(s.nightRest[id]))))throw Error('Stato del riposo NPC non valido');
   if(s.printerEnabled!==undefined&&typeof s.printerEnabled!=='boolean')throw Error('Stato della stampante non valido');
   if(s?.version!==1||s.profile!=='world-v5'||this.w.random?.profile!=='world-v5'||!byte(s.initialSeed)||typeof s.recordsSourceKnown!=='boolean'||!triple(s.playerRootSaved)||!s.pending||!s.foreignContexts||!s.flags||Object.values(s.flags).some(v=>typeof v!=='boolean')||!byte(s.burningNoteTicks))throw Error('Stato NPC v5 non valido');

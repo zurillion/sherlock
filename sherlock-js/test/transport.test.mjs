@@ -48,8 +48,8 @@ test('Passenger save/load resumes through Lestrade leaving and the next platform
  }
 });
 test('A prototype limit cancels partial minute frames and keeps its notice across save/load',()=>{
- const s=new ClientSession(data,{npc_profile:'world-v5'}),before=s.game.world.dump(),out=s.request('start-command',{command:'WAIT THEN FOLLOW WATSON'});assert.equal(out.running,false);
- assert.deepEqual(s.game.world.dump(),before);assert.equal(s.game.lastFrames.length,0);assert.equal(out.state.clock.label,'Mon 08:00am');assert.equal(out.state.analysis.outcome,'not_translated');assert.match(gameStatus(out.state),/Messaggio del prototipo:.*21/);
+ const s=new ClientSession(data,{npc_profile:'world-v5'}),before=s.game.world.dump(),out=s.request('start-command',{command:'WAIT THEN LOOK "HELLO"'});assert.equal(out.running,false);
+ assert.deepEqual(s.game.world.dump(),before);assert.equal(s.game.lastFrames.length,0);assert.equal(out.state.clock.label,'Mon 08:00am');assert.equal(out.state.analysis.outcome,'not_translated');assert.match(gameStatus(out.state),/Messaggio del prototipo:.*citazioni/);
  assert(out.messages.every(m=>m.kind==='system'));
  const restored=Game.load(data,JSON.parse(JSON.stringify(s.game.dump())));assert.equal(gameStatus(restored.state()),gameStatus(out.state));
 });

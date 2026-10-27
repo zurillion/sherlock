@@ -1,3 +1,4 @@
+import {paperSvg} from './virtual-printer.mjs';
 import {Game} from './game.mjs';
 import {UnsupportedFeature} from './world.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
@@ -38,12 +39,14 @@ export class ClientSession {
  }
  state(){if(this.job?.liveWait)return {...this.game.state(),command_running:true,job:this.job.id};const s=this.job?this.frameState(this.job.frames[Math.max(0,this.job.index-1)]):this.game.state();return {...s,initial_screen:packets(s.initial),opening_screen:s.opening?packets(s.opening,{leading:true}):null};}
  messages(messages,{pending='',buffer={word:pending}}={}){return messages.map(m=>{if(m.kind!=='narrative')return m;let events;
-  if(m.screen_ack)events=[{op:'acknowledge',reason:'ending'}];
+  if(m.screen_pause)events=[{op:'pause'}];
+  else if(m.screen_ack)events=[{op:'acknowledge',reason:'ending'}];
   else if(m.screen_clear)events=[...Array.from({length:18},()=>[{op:'word',text:'',delimiter:'\r',formatted:true},{op:'counter',value:0}]).flat(),{op:'clear-picture'}];
   else if(m.raw_text!==undefined)events=rawPackets((m.paragraph_before?'\n':'')+m.raw_text,buffer);
   else{events=packets(m.text,{leading:Boolean(m.paragraph_before)});if(buffer.word&&events.length){events[0]={...events[0],text:buffer.word+events[0].text,formatted:true};buffer.word='';}}
   return {...m,screen_events:[...(m.image_room?[{op:'picture',room:m.image_room}]:[]),...events]};});}
  request(operation,body={}){
+  if(operation==='printer')return {svg:paperSvg(this.game.world.display?.printerPaper||[])};
   if(operation==='data')return this.publicData();
   if(operation==='state')return this.state();
   if(operation==='reset'){this.game=new Game(this.data,{start_mode:body.start_mode,npc_profile:'world-v5',seed:body.seed??1});this.job=null;return {state:this.state(),messages:[{kind:'narrative',text:this.game.opening,screen_events:packets(this.game.opening,{leading:true})}]};}

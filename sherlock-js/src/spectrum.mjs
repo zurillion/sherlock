@@ -118,7 +118,7 @@ class SpectrumTerminal {
  }
  commit(text){this.lowerHistory.push(...spectrumWrap(text.toUpperCase(),34));this.lowerHistory=this.lowerHistory.slice(-40);this.draft='';this.input.value='';this.render();}
  wide(){if(this.picture&&this.pictureNarrow)this.picture.scrollOrigin=this.model.scrolls;this.pictureNarrow=false;this.model.setColumns(36);}
- more(){if(!this.waiting)return;if(this.waitingReason==='startup'){this.clockVisible=true;this.model.startPage();}else if(this.waitingReason!=='ending'){this.wide();this.model.more();}this.waiting=false;this.waitingReason=null;const resolve=this.resume;this.resume=null;this.render();if(resolve)resolve(true);}
+ more(){if(!this.waiting)return;if(this.waitingReason==='startup'){this.clockVisible=true;this.model.startPage();}else if(!['ending','command'].includes(this.waitingReason)){this.wide();this.model.more();}this.waiting=false;this.waitingReason=null;const resolve=this.resume;this.resume=null;this.render();if(resolve)resolve(true);}
  async pause(reason='more'){this.waiting=true;this.waitingReason=reason;this.status.textContent='Premi un tasto qualsiasi per continuare.';this.render();return new Promise(resolve=>{this.resume=resolve;});}
  async line(epoch){while(!this.model.newline()){if(!await this.pause()||epoch!==this.epoch)return false;}return epoch===this.epoch;}
  async loadPicture(room,fresh=true){
@@ -131,7 +131,8 @@ class SpectrumTerminal {
   this.picture={room,image,url,scrollOrigin:fresh?this.model.scrolls:(this.picture?.scrollOrigin??this.model.scrolls)};const columns=this.pictures&&this.pictureNarrow?18:36;if(fresh||columns!==this.model.columns)this.model.setColumns(columns);this.render();
  }
  async displayEvent(event,epoch){
-  if(event.op==='acknowledge'){if(!await this.pause('ending')||epoch!==this.epoch)return false;this.wide();}
+  if(event.op==='pause'){if(!await this.pause('command')||epoch!==this.epoch)return false;}
+  else if(event.op==='acknowledge'){if(!await this.pause('ending')||epoch!==this.epoch)return false;this.wide();}
   else if(event.op==='clear-picture')this.clearPicture();
   else if(event.op==='counter')this.model.counter=event.value;
   else if(event.op==='wide')this.wide();

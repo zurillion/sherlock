@@ -17,7 +17,7 @@ import {canPlace,fitsContainer} from './objects.mjs';
 import {changeIdentity} from './identity.mjs';
 import {objectRuleFor} from './special-objects.mjs';
 
-export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,23,24,25,26,27,28,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,50,51,52,53,54];
+export const SUPPORTED_ACTIONS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54];
 const clone=structuredClone;
 // Rules are domain functions over logical objects. No binary, RAM, CPU, address
 // dispatcher, server-side game logic, or fallback to the reference engine.
@@ -44,6 +44,7 @@ export class Game {
  action(node){
   if(!node.verb)return 1;
   const verb=this.word(node.verb),modifier=this.word(node.modifier),relations=node.groups.flatMap(g=>g.relations).map(id=>this.word(id));
+  if(verb==='pay'&&!relations.length&&node.groups.length===2)return 37;
   if(verb==='sit'&&!relations.length)return 40;
   if(['get','climb'].includes(verb)&&relations.join(' ')==='out')return verb==='get'?25:13;
   // The conversation form accepts the optional TO: SAY CABBIE and SAY TO
@@ -57,8 +58,9 @@ export class Game {
  get actor(){return this.actingActor??this.world.player;}
  canTake(e){const w=this.world,actor=this.actor;return w.perceived(e.id,actor)&&e.rooms.length===1&&!e.person&&!w.owns(actor,e.id)&&!w.owns(e.id,actor)&&w.weight(e.id)<=w.remainingCapacity(actor)&&!w.entities.some(p=>p.person&&w.owns(p.id,e.id));}
  canResolve(e,action,slot){
+  if([29,30,45].includes(action))return false;
   if([47,48].includes(action)&&slot===1)return e.id!==0;
-  if([21,22].includes(action))return e.id!==this.actor;
+  if([21,22].includes(action))return e.person&&e.id!==this.actor;
   if(action===43)return e.rules.some(r=>r.action===43)&&this.actor===(e.id===14?1:100);
   const w=this.world,actor=this.actor;if(!w.perceived(e.id,actor))return false;
   if([53,54].includes(action))return e.rules.some(r=>r.action===action);
@@ -66,6 +68,7 @@ export class Game {
   if(action===36&&e.rules.some(r=>r.rule==='openSafe'))return actor===0;
   if([23,41,44].includes(action)&&e.rules.some(r=>r.action===action&&r.rule==='takeBurningNote'))return true;
   if(action===19||action===20){if(action===20&&e.rules.some(r=>r.action===20))return true;for(let p=e.parent;p!==null;p=w.entity(p).parent)if(w.entity(p).person)return p===actor;return true;}
+  if(action===35)return e.rooms.length!==1;
   if(action===36||action===14)return e.rules.some(r=>r.action===action);
   if([11,23,41,42,44].includes(action))return slot===0?this.canTake(e):true;
   if([17,38,39].includes(action))return slot===0?w.owns(actor,e.id):true;
@@ -79,8 +82,9 @@ export class Game {
   return true;
  }
  error(text){return {kind:'error',text};}
- semanticNode(node){if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}if(node.all&&node.groups.length===1&&node.groups[0].relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[{noun:0,qualifiers:[],relations:[]},node.groups[0]]};return node;}
- referenceCandidates(node,action,slot=0){node=this.semanticNode(node);const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
+ semanticNode(node){if(this.action(node)===37&&!(node.groups[0]?.noun&32768)&&node.groups[1]?.noun&32768)return {...node,groups:[node.groups[1],node.groups[0]]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}if(node.all&&node.groups.length===1&&node.groups[0].relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[{noun:0,qualifiers:[],relations:[]},node.groups[0]]};return node;}
+ locationCandidates(node){const g=node.groups[0]||{noun:0,qualifiers:[]};return this.world.rooms.filter(r=>this.world.rooms[this.world.roomOf(this.actor)].exits.some(e=>e.target===r.id)&&(!g.noun||r.nameWords.some(n=>(n&4095)===(g.noun&4095)))&&g.qualifiers.every(q=>r.nameWords.some(n=>(n&4095)===(q&4095))));}
+ referenceCandidates(node,action,slot=0){if([18,27].includes(action))return {nominal:[],possible:this.locationCandidates(node)};node=this.semanticNode(node);const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
   if([17,38,39,42,44].includes(action)){
    const other=node.groups[1-slot];const partners=(node.resolved?.[1-slot]!==undefined?[this.world.entity(node.resolved[1-slot])]:this.world.entities.filter(e=>!other||this.world.nounMatches(e,other))).filter(e=>this.world.perceived(e.id,this.actor));
    // B29A counts a first argument only when EXACTLY one second argument
@@ -92,11 +96,11 @@ export class Game {
   return {nominal,possible};}
  needsClarification(node){
   node=this.semanticNode(node);
-  if(node.implicitMissing)return true;
+  if(node.implicitMissing)return true;if([18,27].includes(this.action(node)))return this.locationCandidates(node).length>1;
   // This preflight uses the same semantic candidates as resolve(). It only
   // determines whether B5B6 retains the parsed node; it executes no action.
   const action=this.action(node);if(node.all||node.exclusion||node.quote||node.subject||this.world.dark()||!SUPPORTED_ACTIONS.includes(action))return false;
-  const slots=action===37?[1]:[17,26,38,39,42,44].includes(action)?[0,1]:[11,12,13,14,16,19,20,23,24,25,28,35,36,40,41,43,46,47,48,51,53,54].includes(action)?[0]:[];
+  const slots=action===37?[1]:[17,26,38,39,42,44].includes(action)?[0,1]:[11,12,13,14,16,19,20,21,22,23,24,25,28,35,36,40,41,43,46,47,48,51,53,54].includes(action)?[0]:[];
   for(const slot of slots){const group=node.groups[slot];if(!group?.noun&&!group?.qualifiers?.length)return false;const {possible}=this.referenceCandidates(node,action,slot);if(possible.length>1)return true;if(!possible.length)return false;}
   return false;
  }
@@ -109,9 +113,9 @@ export class Game {
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
-  if(scenery?.action===action&&scenery.slot===slot){const relations=([47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();return {message:this.error(scenery.found?`YOU CANNOT ${[modifier,verb].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`)};}
-  if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
-  if([12,13,24,25,40,43,46,47,48,51,53,54].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
+  if(scenery?.action===action&&scenery.slot===slot){const relations=([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();return {message:this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`)};}
+  if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
+  if([12,13,24,25,40,43,46,47,48,51,53,54,21,22].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
   if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
   if([11,23,41,42,44].includes(action)&&slot===0&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
   return {message:this.error(`YOU CANNOT ${verb} THE ${query}`)};
@@ -166,6 +170,9 @@ export class Game {
    const context=this.npcTextContext(actor);
    const out=ok([this.textMessage(this.dialogue.tell(actor,target.entity.id,topics[0].id,context),context)],1,[target.entity.id,topics[0].id]);out.projected=Boolean(context.sink);out.suppressParagraph=true;return out;
   }
+  if([21,22].includes(action)){if(!w.npcs)throw new UnsupportedFeature('FOLLOW nel profilo storico');const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};return {...ok([],0,[target.entity.id]),objectRule:'unimplemented.E452',semanticResolved:true};}
+  if([29,30,45].includes(action)){const result=this.resolve(node,action);return result.message?{messages:[result.message],cost:0,action,args:[]}:reject('YOU CANNOT '+this.word(node.verb).toUpperCase());}
+  if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.pending={node:clone(node),slot:0};return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
   if(action===49)return ok([say('wait','.')],5);
   if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');
    if(w.npcs){w.npcs.literal=literal;if(actor===w.player)w.npcs.playerProgramCounter='9945';}
@@ -224,8 +231,8 @@ export class Game {
    else{const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.gate===result.entity.id);direction=edge?.direction_id;}
    const gate=edge?.gate?w.entity(edge.gate):null;
    const failure=()=>action===35?reject(`YOU CANNOT LOOK THROUGH ${gate?w.name(gate.id).toUpperCase():'THAT'}.`):reject(`YOU CANNOT GO ${DIRECTION_NAMES[direction||action]?.toUpperCase()||'THAT WAY'}.`);
-   if(!edge||!edge.target||w.entity(actor).parent!==null||(gate&&(!(gate.attributes&40)||gate.size<w.entity(actor).size)))return failure();
-   if(action===35){const saved=w.dump();w.move(actor,edge.target);let scene;try{scene=this.text.scene({full:false,remote:true,mark:false});}finally{w.restore(saved);}return ok([`You look through ${w.name(gate.id)}.\n${scene}`],2,[gate.id]);}
+   if(!edge||!edge.target||action!==35&&w.entity(actor).parent!==null||(gate&&(!(gate.attributes&40)||action!==35&&gate.size<w.entity(actor).size))){const out=failure();return action===35?{...out,args:[gate?.id??node.resolved?.[0]??255],semanticResolved:true}:out;}
+   if(action===35){if(actor!==w.player)return ok([say('look',' through '+w.name(gate.id)+'.')],2,[gate.id]);const room=w.roomOf(actor),parent=w.entity(actor).parent;w.move(actor,edge.target,parent);let scene;try{scene=this.text.scene({full:false,remote:true,mark:true,source:'remote'});}finally{w.move(actor,room,parent);}return ok([`You look through ${w.name(gate.id)}.\n${scene}`],2,[gate.id]);}
    const room=edge.target,first=!(w.rooms[room].flags&64),visibleBefore=w.perceived(actor);w.move(actor,room);if(w.npcs)this.npcRuntime.moved(room);
    if(actor!==w.player){const visibleAfter=w.perceived(actor),messages=[];
     // CA3A/CA76 announces the action before relocation; CAAF/CBC2 adds an
@@ -273,7 +280,7 @@ export class Game {
   if(!node.all){yield node;return;}
   const action=this.action(node),w=this.world,actor=this.actor;
   if(action===52)return; // Its always-failing predicate selects no ALL member.
-  if(![11,12,13,14,16,17,19,20,23,24,25,26,28,31,35,36,37,38,39,40,41,42,43,44,46,47,48,51,53,54].includes(action)){yield {...node,all:false};return;}
+  if(![11,12,13,14,16,17,19,20,21,22,23,24,25,26,28,31,35,36,37,38,39,40,41,42,43,44,45,46,47,48,51,53,54].includes(action)){yield {...node,all:false};return;}
   const group=node.groups[0]||{noun:0,qualifiers:[]};
   // B517 starts its exclusion scan AFTER the current index entry. In this
   // game's unique ascending entity index it cannot return that same entity;
@@ -307,11 +314,19 @@ export class Game {
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
     const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
-    const pointers=this.world.npcs?this.npcRuntime.beginUnit(parsed.nodes,{answer:parsed.continuationAnswer,lookahead:parsed.lookahead,discarded:parsed.discarded}):[];
     if(parsed.outcome==='control'){
-     this.pending=pendingBefore;
-     throw new UnsupportedFeature('controllo '+parsed.control+' (usare i pulsanti del motore JS)');
+     this.pending=pendingBefore;const control=parsed.control;this.analysis.control=control;(this.analysis.controls??=[]).push(control);if(this.world.npcs&&(!pendingBefore||control==='save'))this.npcRuntime.use(({records})=>{const p=this.npcRuntime.syntaxRecord({verb:0,modifier:0,groups:[],subject:null},records);if(control==='quit')records.heads.syntax=p;else records.arena.release(p);});
+     if(!['pause','print','noprint','save','load','quit'].includes(control))throw new UnsupportedFeature('controllo '+control+' (porta nastro non ancora collegata)');
+     if(control==='quit'){if(this.world.npcs)this.world.npcs.playerProgramCounter='9932';this.ended={entry:'B0A6',reason:'quit'};break;}
+     if(control==='load')break;
+     if(control==='save'){const saved=this.world.npcs.playerRootSaved;this.world.npcs.playerProgramCounter='9923';this.advance(1,{action:saved[0],args:saved.slice(1),messages,actions,preservePlayerStage:true});if(this.ended)break;delete this.analysis.control;if(!pendingBefore)continue;parsed.reusePending=true;}
+     if(control==='pause')messages.push({kind:'narrative',text:'',screen_pause:true});
+     if(control==='print')this.world.npcs.printerEnabled=this.printerConnected!==false;
+     if(control==='noprint'){for(let i=0;i<18;i++){this.sourceDisplay.feed('\n');this.world.display.counter=0;}this.world.npcs.printerEnabled=false;messages.push({kind:'narrative',text:'',screen_clear:true});}
+     if(!pendingBefore)break;
+     delete this.analysis.control;parsed.nodes=[structuredClone(pendingBefore.node)];parsed.continuationAnswer={verb:0,modifier:0,groups:[],subject:null};parsed.next=lexed.tokens.length-1;index=parsed.next;this.pending=null;
     }
+    const pointers=this.world.npcs?this.npcRuntime.beginUnit(parsed.nodes,{answer:parsed.continuationAnswer,lookahead:parsed.lookahead,discarded:parsed.discarded,reusePending:parsed.reusePending}):[];
     for(const [nodeIndex,originalNode]of parsed.nodes.entries()){if(originalNode.exclusion)continue;let syntaxAllocated=false;
      try{
      if(this.world.npcs){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,pointer:pointers[nodeIndex]});syntaxAllocated=true;}
@@ -350,8 +365,8 @@ export class Game {
   }
   if(this.ended)this.analysis.outcome='game_over';
   if(this.world.display&&this.analysis.outcome!=='not_translated'&&!this.ended&&!this.pendingWait)try{
-   if(messages.some(m=>m.kind==='error'&&!projectedErrors.has(m)))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'&&!projectedErrors.has(m)),{inline:this.analysis.outcome==='clarification'});
-   if(this.world.npcs){const syntax=['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.collectiveExhausted||lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
+   if(messages.some(m=>m.kind==='error'&&!m.lower_projected&&!projectedErrors.has(m)))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'&&!m.lower_projected&&!projectedErrors.has(m)),{inline:this.analysis.outcome==='clarification'});
+   if(this.world.npcs){const syntax=Boolean(this.analysis.control)||['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.collectiveExhausted||lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
     this.npcRuntime.playerInputFailures(syntax?['9923']:failed?[lastOutcome?.semanticResolved?'9945':'9937','992D','9923']:['992D','9923'],messages,actions);if(!this.pending&&!this.ended)this.npcRuntime.discardParsed();}
    if(!this.ended)this.sourceDisplay.prompt();
   }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}
@@ -391,7 +406,7 @@ export class Game {
  }
  scene(){const before=this.world.dump();try{return this.text.scene({full:!this.world.dark()});}finally{this.world.restore(before);}}
  state(){const w=this.world,room=w.rooms[w.roomOf()],dark=w.dark();
-  return {room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:w.npcs?.initialSeed??null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>this.data.entities[e.id].person&&(![0,1,100].includes(e.id)||e.id===w.player)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:characterBadge(e,w.player),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,prototype_notice:this.analysis?.notice??null,engine:'javascript-autonomous',ai:w.npcs?'domain-programs-partial':w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.npcs?.profile??w.scheduler.actor(3).behavior?.profile??null,greeting_variant:w.npcs?'original-arithmetic-shared-world':w.random?'original-arithmetic-historical-watson':'unimplemented-original-random-source',random_state:w.random?{profile:w.random.profile,accumulator:w.random.seed,cursor:w.random.cursor,draws:w.random.draws}:null,fidelity:{status:'partial-functional-rewrite',original_seed_parity:false,full_game_equivalence:false},cab_scope:w.npcs?'service-program-journey-fare-refund':'arrival-and-containment',scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
+  return {printer:{enabled:Boolean(w.npcs?.printerEnabled),rows:w.display?.printerPaper?.length||0},room:room.id,name:room.name,clock:w.clock(),player_id:w.player,seed:w.npcs?.initialSeed??null,start_mode:this.startMode,visited:[...w.explored],native_seen:w.rooms.filter(r=>r.flags&64).map(r=>r.id),exits:room.exits.map(e=>({...e,target_name:w.rooms[e.target]?.name,status:!e.gate?'libera':w.entity(e.gate).attributes&40?'aperta / attraversabile':'chiusa / ostacolo'})),objects:w.lastListed.map(id=>({id,name:w.entity(id).name})),visible:w.entities.filter(e=>e.id!==w.player&&!dark&&w.perceived(e.id)).map(e=>({id:e.id,name:e.name})),characters:w.entities.filter(e=>this.data.entities[e.id].person&&(![0,1,100].includes(e.id)||e.id===w.player)).map(e=>({id:e.id,key:e.id===w.player?'player':String(e.id),name:e.id===w.player?'Sherlock Holmes':e.name,badge:characterBadge(e,w.player),rooms:e.rooms.filter(id=>id>0),parent_id:e.parent,is_player:e.id===w.player})),dark,initial:this.scene(),opening:this.openingPending?this.opening:null,opening_screen:null,analysis:this.analysis,game_over:this.ended,ending_messages:[],command_running:false,prototype_notice:this.analysis?.notice??null,engine:'javascript-autonomous',ai:w.npcs?'domain-programs-partial':w.scheduler.actor(3).enabled?'watson-partial':'not-translated',npc_profile:w.npcs?.profile??w.scheduler.actor(3).behavior?.profile??null,greeting_variant:w.npcs?'original-arithmetic-shared-world':w.random?'original-arithmetic-historical-watson':'unimplemented-original-random-source',random_state:w.random?{profile:w.random.profile,accumulator:w.random.seed,cursor:w.random.cursor,draws:w.random.draws}:null,fidelity:{status:'partial-functional-rewrite',original_seed_parity:false,full_game_equivalence:false},cab_scope:w.npcs?'service-program-journey-fare-refund':'arrival-and-containment',scheduler:{active:w.scheduler.actors.filter(a=>a.enabled).map(a=>a.id),actors:clone(w.scheduler.actors),phase:w.scheduler.phase,index:w.scheduler.index,requests:clone(w.scheduler.requests),signals:clone(w.scheduler.signals),events:clone(w.scheduler.trace.slice(-64))}};
  }
  teleport(room){if(this.ended)return {state:this.state(),messages:[]};if(!Number.isInteger(room)||room<1||room>=this.world.rooms.length)throw Error('Invalid location');const entry=this.history.begin('teleport',String(room).padStart(3,'0')+' · '+this.world.rooms[room].name,this.world);try{const out=this.teleportWorld(room);this.history.finish(entry,this.world,{outcome:out.messages.some(m=>m.kind==='system')?'not_translated':'ok',errors:out.messages.filter(m=>m.kind==='system').map(m=>m.text)});return out;}catch(error){this.history.finish(entry,this.world,{outcome:'exception',errors:[error.message]});throw error;}}
  teleportWorld(room){const before=this.world.dump();try{this.pending=null;this.openingPending=false;this.world.move(this.world.player,room);this.world.explored.add(room);this.world.rooms[room].flags|=64;const scene=this.text.scene({full:!this.world.npcs}),messages=[{kind:'narrative',text:scene,image_room:room}];this.projectMessages(messages);return {state:this.state(),messages};}catch(error){this.world.restore(before);if(error instanceof UnsupportedFeature)return {state:this.state(),messages:[{kind:'system',text:error.message}]};throw error;}}

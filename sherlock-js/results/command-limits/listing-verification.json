@@ -1,0 +1,91 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 191,
+  "bytes_roundtripped": 502,
+  "regions": [
+    {
+      "start": "A296",
+      "end_exclusive": "A2AA",
+      "kind": "code",
+      "label": "Eighteen clear CRs, counter reset after each"
+    },
+    {
+      "start": "AF6B",
+      "end_exclusive": "AF9B",
+      "kind": "data",
+      "label": "Control dictionary identifiers and handler pointers"
+    },
+    {
+      "start": "AFFF",
+      "end_exclusive": "B01C",
+      "kind": "code",
+      "label": "PRINT presence test and NOPRINT clear before disabling"
+    },
+    {
+      "start": "B09A",
+      "end_exclusive": "B0AC",
+      "kind": "code",
+      "label": "PAUSE key service; LOAD/QUIT pending restart service"
+    },
+    {
+      "start": "B0C6",
+      "end_exclusive": "B0E4",
+      "kind": "code",
+      "label": "SAVE scheduling, one minute, preserve current action"
+    },
+    {
+      "start": "BFD9",
+      "end_exclusive": "C03B",
+      "kind": "code",
+      "label": "Clock advance, midnight day byte and time classes"
+    },
+    {
+      "start": "C3E4",
+      "end_exclusive": "C415",
+      "kind": "code",
+      "label": "Printer receives old top row before scrolling"
+    },
+    {
+      "start": "D39B",
+      "end_exclusive": "D3D4",
+      "kind": "code",
+      "label": "Location matching filtered by adjacency"
+    },
+    {
+      "start": "DC19",
+      "end_exclusive": "DC20",
+      "kind": "data",
+      "label": "LOOK THROUGH multioccurrence header"
+    },
+    {
+      "start": "DC20",
+      "end_exclusive": "DC6C",
+      "kind": "code",
+      "label": "LOOK THROUGH temporary relocation and restore"
+    },
+    {
+      "start": "DD52",
+      "end_exclusive": "DD54",
+      "kind": "data",
+      "label": "Adjacent movement DOMAIN header"
+    },
+    {
+      "start": "DD54",
+      "end_exclusive": "DD62",
+      "kind": "data",
+      "label": "Adjacent movement DOMAIN operations, not Z80"
+    },
+    {
+      "start": "E452",
+      "end_exclusive": "E456",
+      "kind": "data",
+      "label": "FOLLOW/COME WITH class-12 header and predicate"
+    },
+    {
+      "start": "E456",
+      "end_exclusive": "E488",
+      "kind": "data",
+      "label": "FOLLOW deferred DOMAIN program, not Z80"
+    }
+  ]
+}

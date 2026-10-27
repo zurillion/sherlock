@@ -32,7 +32,7 @@ for(const [name,ref,limit]of references)test('Original error recovery, all actor
  }
 });
 test('Unsupported commands cancel the entire input without poisoning the next command or clarification',()=>{
- for(const command of ['FOLLOW WATSON','COME WITH WATSON','OPEN ALL. FOLLOW WATSON']){
+ for(const command of ['LOOK \"HELLO\"','EXAMINE 6D','OPEN ALL. LOOK "HELLO"']){
   const g=new Game(data,{npc_profile:'world-v5'});g.submit('OPEN DOOR');const before=g.dump();
   const out=g.submit(command);assert.equal(out.state.analysis.outcome,'not_translated',command);assert(out.messages.every(m=>m.kind==='system'));assert.match(gameStatus(out.state),/puoi continuare/);
   assert.deepEqual(g.world.dump(),before.world,command+' complete world/source rollback');assert.deepEqual(g.pending,before.pending);assert.equal(g.lastInput,before.lastInput);assert.equal(g.lastFrames.length,0);
@@ -40,7 +40,7 @@ test('Unsupported commands cancel the entire input without poisoning the next co
  }
 });
 test('A missing dependency after an earlier action in the same line also cancels its minute frames',()=>{
- const s=new ClientSession(data,{npc_profile:'world-v5'}),before=s.game.dump(),out=s.request('start-command',{command:'WAIT. FOLLOW WATSON'});
+ const s=new ClientSession(data,{npc_profile:'world-v5'}),before=s.game.dump(),out=s.request('start-command',{command:'WAIT. LOOK "HELLO"'});
  assert.equal(out.state.analysis.outcome,'not_translated');assert.equal(out.running,false);assert.equal(s.job,null);assert.deepEqual(s.game.world.dump(),before.world);assert.equal(s.game.lastFrames.length,0);
  assert.equal(s.request('command',{command:'I'}).state.clock.label,'Mon 08:01am');
 });

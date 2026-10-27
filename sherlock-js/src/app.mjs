@@ -65,13 +65,13 @@ $('show-history').onclick=()=>{$('history-status').textContent='';$('command-his
 $('close-history').onclick=()=>$('command-history').close();
 $('copy-history').onclick=async()=>{renderHistory();const area=$('history-text');try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(area.value);$('history-status').textContent='Cronologia copiata.';}catch{area.focus();area.select();$('history-status').textContent=document.execCommand('copy')?'Cronologia copiata.':'Testo selezionato: premi ⌘C o Ctrl+C per copiarlo.';}};
 
-function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;if($('printer-download'))$('printer-download').disabled=value||!state?.printer?.rows;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
 function updateGameStatus(s){
  const text=gameStatus(s);
  $('game-status').textContent=text;$('game-status').hidden=!text;
 }
-function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);updateGameStatus(s);$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
+function update(s){const previousRoom=state?.room;state=s;if($('printer-download')){$('printer-download').hidden=!(s.printer?.enabled||s.printer?.rows);$('printer-download').disabled=busy||!s.printer?.rows;}if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);updateGameStatus(s);$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
  updateCharacters(s);
@@ -103,8 +103,26 @@ async function consumeCommand(result,epoch){
   result=await engineRequest('continue-command',{job:activeJob,interrupt});
  }
 }
-async function perform(path,body,focus=true){if(busy||state?.game_over)return;const epoch=++operationEpoch;interruptRequested=false;$('game-status').hidden=true;setBusy(true);try{const r=await engineRequest(path,body);if(epoch!==operationEpoch)return;if(path==='start-command')await consumeCommand(r,epoch);else{update(r.state);await showMessages(r.messages);}}catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}finally{if(epoch===operationEpoch){waitControls(null,false);setBusy(false);renderHistory();try{checkpointTab();}catch(error){notice('Cronologia disponibile, ma non conservata al ricaricamento: '+error.message);}if(focus||spectrum.active)focusCommand();}}}
-async function command(text){if(busy||!text.trim())return;const control=text.trim().toUpperCase().replace(/\.$/,'');if(control==='SAVE'){await saveGame();return;}if(control==='LOAD'){chooseLoad();return;}if(state?.game_over)return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('start-command',{command:text});}
+async function perform(path,body,focus=true){
+ if(busy||state?.game_over)return;
+ const epoch=++operationEpoch;let completed=false;interruptRequested=false;$('game-status').hidden=true;setBusy(true);
+ try{
+  const r=await engineRequest(path,body);if(epoch!==operationEpoch)return;
+  if(path==='start-command')await consumeCommand(r,epoch);else{update(r.state);await showMessages(r.messages);}completed=true;
+ }catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}
+ finally{
+  if(epoch===operationEpoch){
+   waitControls(null,false);setBusy(false);renderHistory();
+   try{checkpointTab();}catch(error){notice('Cronologia disponibile, ma non conservata al ricaricamento: '+error.message);}
+   if(focus||spectrum.active)focusCommand();
+   if(completed&&path==='start-command'&&state?.analysis?.outcome!=='not_translated'){
+    const controls=state?.analysis?.controls||[];
+    if(controls.includes('save'))await saveGame();if(controls.includes('load'))chooseLoad();
+   }
+  }
+ }
+}
+async function command(text){if(busy||!text.trim())return;if(state?.game_over)return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('start-command',{command:text});}
 function notice(text){$('session-notice').textContent=text;}
 async function saveGame(){
  if(busy||!state)return;
@@ -138,6 +156,7 @@ async function restorePresentation(p,current){
   await spectrum.writeMessages(messages.length?messages:[{kind:'narrative',text:current.initial,image_room:current.room}]);
  }
 }
+$('printer-download').onclick=async()=>{try{const result=await engineRequest('printer'),url=URL.createObjectURL(new Blob([result.svg],{type:'image/svg+xml'})),link=el('a');link.href=url;link.download='sherlock-printer.svg';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(error){notice(error.message);}};
 $('save-game').onclick=saveGame;$('load-game').onclick=chooseLoad;
 $('load-file').onchange=async()=>{
  const file=$('load-file').files[0];if(!file||busy)return;persisting=true;setBusy(true);

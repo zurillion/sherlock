@@ -9,9 +9,9 @@ const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url
 
 test('The journal retains exact raw commands, failures, continuation replies, seed and teleports',()=>{
  const g=new Game(data,{npc_profile:'world-v5',seed:1});
- for(const input of ['Open door','all','xyzzy','FOLLOW WATSON'])g.submit(input);
+ for(const input of ['Open door','all','xyzzy','LOOK \"HELLO\"'])g.submit(input);
  g.teleport(5);g.submit('hail cab');g.submit('say "hello" to cabbie');
- const entries=g.history.entries;assert.deepEqual(entries.filter(e=>e.kind==='command').map(e=>e.text),['Open door','all','xyzzy','FOLLOW WATSON','hail cab','say "hello" to cabbie']);
+ const entries=g.history.entries;assert.deepEqual(entries.filter(e=>e.kind==='command').map(e=>e.text),['Open door','all','xyzzy','LOOK \"HELLO\"','hail cab','say "hello" to cabbie']);
  assert.equal(entries[0].outcome,'clarification');assert.equal(entries[0].errors[0],'WHICH DOOR ?');assert.equal(entries[2].outcome,'lexical_error');
  assert.equal(entries[3].outcome,'not_translated');assert.match(entries[3].errors[0],/JavaScript/);assert.equal(entries[4].kind,'teleport');assert.equal(entries[4].after.room,5);
  const text=g.history.format();assert.match(text,/# Seed iniziale: 1/);assert.match(text,/Open door\n# Esito: clarification/);assert.match(text,/# Teletrasporto: 005/);assert.match(text,/say "hello" to cabbie/);

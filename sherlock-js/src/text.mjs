@@ -99,7 +99,7 @@ export class Text {
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
  scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look'}={}){
-  const w=this.world,r=w.rooms[room],text=[],actorName=w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
+  const w=this.world,r=w.rooms[room],text=[],actorName=remote&&w.entity(w.player).parent!==null?w.name(w.entity(w.player).parent).replace(/^./,c=>c.toUpperCase()):w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
   if(w.dark()&&!remote)return 'It is too dark to see.';
   const parent=remote?null:w.entity(w.player).parent;
   // D526's recursive list frame adds six bytes per level. A LOOK enters
