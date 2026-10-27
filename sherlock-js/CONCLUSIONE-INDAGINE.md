@@ -162,3 +162,10 @@ presentazione a Straker (14:58) dal successivo ramo dell'arresto/sparatoria,
 raggiunto dopo un viaggio naturale e attese (martedì 01:03, seed 1).
 Non sono timer universali né assetti preparati: sono due cronologie complete
 con tutti gli attori, confrontate fino al fine partita e dopo Salva/Carica.
+
+
+Aggiornamento 27 ottobre: vedere [ALTRI-FINALI.md](ALTRI-FINALI.md) e
+`results/other-endings-verification.json`. Confrontati due percorsi naturali
+fino alla cassaforte (stesso finale 759C); corretti la ricerca delle premesse
+annidate e il rifiuto originale degli ordini di movimento a Basil impegnato.
+Le altre sei varianti terminali restano da certificare con storie naturali.

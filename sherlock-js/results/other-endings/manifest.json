@@ -1,0 +1,12 @@
+[
+  {
+    "label": "safe-basil-absent",
+    "history": "results/other-endings/safe-absent-inputs.txt",
+    "expected": "759C"
+  },
+  {
+    "label": "restricted-basil-order",
+    "history": "results/other-endings/restricted-basil-inputs.txt",
+    "expected": "759C"
+  }
+]

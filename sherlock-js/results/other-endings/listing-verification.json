@@ -1,0 +1,79 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 194,
+  "bytes_roundtripped": 611,
+  "regions": [
+    {
+      "start": "9921",
+      "end_exclusive": "994D",
+      "kind": "data",
+      "label": "Immutable player DOMAIN programme"
+    },
+    {
+      "start": "9F38",
+      "end_exclusive": "9FAB",
+      "kind": "data",
+      "label": "Global action id / rule pointer table with FF terminator"
+    },
+    {
+      "start": "BC46",
+      "end_exclusive": "BCC9",
+      "kind": "code",
+      "label": "Proof scans: BE5A atom traversal versus BE72 group traversal"
+    },
+    {
+      "start": "BD51",
+      "end_exclusive": "BD7E",
+      "kind": "code",
+      "label": "Triple lookup through nested atoms"
+    },
+    {
+      "start": "BE5A",
+      "end_exclusive": "BE97",
+      "kind": "code",
+      "label": "Proof atom length and group traversal"
+    },
+    {
+      "start": "CBA7",
+      "end_exclusive": "CBBB",
+      "kind": "code",
+      "label": "Restriction flag: refusal text and failed action return"
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Entity naming: literal personal name versus article and dictionary qualifier"
+    },
+    {
+      "start": "DCD2",
+      "end_exclusive": "DCFF",
+      "kind": "code",
+      "label": "Walking predicate: exit lookup before suspended-program restriction"
+    },
+    {
+      "start": "DEA4",
+      "end_exclusive": "DEAF",
+      "kind": "code",
+      "label": "OPEN execution body"
+    },
+    {
+      "start": "DFB8",
+      "end_exclusive": "DFCA",
+      "kind": "code",
+      "label": "Safe calendar gate"
+    },
+    {
+      "start": "DFCA",
+      "end_exclusive": "DFCC",
+      "kind": "data",
+      "label": "Safe fatal event DOMAIN header"
+    },
+    {
+      "start": "DFCC",
+      "end_exclusive": "DFE3",
+      "kind": "code",
+      "label": "Basil present / enters terminal selection"
+    }
+  ]
+}

@@ -150,3 +150,10 @@ Il motore rimane una ricostruzione parziale: le prove locali dichiarate non
 certificano ancora equivalenza dell'intero gioco o di tutti i seed.
 
 Correzione porte lontane: vedere [PORTE-E-NOTIFICHE.md](PORTE-E-NOTIFICHE.md). Il filtro CB01/D471 ora impedisce notifiche di porte condivise tra edifici diversi; rimangono le notifiche dalle stanze realmente adiacenti.
+
+
+Aggiornamento 27 ottobre: vedere [ALTRI-FINALI.md](ALTRI-FINALI.md) e
+`results/other-endings-verification.json`. Confrontati due percorsi naturali
+fino alla cassaforte (stesso finale 759C); corretti la ricerca delle premesse
+annidate e il rifiuto originale degli ordini di movimento a Basil impegnato.
+Le altre sei varianti terminali restano da certificare con storie naturali.

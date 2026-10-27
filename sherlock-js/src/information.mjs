@@ -38,10 +38,12 @@ export class Information {
  children(atoms,i){let next=i+1;for(;;){const last=atoms[next].flags&8,result=this.evidence(atoms,next);if(!result.met)return false;next=result.next;if(last)return true;}}
  evaluate(atoms,i){const atom=atoms[i];if(atom.flags&4&&!this.children(atoms,i))return false;if(atom.flags&32){atom.flags|=1;return true;}atom.flags=(atom.flags|2)&254;return true;}
  scan(){const atoms=this.atoms(),roots=[];for(let i=0;i<atoms.length;i=this.skip(atoms,i))roots.push(i);
-  for(const i of roots.filter(i=>(atoms[i].flags&33)===1).reverse())this.evaluate(atoms,i);
-  const complete=[],incomplete=[];for(const i of roots){if(!(atoms[i].flags&1))continue;(this.evaluate(atoms,i)?complete:incomplete).push(atoms[i]);}
-  // BC74 repeats the outstanding scans after BC9C, including their mutations.
-  if(!complete.length)for(const atom of incomplete)this.evaluate(atoms,atoms.indexOf(atom));
+  // BC46 walks every atom with BE5A, including nested hypotheses.
+  // The complete-response scan below uses BE72 and skips complete groups.
+  for(const i of atoms.map((_,i)=>i).filter(i=>(atoms[i].flags&33)===1).reverse())this.evaluate(atoms,i);
+  const complete=[],incomplete=[];for(const i of roots){if(atoms[i].flags&1&&this.evaluate(atoms,i))complete.push(atoms[i]);}
+  // BC9C skips groups with BE72; BC74 then uses BE5A for every active atom.
+  if(!complete.length)for(let i=0;i<atoms.length;i++)if(atoms[i].flags&1&&!this.evaluate(atoms,i))incomplete.push(atoms[i]);
   return {complete,incomplete};
  }
  remember(triple){const r=this.records,a=r.arena,all=r.records('facts'),existing=all.find(p=>a.byte(p)===triple.subject&&a.byte(p+1)===triple.predicate&&a.byte(p+2)===triple.object);let p=existing;
@@ -53,7 +55,7 @@ export class Information {
  watson(nodes,messages){let mode=0,last=null;
   for(const node of nodes){let triple;try{triple=this.resolve(node);}catch(error){if(error instanceof UnsupportedFeature&&error.message.includes('internal ambiguous information reference')){this.print('7243',3,messages);return;}throw error;}
    if(!triple)continue;
-   const fact=this.state.facts.find(f=>this.triplesEqual(f,triple));
+   const fact=this.atoms().find(f=>this.triplesEqual(f,triple));
    if(fact&&(fact.flags&32)){mode=2;last=triple;}
    else if(this.host.game.runtimeRandom.percent({actor:3,mixOffset:2,purpose:'watson-information-acceptance'})<(fact?50:70)){mode=fact?3:4;last=triple;}
    if(last)break; // BA7F reaches the response directly; later nodes are discarded.
@@ -82,7 +84,7 @@ export class Information {
  }
  lestrade(nodes,messages){let found=0,newFact=null;
   for(const node of nodes){let triple;try{triple=this.resolve(node);}catch(error){if(error instanceof UnsupportedFeature&&error.message.includes('internal ambiguous information reference')){this.print('7243',2,messages);return;}throw error;}if(!triple)continue;
-   const fact=this.state.facts.find(f=>this.triplesEqual(f,triple)&&(f.flags&192)===128);if(!fact)continue;found++;const atoms=this.atoms();if(!this.evaluate(atoms,atoms.findIndex(a=>a.start===fact.start))){fact.flags|=1;newFact=fact;}
+   const fact=this.atoms().find(f=>this.triplesEqual(f,triple)&&(f.flags&192)===128);if(!fact)continue;found++;const atoms=this.atoms();if(!this.evaluate(atoms,atoms.findIndex(a=>a.start===fact.start))){fact.flags|=1;newFact=fact;}
   }
   if(!found){this.print('725F',2,messages);return;}
   if(newFact){const atoms=this.atoms();let i=atoms.findIndex(a=>a.start===newFact.start)+1;while((atoms[i].flags&192)!==128&&!(atoms[i].flags&8))i=this.skip(atoms,i);this.print((atoms[i].flags&192)===128?'7295':'72A6',2,messages,{fact:newFact});return;}

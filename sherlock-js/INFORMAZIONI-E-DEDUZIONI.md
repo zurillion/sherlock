@@ -128,3 +128,10 @@ i rami avanzati degli NPC e l’ampliamento della copertura restano ai punti
 Risultato finale: 387 test superati. Il corpus nuovo confronta 74 comandi
 di seguito, 599 estrazioni e 1.210 letture della sorgente casuale, oltre
 al prefisso naturale. Rapporto: `results/information-verification.json`.
+
+
+Aggiornamento 27 ottobre: vedere [ALTRI-FINALI.md](ALTRI-FINALI.md) e
+`results/other-endings-verification.json`. Confrontati due percorsi naturali
+fino alla cassaforte (stesso finale 759C); corretti la ricerca delle premesse
+annidate e il rifiuto originale degli ordini di movimento a Basil impegnato.
+Le altre sei varianti terminali restano da certificare con storie naturali.

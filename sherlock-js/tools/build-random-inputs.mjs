@@ -36,6 +36,11 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  for(let p=0x9923;p<=0x993C;p+=5){if(byte(p)!==0x13)throw Error('Unexpected player rule operation');headers.add((byte(p+1)|byte(p+2)<<8).toString(16).toUpperCase());}
  const ruleBytes=[];for(const h of headers){const at=parseInt(h,16),flags=byte(at),size=2+(flags&64?2:0)+(flags&16?5:0);for(let i=0;i<size;i++)if(!written.has(at+i))ruleBytes.push([at+i,byte(at+i)]);}
  const worldLayout={rooms:catalog.rooms.map(r=>({id:r.id,start:parseInt(r.record,16),size:r.size})),entities:catalog.entities.map(e=>({id:e.id,start:parseInt(e.record,16),size:e.size,rulePairs:e.rules.map(r=>[r.action_id,r.value])})),tables:[{start:0x8B6F,values:[...catalog.entities.flatMap(e=>[e.id,parseInt(e.record,16)&255,parseInt(e.record,16)>>>8]),255]},{start:0x8258,values:[...payload.subarray(0x8258-base,Math.min(...catalog.rooms.map(r=>parseInt(r.record,16)))-base)]}]};
+ // C972 searches this immutable id/pointer table; it is DATA, not code.
+ const generalActions=[];for(let at=0x9F38;;at+=3){const id=byte(at);generalActions.push(id);if(id===255)break;const pointer=byte(at+1)|(byte(at+2)<<8),model=actions.models.find(a=>a.id===id);if(!model||parseInt(model.general_rule,16)!==pointer)throw Error('Unexpected global action table');generalActions.push(pointer&255,pointer>>>8);}
+ worldLayout.tables.push({start:0x9F38,values:generalActions});
+ // Immutable player DOMAIN operations (9921..994C), with no erase flags.
+ worldLayout.tables.push({start:0x9921,values:[...payload.subarray(0x9921-base,0x994D-base)]});
  // The editor reuses the relocated tape loader. Unwritten input suffixes
  // therefore retain loader VALUES, including its last CODE header and status.
  // Reconstruct the copy/header operations, rather than reading a RAM snapshot.

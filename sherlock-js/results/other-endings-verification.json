@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-27",
+  "engine": "autonomous JavaScript world-v5",
+  "full_game_equivalence": false,
+  "runtime_uses_original_cpu": false,
+  "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+  "fixture": {
+    "path": "test/fixtures/other-endings-reference.json",
+    "sha256": "b58ca187b8196ebbbfa8a92d8235d7b2a68e6941ae3ec83d6513924bc8ec6c52"
+  },
+  "cases": [
+    {
+      "label": "safe-basil-absent",
+      "history": "results/other-endings/safe-absent-inputs.txt",
+      "commands": 57,
+      "checkpoints": 57,
+      "draws": 412,
+      "reads": 874,
+      "ending": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "759C"
+      },
+      "clock": {
+        "tick": 167,
+        "due": 167,
+        "minute": 46,
+        "hour": 10,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 10:46am"
+      },
+      "source_events": [
+        {
+          "pc": "DFCC",
+          "actor": 0,
+          "clock": {
+            "tick": 167,
+            "due": 167,
+            "minute": 46,
+            "hour": 10,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 10:46am"
+          }
+        }
+      ]
+    },
+    {
+      "label": "restricted-basil-order",
+      "history": "results/other-endings/restricted-basil-inputs.txt",
+      "commands": 69,
+      "checkpoints": 69,
+      "draws": 458,
+      "reads": 966,
+      "ending": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "759C"
+      },
+      "clock": {
+        "tick": 190,
+        "due": 190,
+        "minute": 9,
+        "hour": 11,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 11:09am"
+      },
+      "source_events": [
+        {
+          "pc": "DFCC",
+          "actor": 0,
+          "clock": {
+            "tick": 190,
+            "due": 190,
+            "minute": 9,
+            "hour": 11,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 11:09am"
+          }
+        }
+      ]
+    }
+  ],
+  "controlled_nested_premises": {
+    "fixture": "test/fixtures/internal-premises-reference.json",
+    "sha256": "677ba807a8b1160f46b6d1aea1e54829ea6ab9e66a5b7831dec09749484d5165",
+    "protocol": "Controlled seed-1 tests, all actors; move Lestrade to room 8, optionally set only the F103 observation leaf at 9972. No prepared state is a natural playthrough.",
+    "cases": 2,
+    "checkpoints": 6
+  },
+  "comparison": [
+    "all RNG draws, input reads and successor seed/cursor",
+    "24 actor slots: deadlines, PCs and saved arguments",
+    "entities, room flags, proof trees, all 752 arena bytes and list pointers",
+    "editor/token buffers, exact upper/lower bitmap and owned renderer fields",
+    "actual browser packets, pre-clear terminal acknowledgement, SAVE/LOAD future and terminal freeze"
+  ],
+  "remaining_natural_terminal_texts": [
+    "69BF",
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "limitations": [
+    "Natural certificates use seed 1 and declared input/display protocol.",
+    "Controlled proof observation leaf at 9972 is explicitly prepared, not naturally acquired.",
+    "CBA7 movement-refusal text invalidates unprojected renderer scratch from 5D06; no recorded fallback values are installed.",
+    "Other terminal selectors retain prior controlled certificates; these histories do not certify a complete solution."
+  ],
+  "validation": {
+    "full_suite": {
+      "tests": 654,
+      "passed": 654,
+      "failed": 0
+    },
+    "additional_pre_clear_packet_tests": {
+      "tests": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "listing": {
+      "roundtrip_equal": true,
+      "instructions": 194,
+      "bytes_roundtripped": 611,
+      "regions": [
+        {
+          "start": "9921",
+          "end_exclusive": "994D",
+          "kind": "data",
+          "label": "Immutable player DOMAIN programme"
+        },
+        {
+          "start": "9F38",
+          "end_exclusive": "9FAB",
+          "kind": "data",
+          "label": "Global action id / rule pointer table with FF terminator"
+        },
+        {
+          "start": "BC46",
+          "end_exclusive": "BCC9",
+          "kind": "code",
+          "label": "Proof scans: BE5A atom traversal versus BE72 group traversal"
+        },
+        {
+          "start": "BD51",
+          "end_exclusive": "BD7E",
+          "kind": "code",
+          "label": "Triple lookup through nested atoms"
+        },
+        {
+          "start": "BE5A",
+          "end_exclusive": "BE97",
+          "kind": "code",
+          "label": "Proof atom length and group traversal"
+        },
+        {
+          "start": "CBA7",
+          "end_exclusive": "CBBB",
+          "kind": "code",
+          "label": "Restriction flag: refusal text and failed action return"
+        },
+        {
+          "start": "D3E8",
+          "end_exclusive": "D448",
+          "kind": "code",
+          "label": "Entity naming: literal personal name versus article and dictionary qualifier"
+        },
+        {
+          "start": "DCD2",
+          "end_exclusive": "DCFF",
+          "kind": "code",
+          "label": "Walking predicate: exit lookup before suspended-program restriction"
+        },
+        {
+          "start": "DEA4",
+          "end_exclusive": "DEAF",
+          "kind": "code",
+          "label": "OPEN execution body"
+        },
+        {
+          "start": "DFB8",
+          "end_exclusive": "DFCA",
+          "kind": "code",
+          "label": "Safe calendar gate"
+        },
+        {
+          "start": "DFCA",
+          "end_exclusive": "DFCC",
+          "kind": "data",
+          "label": "Safe fatal event DOMAIN header"
+        },
+        {
+          "start": "DFCC",
+          "end_exclusive": "DFE3",
+          "kind": "code",
+          "label": "Basil present / enters terminal selection"
+        }
+      ]
+    }
+  },
+  "served_at": "http://127.0.0.1:8768/",
+  "served_asset_sha256": {
+    "src/game.mjs": "e449c0cbd3822bca392a3b444ad8c33ad81f1ac8d34e210eb9acbbfe7cb19719",
+    "src/information.mjs": "a63be0e94980f4289b201436575d3e8f62b5aa08e49564866f3a06bc8b79dcd6",
+    "src/npc-runtime.mjs": "e8905207a4bbe3d4a54f84936814dc70f2a14d454a22b5bad07f28c82da437e7",
+    "src/text.mjs": "f43edfe07b22db92454aa5d92fbf4da94b9408e8922b12e08215cd7778e5295d",
+    "data/game.json": "1cf261ad4747c77bd26f8eff3a0f5f13d2f910fdd968cb571f3e5dbb61166c8a"
+  }
+}

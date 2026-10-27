@@ -120,7 +120,7 @@ export class Game {
   if([11,23,41,42,44].includes(action)&&slot===0&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
   return {message:this.error(`YOU CANNOT ${verb} THE ${query}`)};
  }
- executeAs(node,actor,{textContext=null}={}){const previous=this.actingActor,pending=this.pending,priorText=this.actingTextContext;this.actingActor=actor;this.actingTextContext=textContext;try{return this.execute(node);}finally{this.actingActor=previous;this.actingTextContext=priorText;this.pending=pending;}}
+ executeAs(node,actor,{textContext=null,requestRestriction=false}={}){const previous=this.actingActor,pending=this.pending,priorText=this.actingTextContext,priorRestriction=this.actingRequestRestriction;this.actingActor=actor;this.actingTextContext=textContext;this.actingRequestRestriction=requestRestriction;try{return this.execute(node);}finally{this.actingActor=previous;this.actingTextContext=priorText;this.actingRequestRestriction=priorRestriction;this.pending=pending;}}
  execute(node){
   node=this.semanticNode(node);
   const w=this.world,action=this.action(node),actor=this.actor,subject=actor===0?'You':w.name(actor).replace(/^./,c=>c.toUpperCase()),verb=(base,third=this.dictionary.word(this.dictionary.lookup(base.toUpperCase()).value)?.form||base+'s')=>actor===0?base:third,say=(base,tail,third)=>`${subject} ${verb(base,third)}${tail}`,narrative=text=>({kind:'narrative',text}),ok=(messages,cost=1,args=[])=>({messages:messages.map(m=>typeof m==='string'?narrative(m):m),cost,action,args}),reject=text=>({messages:[this.error(text)],cost:0,action,args:[]});
@@ -229,6 +229,8 @@ export class Game {
    if(action<=10)edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.direction_id===action);
    else if(action===18||action===27){const group=node.groups[0]||{noun:0,qualifiers:[]};edge=w.rooms[w.roomOf(actor)].exits.find(e=>{const r=w.rooms[e.target],ids=r?.nameWords.map(n=>n&4095)||[];return (!group.noun||ids.includes(group.noun&4095))&&group.qualifiers.every(q=>ids.includes(q&4095));});direction=edge?.direction_id;}
    else{const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.gate===result.entity.id);direction=edge?.direction_id;}
+   // DCD2 resolves the exit before DCDD/CBA7 checks the suspended request.
+   if(action!==35&&edge?.target&&this.actingRequestRestriction)return {messages:[],cost:0,action,args:[],requestRefused:true};
    const gate=edge?.gate?w.entity(edge.gate):null;
    const failure=()=>action===35?reject(`YOU CANNOT LOOK THROUGH ${gate?w.name(gate.id).toUpperCase():'THAT'}.`):reject(`YOU CANNOT GO ${DIRECTION_NAMES[direction||action]?.toUpperCase()||'THAT WAY'}.`);
    if(!edge||!edge.target||action!==35&&w.entity(actor).parent!==null||(gate&&(!(gate.attributes&40)||action!==35&&gate.size<w.entity(actor).size))){const out=failure();return action===35?{...out,args:[gate?.id??node.resolved?.[0]??255],semanticResolved:true}:out;}
@@ -262,7 +264,7 @@ export class Game {
   if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say('give',' '+w.name(e.id)+' to '+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===36||action===14){const rule=e.rules.find(r=>r.action===action);if(!['openOrdinary','closeOrdinary'].includes(rule?.rule))throw new UnsupportedFeature('regola speciale '+this.word(node.verb)+' di '+e.name);
    if(e.attributes&1)return reject(w.name(e.id).toUpperCase()+' IS LOCKED');const open=Boolean(e.attributes&32);
-   if(action===36&&open)return reject(w.name(e.id).toUpperCase()+' IS OPEN');if(action===14&&!open)return reject(w.name(e.id).toUpperCase()+' IS CLOSED');
+   if(action===36&&open)return {...reject(w.name(e.id).toUpperCase()+' IS OPEN'),args:[e.id],semanticResolved:true};if(action===14&&!open)return {...reject(w.name(e.id).toUpperCase()+' IS CLOSED'),args:[e.id],semanticResolved:true};
    e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([say(action===36?'open':'close',' '+w.name(e.id)+'.')],1,[e.id]);
   }
   if(action===19&&e.person)return {...reject(`YOU CANNOT EXAMINE ${e.id===actor?'ME':w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};

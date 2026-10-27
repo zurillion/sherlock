@@ -229,7 +229,7 @@ export class NpcRuntime {
    const ctx={...context,request:true,node,sender:job.sender,prefab:job.prefab};
    let result,objectSemantic=false;
    if(node&&![21,22,29,30,45].includes(action)){
-    const out=this.game.executeAs(node,actor);objectSemantic=Boolean(out.objectRule);this.showAction(out,actor,messages,actions);result=out.objectRule?this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],{...ctx,saved:[action,...out.args,255].slice(0,3),isolated:true},messages,actions):{...yes(out.cost,{args:out.args}),success:out.cost>0||action===32};
+    const out=this.game.executeAs(node,actor,{requestRestriction:context.restriction});if(out.requestRefused){this.print('681A',actor,{object:job.sender},messages);this.game.sourceDisplay.invalidateScratch(0x5D06);cancel(true);return {handled:true,cost:0};}objectSemantic=Boolean(out.objectRule);this.showAction(out,actor,messages,actions);result=out.objectRule?this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],{...ctx,saved:[action,...out.args,255].slice(0,3),isolated:true},messages,actions):{...yes(out.cost,{args:out.args}),success:out.cost>0||action===32};
    }else{
     // B191's failed semantic resolution returns to B9B4/B9AC: an NPC
     // discards the remaining request, without asking the player to clarify.
