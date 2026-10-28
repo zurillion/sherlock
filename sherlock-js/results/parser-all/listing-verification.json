@@ -1,0 +1,89 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 166,
+  "bytes_roundtripped": 368,
+  "regions": [
+    {
+      "start": "A01A",
+      "end_exclusive": "A01B",
+      "kind": "data",
+      "label": "Stato condiviso ALL/BUT dell\u2019unit\u00e0 di parsing",
+      "atlas_priority": 122,
+      "fields": [
+        [
+          "A01A",
+          "1",
+          "0 nessuno; 1 ALL; 2 BUT. Persistenza su errore e reset solo a ingresso AAB2"
+        ],
+        [
+          "Distinto da",
+          "bit7/bit6 dei nodi",
+          "Non inferire lo stato dall\u2019AST finale: coordinazioni e backtracking hanno effetti propri"
+        ]
+      ]
+    },
+    {
+      "start": "AAB2",
+      "end_exclusive": "AABD",
+      "kind": "code",
+      "label": "Ingresso del parser: reset di ALL/BUT e contatore",
+      "atlas_priority": 92
+    },
+    {
+      "start": "ACA6",
+      "end_exclusive": "ACCC",
+      "kind": "code",
+      "label": "Copia nominale: BUT conserva lo slot fisico corrente",
+      "atlas_priority": 92
+    },
+    {
+      "start": "ACCC",
+      "end_exclusive": "AD6C",
+      "kind": "code",
+      "label": "Coordinazioni e backtracking: esclusioni condivise e conteggio",
+      "atlas_priority": 92
+    },
+    {
+      "start": "AE11",
+      "end_exclusive": "AE1E",
+      "kind": "code",
+      "label": "Eredit\u00e0 del verbo: applicata nella post-elaborazione riuscita",
+      "atlas_priority": 92
+    },
+    {
+      "start": "AEF1",
+      "end_exclusive": "AF04",
+      "kind": "code",
+      "label": "Copia del verbo omesso senza propagare il bit ALL",
+      "atlas_priority": 92
+    },
+    {
+      "start": "AF67",
+      "end_exclusive": "AF6B",
+      "kind": "code",
+      "label": "Errore sintattico: ritorno senza cancellare ALL/BUT",
+      "atlas_priority": 92
+    },
+    {
+      "start": "AFE8",
+      "end_exclusive": "AFFA",
+      "kind": "code",
+      "label": "Condizioni di ALL: verbo, contatore e chiarimento pendente",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B01C",
+      "end_exclusive": "B049",
+      "kind": "code",
+      "label": "Transizioni ALL=1 e BUT=2; nessuna ripetizione nella stessa unit\u00e0",
+      "atlas_priority": 92
+    },
+    {
+      "start": "D835",
+      "end_exclusive": "D870",
+      "kind": "code",
+      "label": "Fine di ALL: rilascio delle esclusioni e fallimento prima del nodo seguente",
+      "atlas_priority": 92
+    }
+  ]
+}

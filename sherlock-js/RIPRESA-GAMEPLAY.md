@@ -6,21 +6,19 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
    338 checkpoint, da 0 a 337, fino a mercoledì 04:00: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `FLAG-GLIFI-E-ANNUNCI.md`
-   e `results/glyph-flags-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `ALL-BUT-E-CICLO-PARSER.md`
+   e `results/parser-all-verification.json`.
 
-2. **Prossimo confine reale: stato ALL/BUT del parser $A01A.**
-   Il confronto completo si ferma al checkpoint 338 verso mercoledì 04:10.
-   Ricostruire AAB3 (reset), B03F (ALL=1), B026 (BUT=2), controlli AFE8,
-   vita del dato fra unità, citazioni, errori e continuazioni. È uno stato
-   globale temporaneo del parsing, non il booleano ALL dell’ultimo nodo.
-   Il backtracking che ripristina A012 non ripristina automaticamente A01A.
-   Non inserire zero perché la storia corrente sta eseguendo WAIT.
-   Il precedente 5D1A è derivato dal flag F del glifo di pulizia a frame5D26:
-   gli annunci CLIMB INTO/TAKE OFF scaricano il prefisso di entità a frame5D2C.
-   5D20/5D21 derivano da C/B del prefisso degli ordini; 5D1B–5D1E restano
-   sconosciuti. Il probe delle scritture include anche EX (SP),HL e gli
-   store di valore identico. Vedere il dossier per invalidazione e limiti.
+2. **Prossimo confine reale: costo temporaneo $A01F–$A020.**
+   Il confronto completo supera A01A ma si ferma su A020 nello stesso
+   checkpoint 338 verso mercoledì 04:10. Ricostruire scritture, reset e
+   persistenza della word globale del costo fra operazioni/attori. Non
+   dedurla dal costo corrente del VM o riempire l’alto con zero: WAIT UNTIL
+   e altri percorsi devono essere studiati secondo il sorgente.
+   A01A è ora proiettato dalle transizioni reali AAB3/B03F/B026. Le prove
+   hanno anche corretto eredità tardiva del verbo, slot nominale dopo BUT,
+   conteggio della fine di ALL prima del nodo successivo e reset superfluo
+   dopo SAVE senza seguito. Dettagli e intervalli della mappa nel dossier.
    La storia nativa completa termina in 6A33 giovedì 10:00: quel finale
    non è ancora certificato JavaScript.
 
@@ -51,5 +49,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 28 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **725 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **768 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

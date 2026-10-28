@@ -18,10 +18,14 @@ export class Parser {
   }
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
- unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null}={}){
+ unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null}={}){
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
+  // AE19 commits omitted verbs only after successful parsing. Failed
+  // records must retain their pre-inheritance payload.
+  const deferredFields=new WeakMap();
+  let allState=0;onAll?.(allState);
   let count=0;const publishCount=()=>onCount?.(count);publishCount();
-  const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current])});};
+  const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current].map(n=>deferredFields.has(n)?{...n,verb:0,modifier:0,groups:n.groups.slice(deferredFields.get(n))}:n))});};
   const peek=()=>tokens[index]||{type:192},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
   const nominal=()=>{
    const group=emptyGroup(),publish=()=>onNominal?.(clone(group));publish();let article=false,started=false,qualified=false;
@@ -65,9 +69,9 @@ export class Parser {
      else current.subject={...emptyGroup(),pronoun:word==='he'?'he':'it'};
      workingMode=2;if(!verb())fail();continue;
     }
-    if(word==='all'){if((!current.verb&&!pending)||current.all)fail();current.all=true;continue;}
+    if(word==='all'){if((!current.verb&&!pending)||allState!==0)fail();current.all=true;allState=1;onAll?.(allState);continue;}
     if(word==='but'){
-     if(!current.all)fail();finish(false);current={...node(),exclusion:true};const g=nominal()||emptyGroup();current.groups.push(g);continue;
+     if(allState!==1)fail();allState=2;onAll?.(allState);const slot=current.groups.length;finish(false);current={...node(),exclusion:true};current.groups=Array.from({length:slot},emptyGroup);const g=nominal();if(g&&slot>=2)fail();if(slot<2)current.groups.push(g||emptyGroup());continue;
     }
     if(['because','therefore'].includes(word)&&workingMode===2){finish();current=node();afterAnd=true;continue;}
     fail();
@@ -80,7 +84,7 @@ export class Parser {
    }
    if(peek().type===160){
     if(current.groups.length)onNominal?.(emptyGroup());take();while(peek().type===160)take();finish(!current.exclusion);const previous=current;current=node();afterAnd=true;if(previous.exclusion){nodes.pop();discarded.push({before:nodes.length,node:clone(previous)});current.suppressedInheritance=true;}
-    const next=peek();if([80,96,16,112,128,240].includes(next.type)){current.verb=previous.verb;current.modifier=previous.modifier;current.subject=clone(previous.subject);if(previous.groups.length>1)current.groups=clone(previous.groups.slice(0,1));}
+    const next=peek();if([80,96,16,112,128,240].includes(next.type)){deferredFields.set(current,previous.groups.length>1?1:0);current.verb=previous.verb;current.modifier=previous.modifier;current.subject=clone(previous.subject);if(previous.groups.length>1)current.groups=clone(previous.groups.slice(0,1));}
     else if(workingMode===2&&STATEMENTS.has(meaning(next))){current.subject=clone(previous.subject);}
     else if([0,32,48,64,224].includes(next.type)&&workingMode===1&&!pending){lookahead={...node(),verb:next.value};break;}
     continue;
@@ -109,7 +113,7 @@ export class Parser {
 
   return {nodes,next:index,mode:workingMode,outcome:'ok',...(lookahead?{lookahead}:{}),...(discarded.length?{discarded}:{}),...(continuationAnswer?{continuationAnswer}: {})};
  }
- quoted(quote,{onNominal=null,onCount=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
+ quoted(quote,{onNominal=null,onCount=null,onAll=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount,onAll});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
 }
 
 export function nodeWords(n){

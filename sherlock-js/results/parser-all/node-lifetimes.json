@@ -1,0 +1,341 @@
+{
+  "protocol": "Fresh seed1 natural inputs, all actors; source node lists observed before failure/postprocessing. No world overlays. Offline evidence only.",
+  "cases": [
+    {
+      "input": "OPEN ALL AND PLAIN DOOR ALL",
+      "events": [
+        {
+          "pc": "AF67",
+          "iy": "9808",
+          "all": 1,
+          "nodes": [
+            {
+              "pointer": "9829",
+              "words": [
+                34315,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "pointer": "9808",
+              "words": [
+                0,
+                0,
+                0,
+                0,
+                622,
+                1689,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "",
+          "screen_events": [
+            {
+              "op": "counter",
+              "value": 0,
+              "source": "D71A"
+            },
+            {
+              "op": "wide"
+            }
+          ]
+        },
+        {
+          "kind": "error",
+          "text": "WHAT ?",
+          "screen_events": []
+        }
+      ]
+    },
+    {
+      "input": "OPEN ALL AND PLAIN DOOR BUT YOUR DOOR",
+      "events": [
+        {
+          "pc": "AE19",
+          "iy": "9808",
+          "all": 2,
+          "nodes": [
+            {
+              "pointer": "9829",
+              "words": [
+                34315,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "pointer": "9808",
+              "words": [
+                0,
+                0,
+                0,
+                0,
+                622,
+                1689,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "pointer": "97E7",
+              "words": [
+                16384,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                622,
+                2546,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "pc": "AE57",
+          "iy": "9FF2",
+          "all": 2,
+          "nodes": [
+            {
+              "pointer": "9829",
+              "words": [
+                34315,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "pointer": "9808",
+              "words": [
+                1547,
+                0,
+                0,
+                0,
+                622,
+                1689,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "pointer": "97E7",
+              "words": [
+                16384,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                622,
+                2546,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "kind": "narrative",
+          "text": "",
+          "screen_events": [
+            {
+              "op": "counter",
+              "value": 0,
+              "source": "D71A"
+            },
+            {
+              "op": "wide"
+            },
+            {
+              "op": "word",
+              "text": "",
+              "delimiter": "\r",
+              "capitalize": true,
+              "force": false
+            }
+          ]
+        },
+        {
+          "kind": "narrative",
+          "text": "You open your door.",
+          "screen_events": [
+            {
+              "op": "word",
+              "text": "",
+              "delimiter": " ",
+              "capitalize": true,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "you",
+              "delimiter": " ",
+              "capitalize": true,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "open",
+              "delimiter": " ",
+              "capitalize": false,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "your",
+              "delimiter": " ",
+              "capitalize": false,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "door.",
+              "delimiter": "\r",
+              "capitalize": false,
+              "force": false
+            }
+          ]
+        },
+        {
+          "kind": "narrative",
+          "text": "You open the plain door.",
+          "screen_events": [
+            {
+              "op": "word",
+              "text": "",
+              "delimiter": "\r",
+              "capitalize": true,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "",
+              "delimiter": " ",
+              "capitalize": true,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "you",
+              "delimiter": " ",
+              "capitalize": true,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "open",
+              "delimiter": " ",
+              "capitalize": false,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "the",
+              "delimiter": " ",
+              "capitalize": false,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "plain",
+              "delimiter": " ",
+              "capitalize": false,
+              "force": false
+            },
+            {
+              "op": "word",
+              "text": "door.",
+              "delimiter": "\r",
+              "capitalize": false,
+              "force": false
+            }
+          ]
+        },
+        {
+          "kind": "error",
+          "text": "THE PLAIN DOOR IS OPEN",
+          "screen_events": []
+        }
+      ]
+    }
+  ]
+}

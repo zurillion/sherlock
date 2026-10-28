@@ -195,7 +195,7 @@ export class Game {
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
    const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote():node.quote;
-   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
+   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null,onAll:w.npcs?value=>{w.npcs.parserAll=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
     if(!(error instanceof InputError))throw error;
     if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
     else throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
@@ -323,13 +323,13 @@ export class Game {
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
-    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null,onAll:this.world.npcs?value=>{this.world.npcs.parserAll=value;}:null});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;const control=parsed.control;this.analysis.control=control;(this.analysis.controls??=[]).push(control);if(this.world.npcs&&(!pendingBefore||control==='save'))this.npcRuntime.use(({records})=>{const p=this.npcRuntime.syntaxRecord({verb:0,modifier:0,groups:[],subject:null},records);if(control==='quit')records.heads.syntax=p;else records.arena.release(p);});
      if(!['pause','print','noprint','save','load','quit'].includes(control))throw new UnsupportedFeature('controllo '+control+' (porta nastro non ancora collegata)');
      if(control==='quit'){if(this.world.npcs)this.world.npcs.playerProgramCounter='9932';this.ended={entry:'B0A6',reason:'quit'};break;}
      if(control==='load')break;
-     if(control==='save'){const saved=this.world.npcs.playerRootSaved;this.world.npcs.playerProgramCounter='9923';this.advance(1,{action:saved[0],args:saved.slice(1),messages,actions,preservePlayerStage:true});if(this.ended)break;delete this.analysis.control;if(!pendingBefore)continue;parsed.reusePending=true;}
+     if(control==='save'){const saved=this.world.npcs.playerRootSaved;this.world.npcs.playerProgramCounter='9923';this.advance(1,{action:saved[0],args:saved.slice(1),messages,actions,preservePlayerStage:true});if(this.ended)break;delete this.analysis.control;if(!pendingBefore){if(lexed.tokens.slice(index).every(t=>[176,192].includes(t.type)))break;continue;}parsed.reusePending=true;}
      if(control==='pause')messages.push({kind:'narrative',text:'',screen_pause:true});
      if(control==='print')this.world.npcs.printerEnabled=this.printerConnected!==false;
      if(control==='noprint'){for(let i=0;i<18;i++){this.sourceDisplay.feed('\n');this.world.display.counter=0;}this.world.npcs.printerEnabled=false;messages.push({kind:'narrative',text:'',screen_clear:true});}
@@ -337,7 +337,7 @@ export class Game {
      delete this.analysis.control;parsed.nodes=[structuredClone(pendingBefore.node)];parsed.continuationAnswer={verb:0,modifier:0,groups:[],subject:null};parsed.next=lexed.tokens.length-1;index=parsed.next;this.pending=null;
     }
     const pointers=this.world.npcs?this.npcRuntime.beginUnit(parsed.nodes,{answer:parsed.continuationAnswer,lookahead:parsed.lookahead,discarded:parsed.discarded,reusePending:parsed.reusePending}):[];
-    for(const [nodeIndex,originalNode]of parsed.nodes.entries()){if(originalNode.exclusion)continue;let syntaxAllocated=false;
+    for(const [nodeIndex,originalNode]of parsed.nodes.entries()){if(originalNode.exclusion)continue;if(nodeIndex&&lastOutcome?.collectiveExhausted&&this.world.npcs)this.npcRuntime.playerInputFailures(['9937'],messages,actions);let syntaxAllocated=false;
      try{
      if(this.world.npcs){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,pointer:pointers[nodeIndex]});syntaxAllocated=true;}
      for(const node of this.collective(originalNode)){

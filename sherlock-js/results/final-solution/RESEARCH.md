@@ -66,3 +66,14 @@ prefisso del nome negli ordini. Il confronto completo si ferma sullo stato
 ALL/BUT A01A al checkpoint 338 verso 04:10. Non sostituirlo con zero o
 con lo stato del solo ultimo nodo AST. Vedere `FLAG-GLIFI-E-ANNUNCI.md`.
 Mappa aggiornata; il finale 6A33 completo resta non certificato.
+
+## Settima ripresa: ALL/BUT
+
+Rapporto corrente: `results/parser-all-verification.json`. Il modello
+supera A01A grazie alle transizioni reali del parser e incontra A020 nello
+stesso checkpoint 338 verso mercoledì 04:10. Il prefisso certificato resta
+0–337 fino alle 04:00. Ricostruire il costo temporaneo globale A01F/A020,
+non usare il costo logico corrente o uno zero osservato come fallback.
+Vedere `ALL-BUT-E-CICLO-PARSER.md`, che documenta anche le correzioni dei
+record, del conteggio dei fallimenti e le nuove annotazioni della mappa.
+Il finale 6A33 completo resta non certificato.

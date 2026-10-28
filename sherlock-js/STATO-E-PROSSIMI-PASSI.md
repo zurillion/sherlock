@@ -233,3 +233,14 @@ Suite: **725 test passati**. Prefisso naturale: checkpoint 0–337 fino a
 mercoledì 04:00; nuovo confine A01A al checkpoint 338 verso 04:10.
 Mappa aggiornata con 251 istruzioni/446 byte annotati, 193 nuovi byte
 unici classificati. Cinque varianti terminali ancora da certificare.
+
+## Settima ripresa: ciclo di ALL/BUT e nodi sintattici
+
+Vedere `ALL-BUT-E-CICLO-PARSER.md`. Ricostruito A01A dalle scritture
+del parser; corretti eredità dei nodi falliti, slot dopo BUT, tentativo
+fallito alla fine di ALL e reset superfluo dopo SAVE. Suite: **768 test
+passati**. Il prefisso resta checkpoint 0–337 fino a mercoledì 04:00;
+la continuazione supera A01A e si ferma sul costo temporaneo A020, nello
+stesso checkpoint 338 verso 04:10. Mappa aggiornata con 166 istruzioni/368
+byte annotati; gli intervalli sono elencati nel dossier e nella risposta
+all’utente. Nessun nuovo finale completo certificato.
