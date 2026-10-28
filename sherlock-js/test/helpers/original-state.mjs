@@ -4,6 +4,7 @@ import {RecordLists} from '../../src/record-arena.mjs';
 import {encodeMoney} from '../../src/cab-economy.mjs';
 function bytes(g,from,to){const b=[];for(let y=from;y<to;y++)for(let x=0;x<32;x++)b.push(g.sourceDisplay.read(0x4000+((y&192)<<5)+((y&7)<<8)+((y&56)<<2)+x));return b;}
 export function assertOriginalState(g,e,label){const w=g.world,r=RecordLists.load(w.npcs.records);
+ if(e.mutable?.A019!==undefined)assert.equal(w.display.counter,e.mutable.A019,label+' cumulative MORE counter');
  assert.equal(w.player,e.player,label+' identity');assert.deepEqual(w.clock(),e.clock,label+' clock');assert.equal(w.npcs.playerFailures,e.player_failures,label+' failure budget');
  for(const row of e.actors){const a=w.scheduler.actor(row.id),state=a===w.scheduler.actors[0]?{pc:w.npcs.playerProgramCounter,saved:w.npcs.playerRootSaved}:w.npcs.program.states[row.id];assert.equal(a.due,row.due,label+' due '+row.id);assert.equal(state.pc,row.pc,label+' PC '+row.id);assert.deepEqual(state.saved,row.saved,label+' arguments '+row.id);}
  for(const e0 of e.entities)for(const k of ['parent','rooms','attributes','status','properties','noun','qualifiers','description']){if(k==='qualifiers'&&w.entity(e0.id).money){assert.deepEqual([encodeMoney(w.entity(e0.id).pence),w.entity(e0.id).qualifiers[1]],e0.qualifiers,label+' money '+e0.id);continue;}assert.deepEqual(w.entity(e0.id)[k],k==='description'&&e0[k]==='0000'?null:e0[k],label+' entity '+e0.id+' '+k);}

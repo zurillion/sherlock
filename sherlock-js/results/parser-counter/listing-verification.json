@@ -1,0 +1,143 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 304,
+  "bytes_roundtripped": 705,
+  "regions": [
+    {
+      "start": "A012",
+      "end_exclusive": "A013",
+      "kind": "data",
+      "label": "Contatore temporaneo del parser: inizialmente FF",
+      "atlas_priority": 121,
+      "fields": [
+        [
+          "A012",
+          "1",
+          "Contatore a 8 bit; FF iniziale, zero a inizio AAB2, incrementi AD66/B11B e ripristino AD3D"
+        ]
+      ]
+    },
+    {
+      "start": "A019",
+      "end_exclusive": "A01A",
+      "kind": "data",
+      "label": "Contatore cumulativo delle righe e MORE",
+      "atlas_priority": 121,
+      "fields": [
+        [
+          "A019",
+          "1",
+          "Quota cumulativa: reset D71A; CR e MORE C2CA\u2013C2D9"
+        ]
+      ]
+    },
+    {
+      "start": "AAB2",
+      "end_exclusive": "AABD",
+      "kind": "code",
+      "label": "Inizio parsing: azzera contatore e stato ALL/BUT",
+      "atlas_priority": 86
+    },
+    {
+      "start": "ACCC",
+      "end_exclusive": "AD72",
+      "kind": "code",
+      "label": "Coordinazioni, esclusioni e ripristino del contatore nel backtracking",
+      "atlas_priority": 86
+    },
+    {
+      "start": "B01C",
+      "end_exclusive": "B049",
+      "kind": "code",
+      "label": "ALL e BUT: nodo extra e stato della selezione",
+      "atlas_priority": 86
+    },
+    {
+      "start": "B0FD",
+      "end_exclusive": "B16D",
+      "kind": "code",
+      "label": "THAT, HE, IT/THEY: riallocazione e conteggi diversi",
+      "atlas_priority": 86
+    },
+    {
+      "start": "C2CA",
+      "end_exclusive": "C2DA",
+      "kind": "code",
+      "label": "MORE a quota quindici: attesa, FF e incremento modulo 256",
+      "atlas_priority": 86
+    },
+    {
+      "start": "D6C1",
+      "end_exclusive": "D6CE",
+      "kind": "code",
+      "label": "Input accettato: azzera sempre il flag transitorio di @",
+      "atlas_priority": 86
+    },
+    {
+      "start": "D714",
+      "end_exclusive": "D715",
+      "kind": "data",
+      "label": "Flag transitorio di riuso dei token nell\u2019editor",
+      "atlas_priority": 121,
+      "fields": [
+        [
+          "D714",
+          "1",
+          "Flag temporaneo: set da @, reset quando l\u2019editor consegna l\u2019input"
+        ]
+      ]
+    },
+    {
+      "start": "D719",
+      "end_exclusive": "D726",
+      "kind": "code",
+      "label": "Tokenizzazione: azzera MORE e consulta il flag di riuso",
+      "atlas_priority": 86
+    },
+    {
+      "start": "D99E",
+      "end_exclusive": "D9AC",
+      "kind": "code",
+      "label": "Tasto @: flag temporaneo, ignorato durante una precisazione",
+      "atlas_priority": 86
+    },
+    {
+      "start": "BA1C",
+      "end_exclusive": "BA20",
+      "kind": "data",
+      "label": "Deduzioni di Lestrade: riconosciute, non provate e ultimo fatto",
+      "atlas_priority": 121,
+      "fields": [
+        [
+          "BA1C",
+          "1",
+          "Numero di frasi riconosciute, modulo 256"
+        ],
+        [
+          "BA1D",
+          "1",
+          "Flag: almeno un fatto riconosciuto non \u00e8 provato"
+        ],
+        [
+          "BA1E",
+          "2",
+          "Ultimo fatto riconosciuto o selezionato dalla scansione delle ipotesi"
+        ]
+      ]
+    },
+    {
+      "start": "BB67",
+      "end_exclusive": "BC46",
+      "kind": "code",
+      "label": "Verifica delle frasi: contatori e puntatore dell\u2019ultimo fatto riconosciuto",
+      "atlas_priority": 86
+    },
+    {
+      "start": "BC74",
+      "end_exclusive": "BCC9",
+      "kind": "code",
+      "label": "Scansione delle ipotesi: primo fatto completo e ultimo incompleto",
+      "atlas_priority": 86
+    }
+  ]
+}

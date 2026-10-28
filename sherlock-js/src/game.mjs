@@ -195,7 +195,7 @@ export class Game {
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
    const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote():node.quote;
-   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
+   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
     if(!(error instanceof InputError))throw error;
     if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
     else throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
@@ -316,11 +316,14 @@ export class Game {
    const repeat=input.trim()==='@'&&!this.pending;
    if(input.trim()==='@')input=this.pending?'':this.lastInput||'';
    if(this.world.display){if(repeat)this.sourceDisplay.repeat();else this.sourceDisplay.command(normalizeInput(input));}
+   // D6C8 clears the transient @ token-reuse flag after accepted input,
+   // before lexical validation or any paid actor visit.
+   if(this.world.npcs)this.world.npcs.editorTokenFlag=0;
    this.lastInput=input;lexed=this.lexer.scan(input);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
-    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;const control=parsed.control;this.analysis.control=control;(this.analysis.controls??=[]).push(control);if(this.world.npcs&&(!pendingBefore||control==='save'))this.npcRuntime.use(({records})=>{const p=this.npcRuntime.syntaxRecord({verb:0,modifier:0,groups:[],subject:null},records);if(control==='quit')records.heads.syntax=p;else records.arena.release(p);});
      if(!['pause','print','noprint','save','load','quit'].includes(control))throw new UnsupportedFeature('controllo '+control+' (porta nastro non ancora collegata)');

@@ -34,7 +34,8 @@ export class NpcRuntime {
   for(const root of g.data.npcPrograms.actors){vm.start(root.id,root.entry);const a=w.scheduler.actor(root.id);a.enabled=true;a.program='domain';a.due=0;a.behavior=null;}
   w.npcs.program=vm.dump();w.random={version:1,profile:'world-v5',seed,cursor:0,draws:0,trace:[]};g.configureRandom();
   w.npcs.facts=clone(this.worldSource.layout.facts);
-  w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];
+  w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
+  w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
   w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
   // Graphics are presentation-only in the declared text-only source profile.
   // F490/F507 are its only colour writers; neither runs after this boot.
@@ -536,6 +537,7 @@ export class NpcRuntime {
  }
  read(address){if(address===0xF60B)return this.state.nativeFillColor??null;const worldValue=this.worldSource.read(address);if(worldValue!==null)return worldValue;
   if(address===0xDC13||address===0xDC14)return this.state.lexicalMatch?.[address-0xDC13]??null;
+  if(address>=0xBA1C&&address<0xBA20){const v=this.state.information.verification;if(!v)return null;return address===0xBA1C?v.recognized:address===0xBA1D?v.unproven:Number.isInteger(v.lastFact)?address===0xBA1E?v.lastFact&255:v.lastFact>>>8:null;}
   if(address>=0xBA13&&address<0xBA1C){const r=this.state.information.resolution;if(!r)return null;const values=[...r.cursors,r.verb];if(address<0xBA19){const n=values[Math.floor((address-0xBA13)/2)];return Number.isInteger(n)?((address&1)?n&255:n>>>8):null;}return r.triple[address-0xBA19]??null;}
   if(address>=0xAAA8&&address<0xAAB2)return this.state.parserNominal?.[address-0xAAA8]??null;
   if(address>=0xC1F4&&address<=0xC1FB)return this.game.sourceDisplay.read(address);
@@ -546,6 +548,9 @@ export class NpcRuntime {
   if(address===0xCC0D){const actor=this.w.scheduler.current?.actor,local=this.active?.vm.states[actor]??this.state.program.states[actor];return local?Number(local.requestAvailable):actor===this.w.player?Number(this.w.scheduler.requests.some(r=>r.recipient===actor)):null;}
   if(address===0xCC0B){const actor=this.w.scheduler.current?.actor;if(actor===this.w.player)return this.state.playerFailures;return this.active?.vm.states[actor]?.failures??this.state.program.states[actor]?.failures??null;}
   if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
+  if(address===0xD714)return this.state.editorTokenFlag??null;
+  if(address===0xA019)return this.w.display?.counter??null;
+  if(address===0xA012)return this.state.parserCount??null;
   if(address===0xA011)return this.state.nativeGraphicsEnabled===undefined?null:Number(this.state.nativeGraphicsEnabled);
   if(address===0xA00F||address===0xA010)return this.state.argumentClasses?.[address-0xA00F]??null;
   if(address===0xA00C)return this.state.announcementMode??null;
@@ -581,7 +586,10 @@ export class NpcRuntime {
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
+  if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');
+  if(s.parserCount!==undefined&&s.parserCount!==null&&!byte(s.parserCount))throw Error('Contatore parser non valido');
   if(s.lexicalMatch!==undefined&&(!Array.isArray(s.lexicalMatch)||s.lexicalMatch.length!==2||s.lexicalMatch.some(v=>v!==null&&!byte(v))))throw Error('Stato confronto lessicale non valido');
+  if(s.information?.verification){const v=s.information.verification;if([v.recognized,v.unproven].some(n=>n!==null&&!byte(n))||v.lastFact!==null&&(!Number.isInteger(v.lastFact)||v.lastFact<0||v.lastFact>65535))throw Error('Stato verifica ipotesi non valido');}
   if(s.information?.resolution){const r=s.information.resolution;if(!Array.isArray(r.cursors)||r.cursors.length!==2||[...r.cursors,r.verb].some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>65535))||!Array.isArray(r.triple)||r.triple.length!==3||r.triple.some(v=>v!==null&&!byte(v)))throw Error('Stato ricerca informazioni non valido');}
   if(s.argumentPointers!==undefined&&(!Array.isArray(s.argumentPointers)||s.argumentPointers.length!==2||s.argumentPointers.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>65535))))throw Error('Puntatori argomenti non validi');
   if(s.argumentClasses!==undefined&&(!Array.isArray(s.argumentClasses)||s.argumentClasses.length!==2||s.argumentClasses.some(v=>v!==null&&!byte(v))))throw Error('Classi argomenti non valide');

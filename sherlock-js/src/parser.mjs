@@ -18,8 +18,9 @@ export class Parser {
   }
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
- unit(tokens,start=0,{pending=null,mode=1,onNominal=null}={}){
+ unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null}={}){
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
+  let count=0;const publishCount=()=>onCount?.(count);publishCount();
   const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current])});};
   const peek=()=>tokens[index]||{type:192},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
   const nominal=()=>{
@@ -50,23 +51,23 @@ export class Parser {
    }
    return hasVerb;
   };
-  const finish=()=>{if(!current.verb&&!current.exclusion&&!pending&&!nodes.length)fail();nodes.push(current);};
+  const finish=(increment=true)=>{if(!current.verb&&!current.exclusion&&!pending&&!nodes.length)fail();nodes.push(current);if(increment){count=(count+1)&255;publishCount();}};
   if(workingMode===0){const saved=index,g=nominal();if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;workingMode=2;}else{index=saved;relations=0;workingMode=1;}}
   if(workingMode===2&&!verb())fail();
   while(true){
    if(peek().type===176||peek().type===192){if(current.groups.length)onNominal?.(emptyGroup());if(!nodes.length&&!current.verb&&!current.groups.length&&!pending)return {nodes:[],next:index+(peek().type===176?1:0),mode:workingMode,outcome:'empty'};finish();if(peek().type===176)take();break;}
    if(peek().type===144&&peek().value!==0){
     const t=take(),word=meaning(t);
-    if(['quit','save','load','pause','print','noprint'].includes(word)){if(current.verb||current.groups.length||nodes.length)fail();return {nodes:[],next:index,mode:workingMode,outcome:'control',control:word};}
+    if(['quit','save','load','pause','print','noprint'].includes(word)){if(current.verb||current.groups.length||nodes.length)fail();if(pending&&!['quit','load'].includes(word)){count=(count+1)&255;publishCount();}return {nodes:[],next:index,mode:workingMode,outcome:'control',control:word};}
     if(['he','it','they','that'].includes(word)){
-     if(current.verb){finish();current=node();}
+     if(current.verb){finish(word==='that');current=node();}
      if(word==='that'){if(!nodes.length||workingMode!==2)fail();current.subject=clone(nodes.at(-1).groups[0]||emptyGroup());}
      else current.subject={...emptyGroup(),pronoun:word==='he'?'he':'it'};
      workingMode=2;if(!verb())fail();continue;
     }
     if(word==='all'){if((!current.verb&&!pending)||current.all)fail();current.all=true;continue;}
     if(word==='but'){
-     if(!current.all)fail();finish();current={...node(),exclusion:true};const g=nominal();if(!g)fail();current.groups.push(g);continue;
+     if(!current.all)fail();finish(false);current={...node(),exclusion:true};const g=nominal()||emptyGroup();current.groups.push(g);continue;
     }
     if(['because','therefore'].includes(word)&&workingMode===2){finish();current=node();afterAnd=true;continue;}
     fail();
@@ -78,7 +79,7 @@ export class Parser {
     (current.quotes??=[]).push(quote);current.quote=current.quotes[0];continue;
    }
    if(peek().type===160){
-    if(current.groups.length)onNominal?.(emptyGroup());take();while(peek().type===160)take();finish();const previous=current;current=node();afterAnd=true;if(previous.exclusion){nodes.pop();discarded.push({before:nodes.length,node:clone(previous)});current.suppressedInheritance=true;}
+    if(current.groups.length)onNominal?.(emptyGroup());take();while(peek().type===160)take();finish(!current.exclusion);const previous=current;current=node();afterAnd=true;if(previous.exclusion){nodes.pop();discarded.push({before:nodes.length,node:clone(previous)});current.suppressedInheritance=true;}
     const next=peek();if([80,96,16,112,128,240].includes(next.type)){current.verb=previous.verb;current.modifier=previous.modifier;current.subject=clone(previous.subject);if(previous.groups.length>1)current.groups=clone(previous.groups.slice(0,1));}
     else if(workingMode===2&&STATEMENTS.has(meaning(next))){current.subject=clone(previous.subject);}
     else if([0,32,48,64,224].includes(next.type)&&workingMode===1&&!pending){lookahead={...node(),verb:next.value};break;}
@@ -108,7 +109,7 @@ export class Parser {
 
   return {nodes,next:index,mode:workingMode,outcome:'ok',...(lookahead?{lookahead}:{}),...(discarded.length?{discarded}:{}),...(continuationAnswer?{continuationAnswer}: {})};
  }
- quoted(quote,{onNominal=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
+ quoted(quote,{onNominal=null,onCount=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
 }
 
 export function nodeWords(n){

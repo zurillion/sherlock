@@ -8,6 +8,7 @@ export class Information {
  get state(){return this.host.state;}
  get records(){return this.host.active.records;}
  get rules(){return this.host.game.data.informationRules;}
+ verification(){return this.state.information.verification??(this.state.information.verification={recognized:null,unproven:null,lastFact:null});}
  reference(entity){const r=this.host.worldSource.layout.entities[entity.id];return this.host.worldSource.entity(r).slice(0,6);}
  resolve(node){
   const w=this.world,info=this.state.information,subject=node.subject?.pronoun?info[node.subject.pronoun]:[node.subject?.noun||0,...(node.subject?.qualifiers||[]),0,0].slice(0,3).flatMap(n=>[n&255,n>>>8]);
@@ -47,9 +48,9 @@ export class Information {
   // BC46 walks every atom with BE5A, including nested hypotheses.
   // The complete-response scan below uses BE72 and skips complete groups.
   for(const i of atoms.map((_,i)=>i).filter(i=>(atoms[i].flags&33)===1).reverse())this.evaluate(atoms,i);
-  const complete=[],incomplete=[];for(const i of roots){if(atoms[i].flags&1&&this.evaluate(atoms,i))complete.push(atoms[i]);}
+  const complete=[],incomplete=[],working=this.verification();for(const i of roots){if(atoms[i].flags&1&&this.evaluate(atoms,i)){if(!complete.length)working.lastFact=atoms[i].start;complete.push(atoms[i]);}}
   // BC9C skips groups with BE72; BC74 then uses BE5A for every active atom.
-  if(!complete.length)for(let i=0;i<atoms.length;i++)if(atoms[i].flags&1&&!this.evaluate(atoms,i))incomplete.push(atoms[i]);
+  if(!complete.length)for(let i=0;i<atoms.length;i++)if(atoms[i].flags&1&&!this.evaluate(atoms,i)){working.lastFact=atoms[i].start;incomplete.push(atoms[i]);}
   return {complete,incomplete};
  }
  remember(triple){const r=this.records,a=r.arena,all=r.records('facts'),existing=all.find(p=>a.byte(p)===triple.subject&&a.byte(p+1)===triple.predicate&&a.byte(p+2)===triple.object);let p=existing;
@@ -88,12 +89,12 @@ export class Information {
    default:throw new UnsupportedFeature('deduction handler '+fact.handler.toString(16));
   }this.print(text,actor,messages,{fact});
  }
- lestrade(nodes,messages){let found=0,newFact=null;
+ lestrade(nodes,messages){let found=0,newFact=null;const working=this.verification();working.recognized=0;working.unproven=0;
   for(const node of nodes){let triple;try{triple=this.resolve(node);}catch(error){if(error instanceof UnsupportedFeature&&error.message.includes('internal ambiguous information reference')){this.print('7243',2,messages);return;}throw error;}if(!triple)continue;
-   const fact=this.atoms().find(f=>this.triplesEqual(f,triple)&&(f.flags&192)===128);if(!fact)continue;found++;const atoms=this.atoms();if(!this.evaluate(atoms,atoms.findIndex(a=>a.start===fact.start))){fact.flags|=1;newFact=fact;}
+   const fact=this.atoms().find(f=>this.triplesEqual(f,triple)&&(f.flags&192)===128);if(!fact)continue;working.lastFact=fact.start;const atoms=this.atoms();if(!this.evaluate(atoms,atoms.findIndex(a=>a.start===fact.start))){fact.flags|=1;newFact=fact;working.unproven=1;}found++;working.recognized=(working.recognized+1)&255;
   }
   if(!found){this.print('725F',2,messages);return;}
-  if(newFact){const atoms=this.atoms();let i=atoms.findIndex(a=>a.start===newFact.start)+1;while((atoms[i].flags&192)!==128&&!(atoms[i].flags&8))i=this.skip(atoms,i);this.print((atoms[i].flags&192)===128?'7295':'72A6',2,messages,{fact:newFact});return;}
+  if(newFact){const atoms=this.atoms();newFact=atoms.find(a=>a.start===working.lastFact);let i=atoms.findIndex(a=>a.start===newFact.start)+1;while((atoms[i].flags&192)!==128&&!(atoms[i].flags&8))i=this.skip(atoms,i);this.print((atoms[i].flags&192)===128?'7295':'72A6',2,messages,{fact:newFact});return;}
   const {complete,incomplete}=this.scan();if(complete.length)this.accept(complete[0],2,messages,complete.length);else this.print(incomplete.length?'72BD':'727E',2,messages,{fact:incomplete.at(-1)});
  }
 }

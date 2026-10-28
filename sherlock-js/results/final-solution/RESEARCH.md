@@ -24,3 +24,13 @@ risolti; il vecchio 5D12 apparteneva a una storia già divergente.
 
 Vedere `INGRESSI-TEMPORANEI-E-CONVERSAZIONI.md` e `RIPRESA-GAMEPLAY.md`.
 Nessuna traccia raccolta dai probe diventa un asset di comportamento del gioco.
+
+## Terza ripresa: limite corrente
+
+Il rapporto corrente è `results/parser-counter-verification.json`: 323
+checkpoint (0–322) fino a mercoledì 01:30. Ricostruiti A012, A019, D714
+e BA1C–BA1F dal sorgente. Il confronto completo si ferma al checkpoint
+323 verso mercoledì 01:40, lettura non posseduta 5C1F. Ricostruire la
+coda ROM degli stream insieme alle scritture lessicali DA34–DA77 prima
+di esporre questi byte. Il finale 6A33 resta non certificato; il rapporto
+precedente rimane come prova storica del suo prefisso più corto.

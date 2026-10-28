@@ -76,7 +76,7 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  const terminator=factStarts.at(-1);if(byte(terminator)!==255)throw Error('Invalid fact table terminator');
  worldLayout.tables.push({start:terminator,values:[255],kind:'fact-table-terminator'});
  worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
- return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{initialStreams:[...firmware.subarray(0x15C6,0x15D4)],initialFillColor:byte(0xF60B),printerEnabled:Boolean(byte(0xA008)),keyboard:{rawKey:13,decodedKey:13,releaseScans:2,releaseWindow:firmware[0x02F5],repeatDelay:35,repeatPeriod:5}},source_sha256:hash(payload),firmware_sha256:hash(firmware),
+ return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{initialEditorTokenFlag:byte(0xD714),initialParserCount:byte(0xA012),initialStreams:[...firmware.subarray(0x15C6,0x15D4)],initialFillColor:byte(0xF60B),printerEnabled:Boolean(byte(0xA008)),keyboard:{rawKey:13,decodedKey:13,releaseScans:2,releaseWindow:firmware[0x02F5],repeatDelay:35,repeatPeriod:5}},source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',
   ranges,constants,npcBytes,ruleBytes,excludedWrites:[...written].sort((a,b)=>a-b),
   historicalPrompt:{profile:'historical-prompt-watson-v4',seed:77,cursor:512,encounters:[30,0,0]}};

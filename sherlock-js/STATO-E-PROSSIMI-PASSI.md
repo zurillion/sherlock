@@ -191,3 +191,14 @@ Il nuovo confronto naturale coincide su 247 checkpoint fino a martedì
 247 diretto a 13:20. Nessun nuovo testo terminale è ancora certificato.
 La mappa è rigenerata con 402 istruzioni e 744 byte annotati del payload,
 più la provenienza ROM verificata separatamente e fuori dalla mappa.
+
+## Terza ripresa 28 ottobre: contatori e stato delle deduzioni
+
+Vedere `CONTATORI-PARSER-E-DEDUZIONI.md`. A012 deriva ora dal percorso
+del parser, A019 dal renderer, D714 dall’editor e BA1C–BA1F dalla verifica
+delle affermazioni di Lestrade. Suite: **712 test passati**. Il prefisso
+naturale coincide sui checkpoint 0–322, fino a mercoledì 01:30.
+Il nuovo confine è 5C1F al checkpoint 323 verso 01:40. Ricostruire
+inizializzazione ROM e scritture lessicali, senza byte catturati come fallback.
+Atlante aggiornato con il dossier commentato e riassellato (304 istruzioni,
+705 byte). Restano cinque testi terminali senza certificato naturale completo.

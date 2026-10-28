@@ -1,0 +1,206 @@
+{
+  "regression_tests": {
+    "passed": 712,
+    "failed": 0
+  },
+  "atlas_architecture_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "annotated_listing": {
+    "roundtrip_equal": true,
+    "instructions": 304,
+    "bytes_roundtripped": 705,
+    "regions": [
+      {
+        "start": "A012",
+        "end_exclusive": "A013",
+        "kind": "data",
+        "label": "Contatore temporaneo del parser: inizialmente FF",
+        "atlas_priority": 121,
+        "fields": [
+          [
+            "A012",
+            "1",
+            "Contatore a 8 bit; FF iniziale, zero a inizio AAB2, incrementi AD66/B11B e ripristino AD3D"
+          ]
+        ]
+      },
+      {
+        "start": "A019",
+        "end_exclusive": "A01A",
+        "kind": "data",
+        "label": "Contatore cumulativo delle righe e MORE",
+        "atlas_priority": 121,
+        "fields": [
+          [
+            "A019",
+            "1",
+            "Quota cumulativa: reset D71A; CR e MORE C2CA\u2013C2D9"
+          ]
+        ]
+      },
+      {
+        "start": "AAB2",
+        "end_exclusive": "AABD",
+        "kind": "code",
+        "label": "Inizio parsing: azzera contatore e stato ALL/BUT",
+        "atlas_priority": 86
+      },
+      {
+        "start": "ACCC",
+        "end_exclusive": "AD72",
+        "kind": "code",
+        "label": "Coordinazioni, esclusioni e ripristino del contatore nel backtracking",
+        "atlas_priority": 86
+      },
+      {
+        "start": "B01C",
+        "end_exclusive": "B049",
+        "kind": "code",
+        "label": "ALL e BUT: nodo extra e stato della selezione",
+        "atlas_priority": 86
+      },
+      {
+        "start": "B0FD",
+        "end_exclusive": "B16D",
+        "kind": "code",
+        "label": "THAT, HE, IT/THEY: riallocazione e conteggi diversi",
+        "atlas_priority": 86
+      },
+      {
+        "start": "C2CA",
+        "end_exclusive": "C2DA",
+        "kind": "code",
+        "label": "MORE a quota quindici: attesa, FF e incremento modulo 256",
+        "atlas_priority": 86
+      },
+      {
+        "start": "D6C1",
+        "end_exclusive": "D6CE",
+        "kind": "code",
+        "label": "Input accettato: azzera sempre il flag transitorio di @",
+        "atlas_priority": 86
+      },
+      {
+        "start": "D714",
+        "end_exclusive": "D715",
+        "kind": "data",
+        "label": "Flag transitorio di riuso dei token nell\u2019editor",
+        "atlas_priority": 121,
+        "fields": [
+          [
+            "D714",
+            "1",
+            "Flag temporaneo: set da @, reset quando l\u2019editor consegna l\u2019input"
+          ]
+        ]
+      },
+      {
+        "start": "D719",
+        "end_exclusive": "D726",
+        "kind": "code",
+        "label": "Tokenizzazione: azzera MORE e consulta il flag di riuso",
+        "atlas_priority": 86
+      },
+      {
+        "start": "D99E",
+        "end_exclusive": "D9AC",
+        "kind": "code",
+        "label": "Tasto @: flag temporaneo, ignorato durante una precisazione",
+        "atlas_priority": 86
+      },
+      {
+        "start": "BA1C",
+        "end_exclusive": "BA20",
+        "kind": "data",
+        "label": "Deduzioni di Lestrade: riconosciute, non provate e ultimo fatto",
+        "atlas_priority": 121,
+        "fields": [
+          [
+            "BA1C",
+            "1",
+            "Numero di frasi riconosciute, modulo 256"
+          ],
+          [
+            "BA1D",
+            "1",
+            "Flag: almeno un fatto riconosciuto non \u00e8 provato"
+          ],
+          [
+            "BA1E",
+            "2",
+            "Ultimo fatto riconosciuto o selezionato dalla scansione delle ipotesi"
+          ]
+        ]
+      },
+      {
+        "start": "BB67",
+        "end_exclusive": "BC46",
+        "kind": "code",
+        "label": "Verifica delle frasi: contatori e puntatore dell\u2019ultimo fatto riconosciuto",
+        "atlas_priority": 86
+      },
+      {
+        "start": "BC74",
+        "end_exclusive": "BCC9",
+        "kind": "code",
+        "label": "Scansione delle ipotesi: primo fatto completo e ultimo incompleto",
+        "atlas_priority": 86
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "fce6a14e92e2e56baefd2535c04be603f5bbc6389b8401da35dd75f2890971bf",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 476,
+      "unknown": 3503,
+      "documented": 37621
+    },
+    "segments": 1150,
+    "sources": 36,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 39053,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "served_assets": [
+    {
+      "path": "src/game.mjs",
+      "served_equal": true,
+      "sha256": "5a4bbd85f0a39a7b0ab8b33f10fbe19ed42d558cc5734fd924e6f7e74f582e1f"
+    },
+    {
+      "path": "src/parser.mjs",
+      "served_equal": true,
+      "sha256": "1f45799d3f919c64bedc52d96b06579ee1a74e7c01498ee6521716442a09da22"
+    },
+    {
+      "path": "src/information.mjs",
+      "served_equal": true,
+      "sha256": "27ab8df1e19d36df255086a5e4b79440a65512a9c3ec1378710824dd819fbeb0"
+    },
+    {
+      "path": "src/npc-runtime.mjs",
+      "served_equal": true,
+      "sha256": "76983c1e020fef2405fe0f7ab4ecc99aa1943829f1d12e930b1d7ce103a512c2"
+    },
+    {
+      "path": "src/memory-map-data.json",
+      "served_equal": true,
+      "sha256": "fce6a14e92e2e56baefd2535c04be603f5bbc6389b8401da35dd75f2890971bf"
+    },
+    {
+      "path": "data/game.json",
+      "served_equal": true,
+      "sha256": "48c62b88f6af29302acb1823cca08d1e11eb8b74fc19743b1ec0614b171d1dc9"
+    }
+  ],
+  "memory_page_status": 200,
+  "natural_prefix_report": "parser-counter-verification.json",
+  "full_ending_certified": false
+}
