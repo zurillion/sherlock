@@ -1,0 +1,129 @@
+{
+  "protocol": "Controlled offline C591 call from fresh seed-1 boot, actor Holmes, all actor slots retained. Explicit rule/arguments only; not a natural ending certificate.",
+  "cases": [
+    {
+      "rule": "counter.delete",
+      "args": [
+        255,
+        255
+      ],
+      "success": false,
+      "phase": 1,
+      "events": [
+        {
+          "pc": "C59B",
+          "phase": 1,
+          "arguments": [
+            255,
+            255
+          ]
+        },
+        {
+          "pc": "C5F6",
+          "phase": 0,
+          "arguments": [
+            255,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "rule": "entity.samePlace",
+      "args": [
+        0,
+        0
+      ],
+      "success": false,
+      "phase": 1,
+      "events": [
+        {
+          "pc": "C59B",
+          "phase": 1,
+          "arguments": [
+            0,
+            0
+          ]
+        },
+        {
+          "pc": "C5F6",
+          "phase": 0,
+          "arguments": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "rule": "entity.at",
+      "args": [
+        0,
+        105
+      ],
+      "success": false,
+      "phase": 1,
+      "events": [
+        {
+          "pc": "C59B",
+          "phase": 1,
+          "arguments": [
+            0,
+            105
+          ]
+        },
+        {
+          "pc": "C5F6",
+          "phase": 0,
+          "arguments": [
+            0,
+            105
+          ]
+        }
+      ]
+    },
+    {
+      "rule": "entity.samePlace",
+      "args": [
+        255,
+        0
+      ],
+      "success": true,
+      "phase": 1,
+      "events": [
+        {
+          "pc": "C59B",
+          "phase": 1,
+          "arguments": [
+            255,
+            0
+          ]
+        },
+        {
+          "pc": "C9F2",
+          "phase": 0,
+          "arguments": [
+            3,
+            0
+          ]
+        },
+        {
+          "pc": "C5F6",
+          "phase": 0,
+          "arguments": [
+            3,
+            0
+          ]
+        },
+        {
+          "pc": "C9F2",
+          "phase": 1,
+          "arguments": [
+            3,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -295,6 +295,11 @@ export class NpcRuntime {
   const g=this.game,w=this.w,meta=g.data.npcPrograms.rules[name];if(!meta)throw new UnsupportedFeature('contratto NPC '+name);
   this.state.argumentClasses=[...meta.classes];
   this.state.executionPhase=0; // C59B: preflight before enumerating rule arguments.
+  // C5B2/C5C5 reject invalid literals before execution. With both
+  // arguments specified, C5EB/C5EE reach C5F4 before C989 tests the
+  // rule's classes, light and predicate, even when that predicate fails.
+  if(meta.classes.some((kind,i)=>[5,6].includes(kind)&&input[i]!==254))return no();
+  if(!meta.classes.some((kind,i)=>kind!==0&&input[i]===255))this.state.executionPhase=1;
   const actor=context.actor;if(meta.requiresLight&&w.dark(actor))return no();
   const candidates=(value,kind)=>{if(value!==255||kind===0){const chosen=this.select(value,kind,actor);return chosen===null?[]:[chosen];}const values=[];for(let i=0;i<(kind<=4?w.rooms.length:w.entities.length);i++)if(this.select(i,kind,actor)!==null)values.push(i);return values;};
   for(const first of candidates(input[0],meta.classes[0]))for(const second of candidates(input[1],meta.classes[1])){

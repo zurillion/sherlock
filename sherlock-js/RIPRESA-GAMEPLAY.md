@@ -3,24 +3,24 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-1. **Prima divergenza del ramo che scagiona Ffoulkes.**
-   Eseguire `node --test tools/compare-witness-research.mjs`.
-   Checkpoint 25, lunedì 08:57, seed 1:
-   `SAY LESTRADE "MAJOR VISIT OPIUM DEN AND MAJOR IS INNOCENT"`.
-   Il record liberato a 97B5 conserva 9 in JavaScript e 4 nell’originale.
-   Ricostruire dal codice le scritture e il riuso dei nodi.
-   **Non eliminare il nodo intermedio:** anche l’originale lo alloca;
-   l’esperimento che lo rimuove cambia il blocco libero di 33 byte e rompe
-   il caso 23 di `information.test.mjs`.
+1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
+   Corrette la sovrascrittura del predicato nel nodo intermedio (AB7C/AC17)
+   e la fase A00B delle regole con argomenti espliciti (C5F4 prima del
+   predicato). Confronto naturale riuscito su 206 checkpoint, da 0 a 205,
+   fino a martedì 06:40: tutti gli attori, ogni estrazione/lettura casuale,
+   arena completa, entità, programmi, bitmap e futuro dopo LOAD.
+   Vedere `PARSER-E-FASE-REGOLE.md` e il relativo rapporto.
 
-2. **Seguire la stessa partita oltre la prima differenza corretta.**
-   La registrazione originale completa contiene 521 checkpoint e termina
-   con 6A33 giovedì alle 10:00. È salvata in
-   `results/final-solution/witness-native-reference.json.gz`.
-   Il blocco JS a 5D12 di martedì 05:18 è un limite successivo della vecchia
-   sequenza divergente, non il primo difetto da correggere né un tempo nativo
-   da riprodurre. Confrontare ogni lettura e successore casuale, arena, bitmap,
-   programmi, scadenze e futuro dopo LOAD, senza valori registrati nel runtime.
+2. **Prossimo confine reale: ingresso temporaneo $5D13.**
+   Eseguire `node --test tools/compare-witness-research.mjs`.
+   Il checkpoint 206, diretto a martedì 06:50, incontra questo byte senza
+   un proprietario ricostruito. Studiare le scritture del renderer/stack,
+   senza riempire il valore da una registrazione o estendere alla cieca
+   i campi posseduti. La registrazione nativa completa ha 521 checkpoint
+   e termina con 6A33 giovedì 10:00; non è ancora un certificato JS completo.
+   I vecchi scostamenti a 97B5 (lun 08:57) e A00B (mar 04:00) sono risolti.
+   Non eliminare il nodo intermedio: l’originale lo alloca e ne sovrascrive
+   il predicato prima di creare il successivo.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -46,6 +46,8 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 `results/final-solution/RESEARCH.md`, `AGENTS.md`.
-Ultimo punto verificato prima dell’atlante: 657 test di regressione passati;
-il confronto di ricerca sopra è separato e ancora fallente.
-Commit precedenti: d58092c (motore e arresto naturale), 8b5d12e (ricerca estesa).
+Aggiornamento 28 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
+La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
+è separato dalla suite di regressione e dal prefisso naturale certificato.
+Suite di regressione attuale: **667 test passati**. Prefisso esteso ripetibile
+con `node tools/verify-witness-prefix.mjs`.

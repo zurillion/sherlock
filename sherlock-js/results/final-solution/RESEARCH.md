@@ -1,28 +1,22 @@
 # Continuazione ancora in ricerca
 
-`major-witness.txt` formula prima della visita le due ipotesi sul maggiore,
-poi osserva realmente la confessione nella fumeria. Non imposta alcun flag
-interno. Il test nativo esteso è raccolto da `probe-other-endings.py`.
+`major-witness.txt` formula le due ipotesi prima della visita e poi osserva
+la confessione nella fumeria. Non imposta flag interni. Il riferimento nativo
+contiene 521 checkpoint e termina in 6A33 giovedì 10:00; è compresso in
+`witness-native-reference.json.gz` e non viene caricato dal gioco.
 
-La sua esecuzione JavaScript, ancora distinta dal certificato di 69BF,
-scagiona il maggiore e prosegue sino a martedì 05:18. Il successivo ingresso
-5D12 non è ancora posseduto: la pagina si arresta esplicitamente a quel
-confine, senza installare il byte di un replay. Il dato osservato di 5D11
-serve come evidenza offline, non come asset del motore.
+Aggiornamento 28 ottobre: risolti la scrittura del predicato intermedio
+AB7C/AC17 e la fase A00B delle regole con argomenti espliciti. Il confronto
+JS passa ora sui checkpoint 0–205 fino a martedì 06:40, con tutti gli attori,
+ogni draw/read, arena, entità, fatti, bitmap e futuro dopo LOAD.
 
-Il fixture può contenere successivamente il resto della raccolta nativa:
-questo non lo rende automaticamente una storia certificata. Il test dei
-finali accetta soltanto i casi esplicitamente elencati come certificati nel
-rapporto. Nessun file in questa cartella viene caricato dal gioco.
+`node --test tools/compare-witness-research.mjs` prosegue oltre il prefisso
+e si ferma al checkpoint 206, diretto a martedì 06:50, per l’ingresso 5D13
+ancora senza proprietario ricostruito. Il vecchio blocco 5D12 era un sintomo
+di una sequenza già divergente: non è il confine attuale.
 
-La raccolta nativa è conclusa e compressa in
-`witness-native-reference.json.gz`: 521 checkpoint, 6A33 giovedì 10:00.
-Il confronto `node --test tools/compare-witness-research.mjs` trova
-la prima divergenza già al checkpoint 25, lunedì 08:57: 97B5 è 9 nel
-prototipo, 4 nell'originale, dopo la richiesta con due affermazioni.
-Questo ha priorità sul successivo ingresso sconosciuto 5D12.
-
-Esperimento escluso: eliminare il nodo intermedio apparentemente spurio
-dopo AND. Anche l’originale lo alloca; toglierlo cambia di 33 byte il
-blocco libero e rompe il caso controllato 23 di `information.test.mjs`.
-Il motore verificato conserva quella allocazione.
+Vedere `PARSER-E-FASE-REGOLE.md` e
+`results/parser-rule-lifetimes-verification.json`. La traccia è evidenza
+offline, non un asset del runtime. Conservare tutte le allocazioni dei nodi
+intermedi: il nuovo predicato ne sovrascrive il verbo prima dell’allocazione
+successiva, non ne elimina il record.

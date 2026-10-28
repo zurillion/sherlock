@@ -1,0 +1,35 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 128,
+  "bytes_roundtripped": 272,
+  "regions": [
+    {
+      "start": "AB75",
+      "end_exclusive": "AB8E",
+      "kind": "code",
+      "label": "Nuovo predicato implicito: scrittura nel nodo corrente, poi coordinazione",
+      "atlas_priority": 85
+    },
+    {
+      "start": "ABF3",
+      "end_exclusive": "AC24",
+      "kind": "code",
+      "label": "Predicati: riconoscimento e sovrascrittura della word del verbo",
+      "atlas_priority": 85
+    },
+    {
+      "start": "ACCC",
+      "end_exclusive": "ACFB",
+      "kind": "code",
+      "label": "Coordinazione: conserva il nodo e prepara la prossima allocazione",
+      "atlas_priority": 85
+    },
+    {
+      "start": "C591",
+      "end_exclusive": "C628",
+      "kind": "code",
+      "label": "Regole: pre-verifica, enumerazione e fase di esecuzione",
+      "atlas_priority": 85
+    }
+  ]
+}

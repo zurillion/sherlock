@@ -92,7 +92,12 @@ export class Parser {
    if(group){if(current.groups.length>=2)fail();current.groups.push(group);continue;}
    // A verb reached without a conjunction can start another statement; ordinary
    // commands require the explicit separator handled above.
-   if(workingMode===2&&STATEMENTS.has(meaning(peek()))){finish();const old=current;current=node();current.subject=clone(old.subject||old.groups[0]);verb();continue;}
+   if(workingMode===2&&STATEMENTS.has(meaning(peek()))){
+    // AB7C calls the predicate reader before ACCC creates the next node:
+    // AC17/AC1A overwrite this node's verb too. Keep the intermediate node;
+    // its released payload remains observable by the shared random source.
+    current.verb=peek().value;finish();const old=current;current=node();current.subject=clone(old.subject||old.groups[0]);verb();continue;
+   }
    fail();
   }
   const continuationAnswer=pending?clone(nodes[0]):null;

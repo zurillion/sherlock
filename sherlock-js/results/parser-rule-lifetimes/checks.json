@@ -1,0 +1,25 @@
+{
+  "regressions": {
+    "command": "node --test test/*.test.mjs",
+    "passed": 667,
+    "failed": 0
+  },
+  "research_comparator": {
+    "command": "node --test tools/compare-witness-research.mjs",
+    "expected_status": "unsupported boundary at checkpoint 206 / 5D13; separate from regression suite"
+  },
+  "prefix": {
+    "command": "node tools/verify-witness-prefix.mjs",
+    "passed": true,
+    "checkpoints": 206
+  },
+  "http_served_matches_local": [
+    "src/parser.mjs",
+    "src/npc-runtime.mjs",
+    "src/memory-map-data.json"
+  ],
+  "atlas_sha256": "5aab70003bc9f42a736e4a8fde6256fef0735331b30da582df291cb8a805e327",
+  "newly_classified_bytes": 142,
+  "listing_instructions": 128,
+  "listing_bytes": 272
+}

@@ -36,7 +36,7 @@ def source(path,title):
 # comments identify scope and known limitations. Overlap is resolved per byte.
 inputs=[
 ('testo/text.asm','Dizionario e stampa del testo','Testo compresso e convenzioni dei suoi interpreti.'),
-('parser/parser.asm','Input, lessico e sintassi','Editor, lexer, parser e rifiuti sintattici. Il riuso di alcuni nodi composti rimane aperto.'),
+('parser/parser.asm','Input, lessico e sintassi','Editor, lexer, parser e rifiuti sintattici. Il riuso dei nodi con predicati differenti è ricostruito in parser-rule-lifetimes; altri casi mantengono i limiti documentati.'),
 ('parser/parser-special.asm','Citazioni e continuazioni','Modalità speciali, riferimenti impliciti e continuazioni.'),
 ('main-loop/results/main-loop.asm','Ciclo principale e tempo','Scansione delle righe attore, costi, calendario e servizi.'),
 ('entita/results/entities-semantics.asm','Entità e risoluzione','Modelli delle azioni, oggetti, personaggi e risoluzione dei riferimenti.'),
@@ -84,7 +84,7 @@ for path,title,description in inputs:
    notes=[r['c']for r in selected if r['c'] and not re.match(r'^(?:DATA|CODE)(?: fino| \$|:)',r['c'])]
    label=region.get('label')or(notes[0]if notes else title)
    kind='code'if region['kind']=='code'else'data'
-   add(a,b,label,kind,description,selected,sid,status='documented'if notes or region.get('label')else'partial',priority=75 if region.get('label') else 70)
+   add(a,b,label,kind,description,selected,sid,status='documented'if notes or region.get('label')else'partial',priority=region.get('atlas_priority',75 if region.get('label') else 70))
  # Exact contiguous sequences also recover sources without region reports.
  chunks=[]
  for rr in rows:
@@ -184,7 +184,7 @@ def listed(a,b):
  for rr in all_rows:
   if rr['a']<b and rr['a']+rr['n']>a:result[rr['a']]=rr
  return [result[x]for x in sorted(result)]
-add(0x9FDD,0xA040,'Stato globale · clock, liste, parser e casualità','data','Area mutabile condivisa. Le fonti annotano il calendario, le teste delle liste, il costo restituito, i riferimenti correnti e il seed. Non tutti i byte temporanei hanno un proprietario ricostruito.',listed(0x9FDD,0xA040),sid,status='partial',priority=100,fields=[['9FDD','2','Tick globale'],['9FDF–9FE2','4','Minuto, ora, giorno, am/pm'],['9FE3','2','Testa della lista dei blocchi liberi'],['A01F','2','Costo del passo corrente'],['A036','1','Attore corrente'],['A037','1','Accumulatore casuale'],['A039','2','Cursore del generatore casuale'],['A03B','2','Contatore di inattività della tastiera']])
+add(0x9FDD,0xA040,'Stato globale · clock, liste, parser e casualità','data','Area mutabile condivisa. Le fonti annotano il calendario, le teste delle liste, il costo restituito, i riferimenti correnti e il seed. Non tutti i byte temporanei hanno un proprietario ricostruito.',listed(0x9FDD,0xA040),sid,status='partial',priority=100,fields=[['9FDD','2','Tick globale'],['9FDF–9FE2','4','Minuto, ora, giorno, am/pm'],['9FE3','2','Testa della lista dei blocchi liberi'],['A00B','1','Fase regole: 0 verifica/enumerazione; 1 esecuzione, anche dopo predicato falso con argomenti espliciti (C5F4)'],['A01F','2','Costo del passo corrente'],['A036','1','Attore corrente'],['A037','1','Accumulatore casuale'],['A039','2','Cursore del generatore casuale'],['A03B','2','Contatore di inattività della tastiera']])
 add(0xA040,0xA068,'Avvio · schermo, scelta grafica e seed','code','Prepara la sessione, imposta lo stack a $5D80, legge la scelta grafica e inizializza l’accumulatore casuale dal registro R.',listed(0xA040,0xA068),sid,priority=100)
 sid=source(ANALYSIS/'entita/results/entities-semantics.asm','Formato dei modelli delle azioni')
 add(0x8259,0x840B,'54 modelli lessicali delle azioni','data','Record da 8 byte: quattro word lessicali con metadati nei nibble alti. Una word zero chiude la tabella. I nibble non fanno parte degli offset del dizionario.',listed(0x8259,0x840B),sid,priority=100)
@@ -192,13 +192,13 @@ sid=source(ROOT/'src/random.mjs','Algoritmo del generatore casuale condiviso')
 add(0xD29D,0xD2ED,'Generatore casuale · seed, cursore e memoria','code','Algoritmo condiviso per contatori, dialoghi e decisioni. Mescola lo stato corrente con byte della memoria. La formula è ricostruita; alcuni ingressi mutabili rimangono sconosciuti, quindi questo non certifica ogni sequenza futura.',listed(0xD29D,0xD2ED),sid,priority=100)
 
 sid=source(ROOT/'src/record-arena.mjs','Arena dei record dinamici')
-add(0x9570,0x9860,'Arena dei record dinamici · 752 byte','data','Blocco di allocazione delle liste di contesti, richieste, sintassi, segnali e fatti. Il layout varia durante la partita. I byte mostrati sono soltanto l’inizializzazione del nastro.',[db(a,min(a+16,0x9860),'Area dinamica, non istruzioni CPU')for a in range(0x9570,0x9860,16)],sid,priority=100,fields=[['Blocco allocato','3 + N','Dimensione totale (1), link di lista (2), payload N'],['Blocco libero','4 + …','Dimensione word, puntatore word al prossimo blocco libero'],['Liste','variabile','Contesti 7 B, richieste 8 B, sintassi 30 B, contatori e segnali 2 B']])
+add(0x9570,0x9860,'Arena dei record dinamici · 752 byte','data','Blocco di allocazione delle liste di contesti, richieste, sintassi, segnali e fatti. Il layout varia durante la partita. I byte mostrati sono soltanto l’inizializzazione del nastro.',[db(a,min(a+16,0x9860),'Area dinamica, non istruzioni CPU')for a in range(0x9570,0x9860,16)],sid,priority=100,fields=[['Blocco allocato','3 + N','Dimensione totale (1), link di lista (2), payload N'],['Blocco libero','4 + …','Dimensione word, puntatore word al prossimo blocco libero'],['Liste','variabile','Contesti 7 B, richieste 8 B, sintassi 30 B, contatori e segnali 2 B'],['Sintassi +00','2','Verbo: AB7C/AC17 sovrascrivono anche il nodo intermedio prima della nuova allocazione'],['Record liberati','variabile','Il payload non viene azzerato dalla liberazione; i residui restano ingressi del generatore casuale']])
 sid=source(ANALYSIS/'cab/results/cab-data.json','Rete statica dei percorsi dei cab')
 routes=game['cab']['routes'];route_bytes=bytes([v for r in routes for v in [r['source'],r['target'],r['duration']]]+[255]);assert mem[0x9B7F:0x9B7F+len(route_bytes)]==route_bytes
 add(0x9B7F,0x9B7F+len(route_bytes),'Percorsi dei cab · sorgente, destinazione, durata','data','Triplette di ID locazione e costo del tragitto. Le modalità rapide applicano la propria regola; non si deduce una nuova rete da coordinate grafiche.',[db(0x9B7F+i*3,0x9B82+i*3,f"Da {r['source']} a {r['target']}: durata {r['duration']}")for i,r in enumerate(routes)]+[db(0x9B7F+len(route_bytes)-1,0x9B7F+len(route_bytes),'Terminatore FF')],sid,priority=100)
 
 sid=source(ROOT/'src/random-display.mjs','Proiezione dei buffer e dei campi temporanei')
-for a,b,title,note in [(0x5B00,0x5B81,'Buffer del comando','Editor: caratteri ASCII normalizzati e CR; la coda riusa i byte del loader.'),(0x5B81,0x5C00,'Buffer dei token','Tipi e valori lessicali, citazioni e puntatori; alcuni ingressi possono sovrapporre i buffer.'),(0x5C0B,0x5C8B,'Buffer della parola in uscita','Buffer riutilizzato: svuotarlo non cancella tutti i byte. Gli effetti fuori scena influenzano il generatore casuale.'),(0x5CEC,0x5D80,'Stack e area temporanea del gioco','Layout dipendente dai chiamanti; soltanto alcuni residui AF/BC e frame della stampa sono ricostruiti. Nessuna immagine RAM completa è certificata.')]:
+for a,b,title,note in [(0x5B00,0x5B81,'Buffer del comando','Editor: caratteri ASCII normalizzati e CR; la coda riusa i byte del loader.'),(0x5B81,0x5C00,'Buffer dei token','Tipi e valori lessicali, citazioni e puntatori; alcuni ingressi possono sovrapporre i buffer.'),(0x5C0B,0x5C8B,'Buffer della parola in uscita','Buffer riutilizzato: svuotarlo non cancella tutti i byte. Gli effetti fuori scena influenzano il generatore casuale.'),(0x5CEC,0x5D80,'Stack e area temporanea del gioco','Layout dipendente dai chiamanti; soltanto alcuni residui AF/BC e frame della stampa sono ricostruiti. Nessuna immagine RAM completa è certificata. Nel seguito naturale major-witness il confronto passa fino a mar 06:40; un successivo ingresso 5D13 resta privo di proprietario ricostruito.')]:
  add(a,b,title,'workspace',note,[],sid,status='partial',priority=100)
 
 # Resolve overlap once, deterministically. Smaller typed intervals win within

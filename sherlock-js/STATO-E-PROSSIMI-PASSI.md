@@ -171,3 +171,12 @@ Il confronto esteso del ramo che scagiona Ffoulkes registra nell’originale
 6A33 giovedì 10:00, ma trova la prima differenza JavaScript già lunedì
 08:57 (record liberato 97B5, richiesta con due affermazioni AND).
 Riproduttore e limiti sono in `results/final-solution/RESEARCH.md`.
+
+## Ripresa 28 ottobre: parser, fase regole e atlante sincronizzato
+
+Vedere `PARSER-E-FASE-REGOLE.md` e `RIPRESA-GAMEPLAY.md`.
+Il ramo naturale major-witness ora coincide sui checkpoint 0–205, fino a
+martedì 06:40; il confine successivo è 5D13 al checkpoint 206, non il vecchio
+97B5 o 5D12. Nessun nuovo finale completo è dichiarato certificato.
+L’atlante è stato rigenerato con le nuove analisi commentate e da ora va
+aggiornato a ogni nuova scoperta del sorgente o delle strutture dati.

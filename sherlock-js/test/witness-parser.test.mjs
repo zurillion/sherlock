@@ -1,0 +1,5 @@
+import{gunzipSync}from'node:zlib';import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';import{compareNaturalHistory}from'./helpers/compare-natural-history.mjs';import{Game}from'../src/game.mjs';
+const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url))),reference=JSON.parse(gunzipSync(await readFile(new URL('../results/final-solution/witness-native-reference.json.gz',import.meta.url)))).cases.find(c=>c.label==='major-witness');
+test('Natural compound statement: every draw, arena byte and bitmap through next WAIT',async()=>{const c={...reference,steps:reference.steps.slice(0,27),expected:null};await compareNaturalHistory(data,c);});
+const phase=JSON.parse(await readFile(new URL('fixtures/rule-phase-reference.json',import.meta.url)));
+for(const c of phase.cases)test('Original direct rule phase: '+c.rule+' '+c.args,()=>{const g=new Game(data,{npc_profile:'world-v5',seed:1});const result=g.npcRuntime.use(()=>g.npcRuntime.rule(c.rule,c.args,{actor:0,local:true,saved:[255,...c.args]},[],[]));assert.equal(result.success,c.success);assert.equal(g.world.npcs.executionPhase,c.phase);});
