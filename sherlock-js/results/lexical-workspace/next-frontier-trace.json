@@ -1,0 +1,81 @@
+{
+  "scope": "Natural major-witness seed1; original source observer, no actor/world patches. Last writers to 5D1F observed from tick 2400; earlier prefix runs without instrumentation. Not installed in runtime.",
+  "changes": [
+    {
+      "value": 0,
+      "writer": null,
+      "clock": {
+        "tick": 2400,
+        "due": 3781,
+        "minute": 59,
+        "hour": 11,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 11:59pm"
+      },
+      "actor": 43
+    }
+  ],
+  "reads": [
+    {
+      "address": "5C1F",
+      "value": 0,
+      "clock": {
+        "tick": 2491,
+        "due": 3781,
+        "minute": 30,
+        "hour": 1,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 01:30am"
+      },
+      "actor": 8,
+      "last_changes": [
+        {
+          "value": 0,
+          "writer": null,
+          "clock": {
+            "tick": 2400,
+            "due": 3781,
+            "minute": 59,
+            "hour": 11,
+            "day": 1,
+            "period": "pm",
+            "label": "Tue 11:59pm"
+          },
+          "actor": 43
+        }
+      ]
+    },
+    {
+      "address": "5D1F",
+      "value": 0,
+      "clock": {
+        "tick": 2491,
+        "due": 3781,
+        "minute": 30,
+        "hour": 1,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 01:30am"
+      },
+      "actor": 8,
+      "last_changes": [
+        {
+          "value": 0,
+          "writer": null,
+          "clock": {
+            "tick": 2400,
+            "due": 3781,
+            "minute": 59,
+            "hour": 11,
+            "day": 1,
+            "period": "pm",
+            "label": "Tue 11:59pm"
+          },
+          "actor": 43
+        }
+      ]
+    }
+  ]
+}

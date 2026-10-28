@@ -319,7 +319,7 @@ export class Game {
    // D6C8 clears the transient @ token-reuse flag after accepted input,
    // before lexical validation or any paid actor visit.
    if(this.world.npcs)this.world.npcs.editorTokenFlag=0;
-   this.lastInput=input;lexed=this.lexer.scan(input);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
+   this.lastInput=input;lexed=this.lexer.scan(input);this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
@@ -367,7 +367,7 @@ export class Game {
    }
   }catch(error){
    if(error instanceof InputError&&error.kind==='tool_limit'){cancel();this.analysis={input,outcome:'not_translated',feature:'editor-boundary',notice:error.message,units:[],actions:[]};messages.length=0;messages.push({kind:'system',text:error.message});}
-   else if(error instanceof InputError){if(this.world.npcs&&error.detail.lookupState)this.world.npcs.lexicalMatch=error.detail.lookupState;if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
+   else if(error instanceof InputError){this.sourceDisplay.lexicalWorkspace(error.detail.workspaceCopies);if(this.world.npcs&&error.detail.lookupState)this.world.npcs.lexicalMatch=error.detail.lookupState;if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
    else{cancel();messages.length=0;actions.length=0;
     if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature??'original-random-input',notice:error.message,...(error instanceof RandomInputsUnavailable?{recovery:'requires-engine-update',missing_address:error.address??null}:{}),units,actions};messages.push({kind:'system',text:error.message});}
     else throw error;

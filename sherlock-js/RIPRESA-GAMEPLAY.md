@@ -7,14 +7,18 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    323 checkpoint, da 0 a 322, fino a mercoledì 01:30: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
    contatore MORE e futuro dopo LOAD. Vedere
-   `CONTATORI-PARSER-E-DEDUZIONI.md` e `results/parser-counter-verification.json`.
+   `LEXER-E-BUFFER-CONDIVISO.md` e `results/lexical-workspace-verification.json`.
 
-2. **Prossimo confine reale: workspace lessicale $5C1F.**
-   Il confronto completo si ferma al checkpoint 323, verso mercoledì 01:40.
-   Ricostruire la coda degli stream ROM e le copie del lexer DA34–DA77
-   nel buffer a 5C0B, poi le successive letture per rigetto del sorteggio.
-   Non installare zero come fallback: parole lunghe possono sovrascriverlo.
-   A012, A019, D714 e BA1C–BA1F sono ora proiettati dal rispettivo algoritmo.
+2. **Prossimo confine reale: frame temporanei $5D1F.**
+   Il confronto completo si ferma ancora al checkpoint 323, verso mercoledì
+   01:40, ma ora supera la precedente lettura 5C1F. La coda degli stream
+   ROM e le copie lessicali DA34–DA77 sono ricostruite: vedere
+   `LEXER-E-BUFFER-CONDIVISO.md` e `results/lexical-workspace-verification.json`.
+   5D1F può essere scritto dai glifi C39D e dal decoder A969/A97C:
+   identificare il chiamante effettivo e gestirne le sovrascritture prima di
+   estendere la proiezione oltre 5D19. Il probe naturale osserva da tick
+   2400 e non vede un nuovo scrittore in quell’intervallo; non è una prova
+   dell’ultimo scrittore precedente. Non introdurre lo zero osservato.
    La storia nativa completa ha 521 checkpoint e termina in 6A33 giovedì
    10:00: quel finale non è ancora certificato JavaScript.
 
@@ -45,5 +49,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 28 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **712 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **719 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

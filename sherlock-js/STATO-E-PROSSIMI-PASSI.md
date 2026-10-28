@@ -202,3 +202,14 @@ Il nuovo confine è 5C1F al checkpoint 323 verso 01:40. Ricostruire
 inizializzazione ROM e scritture lessicali, senza byte catturati come fallback.
 Atlante aggiornato con il dossier commentato e riassellato (304 istruzioni,
 705 byte). Restano cinque testi terminali senza certificato naturale completo.
+
+## Quarta ripresa 28 ottobre: buffer lessicale e coda degli stream
+
+Vedere `LEXER-E-BUFFER-CONDIVISO.md`. Ricostruite inizializzazione fredda
+della coda degli stream ROM e copie lessicali del corpo delle parole,
+anche su errore e @; protetti LOAD e analisi preventive. **719 test passati**.
+Il prefisso resta 323 checkpoint fino a mercoledì 01:30: la continuazione
+supera 5C1F ma si ferma sulla successiva lettura 5D1F. Ricostruire i suoi
+frame temporanei, non aggiungere lo zero osservato. Mappa aggiornata con
+173 istruzioni / 286 byte annotati, più la provenienza ROM separata.
+Nessun nuovo finale completo certificato.

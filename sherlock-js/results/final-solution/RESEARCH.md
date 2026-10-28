@@ -34,3 +34,14 @@ e BA1C–BA1F dal sorgente. Il confronto completo si ferma al checkpoint
 coda ROM degli stream insieme alle scritture lessicali DA34–DA77 prima
 di esporre questi byte. Il finale 6A33 resta non certificato; il rapporto
 precedente rimane come prova storica del suo prefisso più corto.
+
+## Quarta ripresa: workspace lessicale
+
+`results/lexical-workspace-verification.json` riconferma i checkpoint
+0–322 fino a mercoledì 01:30. Ricostruiti il cold-start degli stream
+5C1E–5C35 e le copie lessicali DA34–DA77. Il confronto completo supera
+5C1F e si ferma sulla successiva lettura 5D1F nello stesso checkpoint 323.
+Nessuna estensione di orario o nuovo finale è certificata. Il probe
+naturale da tick 2400 conferma le letture ma non l’ultimo scrittore
+precedente: indagare i frame di glifi C39D e decoder A969/A97C.
+Vedere `LEXER-E-BUFFER-CONDIVISO.md`; mappa aggiornata nello stesso cambio.

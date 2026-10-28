@@ -1,0 +1,12 @@
+{
+  "instructions": 35,
+  "bytes_roundtripped": 56,
+  "roundtrip_equal": true,
+  "rom_not_part_of_map": true,
+  "firmware_sha256": "d55daa439b673b0e3f5897f99ac37ecb45f974d1862b4dadb85dec34af99cb42",
+  "cold_start_only": true,
+  "derived_zero_range": [
+    "5C1E",
+    "5C36"
+  ]
+}

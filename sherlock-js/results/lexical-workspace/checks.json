@@ -1,0 +1,155 @@
+{
+  "regression_tests": {
+    "passed": 719,
+    "failed": 0
+  },
+  "new_tests": 7,
+  "atlas_architecture_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 173,
+    "bytes_roundtripped": 286,
+    "regions": [
+      {
+        "start": "A94D",
+        "end_exclusive": "A9B5",
+        "kind": "code",
+        "label": "Decompressione del candidato: workspace separato a 5C42",
+        "atlas_priority": 87,
+        "fields": [
+          [
+            "5C0B\u20135C41",
+            "55 byte",
+            "Corpo lessicale e buffer di stampa condivisi; prima lettera omessa, zero finale, coda conservata"
+          ],
+          [
+            "5C1E\u20135C35",
+            "24 byte",
+            "Coda degli stream: zero solo al cold start, poi scritture effettive"
+          ],
+          [
+            "5C42",
+            "workspace candidato",
+            "Decompressione incrementale del dizionario; sovrapposizione oltre i primi 55 byte non certificata"
+          ]
+        ]
+      },
+      {
+        "start": "D9C5",
+        "end_exclusive": "DA32",
+        "kind": "code",
+        "label": "Lookup alfabetico: copie lessicali prima del parsing, anche in preflight",
+        "atlas_priority": 87,
+        "fields": [
+          [
+            "5C0B\u20135C41",
+            "55 byte",
+            "Corpo lessicale e buffer di stampa condivisi; prima lettera omessa, zero finale, coda conservata"
+          ],
+          [
+            "5C1E\u20135C35",
+            "24 byte",
+            "Coda degli stream: zero solo al cold start, poi scritture effettive"
+          ],
+          [
+            "5C42",
+            "workspace candidato",
+            "Decompressione incrementale del dizionario; sovrapposizione oltre i primi 55 byte non certificata"
+          ]
+        ]
+      },
+      {
+        "start": "DA34",
+        "end_exclusive": "DA7D",
+        "kind": "code",
+        "label": "Copia del corpo della parola in minuscolo nel buffer di stampa 5C0B",
+        "atlas_priority": 87,
+        "fields": [
+          [
+            "5C0B\u20135C41",
+            "55 byte",
+            "Corpo lessicale e buffer di stampa condivisi; prima lettera omessa, zero finale, coda conservata"
+          ],
+          [
+            "5C1E\u20135C35",
+            "24 byte",
+            "Coda degli stream: zero solo al cold start, poi scritture effettive"
+          ],
+          [
+            "5C42",
+            "workspace candidato",
+            "Decompressione incrementale del dizionario; sovrapposizione oltre i primi 55 byte non certificata"
+          ]
+        ]
+      }
+    ]
+  },
+  "rom_evidence": {
+    "instructions": 35,
+    "bytes_roundtripped": 56,
+    "roundtrip_equal": true,
+    "rom_not_part_of_map": true,
+    "firmware_sha256": "d55daa439b673b0e3f5897f99ac37ecb45f974d1862b4dadb85dec34af99cb42",
+    "cold_start_only": true,
+    "derived_zero_range": [
+      "5C1E",
+      "5C36"
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "db3649d5550eb20e93b271d37c17aeab92ced757eb8c52077e6116ac13e770f4",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 476,
+      "unknown": 3503,
+      "documented": 37621
+    },
+    "segments": 1135,
+    "sources": 38,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 39339,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "served_assets": [
+    {
+      "path": "src/game.mjs",
+      "served_equal": true,
+      "sha256": "da4517c999a6de354f3f45b32372b1e48236618a6fdc3812dfa6fa39a073ca00"
+    },
+    {
+      "path": "src/lexer.mjs",
+      "served_equal": true,
+      "sha256": "10b8c0b0c3a7df4ab7018786bed7e2610e70127f731a06c7ff6e23d5944c43f9"
+    },
+    {
+      "path": "src/random-display.mjs",
+      "served_equal": true,
+      "sha256": "0caeb0ddc3868c5ff41afa9ecdafc47ca106ad26552ebaeffbd7652a42f5c889"
+    },
+    {
+      "path": "src/keyboard-profile.mjs",
+      "served_equal": true,
+      "sha256": "bcddf84cef78302c9ff1a77f351a79d53dab385796653bc2249cc2a622ef6a99"
+    },
+    {
+      "path": "src/memory-map-data.json",
+      "served_equal": true,
+      "sha256": "db3649d5550eb20e93b271d37c17aeab92ced757eb8c52077e6116ac13e770f4"
+    }
+  ],
+  "natural_prefix": "results/lexical-workspace-verification.json",
+  "full_research": {
+    "passed": false,
+    "first_boundary_checkpoint": 323,
+    "unknown_address": "5D1F",
+    "previous_read_5C1F_resolved": true
+  },
+  "full_ending_certified": false
+}

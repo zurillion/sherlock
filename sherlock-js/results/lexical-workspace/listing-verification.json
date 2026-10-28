@@ -1,0 +1,79 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 173,
+  "bytes_roundtripped": 286,
+  "regions": [
+    {
+      "start": "A94D",
+      "end_exclusive": "A9B5",
+      "kind": "code",
+      "label": "Decompressione del candidato: workspace separato a 5C42",
+      "atlas_priority": 87,
+      "fields": [
+        [
+          "5C0B\u20135C41",
+          "55 byte",
+          "Corpo lessicale e buffer di stampa condivisi; prima lettera omessa, zero finale, coda conservata"
+        ],
+        [
+          "5C1E\u20135C35",
+          "24 byte",
+          "Coda degli stream: zero solo al cold start, poi scritture effettive"
+        ],
+        [
+          "5C42",
+          "workspace candidato",
+          "Decompressione incrementale del dizionario; sovrapposizione oltre i primi 55 byte non certificata"
+        ]
+      ]
+    },
+    {
+      "start": "D9C5",
+      "end_exclusive": "DA32",
+      "kind": "code",
+      "label": "Lookup alfabetico: copie lessicali prima del parsing, anche in preflight",
+      "atlas_priority": 87,
+      "fields": [
+        [
+          "5C0B\u20135C41",
+          "55 byte",
+          "Corpo lessicale e buffer di stampa condivisi; prima lettera omessa, zero finale, coda conservata"
+        ],
+        [
+          "5C1E\u20135C35",
+          "24 byte",
+          "Coda degli stream: zero solo al cold start, poi scritture effettive"
+        ],
+        [
+          "5C42",
+          "workspace candidato",
+          "Decompressione incrementale del dizionario; sovrapposizione oltre i primi 55 byte non certificata"
+        ]
+      ]
+    },
+    {
+      "start": "DA34",
+      "end_exclusive": "DA7D",
+      "kind": "code",
+      "label": "Copia del corpo della parola in minuscolo nel buffer di stampa 5C0B",
+      "atlas_priority": 87,
+      "fields": [
+        [
+          "5C0B\u20135C41",
+          "55 byte",
+          "Corpo lessicale e buffer di stampa condivisi; prima lettera omessa, zero finale, coda conservata"
+        ],
+        [
+          "5C1E\u20135C35",
+          "24 byte",
+          "Coda degli stream: zero solo al cold start, poi scritture effettive"
+        ],
+        [
+          "5C42",
+          "workspace candidato",
+          "Decompressione incrementale del dizionario; sovrapposizione oltre i primi 55 byte non certificata"
+        ]
+      ]
+    }
+  ]
+}

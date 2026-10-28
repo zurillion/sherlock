@@ -64,6 +64,12 @@ export class RandomDisplay {
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}
  // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
+ lexicalWorkspace(copies=[]){const b=this.state?.wordBuffer;if(!b)return;for(const values of copies)for(let i=0;i<values.length&&i<128;i++){
+  // DA6D/DA75 write after the first letter, without touching A9B5.
+  // At 5C42 the dictionary decoder reuses this same area: do not publish
+  // the input copy as its final value beyond that overlap.
+  b.bytes[i]=i<0x5C42-0x5C0B?values[i]:null;
+ }}
  bufferFeed(c,{known=true}={}){const s=this.state;if(!s)return;const b=s.wordBuffer??(s.wordBuffer={bytes:Array(128).fill(null),index:0});if([' ','\n','\r','"'].includes(c)){b.index=0;return;}if(c==='\b'){b.index=Math.max(0,b.index-1);return;}if(b.index>=128)throw new RandomInputsUnavailable('Buffer parola oltre il confine ricostruito');b.bytes[b.index++]=known?(c==='£'?96:c.charCodeAt(0)):null;}
  feed(c,{buffer=true}={}){
   const s=this.state;if(!s)return;if(buffer)this.bufferFeed(c,{known:!/[A-Za-z]/.test(c)});
