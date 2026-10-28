@@ -1,0 +1,42 @@
+{
+  "regression_suite": {
+    "command": "node --test test/*.test.mjs",
+    "passed": 681,
+    "failed": 0
+  },
+  "targeted": {
+    "command": "node --test test/memory-map.test.mjs test/architecture.test.mjs test/transient-inputs.test.mjs",
+    "passed": 20,
+    "failed": 0
+  },
+  "natural_prefix": {
+    "command": "node tools/verify-witness-prefix.mjs",
+    "passed": true,
+    "checkpoints": 247,
+    "random_draws_compared": 4419,
+    "random_reads_compared": 9482,
+    "through": "Tue 01:10pm"
+  },
+  "research_comparator": {
+    "command": "node --test tools/compare-witness-research.mjs",
+    "expected_boundary": "checkpoint 247 / A012",
+    "full_ending_certified": false
+  },
+  "http_served_matches_local": [
+    "src/game.mjs",
+    "src/npc-runtime.mjs",
+    "data/game.json",
+    "src/memory-map-data.json"
+  ],
+  "atlas_sha256": "1d8d5980bc3da769d53398eb90f81e05783c93527194f39cbc26d12fb82788d8",
+  "payload_listing": {
+    "instructions": 402,
+    "bytes": 744
+  },
+  "rom_evidence": {
+    "instructions": 4,
+    "bytes": 25,
+    "excluded_from_map": true
+  },
+  "source_profile": "seed 1, all actors, free initial LOOK, original graphics off after boot, injected keys and immediate MORE"
+}

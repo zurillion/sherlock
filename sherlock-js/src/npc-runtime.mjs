@@ -34,10 +34,14 @@ export class NpcRuntime {
   for(const root of g.data.npcPrograms.actors){vm.start(root.id,root.entry);const a=w.scheduler.actor(root.id);a.enabled=true;a.program='domain';a.due=0;a.behavior=null;}
   w.npcs.program=vm.dump();w.random={version:1,profile:'world-v5',seed,cursor:0,draws:0,trace:[]};g.configureRandom();
   w.npcs.facts=clone(this.worldSource.layout.facts);
-  w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];
+  w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];
+  w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
   // Graphics are presentation-only in the declared text-only source profile.
   // F490/F507 are its only colour writers; neither runs after this boot.
   w.npcs.nativeFillColor=g.data.randomInputs.bootOptions.initialFillColor;
+  // The declared source protocol disables original bitmap drawing after
+  // boot. SVG/pixel display preferences do not change that world input.
+  w.npcs.nativeGraphicsEnabled=false;
   w.npcs.printerEnabled=g.data.randomInputs.bootOptions.printerEnabled;
   w.npcs.recordsSourceKnown=true;
   w.npcs.playerFailures=0;
@@ -85,7 +89,7 @@ export class NpcRuntime {
  }
  inspect(id,actor,messages){
   const start=messages.length,g=this.game,e=this.w.entity(id);e.status|=64;
-  if(!g.text.examinePreservesLowScratch(e.description))g.sourceDisplay.invalidateScratch();
+  if(!g.text.examinePreservesLowScratch(e.description))g.sourceDisplay.invalidateScratch();else g.sourceDisplay.invalidateScratch(0x5D12);
   const c=g.npcTextContext(actor);let text;
   if(e.description)text=g.text.render(e.description,{...c,actor,object:id});
   else{text='You see '+this.w.name(id,{indefinite:true})+'.';if(c.sink)for(const ch of text)c.sink(ch);}
@@ -300,10 +304,11 @@ export class NpcRuntime {
   // rule's classes, light and predicate, even when that predicate fails.
   if(meta.classes.some((kind,i)=>[5,6].includes(kind)&&input[i]!==254))return no();
   if(!meta.classes.some((kind,i)=>kind!==0&&input[i]===255))this.state.executionPhase=1;
-  const actor=context.actor;if(meta.requiresLight&&w.dark(actor))return no();
+  const actor=context.actor;
+  if(!meta.classes.some((kind,i)=>kind!==0&&input[i]===255))this.projectArguments(input);
   const candidates=(value,kind)=>{if(value!==255||kind===0){const chosen=this.select(value,kind,actor);return chosen===null?[]:[chosen];}const values=[];for(let i=0;i<(kind<=4?w.rooms.length:w.entities.length);i++)if(this.select(i,kind,actor)!==null)values.push(i);return values;};
   for(const first of candidates(input[0],meta.classes[0]))for(const second of candidates(input[1],meta.classes[1])){
-   const args=[first,second];if(name.startsWith('object.')&&meta.masks.some(m=>{if(m.tests.every(t=>!t.mask))return false;const bits=this.w.entity(args[m.argument-1]).attributes;return m.tests.some(t=>{const intersection=bits&t.mask;return ![intersection===t.mask,!t.mask||intersection!==0,intersection===0,intersection!==t.mask][t.mode];});})){if(name==='object.open')specialObjectBody(this,name,args,context,messages);continue;}
+   const args=[first,second];this.projectArguments(args);if(meta.requiresLight&&w.dark(actor))continue;if(name.startsWith('object.')&&meta.masks.some(m=>{if(m.tests.every(t=>!t.mask))return false;const bits=this.w.entity(args[m.argument-1]).attributes;return m.tests.some(t=>{const intersection=bits&t.mask;return ![intersection===t.mask,!t.mask||intersection!==0,intersection===0,intersection!==t.mask][t.mode];});})){if(name==='object.open')specialObjectBody(this,name,args,context,messages);continue;}
    if(this.predicate(name,args,context)){this.state.executionPhase=1;this.state.announcementMode=1;return this.ruleBody(name,args,context,messages,actions);}
   }
   return no();
@@ -397,11 +402,17 @@ export class NpcRuntime {
   const [verb,r1,r2,modifier]=model.words,lookup=v=>v?this.game.dictionary.lookup(v.toUpperCase()).value:0;
   return {verb:lookup(verb),modifier:lookup(modifier),groups:args[0]===255?[]:[{noun:0,qualifiers:[],relations:[r1,r2].filter(Boolean).map(lookup)}],resolved:args.filter(v=>v!==255),subject:null,all:false,exclusion:false,quote:null};
  }
- setActionClasses(action){const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes)this.state.argumentClasses=[...model.classes];}
+ // C8EF updates a slot only for an ID below FE. Class <5 selects the
+ // room index; other classes select the entity index. FE/FF preserve the
+ // previous pointer rather than clearing it. Unknown semantic searches
+ // revoke ownership until a reconstructed C929/C989 call publishes it.
+ projectArguments(args){const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++){const id=args[i];if(!Number.isInteger(id)||id>=254)continue;const kind=this.state.argumentClasses?.[i],table=kind===null||kind===undefined?null:kind<5?this.worldSource.layout.rooms:this.worldSource.layout.entities;pointers[i]=table?.find(e=>e.id===id)?.start??null;}}
+ setActionClasses(action){const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
  action(action,input,context,messages,actions){
   const actor=context.actor,w=this.w,g=this.game;this.state.executionPhase=0; // C4E9 action preflight.
   if(action>=128&&action<153){const meta=g.data.npcPrograms.internalActions?.[action];if(!meta)throw new UnsupportedFeature('azione interna '+action);return this.rule(meta,input,context,messages,actions);}
   this.setActionClasses(action);
+  if(!this.state.argumentClasses.some((kind,i)=>kind!==0&&input[i]===255))this.projectArguments(input);
   if([29,30].includes(action)&&[31,34].includes(actor))return this.travel(actor,input[0],action===30,messages);
   if([29,30].includes(action)&&actor===11)return this.advanced.policeTravel(actor,input[0],action===30,messages,input[1]);
   if(action===45&&[31,34].includes(actor))return {cost:0,defer:'E08F',args:input};
@@ -409,6 +420,7 @@ export class NpcRuntime {
   const classByAction={12:8,13:8,24:8,25:8,40:8,31:8,19:8,41:9,42:9,44:9,11:9,23:9,16:10,17:10,38:10,39:10,36:8,14:8,26:10,32:0,49:0};
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
   else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0));if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
+  this.projectArguments(args);
   // Action lookup: a resolved entity without an OPEN/CLOSE rule is a
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
@@ -523,6 +535,8 @@ export class NpcRuntime {
   });
  }
  read(address){if(address===0xF60B)return this.state.nativeFillColor??null;const worldValue=this.worldSource.read(address);if(worldValue!==null)return worldValue;
+  if(address===0xDC13||address===0xDC14)return this.state.lexicalMatch?.[address-0xDC13]??null;
+  if(address>=0xBA13&&address<0xBA1C){const r=this.state.information.resolution;if(!r)return null;const values=[...r.cursors,r.verb];if(address<0xBA19){const n=values[Math.floor((address-0xBA13)/2)];return Number.isInteger(n)?((address&1)?n&255:n>>>8):null;}return r.triple[address-0xBA19]??null;}
   if(address>=0xAAA8&&address<0xAAB2)return this.state.parserNominal?.[address-0xAAA8]??null;
   if(address>=0xC1F4&&address<=0xC1FB)return this.game.sourceDisplay.read(address);
   // A008 is the optional ZX Printer flag, not a darkness/room byte. PRINT
@@ -531,6 +545,8 @@ export class NpcRuntime {
   // actor's room and record. These are live world fields, not seed inputs.
   if(address===0xCC0D){const actor=this.w.scheduler.current?.actor,local=this.active?.vm.states[actor]??this.state.program.states[actor];return local?Number(local.requestAvailable):actor===this.w.player?Number(this.w.scheduler.requests.some(r=>r.recipient===actor)):null;}
   if(address===0xCC0B){const actor=this.w.scheduler.current?.actor;if(actor===this.w.player)return this.state.playerFailures;return this.active?.vm.states[actor]?.failures??this.state.program.states[actor]?.failures??null;}
+  if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
+  if(address===0xA011)return this.state.nativeGraphicsEnabled===undefined?null:Number(this.state.nativeGraphicsEnabled);
   if(address===0xA00F||address===0xA010)return this.state.argumentClasses?.[address-0xA00F]??null;
   if(address===0xA00C)return this.state.announcementMode??null;
   if(address===0xA00B)return this.state.executionPhase??null;
@@ -563,7 +579,11 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
+  if(s.lexicalMatch!==undefined&&(!Array.isArray(s.lexicalMatch)||s.lexicalMatch.length!==2||s.lexicalMatch.some(v=>v!==null&&!byte(v))))throw Error('Stato confronto lessicale non valido');
+  if(s.information?.resolution){const r=s.information.resolution;if(!Array.isArray(r.cursors)||r.cursors.length!==2||[...r.cursors,r.verb].some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>65535))||!Array.isArray(r.triple)||r.triple.length!==3||r.triple.some(v=>v!==null&&!byte(v)))throw Error('Stato ricerca informazioni non valido');}
+  if(s.argumentPointers!==undefined&&(!Array.isArray(s.argumentPointers)||s.argumentPointers.length!==2||s.argumentPointers.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>65535))))throw Error('Puntatori argomenti non validi');
   if(s.argumentClasses!==undefined&&(!Array.isArray(s.argumentClasses)||s.argumentClasses.length!==2||s.argumentClasses.some(v=>v!==null&&!byte(v))))throw Error('Classi argomenti non valide');
   if(s.playerFailures!==undefined&&(!Number.isInteger(s.playerFailures)||s.playerFailures<0||s.playerFailures>9))throw Error('Contatore tentativi del giocatore non valido');
   if(s.playerProgramCounter!==undefined&&s.playerProgramCounter!=='9923'&&!(this.game.ended&&(s.playerLocal?.pc===s.playerProgramCounter||['9923','992D','9932','9937','9945'].includes(s.playerProgramCounter))))throw Error('Continuazione del giocatore fuori dal prompt');

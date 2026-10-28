@@ -1,0 +1,144 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 402,
+  "bytes_roundtripped": 744,
+  "regions": [
+    {
+      "start": "A011",
+      "end_exclusive": "A012",
+      "kind": "data",
+      "label": "Flag della grafica nativa del protocollo sorgente",
+      "atlas_priority": 120,
+      "fields": [
+        [
+          "A011",
+          "1",
+          "Flag mutabile: nel profilo storico verificato viene impostato a zero dopo il boot"
+        ]
+      ]
+    },
+    {
+      "start": "A013",
+      "end_exclusive": "A017",
+      "kind": "data",
+      "label": "Puntatori temporanei ai due argomenti delle regole",
+      "atlas_priority": 120,
+      "fields": [
+        [
+          "A013",
+          "2",
+          "Puntatore primo argomento"
+        ],
+        [
+          "A015",
+          "2",
+          "Puntatore secondo argomento"
+        ],
+        [
+          "Regola",
+          "C8EF",
+          "ID <FE e classe <5: locazione; classe >=5: entit\u00e0; FE/FF non riscrivono"
+        ]
+      ]
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A89F",
+      "kind": "code",
+      "label": "Dizionario: fuori scena non scrive neanche lo spazio nel buffer",
+      "atlas_priority": 85
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "AA14",
+      "kind": "code",
+      "label": "Buffer di parola: scritture letterali persistenti anche fuori scena",
+      "atlas_priority": 85
+    },
+    {
+      "start": "BA13",
+      "end_exclusive": "BA1C",
+      "kind": "data",
+      "label": "Affermazioni: due cursori, verbo lessicale e tripla parziale",
+      "atlas_priority": 120,
+      "fields": [
+        [
+          "BA13/BA15",
+          "2 + 2",
+          "Cursori nella tabella degli ID entit\u00e0"
+        ],
+        [
+          "BA17",
+          "2",
+          "Offset lessicale del predicato"
+        ],
+        [
+          "BA19\u2013BA1B",
+          "3",
+          "Tripla parziale soggetto/predicato/oggetto"
+        ]
+      ]
+    },
+    {
+      "start": "BD7E",
+      "end_exclusive": "BE5A",
+      "kind": "code",
+      "label": "Risoluzione globale delle affermazioni e verifica di unicit\u00e0",
+      "atlas_priority": 85
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifi: otto scansioni, shift, indirizzo video e residui dei chiamanti",
+      "atlas_priority": 85
+    },
+    {
+      "start": "C8EF",
+      "end_exclusive": "C929",
+      "kind": "code",
+      "label": "Argomenti: indice locazioni o entit\u00e0; FE/FF conservano il puntatore",
+      "atlas_priority": 85
+    },
+    {
+      "start": "D04F",
+      "end_exclusive": "D05A",
+      "kind": "code",
+      "label": "Enumeratore entit\u00e0: cursore iniziale tre byte prima della tabella",
+      "atlas_priority": 85
+    },
+    {
+      "start": "D9C5",
+      "end_exclusive": "DA32",
+      "kind": "code",
+      "label": "Lexer: salta numeri e punteggiatura; conserva il confronto lessicale",
+      "atlas_priority": 85
+    },
+    {
+      "start": "DA34",
+      "end_exclusive": "DAAD",
+      "kind": "code",
+      "label": "Lookup: lunghezza della parola e miglior prefisso, anche in parit\u00e0",
+      "atlas_priority": 85
+    },
+    {
+      "start": "DC13",
+      "end_exclusive": "DC15",
+      "kind": "data",
+      "label": "Lookup: lunghezza e miglior prefisso dell\u2019ultima parola cercata",
+      "atlas_priority": 120,
+      "fields": [
+        [
+          "DC13",
+          "1",
+          "Lunghezza della parola inserita"
+        ],
+        [
+          "DC14",
+          "1",
+          "Miglior prefisso trovato, aggiornato anche in parit\u00e0"
+        ]
+      ]
+    }
+  ]
+}

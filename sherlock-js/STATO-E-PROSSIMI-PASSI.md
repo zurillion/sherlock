@@ -180,3 +180,14 @@ martedì 06:40; il confine successivo è 5D13 al checkpoint 206, non il vecchio
 97B5 o 5D12. Nessun nuovo finale completo è dichiarato certificato.
 L’atlante è stato rigenerato con le nuove analisi commentate e da ora va
 aggiornato a ogni nuova scoperta del sorgente o delle strutture dati.
+
+## Seconda ripresa 28 ottobre: residui e conversazioni fuori scena
+
+`INGRESSI-TEMPORANEI-E-CONVERSAZIONI.md` documenta renderer, argomenti,
+enumeratori, stato lessicale, TELL fuori scena e inizializzazione ROM dei
+canali riutilizzati dal buffer. Suite completa: **681 test passati**.
+Il nuovo confronto naturale coincide su 247 checkpoint fino a martedì
+13:10. Il prossimo confine è A012, contatore del parser, al checkpoint
+247 diretto a 13:20. Nessun nuovo testo terminale è ancora certificato.
+La mappa è rigenerata con 402 istruzioni e 744 byte annotati del payload,
+più la provenienza ROM verificata separatamente e fuori dalla mappa.

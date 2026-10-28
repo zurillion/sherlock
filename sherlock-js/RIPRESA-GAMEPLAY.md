@@ -4,23 +4,23 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   Corrette la sovrascrittura del predicato nel nodo intermedio (AB7C/AC17)
-   e la fase A00B delle regole con argomenti espliciti (C5F4 prima del
-   predicato). Confronto naturale riuscito su 206 checkpoint, da 0 a 205,
-   fino a martedì 06:40: tutti gli attori, ogni estrazione/lettura casuale,
-   arena completa, entità, programmi, bitmap e futuro dopo LOAD.
-   Vedere `PARSER-E-FASE-REGOLE.md` e il relativo rapporto.
+   247 checkpoint, da 0 a 246, fino a martedì 13:10: tutti gli attori,
+   ogni estrazione/lettura, arena completa, entità, programmi, bitmap e
+   futuro dopo LOAD. Alle correzioni del parser AB7C e della fase A00B si
+   aggiungono renderer fino a 5D19, puntatori A013–A016, enumeratori delle
+   affermazioni BA13–BA1B, lookup DC13/DC14, letterali TELL fuori scena,
+   inizializzazione ROM dei canali e flag grafico A011.
+   Vedere `INGRESSI-TEMPORANEI-E-CONVERSAZIONI.md` e il relativo rapporto.
 
-2. **Prossimo confine reale: ingresso temporaneo $5D13.**
-   Eseguire `node --test tools/compare-witness-research.mjs`.
-   Il checkpoint 206, diretto a martedì 06:50, incontra questo byte senza
-   un proprietario ricostruito. Studiare le scritture del renderer/stack,
-   senza riempire il valore da una registrazione o estendere alla cieca
-   i campi posseduti. La registrazione nativa completa ha 521 checkpoint
-   e termina con 6A33 giovedì 10:00; non è ancora un certificato JS completo.
-   I vecchi scostamenti a 97B5 (lun 08:57) e A00B (mar 04:00) sono risolti.
-   Non eliminare il nodo intermedio: l’originale lo alloca e ne sovrascrive
-   il predicato prima di creare il successivo.
+2. **Prossimo confine reale: contatore del parser $A012.**
+   `node --test tools/compare-witness-research.mjs` si ferma al checkpoint
+   247, diretto a martedì 13:20. Il generatore consulta A012 (1 nel nativo).
+   Ricostruire AAB2/AD57, coordinazioni, esclusioni, backtracking e citazioni;
+   non inserire il valore osservato come costante. La lettura arriva nel
+   turno del giardiniere. Il confronto completo ha ancora 521 checkpoint
+   e termina nel nativo con 6A33 giovedì 10:00: quel finale non è certificato JS.
+   La traccia precedente 5D13/5D16 è risolta; le letture reali dei nuovi byte
+   coincidono. Anche il vecchio errore nel buffer di Straker a 5C15 è risolto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -49,5 +49,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 28 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **667 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **681 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

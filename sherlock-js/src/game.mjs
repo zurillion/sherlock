@@ -35,7 +35,9 @@ export class Game {
  }
  historyMeta(){return {seed:this.world.npcs?.initialSeed??null,startMode:this.startMode,profile:this.world.npcs?.profile??this.world.scheduler.actor(3).behavior?.profile??null,source_sha256:this.data.source_sha256};}
  configureRandom(){this.text.chooseIndex=this.world.random?(count,ctx)=>this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+ctx.fragment}):undefined;}
- npcTextContext(actor){if(!this.world.display||!this.world.perceived(actor))return {};const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;try{write();}finally{this.sourceDisplay.glyphFrame=previous;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
+ // Literal speech still traverses the word workspace outside Holmes' view;
+ // only the screen sink and dictionary/name writes are suppressed there.
+ npcTextContext(actor){if(!this.world.display)return {};if(!this.world.perceived(actor))return {bufferVisible:false,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options)};const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;try{write();}finally{this.sourceDisplay.glyphFrame=previous;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
  projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative')this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace});}
  sceneMessage(options={}){const scene_trace=[];return {kind:'narrative',text:this.text.scene({source:'arrival',...options,trace:scene_trace}),scene_trace};}
@@ -271,7 +273,7 @@ export class Game {
    e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([say(action===36?'open':'close',' '+w.name(e.id)+'.')],1,[e.id]);
   }
   if(action===19&&e.person)return {...reject(`YOU CANNOT EXAMINE ${e.id===actor?'ME':w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};
-  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs&&!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();e.status|=64;
+  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs){if(!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();else this.sourceDisplay.invalidateScratch(0x5D12);}e.status|=64;
    const characters=[],description=e.description?this.text.render(e.description,{object:e.id,sink:c=>{if(c==='\b')characters.pop();else characters.push(c);}}):`${subject} see ${w.name(e.id,{indefinite:true})}.`,announcement=say('examine',' '+w.name(e.id)+'.')+'\n';
    return ok([{kind:'narrative',text:announcement+description,raw_text:announcement+(e.description?characters.join(''):description)+'\n'}],1,[e.id]);}
   if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');return ok([`You count ${w.name(e.id)}.\nIt totals ${formatMoney(e.pence&16383)}`],1,[e.id]);}
@@ -314,7 +316,7 @@ export class Game {
    const repeat=input.trim()==='@'&&!this.pending;
    if(input.trim()==='@')input=this.pending?'':this.lastInput||'';
    if(this.world.display){if(repeat)this.sourceDisplay.repeat();else this.sourceDisplay.command(normalizeInput(input));}
-   this.lastInput=input;lexed=this.lexer.scan(input);this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
+   this.lastInput=input;lexed=this.lexer.scan(input);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
@@ -362,7 +364,7 @@ export class Game {
    }
   }catch(error){
    if(error instanceof InputError&&error.kind==='tool_limit'){cancel();this.analysis={input,outcome:'not_translated',feature:'editor-boundary',notice:error.message,units:[],actions:[]};messages.length=0;messages.push({kind:'system',text:error.message});}
-   else if(error instanceof InputError){if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
+   else if(error instanceof InputError){if(this.world.npcs&&error.detail.lookupState)this.world.npcs.lexicalMatch=error.detail.lookupState;if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
    else{cancel();messages.length=0;actions.length=0;
     if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature??'original-random-input',notice:error.message,...(error instanceof RandomInputsUnavailable?{recovery:'requires-engine-update',missing_address:error.address??null}:{}),units,actions};messages.push({kind:'system',text:error.message});}
     else throw error;

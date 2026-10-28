@@ -1,0 +1,1251 @@
+{
+  "scope": "Offline original major-witness natural seed-1 history; all actors, no state patches; graphics off after boot.",
+  "reads": [
+    {
+      "address": "A013",
+      "value": 232,
+      "clock": {
+        "tick": 1390,
+        "due": 2341,
+        "minute": 9,
+        "hour": 7,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 07:09am"
+      },
+      "actor": 8,
+      "writes": [
+        {
+          "cell": "A013",
+          "value": 34037,
+          "args": [
+            2,
+            255
+          ],
+          "classes": [
+            0,
+            0
+          ],
+          "action": 255,
+          "actor": 36,
+          "clock": {
+            "tick": 1389,
+            "due": 2341,
+            "minute": 8,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:08am"
+          },
+          "caller": [
+            51600,
+            56766,
+            52837,
+            41139,
+            9322,
+            39136
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34222,
+          "args": [
+            16,
+            3
+          ],
+          "classes": [
+            4,
+            7
+          ],
+          "action": 140,
+          "actor": 37,
+          "clock": {
+            "tick": 1389,
+            "due": 2341,
+            "minute": 8,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:08am"
+          },
+          "caller": [
+            51600,
+            62117,
+            52790,
+            41139,
+            9578,
+            39144
+          ]
+        },
+        {
+          "cell": "A015",
+          "value": 36077,
+          "args": [
+            16,
+            3
+          ],
+          "classes": [
+            4,
+            7
+          ],
+          "action": 140,
+          "actor": 37,
+          "clock": {
+            "tick": 1389,
+            "due": 2341,
+            "minute": 8,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:08am"
+          },
+          "caller": [
+            51600,
+            62117,
+            52790,
+            41139,
+            9578,
+            39144
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34222,
+          "args": [
+            16,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 37,
+          "clock": {
+            "tick": 1389,
+            "due": 2341,
+            "minute": 8,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:08am"
+          },
+          "caller": [
+            51600,
+            58569,
+            52837,
+            41139,
+            9578,
+            39144
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34047,
+          "args": [
+            3,
+            255
+          ],
+          "classes": [
+            0,
+            0
+          ],
+          "action": 255,
+          "actor": 37,
+          "clock": {
+            "tick": 1389,
+            "due": 2341,
+            "minute": 8,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:08am"
+          },
+          "caller": [
+            51600,
+            56766,
+            52837,
+            41139,
+            9578,
+            39144
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36060,
+          "args": [
+            2,
+            18
+          ],
+          "classes": [
+            12,
+            4
+          ],
+          "action": 131,
+          "actor": 2,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58797,
+            52790,
+            41139,
+            618,
+            39016
+          ]
+        },
+        {
+          "cell": "A015",
+          "value": 34251,
+          "args": [
+            2,
+            18
+          ],
+          "classes": [
+            12,
+            4
+          ],
+          "action": 131,
+          "actor": 2,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58797,
+            52790,
+            41139,
+            618,
+            39016
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 130,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58877,
+            52790,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58504,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56658,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56673,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 130,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58877,
+            52790,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58504,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56658,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56673,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 130,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58877,
+            52790,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58504,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56658,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56673,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 130,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58877,
+            52790,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58504,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56658,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56673,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 130,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58877,
+            52790,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36026,
+          "args": [
+            0,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58504,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56658,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 34167,
+          "args": [
+            12,
+            255
+          ],
+          "classes": [
+            4,
+            0
+          ],
+          "action": 255,
+          "actor": 3,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            56673,
+            52837,
+            41139,
+            874,
+            39024
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36094,
+          "args": [
+            4,
+            2
+          ],
+          "classes": [
+            7,
+            7
+          ],
+          "action": 129,
+          "actor": 4,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58840,
+            52790,
+            41139,
+            1130,
+            39032
+          ]
+        },
+        {
+          "cell": "A015",
+          "value": 36060,
+          "args": [
+            4,
+            2
+          ],
+          "classes": [
+            7,
+            7
+          ],
+          "action": 129,
+          "actor": 4,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            58840,
+            52790,
+            41139,
+            1130,
+            39032
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 28,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 36,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 28,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 36,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 28,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 36,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 28,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 36,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 28,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36111,
+          "args": [
+            5,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 36,
+          "actor": 5,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51500,
+            52790,
+            41139,
+            1386,
+            39040
+          ]
+        },
+        {
+          "cell": "A013",
+          "value": 36840,
+          "args": [
+            40,
+            255
+          ],
+          "classes": [
+            7,
+            0
+          ],
+          "action": 255,
+          "actor": 8,
+          "clock": {
+            "tick": 1390,
+            "due": 2341,
+            "minute": 9,
+            "hour": 7,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 07:09am"
+          },
+          "caller": [
+            51600,
+            61848,
+            52837,
+            41139,
+            2154,
+            39072
+          ]
+        }
+      ]
+    }
+  ]
+}

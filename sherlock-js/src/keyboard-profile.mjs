@@ -11,4 +11,6 @@ export function bootstrapKeyboard({rawKey=13,decodedKey=13,releaseScans=2,releas
 // The declared cold-start/LOAD-USR protocol leaves the ROM RND seed at zero.
 // The game uses A037 instead. This ROM field lies in its reused word workspace;
 // later character writes may overwrite it, so it is initialized only at boot.
-export function bootstrapWordWorkspace(){const bytes=Array(128).fill(null);bytes[0x5C76-0x5C0B]=0;bytes[0x5C77-0x5C0B]=0;return {bytes,index:0};}
+// ROM 127C–1285 also copies the fourteen-byte stream map to 5C10;
+// those source-derived bytes survive until the game writes over them.
+export function bootstrapWordWorkspace({initialStreams=[]}={}){const bytes=Array(128).fill(null);for(const[i,value]of initialStreams.entries())bytes[0x5C10-0x5C0B+i]=value;bytes[0x5C76-0x5C0B]=0;bytes[0x5C77-0x5C0B]=0;return {bytes,index:0};}

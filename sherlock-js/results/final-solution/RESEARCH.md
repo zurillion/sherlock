@@ -5,18 +5,22 @@ la confessione nella fumeria. Non imposta flag interni. Il riferimento nativo
 contiene 521 checkpoint e termina in 6A33 giovedì 10:00; è compresso in
 `witness-native-reference.json.gz` e non viene caricato dal gioco.
 
-Aggiornamento 28 ottobre: risolti la scrittura del predicato intermedio
-AB7C/AC17 e la fase A00B delle regole con argomenti espliciti. Il confronto
-JS passa ora sui checkpoint 0–205 fino a martedì 06:40, con tutti gli attori,
-ogni draw/read, arena, entità, fatti, bitmap e futuro dopo LOAD.
+Aggiornamento 28 ottobre, seconda ripresa: corrette le dipendenze del renderer
+fino a 5D19, i puntatori di C8EF e gli enumeratori delle affermazioni,
+lunghezza/prefisso lessicale, scritture letterali TELL fuori scena e copia
+ROM della mappa degli stream. A011 è esplicito per il profilo grafica off.
 
-`node --test tools/compare-witness-research.mjs` prosegue oltre il prefisso
-e si ferma al checkpoint 206, diretto a martedì 06:50, per l’ingresso 5D13
-ancora senza proprietario ricostruito. Il vecchio blocco 5D12 era un sintomo
-di una sequenza già divergente: non è il confine attuale.
+Il prefisso JS passa su 247 checkpoint, fino a martedì 13:10, con tutti gli
+attori, ogni draw/read, arena, entità, fatti, bitmap e futuro dopo LOAD.
+Rapporto: `results/transient-inputs-verification.json`.
+Ripetere con `node tools/verify-witness-prefix.mjs`.
 
-Vedere `PARSER-E-FASE-REGOLE.md` e
-`results/parser-rule-lifetimes-verification.json`. La traccia è evidenza
-offline, non un asset del runtime. Conservare tutte le allocazioni dei nodi
-intermedi: il nuovo predicato ne sovrascrive il verbo prima dell’allocazione
-successiva, non ne elimina il record.
+Il confronto completo `node --test tools/compare-witness-research.mjs` rimane
+separato e si ferma al checkpoint 247, diretto a martedì 13:20: contatore
+A012 non ancora proiettato (il nativo legge 1 nel turno del giardiniere).
+Ricostruire le scritture del parser, senza trasformare 1 in un fallback.
+I vecchi limiti 97B5, A00B, 5D13, A013, BA13, DC13, 5D16, 5C17 e A011 sono
+risolti; il vecchio 5D12 apparteneva a una storia già divergente.
+
+Vedere `INGRESSI-TEMPORANEI-E-CONVERSAZIONI.md` e `RIPRESA-GAMEPLAY.md`.
+Nessuna traccia raccolta dai probe diventa un asset di comportamento del gioco.

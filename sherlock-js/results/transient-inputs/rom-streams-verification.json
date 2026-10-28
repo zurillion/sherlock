@@ -1,0 +1,22 @@
+{
+  "instructions": 4,
+  "bytes_roundtripped": 25,
+  "rom_not_part_of_map": true,
+  "source": "ROM 127C\u20131285 / 15C6\u201315D3",
+  "initial_streams": [
+    1,
+    0,
+    6,
+    0,
+    11,
+    0,
+    1,
+    0,
+    1,
+    0,
+    6,
+    0,
+    16,
+    0
+  ]
+}

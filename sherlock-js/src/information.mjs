@@ -12,11 +12,17 @@ export class Information {
  resolve(node){
   const w=this.world,info=this.state.information,subject=node.subject?.pronoun?info[node.subject.pronoun]:[node.subject?.noun||0,...(node.subject?.qualifiers||[]),0,0].slice(0,3).flatMap(n=>[n&255,n>>>8]);
   const group=bytes=>({noun:bytes[0]|bytes[1]<<8,qualifiers:[bytes[2]|bytes[3]<<8,bytes[4]|bytes[5]<<8].filter(Boolean)});
-  const predicate=this.rules.predicates.indexOf(node.verb&4095)+1;if(!predicate)return null;
-  const find=g=>w.entities.filter(e=>e.id!==0&&w.nounMatches(e,g));
-  const subjects=find(group(subject));if(!subjects.length)return null;if(subjects.length!==1)throw new UnsupportedFeature('internal ambiguous information reference');
+  // BD7E/BDC2 own the global reference iterators, not entity pointers.
+  // Each uniqueness check runs D36A again; exhaustion leaves the index
+  // terminator, while ambiguity leaves the second matching index entry.
+  const state=info.resolution??(info.resolution={cursors:[null,null],verb:null,triple:[null,null,null]});
+  const indexBase=0x8B6F,indexEnd=indexBase+3*w.entities.length;
+  state.verb=node.verb&4095;state.cursors=[indexBase-3,indexBase-3];
+  const predicate=this.rules.predicates.indexOf(state.verb)+1;if(!predicate)return null;state.triple[1]=predicate;
+  const find=(g,slot)=>{const matches=w.entities.filter(e=>e.id!==0&&w.nounMatches(e,g));state.cursors[slot]=matches.length>1?indexBase+3*matches[1].id:indexEnd;if(matches.length)state.triple[slot===0?0:2]=matches[0].id;return matches;};
+  const subjects=find(group(subject),0);if(!subjects.length)return null;if(subjects.length!==1)throw new UnsupportedFeature('internal ambiguous information reference');
   const remember=e=>{info[e.attributes&64?'he':'it']=this.reference(e);};remember(subjects[0]);
-  const objects=find(node.groups[0]||{noun:0,qualifiers:[]});if(!objects.length)return null;if(objects.length!==1)throw new UnsupportedFeature('internal ambiguous information reference');remember(objects[0]);
+  const objects=find(node.groups[0]||{noun:0,qualifiers:[]},1);if(!objects.length)return null;if(objects.length!==1)throw new UnsupportedFeature('internal ambiguous information reference');remember(objects[0]);
   return {subject:subjects[0].id,predicate,object:objects[0].id};
  }
  triplesEqual(a,b){return a.subject===b.subject&&a.predicate===b.predicate&&a.object===b.object;}

@@ -1,0 +1,270 @@
+{
+  "scope": "Natural major-witness seed 1, all actors, watches writes to 5D13 from startup; graphics off after boot, native input protocol.",
+  "changes_count": 3174,
+  "last_changes": [
+    {
+      "value": 85,
+      "writer": {
+        "pc": "C339",
+        "sp": "5D14",
+        "a": 32,
+        "f": 2,
+        "bc": 3,
+        "de": 21760,
+        "hl": 21792,
+        "return_word": 21792
+      },
+      "pc": "C33A",
+      "sp": "5D12",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 30,
+      "glyph": {
+        "char": 32,
+        "sp": 23842,
+        "bc": 3079,
+        "de": 20836,
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 30
+      }
+    },
+    {
+      "value": 86,
+      "writer": {
+        "pc": "C339",
+        "sp": "5D14",
+        "a": 32,
+        "f": 2,
+        "bc": 2,
+        "de": 22016,
+        "hl": 22048,
+        "return_word": 22048
+      },
+      "pc": "C33A",
+      "sp": "5D12",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 30,
+      "glyph": {
+        "char": 32,
+        "sp": 23842,
+        "bc": 3079,
+        "de": 20836,
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 30
+      }
+    },
+    {
+      "value": 87,
+      "writer": {
+        "pc": "C339",
+        "sp": "5D14",
+        "a": 32,
+        "f": 2,
+        "bc": 1,
+        "de": 22272,
+        "hl": 22304,
+        "return_word": 22304
+      },
+      "pc": "C33A",
+      "sp": "5D12",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 30,
+      "glyph": {
+        "char": 32,
+        "sp": 23842,
+        "bc": 3079,
+        "de": 20836,
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 30
+      }
+    },
+    {
+      "value": 80,
+      "writer": {
+        "pc": "C38B",
+        "sp": "5D14",
+        "a": 32,
+        "f": 84,
+        "bc": 9218,
+        "de": 23072,
+        "hl": 20512,
+        "return_word": 23072
+      },
+      "pc": "C38C",
+      "sp": "5D12",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 30,
+      "glyph": {
+        "char": 32,
+        "sp": 23834,
+        "bc": 9218,
+        "de": 23072,
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 30
+      }
+    },
+    {
+      "value": 0,
+      "writer": {
+        "pc": "C39D",
+        "sp": "5D14",
+        "a": 0,
+        "f": 108,
+        "bc": 2050,
+        "de": 15616,
+        "hl": 20512,
+        "return_word": 2050
+      },
+      "pc": "C39E",
+      "sp": "5D12",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 0,
+      "glyph": {
+        "char": 32,
+        "sp": 23838,
+        "bc": 9218,
+        "de": 23072,
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 0
+      }
+    },
+    {
+      "value": 80,
+      "writer": {
+        "pc": "C38B",
+        "sp": "5D14",
+        "a": 84,
+        "f": 26,
+        "bc": 770,
+        "de": 23563,
+        "hl": 20512,
+        "return_word": 23563
+      },
+      "pc": "C38C",
+      "sp": "5D12",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 31,
+      "glyph": {
+        "char": 84,
+        "sp": 23834,
+        "bc": 770,
+        "de": 23563,
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 31
+      }
+    }
+  ],
+  "reads": [
+    {
+      "address": "5D13",
+      "value": 80,
+      "clock": {
+        "tick": 1367,
+        "due": 1381,
+        "minute": 46,
+        "hour": 6,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 06:46am"
+      },
+      "actor": 8,
+      "last_change": 3173
+    }
+  ],
+  "raw_sha256": "0baab52926b69bf28db925e12cad8e7ba4310afc2d420aaee6fb67b459ab7e5a"
+}

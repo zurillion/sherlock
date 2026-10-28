@@ -1,0 +1,262 @@
+{
+  "scope": "Natural seed1, all actors, graphics off after boot; source writes through Tue10:00. Last changes are observed, not runtime inputs.",
+  "writers": {
+    "5D18": {
+      "value": 26,
+      "writer": "C388",
+      "clock": {
+        "tick": 376,
+        "due": 376,
+        "minute": 15,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:15pm"
+      },
+      "actor": 1,
+      "glyph": {
+        "frame": 23834,
+        "char": 97,
+        "column_shift": 2,
+        "caller_count": 1,
+        "de": 23563,
+        "hl": 20519
+      }
+    },
+    "5D19": {
+      "value": 97,
+      "writer": "C388",
+      "clock": {
+        "tick": 376,
+        "due": 376,
+        "minute": 15,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:15pm"
+      },
+      "actor": 1,
+      "glyph": {
+        "frame": 23834,
+        "char": 97,
+        "column_shift": 2,
+        "caller_count": 1,
+        "de": 23563,
+        "hl": 20519
+      }
+    },
+    "5D16": {
+      "value": 2,
+      "writer": "C389",
+      "clock": {
+        "tick": 376,
+        "due": 376,
+        "minute": 15,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:15pm"
+      },
+      "actor": 1,
+      "glyph": {
+        "frame": 23834,
+        "char": 97,
+        "column_shift": 2,
+        "caller_count": 1,
+        "de": 23563,
+        "hl": 20519
+      }
+    },
+    "5D17": {
+      "value": 1,
+      "writer": "C389",
+      "clock": {
+        "tick": 376,
+        "due": 376,
+        "minute": 15,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:15pm"
+      },
+      "actor": 1,
+      "glyph": {
+        "frame": 23834,
+        "char": 97,
+        "column_shift": 2,
+        "caller_count": 1,
+        "de": 23563,
+        "hl": 20519
+      }
+    },
+    "5D14": {
+      "value": 11,
+      "writer": "C38A",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 31,
+      "glyph": {
+        "frame": 23834,
+        "char": 84,
+        "column_shift": 2,
+        "caller_count": 3,
+        "de": 23563,
+        "hl": 20512
+      }
+    },
+    "5D15": {
+      "value": 92,
+      "writer": "C38A",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 31,
+      "glyph": {
+        "frame": 23834,
+        "char": 84,
+        "column_shift": 2,
+        "caller_count": 3,
+        "de": 23563,
+        "hl": 20512
+      }
+    },
+    "5D12": {
+      "value": 39,
+      "writer": "C38B",
+      "clock": {
+        "tick": 376,
+        "due": 376,
+        "minute": 15,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:15pm"
+      },
+      "actor": 1,
+      "glyph": {
+        "frame": 23834,
+        "char": 97,
+        "column_shift": 2,
+        "caller_count": 1,
+        "de": 23563,
+        "hl": 20519
+      }
+    },
+    "5D13": {
+      "value": 80,
+      "writer": "C38B",
+      "clock": {
+        "tick": 371,
+        "due": 372,
+        "minute": 10,
+        "hour": 2,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 02:10pm"
+      },
+      "actor": 31,
+      "glyph": {
+        "frame": 23834,
+        "char": 84,
+        "column_shift": 2,
+        "caller_count": 3,
+        "de": 23563,
+        "hl": 20512
+      }
+    }
+  },
+  "reads": [
+    {
+      "address": "5D13",
+      "value": 80,
+      "clock": {
+        "tick": 1367,
+        "due": 1381,
+        "minute": 46,
+        "hour": 6,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 06:46am"
+      },
+      "writer": {
+        "value": 80,
+        "writer": "C38B",
+        "clock": {
+          "tick": 371,
+          "due": 372,
+          "minute": 10,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:10pm"
+        },
+        "actor": 31,
+        "glyph": {
+          "frame": 23834,
+          "char": 84,
+          "column_shift": 2,
+          "caller_count": 3,
+          "de": 23563,
+          "hl": 20512
+        }
+      }
+    },
+    {
+      "address": "5D16",
+      "value": 2,
+      "clock": {
+        "tick": 1559,
+        "due": 2341,
+        "minute": 58,
+        "hour": 9,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 09:58am"
+      },
+      "writer": {
+        "value": 2,
+        "writer": "C389",
+        "clock": {
+          "tick": 376,
+          "due": 376,
+          "minute": 15,
+          "hour": 2,
+          "day": 0,
+          "period": "pm",
+          "label": "Mon 02:15pm"
+        },
+        "actor": 1,
+        "glyph": {
+          "frame": 23834,
+          "char": 97,
+          "column_shift": 2,
+          "caller_count": 1,
+          "de": 23563,
+          "hl": 20519
+        }
+      }
+    }
+  ],
+  "clock": {
+    "tick": 1561,
+    "due": 2341,
+    "minute": 0,
+    "hour": 10,
+    "day": 1,
+    "period": "am",
+    "label": "Tue 10:00am"
+  }
+}

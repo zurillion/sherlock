@@ -73,7 +73,7 @@ test('The complete submitted history passes 11:42 and the subsequent interviews 
 test('Ordinary EXAMINE preserves proven untouched low fields; unknown text contracts still invalidate them',()=>{
  const g=new Game(data,{npc_profile:'world-v5'});assert(g.text.examinePreservesLowScratch(null));assert(g.text.examinePreservesLowScratch('81B7'));
  assert.equal(g.text.examinePreservesLowScratch('missing'),false);
- const own=structuredClone(g.world.display.scratch);g.submit('EXAMINE LAMP');for(const[at,value]of Object.entries(own))assert.equal(g.world.display.scratch[at],value);
+ const own=structuredClone(g.world.display.scratch);g.submit('EXAMINE LAMP');for(const[at,value]of Object.entries(own))if(Number(at)<=0x5D11)assert.equal(g.world.display.scratch[at],value);else assert.equal(g.world.display.scratch[at],undefined,'New high renderer fields lose ownership on EXAMINE');
 });
 test('Formatter coordinates derive from both channels, including their state across save/load',()=>{
  const g=new Game(data,{npc_profile:'world-v5'}),r=g.sourceDisplay;
