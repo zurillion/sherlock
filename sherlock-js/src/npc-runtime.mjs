@@ -77,7 +77,7 @@ export class NpcRuntime {
   // CE10–CE13 prints 682A; its two nested calls reach the proper
   // actor-name prefix at glyph frame 5D2A. Non-proper names stay unknown
   // for the newly owned byte; do not reuse the prefab TELL frame 5D1A.
-  order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});const e=this.w.entity(actor);this.print('682A',actor,{object:recipient,action,args,...(e.person&&(e.noun&32768)?{actorNameFrame:0x5D2A,actorNameUpper:true}:{})},messages);},
+  order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});const e=this.w.entity(actor);this.print('682A',actor,{object:recipient,action,args,...(e.person&&(e.noun&32768)?{actorNameFrame:0x5D2A,actorNameUpper:true,preserveGlyphFlags:[29,30].includes(action)}:{})},messages);},
   request:(r,c)=>this.request(r,c,messages,actions),
   rule:(name,args,c)=>this.rule(name,args,c,messages,actions),
   action:(action,args,c)=>this.action(action,args,c,messages,actions)
@@ -87,7 +87,7 @@ export class NpcRuntime {
   // CC37/C821 select the output by perception; successful NPC speech is
   // still printed in darkness (A2E4 only rejects dark failure output).
   const g=this.game,visible=force||this.w.perceived(actor);
-  const c=visible?g.npcTextContext(actor):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
+  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
@@ -431,7 +431,7 @@ export class NpcRuntime {
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
   const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}
-  this.showAction(out,actor,messages,actions);
+  this.showAction(out,actor,messages,actions,{argumentFlags:!context.request&&!context.isolated});
   if(actor===w.player){const errors=out.messages.filter(m=>m.kind==='error');if(errors.length){for(const e of errors)e.lower_projected=true;messages.push(...errors);g.sourceDisplay.error(errors);}}
   if(out.objectRule)return this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],context,messages,actions);
   // B9B4 executes a queued command in its own working arguments. A completed
@@ -439,7 +439,17 @@ export class NpcRuntime {
   // deferred requests get their own context via NpcProgram.defer instead.
   if(out.cost||action===32){if(!context.request)this.bind(context,args);return yes(out.cost,{args});}return no();
  }
- showAction(out,actor,messages,actions){
+ annotateArgumentPrefix(out,messages=out.messages){
+  const w=this.w;
+  if(!out.projected&&out.cost&&[12,43].includes(out.action)&&out.args[0]!==undefined){
+    const e=w.entity(out.args[0]),name=w.name(e.id),prefix=name.lastIndexOf(' ');
+    // A3DE -> A745/A751 -> D3E8: qualifiers of the entity argument
+    // flush at frame5D2C. A word wrap clears the row at frame5D26;
+    // only that proven caller may own the new 5D1A flag residue.
+    if(!(e.noun&32768)&&e.qualifiers.some(v=>v&&!(v&32768))&&prefix>0)for(const m of messages)if(!m.scene_trace){const at=m.text.toLowerCase().lastIndexOf(name.toLowerCase());if(at>=0)m.scene_trace=[{kind:'action-entity-prefix',start:at,end:at+prefix,frame:0x5D2C,flagsKnown:true}];}
+   }
+ }
+ showAction(out,actor,messages,actions,{argumentFlags=false}={}){
   const w=this.w,visible=out.visibilityResolved||w.perceived(actor);
   // CAAF/CAF0: a shared door can be acted on from another room. Announce
   // its change to an observer in either room, replacing the unseen actor
@@ -448,7 +458,8 @@ export class NpcRuntime {
   // entity is reused in distant buildings, which must not leak messages.
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
-  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
+  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags)this.annotateArgumentPrefix(out,shown);
+   messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32||out.objectRule)actions.push({actor,id:out.action,arguments:out.args});
  }
  relocate(id,room,messages,notification={}){

@@ -1,0 +1,124 @@
+{
+  "regression_tests": {
+    "passed": 725,
+    "failed": 0,
+    "log_sha256": "29ea4b7d84d6eacdfd38d68e23bd0eeddc8f227c6c233b40bf5065429e99bf6c"
+  },
+  "new_tests": 3,
+  "native_glyph_abi_calls": 432,
+  "natural_flag_test_commands": 74,
+  "native_store_probe_commands": 76,
+  "unclassified_store_transitions": 0,
+  "atlas_architecture_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 251,
+    "bytes_roundtripped": 446,
+    "regions": [
+      {
+        "start": "A2E4",
+        "end_exclusive": "A35D",
+        "kind": "code",
+        "label": "Annuncio dell\u2019azione: soggetto, verbo, argomenti e fine riga",
+        "atlas_priority": 90
+      },
+      {
+        "start": "A37D",
+        "end_exclusive": "A3E2",
+        "kind": "code",
+        "label": "Primo argomento: risoluzione del nome di entit\u00e0 nel messaggio",
+        "atlas_priority": 90
+      },
+      {
+        "start": "C316",
+        "end_exclusive": "C388",
+        "kind": "code",
+        "label": "Scroll e pulizia della nuova riga: glifi spazio e frame chiamante",
+        "atlas_priority": 90
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: provenienza dei flag salvati a frame meno dodici",
+        "atlas_priority": 90,
+        "fields": [
+          [
+            "5D1A",
+            "flag F, solo chiamante verificato",
+            "Frame5D26: ultimo flag salvato, derivato dalla scansione e dallo shift. Le scene generiche non ricevono questo contratto"
+          ],
+          [
+            "5D20/5D21",
+            "C/B, solo prefisso ordine",
+            "Frame5D2A: ultimo shift e B=1. Conservare la provenienza distinta da quella dei flag"
+          ],
+          [
+            "5D1B\u20135D1E",
+            "non introdotti",
+            "Nessun riempimento dei byte intermedi dal valore iniziale o catturato"
+          ]
+        ]
+      },
+      {
+        "start": "D237",
+        "end_exclusive": "D249",
+        "kind": "code",
+        "label": "Lookup entit\u00e0: EX (SP),HL pu\u00f2 riscrivere la stessa area temporanea",
+        "atlas_priority": 90
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "20a8f1eb03e0bd61c5592b6a1d18998eb0fcf3a0010da00f3a46b2144b04437b",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 476,
+      "unknown": 3218,
+      "documented": 37906
+    },
+    "segments": 1135,
+    "sources": 40,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 40178,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "served_assets": [
+    {
+      "path": "src/game.mjs",
+      "served_equal": true,
+      "sha256": "771b8cf0ba1858d4bfe22a2830cdd55748099a925a98b610eca1a17471bc7f32"
+    },
+    {
+      "path": "src/npc-runtime.mjs",
+      "served_equal": true,
+      "sha256": "b507622b245c52650d26c3814cdb180924c6f6cae81373a323802fb35e827fbe"
+    },
+    {
+      "path": "src/random-display.mjs",
+      "served_equal": true,
+      "sha256": "b0c50cb13c3ee46b0590cdea5e1638368733b9634f5b003a340c5e3278cfb336"
+    },
+    {
+      "path": "src/memory-map-data.json",
+      "served_equal": true,
+      "sha256": "20a8f1eb03e0bd61c5592b6a1d18998eb0fcf3a0010da00f3a46b2144b04437b"
+    }
+  ],
+  "natural_prefix_report": "results/glyph-flags-verification.json",
+  "certified_checkpoints": 338,
+  "certified_clock": "Wed 04:00am",
+  "research_boundary": {
+    "checkpoint": 338,
+    "address": "A01A",
+    "target_clock": "Wed 04:10am"
+  },
+  "full_ending_certified": false
+}

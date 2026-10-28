@@ -1,0 +1,20 @@
+"""Source evidence for the row-clear flag residue and first-argument caller."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
+regions=[(0xA2E4,0xA35D,'code','Annuncio dell’azione: soggetto, verbo, argomenti e fine riga'),(0xA37D,0xA3E2,'code','Primo argomento: risoluzione del nome di entità nel messaggio'),(0xC316,0xC388,'code','Scroll e pulizia della nuova riga: glifi spazio e frame chiamante'),(0xC388,0xC3E4,'code','Glifo: provenienza dei flag salvati a frame meno dodici'),(0xD237,0xD249,'code','Lookup entità: EX (SP),HL può riscrivere la stessa area temporanea')]
+notes={0xA2E4:'Annuncio normale selezionato da CA76. I cinque PUSH iniziali appartengono al calcolo della profondità: non usare il frame del testo pubblico A59F.',0xA336:'Emette il soggetto prima del verbo; il suo nome può avere un frame diverso dal nome dell’argomento.',0xA348:'A37D emette verbo e argomenti. Nei due percorsi verificati CLIMB INTO e TAKE OFF il prefisso qualificato del primo argomento arriva al glifo con frame 5D2C.',0xA3B6:'Primo argomento: FE segue il percorso del letterale numerico. Il nuovo contratto non si applica a quel caso.',0xA3DE:'L’entità viene nominata attraverso A745/A751 e D3E8. Qualificatori e sostantivo finale si scaricano con chiamanti diversi.',0xC316:'Lo scroll sposta la bitmap e poi pulisce la riga inferiore. Una richiesta MORE può sospenderlo prima di questa routine.',0xC372:'Spazio del riempimento: non una parola del gioco. Il renderer usa il font dello spazio in ogni colonna.',0xC374:'Il word wrap del prefisso con frame5D2C arriva qui con il glifo a frame5D26: il byte F dell’ultimo PUSH AF resta a 5D1A.',0xC39C:'Ultima scansione: B=1 e C=(2+7*colonna) AND7. Nel prefisso degli ordini con frame5D2A questo salva C a 5D20 e B a 5D21.',0xC39D:'Primo salvataggio AF della scansione. Con C=0 il secondo salvataggio viene saltato; il flag dell’ultima scansione deriva da INC H, che porta 56 a57 e non lascia flag attivi dopo la precedente OR.',0xC3B3:'DEC C / INC C ricostruisce il conteggio dello shift: per C tra1 e7 il flag risultante è zero; il caso zero salta il secondo PUSH.',0xC3B8:'Secondo salvataggio AF: A è la riga del font non allineata, F deriva dal conteggio C. Con frame5D26 F occupa5D1A. La formula non dipende dal carattere stampato.',0xC3D2:'Otto scansioni: il residuo finale è quello dell’ottava, non della prima.',0xD245:'EX (SP),HL è uno scrittore alternativo anche quando il valore non cambia. Il probe lo registra insieme ai PUSH/CALL; non dedurre proprietà dal solo ultimo cambiamento.'}
+fields={0xC388:[['5D1A','flag F, solo chiamante verificato','Frame5D26: ultimo flag salvato, derivato dalla scansione e dallo shift. Le scene generiche non ricevono questo contratto'],['5D20/5D21','C/B, solo prefisso ordine','Frame5D2A: ultimo shift e B=1. Conservare la provenienza distinta da quella dei flag'],['5D1B–5D1E','non introdotti','Nessun riempimento dei byte intermedi dal valore iniziale o catturato']]}
+lines=['; Analisi offline con riassellaggio del payload; nessuna CPU nel motore JS.'];count=total=0
+for a,b,kind,label in regions:
+ lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {label}'];at=a
+ while at<b:
+  op,n=disassemble(m,at);assert at+n<=b,(hex(at),op);assert bytes(asm.assemble(op,at))==m[at:at+n]
+  lines.append(f'    {op:<37} ; ${at:04X} {m[at:at+n].hex(" ")}'+(' | '+notes[at]if at in notes else''));at+=n;total+=n;count+=1
+root=p/'sherlock-js/results/glyph-flags';root.mkdir(exist_ok=True)
+(root/'glyph-flags.asm').write_text('\n'.join(lines)+'\n')
+(root/'listing-verification.json').write_text(json.dumps(dict(roundtrip_equal=True,instructions=count,bytes_roundtripped=total,regions=[dict(start=f'{a:04X}',end_exclusive=f'{b:04X}',kind=k,label=l,atlas_priority=90,**({'fields':fields[a]}if a in fields else{}))for a,b,k,l in regions]),indent=2)+'\n');print(count,total)

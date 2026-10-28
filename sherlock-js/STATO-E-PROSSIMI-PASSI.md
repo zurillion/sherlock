@@ -223,3 +223,13 @@ a 334 checkpoint (0–333), fino a mercoledì 03:20; la continuazione si
 ferma su 5D1A al checkpoint 334, diretto a 03:30. Mappa aggiornata con
 221 istruzioni/393 byte annotati e 92 byte unici prima non classificati.
 Le cinque varianti terminali ancora aperte restano da certificare.
+
+## Sesta ripresa 28 ottobre: flag del glifo e annunci degli argomenti
+
+Vedere `FLAG-GLIFI-E-ANNUNCI.md`. Ricostruiti 5D1A dal word wrap del
+prefisso qualificato del primo argomento e 5D20/5D21 dal prefisso degli
+ordini. Il tracciato vede anche gli store identici ed EX (SP),HL.
+Suite: **725 test passati**. Prefisso naturale: checkpoint 0–337 fino a
+mercoledì 04:00; nuovo confine A01A al checkpoint 338 verso 04:10.
+Mappa aggiornata con 251 istruzioni/446 byte annotati, 193 nuovi byte
+unici classificati. Cinque varianti terminali ancora da certificare.

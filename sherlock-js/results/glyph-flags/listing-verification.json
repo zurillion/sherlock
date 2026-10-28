@@ -1,0 +1,59 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 251,
+  "bytes_roundtripped": 446,
+  "regions": [
+    {
+      "start": "A2E4",
+      "end_exclusive": "A35D",
+      "kind": "code",
+      "label": "Annuncio dell\u2019azione: soggetto, verbo, argomenti e fine riga",
+      "atlas_priority": 90
+    },
+    {
+      "start": "A37D",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Primo argomento: risoluzione del nome di entit\u00e0 nel messaggio",
+      "atlas_priority": 90
+    },
+    {
+      "start": "C316",
+      "end_exclusive": "C388",
+      "kind": "code",
+      "label": "Scroll e pulizia della nuova riga: glifi spazio e frame chiamante",
+      "atlas_priority": 90
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: provenienza dei flag salvati a frame meno dodici",
+      "atlas_priority": 90,
+      "fields": [
+        [
+          "5D1A",
+          "flag F, solo chiamante verificato",
+          "Frame5D26: ultimo flag salvato, derivato dalla scansione e dallo shift. Le scene generiche non ricevono questo contratto"
+        ],
+        [
+          "5D20/5D21",
+          "C/B, solo prefisso ordine",
+          "Frame5D2A: ultimo shift e B=1. Conservare la provenienza distinta da quella dei flag"
+        ],
+        [
+          "5D1B\u20135D1E",
+          "non introdotti",
+          "Nessun riempimento dei byte intermedi dal valore iniziale o catturato"
+        ]
+      ]
+    },
+    {
+      "start": "D237",
+      "end_exclusive": "D249",
+      "kind": "code",
+      "label": "Lookup entit\u00e0: EX (SP),HL pu\u00f2 riscrivere la stessa area temporanea",
+      "atlas_priority": 90
+    }
+  ]
+}

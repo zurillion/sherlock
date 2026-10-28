@@ -56,3 +56,13 @@ al checkpoint 334 verso 03:30, lettura non posseduta 5D1A. Non pubblicare
 le celle intermedie usando soltanto una generica estensione del renderer.
 Vedere `NOMI-ORDINI-E-STACK.md`; mappa aggiornata. Nessun nuovo finale
 completo è certificato.
+
+## Sesta ripresa: flag del glifo e primo argomento
+
+Rapporto corrente: `results/glyph-flags-verification.json`, 338 checkpoint
+(0–337) fino a mercoledì 04:00. Il flag 5D1A proviene dal glifo di pulizia
+durante il word wrap dell’annuncio del primo argomento; 5D20/5D21 dal
+prefisso del nome negli ordini. Il confronto completo si ferma sullo stato
+ALL/BUT A01A al checkpoint 338 verso 04:10. Non sostituirlo con zero o
+con lo stato del solo ultimo nodo AST. Vedere `FLAG-GLIFI-E-ANNUNCI.md`.
+Mappa aggiornata; il finale 6A33 completo resta non certificato.
