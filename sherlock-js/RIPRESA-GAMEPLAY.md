@@ -4,21 +4,21 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   323 checkpoint, da 0 a 322, fino a mercoledì 01:30: tutti gli attori,
+   334 checkpoint, da 0 a 333, fino a mercoledì 03:20: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere
-   `LEXER-E-BUFFER-CONDIVISO.md` e `results/lexical-workspace-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `NOMI-ORDINI-E-STACK.md`
+   e `results/upper-stack-verification.json`.
 
-2. **Prossimo confine reale: frame temporanei $5D1F.**
-   Il confronto completo si ferma ancora al checkpoint 323, verso mercoledì
-   01:40, ma ora supera la precedente lettura 5C1F. La coda degli stream
-   ROM e le copie lessicali DA34–DA77 sono ricostruite: vedere
-   `LEXER-E-BUFFER-CONDIVISO.md` e `results/lexical-workspace-verification.json`.
-   5D1F può essere scritto dai glifi C39D e dal decoder A969/A97C:
-   identificare il chiamante effettivo e gestirne le sovrascritture prima di
-   estendere la proiezione oltre 5D19. Il probe naturale osserva da tick
-   2400 e non vede un nuovo scrittore in quell’intervallo; non è una prova
-   dell’ultimo scrittore precedente. Non introdurre lo zero osservato.
+2. **Prossimo confine reale: frame temporanei $5D1A.**
+   Il confronto completo si ferma al checkpoint 334, verso mercoledì
+   03:30 (minuto effettivo 03:28). 5D1F è ora derivato dal prefisso del
+   nome proprio negli ordini NPC: CE13/682A -> 6804 -> 67F7, poi
+   A751/A7C5/D3E8, C388 frame5D2A. Non estendere la proprietà ai byte
+   5D1A–5D1E o alle scene: la prima estensione generica lasciava residui
+   obsoleti. Identificare scrittori e sovrascritture del nuovo indirizzo.
+   Le stampe senza contratto, nomi non propri ed errori revocano il nuovo
+   byte. Il tracciato delle transizioni non osserva scritture identiche:
+   usare insieme catena di chiamate, ABI e confronti naturali.
    La storia nativa completa ha 521 checkpoint e termina in 6A33 giovedì
    10:00: quel finale non è ancora certificato JavaScript.
 
@@ -49,5 +49,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 28 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **719 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **722 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

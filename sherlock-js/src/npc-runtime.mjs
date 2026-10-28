@@ -74,7 +74,10 @@ export class NpcRuntime {
   // supplies one text argument, consumed by A66C. Its end cursor is therefore
   // the top minus those three words; A776 leaves that cursor as choice input.
   say:(text,recipient,c)=>{(this.state.argumentClasses??=[null,null])[0]=7;return this.print('6830',c.actor,{object:recipient,textArguments:[text],argumentContexts:[0x5D80-3*2]},messages);},
-  order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});this.print('682A',actor,{object:recipient,action,args},messages);},
+  // CE10–CE13 prints 682A; its two nested calls reach the proper
+  // actor-name prefix at glyph frame 5D2A. Non-proper names stay unknown
+  // for the newly owned byte; do not reuse the prefab TELL frame 5D1A.
+  order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});const e=this.w.entity(actor);this.print('682A',actor,{object:recipient,action,args,...(e.person&&(e.noun&32768)?{actorNameFrame:0x5D2A,actorNameUpper:true}:{})},messages);},
   request:(r,c)=>this.request(r,c,messages,actions),
   rule:(name,args,c)=>this.rule(name,args,c,messages,actions),
   action:(action,args,c)=>this.action(action,args,c,messages,actions)
@@ -84,7 +87,7 @@ export class NpcRuntime {
   // CC37/C821 select the output by perception; successful NPC speech is
   // still printed in darkness (A2E4 only rejects dark failure output).
   const g=this.game,visible=force||this.w.perceived(actor);
-  const c=visible?g.npcTextContext(actor):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame;g.sourceDisplay.glyphFrame=context.actorNameFrame;try{write();}finally{g.sourceDisplay.glyphFrame=previous;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
+  const c=visible?g.npcTextContext(actor):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
@@ -468,7 +471,8 @@ export class NpcRuntime {
    // CAAF/CBC2 announce the outermost arriving entity; a vehicle's
    // passengers are described by their own subsequent actions.
    let outer=id;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;
-   const name=w.name(outer,{indefinite:true}),message={kind:'narrative',text:name[0].toUpperCase()+name.slice(1)+' enters.'};messages.push(message);g.projectMessages([message]);
+   const name=w.name(outer,{indefinite:true}),message={kind:'narrative',text:name[0].toUpperCase()+name.slice(1)+' enters.'};
+   messages.push(message);g.projectMessages([message]);
   } // An internal, non-directional departure is silent in CAAF/CBC2.
   if(notification.actor!==undefined&&before===w.roomOf()&&actorOld!==before&&w.roomOf(notification.actor)===before){let outer=notification.actor;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;return !w.perceived(outer);}
   return false;
@@ -497,7 +501,7 @@ export class NpcRuntime {
  demand(actor,recipient,owner,messages){
   const amount=balance(this.w,owner);if(amount===null)return;
   const g=this.game,visible=this.w.perceived(actor),c=visible?g.npcTextContext(actor):{};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
-  if(visible)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame;g.sourceDisplay.glyphFrame=0x5D1A;try{write();}finally{g.sourceDisplay.glyphFrame=previous;}};
+  if(visible)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=0x5D1A;g.sourceDisplay.upperGlyphKnown=false;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner});const suffix=' '+formatMoney((-amount)&16383)+' "\n';for(const ch of suffix.replace(/d\./g,'D.'))g.sourceDisplay.bufferFeed(ch);if(c.sink)for(const ch of suffix)c.sink(ch);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }

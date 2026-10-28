@@ -213,3 +213,13 @@ supera 5C1F ma si ferma sulla successiva lettura 5D1F. Ricostruire i suoi
 frame temporanei, non aggiungere lo zero osservato. Mappa aggiornata con
 173 istruzioni / 286 byte annotati, più la provenienza ROM separata.
 Nessun nuovo finale completo certificato.
+
+## Quinta ripresa 28 ottobre: nomi negli ordini e 5D1F
+
+Vedere `NOMI-ORDINI-E-STACK.md`. Ricostruito il frame effettivo del prefisso
+del nome proprio negli ordini NPC, con invalidazione dei percorsi ancora
+non posseduti. Suite: **722 test passati**. Il prefisso naturale cresce
+a 334 checkpoint (0–333), fino a mercoledì 03:20; la continuazione si
+ferma su 5D1A al checkpoint 334, diretto a 03:30. Mappa aggiornata con
+221 istruzioni/393 byte annotati e 92 byte unici prima non classificati.
+Le cinque varianti terminali ancora aperte restano da certificare.

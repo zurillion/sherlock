@@ -1,0 +1,87 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 221,
+  "bytes_roundtripped": 393,
+  "regions": [
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 89,
+      "fields": [
+        [
+          "682A",
+          "dati compressi",
+          "Chiamata 6804; composizione dell\u2019ordine; virgoletta; termine frase"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 89
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 89
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 89
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 89
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 89
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; propriet\u00e0 del byte alto 5D1F",
+      "atlas_priority": 89,
+      "fields": [
+        [
+          "5D1F",
+          "1 byte, propriet\u00e0 condizionata",
+          "Frame 5D2A: ultima riga non allineata del glifo. Altri frame/caller richiedono una provenienza distinta"
+        ],
+        [
+          "Ordine NPC",
+          "CE13 / 682A",
+          "Prefisso del nome proprio del nome: propriet\u00e0 verificata. Nomi di dizionario e altre stampe revocano il nuovo byte"
+        ],
+        [
+          "5D1A\u20135D1E",
+          "non proiettati dal nuovo contratto",
+          "Non riempiti estendendo arbitrariamente il limite del renderer"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 89
+    }
+  ]
+}

@@ -13,7 +13,7 @@ export class RandomDisplay {
   // the untouched filename tail remains until a deeper renderer owns it.
   if(this.data.randomInputs.basicProgramLength){const workspace=0x5CCB+this.data.randomInputs.basicProgramLength+6;for(let i=5;i<11;i++)this.state.scratch[workspace+i]=32;}
   this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');this.prompt();}
- scene(text,sceneTrace=[]){for(let i=0;i<=text.length;i++){
+ scene(text,sceneTrace=[]){this.invalidateScratch(0x5D1F,0x5D1F);const previousUpper=this.upperGlyphKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
    // D5C4 renders the last word of the carrying person's name and the
    // copula via the actor-is text argument. Its glyph frame differs from
    // the literal name in the preceding contents list. A wrapped word also
@@ -30,22 +30,23 @@ export class RandomDisplay {
    // After a carried-name prefix, A887 emits the separating space from
    // its caller. Filling column 35 clears the next row at that caller depth.
    if(role&&i+1===role.end){this.flush();if(role.spaceClearFrame&&this.state.cursor===35)this.glyphResidue(' ',role.spaceClearFrame,35,0x5A20);if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter))this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphFrame=null;}
-  }this.glyphFrame=null;this.glyphSpaceDescriptor=null;}
+  }}finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.upperGlyphKnown=previousUpper;}}
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
   // C38B retains the screen address at frame-8. In the cab-name path
   // frame=5D1A, so its high byte owns 5D13 until another known writer.
-  // C388 ABI tests cover the additional caller fields across five frames;
-  // unprojected EXAMINE/statement callers revoke their ownership.
-  const put=(at,v)=>{if(at>=0x5CEC&&at<=0x5D19)s[at]=v;};
+  // C388 ABI tests cover seven frames. The extra 5D1F byte is owned only
+  // in a verified caller scope; scene frames retain their old low-byte
+  // contract and unprojected EXAMINE/statement output revokes ownership.
+  const put=(at,v)=>{if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D19||at===0x5D1F))s[at]=v;};
   // C374's CALL leaves its return link at the glyph-entry stack position.
   // A deep wrap can overwrite previously owned cells with that link.
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&at<=0x5D19)delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D19||at===0x5D1F))delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -59,7 +60,7 @@ export class RandomDisplay {
   put(frame-10,shift);put(frame-9,1);put(frame-12,0);put(frame-11,glyph[7]);
  }
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D19){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D1F){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}
@@ -82,7 +83,7 @@ export class RandomDisplay {
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
- write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(!sceneTrace)this.invalidateScratch(0x5D1F,0x5D1F);if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
  repeat(){const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}

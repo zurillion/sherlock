@@ -45,3 +45,14 @@ Nessuna estensione di orario o nuovo finale è certificata. Il probe
 naturale da tick 2400 conferma le letture ma non l’ultimo scrittore
 precedente: indagare i frame di glifi C39D e decoder A969/A97C.
 Vedere `LEXER-E-BUFFER-CONDIVISO.md`; mappa aggiornata nello stesso cambio.
+
+## Quinta ripresa: nome dell’attore negli ordini NPC
+
+Il rapporto corrente è `results/upper-stack-verification.json`: 334
+checkpoint 0–333 fino a mercoledì 03:20. Il byte 5D1F deriva dal glifo
+del prefisso proprio negli ordini CE13/682A; il tracciato a tick964
+mostra la catena reale e C388 frame5D2A. Il confronto completo si ferma
+al checkpoint 334 verso 03:30, lettura non posseduta 5D1A. Non pubblicare
+le celle intermedie usando soltanto una generica estensione del renderer.
+Vedere `NOMI-ORDINI-E-STACK.md`; mappa aggiornata. Nessun nuovo finale
+completo è certificato.
