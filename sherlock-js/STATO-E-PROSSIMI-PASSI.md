@@ -296,3 +296,26 @@ ABI 432 casi, 216 espliciti sul nuovo byte; storia naturale 76 comandi fino a
 Wed05:30 e lettura del giardiniere verificata per valore/tick/attore. Suite 800.
 Atlante: 119 istruzioni/179 byte approfonditi; nessun nuovo byte grigio. Zone
 A3D6–A3E1,A9DF–AA0F,C363–C37C,C388–C3E3 e annotazione dello stack dinamico.
+
+
+Aggiornamento 29 ottobre 2026, chiarimenti: leggere CHIARIMENTI-E-OFFSET-DEL-PARSER.md
+e results/clarification-offset-verification.json. Witness invariato 0–348/349 checkpoint
+fino a Wed05:50: A01B superato, prossimo limite A021 allo stesso checkpoint 349 verso 06:00.
+Ricostruire la classificazione temporanea degli argomenti e la sua persistenza;
+nessuno zero di default da successo, WAIT o costo. Cinque finali ancora aperti.
+A01B è un offset fisico 08/12, non pending booleano/puntatore: boot A044=0,
+B5B6 prima della domanda, D793 dopo il ritorno principale anche su errore.
+Lexical errors e @ con domanda non lo azzerano; una risposta vuota o SAVE
+può azzerare e porre di nuovo la domanda. Citazioni non aggiungono quel reset.
+La vista semantica può riordinare i complementi, ma pending e risposta conservano
+il nodo e lo slot fisico sorgente. Con PUT ON YOUR ARMCHAIR il referente richiesto
+è nello slot 12. Il preflight C79A della classe 9 include oggetti tenuti da un altro
+NPC, pur rifiutati in esecuzione: TAKE iniziale ha lampada 22 e giornale 25;
+con un solo candidato si sceglie, non si chiede sempre WHAT. Mantenere peso,
+percezione e altri controlli rigidi, e distinguere DCA2/DCA7 (possesso/ciclo)
+dalla restrizione morbida. Rifiuti GET/CARRY/TAKE usano il verbo corretto.
+GIVE richiede seconda scelta unica e ricerca descrittiva sul fallimento;
+PAY ambiguo è DON'T BE SILLY, non una domanda. I finali prevalgono sulla domanda.
+54 sequenze/156 input/182 store; 19 confronti completi (15 naturali, 4 controllati),
+63 input/203 draw/406 read, arena/bitmap/LOAD. Suite 874. Atlante 197 istruzioni/454 byte:
+51 byte prima grigi B5FC–B62E e A01B prima parziale; gli altri sono approfondimenti.

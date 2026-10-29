@@ -1,0 +1,117 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 197,
+  "bytes_roundtripped": 454,
+  "regions": [
+    {
+      "start": "A01B",
+      "end_exclusive": "A01C",
+      "kind": "data",
+      "label": "Chiarimento: offset fisico del gruppo da completare",
+      "atlas_priority": 122,
+      "fields": [
+        [
+          "A01B",
+          "1 byte",
+          "0 / 08 / 12 esadecimale: nessun chiarimento oppure offset del referente nel nodo originale"
+        ],
+        [
+          "Distinto da",
+          "9FF0 e slot semantico",
+          "Il puntatore del nodo e il riordino degli argomenti hanno stato separato"
+        ]
+      ]
+    },
+    {
+      "start": "A040",
+      "end_exclusive": "A048",
+      "kind": "code",
+      "label": "Avvio: azzeramento esplicito del chiarimento",
+      "atlas_priority": 92
+    },
+    {
+      "start": "AAC4",
+      "end_exclusive": "AAD1",
+      "kind": "code",
+      "label": "Parser: ingresso durante un chiarimento pendente",
+      "atlas_priority": 92
+    },
+    {
+      "start": "AD6C",
+      "end_exclusive": "ADD4",
+      "kind": "code",
+      "label": "Continuazione: copia nel vecchio nodo o sostituzione con nuovo verbo",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B244",
+      "end_exclusive": "B259",
+      "kind": "code",
+      "label": "Selezione: zero candidati, scelta unica o domanda",
+      "atlas_priority": 92
+    },
+    {
+      "start": "C792",
+      "end_exclusive": "C7A6",
+      "kind": "code",
+      "label": "Restrizione morbida: accetta in preflight, rifiuta in esecuzione",
+      "atlas_priority": 92
+    },
+    {
+      "start": "C7BB",
+      "end_exclusive": "C7E4",
+      "kind": "code",
+      "label": "Classe9: controlli rigidi e propriet\u00e0 rinviata alla fase esecutiva",
+      "atlas_priority": 92
+    },
+    {
+      "start": "DCA2",
+      "end_exclusive": "DCC1",
+      "kind": "code",
+      "label": "TAKE: possesso gi\u00e0 acquisito, ciclo di contenimento e handler",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B447",
+      "end_exclusive": "B468",
+      "kind": "code",
+      "label": "Ruoli degli argomenti: offset08/12 distinti dall\u2019ordine semantico",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B5B6",
+      "end_exclusive": "B5D3",
+      "kind": "code",
+      "label": "Domanda: salva offset e trattiene il nodo originale",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B5D3",
+      "end_exclusive": "B5FC",
+      "kind": "code",
+      "label": "Domande: distinzione fra WHICH e WHAT per i due ruoli",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B5FC",
+      "end_exclusive": "B62F",
+      "kind": "code",
+      "label": "WHAT sul primo o secondo argomento: offset prima del testo",
+      "atlas_priority": 92
+    },
+    {
+      "start": "D78E",
+      "end_exclusive": "D7B2",
+      "kind": "code",
+      "label": "Ritorno del parser: azzera il chiarimento anche in caso di errore",
+      "atlas_priority": 92
+    },
+    {
+      "start": "D99E",
+      "end_exclusive": "D9B7",
+      "kind": "code",
+      "label": "Ripetizione @: durante un chiarimento torna all\u2019editor",
+      "atlas_priority": 92
+    }
+  ]
+}

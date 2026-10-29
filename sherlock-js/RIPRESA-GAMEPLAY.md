@@ -6,18 +6,19 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
    349 checkpoint, da 0 a 348, fino a mercoledì 05:50: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `GLIFI-E-BYTE-DI-SCANSIONE.md`
-   e `results/glyph-byte-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `CHIARIMENTI-E-OFFSET-DEL-PARSER.md`
+   e `results/clarification-offset-verification.json`.
 
-2. **Prossimo confine reale: $A01B, stato temporaneo del parser.**
-   Il confronto completo supera 5D1B e si ferma su A01B al checkpoint 349,
-   diretto a mercoledì 06:00. Ricostruirne scritture, reset e persistenza:
-   non dedurlo da WAIT o dal solo oggetto JavaScript pending.
-   5D1B è stato ricostruito dal byte A dell’ultima scansione C388 nel
-   chiamante verificato: pulizia C374 a frame 5D26, writer C3B8 di Lestrade
-   al tick 962. Il giardiniere lo legge al tick 2728, mercoledì 05:27.
-   La storia nativa completa termina in 6A33 giovedì 10:00: quel finale
-   non è ancora certificato JavaScript.
+2. **Prossimo confine reale: $A021, temporaneo dei controlli sugli argomenti.**
+   Il confronto completo supera A01B ma si ferma su A021 nello stesso checkpoint 349
+   verso mercoledì 06:00. Ricostruire scritture, reset e persistenza; non dedurlo
+   dall’ultimo successo, dal costo o da un valore iniziale.
+   A01B è ora esplicito: boot A044=0, domanda B5B6=offset 08/12, ritorno D793=0.
+   Lexical errors e @ durante un chiarimento non attraversano quel reset.
+   La selezione TAKE include il giornale di Watson come candidato semantico;
+   l’esecuzione può rifiutarlo. Il riferimento unico è scelto automaticamente.
+   Le continuazioni conservano gli slot fisici anche con complementi anteposti.
+   La storia nativa completa termina in 6A33 giovedì 10:00: non ancora certificata JS.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -46,5 +47,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **800 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **874 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

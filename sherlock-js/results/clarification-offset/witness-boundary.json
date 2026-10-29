@@ -1,0 +1,12 @@
+{
+  "expected_research_failure": true,
+  "certified_checkpoint_range": [
+    0,
+    348
+  ],
+  "checkpoint": 349,
+  "target_clock": "Wed 06:00am",
+  "unknown_address": "A021",
+  "full_ending_certified": false,
+  "evidence": "compare-witness-research.mjs: unknown A021 after A01B reconstruction; certified prefix independently repeated."
+}

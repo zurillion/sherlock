@@ -58,7 +58,7 @@ export class Game {
     ||(verb==='wait'&&relations.length===0?49:0);
  }
  get actor(){return this.actingActor??this.world.player;}
- canTake(e){const w=this.world,actor=this.actor;return w.perceived(e.id,actor)&&e.rooms.length===1&&!e.person&&!w.owns(actor,e.id)&&!w.owns(e.id,actor)&&w.weight(e.id)<=w.remainingCapacity(actor)&&!w.entities.some(p=>p.person&&w.owns(p.id,e.id));}
+ canTake(e,{semantic=false}={}){const w=this.world,actor=this.actor;return w.perceived(e.id,actor)&&e.rooms.length===1&&!e.person&&!w.owns(actor,e.id)&&!w.owns(e.id,actor)&&w.weight(e.id)<=w.remainingCapacity(actor)&&(semantic||!w.entities.some(p=>p.person&&w.owns(p.id,e.id)));}
  canResolve(e,action,slot){
   if([29,30,45].includes(action))return false;
   if([47,48].includes(action)&&slot===1)return e.id!==0;
@@ -72,7 +72,10 @@ export class Game {
   if(action===19||action===20){if(action===20&&e.rules.some(r=>r.action===20))return true;for(let p=e.parent;p!==null;p=w.entity(p).parent)if(w.entity(p).person)return p===actor;return true;}
   if(action===35)return e.rooms.length!==1;
   if(action===36||action===14)return e.rules.some(r=>r.action===action);
-  if([11,23,41,42,44].includes(action))return slot===0?this.canTake(e):true;
+  // C7DF/C79A treats ownership by another person as a soft preflight
+  // restriction. Count that candidate; execution refuses it afterwards.
+  if([11,23,41].includes(action)&&slot===0)return this.canTake(e,{semantic:true});
+  if([42,44].includes(action))return slot===0?this.canTake(e):true;
   if([17,38,39].includes(action))return slot===0?w.owns(actor,e.id):true;
   if(action===26)return slot===0?w.owns(actor,e.id):e.person&&e.id!==actor;
   if(action===16)return w.owns(actor,e.id);
@@ -84,15 +87,16 @@ export class Game {
   return true;
  }
  error(text){return {kind:'error',text};}
- semanticNode(node){if(this.action(node)===37&&!(node.groups[0]?.noun&32768)&&node.groups[1]?.noun&32768)return {...node,groups:[node.groups[1],node.groups[0]]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}if(node.all&&node.groups.length===1&&node.groups[0].relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[{noun:0,qualifiers:[],relations:[]},node.groups[0]]};return node;}
+ question(node,slot){const sourceSlot=node.sourceGroupOrder?.[slot]??slot;this.pending={node:clone(node.sourceNode||node),slot:sourceSlot};if(this.world.npcs&&this.actor===this.world.player)this.npcRuntime.setClarificationOffset(sourceSlot?18:8);}
+ semanticNode(node){if(this.action(node)===37&&!(node.groups[0]?.noun&32768)&&node.groups[1]?.noun&32768)return {...node,groups:[node.groups[1],node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}if(!node.resolved&&node.groups[0]?.relations.length&&!node.groups[1]?.relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[node.groups[1]||{noun:0,qualifiers:[],relations:[]},node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};return node;}
  locationCandidates(node){const g=node.groups[0]||{noun:0,qualifiers:[]};return this.world.rooms.filter(r=>this.world.rooms[this.world.roomOf(this.actor)].exits.some(e=>e.target===r.id)&&(!g.noun||r.nameWords.some(n=>(n&4095)===(g.noun&4095)))&&g.qualifiers.every(q=>r.nameWords.some(n=>(n&4095)===(q&4095))));}
  referenceCandidates(node,action,slot=0){if([18,27].includes(action))return {nominal:[],possible:this.locationCandidates(node)};node=this.semanticNode(node);const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
-  if([17,38,39,42,44].includes(action)){
+  if([17,26,38,39,42,44].includes(action)){
    const other=node.groups[1-slot];const partners=(node.resolved?.[1-slot]!==undefined?[this.world.entity(node.resolved[1-slot])]:this.world.entities.filter(e=>!other||this.world.nounMatches(e,other))).filter(e=>this.world.perceived(e.id,this.actor));
    // B29A counts a first argument only when EXACTLY one second argument
    // survives. Two possible destinations can therefore reject the object,
    // rather than asking which destination; preserve that original quirk.
-   if(partners.length||!other||slot!==0)possible=possible.filter(e=>{const count=partners.filter(p=>[42,44].includes(action)?this.canResolve(p,action,1-slot):canPlace(this.world,slot===0?e:p,slot===0?p:e,this.actor)).length;return slot===0?count===1:count>0;});
+   if(partners.length||!other||slot!==0)possible=possible.filter(e=>{const count=partners.filter(p=>action===26?(()=>{const object=slot===0?e:p,target=slot===0?p:e;return this.canResolve(object,26,0)&&this.canResolve(target,26,1)&&this.world.weight(object.id)<=this.world.remainingCapacity(target.id);})():[42,44].includes(action)?this.canResolve(p,action,1-slot):canPlace(this.world,slot===0?e:p,slot===0?p:e,this.actor)).length;return slot===0?count===1:count>0;});
   }
   if([47,48].includes(action)&&slot===0){const topic=node.groups[1]||{noun:0,qualifiers:[]},topics=this.world.entities.filter(e=>e.id!==0&&this.world.nounMatches(e,topic));if(topics.length!==1)possible=[];}
   return {nominal,possible};}
@@ -103,15 +107,17 @@ export class Game {
   // determines whether B5B6 retains the parsed node; it executes no action.
   const action=this.action(node);if(node.all||node.exclusion||node.quote||node.subject||this.world.dark()||!SUPPORTED_ACTIONS.includes(action))return false;
   const slots=action===37?[1]:[17,26,38,39,42,44].includes(action)?[0,1]:[11,12,13,14,16,19,20,21,22,23,24,25,28,35,36,40,41,43,46,47,48,51,53,54].includes(action)?[0]:[];
-  for(const slot of slots){const group=node.groups[slot];if(!group?.noun&&!group?.qualifiers?.length)return false;const {possible}=this.referenceCandidates(node,action,slot);if(possible.length>1)return true;if(!possible.length)return false;}
+  for(const slot of slots){const group=node.groups[slot];const {possible}=this.referenceCandidates(node,action,slot);if(action===37&&possible.length>1)return false;if(possible.length>1)return true;if(!possible.length)return false;}
   return false;
  }
  resolve(node,action,slot=0){
   if(node.resolved?.[slot]!==undefined)return {entity:this.world.entity(node.resolved[slot])};
   const w=this.world,group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]};
-  if(!group.noun&&!group.qualifiers.length&&!node.collective){return {message:this.error(`${this.word(node.verb).toUpperCase()} WHAT ?`)};}
+  if(!group.noun&&!group.qualifiers.length&&!node.collective){const {possible}=this.referenceCandidates(node,action,slot);const ask=possible.length>1;if(!ask&&possible.length===1)return {entity:possible[0]};if(ask)this.question(node,slot);const words=[this.word(node.verb),...(this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase();return {message:this.error(ask?`${this.word(node.verb).toUpperCase()} WHAT ?`:`I SEE NOTHING THAT YOU CAN ${words}`)};}
   const {nominal,possible}=this.referenceCandidates(node,action,slot);
-  if(possible.length>1){this.pending={node:clone(node),slot};return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
+  if(action===37&&possible.length>1)return {message:this.error("DON'T BE SILLY.")};
+  if(action===26&&!possible.length&&nominal.some(e=>w.owns(this.actor,e.id)))return {message:this.error('I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN GIVE')};
+  if(possible.length>1){this.question(node,slot);return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
@@ -177,20 +183,20 @@ export class Game {
   }
   if([21,22].includes(action)){if(!w.npcs)throw new UnsupportedFeature('FOLLOW nel profilo storico');const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};return {...ok([],0,[target.entity.id]),objectRule:'unimplemented.E452',semanticResolved:true};}
   if([29,30,45].includes(action)){const result=this.resolve(node,action);return result.message?{messages:[result.message],cost:0,action,args:[]}:reject('YOU CANNOT '+this.word(node.verb).toUpperCase());}
-  if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.pending={node:clone(node),slot:0};return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
+  if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.question(node,0);return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
   if(action===49)return ok([say('wait','.')],5);
   if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');
    if(w.npcs){w.npcs.literal=literal;if(actor===w.player)w.npcs.playerProgramCounter='9945';}
    const cost=waitUntilCost(literal,w.clock());if(w.npcs)this.npcRuntime.temporaryCost(cost);return ok([],cost,[254]);
   }
   if(action===31){
-   const group=node.groups[0]||{noun:0,qualifiers:[]};if(!group.noun&&!group.qualifiers.length)return reject('HAIL WHAT ?');
+   const group=node.groups[0]||{noun:0,qualifiers:[]};const missing=!group.noun&&!group.qualifiers.length;
    const nominal=w.entities.filter(e=>w.nounMatches(e,group)),vehicle=nominal.find(e=>this.cab.available(e,actor));
-   if(!vehicle)return reject(!this.cab.isStreet(w.roomOf(actor))&&nominal.some(e=>e.rules.some(r=>r.rule==='hailCab'))?'YOU CANNOT HAIL THE '+this.queryName(group).toUpperCase():'I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN HAIL');
+   if(!vehicle)return reject(missing?'I SEE NOTHING THAT YOU CAN HAIL':!this.cab.isStreet(w.roomOf(actor))&&nominal.some(e=>e.rules.some(r=>r.rule==='hailCab'))?'YOU CANNOT HAIL THE '+this.queryName(group).toUpperCase():'I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN HAIL');
    this.cab.arrive(vehicle,actor);return ok([say('hail',' '+w.name(vehicle.id)+'.')],1,[vehicle.id]);
   }
   if(action===46){
-   if(node.implicitMissing){this.pending={node:clone({...node,implicitMissing:false}),slot:0};return reject('TALK TO WHAT ?');}
+   if(node.implicitMissing){this.question({...node,implicitMissing:false},0);return reject('TALK TO WHAT ?');}
    if(w.npcs)this.npcRuntime.addressee(node.groups[0]);
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
@@ -257,7 +263,7 @@ export class Game {
   const objectRule=objectRuleFor(e,action);
   if(objectRule){if(!w.npcs)throw new UnsupportedFeature('regole degli oggetti speciali nel profilo storico');if(action===20&&e.person&&!e.rules.some(r=>r.action===20))return {...reject(`${subject} cannot closely examine ${w.name(e.id)}.`.toUpperCase()),args:[e.id],semanticResolved:true};const text=action===20?`${subject} closely ${verb('examine')} ${w.name(e.id)}.`:say(this.word(node.verb),' '+w.name(e.id)+'.');return {...ok([text],0,[e.id]),objectRule,semanticResolved:true};}
   if(action===51||action===43){const message=say(action===51?'wear':'take',' '+(action===43?'off ':'')+w.name(e.id)+'.'),room=changeIdentity(this,action===43?0:e.id===14?1:100);e.parent=0;e.rooms=[action===43?room:0];return ok([message],1,[e.id]);}
-  if([11,23,41,42,44].includes(action)){if(e.rules.some(r=>r.action===action))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return {...reject(`YOU CANNOT TAKE ${w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};let source=null;
+  if([11,23,41,42,44].includes(action)){if(e.rules.some(r=>r.action===action))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return {...reject(`YOU CANNOT ${this.data.actions.find(a=>a.id===action).words[0].toUpperCase()} ${w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};let source=null;
    if([42,44].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};source=target.entity;}
    w.move(e.id,w.roomOf(actor),actor);return ok([say(this.data.actions.find(a=>a.id===action).words[0],' '+w.name(e.id)+(source?' '+(action===42?'from':'out of')+' '+w.name(source.id):'')+'.')],1,source?[e.id,source.id]:[e.id]);}
   if([17,38,39].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
@@ -313,7 +319,7 @@ export class Game {
   this.cancelFailedInput=cancel;
   const messages=[],actions=[],units=[],projectedErrors=new Set();this.lastFrames=[];this.openingPending=false;let lexed,index=0,mode=1,lastOutcome=null;
   try{
-   const repeat=input.trim()==='@'&&!this.pending;
+   const repeat=input.trim()==='@'&&!this.pending,ignoredPendingRepeat=input.trim()==='@'&&Boolean(this.pending);
    if(input.trim()==='@')input=this.pending?'':this.lastInput||'';
    if(this.world.display){if(repeat)this.sourceDisplay.repeat();else this.sourceDisplay.command(normalizeInput(input));}
    // D6C8 clears the transient @ token-reuse flag after accepted input,
@@ -321,9 +327,9 @@ export class Game {
    if(this.world.npcs)this.world.npcs.editorTokenFlag=0;
    this.lastInput=input;lexed=this.lexer.scan(input);this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
-   while(index<lexed.tokens.length&&lexed.tokens[index].type!==192){
+   let emptyPending=Boolean(this.pending)&&!ignoredPendingRepeat;while(index<lexed.tokens.length&&(lexed.tokens[index].type!==192||emptyPending)){emptyPending=false;
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
-    const pendingBefore=this.pending,parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null,onAll:this.world.npcs?value=>{this.world.npcs.parserAll=value;}:null});index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    const pendingBefore=this.pending;let parsed;try{parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null,onAll:this.world.npcs?value=>{this.world.npcs.parserAll=value;}:null});}finally{if(this.world.npcs&&!['load','quit'].includes(parsed?.control))this.npcRuntime.setClarificationOffset(0);}index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
     if(parsed.outcome==='control'){
      this.pending=pendingBefore;const control=parsed.control;this.analysis.control=control;(this.analysis.controls??=[]).push(control);if(this.world.npcs&&(!pendingBefore||control==='save'))this.npcRuntime.use(({records})=>{const p=this.npcRuntime.syntaxRecord({verb:0,modifier:0,groups:[],subject:null},records);if(control==='quit')records.heads.syntax=p;else records.arena.release(p);});
      if(!['pause','print','noprint','save','load','quit'].includes(control))throw new UnsupportedFeature('controllo '+control+' (porta nastro non ancora collegata)');
@@ -383,7 +389,7 @@ export class Game {
   }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}
   if(this.ended)this.analysis.outcome='game_over';
   if(this.pendingWait)this.pendingWait.cancelInput=cancel;
-  if(this.pending)this.analysis.continuation_slot=this.pending.slot;
+  if(this.pending){this.analysis.continuation_slot=this.pending.slot;if(this.world.npcs?.clarificationOffset&&!['not_translated','game_over'].includes(this.analysis.outcome))this.analysis.outcome='clarification';}
   return {state:this.state(),messages};
  }
  advance(cost,{action,args,messages,actions,preservePlayerStage=false}){

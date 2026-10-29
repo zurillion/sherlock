@@ -21,6 +21,7 @@ export class NpcRuntime {
  constructor(game){this.game=game;this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
+ setClarificationOffset(value){if(![0,8,18].includes(value))throw Error('Invalid clarification offset');this.state.clarificationOffset=value;}
  // A01F/A020 is shared across operations, not an actor-local duration.
  // DDC5 writes only its low byte; old saves retain unknown untouched cells.
  temporaryCost(value,{lowOnly=false}={}){const cells=this.state.temporaryCost??=[null,null];cells[0]=value&255;if(!lowOnly)cells[1]=(value>>>8)&255;}
@@ -34,7 +35,7 @@ export class NpcRuntime {
  initialize(seed=1){
   if(!Number.isInteger(seed)||seed<0||seed>255)throw Error('Il seed deve essere un intero da 0 a 255.');
   const g=this.game,w=this.w,vm=new NpcProgram(g.data.npcPrograms,w.scheduler),records=new RecordLists();
-  w.npcs={version:1,profile:'world-v5',program:null,records:records.dump(),pending:{},foreignContexts:{},playerRootSaved:[255,255,255],information:{he:Array(6).fill(0),it:Array(6).fill(0),addressee:[0x71,9,0,0,0,0]},burningNoteTicks:15,flags:{strakerMet:false,lestradeMet:false,brownClueFound:false,jonesClueFound:false,burningNoteFound:false},encounters:{2:[0,0,0],3:[30,0,0],4:[0,0],11:[0,0,0],12:[0,0,0]},literal:0};
+  w.npcs={version:1,profile:'world-v5',clarificationOffset:0,program:null,records:records.dump(),pending:{},foreignContexts:{},playerRootSaved:[255,255,255],information:{he:Array(6).fill(0),it:Array(6).fill(0),addressee:[0x71,9,0,0,0,0]},burningNoteTicks:15,flags:{strakerMet:false,lestradeMet:false,brownClueFound:false,jonesClueFound:false,burningNoteFound:false},encounters:{2:[0,0,0],3:[30,0,0],4:[0,0],11:[0,0,0],12:[0,0,0]},literal:0};
   for(const root of g.data.npcPrograms.actors){vm.start(root.id,root.entry);const a=w.scheduler.actor(root.id);a.enabled=true;a.program='domain';a.due=0;a.behavior=null;}
   w.npcs.program=vm.dump();w.random={version:1,profile:'world-v5',seed,cursor:0,draws:0,trace:[]};g.configureRandom();
   w.npcs.facts=clone(this.worldSource.layout.facts);
@@ -174,7 +175,7 @@ export class NpcRuntime {
   if(retain){records.heads.syntax=current;this.state.parserPending=current;records.heads.parsed=records.arena.word(current-2);records.arena.putWord(current-2,0);}
   node=this.game.semanticNode(node);
   const action=this.game.action(node);let rejected=(!!node.implicitMissing||this.game.action(node)===52)&&!retain&&!collective;this.state.sceneryFailure=null;
-  if([17,18,19,20,21,22,27,29,30,35,38,39,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
+  if([17,18,19,20,21,22,26,27,29,30,35,38,39,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
   // A failed class-9 lookup with no perceived nominal target searches the
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
@@ -573,6 +574,7 @@ export class NpcRuntime {
   if(address===0xD714)return this.state.editorTokenFlag??null;
   if(address===0xA019)return this.w.display?.counter??null;
   if(address===0xA01F||address===0xA020)return this.state.temporaryCost?.[address-0xA01F]??null;
+  if(address===0xA01B)return this.state.clarificationOffset??null;
   if(address===0xA01A)return this.state.parserAll??null;
   if(address===0xA012)return this.state.parserCount??null;
   if(address===0xA011)return this.state.nativeGraphicsEnabled===undefined?null:Number(this.state.nativeGraphicsEnabled);
@@ -609,6 +611,7 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');
   if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
