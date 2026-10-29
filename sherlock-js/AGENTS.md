@@ -160,3 +160,23 @@ A021 a ogni draw e stato completo verificati. Suite 889. Atlante:
 414 istruzioni/909 byte, 32 byte prima grigi C571–C590 e A021 prima parziale;
 approfonditi C4D1–C582,C583–C627,C628–C6BD,C6BE–C74D,C74E–C7A5,
 C7A6–C820,C9BF–C9FA. Riferire sempre qui gli intervalli nuovi/approfonditi.
+
+
+Aggiornamento 29 ottobre 2026, shift salvato: leggere GLIFI-E-SHIFT-SALVATO.md
+ e results/glyph-shift-verification.json. 5D1C superato: C nel frame glifo5D26, shift=(2+7*colonna)&7.
+Ultimo writer C3B7/tick962/Lestrade/spazio della pulizia dopo prefisso hansom;
+lettura Smith attore9/tick2826/Wed07:05:7. Non installare7: calcolarlo dal
+cursore nel chiamante verificato. Con frame5D24 la stessa cella è un
+indirizzo, con5D28 è F. GO TO verificato preserva; stampe sconosciute/scene
+ed errori revocano; old LOAD senza cella rimane unknown. Nessuna proprietà
+nuova su5D1D/5D1E/5D22. Prossimo limite5D22 è il SECONDO operando della
+stessa estrazione; individuare ultimo writer/frame, non indovinare39 da HL.
+Prefisso completo invariato0–355/356 checkpoint sino a Wed07:00, stessi
+6.760 draw/14.470 read, attori/arena/bitmap/futuro LOAD. Il probe naturale
+76 comandi arriva07:20 ma il modello confronta il primo operando e resta
+fermato dal secondo: non spacciare07:20 per certificazione completa.
+ABI432 casi,324 espliciti sul nuovo byte e108 frame che non lo raggiungono;
+8 shift, proprietà/SAVE/LOAD e lettura naturale verificati. Suite892.
+Atlante119 istruzioni/179 byte approfonditi, nessun nuovo byte grigio:
+A3D6–A3E1,A9DF–AA0F,C363–C37C,C388–C3E3 più annotazione workspace5D1C.
+Cinque finali ancora aperti. Riportare sempre gli intervalli aggiornati in chat.

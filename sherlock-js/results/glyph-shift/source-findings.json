@@ -1,0 +1,50 @@
+{
+  "protocol": "Natural major-witness seed1, all actors, free initial LOOK, graphics off after boot, uppercase injected keys and immediate MORE. Observer after boot captures PUSH/CALL stores from SP5D1E and EX(SP),HL stores at SP5D1C, including identical-value writes; transitions not captured by that rule are separate. No actor/world patches. Offline only.",
+  "natural_commands": 76,
+  "native_end_clock": {
+    "tick": 2841,
+    "due": 3781,
+    "minute": 20,
+    "hour": 7,
+    "day": 2,
+    "period": "am",
+    "label": "Wed 07:20am"
+  },
+  "model_end_not_certified_by_native_probe": true,
+  "unclassified_value_changes": 0,
+  "read": {
+    "address": "5D1C",
+    "value": 7,
+    "clock": {
+      "tick": 2826,
+      "due": 3781,
+      "minute": 5,
+      "hour": 7,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 07:05am"
+    },
+    "actor": 9,
+    "last_store": {
+      "pc": "C3B7",
+      "sp": "5D1E",
+      "af": 0,
+      "bc": 263,
+      "de": 15623,
+      "hl": 22334,
+      "tick": 962,
+      "actor": 2,
+      "glyph": {
+        "frame": 23846,
+        "char": 32,
+        "descriptor": 23072,
+        "word": "hansomder.l."
+      },
+      "value": 7
+    }
+  },
+  "formula": "(2 + 7 * column) & 7",
+  "row_clear_final_column": 35,
+  "calculated_value": 7,
+  "natural_trace_sha256": "9b153ba165c72ae45fd218393a04c0f40e03b190723e5f3fc13cb8cb0d3527ba"
+}

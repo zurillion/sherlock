@@ -1,0 +1,6 @@
+{
+  "previously_unknown_bytes": 0,
+  "previously_partial_bytes": 0,
+  "changed_status_addresses": [],
+  "explanation": "Existing code intervals refined; workspace5D1C lies outside the payload. Source coverage is not gameplay equivalence."
+}

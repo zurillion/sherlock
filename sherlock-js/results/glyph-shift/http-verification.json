@@ -1,0 +1,22 @@
+{
+  "src/random-display.mjs": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "8e076f6f909eaf42d332701b57460f61cf938378913e771a36a2b68ab5260ba5"
+  },
+  "src/npc-runtime.mjs": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "049ac50ede3c7ced404051ba57a54c6e60c2fe2a304f13b0503e478026ecf252"
+  },
+  "src/memory-map-data.json": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "4783cf20529608c572f45b63803a1d3636a9307736d9b780a2fb80b4908fb060"
+  },
+  "src/memory.html": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "c0a355d721e1e24c2d4434f3f98a79683bb63309195fdbacc9d5509774fd9324"
+  }
+}

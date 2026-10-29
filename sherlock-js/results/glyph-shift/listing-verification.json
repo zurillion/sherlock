@@ -1,0 +1,57 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 119,
+  "bytes_roundtripped": 179,
+  "regions": [
+    {
+      "start": "A3D6",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Nome del primo argomento: chiamante verificato del salvataggio C",
+      "atlas_priority": 97
+    },
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA10",
+      "kind": "code",
+      "label": "Scarico della parola: ritorno a capo prima dei glifi",
+      "atlas_priority": 97
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia della riga: spazio e chiamata al renderer",
+      "atlas_priority": 97
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: C dello shift salvato separatamente da F e A",
+      "atlas_priority": 97,
+      "fields": [
+        [
+          "5D1C",
+          "C salvato, solo chiamante verificato",
+          "Frame5D26: shift orizzontale (2+7*colonna)&7. Non \u00e8 un byte costante n\u00e9 la riga del font"
+        ],
+        [
+          "Altri frame",
+          "significato diverso",
+          "Frame5D24: byte basso dell\u2019indirizzo video; frame5D28: F dell\u2019ultima scansione. Le prove distinguono i tre casi"
+        ],
+        [
+          "Propriet\u00e0",
+          "condizionata al chiamante",
+          "Prefisso qualificato CLIMB INTO/TAKE OFF e relativo wrap; GO TO gi\u00e0 verificato preserva se non raggiunge la cella. Output sconosciuto revoca; vecchi save senza byte rimangono sconosciuti"
+        ],
+        [
+          "5D1D\u20135D1E",
+          "nessun nuovo valore introdotto",
+          "Non dedurre i byte adiacenti dal presente salvataggio di C"
+        ]
+      ]
+    }
+  ]
+}

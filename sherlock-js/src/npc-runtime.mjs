@@ -466,7 +466,7 @@ export class NpcRuntime {
     const e=w.entity(out.args[0]),name=w.name(e.id),prefix=name.lastIndexOf(' ');
     // A3DE -> A745/A751 -> D3E8: qualifiers of the entity argument
     // flush at frame5D2C. A word wrap clears the row at frame5D26;
-    // only that proven caller may own the new 5D1A flag residue.
+    // only that proven caller may own scan AF and the saved shift C at5D1A–5D1C.
     if(!(e.noun&32768)&&e.qualifiers.some(v=>v&&!(v&32768))&&prefix>0)for(const m of messages)if(!m.scene_trace){const at=m.text.toLowerCase().lastIndexOf(name.toLowerCase());if(at>=0)m.scene_trace=[{kind:'action-entity-prefix',start:at,end:at+prefix,frame:0x5D2C,flagsKnown:true}];}
    }
  }

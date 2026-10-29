@@ -1,0 +1,223 @@
+{
+  "suite": {
+    "tests": 892,
+    "passed": 892,
+    "failed": 0,
+    "new_tests": 3
+  },
+  "controlled_abi": {
+    "source_fixture": "test/fixtures/glyph-flags-abi.json",
+    "cases": 432,
+    "explicit_5D1C_cases": 324,
+    "untouched_frame_cases": 108,
+    "all_eight_shifts": true,
+    "distinct_screen_address_shift_and_flags_roles": true
+  },
+  "source": {
+    "protocol": "Natural major-witness seed1, all actors, free initial LOOK, graphics off after boot, uppercase injected keys and immediate MORE. Observer after boot captures PUSH/CALL stores from SP5D1E and EX(SP),HL stores at SP5D1C, including identical-value writes; transitions not captured by that rule are separate. No actor/world patches. Offline only.",
+    "natural_commands": 76,
+    "native_end_clock": {
+      "tick": 2841,
+      "due": 3781,
+      "minute": 20,
+      "hour": 7,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 07:20am"
+    },
+    "model_end_not_certified_by_native_probe": true,
+    "unclassified_value_changes": 0,
+    "read": {
+      "address": "5D1C",
+      "value": 7,
+      "clock": {
+        "tick": 2826,
+        "due": 3781,
+        "minute": 5,
+        "hour": 7,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 07:05am"
+      },
+      "actor": 9,
+      "last_store": {
+        "pc": "C3B7",
+        "sp": "5D1E",
+        "af": 0,
+        "bc": 263,
+        "de": 15623,
+        "hl": 22334,
+        "tick": 962,
+        "actor": 2,
+        "glyph": {
+          "frame": 23846,
+          "char": 32,
+          "descriptor": 23072,
+          "word": "hansomder.l."
+        },
+        "value": 7
+      }
+    },
+    "formula": "(2 + 7 * column) & 7",
+    "row_clear_final_column": 35,
+    "calculated_value": 7,
+    "natural_trace_sha256": "9b153ba165c72ae45fd218393a04c0f40e03b190723e5f3fc13cb8cb0d3527ba"
+  },
+  "natural_comparison": {
+    "all_published_checkpoint_values_compared": true,
+    "first_read_compared_by_value_tick_actor": true,
+    "second_operand_boundary": "5D22",
+    "native_probe_end_is_not_full_model_certificate": true,
+    "save_load_ownership_and_legacy_unknown": true
+  },
+  "prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 356,
+    "random_draws": 6762,
+    "clock": {
+      "tick": 2821,
+      "due": 3781,
+      "day": 2,
+      "minute": 0,
+      "hour": 7,
+      "period": "am",
+      "label": "Wed 07:00am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 6760,
+    "compared_random_reads": 14470,
+    "certified_checkpoint_range": [
+      0,
+      355
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 356,
+      "target_clock": "Wed 07:10am",
+      "unknown_address": "5D22",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 119,
+    "bytes_roundtripped": 179,
+    "regions": [
+      {
+        "start": "A3D6",
+        "end_exclusive": "A3E2",
+        "kind": "code",
+        "label": "Nome del primo argomento: chiamante verificato del salvataggio C",
+        "atlas_priority": 97
+      },
+      {
+        "start": "A9DF",
+        "end_exclusive": "AA10",
+        "kind": "code",
+        "label": "Scarico della parola: ritorno a capo prima dei glifi",
+        "atlas_priority": 97
+      },
+      {
+        "start": "C363",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "Pulizia della riga: spazio e chiamata al renderer",
+        "atlas_priority": 97
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: C dello shift salvato separatamente da F e A",
+        "atlas_priority": 97,
+        "fields": [
+          [
+            "5D1C",
+            "C salvato, solo chiamante verificato",
+            "Frame5D26: shift orizzontale (2+7*colonna)&7. Non è un byte costante né la riga del font"
+          ],
+          [
+            "Altri frame",
+            "significato diverso",
+            "Frame5D24: byte basso dell’indirizzo video; frame5D28: F dell’ultima scansione. Le prove distinguono i tre casi"
+          ],
+          [
+            "Proprietà",
+            "condizionata al chiamante",
+            "Prefisso qualificato CLIMB INTO/TAKE OFF e relativo wrap; GO TO già verificato preserva se non raggiunge la cella. Output sconosciuto revoca; vecchi save senza byte rimangono sconosciuti"
+          ],
+          [
+            "5D1D–5D1E",
+            "nessun nuovo valore introdotto",
+            "Non dedurre i byte adiacenti dal presente salvataggio di C"
+          ]
+        ]
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "4783cf20529608c572f45b63803a1d3636a9307736d9b780a2fb80b4908fb060",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 471,
+      "unknown": 2770,
+      "documented": 38359
+    },
+    "segments": 1144,
+    "sources": 47,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 42925,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "coverage_change": {
+    "previously_unknown_bytes": 0,
+    "previously_partial_bytes": 0,
+    "changed_status_addresses": [],
+    "explanation": "Existing code intervals refined; workspace5D1C lies outside the payload. Source coverage is not gameplay equivalence."
+  },
+  "http": {
+    "src/random-display.mjs": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "8e076f6f909eaf42d332701b57460f61cf938378913e771a36a2b68ab5260ba5"
+    },
+    "src/npc-runtime.mjs": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "049ac50ede3c7ced404051ba57a54c6e60c2fe2a304f13b0503e478026ecf252"
+    },
+    "src/memory-map-data.json": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "4783cf20529608c572f45b63803a1d3636a9307736d9b780a2fb80b4908fb060"
+    },
+    "src/memory.html": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "c0a355d721e1e24c2d4434f3f98a79683bb63309195fdbacc9d5509774fd9324"
+    }
+  },
+  "research_boundary": {
+    "expected_research_failure": true,
+    "checkpoint": 356,
+    "target_clock": "Wed 07:10am",
+    "resolved_address": "5D1C",
+    "unknown_address": "5D22",
+    "same_random_draw": true,
+    "certified_checkpoint_range": [
+      0,
+      355
+    ],
+    "full_ending_certified": false,
+    "evidence": "compare-witness-research.mjs now stops on5D22. Native first read5D1C=7 is reproduced for Smith at tick2826/Wed07:05; natural test compares the exact first operand and stops at the unsupported second operand, without claiming full state at the native probe end07:20."
+  }
+}
