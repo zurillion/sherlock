@@ -1,0 +1,52 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 119,
+  "bytes_roundtripped": 179,
+  "regions": [
+    {
+      "start": "A3D6",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Nome del primo argomento: profondit\u00e0 del prefisso qualificato",
+      "atlas_priority": 95
+    },
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA10",
+      "kind": "code",
+      "label": "Scarico della parola: ritorno a capo prima dei glifi",
+      "atlas_priority": 95
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia della riga: spazio e chiamata al renderer",
+      "atlas_priority": 95
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: riga del font conservata accanto ai flag nello stack",
+      "atlas_priority": 95,
+      "fields": [
+        [
+          "5D1B",
+          "A dello scan, solo chiamante verificato",
+          "Frame5D26: ottava riga non allineata del font. Frame5D24: la stessa cella conserva B=1. Non derivare il valore da F"
+        ],
+        [
+          "Propriet\u00e0",
+          "condizionata al chiamante",
+          "Prefisso qualificato CLIMB INTO/TAKE OFF; gli altri output revocano. Gli ordini GO TO del prefisso gi\u00e0 verificato preservano la coppia se non la raggiungono"
+        ],
+        [
+          "5D1C\u20135D1E",
+          "nessun nuovo valore introdotto",
+          "Restano fuori da questo contratto: nessun completamento dai byte vicini o dal payload iniziale"
+        ]
+      ]
+    }
+  ]
+}

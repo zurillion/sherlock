@@ -1,0 +1,20 @@
+{
+  "protocol": "Natural seed1, all 24 actor slots, graphics off after boot, free initial LOOK, uppercase injected input and immediate MORE. Every draw/read, all arena bytes, entities, facts, bitmaps and future after LOAD. No world overlays or captured-byte fallback.",
+  "tool": "node tools/compare-witness-research.mjs",
+  "expected_research_failure": true,
+  "certified_checkpoint_range": [
+    0,
+    348
+  ],
+  "next_boundary": {
+    "checkpoint": 349,
+    "target_clock": "Wed 06:00am",
+    "unknown_address": "A01B"
+  },
+  "full_ending_certified": false,
+  "http_files_match": {
+    "src/random-display.mjs": "a08c249799be6d856c6ec153ec40dffcda83d3449cdba04b6533dd2cd0c4e952",
+    "src/memory-map-data.json": "88dd89c18840e39d5e807112716654e345b77267bbcf8df406b3db55db43587e"
+  },
+  "memory_page_status": 200
+}

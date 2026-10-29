@@ -4,18 +4,18 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   346 checkpoint, da 0 a 345, fino a mercoledì 05:20: tutti gli attori,
+   349 checkpoint, da 0 a 348, fino a mercoledì 05:50: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `ALLOCATORE-E-LINK-PRECEDENTE.md`
-   e `results/allocation-link-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `GLIFI-E-BYTE-DI-SCANSIONE.md`
+   e `results/glyph-byte-verification.json`.
 
-2. **Prossimo confine reale: $5D1B, residuo dello stack della stampa.**
-   Il confronto completo supera A11A/A11B e si ferma su 5D1B al checkpoint 346,
-   diretto a mercoledì 05:30. Ricostruire chiamanti e scritture effettive, incluse
-   quelle dello stesso valore; non dedurlo dal vicino 5D1A o da un campione.
-   A11A è il link precedente al candidato best fit: si aggiorna a ogni
-   candidato migliore o uguale; rilascio e scansioni senza candidati lo
-   conservano. Il valore è nel salvataggio dell’arena; nessun fallback legacy.
+2. **Prossimo confine reale: $A01B, stato temporaneo del parser.**
+   Il confronto completo supera 5D1B e si ferma su A01B al checkpoint 349,
+   diretto a mercoledì 06:00. Ricostruirne scritture, reset e persistenza:
+   non dedurlo da WAIT o dal solo oggetto JavaScript pending.
+   5D1B è stato ricostruito dal byte A dell’ultima scansione C388 nel
+   chiamante verificato: pulizia C374 a frame 5D26, writer C3B8 di Lestrade
+   al tick 962. Il giardiniere lo legge al tick 2728, mercoledì 05:27.
    La storia nativa completa termina in 6A33 giovedì 10:00: quel finale
    non è ancora certificato JavaScript.
 
@@ -46,5 +46,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **797 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **800 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

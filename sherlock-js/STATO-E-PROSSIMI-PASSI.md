@@ -278,3 +278,21 @@ dalla lista finale e non usare un default 9FE3/zero. Dati controllati: 14 layout
 302 draw/614 read con confronto della word a ogni ingresso casuale. Suite 797.
 Atlante: 176 istruzioni/307 byte prima grigi, inclusi 2 byte dati; nuove zone
 A11A–A11B,A11C–A15F,A160–A1AE,A1AF–A1C6,A1C7–A20B,A20C–A24C.
+
+
+Aggiornamento 29 ottobre 2026, byte dei glifi: leggere GLIFI-E-BYTE-DI-SCANSIONE.md
+e results/glyph-byte-verification.json. Prefisso witness 0–348 (349 checkpoint)
+fino a Wed05:50, tutti gli attori, ogni draw/read, arena, bitmap e futuro dopo LOAD.
+Nuovo confine A01B al checkpoint 349 verso 06:00: ricostruirne il ciclo nel parser,
+senza zero per WAIT o deduzione dal solo pending del modello. Cinque finali aperti.
+5D1B è A dell’ultima scansione C388 solo nel chiamante verificato. Il probe
+con store anche invariati identifica C3B8/tick 962/Lestrade/frame 5D26/spazio;
+il giardiniere legge quel residuo a tick 2728 (Wed05:27). Il valore è glyph[7],
+non il flag F a 5D1A: q può lasciare 6. Con frame 5D24, 5D1B è invece B=1.
+La proprietà della coppia AF è preservata solo dal GO TO già verificato;
+output non proiettato, scene generiche ed errori la revocano. Old LOAD non inventa byte.
+Non estendere il contratto ai byte 5D1C–5D1E o a tutti i chiamanti del glifo.
+ABI 432 casi, 216 espliciti sul nuovo byte; storia naturale 76 comandi fino a
+Wed05:30 e lettura del giardiniere verificata per valore/tick/attore. Suite 800.
+Atlante: 119 istruzioni/179 byte approfonditi; nessun nuovo byte grigio. Zone
+A3D6–A3E1,A9DF–AA0F,C363–C37C,C388–C3E3 e annotazione dello stack dinamico.
