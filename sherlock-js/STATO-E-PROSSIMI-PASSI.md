@@ -346,7 +346,7 @@ C7A6–C820,C9BF–C9FA. Riferire sempre qui gli intervalli nuovi/approfonditi.
 Aggiornamento 29 ottobre 2026, shift salvato: leggere GLIFI-E-SHIFT-SALVATO.md
  e results/glyph-shift-verification.json. 5D1C superato: C nel frame glifo5D26, shift=(2+7*colonna)&7.
 Ultimo writer C3B7/tick962/Lestrade/spazio della pulizia dopo prefisso hansom;
-lettura Smith attore9/tick2826/Wed07:05:7. Non installare7: calcolarlo dal
+lettura cuoca attore9/tick2826/Wed07:05:7. Non installare7: calcolarlo dal
 cursore nel chiamante verificato. Con frame5D24 la stessa cella è un
 indirizzo, con5D28 è F. GO TO verificato preserva; stampe sconosciute/scene
 ed errori revocano; old LOAD senza cella rimane unknown. Nessuna proprietà

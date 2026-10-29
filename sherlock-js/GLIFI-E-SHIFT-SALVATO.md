@@ -6,7 +6,7 @@ dal valore del payload, dal solo ultimo comando o da una sequenza registrata.
 
 ## Provenienza naturale
 
-L’estrazione che incontrava il limite è di Smith, attore 9, a mercoledì
+L’estrazione che incontrava il limite è della cuoca, attore 9, a mercoledì
 07:05, tick 2826. L’originale legge 7 da 5D1C e poi 39 da 5D22. Sono due
 operandi della stessa estrazione; il secondo rimane ancora da ricostruire.
 
@@ -78,7 +78,7 @@ colmata col byte iniziale, con 7 o con i flag del byte precedente.
 - Proprietà condizionata, revoca, preservazione nel chiamante verificato,
   SAVE/LOAD e vecchi salvataggi senza fallback.
 - Storia naturale: si confrontano tutti i valori pubblicati dal modello
-  ai checkpoint raggiungibili, quindi il primo operando letto da Smith,
+  ai checkpoint raggiungibili, quindi il primo operando letto dalla cuoca,
   per valore, attore e tick. Il secondo operando sconosciuto 5D22 provoca
   ancora il rollback esplicito del minuto. Non si dichiara verificato lo
   stato completo del modello alle 07:20 solo perché il probe nativo vi arriva.

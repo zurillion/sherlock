@@ -11,7 +11,7 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 2. **Prossimo confine reale: $5D22, secondo operando sullo stack.**
    Il confronto supera 5D1C e si ferma al checkpoint 356 verso mercoledì07:10:
-   l’estrazione di Smith al tick2826 legge prima5D1C=7 (ora ricostruito), poi
+   l’estrazione della cuoca al tick2826 legge prima5D1C=7 (ora ricostruito), poi
    5D22 (ancora sconosciuto). Identificare frame e ultimo scrittore, comprese
    scritture invariate; non dedurre39 da un possibile indirizzo video.
    Leggere GLIFI-E-SHIFT-SALVATO.md. Il valore5D1C è C nel frame5D26,

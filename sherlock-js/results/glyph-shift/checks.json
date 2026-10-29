@@ -218,6 +218,6 @@
       355
     ],
     "full_ending_certified": false,
-    "evidence": "compare-witness-research.mjs now stops on5D22. Native first read5D1C=7 is reproduced for Smith at tick2826/Wed07:05; natural test compares the exact first operand and stops at the unsupported second operand, without claiming full state at the native probe end07:20."
+    "evidence": "compare-witness-research.mjs now stops on5D22. Native first read5D1C=7 is reproduced for the cook (actor9) at tick2826/Wed07:05; natural test compares the exact first operand and stops at the unsupported second operand, without claiming full state at the native probe end07:20."
   }
 }
