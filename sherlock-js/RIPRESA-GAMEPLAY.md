@@ -6,20 +6,20 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
    359 checkpoint, da 0 a 358, fino a mercoledì 07:30: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `GLIFI-E-INDIRIZZO-VIDEO-SALVATO.md`
-   e `results/glyph-address-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `MODALITA-ALL-E-CONTINUAZIONE-SEMANTICA.md`
+   e `results/resolution-mode-verification.json`.
 
-2. **Prossimo confine reale: $A01C, stato della risoluzione dei riferimenti.**
-   Il confronto supera i due operandi 5D1C/5D22 dell’estrazione della cuoca
-   a Wed07:05 e arriva sino a Wed07:30. Si ferma al checkpoint359 verso07:40.
-   Ricostruire letture e scritture di A01C: D800, B1EC/B1FD e i chiamanti
-   D818/D85F/B1E3/B218/B23E/B260/B280/B2B1/B517 sono indizi statici,
-   non un contratto già implementato. Non derivarlo da ALL/BUT o pending.
-   Leggere GLIFI-E-INDIRIZZO-VIDEO-SALVATO.md. 5D22 nel frame5D2A è L
-   dell’indirizzo video conservato a C38B/C398; viene calcolato dalla colonna,
-   non installato come39. I chiamanti sconosciuti revocano e i vecchi save
-   senza byte rimangono sconosciuti. Le celle5D23–5D27 sono solo osservate.
-   La storia nativa completa termina in6A33 giovedì10:00: ancora non certificata JS.
+2. **Prossimo confine reale: $A022, secondo ingresso della stessa estrazione.**
+   A01C è superato: il giardiniere legge0 dal modo del resolver, quindi
+   incontra A022 ancora sconosciuto al checkpoint359 verso Wed07:40.
+   Ricostruire writer, inizializzazione e conservazione di A022; non
+   installare il97 registrato né inferirlo dai flag del parser o del testo.
+   A01C segue D800/B959/B1EC/B1FD e ha contesti distinti D6B8/record richiesta+2.
+   Errori precedenti al resolver conservano il residuo; ALL esaurito può
+   lasciare A01C=128 mentre D6B8=0. CLIMB INTO/HAIL forzano selezione singola.
+   Fine ALL NPC: libera quel nodo e passa al comando successivo, non cancella
+   il suffisso. Vecchi save senza campo rimangono sconosciuti fino a un writer.
+   Il prefisso resta0–358 sino a Wed07:30; nessun nuovo finale certificato.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -30,6 +30,10 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    un setup controllato, non ancora nella soluzione naturale completa.
 
 4. **Conservare e chiarire i limiti dichiarati.**
+   Da confrontare separatamente: CLIMB INTO ARMCHAIR ripetuto quando si è
+   già nel primo candidato (predicato E3F5/DEE4), oltre al flag di selezione
+   singola ora ricostruito. Non estendere il certificato del flag ai predicati
+   non esercitati dalle sequenze attuali.
    TELL di Tricia senza vestiti percepibili può bloccarsi nell’originale a
    A9B0: il rollback esplicito del prototipo è una protezione, non una risposta
    inventata del gioco. Restano i frame temporanei non posseduti, compresi
@@ -48,5 +52,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **895 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **956 test verificati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

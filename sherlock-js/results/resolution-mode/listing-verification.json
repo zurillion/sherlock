@@ -1,0 +1,117 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 213,
+  "bytes_roundtripped": 518,
+  "regions": [
+    {
+      "start": "A01C",
+      "end_exclusive": "A01D",
+      "kind": "data",
+      "label": "Modo della risoluzione: normale0 o iterazione128",
+      "atlas_priority": 125,
+      "fields": [
+        [
+          "A01C",
+          "0/128",
+          "Modo semantico condiviso, conservato durante errori precedenti al resolver"
+        ],
+        [
+          "D6B8 / record richiesta+2",
+          "continuazioni distinte",
+          "Il giocatore e ogni richiesta NPC conservano separatamente il cursore e il proprio modo"
+        ]
+      ]
+    },
+    {
+      "start": "D6B8",
+      "end_exclusive": "D6B9",
+      "kind": "data",
+      "label": "Continuazione semantica del giocatore, distinta dal modo globale",
+      "atlas_priority": 125
+    },
+    {
+      "start": "A040",
+      "end_exclusive": "A048",
+      "kind": "code",
+      "label": "Avvio: reset esplicito D6B8 e chiarimento",
+      "atlas_priority": 96
+    },
+    {
+      "start": "82B1",
+      "end_exclusive": "82B9",
+      "kind": "data",
+      "label": "Modello12 CLIMB INTO: forza un solo referente",
+      "atlas_priority": 125
+    },
+    {
+      "start": "8349",
+      "end_exclusive": "8351",
+      "kind": "data",
+      "label": "Modello31 HAIL: forza un solo referente",
+      "atlas_priority": 125
+    },
+    {
+      "start": "B1DD",
+      "end_exclusive": "B213",
+      "kind": "code",
+      "label": "Ingresso semantico: riuso del modo, flag ALL e azzeramento forzato",
+      "atlas_priority": 96
+    },
+    {
+      "start": "B213",
+      "end_exclusive": "B259",
+      "kind": "code",
+      "label": "Ricerca del primo referente: scelta singola o scansione completa",
+      "atlas_priority": 96
+    },
+    {
+      "start": "B280",
+      "end_exclusive": "B2B7",
+      "kind": "code",
+      "label": "Due argomenti: ricerca delle coppie e riuso del cursore ALL",
+      "atlas_priority": 96
+    },
+    {
+      "start": "B39C",
+      "end_exclusive": "B39D",
+      "kind": "data",
+      "label": "Flag ALL dell\u2019ultimo nodo esaminato: distinto da A01A e A01C",
+      "atlas_priority": 125
+    },
+    {
+      "start": "B39D",
+      "end_exclusive": "B3B0",
+      "kind": "code",
+      "label": "Lettura del verbo: separa bit15 ALL dalla parola lessicale",
+      "atlas_priority": 96
+    },
+    {
+      "start": "B936",
+      "end_exclusive": "B98C",
+      "kind": "code",
+      "label": "Richieste NPC: modo dal record e salvataggio della continuazione",
+      "atlas_priority": 96
+    },
+    {
+      "start": "B9AC",
+      "end_exclusive": "B9CA",
+      "kind": "code",
+      "label": "Fallimento NPC: pulizia diversa per ALL e richiesta normale",
+      "atlas_priority": 96
+    },
+    {
+      "start": "B9CA",
+      "end_exclusive": "B9FA",
+      "kind": "code",
+      "label": "Avanza la richiesta e libera i nodi saltando BUT ed EXCEPT",
+      "atlas_priority": 96
+    },
+    {
+      "start": "D7FC",
+      "end_exclusive": "D87D",
+      "kind": "code",
+      "label": "Giocatore: copia D6B8, risoluzione, trasferimento e rilascio dei nodi",
+      "atlas_priority": 96
+    }
+  ]
+}

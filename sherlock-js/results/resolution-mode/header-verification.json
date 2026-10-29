@@ -1,0 +1,331 @@
+{
+  "existing_data_unchanged": true,
+  "all_models_checked": 54,
+  "initial_resolution_mode": 0,
+  "models": [
+    {
+      "action": 1,
+      "source": "8259",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 2,
+      "source": "8261",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 3,
+      "source": "8269",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 4,
+      "source": "8271",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 5,
+      "source": "8279",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 6,
+      "source": "8281",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 7,
+      "source": "8289",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 8,
+      "source": "8291",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 9,
+      "source": "8299",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 10,
+      "source": "82A1",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 11,
+      "source": "82A9",
+      "mode": 72,
+      "single_selection": false
+    },
+    {
+      "action": 12,
+      "source": "82B1",
+      "mode": 80,
+      "single_selection": true
+    },
+    {
+      "action": 13,
+      "source": "82B9",
+      "mode": 192,
+      "single_selection": false
+    },
+    {
+      "action": 14,
+      "source": "82C1",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 15,
+      "source": "82C9",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 16,
+      "source": "82D1",
+      "mode": 8,
+      "single_selection": false
+    },
+    {
+      "action": 17,
+      "source": "82D9",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 18,
+      "source": "82E1",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 19,
+      "source": "82E9",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 20,
+      "source": "82F1",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 21,
+      "source": "82F9",
+      "mode": 4,
+      "single_selection": false
+    },
+    {
+      "action": 22,
+      "source": "8301",
+      "mode": 4,
+      "single_selection": false
+    },
+    {
+      "action": 23,
+      "source": "8309",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 24,
+      "source": "8311",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 25,
+      "source": "8319",
+      "mode": 192,
+      "single_selection": false
+    },
+    {
+      "action": 26,
+      "source": "8321",
+      "mode": 97,
+      "single_selection": false
+    },
+    {
+      "action": 27,
+      "source": "8329",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 28,
+      "source": "8331",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 29,
+      "source": "8339",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 30,
+      "source": "8341",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 31,
+      "source": "8349",
+      "mode": 16,
+      "single_selection": true
+    },
+    {
+      "action": 32,
+      "source": "8351",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 33,
+      "source": "8359",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 34,
+      "source": "8361",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 35,
+      "source": "8369",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 36,
+      "source": "8371",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 37,
+      "source": "8379",
+      "mode": 45,
+      "single_selection": false
+    },
+    {
+      "action": 38,
+      "source": "8381",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 39,
+      "source": "8389",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 40,
+      "source": "8391",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 41,
+      "source": "8399",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 42,
+      "source": "83A1",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 43,
+      "source": "83A9",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 44,
+      "source": "83B1",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 45,
+      "source": "83B9",
+      "mode": 4,
+      "single_selection": false
+    },
+    {
+      "action": 46,
+      "source": "83C1",
+      "mode": 4,
+      "single_selection": false
+    },
+    {
+      "action": 47,
+      "source": "83C9",
+      "mode": 4,
+      "single_selection": false
+    },
+    {
+      "action": 48,
+      "source": "83D1",
+      "mode": 4,
+      "single_selection": false
+    },
+    {
+      "action": 49,
+      "source": "83D9",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 50,
+      "source": "83E1",
+      "mode": 12,
+      "single_selection": false
+    },
+    {
+      "action": 51,
+      "source": "83E9",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 52,
+      "source": "83F1",
+      "mode": 0,
+      "single_selection": false
+    },
+    {
+      "action": 53,
+      "source": "83F9",
+      "mode": 64,
+      "single_selection": false
+    },
+    {
+      "action": 54,
+      "source": "8401",
+      "mode": 64,
+      "single_selection": false
+    }
+  ]
+}

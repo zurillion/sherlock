@@ -1,0 +1,61 @@
+{
+  "protocol": "Complete original snapshot-entry to first editor prompt; graphics enabled; four supplied seeds. Four A01C writers D800/B1EC/B1FD/B959 including unchanged stores are observed, plus every value transition. Loaded initial data is distinct from a guessed runtime reset.",
+  "cases": [
+    {
+      "seed": 0,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "player_writes": [
+        {
+          "pc": "A041",
+          "value": 0
+        }
+      ],
+      "player_mode": 0,
+      "changes": []
+    },
+    {
+      "seed": 1,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "player_writes": [
+        {
+          "pc": "A041",
+          "value": 0
+        }
+      ],
+      "player_mode": 0,
+      "changes": []
+    },
+    {
+      "seed": 17,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "player_writes": [
+        {
+          "pc": "A041",
+          "value": 0
+        }
+      ],
+      "player_mode": 0,
+      "changes": []
+    },
+    {
+      "seed": 255,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "player_writes": [
+        {
+          "pc": "A041",
+          "value": 0
+        }
+      ],
+      "player_mode": 0,
+      "changes": []
+    }
+  ]
+}

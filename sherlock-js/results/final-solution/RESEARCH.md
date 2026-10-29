@@ -217,3 +217,30 @@ Suite complessiva895 test. Cinque finali rimangono aperti.
 Atlante221 istruzioni/393 byte approfonditi, nessun nuovo byte grigio:
 682A–682F,A59F–A5CC,A720–A770,A7C5–A7CF,A95B–A98F,C388–C3E3,
 CE10–CE17,D3E8–D447 e annotazione workspace5D22. Riferire gli intervalli in chat.
+
+
+Aggiornamento 29 ottobre 2026, modo semantico: leggere
+MODALITA-ALL-E-CONTINUAZIONE-SEMANTICA.md e results/resolution-mode-verification.json.
+A01C è0/128, distinto da A01A0/1/2 e A01B08/12. I quattro writer sono
+D800 (D6B8 del giocatore), B959 (record richiesta+2), B1EC (bit ALL soltanto
+se modo0 e modello trovato), B1FD (flag selezione singola CLIMB INTO/HAIL).
+A041 azzera D6B8 all’avvio; A01C usa soltanto il dato iniziale caricato,
+verificato con quattro seed. Old save senza campo resta unknown: nessun
+fallback da ALL, pending, successo o costo. D81B conserva il modo prima dei
+turni NPC; D85C azzera D6B8 ma non A01C. Fine ALL può lasciare128/0.
+Le richieste prefabbricate e le affermazioni non attraversano B959.
+Fine ALL NPC: B9B4/B9CA liberano quel nodo e B9C7 continua sul suffisso;
+non cancellare gli altri comandi della richiesta. Reset del cursore privato
+prima del nuovo nodo. CLIMB INTO ALL/HAIL ALL non iterano più azioni.
+60 sequenze naturali/180 input/375 store/679 draw/1358 read, tutti i24 attori,
+arena752 byte, bitmap/cursore, fatti e futuro LOAD. Errori del bridge possono
+avere chunk diversi: il confronto del canale inferiore è nei byte originali,
+non una normalizzazione dei messaggi. Test dedicato OPEN ALL AND CLOSE ALL
+rivolto a Watson e seguito da I ripetuti. Suite complessiva956 test.
+Prefisso invariato0–358/359 checkpoint sino a Wed07:30, 6.834 draw/14.644 read.
+A01C superato; secondo ingresso sconosciuto A022 al checkpoint359 verso07:40.
+Ricostruire ultimo writer e persistenza; non installare il97 della traccia.
+Cinque finali ancora aperti. Atlante213 istruzioni/518 byte: A01C passa da
+parziale a documentato, nessun nuovo byte grigio. Approfonditi D6B8,A040–A047,
+82B1–82B8,8349–8350,B1DD–B258,B280–B2B6,B39C–B3AF,B936–B98B,
+B9AC–B9F9,D7FC–D87C. Riferire sempre gli intervalli aggiornati in chat.

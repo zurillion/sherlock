@@ -1,0 +1,639 @@
+{
+  "unique_tests_verified": 956,
+  "batches": {
+    "broad_suite_before_final_exclusion_skip": {
+      "tests": 956,
+      "passed": 955,
+      "failed": 1,
+      "failure": "NPC TAKE ALL EXCEPT MONEY reached an exclusion clause as an action after ALL exhausted; B9EC skip implemented."
+    },
+    "final_affected_regression": {
+      "tests": 154,
+      "passed": 154,
+      "failed": 0,
+      "covers": "ALL, complex language, every resolution-mode case and ownership; includes the previously failing exclusion case and chained NPC ALL."
+    },
+    "unique_passes_explanation": "955 distinct broad-suite passes plus the corrected exclusion case verified in the final154-test batch; no unresolved failing case remains."
+  },
+  "natural": {
+    "sequences": 60,
+    "inputs": 180,
+    "raw_stores": 375,
+    "random_draws": 679,
+    "random_reads": 1358,
+    "all_actor_slots": 24,
+    "arena_bytes": 752,
+    "exact_bitmaps_and_cursor": true,
+    "mode_at_every_draw": true,
+    "future_after_load": true,
+    "error_chunk_boundaries": "Bridge batching is not native behaviour; lower bitmap/cursor bytes are compared exactly."
+  },
+  "boot": {
+    "protocol": "Complete original snapshot-entry to first editor prompt; graphics enabled; four supplied seeds. Four A01C writers D800/B1EC/B1FD/B959 including unchanged stores are observed, plus every value transition. Loaded initial data is distinct from a guessed runtime reset.",
+    "cases": [
+      {
+        "seed": 0,
+        "entry": 0,
+        "final": 0,
+        "writes": [],
+        "player_writes": [
+          {
+            "pc": "A041",
+            "value": 0
+          }
+        ],
+        "player_mode": 0,
+        "changes": []
+      },
+      {
+        "seed": 1,
+        "entry": 0,
+        "final": 0,
+        "writes": [],
+        "player_writes": [
+          {
+            "pc": "A041",
+            "value": 0
+          }
+        ],
+        "player_mode": 0,
+        "changes": []
+      },
+      {
+        "seed": 17,
+        "entry": 0,
+        "final": 0,
+        "writes": [],
+        "player_writes": [
+          {
+            "pc": "A041",
+            "value": 0
+          }
+        ],
+        "player_mode": 0,
+        "changes": []
+      },
+      {
+        "seed": 255,
+        "entry": 0,
+        "final": 0,
+        "writes": [],
+        "player_writes": [
+          {
+            "pc": "A041",
+            "value": 0
+          }
+        ],
+        "player_mode": 0,
+        "changes": []
+      }
+    ]
+  },
+  "headers": {
+    "existing_data_unchanged": true,
+    "all_models_checked": 54,
+    "initial_resolution_mode": 0,
+    "models": [
+      {
+        "action": 1,
+        "source": "8259",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 2,
+        "source": "8261",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 3,
+        "source": "8269",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 4,
+        "source": "8271",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 5,
+        "source": "8279",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 6,
+        "source": "8281",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 7,
+        "source": "8289",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 8,
+        "source": "8291",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 9,
+        "source": "8299",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 10,
+        "source": "82A1",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 11,
+        "source": "82A9",
+        "mode": 72,
+        "single_selection": false
+      },
+      {
+        "action": 12,
+        "source": "82B1",
+        "mode": 80,
+        "single_selection": true
+      },
+      {
+        "action": 13,
+        "source": "82B9",
+        "mode": 192,
+        "single_selection": false
+      },
+      {
+        "action": 14,
+        "source": "82C1",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 15,
+        "source": "82C9",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 16,
+        "source": "82D1",
+        "mode": 8,
+        "single_selection": false
+      },
+      {
+        "action": 17,
+        "source": "82D9",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 18,
+        "source": "82E1",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 19,
+        "source": "82E9",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 20,
+        "source": "82F1",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 21,
+        "source": "82F9",
+        "mode": 4,
+        "single_selection": false
+      },
+      {
+        "action": 22,
+        "source": "8301",
+        "mode": 4,
+        "single_selection": false
+      },
+      {
+        "action": 23,
+        "source": "8309",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 24,
+        "source": "8311",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 25,
+        "source": "8319",
+        "mode": 192,
+        "single_selection": false
+      },
+      {
+        "action": 26,
+        "source": "8321",
+        "mode": 97,
+        "single_selection": false
+      },
+      {
+        "action": 27,
+        "source": "8329",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 28,
+        "source": "8331",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 29,
+        "source": "8339",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 30,
+        "source": "8341",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 31,
+        "source": "8349",
+        "mode": 16,
+        "single_selection": true
+      },
+      {
+        "action": 32,
+        "source": "8351",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 33,
+        "source": "8359",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 34,
+        "source": "8361",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 35,
+        "source": "8369",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 36,
+        "source": "8371",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 37,
+        "source": "8379",
+        "mode": 45,
+        "single_selection": false
+      },
+      {
+        "action": 38,
+        "source": "8381",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 39,
+        "source": "8389",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 40,
+        "source": "8391",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 41,
+        "source": "8399",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 42,
+        "source": "83A1",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 43,
+        "source": "83A9",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 44,
+        "source": "83B1",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 45,
+        "source": "83B9",
+        "mode": 4,
+        "single_selection": false
+      },
+      {
+        "action": 46,
+        "source": "83C1",
+        "mode": 4,
+        "single_selection": false
+      },
+      {
+        "action": 47,
+        "source": "83C9",
+        "mode": 4,
+        "single_selection": false
+      },
+      {
+        "action": 48,
+        "source": "83D1",
+        "mode": 4,
+        "single_selection": false
+      },
+      {
+        "action": 49,
+        "source": "83D9",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 50,
+        "source": "83E1",
+        "mode": 12,
+        "single_selection": false
+      },
+      {
+        "action": 51,
+        "source": "83E9",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 52,
+        "source": "83F1",
+        "mode": 0,
+        "single_selection": false
+      },
+      {
+        "action": 53,
+        "source": "83F9",
+        "mode": 64,
+        "single_selection": false
+      },
+      {
+        "action": 54,
+        "source": "8401",
+        "mode": 64,
+        "single_selection": false
+      }
+    ]
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 213,
+    "bytes_roundtripped": 518,
+    "regions": [
+      {
+        "start": "A01C",
+        "end_exclusive": "A01D",
+        "kind": "data",
+        "label": "Modo della risoluzione: normale0 o iterazione128",
+        "atlas_priority": 125,
+        "fields": [
+          [
+            "A01C",
+            "0/128",
+            "Modo semantico condiviso, conservato durante errori precedenti al resolver"
+          ],
+          [
+            "D6B8 / record richiesta+2",
+            "continuazioni distinte",
+            "Il giocatore e ogni richiesta NPC conservano separatamente il cursore e il proprio modo"
+          ]
+        ]
+      },
+      {
+        "start": "D6B8",
+        "end_exclusive": "D6B9",
+        "kind": "data",
+        "label": "Continuazione semantica del giocatore, distinta dal modo globale",
+        "atlas_priority": 125
+      },
+      {
+        "start": "A040",
+        "end_exclusive": "A048",
+        "kind": "code",
+        "label": "Avvio: reset esplicito D6B8 e chiarimento",
+        "atlas_priority": 96
+      },
+      {
+        "start": "82B1",
+        "end_exclusive": "82B9",
+        "kind": "data",
+        "label": "Modello12 CLIMB INTO: forza un solo referente",
+        "atlas_priority": 125
+      },
+      {
+        "start": "8349",
+        "end_exclusive": "8351",
+        "kind": "data",
+        "label": "Modello31 HAIL: forza un solo referente",
+        "atlas_priority": 125
+      },
+      {
+        "start": "B1DD",
+        "end_exclusive": "B213",
+        "kind": "code",
+        "label": "Ingresso semantico: riuso del modo, flag ALL e azzeramento forzato",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B213",
+        "end_exclusive": "B259",
+        "kind": "code",
+        "label": "Ricerca del primo referente: scelta singola o scansione completa",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B280",
+        "end_exclusive": "B2B7",
+        "kind": "code",
+        "label": "Due argomenti: ricerca delle coppie e riuso del cursore ALL",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B39C",
+        "end_exclusive": "B39D",
+        "kind": "data",
+        "label": "Flag ALL dell’ultimo nodo esaminato: distinto da A01A e A01C",
+        "atlas_priority": 125
+      },
+      {
+        "start": "B39D",
+        "end_exclusive": "B3B0",
+        "kind": "code",
+        "label": "Lettura del verbo: separa bit15 ALL dalla parola lessicale",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B936",
+        "end_exclusive": "B98C",
+        "kind": "code",
+        "label": "Richieste NPC: modo dal record e salvataggio della continuazione",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B9AC",
+        "end_exclusive": "B9CA",
+        "kind": "code",
+        "label": "Fallimento NPC: pulizia diversa per ALL e richiesta normale",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B9CA",
+        "end_exclusive": "B9FA",
+        "kind": "code",
+        "label": "Avanza la richiesta e libera i nodi saltando BUT ed EXCEPT",
+        "atlas_priority": 96
+      },
+      {
+        "start": "D7FC",
+        "end_exclusive": "D87D",
+        "kind": "code",
+        "label": "Giocatore: copia D6B8, risoluzione, trasferimento e rilascio dei nodi",
+        "atlas_priority": 96
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "206489d8d9b068af7142038d55872f875fd5e40a94922a9d645a0be281bb1ac1",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 470,
+      "unknown": 2770,
+      "documented": 38360
+    },
+    "segments": 1153,
+    "sources": 49,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 43836,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "coverage_change": [
+    {
+      "address": "A01C",
+      "before": "partial",
+      "after": "documented"
+    }
+  ],
+  "prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 359,
+    "random_draws": 6836,
+    "clock": {
+      "tick": 2851,
+      "due": 3781,
+      "day": 2,
+      "minute": 30,
+      "hour": 7,
+      "period": "am",
+      "label": "Wed 07:30am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 6834,
+    "compared_random_reads": 14644,
+    "certified_checkpoint_range": [
+      0,
+      358
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 359,
+      "target_clock": "Wed 07:40am",
+      "unknown_address": "A022",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "http": {
+    "src/game.mjs": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "a5fca1e0c3a8fc18259432990de50cf539b74f50de1dabd3a7c37c669632bf0a"
+    },
+    "src/npc-runtime.mjs": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "f104caa59bb400061a611533dd7a9bdeba13fdaa114b9d84c122676fb4686007"
+    },
+    "data/game.json": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "20540d7b515927bff03297777f4e973c59a0645755498745cd71ca1e4a90718b"
+    },
+    "src/memory-map-data.json": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "206489d8d9b068af7142038d55872f875fd5e40a94922a9d645a0be281bb1ac1"
+    },
+    "src/memory.html": {
+      "status": 200,
+      "matches_local": true,
+      "sha256": "c0a355d721e1e24c2d4434f3f98a79683bb63309195fdbacc9d5509774fd9324"
+    }
+  },
+  "boundary": {
+    "expected_research_failure": true,
+    "checkpoint": 359,
+    "target_clock": "Wed 07:40am",
+    "resolved_address": "A01C",
+    "unknown_address": "A022",
+    "same_random_draw": true,
+    "certified_checkpoint_range": [
+      0,
+      358
+    ],
+    "full_ending_certified": false,
+    "evidence": "Research comparator now passes theA01C read and stops onA022. Final-code prefix verification passes every draw/read, arena/bitmaps and LOAD future through checkpoint358."
+  }
+}

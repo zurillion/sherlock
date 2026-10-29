@@ -23,6 +23,14 @@ export class NpcRuntime {
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
  setClarificationOffset(value){if(![0,8,18].includes(value))throw Error('Invalid clarification offset');this.state.clarificationOffset=value;}
+ setResolutionMode(value){if(value!==null&&![0,128].includes(value))throw Error('Invalid resolution mode');this.state.resolutionMode=value;}
+ beginResolution(node,{player=false,requestMode=null}={}){
+  this.setResolutionMode(player?(this.state.playerResolutionMode??null):requestMode); // D800 / B959
+  const action=this.game.action(node);if(!action)return;
+  if(this.state.resolutionMode===0)this.setResolutionMode(node.all?128:0); // B1EC
+  if(this.game.data.actions.find(a=>a.id===action)?.singleSelection)this.setResolutionMode(0); // B1FD
+ }
+ finishPlayerResolution(success){this.state.playerResolutionMode=success?(this.state.resolutionMode??null):0;}
  // A01F/A020 is shared across operations, not an actor-local duration.
  // DDC5 writes only its low byte; old saves retain unknown untouched cells.
  temporaryCost(value,{lowOnly=false}={}){const cells=this.state.temporaryCost??=[null,null];cells[0]=value&255;if(!lowOnly)cells[1]=(value>>>8)&255;}
@@ -42,7 +50,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
-  w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
+  w.npcs.resolutionMode=g.data.argumentChecks?.initialResolutionMode??null;w.npcs.playerResolutionMode=0;w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
   // Graphics are presentation-only in the declared text-only source profile.
   // F490/F507 are its only colour writers; neither runs after this boot.
   w.npcs.nativeFillColor=g.data.randomInputs.bootOptions.initialFillColor;
@@ -170,6 +178,7 @@ export class NpcRuntime {
  discardParsed(){this.use(({records})=>{while(records.heads.parsed)records.remove('parsed',records.heads.parsed);});}
  popParsed(){this.use(({records})=>{if(records.heads.parsed)records.remove('parsed',records.heads.parsed);while(records.heads.parsed&&(records.arena.byte(records.heads.parsed+1)&64))records.remove('parsed',records.heads.parsed);});}
  parsed(node,{retain=false,collective=false,answer=null,pointer=null}={}){
+  this.beginResolution(node,{player:true});
   if(pointer===null)pointer=this.beginUnit([node],{answer})[0];
   this.use(({records})=>{
   const current=pointer;
@@ -181,6 +190,7 @@ export class NpcRuntime {
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
   if([11,23,41].includes(action)&&!retain&&!collective){const group=node.groups[0],candidates=this.game.referenceCandidates(node,action,0);if(group&&!candidates.possible.length&&!candidates.nominal.some(e=>this.w.perceived(e.id)&&!e.person&&e.rooms.length===1&&!this.w.owns(this.w.player,e.id))){this.state.sceneryFailure={action,slot:0,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;}}
+  this.finishPlayerResolution(!rejected&&!retain&&Boolean(action));
   if(rejected)this.state.parserRejected=current;
   else if(!retain&&!collective){this.popParsed();}
  });}
@@ -210,7 +220,7 @@ export class NpcRuntime {
  failedQuote(nodes){this.use(({records})=>{const temporary=[];for(const node of nodes){const p=this.syntaxRecord(node,records);if(temporary.length)records.arena.putWord(temporary.at(-1)-2,p);temporary.push(p);}for(const p of temporary)records.arena.release(p);});}
  // D835 preserves the current node while ALL's search has more references.
  // The final unsuccessful search (D86A) releases it, after the last paid turn.
- finishCollective(){this.popParsed();}
+ finishCollective(node,visits){if(visits)this.beginResolution(node,{player:true});this.finishPlayerResolution(false);this.popParsed();}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
  invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
@@ -225,10 +235,13 @@ export class NpcRuntime {
   if(!job){job={sender:request.sender,record:request.record,nodes:request.command.nodes||null,mode:request.command.mode,syntax:request.command.syntax||[],action:request.command.action??null,args:request.command.args??null,index:0,prefab:request.command.kind==='prefabricated'};state.pending[actor]=job;}
   const release=()=>{if(job.record&&this.active.records.records('requests').includes(job.record))this.active.records.remove('requests',job.record);job.record=null;};
   const cancel=(advanceSyntax=false)=>{for(const [i,p]of job.syntax.entries()){if(i<job.index)continue;if(advanceSyntax&&job.record)this.active.records.arena.putWord(job.record+5,job.syntax[i+1]||0);this.active.records.arena.release(p);}release();delete state.pending[actor];};
+  // B9CA advances before releasing and skips every BUT/EXCEPT node.
+  const advanceSyntax=()=>{do{if(job.record)this.active.records.arena.putWord(job.record+5,job.syntax[job.index+1]||0);if(job.syntax[job.index])this.active.records.arena.release(job.syntax[job.index]);job.index++;}while(job.nodes?.[job.index]?.exclusion);};
   if(job.prefab)release();
   while(true){
    let node=job.nodes?.[job.index],action=job.action,args=job.args||[255,255];
    if(job.nodes){if(!node){delete state.pending[actor];return {handled:true,cost:0};}action=this.game.action(node);}
+   if(node&&!(job.mode===2||job.mode===undefined&&node.subject))this.beginResolution(node,{requestMode:job.record?this.active.records.arena.byte(job.record+2):null});
    if(!job.prefab&&context.restriction&&[12,13,21,22,24,25,40,49,50].includes(action)){
     this.print('681A',actor,{object:job.sender},messages);cancel();return {handled:true,cost:0};
    }
@@ -241,11 +254,19 @@ export class NpcRuntime {
     const parts=messages.splice(firstMessage);if(parts.length)messages.push({kind:'narrative',text:parts.map(m=>m.text).join(' '),raw_text:parts.map(m=>m.raw_text??m.text).join('')});
     cancel();return {handled:true,cost:0};
    }
-   const collectiveNode=node?.all?node:null;
+   const forcedSingle=this.game.data.actions.find(a=>a.id===action)?.singleSelection;
+   const collectiveNode=node?.all&&!forcedSingle?node:null;if(node?.all&&forcedSingle)node={...node,all:false};
    if(collectiveNode){
     const previous=this.game.actingActor;this.game.actingActor=actor;
     try{node=[...this.game.collective(collectiveNode)].find(n=>(n.resolved?.[0]??-1)>(job.collectiveCursor??-1));}finally{this.game.actingActor=previous;}
-    if(!node){if(job.record)this.active.records.arena.putByte(job.record+2,0);cancel(true);return {handled:true,cost:0};}
+    if(!node){
+     if(job.record)this.active.records.arena.putByte(job.record+2,0);
+     // B9B4/B9CA release the exhausted ALL node; B9C7 resolves the next
+     // command in the same request, rather than discarding that suffix.
+     advanceSyntax();delete job.collectiveCursor;
+     if(job.index<job.nodes.length)continue;
+     release();delete state.pending[actor];return {handled:true,cost:0};
+    }
     job.collectiveCursor=node.resolved[0];
    }
    const ctx={...context,request:true,node,sender:job.sender,prefab:job.prefab};
@@ -267,8 +288,7 @@ export class NpcRuntime {
     this.active.records.arena.putWord(job.record+3,iterator);
    }
    if(collectiveNode)return result.defer?result:{handled:true,cost:result.cost};
-   if(job.syntax[job.index])this.active.records.arena.release(job.syntax[job.index]);job.index++;
-   if(job.record)this.active.records.arena.putWord(job.record+5,job.syntax[job.index]||0);
+   advanceSyntax();
    if(!job.nodes||job.index>=job.nodes.length){release();delete state.pending[actor];}
    if(result.defer)return result;
    if(result.cost)return {handled:true,cost:result.cost};
@@ -587,6 +607,8 @@ export class NpcRuntime {
   if(address===0xD714)return this.state.editorTokenFlag??null;
   if(address===0xA019)return this.w.display?.counter??null;
   if(address===0xA01F||address===0xA020)return this.state.temporaryCost?.[address-0xA01F]??null;
+  if(address===0xA01C)return this.state.resolutionMode??null;
+  if(address===0xD6B8)return this.state.playerResolutionMode??null;
   if(address===0xA021)return this.state.argumentCheck??null;
   if(address===0xA01B)return this.state.clarificationOffset??null;
   if(address===0xA01A)return this.state.parserAll??null;
@@ -625,6 +647,7 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
   if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');
   if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');

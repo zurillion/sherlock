@@ -99,6 +99,7 @@ export class Game {
    if(partners.length||!other||slot!==0)possible=possible.filter(e=>{const count=partners.filter(p=>action===26?(()=>{const object=slot===0?e:p,target=slot===0?p:e;return this.canResolve(object,26,0)&&this.canResolve(target,26,1)&&this.world.weight(object.id)<=this.world.remainingCapacity(target.id);})():[42,44].includes(action)?this.canResolve(p,action,1-slot):canPlace(this.world,slot===0?e:p,slot===0?p:e,this.actor)).length;return slot===0?count===1:count>0;});
   }
   if([47,48].includes(action)&&slot===0){const topic=node.groups[1]||{noun:0,qualifiers:[]},topics=this.world.entities.filter(e=>e.id!==0&&this.world.nounMatches(e,topic));if(topics.length!==1)possible=[];}
+  if(this.data.actions.find(a=>a.id===action)?.singleSelection)possible=possible.slice(0,1);
   return {nominal,possible};}
  needsClarification(node){
   node=this.semanticNode(node);
@@ -293,6 +294,7 @@ export class Game {
  // a multiplied cost. Each object is executed and scheduled separately.
  supportsCollective(node){return !node.exclusion&&SUPPORTED_ACTIONS.includes(this.action(node));}
  *collective(node){
+  if(node.all&&this.data.actions.find(a=>a.id===this.action(node))?.singleSelection){yield {...node,all:false};return;}
   node=this.semanticNode(node);
   if(!node.all){yield node;return;}
   const action=this.action(node),w=this.world,actor=this.actor;
@@ -347,10 +349,11 @@ export class Game {
      delete this.analysis.control;parsed.nodes=[structuredClone(pendingBefore.node)];parsed.continuationAnswer={verb:0,modifier:0,groups:[],subject:null};parsed.next=lexed.tokens.length-1;index=parsed.next;this.pending=null;
     }
     const pointers=this.world.npcs?this.npcRuntime.beginUnit(parsed.nodes,{answer:parsed.continuationAnswer,lookahead:parsed.lookahead,discarded:parsed.discarded,reusePending:parsed.reusePending}):[];
-    for(const [nodeIndex,originalNode]of parsed.nodes.entries()){if(originalNode.exclusion)continue;if(nodeIndex&&lastOutcome?.collectiveExhausted&&this.world.npcs)this.npcRuntime.playerInputFailures(['9937'],messages,actions);let syntaxAllocated=false;
+    for(const [nodeIndex,originalNode]of parsed.nodes.entries()){if(originalNode.exclusion)continue;if(nodeIndex&&lastOutcome?.collectiveExhausted&&this.world.npcs)this.npcRuntime.playerInputFailures(['9937'],messages,actions);let syntaxAllocated=false,collectiveVisits=0;const collectiveActive=originalNode.all&&!this.data.actions.find(a=>a.id===this.action(originalNode))?.singleSelection;
      try{
-     if(this.world.npcs){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:originalNode.all,pointer:pointers[nodeIndex]});syntaxAllocated=true;}
+     if(this.world.npcs){this.npcRuntime.parsed(originalNode,{retain:this.needsClarification(originalNode),collective:collectiveActive,pointer:pointers[nodeIndex]});syntaxAllocated=true;}
      for(const node of this.collective(originalNode)){
+     if(this.world.npcs&&collectiveActive){if(collectiveVisits++)this.npcRuntime.beginResolution(originalNode,{player:true});this.npcRuntime.finishPlayerResolution(true);}
      const before=this.world.dump(),messageCount=messages.length,actionCount=actions.length,frameCount=this.lastFrames.length;let outcome;
      try{outcome=this.execute(node);lastOutcome=outcome;
       const paragraph=(outcome.cost||outcome.objectRule)&&!outcome.suppressParagraph&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
@@ -364,14 +367,14 @@ export class Game {
      catch(error){this.world.restore(before);if(before.npcs?.parserPending)this.pending=clone(pendingBefore);messages.length=messageCount;actions.length=actionCount;this.lastFrames.length=frameCount;throw error;}
 
      if(this.ended)break;
-     if(originalNode.all&&outcome?.messages.some(m=>m.kind==='error')&&this.world.npcs)this.npcRuntime.playerInputFailures([outcome.semanticResolved?'9945':'9937'],messages,actions);
+     if(collectiveActive&&outcome?.messages.some(m=>m.kind==='error')&&this.world.npcs)this.npcRuntime.playerInputFailures([outcome.semanticResolved?'9945':'9937'],messages,actions);
      if(this.ended)break;
      if(this.pending){this.analysis.outcome='clarification';if(this.world.npcs&&!this.world.npcs.parserPending)throw new UnsupportedFeature('durata dei record per questo chiarimento');break;}
      }
-     }finally{if(this.world.npcs&&originalNode.all&&syntaxAllocated&&!this.ended)this.npcRuntime.finishCollective();}
+     }finally{if(this.world.npcs&&collectiveActive&&syntaxAllocated&&!this.ended)this.npcRuntime.finishCollective(originalNode,collectiveVisits);}
      // D85B/D86D returns failure after ALL exhausts its search, even when
      // the final selected action succeeded. It counts as a DOMAIN failure.
-     if(originalNode.all&&!this.pending)lastOutcome={...(lastOutcome||{messages:[],action:this.action(originalNode)}),collectiveExhausted:true};
+     if(collectiveActive&&!this.pending)lastOutcome={...(lastOutcome||{messages:[],action:this.action(originalNode)}),collectiveExhausted:true};
      if(this.pending||this.ended||lastOutcome?.messages.some(m=>m.kind==='error')&&!originalNode.all)break;
     }
     if(this.pending||this.ended||lastOutcome?.messages.some(m=>m.kind==='error')){if(this.world.display&&!this.ended){const at=lexed.tokens.slice(0,index).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);this.world.display.tokens[at]=192;}if(this.world.npcs&&this.pending)this.npcRuntime.discardParsed();break;}

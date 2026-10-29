@@ -1,0 +1,14 @@
+{
+  "expected_research_failure": true,
+  "checkpoint": 359,
+  "target_clock": "Wed 07:40am",
+  "resolved_address": "A01C",
+  "unknown_address": "A022",
+  "same_random_draw": true,
+  "certified_checkpoint_range": [
+    0,
+    358
+  ],
+  "full_ending_certified": false,
+  "evidence": "Research comparator now passes theA01C read and stops onA022. Final-code prefix verification passes every draw/read, arena/bitmaps and LOAD future through checkpoint358."
+}
