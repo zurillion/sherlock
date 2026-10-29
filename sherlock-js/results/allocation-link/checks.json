@@ -1,0 +1,163 @@
+{
+  "tests": {
+    "total": 797,
+    "passed": 797,
+    "failed": 0,
+    "new": 22,
+    "atlas_and_architecture": 6
+  },
+  "controlled_layouts": 14,
+  "controlled_operations": 159,
+  "compared_candidate_stores": 200,
+  "natural_sequences": 6,
+  "natural_inputs": 32,
+  "natural_checkpoints": 97,
+  "natural_random_draws": 302,
+  "natural_random_reads": 614,
+  "allocation_link_compared_at_every_draw": true,
+  "all_actors": 24,
+  "load_future_compared": true,
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 176,
+    "bytes_roundtripped": 307,
+    "regions": [
+      {
+        "start": "A11A",
+        "end_exclusive": "A11C",
+        "kind": "data",
+        "label": "Allocatore: link che precede il blocco migliore",
+        "atlas_priority": 122,
+        "fields": [
+          [
+            "A11A\u2013A11B",
+            "2 byte",
+            "Indirizzo del link predecessore del candidato migliore"
+          ],
+          [
+            "Persistenza",
+            "mutabile",
+            "Si aggiorna a ogni candidato migliore o uguale; release e fallimento senza candidati lo conservano"
+          ]
+        ]
+      },
+      {
+        "start": "A11C",
+        "end_exclusive": "A160",
+        "kind": "code",
+        "label": "Allocazione best fit: scansione e sostituzione anche a parit\u00e0",
+        "atlas_priority": 92
+      },
+      {
+        "start": "A160",
+        "end_exclusive": "A1AF",
+        "kind": "code",
+        "label": "Allocazione: assorbimento del resto, taglio in coda e azzeramento",
+        "atlas_priority": 92
+      },
+      {
+        "start": "A1AF",
+        "end_exclusive": "A1C7",
+        "kind": "code",
+        "label": "Liberazione di una catena di record",
+        "atlas_priority": 92
+      },
+      {
+        "start": "A1C7",
+        "end_exclusive": "A20C",
+        "kind": "code",
+        "label": "Liberazione: reinserimento ordinato e doppio tentativo di fusione",
+        "atlas_priority": 92
+      },
+      {
+        "start": "A20C",
+        "end_exclusive": "A24D",
+        "kind": "code",
+        "label": "Fusione dei blocchi liberi adiacenti",
+        "atlas_priority": 92
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "a7f7a8ead99df031a60260095d6b8c7f4e2a489ca7186a247c6d47db6099f9ea",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 473,
+      "unknown": 2853,
+      "documented": 38274
+    },
+    "segments": 1151,
+    "sources": 43,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 41204,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "coverage_change": {
+    "previously_unknown_documented": 307,
+    "previously_partial_documented": 0
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 346,
+    "random_draws": 6516,
+    "clock": {
+      "tick": 2721,
+      "due": 3781,
+      "day": 2,
+      "minute": 20,
+      "hour": 5,
+      "period": "am",
+      "label": "Wed 05:20am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 6514,
+    "compared_random_reads": 13958,
+    "certified_checkpoint_range": [
+      0,
+      345
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 346,
+      "target_clock": "Wed 05:30am",
+      "unknown_address": "5D1B",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "research_boundary": {
+    "protocol": "Natural seed1, all actors, original graphics off after boot, injected uppercase input and immediate MORE. Every draw/read, all arena bytes, entities, facts, bitmaps and future after LOAD. No world overlays.",
+    "tool": "node tools/compare-witness-research.mjs",
+    "expected_research_failure": true,
+    "certified_checkpoint_range": [
+      0,
+      345
+    ],
+    "next_boundary": {
+      "checkpoint": 346,
+      "target_clock": "Wed 05:30am",
+      "unknown_address": "5D1B"
+    },
+    "full_ending_certified": false,
+    "http_files_match": {
+      "src/record-arena.mjs": "13e8b477673da4d9b8e6dc86b21bcc702ffeb91c16c8e304103a5ab16a643123",
+      "src/npc-runtime.mjs": "e0ca46a48679a4fb0ef00429e3d22d44e14c3926d3792d7db2d1049aad675335",
+      "src/memory-map-data.json": "a7f7a8ead99df031a60260095d6b8c7f4e2a489ca7186a247c6d47db6099f9ea"
+    },
+    "memory_page_status": 200
+  },
+  "http_files_match": {
+    "src/record-arena.mjs": "13e8b477673da4d9b8e6dc86b21bcc702ffeb91c16c8e304103a5ab16a643123",
+    "src/npc-runtime.mjs": "e0ca46a48679a4fb0ef00429e3d22d44e14c3926d3792d7db2d1049aad675335",
+    "src/memory-map-data.json": "a7f7a8ead99df031a60260095d6b8c7f4e2a489ca7186a247c6d47db6099f9ea"
+  },
+  "memory_page_status": 200
+}

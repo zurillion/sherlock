@@ -1,0 +1,21 @@
+{
+  "protocol": "Natural seed1, all actors, original graphics off after boot, injected uppercase input and immediate MORE. Every draw/read, all arena bytes, entities, facts, bitmaps and future after LOAD. No world overlays.",
+  "tool": "node tools/compare-witness-research.mjs",
+  "expected_research_failure": true,
+  "certified_checkpoint_range": [
+    0,
+    345
+  ],
+  "next_boundary": {
+    "checkpoint": 346,
+    "target_clock": "Wed 05:30am",
+    "unknown_address": "5D1B"
+  },
+  "full_ending_certified": false,
+  "http_files_match": {
+    "src/record-arena.mjs": "13e8b477673da4d9b8e6dc86b21bcc702ffeb91c16c8e304103a5ab16a643123",
+    "src/npc-runtime.mjs": "e0ca46a48679a4fb0ef00429e3d22d44e14c3926d3792d7db2d1049aad675335",
+    "src/memory-map-data.json": "a7f7a8ead99df031a60260095d6b8c7f4e2a489ca7186a247c6d47db6099f9ea"
+  },
+  "memory_page_status": 200
+}

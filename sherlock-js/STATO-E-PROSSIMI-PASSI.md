@@ -260,3 +260,21 @@ Prefisso witness invariato 0–337 fino a Wed04:00; A020 è superato e il
 prossimo limite è A11A allo stesso checkpoint 338 verso 04:10. Nessun nuovo
 finale certificato. Atlante:153 istruzioni/351 byte, 58 byte prima sconosciuti
 ora documentati e 2 byte prima parziali; gli altri sono approfondimenti.
+
+
+Aggiornamento 29 ottobre 2026, allocatore: leggere ALLOCATORE-E-LINK-PRECEDENTE.md
+e results/allocation-link-verification.json. Prefisso witness 0–345 (346 checkpoint)
+fino a Wed05:20, tutti gli attori, ogni draw/read, arena, bitmap e futuro dopo LOAD.
+Nuovo confine 5D1B al checkpoint 346 verso 05:30: ricostruire il chiamante/ultimo
+scrittore dello stack, incluse scritture dello stesso valore; non copiarlo da
+una registrazione né dedurlo da 5D1A. Cinque finali ancora senza certificato naturale.
+RecordArena.allocationLink conserva A11A/A11B: l’INDIRIZZO DEL LINK PRECEDENTE
+al candidato scelto, 9FE3 per la testa o blocco precedente+2. Ogni candidato
+migliore o uguale lo aggiorna; release e ricerche senza candidati lo conservano.
+La scelta a parità è l’ultima, non la prima. Persiste in JSON; nei vecchi
+salvataggi assenti rimane null fino a un’allocazione reale. Non ricavarlo
+dalla lista finale e non usare un default 9FE3/zero. Dati controllati: 14 layout,
+159 operazioni, 200 scritture con tutti i byte; naturali: 6 sequenze,97 checkpoint,
+302 draw/614 read con confronto della word a ogni ingresso casuale. Suite 797.
+Atlante: 176 istruzioni/307 byte prima grigi, inclusi 2 byte dati; nuove zone
+A11A–A11B,A11C–A15F,A160–A1AE,A1AF–A1C6,A1C7–A20B,A20C–A24C.

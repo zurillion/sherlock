@@ -1,0 +1,61 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 176,
+  "bytes_roundtripped": 307,
+  "regions": [
+    {
+      "start": "A11A",
+      "end_exclusive": "A11C",
+      "kind": "data",
+      "label": "Allocatore: link che precede il blocco migliore",
+      "atlas_priority": 122,
+      "fields": [
+        [
+          "A11A\u2013A11B",
+          "2 byte",
+          "Indirizzo del link predecessore del candidato migliore"
+        ],
+        [
+          "Persistenza",
+          "mutabile",
+          "Si aggiorna a ogni candidato migliore o uguale; release e fallimento senza candidati lo conservano"
+        ]
+      ]
+    },
+    {
+      "start": "A11C",
+      "end_exclusive": "A160",
+      "kind": "code",
+      "label": "Allocazione best fit: scansione e sostituzione anche a parit\u00e0",
+      "atlas_priority": 92
+    },
+    {
+      "start": "A160",
+      "end_exclusive": "A1AF",
+      "kind": "code",
+      "label": "Allocazione: assorbimento del resto, taglio in coda e azzeramento",
+      "atlas_priority": 92
+    },
+    {
+      "start": "A1AF",
+      "end_exclusive": "A1C7",
+      "kind": "code",
+      "label": "Liberazione di una catena di record",
+      "atlas_priority": 92
+    },
+    {
+      "start": "A1C7",
+      "end_exclusive": "A20C",
+      "kind": "code",
+      "label": "Liberazione: reinserimento ordinato e doppio tentativo di fusione",
+      "atlas_priority": 92
+    },
+    {
+      "start": "A20C",
+      "end_exclusive": "A24D",
+      "kind": "code",
+      "label": "Fusione dei blocchi liberi adiacenti",
+      "atlas_priority": 92
+    }
+  ]
+}

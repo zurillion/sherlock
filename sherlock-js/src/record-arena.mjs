@@ -2,7 +2,7 @@
 // are record identities/data used by the game's lists and random source. This
 // does not execute machine code or emulate a processor.
 export class RecordArena {
- constructor({base=0x9570,length=752}={}){this.base=base;this.bytes=new Uint8Array(length);this.free=[{start:base,size:length}];this.allocated=new Map();this.syncFree();}
+ constructor({base=0x9570,length=752}={}){this.base=base;this.bytes=new Uint8Array(length);this.free=[{start:base,size:length}];this.allocated=new Map();this.allocationLink=null;this.syncFree();}
  byte(at){if(at<this.base||at>=this.base+this.bytes.length)throw Error('Record address outside arena');return this.bytes[at-this.base];}
  putByte(at,value){if(!Number.isInteger(value)||value<0||value>255)throw Error('Invalid record byte');if(at<this.base||at>=this.base+this.bytes.length)throw Error('Record address outside arena');this.bytes[at-this.base]=value;}
  word(at){return this.byte(at)|this.byte(at+1)<<8;}
@@ -12,7 +12,11 @@ export class RecordArena {
  allocate(size){
   if(!Number.isInteger(size)||size<1||size>252)throw Error('Unsupported record size');const total=size+3;let best=-1;
   // Equal-size candidates replace the earlier one: choose the LAST best fit.
-  for(let i=0;i<this.free.length;i++)if(this.free[i].size>=total&&(best<0||this.free[i].size<=this.free[best].size))best=i;
+  for(let i=0;i<this.free.length;i++)if(this.free[i].size>=total&&(best<0||this.free[i].size<=this.free[best].size)){best=i;
+   // A151 retains the ADDRESS OF THE LINK leading to the new candidate,
+   // including an equal-size replacement. Release and failed scans keep it.
+   this.allocationLink=i?this.free[i-1].start+2:0x9FE3;
+  }
   if(best<0)throw Error('Original record arena exhausted');
   const block=this.free[best],remainder=block.size-total;let start;
   if(remainder<4){start=block.start;this.free.splice(best,1);}else{start=block.start+remainder;block.size=remainder;}
@@ -39,10 +43,11 @@ export class RecordArena {
   merge(merged?previous:(previous===null?head:this.word(previous)));
   this.free=[];const seen=new Set();for(let q=head;q;q=this.word(q+2)){if(seen.has(q))throw Error('Free-record list cycle');seen.add(q);this.free.push({start:q,size:this.word(q)});}
  }
- dump(){return {version:1,base:this.base,bytes:[...this.bytes],free:structuredClone(this.free),allocated:[...this.allocated]};}
+ dump(){return {version:1,base:this.base,bytes:[...this.bytes],free:structuredClone(this.free),allocated:[...this.allocated],allocationLink:this.allocationLink};}
  static load(s){
   if(s?.version!==1||!Number.isInteger(s.base)||!Array.isArray(s.bytes)||!s.bytes.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.free)||!Array.isArray(s.allocated))throw Error('Invalid record arena save');
-  const a=new RecordArena({base:s.base,length:s.bytes.length});a.bytes=Uint8Array.from(s.bytes);a.free=structuredClone(s.free);a.allocated=new Map(s.allocated);return a;
+  if(s.allocationLink!==undefined&&s.allocationLink!==null&&(!Number.isInteger(s.allocationLink)||s.allocationLink<0||s.allocationLink>65535))throw Error('Invalid allocation predecessor link');
+  const a=new RecordArena({base:s.base,length:s.bytes.length});a.bytes=Uint8Array.from(s.bytes);a.free=structuredClone(s.free);a.allocated=new Map(s.allocated);a.allocationLink=s.allocationLink??null;return a;
  }
 }
 export const RECORD_HEADS={counters:0x9fe5,signals:0x9fe7,contexts:0x9fe9,quotes:0x9fec,requests:0x9fee,syntax:0x9ff0,parsed:0x9ff2,facts:0x9ff4};
