@@ -23,7 +23,7 @@ export class AdvancedNpcs {
  policeTravel(actor,target,furious,messages,other=255){
   const h=this.host,w=this.w,source=w.roomOf(actor),duration=source===103&&target===50?112:source===50&&target===103?114:source===50&&target===18?94:null;
   if(duration===null)return {success:false,cost:0};
-  const before=w.roomOf();w.entity(109).attributes&=127;w.rooms[105].flags&=~64;const lost=h.relocate(109,105,messages,{actor,sceneSource:'cab-departure'});
+  h.temporaryCost(duration-(furious?20:0));const before=w.roomOf();w.entity(109).attributes&=127;w.rooms[105].flags&=~64;const lost=h.relocate(109,105,messages,{actor,sceneSource:'cab-departure'});
   return {success:true,cost:duration-(furious?20:0),defer:'F3AD',args:[target,other],scopeOwner:lost||before===105&&!w.perceived(actor)?w.player:actor};
  }
  body(name,args,context,messages){

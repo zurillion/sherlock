@@ -244,3 +244,19 @@ la continuazione supera A01A e si ferma sul costo temporaneo A020, nello
 stesso checkpoint 338 verso 04:10. Mappa aggiornata con 166 istruzioni/368
 byte annotati; gli intervalli sono elencati nel dossier e nella risposta
 all’utente. Nessun nuovo finale completo certificato.
+
+
+Aggiornamento 29 ottobre 2026: leggere COSTO-TEMPORANEO-E-ATTESE.md e
+results/temporary-cost-verification.json. Il costo globale A01F/A020 è
+proiettato da reset CC74, intestazioni CA09 prima del corpo, cab 9B07,
+controlli B0BD/B0CC, yield CD85/CD8E, byte basso DDC5 e WAIT UNTIL DE42.
+Le intestazioni di azioni/oggetti sono dati immutabili estratti; vecchi
+salvataggi senza proprietà temporanea non ricevono fallback. Sei sequenze
+naturali,32 input/97 checkpoint,302 draw/614 read confrontano anche il costo
+a ogni estrazione, tutti gli attori, arena, bitmap e futuro dopo LOAD.
+GET OUT dal cab in corsa deve fallire con maschere 80/28, mantenendo gli
+argomenti già risolti e il punto finale del messaggio. Suite 775.
+Prefisso witness invariato 0–337 fino a Wed04:00; A020 è superato e il
+prossimo limite è A11A allo stesso checkpoint 338 verso 04:10. Nessun nuovo
+finale certificato. Atlante:153 istruzioni/351 byte, 58 byte prima sconosciuti
+ora documentati e 2 byte prima parziali; gli altri sono approfondimenti.

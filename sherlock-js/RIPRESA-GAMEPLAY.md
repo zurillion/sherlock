@@ -6,19 +6,16 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
    338 checkpoint, da 0 a 337, fino a mercoledì 04:00: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `ALL-BUT-E-CICLO-PARSER.md`
-   e `results/parser-all-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `COSTO-TEMPORANEO-E-ATTESE.md`
+   e `results/temporary-cost-verification.json`.
 
-2. **Prossimo confine reale: costo temporaneo $A01F–$A020.**
-   Il confronto completo supera A01A ma si ferma su A020 nello stesso
-   checkpoint 338 verso mercoledì 04:10. Ricostruire scritture, reset e
-   persistenza della word globale del costo fra operazioni/attori. Non
-   dedurla dal costo corrente del VM o riempire l’alto con zero: WAIT UNTIL
-   e altri percorsi devono essere studiati secondo il sorgente.
-   A01A è ora proiettato dalle transizioni reali AAB3/B03F/B026. Le prove
-   hanno anche corretto eredità tardiva del verbo, slot nominale dopo BUT,
-   conteggio della fine di ALL prima del nodo successivo e reset superfluo
-   dopo SAVE senza seguito. Dettagli e intervalli della mappa nel dossier.
+2. **Prossimo confine reale: $A11A, temporaneo dell’allocatore.**
+   A01F–A020 è ora proiettato da reset, intestazioni, attese e servizi;
+   il confronto completo incontra A11A nello stesso checkpoint 338 verso
+   mercoledì 04:10. Ricostruire selezione e persistenza del puntatore
+   dell’allocatore, senza installare valori catturati o iniziali come fallback.
+   Le prove sul costo hanno anche corretto GET OUT dal cab in corsa:
+   maschere 80/28, rifiuto senza uscita e conservazione degli argomenti.
    La storia nativa completa termina in 6A33 giovedì 10:00: quel finale
    non è ancora certificato JavaScript.
 
@@ -46,8 +43,8 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 `results/final-solution/RESEARCH.md`, `AGENTS.md`.
-Aggiornamento 28 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
+Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **768 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **775 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

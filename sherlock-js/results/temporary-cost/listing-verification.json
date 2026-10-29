@@ -1,0 +1,133 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 153,
+  "bytes_roundtripped": 351,
+  "regions": [
+    {
+      "start": "A01F",
+      "end_exclusive": "A021",
+      "kind": "data",
+      "label": "Costo temporaneo globale: byte basso e alto",
+      "atlas_priority": 122,
+      "fields": [
+        [
+          "Word",
+          "2 byte",
+          "A01F basso; A020 alto. Stato temporaneo condiviso, con propriet\u00e0 indipendente dei due byte"
+        ]
+      ]
+    },
+    {
+      "start": "9AF1",
+      "end_exclusive": "9AF4",
+      "kind": "code",
+      "label": "Cab furioso: durata nel byte basso",
+      "atlas_priority": 92
+    },
+    {
+      "start": "9AF4",
+      "end_exclusive": "9AF6",
+      "kind": "data",
+      "label": "Cab normale: intestazione della regola, non codice",
+      "atlas_priority": 122,
+      "fields": [
+        [
+          "Header",
+          "2 byte",
+          "Classe4, costo iniziale0; durata sostituita dal corpo9AF6"
+        ]
+      ]
+    },
+    {
+      "start": "9AF6",
+      "end_exclusive": "9B0A",
+      "kind": "code",
+      "label": "Viaggio cab: durata pubblicata prima della partenza",
+      "atlas_priority": 92
+    },
+    {
+      "start": "A0B0",
+      "end_exclusive": "A0CA",
+      "kind": "code",
+      "label": "Scheduler: costo zero ripete; costo nonzero aggiorna la scadenza",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B0AC",
+      "end_exclusive": "B0D7",
+      "kind": "code",
+      "label": "LOAD/QUIT e SAVE: costo temporaneo uno",
+      "atlas_priority": 92
+    },
+    {
+      "start": "B0EE",
+      "end_exclusive": "B0FD",
+      "kind": "code",
+      "label": "Limite del nastro originale: A01F e A020 sono fuori dal blocco salvato",
+      "atlas_priority": 92
+    },
+    {
+      "start": "C9F2",
+      "end_exclusive": "CA0C",
+      "kind": "code",
+      "label": "Regola eseguita: costo dal nibble alto prima del corpo",
+      "atlas_priority": 92
+    },
+    {
+      "start": "CC71",
+      "end_exclusive": "CC94",
+      "kind": "code",
+      "label": "Ingresso del passo DOMAIN: azzera entrambi i byte del costo",
+      "atlas_priority": 92
+    },
+    {
+      "start": "CD82",
+      "end_exclusive": "CD95",
+      "kind": "code",
+      "label": "Yield e budget fallimenti: costo uno",
+      "atlas_priority": 92
+    },
+    {
+      "start": "D7D0",
+      "end_exclusive": "D7D9",
+      "kind": "code",
+      "label": "Ritorno dell\u2019azione del giocatore: controlla entrambi i byte del costo",
+      "atlas_priority": 92
+    },
+    {
+      "start": "DDC2",
+      "end_exclusive": "DDCB",
+      "kind": "code",
+      "label": "Ritardo dinamico: modifica solo il byte basso",
+      "atlas_priority": 92
+    },
+    {
+      "start": "DDD4",
+      "end_exclusive": "DE48",
+      "kind": "code",
+      "label": "WAIT UNTIL: differenza unsigned sull\u2019orologio a dodici ore",
+      "atlas_priority": 92
+    },
+    {
+      "start": "E432",
+      "end_exclusive": "E43B",
+      "kind": "data",
+      "label": "Uscita dai contenitori: intestazione con maschere, non codice",
+      "atlas_priority": 122,
+      "fields": [
+        [
+          "Header",
+          "9 byte",
+          "Costo2, predicato E420, maschere su attributi:80 richiesto e almeno un bit28"
+        ]
+      ]
+    },
+    {
+      "start": "E43B",
+      "end_exclusive": "E44C",
+      "kind": "code",
+      "label": "Uscita dal contenitore: ripristina il genitore esterno",
+      "atlas_priority": 92
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "tests": {
+    "total": 775,
+    "passed": 775,
+    "failed": 0,
+    "new": 7,
+    "atlas_and_architecture": 6
+  },
+  "native_sequences": 6,
+  "native_inputs": 32,
+  "native_checkpoints": 97,
+  "native_random_draws": 302,
+  "native_random_reads": 614,
+  "cost_compared_at_every_draw": true,
+  "all_actors": 24,
+  "load_future_compared": true,
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 153,
+    "bytes_roundtripped": 351,
+    "regions": [
+      {
+        "start": "A01F",
+        "end_exclusive": "A021",
+        "kind": "data",
+        "label": "Costo temporaneo globale: byte basso e alto",
+        "atlas_priority": 122,
+        "fields": [
+          [
+            "Word",
+            "2 byte",
+            "A01F basso; A020 alto. Stato temporaneo condiviso, con propriet\u00e0 indipendente dei due byte"
+          ]
+        ]
+      },
+      {
+        "start": "9AF1",
+        "end_exclusive": "9AF4",
+        "kind": "code",
+        "label": "Cab furioso: durata nel byte basso",
+        "atlas_priority": 92
+      },
+      {
+        "start": "9AF4",
+        "end_exclusive": "9AF6",
+        "kind": "data",
+        "label": "Cab normale: intestazione della regola, non codice",
+        "atlas_priority": 122,
+        "fields": [
+          [
+            "Header",
+            "2 byte",
+            "Classe4, costo iniziale0; durata sostituita dal corpo9AF6"
+          ]
+        ]
+      },
+      {
+        "start": "9AF6",
+        "end_exclusive": "9B0A",
+        "kind": "code",
+        "label": "Viaggio cab: durata pubblicata prima della partenza",
+        "atlas_priority": 92
+      },
+      {
+        "start": "A0B0",
+        "end_exclusive": "A0CA",
+        "kind": "code",
+        "label": "Scheduler: costo zero ripete; costo nonzero aggiorna la scadenza",
+        "atlas_priority": 92
+      },
+      {
+        "start": "B0AC",
+        "end_exclusive": "B0D7",
+        "kind": "code",
+        "label": "LOAD/QUIT e SAVE: costo temporaneo uno",
+        "atlas_priority": 92
+      },
+      {
+        "start": "B0EE",
+        "end_exclusive": "B0FD",
+        "kind": "code",
+        "label": "Limite del nastro originale: A01F e A020 sono fuori dal blocco salvato",
+        "atlas_priority": 92
+      },
+      {
+        "start": "C9F2",
+        "end_exclusive": "CA0C",
+        "kind": "code",
+        "label": "Regola eseguita: costo dal nibble alto prima del corpo",
+        "atlas_priority": 92
+      },
+      {
+        "start": "CC71",
+        "end_exclusive": "CC94",
+        "kind": "code",
+        "label": "Ingresso del passo DOMAIN: azzera entrambi i byte del costo",
+        "atlas_priority": 92
+      },
+      {
+        "start": "CD82",
+        "end_exclusive": "CD95",
+        "kind": "code",
+        "label": "Yield e budget fallimenti: costo uno",
+        "atlas_priority": 92
+      },
+      {
+        "start": "D7D0",
+        "end_exclusive": "D7D9",
+        "kind": "code",
+        "label": "Ritorno dell\u2019azione del giocatore: controlla entrambi i byte del costo",
+        "atlas_priority": 92
+      },
+      {
+        "start": "DDC2",
+        "end_exclusive": "DDCB",
+        "kind": "code",
+        "label": "Ritardo dinamico: modifica solo il byte basso",
+        "atlas_priority": 92
+      },
+      {
+        "start": "DDD4",
+        "end_exclusive": "DE48",
+        "kind": "code",
+        "label": "WAIT UNTIL: differenza unsigned sull\u2019orologio a dodici ore",
+        "atlas_priority": 92
+      },
+      {
+        "start": "E432",
+        "end_exclusive": "E43B",
+        "kind": "data",
+        "label": "Uscita dai contenitori: intestazione con maschere, non codice",
+        "atlas_priority": 122,
+        "fields": [
+          [
+            "Header",
+            "9 byte",
+            "Costo2, predicato E420, maschere su attributi:80 richiesto e almeno un bit28"
+          ]
+        ]
+      },
+      {
+        "start": "E43B",
+        "end_exclusive": "E44C",
+        "kind": "code",
+        "label": "Uscita dal contenitore: ripristina il genitore esterno",
+        "atlas_priority": 92
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "5d0a8e1550f06143d8340a3ae862f3a880aebc8064535818849b8f528a847dfe",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 473,
+      "unknown": 3160,
+      "documented": 37967
+    },
+    "segments": 1144,
+    "sources": 42,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 40897,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "coverage_change": {
+    "previously_unknown_documented": 58,
+    "previously_partial_documented": 2
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 338,
+    "random_draws": 6349,
+    "clock": {
+      "tick": 2641,
+      "due": 3781,
+      "day": 2,
+      "minute": 0,
+      "hour": 4,
+      "period": "am",
+      "label": "Wed 04:00am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 6347,
+    "compared_random_reads": 13620,
+    "certified_checkpoint_range": [
+      0,
+      337
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 338,
+      "target_clock": "Wed 04:10am",
+      "unknown_address": "A11A",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "research_boundary": {
+    "protocol": "Natural seed-1 full witness comparison; all actors, every random draw/read, full arena, entities, facts, bitmap and future after LOAD. No teleport or captured-byte fallback.",
+    "tool": "node tools/compare-witness-research.mjs",
+    "expected_research_failure": true,
+    "certified_checkpoint_range": [
+      0,
+      337
+    ],
+    "next_boundary": {
+      "checkpoint": 338,
+      "target_clock": "Wed 04:10am",
+      "unknown_address": "A11A"
+    },
+    "full_ending_certified": false
+  },
+  "http_files_match": {
+    "src/game.mjs": "60636049a88748dd04b8d5252ac1dbd6de5d5c35b7e54bce3d51caf24bf62921",
+    "src/npc-program.mjs": "f7c9b7bce0491afd81b41e33c71b6aa38afa35ca687fa971e6366c5fdef8c9e8",
+    "src/npc-runtime.mjs": "aa55585583f920c7da7bdd41bf4e83871386b7dbd92a6740a183ef7751bcf29b",
+    "src/advanced-npcs.mjs": "c9ad13596ba6312f7ca28824f549e2f28298bd0b7e3e930eaa3e0b2eed0c96a3",
+    "src/memory-map-data.json": "5d0a8e1550f06143d8340a3ae862f3a880aebc8064535818849b8f528a847dfe",
+    "data/game.json": "2c9d67cd870c593ba0564906b4c86724d911d30c3696e3b02b334eecfd0950ed"
+  },
+  "memory_page_status": 200
+}

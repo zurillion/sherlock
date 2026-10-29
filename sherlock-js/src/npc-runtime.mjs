@@ -21,6 +21,10 @@ export class NpcRuntime {
  constructor(game){this.game=game;this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
+ // A01F/A020 is shared across operations, not an actor-local duration.
+ // DDC5 writes only its low byte; old saves retain unknown untouched cells.
+ temporaryCost(value,{lowOnly=false}={}){const cells=this.state.temporaryCost??=[null,null];cells[0]=value&255;if(!lowOnly)cells[1]=(value>>>8)&255;}
+
  use(operation){
   if(this.active)return operation(this.active);
   const state=this.state,vm=new NpcProgram(this.game.data.npcPrograms,this.w.scheduler),records=RecordLists.load(state.records);
@@ -64,6 +68,8 @@ export class NpcRuntime {
  driver(messages,actions){return {prepare:a=>this.prepare(a),step:a=>this.step(a,messages,actions),callback:(a,c,s,old)=>this.callback(a,old,messages)};}
  step(actor,messages,actions){return this.use(runtime=>{const result=runtime.vm.step(actor.id,this.environment(runtime,messages,actions));if(runtime.identityChange!==undefined){changeNpcIdentity(this,actor.id,runtime.identityChange);delete runtime.identityChange;}return result;});}
  environment(runtime,messages,actions){const {vm,records}=runtime;return {
+  beginStep:()=>this.temporaryCost(0),
+  forcedCost:value=>this.temporaryCost(value),
   enterContext:({actor,frame})=>records.prepend('contexts',[actor,parseInt(frame.origin,16)&255,parseInt(frame.origin,16)>>>8,frame.saved[1],frame.saved[2],frame.request?2:1,frame.saved[0]]),
   leaveContext:({frame})=>{const p=records.remove('contexts',frame.record);if(!this.state.recordsSourceKnown&&!p&&(records.heads.requests||records.heads.syntax))throw new UnsupportedFeature('metadati dei contesti dopo questo percorso del parser');return records.returnSaved(p);},
   foreignContext:({actor,frame})=>(this.state.foreignContexts[actor]??=[]).push(frame),
@@ -313,7 +319,7 @@ export class NpcRuntime {
   const candidates=(value,kind)=>{if(value!==255||kind===0){const chosen=this.select(value,kind,actor);return chosen===null?[]:[chosen];}const values=[];for(let i=0;i<(kind<=4?w.rooms.length:w.entities.length);i++)if(this.select(i,kind,actor)!==null)values.push(i);return values;};
   for(const first of candidates(input[0],meta.classes[0]))for(const second of candidates(input[1],meta.classes[1])){
    const args=[first,second];this.projectArguments(args);if(meta.requiresLight&&w.dark(actor))continue;if(name.startsWith('object.')&&meta.masks.some(m=>{if(m.tests.every(t=>!t.mask))return false;const bits=this.w.entity(args[m.argument-1]).attributes;return m.tests.some(t=>{const intersection=bits&t.mask;return ![intersection===t.mask,!t.mask||intersection!==0,intersection===0,intersection!==t.mask][t.mode];});})){if(name==='object.open')specialObjectBody(this,name,args,context,messages);continue;}
-   if(this.predicate(name,args,context)){this.state.executionPhase=1;this.state.announcementMode=1;return this.ruleBody(name,args,context,messages,actions);}
+   if(this.predicate(name,args,context)){this.temporaryCost(meta.cost);this.state.executionPhase=1;this.state.announcementMode=1;return this.ruleBody(name,args,context,messages,actions);}
   }
   return no();
  }
@@ -372,7 +378,7 @@ export class NpcRuntime {
     // passenger's scene. That display sets it again; later visits are brief.
     w.rooms[first].flags&=~64;result=yes(0,{observerScopeLost:this.relocate(actor,first,messages,{actor})});break;
    }
-   case 'unimplemented.DDBE':result=yes(first);break;
+   case 'unimplemented.DDBE':this.temporaryCost(first,{lowOnly:true});result=yes(first);break;
    case 'unimplemented.EBD5':context.saved[0]=(first+1)&255;result=yes();break;
    case 'unimplemented.EAF6':w.entity(second).parent=first;w.entity(second).rooms=[50];w.entity(first).rooms=[50];result=yes();break;
    case 'unimplemented.EB11':result=this.state.facts.find(f=>f.start===0x99A9).flags&2?yes():no();break;
@@ -429,6 +435,7 @@ export class NpcRuntime {
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
+  const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
   const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}
   this.showAction(out,actor,messages,actions,{argumentFlags:!context.request&&!context.isolated});
@@ -490,7 +497,7 @@ export class NpcRuntime {
  }
  travel(actor,target,furiously,messages){
   const w=this.w,vehicle=actor-1,route=this.routes.find(w.roomOf(vehicle),target,{furiously});if(!route){this.print('6C34',actor,{},messages);return yes();}
-  const customer=this.active.vm.saved(actor)[1],playerBefore=w.roomOf();
+  const customer=this.active.vm.saved(actor)[1],playerBefore=w.roomOf();this.temporaryCost(route.cost);
   const money=account(w,actor);if(money)money.pence=wrapMoney(money.pence-route.fare);
   w.entity(vehicle).attributes&=127;w.rooms[1].flags&=~64;this.relocate(vehicle,1,messages,{sceneSource:'cab-departure'});
   // 9B44 explicitly reloads the service customer into argument 2. CBEA has
@@ -506,8 +513,8 @@ export class NpcRuntime {
   // CEB8 counts failed DOMAIN rules, not rejected input lines. CC8C yields
   // one minute at ten failures; empty node/token checks count too. Each
   // stage names the player program's continuation after the failed rule.
-  for(const pc of stages){if(pc==='992D'&&this.state.parserRejected)this.use(({records})=>{records.remove('parsed',this.state.parserRejected);delete this.state.parserRejected;});if(++this.state.playerFailures===10){this.state.playerProgramCounter=pc;const [action,...args]=this.state.playerRootSaved;this.game.advance(1,{action,args,messages,actions,preservePlayerStage:true});if(this.game.ended)return;}}
-  this.state.playerProgramCounter='9923';this.state.argumentClasses=[0,0];
+  for(const pc of stages){this.temporaryCost(0);if(pc==='992D'&&this.state.parserRejected)this.use(({records})=>{records.remove('parsed',this.state.parserRejected);delete this.state.parserRejected;});if(++this.state.playerFailures===10){this.temporaryCost(1);this.state.playerProgramCounter=pc;const [action,...args]=this.state.playerRootSaved;this.game.advance(1,{action,args,messages,actions,preservePlayerStage:true});if(this.game.ended)return;}}
+  this.temporaryCost(0);this.state.playerProgramCounter='9923';this.state.argumentClasses=[0,0];
  }
  demand(actor,recipient,owner,messages){
   const amount=balance(this.w,owner);if(amount===null)return;
@@ -565,6 +572,7 @@ export class NpcRuntime {
   if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
   if(address===0xD714)return this.state.editorTokenFlag??null;
   if(address===0xA019)return this.w.display?.counter??null;
+  if(address===0xA01F||address===0xA020)return this.state.temporaryCost?.[address-0xA01F]??null;
   if(address===0xA01A)return this.state.parserAll??null;
   if(address===0xA012)return this.state.parserCount??null;
   if(address===0xA011)return this.state.nativeGraphicsEnabled===undefined?null:Number(this.state.nativeGraphicsEnabled);
@@ -600,6 +608,7 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');
   if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
   if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');

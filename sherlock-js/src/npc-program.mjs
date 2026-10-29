@@ -34,9 +34,9 @@ export class NpcProgram {
   return result;
  }
  visit(actor,environment,{maxInternal=10000}={}){
-  const s=this.state(actor);
+  const s=this.state(actor);environment.beginStep?.();
   for(let guard=0;guard<maxInternal;guard++){
-   if(s.failures===10)return {cost:1};
+   if(s.failures===10){environment.forcedCost?.(1);return {cost:1};}
    const op=this.node(s.pc),saved=this.saved(actor);
    if(op.op==='padding'){s.pc=op.next;continue;}
    if(op.op==='jump'){s.pc=op.target;continue;}
@@ -49,7 +49,7 @@ export class NpcProgram {
     if(frame.external)return {cost:0};
     if(frame.request)return {cost:0};
     const origin=this.node(frame.origin),failedLoop=this.branch(actor,origin,op.op==='return.success');
-    if(failedLoop)return {cost:1};if(op.op==='return.failure')continue;return {cost:0};
+    if(failedLoop){environment.forcedCost?.(1);return {cost:1};}if(op.op==='return.failure')continue;return {cost:0};
    }
    if(!['yield'].includes(op.op)&&s.requestAvailable){
     if(typeof environment.request!=='function')throw new UnsupportedFeature('esecuzione della richiesta NPC');
@@ -63,7 +63,7 @@ export class NpcProgram {
    }
    const context={actor,saved,operation:op},args=(op.args||[255,255]).map(v=>this.resolve(v,actor,saved));let result;
    switch(op.op){
-    case 'yield':result={success:true,cost:1};break;
+    case 'yield':environment.forcedCost?.(1);result={success:true,cost:1};break;
     case 'signal.send':this.scheduler.sendSignal(actor,op.recipient);environment.signalSend?.(actor,op.recipient);result={success:true,cost:0};break;
     case 'signal.take':{const success=this.scheduler.consumeSignal(actor,op.sender);if(success)environment.signalTake?.(actor,op.sender);result={success,cost:0};break;}
     case 'order':{
@@ -86,6 +86,7 @@ export class NpcProgram {
    if(result.success&&s.working&&!s.contexts.length){s.saved.splice(0,3,...s.working);delete s.working;}
    if(typeof result.success!=='boolean')throw Error('Missing NPC rule outcome');
    const failedLoop=this.branch(actor,op,result.success);
+   if(failedLoop)environment.forcedCost?.(1);
    if(result.success||result.cost||failedLoop)return {cost:failedLoop?1:result.cost};
   }
   throw new UnsupportedFeature('programma NPC senza ritorno di tempo o controllo');

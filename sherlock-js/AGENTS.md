@@ -63,3 +63,19 @@ The user's target is a standalone JavaScript reconstruction that is functionally
 - Read FLAG-GLIFI-E-ANNUNCI.md and results/glyph-flags-verification.json. Current witness certificate: checkpoints0–337 through Wed04:00; next boundary A01A at checkpoint 338 toward04:10. 5D1A is now F of the final bottom-row glyph scan at frame5D26, reached by a word wrap in the qualified first entity argument of ordinary CLIMB INTO/TAKE OFF announcements (prefix frame5D2C). Only the explicitly annotated caller owns this flag; arbitrary scene frames do not. GO TO/GO FURIOUSLY TO orders preserve that separate flag under their verified shallow contract; the proper actor-name prefix supplies 5D20/5D21 from C/B at frame5D2A. Unprojected output and errors revoke extras; old absent saves remain unknown. The native store probe includes identical-value PUSH/CALL and EX(SP),HL stores, with no unclassified transitions. ABI covers432 cases; unit ownership checks74 commands through Tue07:00 and the native store probe covers76 through Wed03:40; suite725. Atlas adds251 instructions/446 annotated bytes and193 newly classified unique bytes. Next reconstruct A01A from its actual parser lifetime (AAB3/B03F/B026/AFE8), not zero for WAIT or the final AST node.
 
 - Read ALL-BUT-E-CICLO-PARSER.md and results/parser-all-verification.json. Current witness prefix remains0–337 through Wed04:00: A01A is resolved, next boundary A020 (high byte of the global temporary cost word A01F) at checkpoint 338 toward04:10. A01A resets only on real unit entry AAB3, becomes1 after validated ALL and2 before BUT allocation; lexical errors retain it, parser errors retain reached writes, and AD3D restores only A012. Save/load preserves it without legacy boot fallback; dry analyses are pure. ALL validation uses shared unit state, not the last AST node. Nominal slot E bits survive BUT; ACA6 writes into the remaining slot and rejects a third group. Inherited verbs are committed at AE19 only after successful parsing: failed payloads keep zero rather than eager semantic inheritance. Count ALL exhaustion at9937 before a following ordinary node in the same unit. SAVE with only terminal punctuation has no extra parser reset. 34 state/write sequences and8 complete-state sequences support the new rules; suite768. Atlas source166 instructions/368 bytes; A01A becomes documented, other zones are refinements. User explicitly requests listing the new/refined map address ranges in chat whenever updated.
+
+
+Aggiornamento 29 ottobre 2026: leggere COSTO-TEMPORANEO-E-ATTESE.md e
+results/temporary-cost-verification.json. Il costo globale A01F/A020 è
+proiettato da reset CC74, intestazioni CA09 prima del corpo, cab 9B07,
+controlli B0BD/B0CC, yield CD85/CD8E, byte basso DDC5 e WAIT UNTIL DE42.
+Le intestazioni di azioni/oggetti sono dati immutabili estratti; vecchi
+salvataggi senza proprietà temporanea non ricevono fallback. Sei sequenze
+naturali,32 input/97 checkpoint,302 draw/614 read confrontano anche il costo
+a ogni estrazione, tutti gli attori, arena, bitmap e futuro dopo LOAD.
+GET OUT dal cab in corsa deve fallire con maschere 80/28, mantenendo gli
+argomenti già risolti e il punto finale del messaggio. Suite 775.
+Prefisso witness invariato 0–337 fino a Wed04:00; A020 è superato e il
+prossimo limite è A11A allo stesso checkpoint 338 verso 04:10. Nessun nuovo
+finale certificato. Atlante:153 istruzioni/351 byte, 58 byte prima sconosciuti
+ora documentati e 2 byte prima parziali; gli altri sono approfondimenti.

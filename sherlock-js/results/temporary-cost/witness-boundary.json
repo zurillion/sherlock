@@ -1,0 +1,15 @@
+{
+  "protocol": "Natural seed-1 full witness comparison; all actors, every random draw/read, full arena, entities, facts, bitmap and future after LOAD. No teleport or captured-byte fallback.",
+  "tool": "node tools/compare-witness-research.mjs",
+  "expected_research_failure": true,
+  "certified_checkpoint_range": [
+    0,
+    337
+  ],
+  "next_boundary": {
+    "checkpoint": 338,
+    "target_clock": "Wed 04:10am",
+    "unknown_address": "A11A"
+  },
+  "full_ending_certified": false
+}
