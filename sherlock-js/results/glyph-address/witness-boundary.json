@@ -1,0 +1,11 @@
+{
+  "checkpoint": 359,
+  "target_clock": "Wed 07:40am",
+  "unknown_address": "A01C",
+  "certified_checkpoint_range": [
+    0,
+    358
+  ],
+  "full_ending_certified": false,
+  "expected_research_failure": true
+}

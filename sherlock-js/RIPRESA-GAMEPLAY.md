@@ -4,22 +4,22 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   356 checkpoint, da 0 a 355, fino a mercoledì 07:00: tutti gli attori,
+   359 checkpoint, da 0 a 358, fino a mercoledì 07:30: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `GLIFI-E-SHIFT-SALVATO.md`
-   e `results/glyph-shift-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `GLIFI-E-INDIRIZZO-VIDEO-SALVATO.md`
+   e `results/glyph-address-verification.json`.
 
-2. **Prossimo confine reale: $5D22, secondo operando sullo stack.**
-   Il confronto supera 5D1C e si ferma al checkpoint 356 verso mercoledì07:10:
-   l’estrazione della cuoca al tick2826 legge prima5D1C=7 (ora ricostruito), poi
-   5D22 (ancora sconosciuto). Identificare frame e ultimo scrittore, comprese
-   scritture invariate; non dedurre39 da un possibile indirizzo video.
-   Leggere GLIFI-E-SHIFT-SALVATO.md. Il valore5D1C è C nel frame5D26,
-   shift=(2+7*colonna)&7, ultimo writer naturale C3B7/tick962/Lestrade.
-   Il GO TO verificato lo preserva; gli altri chiamanti non proiettati lo
-   revocano. Vecchi salvataggi senza byte restano sconosciuti.
-   Il prefisso completo rimane0–355 sino a Wed07:00: nessun nuovo minuto o
-   finale certificato soltanto per il superamento del primo operando.
+2. **Prossimo confine reale: $A01C, stato della risoluzione dei riferimenti.**
+   Il confronto supera i due operandi 5D1C/5D22 dell’estrazione della cuoca
+   a Wed07:05 e arriva sino a Wed07:30. Si ferma al checkpoint359 verso07:40.
+   Ricostruire letture e scritture di A01C: D800, B1EC/B1FD e i chiamanti
+   D818/D85F/B1E3/B218/B23E/B260/B280/B2B1/B517 sono indizi statici,
+   non un contratto già implementato. Non derivarlo da ALL/BUT o pending.
+   Leggere GLIFI-E-INDIRIZZO-VIDEO-SALVATO.md. 5D22 nel frame5D2A è L
+   dell’indirizzo video conservato a C38B/C398; viene calcolato dalla colonna,
+   non installato come39. I chiamanti sconosciuti revocano e i vecchi save
+   senza byte rimangono sconosciuti. Le celle5D23–5D27 sono solo osservate.
+   La storia nativa completa termina in6A33 giovedì10:00: ancora non certificata JS.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -48,5 +48,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **892 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **895 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

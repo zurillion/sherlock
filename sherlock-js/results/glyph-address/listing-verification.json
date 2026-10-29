@@ -1,0 +1,92 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 221,
+  "bytes_roundtripped": 393,
+  "regions": [
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 98,
+      "fields": [
+        [
+          "682A",
+          "dati compressi",
+          "Chiamata6804, composizione ordine e chiusura;6804 richiama67F7 col nome dell\u2019attore"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 98
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 98
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 98
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; indirizzo video salvato a5D22",
+      "atlas_priority": 98,
+      "fields": [
+        [
+          "5D22",
+          "L salvato, soltanto chiamante verificato",
+          "Frame5D2A: byte basso dell\u2019indirizzo video della prima scansione. C38B/C398 salvano lo stesso HL; non copiare39 come costante"
+        ],
+        [
+          "Altri frame",
+          "ruoli differenti",
+          "5D24:F del chiamante;5D26:C del chiamante;5D28:E del descrittore;5D2C:C della scansione;5D2E:F della scansione"
+        ],
+        [
+          "Propriet\u00e0",
+          "prefisso letterale del nome in682A",
+          "Il frame viene dal chiamante CE13 e dai due testi annidati. Scene generiche, errori e chiamanti sconosciuti revocano. Vecchi save senza cella restano sconosciuti"
+        ],
+        [
+          "5D23\u20135D27",
+          "osservati, non implementati qui",
+          "Il probe distingue le scritture vicine, ma il motore non ne introduce nuovi valori"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 98
+    }
+  ]
+}

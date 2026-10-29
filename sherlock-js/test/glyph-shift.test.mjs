@@ -12,15 +12,16 @@ test('5D1C has conditional ownership and survives SAVE only when known',()=>{
  p.glyphFlagsKnown=false;p.glyphResidue('q',0x5D26,5,0x5C0B,3);assert.equal(p.read(0x5D1C),null);p.glyphFlagsKnown=true;p.glyphResidue('q',0x5D26,5,0x5C0B,3);p.write('Unknown caller.');assert.equal(p.read(0x5D1C),null);p.glyphFlagsKnown=true;p.glyphResidue('q',0x5D26,5,0x5C0B,3);p.error([{text:'WHAT ?'}]);assert.equal(p.read(0x5D1C),null);
 });
 
-test('Natural 5D1C ownership, last writer and exact read before the next unsupported operand',async()=>{
+test('Natural 5D1C ownership, last writer and exact target read',async()=>{
  const ref=JSON.parse(await readFile(new URL('../results/glyph-shift/natural-stores.json',import.meta.url))),s=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=s.game,reads=[];
- assert.deepEqual(ref.unclassified_transitions,[]);const read=g.runtimeRandom.read.bind(g.runtimeRandom);g.runtimeRandom.read=address=>{const value=read(address);if(address===0x5D1C)reads.push({value,tick:g.world.tick,actor:g.runtimeRandom.inFlight?.actor});return value;};let produced=0,blocked=null;
+ assert.deepEqual(ref.unclassified_transitions,[]);const read=g.runtimeRandom.read.bind(g.runtimeRandom);g.runtimeRandom.read=address=>{const value=read(address);if(address===0x5D1C)reads.push({value,tick:g.world.tick,actor:g.runtimeRandom.inFlight?.actor});return value;};let produced=0;
  for(const[index,row]of ref.steps.entries()){
   let out=s.request(row.input.startsWith('WAIT UNTIL')?'start-command':'command',{command:row.input});
-  for(;;){if(out.state.analysis.outcome==='not_translated'){blocked=out;break;}if(!out.running||index===ref.steps.length-1&&g.world.tick===row.clock.tick)break;assert(g.world.tick<=row.clock.tick,'Overshot source checkpoint');out=s.request('continue-command',{job:out.job});}
-  if(blocked)break;assert.equal(g.world.tick,row.clock.tick);const value=g.sourceDisplay.read(0x5D1C);if(value!==null){produced++;assert.equal(value,row.value,row.input+' '+row.clock.label);}
+  for(;;){assert.notEqual(out.state.analysis.outcome,'not_translated',out.state.prototype_notice);if(!out.running||index===ref.steps.length-1&&g.world.tick===row.clock.tick)break;assert(g.world.tick<=row.clock.tick,'Overshot source checkpoint');out=s.request('continue-command',{job:out.job});}
+  assert.equal(g.world.tick,row.clock.tick);const value=g.sourceDisplay.read(0x5D1C);if(value!==null){produced++;assert.equal(value,row.value,row.input+' '+row.clock.label);}
  }
- assert(produced>0);assert(blocked);assert.match(blocked.state.prototype_notice,/5D22/);assert.equal(reads.length,1);assert.deepEqual(reads,ref.reads.slice(0,1).map(r=>({value:r.value,tick:r.clock.tick,actor:r.actor})));
+ assert(produced>0);assert.equal(reads.length,1);assert.deepEqual(reads,ref.reads.slice(0,1).map(r=>({value:r.value,tick:r.clock.tick,actor:r.actor})));
  const writer=ref.reads[0].last_store;assert.equal(writer.pc,'C3B7');assert.equal(writer.tick,962);assert.equal(writer.actor,2);assert.equal(writer.glyph.frame,0x5D26);assert.equal(writer.glyph.char,32);assert.equal(writer.value,writer.bc&255);assert.equal(g.sourceDisplay.read(0x5D1C),writer.value);
+ if(s.job?.liveWait)s.request('continue-command',{job:s.job.id,interrupt:true});
  const save=JSON.parse(JSON.stringify(g.dump()));assert.equal(Game.load(data,save).sourceDisplay.read(0x5D1C),writer.value);
 });

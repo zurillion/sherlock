@@ -194,3 +194,26 @@ ABI432 casi,324 espliciti sul nuovo byte e108 frame che non lo raggiungono;
 Atlante119 istruzioni/179 byte approfonditi, nessun nuovo byte grigio:
 A3D6–A3E1,A9DF–AA0F,C363–C37C,C388–C3E3 più annotazione workspace5D1C.
 Cinque finali ancora aperti. Riportare sempre gli intervalli aggiornati in chat.
+
+
+Aggiornamento 29 ottobre 2026, indirizzo video salvato: leggere
+GLIFI-E-INDIRIZZO-VIDEO-SALVATO.md e results/glyph-address-verification.json.
+5D22 è L salvato da C38B/C398 soltanto nel chiamante con frame5D2A del
+prefisso letterale del nome dell’attore in682A. Calcolare
+(5020+floor((2+7*colonna)/8))&FF; non installare39, né dedurlo da5D1C.
+Il percorso è CE13 ->682A ->6804 ->67F7 ->nome attore/D3E8. Le altre
+profondità conservano F/C/E del chiamante o F/C della scansione; tutti
+sei i ruoli sono verificati in648 casi ABI, tre glifi e36 colonne.
+Proprietà esplicita del chiamante; output sconosciuto, scene ed errori
+revocano; old LOAD senza byte rimane unknown.5D23–5D27 sono osservati
+nel probe per distinguere i writer, ma non ricevono nuovi valori runtime.
+Il prefisso è ora0–358/359 checkpoint sino a Wed07:30, con6.834 draw e
+14.644 read confrontati, tutti gli attori, arena/bitmap/futuro LOAD.
+Nuovo limite A01C al checkpoint359 verso Wed07:40: ricostruire gli store
+D800/B1EC/B1FD e relativi chiamanti; non inferire dal solo ALL o pending.
+La prova precedente di5D1C ora esige assenza di not_translated fino al
+proprio checkpoint finale07:20: il blocco su5D22 non è più accettato.
+Suite complessiva895 test. Cinque finali rimangono aperti.
+Atlante221 istruzioni/393 byte approfonditi, nessun nuovo byte grigio:
+682A–682F,A59F–A5CC,A720–A770,A7C5–A7CF,A95B–A98F,C388–C3E3,
+CE10–CE17,D3E8–D447 e annotazione workspace5D22. Riferire gli intervalli in chat.

@@ -34,12 +34,15 @@ export class RandomDisplay {
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
+  // C38B/C398 retain the screen address at frame-8. The verified
+  // literal actor-name prefix uses frame5D2A and publishes its low byte
+  // at5D22. Other callers revoke ownership rather than guessing an address.
   // C38B retains the screen address at frame-8. In the cab-name path
   // frame=5D1A, so its high byte owns 5D13 until another known writer.
   // C388 ABI tests cover seven frames. The extra 5D1F byte is owned only
   // in a verified caller scope; scene frames retain their old low-byte
   // contract and unprojected EXAMINE/statement output revokes ownership.
-  const put=(at,v)=>{if((at===0x5D1A||at===0x5D1B||at===0x5D1C)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at===0x5D20||at===0x5D21)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D1C||at>=0x5D1F&&at<=0x5D21))s[at]=v;};
+  const put=(at,v)=>{if((at===0x5D1A||at===0x5D1B||at===0x5D1C)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at===0x5D20||at===0x5D21||at===0x5D22)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D1C||at>=0x5D1F&&at<=0x5D22))s[at]=v;};
   // C374's CALL leaves its return link at the glyph-entry stack position.
   // A deep wrap can overwrite previously owned cells with that link.
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
@@ -50,7 +53,7 @@ export class RandomDisplay {
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D1C||at>=0x5D1F&&at<=0x5D21))delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D1C||at>=0x5D1F&&at<=0x5D22))delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -65,9 +68,9 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or C.
  // Unprojected callers revoke all three bytes; no neighbouring byte is inferred.
- invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1D:0x5D1A,0x5D21);}
+ invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1D:0x5D1A,0x5D22);}
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D21){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D22){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}

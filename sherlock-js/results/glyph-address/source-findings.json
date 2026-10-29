@@ -1,0 +1,52 @@
+{
+  "protocol": "Natural seed1 major-witness, all24 actor slots, free initial LOOK, original graphics off after boot, uppercase injected keys and immediate MORE. No world/actor patches. Observe PUSH/CALL and EX(SP),HL stores, including identical-value stores; record unclassified value changes separately. Six stack bytes are observed to distinguish roles, but this dossier implements only5D22. Offline only.",
+  "commands": 76,
+  "native_end": {
+    "tick": 2841,
+    "due": 3781,
+    "minute": 20,
+    "hour": 7,
+    "day": 2,
+    "period": "am",
+    "label": "Wed 07:20am"
+  },
+  "target_read": {
+    "address": "5D22",
+    "value": 39,
+    "clock": {
+      "tick": 2826,
+      "due": 3781,
+      "minute": 5,
+      "hour": 7,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 07:05am"
+    },
+    "actor": 9,
+    "last_store": {
+      "pc": "C398",
+      "sp": "5D24",
+      "af": 29224,
+      "bc": 258,
+      "de": 16272,
+      "hl": 20519,
+      "tick": 964,
+      "actor": 2,
+      "glyph": {
+        "frame": 23850,
+        "char": 114,
+        "descriptor": 23563,
+        "screen_address": 20519,
+        "shift": 2,
+        "caller_count": 1,
+        "word": "inspector.l."
+      },
+      "address": "5D22",
+      "value": 39
+    }
+  },
+  "unclassified_transitions": [],
+  "formula": "(0x5020 + floor((2+7*column)/8)) & 255",
+  "writer_column": 8,
+  "native_trace_sha256": "85cabf24b51e99729701b64a4acc390ee229e12567f2723526c7e6626e068241"
+}
