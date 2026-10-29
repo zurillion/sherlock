@@ -10,6 +10,7 @@ import {specialObjectBody} from './special-objects.mjs';
 import {Information} from './information.mjs';
 import {runPlayerProgram} from './player-program.mjs';
 import {changeNpcIdentity} from './identity.mjs';
+import {ArgumentChecks} from './argument-checks.mjs';
 import {AdvancedNpcs} from './advanced-npcs.mjs';
 
 const yes=(cost=0,extra={})=>({success:true,cost,...extra}),no=()=>({success:false,cost:0});
@@ -18,7 +19,7 @@ const clone=structuredClone;
 // Host for the game's DOMAIN programs. Each named rule below is a functional
 // translation of its contract; source labels are provenance, not CPU dispatch.
 export class NpcRuntime {
- constructor(game){this.game=game;this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
+ constructor(game){this.game=game;this.checks=new ArgumentChecks(this);this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
  setClarificationOffset(value){if(![0,8,18].includes(value))throw Error('Invalid clarification offset');this.state.clarificationOffset=value;}
@@ -41,7 +42,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
-  w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
+  w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
   // Graphics are presentation-only in the declared text-only source profile.
   // F490/F507 are its only colour writers; neither runs after this boot.
   w.npcs.nativeFillColor=g.data.randomInputs.bootOptions.initialFillColor;
@@ -175,7 +176,7 @@ export class NpcRuntime {
   if(retain){records.heads.syntax=current;this.state.parserPending=current;records.heads.parsed=records.arena.word(current-2);records.arena.putWord(current-2,0);}
   node=this.game.semanticNode(node);
   const action=this.game.action(node);let rejected=(!!node.implicitMissing||this.game.action(node)===52)&&!retain&&!collective;this.state.sceneryFailure=null;
-  if([17,18,19,20,21,22,26,27,29,30,35,38,39,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
+  if([14,17,18,19,20,21,22,26,27,29,30,35,36,38,39,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
   // A failed class-9 lookup with no perceived nominal target searches the
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
@@ -317,10 +318,15 @@ export class NpcRuntime {
   if(!meta.classes.some((kind,i)=>kind!==0&&input[i]===255))this.state.executionPhase=1;
   const actor=context.actor;
   if(!meta.classes.some((kind,i)=>kind!==0&&input[i]===255))this.projectArguments(input);
-  const candidates=(value,kind)=>{if(value!==255||kind===0){const chosen=this.select(value,kind,actor);return chosen===null?[]:[chosen];}const values=[];for(let i=0;i<(kind<=4?w.rooms.length:w.entities.length);i++)if(this.select(i,kind,actor)!==null)values.push(i);return values;};
+  const searching=meta.classes.some((kind,i)=>kind!==0&&input[i]===255);
+  const candidates=(value,kind)=>value!==255||kind===0?[value]:Array.from({length:kind<=4?w.rooms.length:w.entities.length},(_,i)=>i);
   for(const first of candidates(input[0],meta.classes[0]))for(const second of candidates(input[1],meta.classes[1])){
-   const args=[first,second];this.projectArguments(args);if(meta.requiresLight&&w.dark(actor))continue;if(name.startsWith('object.')&&meta.masks.some(m=>{if(m.tests.every(t=>!t.mask))return false;const bits=this.w.entity(args[m.argument-1]).attributes;return m.tests.some(t=>{const intersection=bits&t.mask;return ![intersection===t.mask,!t.mask||intersection!==0,intersection===0,intersection!==t.mask][t.mode];});})){if(name==='object.open')specialObjectBody(this,name,args,context,messages);continue;}
-   if(this.predicate(name,args,context)){this.temporaryCost(meta.cost);this.state.executionPhase=1;this.state.announcementMode=1;return this.ruleBody(name,args,context,messages,actions);}
+   const args=[first,second];this.projectArguments(args);const options={actor,phase:searching?0:1};
+   if(!this.checks.rule(meta,args,options)){if(name==='object.open'&&this.checks.failure==='mask')specialObjectBody(this,name,args,context,messages);continue;}
+   if(this.predicate(name,args,context)){
+    if(searching){this.state.executionPhase=1;if(!this.checks.rule(meta,args,{actor,phase:1}))return no();}
+    this.temporaryCost(meta.cost);this.state.executionPhase=1;this.state.announcementMode=1;return this.ruleBody(name,args,context,messages,actions);
+   }
   }
   return no();
  }
@@ -418,6 +424,12 @@ export class NpcRuntime {
  // previous pointer rather than clearing it. Unknown semantic searches
  // revoke ownership until a reconstructed C929/C989 call publishes it.
  projectArguments(args){const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++){const id=args[i];if(!Number.isInteger(id)||id>=254)continue;const kind=this.state.argumentClasses?.[i],table=kind===null||kind===undefined?null:kind<5?this.worldSource.layout.rooms:this.worldSource.layout.entities;pointers[i]=table?.find(e=>e.id===id)?.start??null;}}
+ checkAction(action,args,actor,{phase=1}={}){
+  const catalog=this.game.data.argumentChecks;if(!catalog)return null;
+  const actorRule=[47,48].includes(action)?catalog.entities[actor]?.[action]:null;
+  const pointer=actorRule||catalog.entities[args[0]]?.[action]||this.game.data.actions.find(a=>a.id===action)?.rule;
+  const meta=catalog.headers[pointer];return meta?this.checks.rule(meta,[args[0]??255,args[1]??255],{actor,phase}):null;
+ }
  setActionClasses(action){const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
  action(action,input,context,messages,actions){
   const actor=context.actor,w=this.w,g=this.game;this.state.executionPhase=0; // C4E9 action preflight.
@@ -430,12 +442,13 @@ export class NpcRuntime {
   if([21,22].includes(action))return {cost:0,defer:'E456',args:[input[0],255]};
   const classByAction={12:8,13:8,24:8,25:8,40:8,31:8,19:8,41:9,42:9,44:9,11:9,23:9,16:10,17:10,38:10,39:10,36:8,14:8,26:10,32:0,49:0};
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
-  else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0));if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
+  else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>{const checked=this.checkAction(action,[e.id,args[1]],actor,{phase:0});return checked!==false&&this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0);});if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{this.checkAction(action,args,actor);const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
   this.projectArguments(args);
   // Action lookup: a resolved entity without an OPEN/CLOSE rule is a
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
+  if(input[0]===255||classByAction[action]===undefined)this.checkAction(action,args,actor);
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
   const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}
@@ -574,6 +587,7 @@ export class NpcRuntime {
   if(address===0xD714)return this.state.editorTokenFlag??null;
   if(address===0xA019)return this.w.display?.counter??null;
   if(address===0xA01F||address===0xA020)return this.state.temporaryCost?.[address-0xA01F]??null;
+  if(address===0xA021)return this.state.argumentCheck??null;
   if(address===0xA01B)return this.state.clarificationOffset??null;
   if(address===0xA01A)return this.state.parserAll??null;
   if(address===0xA012)return this.state.parserCount??null;
@@ -611,6 +625,7 @@ export class NpcRuntime {
  });}
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
+  if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');
   if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');
   if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');

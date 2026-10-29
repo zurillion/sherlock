@@ -1,0 +1,75 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 414,
+  "bytes_roundtripped": 909,
+  "regions": [
+    {
+      "start": "A021",
+      "end_exclusive": "A022",
+      "kind": "data",
+      "label": "Residuo dei controlli: scritture selettive, non esito globale",
+      "atlas_priority": 123,
+      "fields": [
+        [
+          "A021",
+          "1 byte",
+          "Residuo persistente:0 per rifiuti selettivi;1 per maschere in esecuzione; altri percorsi lo conservano"
+        ],
+        [
+          "Vecchi salvataggi",
+          "campo assente",
+          "Sconosciuto fino a una scrittura reale; nessun fallback di avvio"
+        ]
+      ]
+    },
+    {
+      "start": "C4D1",
+      "end_exclusive": "C583",
+      "kind": "code",
+      "label": "Azioni: enumerazione dei referenti e passaggio da verifica a esecuzione",
+      "atlas_priority": 94
+    },
+    {
+      "start": "C583",
+      "end_exclusive": "C628",
+      "kind": "code",
+      "label": "Regole interne: classi, letterali e ricerca degli argomenti mancanti",
+      "atlas_priority": 94
+    },
+    {
+      "start": "C628",
+      "end_exclusive": "C6BE",
+      "kind": "code",
+      "label": "Primo argomento: classi, maschere e scritture del residuo",
+      "atlas_priority": 94
+    },
+    {
+      "start": "C6BE",
+      "end_exclusive": "C74E",
+      "kind": "code",
+      "label": "Secondo argomento: rifiuti che conservano il vecchio residuo",
+      "atlas_priority": 94
+    },
+    {
+      "start": "C74E",
+      "end_exclusive": "C7A6",
+      "kind": "code",
+      "label": "Maschere: due test ordinati e distinzione fra verifica ed esecuzione",
+      "atlas_priority": 94
+    },
+    {
+      "start": "C7A6",
+      "end_exclusive": "C821",
+      "kind": "code",
+      "label": "Classi delle entit\u00e0: percezione, trasporto, possesso e persona",
+      "atlas_priority": 94
+    },
+    {
+      "start": "C9BF",
+      "end_exclusive": "C9FB",
+      "kind": "code",
+      "label": "Regola selezionata: luce, primo argomento, secondo e predicato",
+      "atlas_priority": 94
+    }
+  ]
+}

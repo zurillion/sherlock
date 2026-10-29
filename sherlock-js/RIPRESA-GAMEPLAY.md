@@ -4,20 +4,20 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   349 checkpoint, da 0 a 348, fino a mercoledì 05:50: tutti gli attori,
+   356 checkpoint, da 0 a 355, fino a mercoledì 07:00: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `CHIARIMENTI-E-OFFSET-DEL-PARSER.md`
-   e `results/clarification-offset-verification.json`.
+   contatore MORE e futuro dopo LOAD. Vedere `CONTROLLI-ARGOMENTI-E-RESIDUO.md`
+   e `results/argument-check-verification.json`.
 
-2. **Prossimo confine reale: $A021, temporaneo dei controlli sugli argomenti.**
-   Il confronto completo supera A01B ma si ferma su A021 nello stesso checkpoint 349
-   verso mercoledì 06:00. Ricostruire scritture, reset e persistenza; non dedurlo
-   dall’ultimo successo, dal costo o da un valore iniziale.
-   A01B è ora esplicito: boot A044=0, domanda B5B6=offset 08/12, ritorno D793=0.
-   Lexical errors e @ durante un chiarimento non attraversano quel reset.
-   La selezione TAKE include il giornale di Watson come candidato semantico;
-   l’esecuzione può rifiutarlo. Il riferimento unico è scelto automaticamente.
-   Le continuazioni conservano gli slot fisici anche con complementi anteposti.
+2. **Prossimo confine reale: $5D1C, byte dello stack.**
+   Il confronto completo supera A021 e si ferma al checkpoint 356 verso
+   mercoledì 07:10. Identificare chiamante, frame e ultimo scrittore, comprese
+   scritture dello stesso valore. Non copiare un valore registrato né estendere
+   automaticamente il contratto di 5D1A/5D1B: vedi GLIFI-E-BYTE-DI-SCANSIONE.md.
+   A021 ora segue i controlli C628/C6BE: C655 scrive0, C6BA scrive1;
+   il rifiuto di classe entità del secondo ruolo a C726 conserva il vecchio
+   byte. Nessun reset per successo, tick o nuovo comando. I vecchi save senza
+   campo restano sconosciuti. Le intestazioni sono dati, non codice eseguito.
    La storia nativa completa termina in 6A33 giovedì 10:00: non ancora certificata JS.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
@@ -47,5 +47,5 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **874 test passati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **889 test passati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.

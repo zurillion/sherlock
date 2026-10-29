@@ -1,0 +1,33 @@
+{
+  "protocol": "Complete original snapshot-entry to first editor prompt; graphics enabled; four supplied seeds. Static code scan finds only C655 and C6BA absolute stores; all their executions including same-value writes are observed, plus every value transition. Loaded initial data is distinct from a guessed runtime reset.",
+  "cases": [
+    {
+      "seed": 0,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "changes": []
+    },
+    {
+      "seed": 1,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "changes": []
+    },
+    {
+      "seed": 17,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "changes": []
+    },
+    {
+      "seed": 255,
+      "entry": 0,
+      "final": 0,
+      "writes": [],
+      "changes": []
+    }
+  ]
+}

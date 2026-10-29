@@ -1,0 +1,12 @@
+{
+  "expected_research_failure": true,
+  "checkpoint": 356,
+  "target_clock": "Wed 07:10am",
+  "unknown_address": "5D1C",
+  "certified_checkpoint_range": [
+    0,
+    355
+  ],
+  "full_ending_certified": false,
+  "evidence": "Final-code compare-witness-research.mjs reaches checkpoint356 and stops on unowned stack byte5D1C. Independent final prefix comparison verifies checkpoints0\u2013355 through Wed07:00 with all24 actor slots, every draw/read, full arena, bitmaps and LOAD future."
+}

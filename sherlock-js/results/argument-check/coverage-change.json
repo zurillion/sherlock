@@ -1,0 +1,14 @@
+[
+  {
+    "start": 40993,
+    "end_exclusive": 40994,
+    "from": "partial",
+    "to": "documented"
+  },
+  {
+    "start": 50545,
+    "end_exclusive": 50577,
+    "from": "unknown",
+    "to": "documented"
+  }
+]

@@ -160,6 +160,7 @@ export class Game {
    const group=node.groups[1];
    if(group){const nominal=w.entities.filter(e=>w.nounMatches(e,group));if(nominal.length&&!nominal.some(e=>e.person))return reject("DON'T BE SILLY.");}
    const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
+   if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[254,target.entity.id],actor);
    const pence=decodeMoney(literal&32767);
    // The normal semantic preflight reports the generic refusal here; the
    // E36A "not enough" routine is not the visible player-command result.
@@ -185,7 +186,7 @@ export class Game {
   if([29,30,45].includes(action)){const result=this.resolve(node,action);return result.message?{messages:[result.message],cost:0,action,args:[]}:reject('YOU CANNOT '+this.word(node.verb).toUpperCase());}
   if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.question(node,0);return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
   if(action===49)return ok([say('wait','.')],5);
-  if(action===50){const literal=node.groups[0]?.noun;if(!(literal&32768)||literal&128)return reject('WAIT UNTIL WHAT ?');
+  if(action===50){const literal=node.groups[0]?.noun;if(w.npcs&&literal&32768){w.npcs.literal=literal;if(this.actingActor===undefined)this.npcRuntime.checkAction(action,[254],actor);}if(!(literal&32768)||literal&128)return reject(literal&32768?"DON'T BE SILLY.":'WAIT UNTIL WHAT ?');
    if(w.npcs){w.npcs.literal=literal;if(actor===w.player)w.npcs.playerProgramCounter='9945';}
    const cost=waitUntilCost(literal,w.clock());if(w.npcs)this.npcRuntime.temporaryCost(cost);return ok([],cost,[254]);
   }
@@ -226,6 +227,7 @@ export class Game {
   if([12,13,24,25,40].includes(action)){
    if([13,25].includes(action)&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length&&w.entity(actor).parent!==null)node={...node,resolved:[w.entity(actor).parent]};
    const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};
+   if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[result.entity.id],actor);
    const e=result.entity,exiting=[13,25].includes(action),rule=e.rules.find(r=>r.action===action);
    if(!['enterContainer','enterCab','leaveContainer'].includes(rule?.rule))throw new UnsupportedFeature('regola contenitore di '+e.name);
    if(exiting){
@@ -260,19 +262,21 @@ export class Game {
   }
   if(node.groups.some(g=>g.noun&32768))throw new UnsupportedFeature('argomenti letterali per questa azione');
   const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};const e=result.entity;
+  if(w.npcs&&this.actingActor===undefined&&![17,26,38,39,42,44].includes(action))this.npcRuntime.checkAction(action,[e.id],actor);
   const objectRule=objectRuleFor(e,action);
   if(objectRule){if(!w.npcs)throw new UnsupportedFeature('regole degli oggetti speciali nel profilo storico');if(action===20&&e.person&&!e.rules.some(r=>r.action===20))return {...reject(`${subject} cannot closely examine ${w.name(e.id)}.`.toUpperCase()),args:[e.id],semanticResolved:true};const text=action===20?`${subject} closely ${verb('examine')} ${w.name(e.id)}.`:say(this.word(node.verb),' '+w.name(e.id)+'.');return {...ok([text],0,[e.id]),objectRule,semanticResolved:true};}
   if(action===51||action===43){const message=say(action===51?'wear':'take',' '+(action===43?'off ':'')+w.name(e.id)+'.'),room=changeIdentity(this,action===43?0:e.id===14?1:100);e.parent=0;e.rooms=[action===43?room:0];return ok([message],1,[e.id]);}
   if([11,23,41,42,44].includes(action)){if(e.rules.some(r=>r.action===action))throw new UnsupportedFeature('regola speciale TAKE di '+e.name);if(w.entities.some(p=>p.person&&p.id!==actor&&w.owns(p.id,e.id)))return {...reject(`YOU CANNOT ${this.data.actions.find(a=>a.id===action).words[0].toUpperCase()} ${w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};let source=null;
-   if([42,44].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};source=target.entity;}
+   if([42,44].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};source=target.entity;if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[e.id,source.id],actor);}
    w.move(e.id,w.roomOf(actor),actor);return ok([say(this.data.actions.find(a=>a.id===action).words[0],' '+w.name(e.id)+(source?' '+(action===42?'from':'out of')+' '+w.name(source.id):'')+'.')],1,source?[e.id,source.id]:[e.id]);}
   if([17,38,39].includes(action)){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
+   if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[e.id,target.entity.id],actor);
    if(!canPlace(w,e,target.entity,actor))return reject(`YOU CANNOT ${this.word(node.verb).toUpperCase()} THE ${this.queryName(node.groups[0]||{qualifiers:[]}).toUpperCase()}`);
    if(target.entity.attributes&64||!(target.entity.attributes&40))return {...reject(`${subject} cannot ${action===17?'drop':'put'} ${w.name(e.id)} ${action===39?'on':'in'} ${w.name(target.entity.id)}.`.toUpperCase()),args:[e.id,target.entity.id],semanticResolved:true};
    if(target.entity.id===e.id||w.owns(e.id,target.entity.id))throw new UnsupportedFeature('ciclo di contenimento nella regola PUT');
    w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say(action===17?'drop':'put',' '+w.name(e.id)+(action===39?' on ':' in ')+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===16){w.move(e.id,w.roomOf(actor),w.entity(actor).parent);return ok([say('drop',' '+w.name(e.id)+'.')],1,[e.id]);}
-  if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say('give',' '+w.name(e.id)+' to '+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
+  if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[e.id,target.entity.id],actor);if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say('give',' '+w.name(e.id)+' to '+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===36||action===14){const rule=e.rules.find(r=>r.action===action);if(!['openOrdinary','closeOrdinary'].includes(rule?.rule))throw new UnsupportedFeature('regola speciale '+this.word(node.verb)+' di '+e.name);
    if(e.attributes&1)return reject(w.name(e.id).toUpperCase()+' IS LOCKED');const open=Boolean(e.attributes&32);
    if(action===36&&open)return {...reject(w.name(e.id).toUpperCase()+' IS OPEN'),args:[e.id],semanticResolved:true};if(action===14&&!open)return {...reject(w.name(e.id).toUpperCase()+' IS CLOSED'),args:[e.id],semanticResolved:true};

@@ -138,3 +138,25 @@ PAY ambiguo è DON'T BE SILLY, non una domanda. I finali prevalgono sulla domand
 54 sequenze/156 input/182 store; 19 confronti completi (15 naturali, 4 controllati),
 63 input/203 draw/406 read, arena/bitmap/LOAD. Suite 874. Atlante 197 istruzioni/454 byte:
 51 byte prima grigi B5FC–B62E e A01B prima parziale; gli altri sono approfondimenti.
+
+
+Aggiornamento 29 ottobre 2026, controlli argomenti: leggere
+CONTROLLI-ARGOMENTI-E-RESIDUO.md e results/argument-check-verification.json.
+Witness 0–355, 356 checkpoint sino a Wed07:00; 6.760 draw/14.470 read,
+tutti gli attori, arena/bitmap/futuro LOAD. A021 superato; nuovo limite
+5D1C al checkpoint 356 verso Wed07:10. Ricostruire chiamante/frame/ultimo
+scrittore dello stack, comprese scritture invariate; non estendere il
+contratto precedente di 5D1A/5D1B né copiare il valore dalla registrazione.
+Cinque finali restano senza certificato naturale. A021 non è un esito globale:
+C655=0, C6BA=1; C726 può conservare il vecchio valore sul rifiuto del secondo
+ruolo. Nessun reset per successo, tick o costo. Avvio carica il dato0,
+verificato sino al prompt con quattro seed; old save assente rimane unknown.
+Le ricerche visitano anche candidati rifiutati. Due maschere ordinate,
+restrizioni morbide in preflight e handler di fallimento rimangono distinti.
+WAIT UNTIL 6D scrive0 e risponde DON'T BE SILLY.; OPEN senza regola applicabile
+mantiene la ricerca descrittiva e l’arena. 692 ABI controllati e 10 sequenze
+naturali/53 input/63 checkpoint/218 store/203 draw/406 read; ogni store,
+A021 a ogni draw e stato completo verificati. Suite 889. Atlante:
+414 istruzioni/909 byte, 32 byte prima grigi C571–C590 e A021 prima parziale;
+approfonditi C4D1–C582,C583–C627,C628–C6BD,C6BE–C74D,C74E–C7A5,
+C7A6–C820,C9BF–C9FA. Riferire sempre qui gli intervalli nuovi/approfonditi.
