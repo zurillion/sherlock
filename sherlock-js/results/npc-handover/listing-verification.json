@@ -1,0 +1,98 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 252,
+  "bytes_roundtripped": 538,
+  "regions": [
+    {
+      "start": "8321",
+      "end_exclusive": "8329",
+      "kind": "data",
+      "label": "Modello GIVE: TO facoltativo e destinatario anticipato senza TO",
+      "atlas_priority": 126
+    },
+    {
+      "start": "B405",
+      "end_exclusive": "B483",
+      "kind": "code",
+      "label": "Ruoli semantici: oggetto e destinatario dai due gruppi fisici",
+      "atlas_priority": 126
+    },
+    {
+      "start": "B280",
+      "end_exclusive": "B2B7",
+      "kind": "code",
+      "label": "Selezione della coppia: un solo destinatario valido per oggetto",
+      "atlas_priority": 126
+    },
+    {
+      "start": "C7E4",
+      "end_exclusive": "C7F9",
+      "kind": "code",
+      "label": "Classe A: oggetto percepibile posseduto dall\u2019attore corrente",
+      "atlas_priority": 126
+    },
+    {
+      "start": "C814",
+      "end_exclusive": "C821",
+      "kind": "code",
+      "label": "Classe D: destinatario percepibile di categoria persona",
+      "atlas_priority": 126
+    },
+    {
+      "start": "C8C6",
+      "end_exclusive": "C8EF",
+      "kind": "code",
+      "label": "Capienza del destinatario e peso complessivo dell\u2019oggetto",
+      "atlas_priority": 126
+    },
+    {
+      "start": "D275",
+      "end_exclusive": "D29D",
+      "kind": "code",
+      "label": "Possesso ricorsivo: risalita dei genitori rispetto ad A036",
+      "atlas_priority": 126
+    },
+    {
+      "start": "DF02",
+      "end_exclusive": "DF06",
+      "kind": "data",
+      "label": "Header GIVE: classi A/D, luce, costo1 e predicato DF24",
+      "atlas_priority": 126
+    },
+    {
+      "start": "DF06",
+      "end_exclusive": "DF24",
+      "kind": "code",
+      "label": "Consegna: cambia genitore e propaga la stanza ai contenuti",
+      "atlas_priority": 126
+    },
+    {
+      "start": "DF24",
+      "end_exclusive": "DF2E",
+      "kind": "code",
+      "label": "Predicato GIVE: confronto peso e capacit\u00e0 dei due riferimenti",
+      "atlas_priority": 126
+    },
+    {
+      "start": "B936",
+      "end_exclusive": "B98C",
+      "kind": "code",
+      "label": "Richieste NPC: il cursore si salva soltanto dopo risoluzione riuscita",
+      "atlas_priority": 126
+    },
+    {
+      "start": "B9AC",
+      "end_exclusive": "B9FA",
+      "kind": "code",
+      "label": "Rifiuto o ALL esaurito: avanza e libera la richiesta",
+      "atlas_priority": 126
+    },
+    {
+      "start": "A7D0",
+      "end_exclusive": "A7EA",
+      "kind": "code",
+      "label": "Nome YOU: eccezione alla maiuscola dei nomi propri",
+      "atlas_priority": 126
+    }
+  ]
+}

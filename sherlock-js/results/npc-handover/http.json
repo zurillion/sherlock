@@ -1,0 +1,30 @@
+{
+  "port": 8768,
+  "restarted": false,
+  "checks": [
+    {
+      "path": "src/game.mjs",
+      "status": 200,
+      "exact_match": true,
+      "sha256": "9b334aca7a57a22c00a52dea8a76a5b5a4e24e6d5011332f803cf5bf04bd543d"
+    },
+    {
+      "path": "src/world.mjs",
+      "status": 200,
+      "exact_match": true,
+      "sha256": "b6743091617442545b05c51e5382100621d8bb66a5729afae7570a580b15d1cc"
+    },
+    {
+      "path": "src/npc-runtime.mjs",
+      "status": 200,
+      "exact_match": true,
+      "sha256": "daa1f6323e1ea9d419b725d2d0f146376ce3d071e948e5d4e25d1f6e0984d94d"
+    },
+    {
+      "path": "src/memory-map-data.json",
+      "status": 200,
+      "exact_match": true,
+      "sha256": "68571694b03fa9296819ee2c9f4fefbf57128e0f5abe23831a16ad3fca0eba96"
+    }
+  ]
+}

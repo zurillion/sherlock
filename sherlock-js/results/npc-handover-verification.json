@@ -1,0 +1,133 @@
+{
+  "protocol": "Fresh seed1 natural boots per case, all24 actor slots, free initial LOOK, native graphics off after boot, injected uppercase keys and immediate MORE. No world/actor overlays. Every random draw/read, complete arena/entities/actors/facts/bitmaps. Python bridge message chunks are diagnostic; screen bytes are the display comparison.",
+  "natural_sequences": 25,
+  "inputs": 99,
+  "active_actor_slots": 24,
+  "seed": 1,
+  "draws": 376,
+  "reads": 754,
+  "fixture": "test/fixtures/npc-handover.json.gz",
+  "fixture_sha256": "0bf4bd1b55e3ae3c2fbdbd8e35911965e74e278ebb756adefb5042bb78d3ccbe",
+  "compared": [
+    "all actor PCs, saved arguments and deadlines",
+    "entities, room flags and facts",
+    "all 752 arena bytes, free-list head and typed lists",
+    "every random draw/read/result/seed/cursor",
+    "input and token buffers",
+    "upper bitmap SHA256, exact lower bitmap, cumulative MORE counter",
+    "every owned working field",
+    "SAVE/LOAD future after every input"
+  ],
+  "cases": [
+    {
+      "first_input": "GIVE MONEY TO WATSON",
+      "inputs": 3
+    },
+    {
+      "first_input": "GIVE MONEY TO WATSON",
+      "inputs": 3
+    },
+    {
+      "first_input": "GIVE MONEY TO WATSON",
+      "inputs": 3
+    },
+    {
+      "first_input": "GIVE WATSON MONEY",
+      "inputs": 3
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 4
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 4
+    },
+    {
+      "first_input": "SAY WATSON \"GIVE ME DAILY CHRONICLE\"",
+      "inputs": 3
+    },
+    {
+      "first_input": "SAY WATSON \"GIVE ME MY MONEY\"",
+      "inputs": 2
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 8
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 8
+    },
+    {
+      "first_input": "GIVE MONEY WATSON",
+      "inputs": 2
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 5
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 4
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 3
+    },
+    {
+      "first_input": "GIVE MONEY TO WATSON",
+      "inputs": 4
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 3
+    },
+    {
+      "first_input": "OPEN YOUR DOOR",
+      "inputs": 10
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 11
+    },
+    {
+      "first_input": "GIVE MONEY TO LESTRADE",
+      "inputs": 2
+    },
+    {
+      "first_input": "GET LAMP",
+      "inputs": 3
+    },
+    {
+      "first_input": "GIVE WATSON",
+      "inputs": 2
+    },
+    {
+      "first_input": "GIVE MONEY",
+      "inputs": 2
+    },
+    {
+      "first_input": "GIVE",
+      "inputs": 3
+    },
+    {
+      "first_input": "GIVE ALL",
+      "inputs": 2
+    },
+    {
+      "first_input": "GIVE MONEY TO ME",
+      "inputs": 2
+    }
+  ],
+  "native_cases_passed": 25,
+  "focused_checks_passed": 50,
+  "web_http": "results/npc-handover/http.json",
+  "full_suite": "pending",
+  "atlas": "results/npc-handover/coverage-change.json",
+  "scope": "GIVE roles and handover under the declared IO protocol; not universal NPC obedience or full-game equivalence",
+  "unresolved": [
+    "A022 at checkpoint359 toward Wed07:40",
+    "five natural terminal variants:6A33,6ABD,6AF3,6B79,75D2"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "previous_counts": {
+    "partial": 470,
+    "unknown": 2770,
+    "documented": 38360
+  },
+  "current_counts": {
+    "partial": 470,
+    "unknown": 2744,
+    "documented": 38386
+  },
+  "new_documented_from_unknown": 26,
+  "status_changes": [
+    {
+      "start": "A7D0",
+      "end_exclusive": "A7EA"
+    }
+  ]
+}

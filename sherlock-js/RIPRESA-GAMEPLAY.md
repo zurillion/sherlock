@@ -54,3 +54,25 @@ La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
 Suite di regressione attuale: **956 test verificati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
+
+
+Aggiornamento29 ottobre2026 — consegna/restituzione NPC: leggere
+CONSEGNA-E-RESTITUZIONE-NPC.md e results/npc-handover-verification.json.
+GIVE senza TO usa l’ordine destinatario/oggetto del modello8321–8328,
+B421/B445. La conversione semantica è idempotente e conserva i gruppi fisici
+per continuazioni/arena; ALL può avere un gruppo vuoto. Nessun ramo speciale
+Watson. YOUR resta qualificatore del nome; D275 verifica il possesso reale.
+La classe D non esclude il soggetto: GIVE MONEY TO ME può riuscire; con
+nessun destinatario esplicito conta anche Holmes e la coppia può non essere
+unica. Non inventare un default Watson. Un fallimento semantico della
+richiesta salta B973/B976 e non scrive l’iteratore nel record liberato.
+A7D0–A7E9 mantiene YOU minuscolo dentro la frase, non è nome proprio.
+25 sequenze naturali/99 input, Watson e cocchiere, tutti24 attori,376 draw/
+754 read, arena752 byte, bitmap esatti e futuro dopo LOAD. Vale il protocollo
+IO dichiarato, non una certificazione generale di ogni NPC o finale.
+Atlante252 istruzioni/538 byte: A7D0–A7E9 documenta26 byte prima grigi;
+approfonditi8321–8328,B280–B2B6,B405–B482,B936–B98B,B9AC–B9F9,
+C7E4–C7F8,C814–C820,C8C6–C8EE,D275–D29C,DF02–DF2D.
+Confine lungo invariato A022 al checkpoint359 verso Wed07:40; prefisso
+naturale0–358 sino a Wed07:30. Cinque finali ancora aperti. Riferire in chat
+le nuove zone dell’atlante, senza confondere copertura statica e gameplay.

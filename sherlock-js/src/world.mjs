@@ -43,7 +43,8 @@ export class World {
  }
  name(id,{indefinite=false,proper=true}={}){
   const e=this.entity(id);let name=e.name;
-  if(e.person&&proper&&(e.noun&32768))name=name.replace(/\b\w/g,c=>c.toUpperCase());
+  // A7D0–A7E9: YOU has a proper-name bit but remains lowercase inline.
+  if(e.person&&proper&&(e.noun&32768)&&(e.noun&4095)!==0x09EE)name=name.replace(/\b\w/g,c=>c.toUpperCase());
   if(e.noun&32768)return name;
   const article=({0:'the ',4096:'a ',8192:'an ',12288:'some '})[e.noun&12288];
   return (indefinite?article:'the ')+name;

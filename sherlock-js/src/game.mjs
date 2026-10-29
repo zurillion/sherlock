@@ -77,7 +77,7 @@ export class Game {
   if([11,23,41].includes(action)&&slot===0)return this.canTake(e,{semantic:true});
   if([42,44].includes(action))return slot===0?this.canTake(e):true;
   if([17,38,39].includes(action))return slot===0?w.owns(actor,e.id):true;
-  if(action===26)return slot===0?w.owns(actor,e.id):e.person&&e.id!==actor;
+  if(action===26)return slot===0?w.owns(actor,e.id):e.person;
   if(action===16)return w.owns(actor,e.id);
   if([12,24,40].includes(action))return e.rules.some(r=>r.action===action);
   if([13,25].includes(action))return w.entity(actor).parent===e.id;
@@ -88,7 +88,11 @@ export class Game {
  }
  error(text){return {kind:'error',text};}
  question(node,slot){const sourceSlot=node.sourceGroupOrder?.[slot]??slot;this.pending={node:clone(node.sourceNode||node),slot:sourceSlot};if(this.world.npcs&&this.actor===this.world.player)this.npcRuntime.setClarificationOffset(sourceSlot?18:8);}
- semanticNode(node){if(this.action(node)===37&&!(node.groups[0]?.noun&32768)&&node.groups[1]?.noun&32768)return {...node,groups:[node.groups[1],node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}if(!node.resolved&&node.groups[0]?.relations.length&&!node.groups[1]?.relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[node.groups[1]||{noun:0,qualifiers:[],relations:[]},node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};return node;}
+ semanticNode(node){if(node.sourceNode)return node;if(this.action(node)===37&&!(node.groups[0]?.noun&32768)&&node.groups[1]?.noun&32768)return {...node,groups:[node.groups[1],node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}
+  // B421/B445 use the model's dative mode: without TO, GIVE names the
+  // recipient before the object. ALL can leave that second nominal slot
+  // empty. Preserve physical syntax slots for clarification and arena state.
+  if(!node.resolved&&this.action(node)===26&&node.groups.every(g=>!g.relations.length))return {...node,groups:[node.groups[1]||{noun:0,qualifiers:[],relations:[]},node.groups[0]||{noun:0,qualifiers:[],relations:[]}],sourceNode:node,sourceGroupOrder:[1,0]};if(!node.resolved&&node.groups[0]?.relations.length&&!node.groups[1]?.relations.length&&[17,26,37,38,39,42,44,47,48].includes(this.action(node)))return {...node,groups:[node.groups[1]||{noun:0,qualifiers:[],relations:[]},node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};return node;}
  locationCandidates(node){const g=node.groups[0]||{noun:0,qualifiers:[]};return this.world.rooms.filter(r=>this.world.rooms[this.world.roomOf(this.actor)].exits.some(e=>e.target===r.id)&&(!g.noun||r.nameWords.some(n=>(n&4095)===(g.noun&4095)))&&g.qualifiers.every(q=>r.nameWords.some(n=>(n&4095)===(q&4095))));}
  referenceCandidates(node,action,slot=0){if([18,27].includes(action))return {nominal:[],possible:this.locationCandidates(node)};node=this.semanticNode(node);const group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]},nominal=this.world.entities.filter(e=>this.world.nounMatches(e,group));let possible=nominal.filter(e=>this.canResolve(e,action,slot));
   if([17,26,38,39,42,44].includes(action)){
@@ -114,15 +118,16 @@ export class Game {
  resolve(node,action,slot=0){
   if(node.resolved?.[slot]!==undefined)return {entity:this.world.entity(node.resolved[slot])};
   const w=this.world,group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]};
-  if(!group.noun&&!group.qualifiers.length&&!node.collective){const {possible}=this.referenceCandidates(node,action,slot);const ask=possible.length>1;if(!ask&&possible.length===1)return {entity:possible[0]};if(ask)this.question(node,slot);const words=[this.word(node.verb),...(this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase();return {message:this.error(ask?`${this.word(node.verb).toUpperCase()} WHAT ?`:`I SEE NOTHING THAT YOU CAN ${words}`)};}
+  if(!group.noun&&!group.qualifiers.length&&!node.collective){const {possible}=this.referenceCandidates(node,action,slot);const ask=possible.length>1;if(!ask&&possible.length===1)return {entity:possible[0]};if(ask)this.question(node,slot);const words=[this.word(node.verb),...(action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase();return {message:this.error(ask?`${this.word(node.verb).toUpperCase()} WHAT ?`:`I SEE NOTHING THAT YOU CAN ${words}`)};}
   const {nominal,possible}=this.referenceCandidates(node,action,slot);
   if(action===37&&possible.length>1)return {message:this.error("DON'T BE SILLY.")};
-  if(action===26&&!possible.length&&nominal.some(e=>w.owns(this.actor,e.id)))return {message:this.error('I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN GIVE')};
+  // B6FD distinguishes a rejected described object from an absent pair.
+  if(action===26&&!possible.length&&!w.npcs?.sceneryFailure?.found&&nominal.some(e=>w.owns(this.actor,e.id)))return {message:this.error('I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN GIVE')};
   if(possible.length>1){this.question(node,slot);return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
-  if(scenery?.action===action&&scenery.slot===slot){const relations=([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();return {message:this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`)};}
+  if(scenery?.action===action&&scenery.slot===slot){const relations=([45,47,48].includes(action)?[]:action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();return {message:this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`)};}
   if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
   if([12,13,24,25,40,43,46,47,48,51,53,54,21,22].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
   if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
@@ -262,7 +267,7 @@ export class Game {
    return ok([movement,{...this.sceneMessage({full:first}),image_room:first?room:null}],2,action===28?[gate.id]:[]);
   }
   if(node.groups.some(g=>g.noun&32768))throw new UnsupportedFeature('argomenti letterali per questa azione');
-  const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[]};const e=result.entity;
+  const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[],semanticFailed:true};const e=result.entity;
   if(w.npcs&&this.actingActor===undefined&&![17,26,38,39,42,44].includes(action))this.npcRuntime.checkAction(action,[e.id],actor);
   const objectRule=objectRuleFor(e,action);
   if(objectRule){if(!w.npcs)throw new UnsupportedFeature('regole degli oggetti speciali nel profilo storico');if(action===20&&e.person&&!e.rules.some(r=>r.action===20))return {...reject(`${subject} cannot closely examine ${w.name(e.id)}.`.toUpperCase()),args:[e.id],semanticResolved:true};const text=action===20?`${subject} closely ${verb('examine')} ${w.name(e.id)}.`:say(this.word(node.verb),' '+w.name(e.id)+'.');return {...ok([text],0,[e.id]),objectRule,semanticResolved:true};}
@@ -277,7 +282,7 @@ export class Game {
    if(target.entity.id===e.id||w.owns(e.id,target.entity.id))throw new UnsupportedFeature('ciclo di contenimento nella regola PUT');
    w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say(action===17?'drop':'put',' '+w.name(e.id)+(action===39?' on ':' in ')+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===16){w.move(e.id,w.roomOf(actor),w.entity(actor).parent);return ok([say('drop',' '+w.name(e.id)+'.')],1,[e.id]);}
-  if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[]};if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[e.id,target.entity.id],actor);if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say('give',' '+w.name(e.id)+' to '+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
+  if(action===26){const target=this.resolve(node,action,1);if(target.message)return {messages:[target.message],cost:0,action,args:[],semanticFailed:true};if(w.npcs&&this.actingActor===undefined)this.npcRuntime.checkAction(action,[e.id,target.entity.id],actor);if(w.weight(e.id)>w.remainingCapacity(target.entity.id))return reject(`YOU CANNOT GIVE THE ${this.queryName(node.groups[0]).toUpperCase()}`);w.move(e.id,w.roomOf(target.entity.id),target.entity.id);return ok([say('give',' '+w.name(e.id)+' to '+w.name(target.entity.id)+'.')],1,[e.id,target.entity.id]);}
   if(action===36||action===14){const rule=e.rules.find(r=>r.action===action);if(!['openOrdinary','closeOrdinary'].includes(rule?.rule))throw new UnsupportedFeature('regola speciale '+this.word(node.verb)+' di '+e.name);
    if(e.attributes&1)return reject(w.name(e.id).toUpperCase()+' IS LOCKED');const open=Boolean(e.attributes&32);
    if(action===36&&open)return {...reject(w.name(e.id).toUpperCase()+' IS OPEN'),args:[e.id],semanticResolved:true};if(action===14&&!open)return {...reject(w.name(e.id).toUpperCase()+' IS CLOSED'),args:[e.id],semanticResolved:true};
@@ -306,7 +311,7 @@ export class Game {
   // BUT nodes remain allocated, but do not filter these selections.
   for(const entity of w.entities){
    if(!w.perceived(entity.id,actor)||!w.nounMatches(entity,group)||!([11,23,41].includes(action)?entity.rooms.length===1&&!entity.person&&!w.owns(actor,entity.id)&&!w.owns(entity.id,actor)&&w.weight(entity.id)<=w.remainingCapacity(actor):this.canResolve(entity,action,0)))continue;
-   if([17,38,39,42,44,47,48].includes(action)&&!this.referenceCandidates(node,action,0).possible.some(e=>e.id===entity.id))continue;
+   if([17,26,38,39,42,44,47,48].includes(action)&&!this.referenceCandidates(node,action,0).possible.some(e=>e.id===entity.id))continue;
    yield {...clone(node),all:false,collective:true,resolved:[entity.id]};
   }
  }
