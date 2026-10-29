@@ -252,3 +252,5 @@ C7E4–C7F8,C814–C820,C8C6–C8EE,D275–D29C,DF02–DF2D.
 Confine lungo invariato A022 al checkpoint359 verso Wed07:40; prefisso
 naturale0–358 sino a Wed07:30. Cinque finali ancora aperti. Riferire in chat
 le nuove zone dell’atlante, senza confondere copertura statica e gameplay.
+
+Verifica conclusiva consegne NPC: suite completa982 test,982 passati,0 errori.

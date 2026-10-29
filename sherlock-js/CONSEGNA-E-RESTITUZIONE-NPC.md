@@ -132,3 +132,5 @@ B280–B2B6,B405–B482,B936–B98B,B9AC–B9F9,C7E4–C7F8,C814–C820,
 C8C6–C8EE,D275–D29C,DF02–DF2D, distinguendo il modello e l’header dai
 corpi di codice. La copertura dell’atlante misura documentazione statica,
 non equivalenza di tutti i comportamenti.
+
+Verifica conclusiva consegne NPC: suite completa982 test,982 passati,0 errori.

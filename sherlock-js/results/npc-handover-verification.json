@@ -123,11 +123,27 @@
   "native_cases_passed": 25,
   "focused_checks_passed": 50,
   "web_http": "results/npc-handover/http.json",
-  "full_suite": "pending",
+  "full_suite": {
+    "command": "node --test --test-concurrency=4 test/*.test.mjs",
+    "tests": 982,
+    "passed": 982,
+    "failed": 0,
+    "log": "results/npc-handover/full-suite.log",
+    "exit_code": 0
+  },
   "atlas": "results/npc-handover/coverage-change.json",
   "scope": "GIVE roles and handover under the declared IO protocol; not universal NPC obedience or full-game equivalence",
   "unresolved": [
     "A022 at checkpoint359 toward Wed07:40",
     "five natural terminal variants:6A33,6ABD,6AF3,6B79,75D2"
-  ]
+  ],
+  "web_session": {
+    "engine": "ClientSession",
+    "commands": [
+      "GIVE MONEY TO WATSON",
+      "SAY WATSON \"GIVE ME MY MONEY\""
+    ],
+    "reply": "Watson gives your money to you.",
+    "money_parent": 0
+  }
 }
