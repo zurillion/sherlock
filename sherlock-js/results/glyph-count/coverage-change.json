@@ -1,0 +1,21 @@
+{
+  "previous": {
+    "partial": 468,
+    "unknown": 2666,
+    "documented": 38466
+  },
+  "current": {
+    "partial": 468,
+    "unknown": 2666,
+    "documented": 38466
+  },
+  "new_grey_bytes_documented": 0,
+  "refined_regions": [
+    "A3D6–A3E1",
+    "A9DF–AA0F",
+    "C363–C37C",
+    "C388–C3E3"
+  ],
+  "workspace_annotation": "5D1D",
+  "scope": "Stack workspace is below payload base5D80; source-backed classification totals are unchanged. New caller/ABI semantics are not whole-game equivalence."
+}

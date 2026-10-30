@@ -7,18 +7,19 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    365 checkpoint, da0 a364, fino a mercoledì08:30: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
    contatore MORE e futuro dopo LOAD.6992 draw e14966 read confrontati.
-   Vedere ULTIMO-RIFERIMENTO-LESSICALE.md e
-   results/dictionary-reference/witness-prefix.json.
+   Vedere GLIFI-E-CONTEGGIO-SALVATO.md e
+   results/glyph-count/witness-prefix.json.
 
-2. **Prossimo confine reale: $5D1D al checkpoint365 verso mercoledì08:40.**
-   A022 è superato. Ricostruire ultimo writer, frame e conservazione di5D1D;
-   non installare il byte della traccia o inferirlo dal solo cursore video.
-   A022/A023 conserva il descrittore lessicale: offset12 bit e tag. I writer
-   A88C/A8B5 sono gated da5C3C; letterali e dizionario nascosto conservano.
-   Output sintetici privi di contratto revocano; old save assenti restano
-   sconosciuti. Il nome della destinazione termina in STREET0861 con modo50,
-   tick964; il giardiniere legge61hex al tick2852. Nessun valore catturato
-   entra nel motore. Nessun nuovo finale è certificato.
+2. **Prossimo confine reale: $5D23 al checkpoint365 verso mercoledì08:40.**
+   Il primo operando5D1D è superato: il B della scansione è derivato dal
+   ciclo a8 righe e viene salvato prima di DJNZ, con ultimo valore1 nel
+   frame5D26. L’ultimo writer è C3B7/tick962/Lestrade; la cuoca lo legge
+   al tick2918,08:37. Manca il secondo operando5D23 della stessa estrazione.
+   Ricostruire ultimo writer, registro e frame di5D23; non installare80
+   dalla traccia né derivare il byte dal solo indirizzo del cursore.
+   Il prefisso completo rimane0–364 fino08:30: nessun checkpoint aggiunto
+   per una singola lettura.5D1D mantiene proprietà e revoche indipendenti;
+   vecchi save assenti restano sconosciuti.5D1E non è introdotto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -108,3 +109,28 @@ Suite1054 test tutti passati. Atlante265 istruzioni/523 byte: A022–A023
 parziale->documentato;78 byte prima grigi in A3E2–A413,A65C–A65D,A815–A82E.
 Approfonditi A37D–A418,A5CD–A5F1,A63F–A65D,A880–A92E,D3E8–D447.
 Riportare le nuove zone in chat; la copertura statica non è gameplay completo.
+
+
+30 ottobre2026 — registro B salvato: leggere GLIFI-E-CONTEGGIO-SALVATO.md e
+results/glyph-count-verification.json.5D1D è il B interno soltanto nel frame
+C388=5D26: C399 imposta8, C39C/C3B7 salvano BC prima di DJNZ; l’ultimo
+salvataggio è1. Gli altri frame hanno altri ruoli:5D1E:A chiamante,
+5D20:B chiamante,5D22:D descrittore,5D24:H video,5D28:A font.
+Non assegnare1 globalmente, né ricavarlo da C a5D1C. Proprietà condizionata
+all’ABI del chiamante, GO TO verificato preserva AF/BC; output sconosciuti
+revocano. B chiamante assente rimane sconosciuto. Old save senza5D1D non
+riceve fallback e5D1E non è introdotto.
+Ultimo writer naturale C3B7/tick962/Lestrade/spazio della pulizia del prefisso
+hansom cab: frame5D26,BC0107. Lettura cuoca9/tick2918/Wed08:37:1.
+1.728 casi ABI:8 frame,2 B chiamante,3 caratteri,36 colonne. Probe naturale
+76 comandi sino08:50, nessuna transizione non classificata; il modello
+confronta i valori posseduti prima del limite e la prima lettura, NON08:50.
+5D1D è superato; manca5D23 nella stessa estrazione, checkpoint365 verso08:40.
+Prefisso completo invariato0–364/365 sino Wed08:30,6992 draw/14966 read,
+24 attori, arena/bitmap e futuro LOAD. Non dichiarare un nuovo checkpoint o
+un finale per avere risolto soltanto il primo operando. Cinque finali aperti.
+Atlante119 istruzioni/179 byte approfonditi, nessun nuovo byte grigio:
+A3D6–A3E1,A9DF–AA0F,C363–C37C,C388–C3E3 e annotazione workspace5D1D.
+Conservare il limite separato del cab5D0C, riportare le zone in chat.
+
+Verifica conclusiva 5D1D: suite completa 1.104 test passati, 0 errori; 55 controlli mirati passati.

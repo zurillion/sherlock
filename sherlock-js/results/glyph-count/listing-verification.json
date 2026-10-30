@@ -1,0 +1,57 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 119,
+  "bytes_roundtripped": 179,
+  "regions": [
+    {
+      "start": "A3D6",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Nome del primo argomento: chiamante verificato del salvataggio B",
+      "atlas_priority": 128
+    },
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA10",
+      "kind": "code",
+      "label": "Scarico della parola: ritorno a capo prima dei glifi",
+      "atlas_priority": 128
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia della riga: spazio e chiamata al renderer",
+      "atlas_priority": 128
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: B della scansione salvato separatamente dal B del chiamante",
+      "atlas_priority": 128,
+      "fields": [
+        [
+          "5D1D",
+          "B salvato con frame5D26",
+          "Ultimo PUSH BC dell\u2019ottava scansione:1, perch\u00e9 DJNZ segue il salvataggio. Non \u00e8 una costante globale del gioco"
+        ],
+        [
+          "Altri frame",
+          "sei ruoli distinti",
+          "5D1E:A del chiamante;5D20:B del chiamante;5D22:D del descrittore;5D24:H video;5D26:B scansione;5D28:A font.5D2A/2C non raggiungono la cella"
+        ],
+        [
+          "Propriet\u00e0",
+          "indipendente e condizionata",
+          "GO TO verificato preserva il salvataggio AF/BC se non lo raggiunge. Chiamanti sconosciuti revocano; old save assenti restano sconosciuti"
+        ],
+        [
+          "5D1E",
+          "non introdotto",
+          "Non ricostruire il byte adiacente per estensione del presente contratto"
+        ]
+      ]
+    }
+  ]
+}

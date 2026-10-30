@@ -1,0 +1,217 @@
+{
+  "date": "2026-10-30",
+  "field": "5D1D",
+  "caller_scope": "glyphFlagsKnown: verified AF/BC caller contracts",
+  "source_roles": {
+    "5D1E": "A caller",
+    "5D20": "B caller",
+    "5D22": "D descriptor",
+    "5D24": "H video address",
+    "5D26": "B scan countdown before DJNZ",
+    "5D28": "A raw last font scan",
+    "5D2A/5D2C": "not reached"
+  },
+  "abi": {
+    "cases": 1728,
+    "frames": 8,
+    "caller_counts": [
+      3,
+      7
+    ],
+    "characters": [
+      " ",
+      "T",
+      "q"
+    ],
+    "columns": 36,
+    "reached_field_cases": 1296,
+    "unreached_field_cases": 432,
+    "scope": "Controlled C388 calls from native boot; synthetic return0008, CP13 flags, supplied frame and BC/DE/HL. Bottom text row5020, all36 columns, eight frames, two caller counts and three characters; includes all six5D1D roles. No natural-play certificate."
+  },
+  "natural": {
+    "input_commands": 76,
+    "source_observation_end": {
+      "tick": 2931,
+      "due": 3781,
+      "minute": 50,
+      "hour": 8,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 08:50am"
+    },
+    "unclassified_transitions": [],
+    "reads": [
+      {
+        "address": "5D1D",
+        "value": 1,
+        "clock": {
+          "tick": 2918,
+          "due": 3781,
+          "minute": 37,
+          "hour": 8,
+          "day": 2,
+          "period": "am",
+          "label": "Wed 08:37am"
+        },
+        "actor": 9,
+        "last_store": {
+          "pc": "C3B7",
+          "sp": "5D1E",
+          "af": 0,
+          "bc": 263,
+          "de": 15623,
+          "hl": 22334,
+          "tick": 962,
+          "actor": 2,
+          "glyph": {
+            "frame": 23846,
+            "char": 32,
+            "descriptor": 23072,
+            "screen_address": 20542,
+            "shift": 7,
+            "caller_count": 1,
+            "word": "hansomder.l."
+          },
+          "address": "5D1D",
+          "value": 1
+        }
+      }
+    ],
+    "model_matches_every_owned_completed_input_checkpoint": true,
+    "model_matches_target_read": true,
+    "model_stops_on": "5D23",
+    "source_end_not_model_certificate": true
+  },
+  "prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 365,
+    "random_draws": 6994,
+    "clock": {
+      "tick": 2911,
+      "due": 3781,
+      "day": 2,
+      "minute": 30,
+      "hour": 8,
+      "period": "am",
+      "label": "Wed 08:30am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 6992,
+    "compared_random_reads": 14966,
+    "certified_checkpoint_range": [
+      0,
+      364
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 365,
+      "target_clock": "Wed 08:40am",
+      "resolved_first_operand": "5D1D",
+      "unknown_address": "5D23",
+      "same_random_draw": true,
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "coverage": {
+    "previous": {
+      "partial": 468,
+      "unknown": 2666,
+      "documented": 38466
+    },
+    "current": {
+      "partial": 468,
+      "unknown": 2666,
+      "documented": 38466
+    },
+    "new_grey_bytes_documented": 0,
+    "refined_regions": [
+      "A3D6–A3E1",
+      "A9DF–AA0F",
+      "C363–C37C",
+      "C388–C3E3"
+    ],
+    "workspace_annotation": "5D1D",
+    "scope": "Stack workspace is below payload base5D80; source-backed classification totals are unchanged. New caller/ABI semantics are not whole-game equivalence."
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 119,
+    "bytes_roundtripped": 179,
+    "regions": [
+      {
+        "start": "A3D6",
+        "end_exclusive": "A3E2",
+        "kind": "code",
+        "label": "Nome del primo argomento: chiamante verificato del salvataggio B",
+        "atlas_priority": 128
+      },
+      {
+        "start": "A9DF",
+        "end_exclusive": "AA10",
+        "kind": "code",
+        "label": "Scarico della parola: ritorno a capo prima dei glifi",
+        "atlas_priority": 128
+      },
+      {
+        "start": "C363",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "Pulizia della riga: spazio e chiamata al renderer",
+        "atlas_priority": 128
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: B della scansione salvato separatamente dal B del chiamante",
+        "atlas_priority": 128,
+        "fields": [
+          [
+            "5D1D",
+            "B salvato con frame5D26",
+            "Ultimo PUSH BC dell’ottava scansione:1, perché DJNZ segue il salvataggio. Non è una costante globale del gioco"
+          ],
+          [
+            "Altri frame",
+            "sei ruoli distinti",
+            "5D1E:A del chiamante;5D20:B del chiamante;5D22:D del descrittore;5D24:H video;5D26:B scansione;5D28:A font.5D2A/2C non raggiungono la cella"
+          ],
+          [
+            "Proprietà",
+            "indipendente e condizionata",
+            "GO TO verificato preserva il salvataggio AF/BC se non lo raggiunge. Chiamanti sconosciuti revocano; old save assenti restano sconosciuti"
+          ],
+          [
+            "5D1E",
+            "non introdotto",
+            "Non ricostruire il byte adiacente per estensione del presente contratto"
+          ]
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "total": 1104,
+    "passed": 1104,
+    "failed": 0,
+    "exit_code": 0,
+    "command": "node --test --test-concurrency=4 test/*.test.mjs",
+    "log": "results/glyph-count/full-suite.log",
+    "focused_passed": 55
+  },
+  "save_load": "Known byte preserved independently; missing old save stays unknown until a verified writer; unknown caller revokes",
+  "scope": "Standalone source-derived renderer residue only; same-draw second operand5D23 remains unknown. No new complete checkpoint or terminal certificate.",
+  "other_open_boundary": "cab renderer5D0C documented in dictionary-reference/unrelated-boundary.json",
+  "remaining_terminal_variants": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ]
+}

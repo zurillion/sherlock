@@ -39,21 +39,22 @@ export class RandomDisplay {
   // at5D22. Other callers revoke ownership rather than guessing an address.
   // C38B retains the screen address at frame-8. In the cab-name path
   // frame=5D1A, so its high byte owns 5D13 until another known writer.
-  // C388 ABI tests cover seven frames. The extra 5D1F byte is owned only
+  // C388 ABI tests distinguish eight frames and both caller counts. The extra 5D1F byte is owned only
   // in a verified caller scope; scene frames retain their old low-byte
   // contract and unprojected EXAMINE/statement output revokes ownership.
-  const put=(at,v)=>{if((at===0x5D1A||at===0x5D1B||at===0x5D1C)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at===0x5D20||at===0x5D21||at===0x5D22)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D1C||at>=0x5D1F&&at<=0x5D22))s[at]=v;};
+  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at===0x5D20||at===0x5D21||at===0x5D22)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D1D||at>=0x5D1F&&at<=0x5D22))s[at]=v;};
   // C374's CALL leaves its return link at the glyph-entry stack position.
   // A deep wrap can overwrite previously owned cells with that link.
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
   // The verified caller owns both bytes of the saved scan AF: F at
   // frame-12 and raw font row A at frame-11 (5D1A/5D1B for frame5D26).
-  // With frame5D26, frame-10 also retains C, the horizontal shift, at5D1C.
+  // With frame5D26, frame-10/-9 retain C and B at5D1C/5D1D. B is the
+  // scan countdown saved before DJNZ: its final saved value is1.
   // Other callers revoke ownership; this is not an unconditional stack value.
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D1C||at>=0x5D1F&&at<=0x5D22))delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D1D||at>=0x5D1F&&at<=0x5D22))delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -66,9 +67,9 @@ export class RandomDisplay {
   put(frame-6,descriptor&255);put(frame-5,descriptor>>>8);
   put(frame-10,shift);put(frame-9,1);put(frame-12,0);put(frame-11,glyph[7]);
  }
- // The verified GO TO announcement never reaches saved scan AF or C.
- // Unprojected callers revoke all three bytes; no neighbouring byte is inferred.
- invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1D:0x5D1A,0x5D22);}
+ // The verified GO TO announcement never reaches saved scan AF or BC.
+ // Unprojected callers revoke all four bytes; each register has its own role.
+ invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1E:0x5D1A,0x5D22);}
  get state(){return this.world.display;}
  invalidateScratch(from=0x5CEC,to=0x5D22){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}

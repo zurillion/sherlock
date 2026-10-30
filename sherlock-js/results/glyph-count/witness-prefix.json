@@ -1,0 +1,35 @@
+{
+  "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+  "checkpoints": 365,
+  "random_draws": 6994,
+  "clock": {
+    "tick": 2911,
+    "due": 3781,
+    "day": 2,
+    "minute": 30,
+    "hour": 8,
+    "period": "am",
+    "label": "Wed 08:30am"
+  },
+  "terminal": null,
+  "all_actors": 24,
+  "load_future_compared": true,
+  "arena_bytes_per_checkpoint": 752,
+  "bitmaps_compared": true,
+  "compared_random_draws": 6992,
+  "compared_random_reads": 14966,
+  "certified_checkpoint_range": [
+    0,
+    364
+  ],
+  "full_history_checkpoints": 521,
+  "full_ending_certified": false,
+  "next_boundary": {
+    "checkpoint": 365,
+    "target_clock": "Wed 08:40am",
+    "resolved_first_operand": "5D1D",
+    "unknown_address": "5D23",
+    "same_random_draw": true,
+    "note": "No captured or initial byte is installed as a fallback."
+  }
+}

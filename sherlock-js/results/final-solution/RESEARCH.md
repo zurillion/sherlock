@@ -2,10 +2,12 @@
 
 Stato corrente30 ottobre2026: prefisso365 checkpoint0–364, fino a Wed08:30,
 6992 draw/14966 read confrontati, tutti24 attori, arena/bitmap e futuro LOAD.
-A022/A023 è ricostruito dall’emissione lessicale. Il confronto completo si
-ferma al checkpoint365 verso Wed08:40 su5D1D ancora sconosciuto.
-Rapporti: results/dictionary-reference-verification.json e
-results/dictionary-reference/witness-prefix.json. Cinque finali naturali
+A022/A023 è ricostruito dall’emissione lessicale;5D1D è ora ricostruito dal
+B salvato nel renderer. Il confronto completo passa quella lettura e si
+ferma al checkpoint365 verso Wed08:40 su5D23, nella stessa estrazione.
+Il certificato resta fino08:30, senza un nuovo checkpoint per il primo operando.
+Rapporti: results/glyph-count-verification.json e
+results/glyph-count/witness-prefix.json. Cinque finali naturali
 ancora da certificare. Le sezioni successive conservano la cronologia delle
 analisi, non sostituiscono questo limite corrente.
 
