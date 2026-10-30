@@ -1,0 +1,24 @@
+# OS metadata
+.DS_Store
+._*
+Thumbs.db
+
+# Reproducible caches and compiled objects
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+*.o
+*.obj
+
+# Generated GitHub Pages package
+/_site/
+
+# Local credentials; templates may be committed
+.env
+.env.*
+!.env.example
+*.pem
+*.key
