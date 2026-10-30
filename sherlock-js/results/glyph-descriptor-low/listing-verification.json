@@ -1,0 +1,104 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 235,
+  "bytes_roundtripped": 419,
+  "regions": [
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 133,
+      "fields": [
+        [
+          "682A",
+          "testo compresso",
+          "Prefisso del nome attore e comando composto: non CPU eseguita nel runtime"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 133
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 133
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 133
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 133
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 133
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia riga: CALL reale e byte alto del return link",
+      "atlas_priority": 133
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; descrittore DE: E salvato a5D24 nel frame5D2A",
+      "atlas_priority": 133,
+      "fields": [
+        [
+          "5D24",
+          "E del descrittore nel frame verificato",
+          "Frame5D2A: PUSH DE inC38A, byte basso descriptor&FF. Il buffer parola fornisce5C0B, altri descrittori mantengono il proprio byte. Non dedurre dal video5D23"
+        ],
+        [
+          "Altri frame",
+          "sei ruoli distinti",
+          "5D26:F chiamante;5D28:C chiamante;5D2A:E descrittore;5D2C:L video;5D2E:C scansione;5D30:F scansione"
+        ],
+        [
+          "PuliziaC374",
+          "return link a5D24",
+          "Con frame5D24 la CALL reale lascia77 del returnC377; caso diverso dal registroE"
+        ],
+        [
+          "Propriet\u00e0",
+          "solo chiamante verificato",
+          "Scene/errori/caller sconosciuti revocano. Old SAVE senza5D24 rimane unknown. Nessuna propriet\u00e0 aggiunta a5D25\u20135D27"
+        ],
+        [
+          "5D1E",
+          "F della scansione, contratto indipendente",
+          "Frame5D2A: C39D/C3B8 salvanoF, derivato daINC H eDEC/INC C; il nuovoE non lo sostituisce"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 133
+    }
+  ]
+}

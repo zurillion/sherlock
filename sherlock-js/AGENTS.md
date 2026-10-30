@@ -380,3 +380,27 @@ writerC3B8/tick964/Lestrade2/glifo r diInspector/frame5D2A/colonna8/shift2/
 HL5027/AF0000. Osservati anche store invariati e5D1F per distinguereA daF;
 nessuna transizione non classificata. Non chiamare11:00 del probe un nuovo
 certificato completo: il secondo operando5D24 blocca ancora il modello.
+
+
+30 ottobre2026 — leggere GLIFI-E-DESCRITTORE-SALVATO.md e
+results/glyph-descriptor-low-verification.json.5D24 èE del descrittore
+salvato daPUSH DE/C38A nel frameC388=5D2A del prefisso proprio nome
+attore682A. Derivare descriptor&FF, non0B catturato o video5D23.
+1152 nuove ABI conDE5C0B/5C42/5123 si aggiungono ai1728 casi archiviati
+e288 vereCALL C374. Altri frame:5D26:F chiamante,5D28:C chiamante,
+5D2A:E descrittore,5D2C:L video,5D2E:C scansione,5D30:F scansione.
+Proprietà upperGlyphKnown; anche invalidateGlyphExtras revoca24 su output
+non proiettato. Old LOAD assente restaunknown anche con23 noto. Non
+introdurre25–27 per vicinanza. Test5D1E deve ora completareWed11:00,
+poi interrompere regolarmente il WAIT prima delSAVE; nuovo probe24 fino
+Wed12:00, distinto dal prefisso completo393 checkpoint0–392 finoWed13:10,
+7718 draw/16516 read,24 attori,arena752,bitmap e futuroLOAD. Nuovo
+confine5D26 al393 verso13:20. Cinque finali e cab5D0C ancora aperti.
+Atlante235 istruzioni/419 byte approfonditi, nessun nuovo byte grigio:
+682A–682F,A59F–A5CC,A720–A770,A7C5–A7CF,A95B–A98F,C363–C37C,
+C388–C3E3,CE10–CE17,D3E8–D447 più workspace5D24. Riferire le zone in chat.
+
+Verifica naturaleE: ultimo storeC38A/tick964/Lestrade2/glifo r diInspector/
+frame5D2A/SP5D26/DE5C0B/HL5027. Lettura giardiniere8/tick3009/Wed10:08,
+E=0B. Nessuna transizione non classificata; osservato25 per distinguereD,
+ma non introdotto. Non installare0B come fallback dei vecchi salvataggi.

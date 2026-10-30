@@ -4,23 +4,23 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   374 checkpoint, da0 a373, fino a mercoledì10:00: tutti24 posti attore,
+   393 checkpoint, da0 a392, fino a mercoledì13:10: tutti24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD.7223 draw e15464 read confrontati.
-   Vedere GLIFI-E-FLAG-DI-SCANSIONE.md e
-   results/glyph-scan-flags/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD.7718 draw e16516 read confrontati.
+   Vedere GLIFI-E-DESCRITTORE-SALVATO.md e
+   results/glyph-descriptor-low/witness-prefix.json.
 
-2. **Prossimo confine reale: $5D24 al checkpoint374 verso mercoledì10:10.**
-   Il primo operando5D1E è superato: nel prefisso proprio del nome attore,
-   frameC388=5D2A, èF della scansione salvato daC39D/C3B8. Calcolare i
-   flag daINC H e DEC/INC C, conservando il carry realmente prodotto;
-   non assegnare0 alla cella globalmente. GO TO verificato lo preserva,
-   scene/errori/chiamanti sconosciuti revocano. Vecchi LOAD senza la
-   cella restano unknown fino al writer. Altri frame hannoF/C chiamante,
-   E descrittore,L video,C scansione. Vedere GLIFI-E-FLAG-DI-SCANSIONE.md.
-   Il secondo operando5D24 resta sconosciuto nella medesima estrazione:
-   nessun nuovo checkpoint completo oltre0–373. Non estendere il
-   contratto al byte adiacente, né derivarne il valore da5D23.
+2. **Prossimo confine reale: $5D26 al checkpoint393 verso mercoledì13:20.**
+   La coppia5D1E/5D24 è superata.5D24 èE del descrittore salvato daC38A
+   nel frame5D2A del prefisso proprio del nome attore682A. Calcolare
+   descriptor&FF; non usare0B della traccia né il byte video5D23.
+   Tre descrittori diversi verificano che il parametro è realmente
+   variabile. Proprietà condizionata al chiamante; scene, errori e
+   caller sconosciuti revocano. Old SAVE senza24 rimane unknown.
+   Il vecchio test5D1E ora richiede tutto il proprio probe sinoWed11:00;
+   il test del nuovo descrittore arriva al proprio termineWed12:00.
+   Ricostruire ora i writer/frame/chiamanti di5D26, incluse scritture
+   dello stesso valore; non proiettare5D25–5D27 per estensione.
    Cinque finali naturali restano aperti e il limite cab5D0C è separato.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
@@ -61,7 +61,7 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 30 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite e prove correnti: vedere `results/model-flags-verification.json` e
+Suite e prove correnti: vedere `results/glyph-descriptor-low-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 
