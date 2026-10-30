@@ -1,0 +1,234 @@
+{
+  "scope": "Model flag lifecycle A01D/A01E; native evidence only in offline fixtures; no CPU or trace replay in browser",
+  "natural_cases": 11,
+  "checkpoints": 53,
+  "inputs": 43,
+  "raw_native_stores": 273,
+  "source_callers": [
+    "A326",
+    "A38E",
+    "B419",
+    "C4E2"
+  ],
+  "random_draws": 197,
+  "random_reads": 394,
+  "abi_cases": 310,
+  "boot_seeds": [
+    0,
+    1,
+    17,
+    255
+  ],
+  "all_actor_slots": 24,
+  "complete_arena_bytes": 752,
+  "load_future_compared": true,
+  "bitmaps_compared": true,
+  "atlas": {
+    "new_documented_ranges": [
+      {
+        "start": "A01D",
+        "end_exclusive": "A01F"
+      },
+      {
+        "start": "A2B1",
+        "end_exclusive": "A2E4"
+      }
+    ],
+    "newly_documented": 53,
+    "formerly_unknown": 51,
+    "formerly_partial": 2
+  },
+  "remaining_natural_terminal_variants": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "separate_cab_boundary": "5D0C",
+  "full_game_equivalence": false,
+  "natural_writer_provenance": {
+    "checkpoints": 2821,
+    "raw_stores": 30265,
+    "read": {
+      "address": "A01D",
+      "tick": 2945,
+      "actor": 9,
+      "value": 8
+    },
+    "last_writer": {
+      "pc": "A2E0",
+      "caller": "C4E2",
+      "model": "8371",
+      "action": "CLOSE",
+      "actor": 5,
+      "tick": 2945,
+      "flags": [
+        8,
+        64
+      ]
+    }
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 374,
+    "random_draws": 7225,
+    "clock": {
+      "tick": 3001,
+      "due": 3781,
+      "day": 2,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Wed 10:00am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 7223,
+    "compared_random_reads": 15464,
+    "certified_checkpoint_range": [
+      0,
+      373
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 374,
+      "target_clock": "Wed 10:10am",
+      "resolved_address": "A01D/A01E",
+      "unknown_address": "5D1E",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "continuous_flags_comparison": {
+    "protocol": "Natural seed1 witness, all24 actors, free initial LOOK, graphics off, uppercase injected keys/immediate MORE. All raw A2E0 stores including unchanged writes and A01D/E reads; no patches to world or actors. Offline provenance, not a whole-game certificate.",
+    "checkpoints_compared": 2821,
+    "last_clock": {
+      "tick": 2951,
+      "due": 3781,
+      "day": 2,
+      "minute": 10,
+      "hour": 9,
+      "period": "am",
+      "label": "Wed 09:10am"
+    },
+    "raw_native_stores": 30265,
+    "actual_random_reads": [
+      {
+        "address": "A01D",
+        "value": 8,
+        "actor": 9,
+        "tick": 2945
+      }
+    ],
+    "native_last_writers": [
+      {
+        "writer": "A2E0",
+        "caller": "C4E2",
+        "model": "8371",
+        "flags": [
+          8,
+          64
+        ],
+        "actor": 5,
+        "tick": 2945
+      }
+    ],
+    "same_values_at_every_checkpoint": true,
+    "full_game_equivalence": false
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 328,
+    "bytes_roundtripped": 701,
+    "regions": [
+      {
+        "start": "A01D",
+        "end_exclusive": "A01F",
+        "kind": "data",
+        "label": "Flag persistenti del modello lessicale selezionato",
+        "atlas_priority": 125
+      },
+      {
+        "start": "A2B1",
+        "end_exclusive": "A2E4",
+        "kind": "code",
+        "label": "Selezione modello e decomposizione dei quattro nibble",
+        "atlas_priority": 96
+      },
+      {
+        "start": "A2E4",
+        "end_exclusive": "A31A",
+        "kind": "code",
+        "label": "Gating dell\u2019annuncio: anche fuori scena rilegge il modello",
+        "atlas_priority": 96
+      },
+      {
+        "start": "A31A",
+        "end_exclusive": "A35D",
+        "kind": "code",
+        "label": "Annuncio: ricarica i flag prima del testo e conserva i residui",
+        "atlas_priority": 96
+      },
+      {
+        "start": "A37D",
+        "end_exclusive": "A419",
+        "kind": "code",
+        "label": "Composizione degli ordini: aggiorna i flag del modello stampato",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B1DD",
+        "end_exclusive": "B213",
+        "kind": "code",
+        "label": "Resolver: classi e presenza degli argomenti dai flag",
+        "atlas_priority": 96
+      },
+      {
+        "start": "B405",
+        "end_exclusive": "B468",
+        "kind": "code",
+        "label": "Modello lessicale e ordine fisico dei complementi",
+        "atlas_priority": 96
+      },
+      {
+        "start": "C493",
+        "end_exclusive": "C4D1",
+        "kind": "code",
+        "label": "Classi zero, locazione, letterale ed entit\u00e0 dal modello",
+        "atlas_priority": 96
+      },
+      {
+        "start": "C4D1",
+        "end_exclusive": "C55A",
+        "kind": "code",
+        "label": "Dispatch delle azioni: modello dati e argomenti mancanti",
+        "atlas_priority": 96
+      },
+      {
+        "start": "CA76",
+        "end_exclusive": "CA7F",
+        "kind": "code",
+        "label": "Annuncio del movimento interno: lookup anche fuori scena",
+        "atlas_priority": 96
+      },
+      {
+        "start": "E345",
+        "end_exclusive": "E34F",
+        "kind": "code",
+        "label": "Pagamento interno: seleziona PAY per il successivo annuncio",
+        "atlas_priority": 96
+      }
+    ]
+  },
+  "validation": {
+    "targeted_tests": 20,
+    "corrected_previous_boundary_test": 1,
+    "continuous_flags_tool": "passed",
+    "witness_prefix_tool": "passed; rerun after movement/payment flag refinements",
+    "full_suite": "GitHub Actions runs the complete current suite on the publishing commit; local initial sweep had 1175 passing and one obsolete boundary assertion, corrected and separately verified"
+  }
+}

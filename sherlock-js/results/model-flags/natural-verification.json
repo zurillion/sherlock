@@ -1,0 +1,37 @@
+{
+  "protocol": "Natural seed1 witness, all24 actors, free initial LOOK, graphics off, uppercase injected keys/immediate MORE. All raw A2E0 stores including unchanged writes and A01D/E reads; no patches to world or actors. Offline provenance, not a whole-game certificate.",
+  "checkpoints_compared": 2821,
+  "last_clock": {
+    "tick": 2951,
+    "due": 3781,
+    "day": 2,
+    "minute": 10,
+    "hour": 9,
+    "period": "am",
+    "label": "Wed 09:10am"
+  },
+  "raw_native_stores": 30265,
+  "actual_random_reads": [
+    {
+      "address": "A01D",
+      "value": 8,
+      "actor": 9,
+      "tick": 2945
+    }
+  ],
+  "native_last_writers": [
+    {
+      "writer": "A2E0",
+      "caller": "C4E2",
+      "model": "8371",
+      "flags": [
+        8,
+        64
+      ],
+      "actor": 5,
+      "tick": 2945
+    }
+  ],
+  "same_values_at_every_checkpoint": true,
+  "full_game_equivalence": false
+}

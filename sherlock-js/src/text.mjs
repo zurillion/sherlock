@@ -71,6 +71,7 @@ export class Text {
      remember(null); // Model-only words without a resolved argument remain unowned.
      const action=context.action,model=this.data.actions.find(a=>a.id===action),args=context.args||[255,255];
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
+     if(w.npcs)w.npcs.modelFlags=model.modelFlags?[...model.modelFlags]:[null,null]; // A38B, no restore on return.
      const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});for(const part of parts){feed(' ',{dict:true});if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});}remember(0x5000|(r.nameWords[0]&4095));};
      const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
      // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;

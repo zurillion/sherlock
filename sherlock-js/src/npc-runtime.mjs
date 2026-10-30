@@ -22,11 +22,14 @@ export class NpcRuntime {
  constructor(game){this.game=game;this.checks=new ArgumentChecks(this);this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
+ // A2BD decodes two packed flag bytes from the selected lexical model.
+ modelFlags(action){const model=this.game.data.actions.find(a=>a.id===action);if(model)this.state.modelFlags=model.modelFlags?[...model.modelFlags]:[null,null];}
  setClarificationOffset(value){if(![0,8,18].includes(value))throw Error('Invalid clarification offset');this.state.clarificationOffset=value;}
  setResolutionMode(value){if(value!==null&&![0,128].includes(value))throw Error('Invalid resolution mode');this.state.resolutionMode=value;}
  beginResolution(node,{player=false,requestMode=null}={}){
   this.setResolutionMode(player?(this.state.playerResolutionMode??null):requestMode); // D800 / B959
   const action=this.game.action(node);if(!action)return;
+  this.modelFlags(action); // B416 before argument ordering and class selection.
   if(this.state.resolutionMode===0)this.setResolutionMode(node.all?128:0); // B1EC
   if(this.game.data.actions.find(a=>a.id===action)?.singleSelection)this.setResolutionMode(0); // B1FD
  }
@@ -50,6 +53,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.modelFlags=g.data.argumentChecks?.initialModelFlags?[...g.data.argumentChecks.initialModelFlags]:[null,null];
   w.npcs.dictionaryReference=null;w.npcs.resolutionMode=g.data.argumentChecks?.initialResolutionMode??null;w.npcs.playerResolutionMode=0;w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
   // Graphics are presentation-only in the declared text-only source profile.
   // F490/F507 are its only colour writers; neither runs after this boot.
@@ -453,7 +457,7 @@ export class NpcRuntime {
   const pointer=actorRule||catalog.entities[args[0]]?.[action]||this.game.data.actions.find(a=>a.id===action)?.rule;
   const meta=catalog.headers[pointer];return meta?this.checks.rule(meta,[args[0]??255,args[1]??255],{actor,phase}):null;
  }
- setActionClasses(action){const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
+ setActionClasses(action){this.modelFlags(action);const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
  action(action,input,context,messages,actions){
   const actor=context.actor,w=this.w,g=this.game;this.state.executionPhase=0; // C4E9 action preflight.
   if(action>=128&&action<153){const meta=g.data.npcPrograms.internalActions?.[action];if(!meta)throw new UnsupportedFeature('azione interna '+action);return this.rule(meta,input,context,messages,actions);}
@@ -510,6 +514,7 @@ export class NpcRuntime {
   const w=this.w,g=this.game,before=w.roomOf(),visible=w.perceived(id),old=w.roomOf(id),actorOld=notification.actor===undefined?null:w.roomOf(notification.actor),directional=id===notification.actor&&notification.direction>=1&&notification.direction<=10;
   // E4B0 selects the FIRST exit of the old room for a walking entity. CA76
   // announces that action before E49B moves it, even when Holmes is in a train.
+  if(directional)this.modelFlags(notification.direction); // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
   if(directional&&visible){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
@@ -560,7 +565,8 @@ export class NpcRuntime {
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner});const suffix=' '+formatMoney((-amount)&16383)+' "\n';for(const ch of suffix.replace(/d\./g,'D.'))g.sourceDisplay.bufferFeed(ch);if(c.sink)for(const ch of suffix)c.sink(ch);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }
- sayPayment(actor,recipient,pence,messages){const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.')+'.\n')this.game.sourceDisplay.bufferFeed(ch);return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1)};messages.push(message);this.game.projectMessages([message]);}}
+ sayPayment(actor,recipient,pence,messages){this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
+  const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.')+'.\n')this.game.sourceDisplay.bufferFeed(ch);return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1)};messages.push(message);this.game.projectMessages([message]);}}
  callback(actor,oldDue,messages){
   const id=actor.id,w=this.w;
   if(id===6){const e=w.entity(85);if(e.attributes&128&&this.state.burningNoteTicks!==255){this.state.burningNoteTicks=(this.state.burningNoteTicks-1)&255;if(!this.state.burningNoteTicks){e.qualifiers[0]=0x15B;e.name='burnt note';e.description=null;const fact=this.state.facts.find(f=>f.start===0x99A9);fact.terms[5]&=~0x0200;}}return;}
@@ -613,6 +619,7 @@ export class NpcRuntime {
   if(address===0xA01C)return this.state.resolutionMode??null;
   if(address===0xD6B8)return this.state.playerResolutionMode??null;
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
+  if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
   if(address===0xA021)return this.state.argumentCheck??null;
   if(address===0xA01B)return this.state.clarificationOffset??null;
   if(address===0xA01A)return this.state.parserAll??null;
@@ -652,6 +659,7 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
+  if(s.modelFlags!==undefined&&(!Array.isArray(s.modelFlags)||s.modelFlags.length!==2||s.modelFlags.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Flag del modello non validi');
   if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');
   if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');

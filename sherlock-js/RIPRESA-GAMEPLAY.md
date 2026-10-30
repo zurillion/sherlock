@@ -4,23 +4,23 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   368 checkpoint, da0 a367, fino a mercoledì09:00: tutti gli attori,
+   374 checkpoint, da0 a373, fino a mercoledì10:00: tutti24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD.7059 draw e15134 read confrontati.
-   Vedere GLIFI-E-BYTE-ALTO-VIDEO.md e
-   results/glyph-address-high/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD.7223 draw e15464 read confrontati.
+   Vedere MODELLI-LESSICALI-E-FLAG.md e
+   results/model-flags/witness-prefix.json.
 
-2. **Prossimo confine reale: $A01D al checkpoint368 verso mercoledì09:10.**
-   Entrambi gli operandi5D1D/5D23 sono superati.5D23 deriva dal registroH
-   video salvato nel frame5D2A del prefisso dell’attore; ultimo writer
-   C398/tick964/Lestrade,HL5027. Non è un80 globale. La prova5D1D ora
-   richiede la prosecuzione completa sino al proprio termine08:50.
-   Ricostruire i writer, l’inizializzazione e la persistenza diA01D; non
-   dedurlo dal solo ultimo comando o installare il byte della traccia.
-   Il prefisso completo è0–367 sino09:00, nessun nuovo finale certificato.
-   I vecchi save senza5D23 rimangono sconosciuti;5D24–5D27 e5D1E non sono
-   proiettati per estensione. Vedere il nuovo rapporto per la proprietà
-   indipendente diH e per il diverso ruolo del return linkC377.
+2. **Prossimo confine reale: $5D1E al checkpoint374 verso mercoledì10:10.**
+   A01D/A01E sono i flag del modello lessicale, estratti dai nibble alti
+   dei record a8259. Gli aggiornamenti provengono dal resolver, dal
+   dispatch delle azioni e dagli annunci/ordini composti, non dal solo
+   ultimo comando del giocatore. I quattro chiamanti di A2BD e i valori
+   a ogni draw sono verificati nelle sequenze brevi. Old LOAD senza
+   coppia resta unknown fino a un writer. Il vecchio test5D23 ora esige
+   la prosecuzione completa sino alle10:00, senza il vecchio limiteA01D.
+   Ricostruire ora i reali writer/frame/chiamanti di5D1E, includendo
+   scritture invariate; non estendere automaticamente i contratti dei
+   byte adiacenti. Nessun nuovo finale naturale certificato.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -60,7 +60,8 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 30 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **1155 test verificati**. Prefisso esteso ripetibile
+Suite e prove correnti: vedere `results/model-flags-verification.json` e
+GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 
 

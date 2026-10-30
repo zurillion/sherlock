@@ -328,3 +328,30 @@ Atlante235 istruzioni/419 byte approfonditi, nessun nuovo byte grigio:
 C388–C3E3,CE10–CE17,D3E8–D447 più workspace5D23. Riferire le zone in chat.
 
 Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 controlli mirati passati.
+
+
+30 ottobre2026 — leggere MODELLI-LESSICALI-E-FLAG.md e
+results/model-flags-verification.json. A01D/E provengono dai nibble alti
+dei modelli lessicali8259, non dal solo ultimo input. A2BD scrive prima
+A01E poiA01D; chiamantiB416,C4DF,A323,A38B. Classi delle regole interne
+non riscrivono questi flag; il testo di un ordine può lasciare il modello
+citato. Caricamento0/0 verificato su4 seed; old LOAD assente resta unknown
+fino al writer. Dry parsing/errori lessicali conservano.11 storie naturali,
+43 input/53 checkpoint,273 store nativi,197 draw/394 read; tutti24 attori,
+arena752/bitmap/LOAD.310 ABI controllati comprendono54 modelli e256 dati
+sintetici, non gameplay naturale. Prefisso ora0–373/374 checkpoint fino
+Wed10:00,7223 draw/15464 read. Prossimo confine5D1E verso10:10 al374,
+non inventare il byte dai campi adiacenti. Test5D23 deve completare10:00,
+poi interrompere regolarmente il WAIT prima del SAVE. Cinque finali
+restano aperti; limite cab5D0C separato. Atlante328 istruzioni/701 byte:
+A01D–A01E parziale->documentato;51 byte prima grigiA2B1–A2E3.
+ApprofonditiA31A–A35C,A37D–A418,B1DD–B212,B405–B467,C493–C4D0,
+C4D1–C559,CA76–CA7E,E345–E34E. Annunci di movimento/pagamento
+aggiornano il modello anche fuori scena (A30C/A310 in modo1). Il confronto
+continuo di2821 checkpoint deve restare attivo nel tool di verifica.
+Riportare sempre le zone nuove in chat.
+
+Verifica flag: confronto continuo2821 checkpoint,30265 store nativi e
+lettura reale cuoca9/tick2945 superati. Ultimo writer Daphne5/CLOSE/modello8371,
+C4DF->A2E0 stesso tick. Non installare8 come default. Annunci offstage
+CA76 e pagamento E34B devono passare il modello prima di sopprimere il testo.

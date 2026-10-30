@@ -1,5 +1,11 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento corrente: [MODELLI-LESSICALI-E-FLAG.md](MODELLI-LESSICALI-E-FLAG.md).
+A01D/A01E superati;374 checkpoint0–373 sino a Wed10:00,7223 draw/15464 read.
+Prossimo confine5D1E al checkpoint374 verso Wed10:10. Cinque finali naturali
+restano aperti. Per il backlog corrente vedere RIPRESA-GAMEPLAY.md; le sezioni
+seguenti conservano lo storico dei vari nuclei funzionali.
+
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle
 fasi precedenti conservano risultati storici: il cab e gli itinerari di Lestrade
