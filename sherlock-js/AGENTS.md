@@ -355,3 +355,28 @@ Verifica flag: confronto continuo2821 checkpoint,30265 store nativi e
 lettura reale cuoca9/tick2945 superati. Ultimo writer Daphne5/CLOSE/modello8371,
 C4DF->A2E0 stesso tick. Non installare8 come default. Annunci offstage
 CA76 e pagamento E34B devono passare il modello prima di sopprimere il testo.
+
+
+30 ottobre2026 — leggere GLIFI-E-FLAG-DI-SCANSIONE.md e
+results/glyph-scan-flags-verification.json.5D1E èF della scansione nel
+frameC388=5D2A del prefisso proprio del nome attore682A. Derivare i flag
+diINC H della settima scansione e, se shift nonzero,DEC/INC C prima
+diC3B8. OR della bitmap azzera carry; non riusare carry iniziale.
+Nella riga bassa video,56->57 e shift1..7 danno0, ma non è un0 globale.
+Altri frame:5D20:F chiamante;5D22:C chiamante;5D24:E descrittore;
+5D26:L video;5D28:C scansione. CALL realeC374 può lasciare77.
+Proprietà solo upperGlyphKnown===true; GO TO verificato conserva1E,
+scene/errori/chiamanti sconosciuti revocano. Old LOAD senza1E restaunknown.
+Nessun nuovo byte5D24–5D27. Il primo operando è superato ma il secondo
+5D24 blocca la stessa estrazione del checkpoint374 versoWed10:10.
+Prefisso completo invariato0–373/374 sinoWed10:00,7223 draw/15464 read,
+24 attori/arena/bitmap/LOAD. Cinque finali ancora aperti; cab5D0C separato.
+Atlante235 istruzioni/419 byte approfonditi, nessun nuovo byte grigio:
+682A–682F,A59F–A5CC,A720–A770,A7C5–A7CF,A95B–A98F,C363–C37C,
+C388–C3E3,CE10–CE17,D3E8–D447 e workspace5D1E. Riportare le zone in chat.
+
+Traccia naturale5D1E: lettura giardiniere8/tick3009/Wed10:08; ultimo
+writerC3B8/tick964/Lestrade2/glifo r diInspector/frame5D2A/colonna8/shift2/
+HL5027/AF0000. Osservati anche store invariati e5D1F per distinguereA daF;
+nessuna transizione non classificata. Non chiamare11:00 del probe un nuovo
+certificato completo: il secondo operando5D24 blocca ancora il modello.

@@ -1,8 +1,8 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [MODELLI-LESSICALI-E-FLAG.md](MODELLI-LESSICALI-E-FLAG.md).
-A01D/A01E superati;374 checkpoint0–373 sino a Wed10:00,7223 draw/15464 read.
-Prossimo confine5D1E al checkpoint374 verso Wed10:10. Cinque finali naturali
+Aggiornamento corrente: [GLIFI-E-FLAG-DI-SCANSIONE.md](GLIFI-E-FLAG-DI-SCANSIONE.md).
+A01D/A01E e il primo operando5D1E superati;374 checkpoint0–373 sino a Wed10:00,7223 draw/15464 read.
+Prossimo confine5D24 (secondo operando) al checkpoint374 verso Wed10:10. Cinque finali naturali
 restano aperti. Per il backlog corrente vedere RIPRESA-GAMEPLAY.md; le sezioni
 seguenti conservano lo storico dei vari nuclei funzionali.
 

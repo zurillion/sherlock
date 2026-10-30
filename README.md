@@ -11,7 +11,7 @@ web esegue la logica ricostruita nel browser.
 La ricostruzione è ancora parziale. L’ultimo prefisso naturale certificato
 comprende 374 checkpoint fino a mercoledì 10:00, con tutti i 24 posti attore,
 estrazioni casuali, stato e output confrontati con l’originale. Il prossimo
-limite dichiarato è 5D1E. La documentazione distingue i test controllati dalla
+limite dichiarato è 5D24. La documentazione distingue i test controllati dalla
 certificazione di una partita completa e conserva i limiti ancora aperti.
 
 ## Contenuto

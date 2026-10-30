@@ -1,0 +1,99 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 235,
+  "bytes_roundtripped": 419,
+  "regions": [
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 131,
+      "fields": [
+        [
+          "682A",
+          "programma del testo",
+          "6804 ->67F7 ->nome attore, poi comando composto"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 131
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 131
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 131
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 131
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 131
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia riga: CALL reale e byte alto del return link",
+      "atlas_priority": 131
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; F della scansione salvato a5D1E nel frame5D2A",
+      "atlas_priority": 131,
+      "fields": [
+        [
+          "5D1E",
+          "F salvato, chiamante verificato",
+          "Con frame5D2A: flag della scansione. C39D prendeF daINC H, C3B8 daDEC/INC C. Calcolo dalla riga e dallo shift, non da un0 globale"
+        ],
+        [
+          "Altri frame",
+          "sei ruoli indipendenti",
+          "5D20:F chiamante;5D22:C chiamante;5D24:E descrittore;5D26:L video;5D28:C scansione;5D2A:F scansione"
+        ],
+        [
+          "Propriet\u00e0",
+          "prefisso proprio del nome in682A",
+          "Il GO TO verificato preserva anche5D1E. Chiamanti sconosciuti, scene generiche ed errori revocano. Old SAVE assente resta sconosciuto"
+        ],
+        [
+          "5D24\u20135D27",
+          "non introdotti",
+          "Non estendere il contratto ai byte vicini"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 131
+    }
+  ]
+}

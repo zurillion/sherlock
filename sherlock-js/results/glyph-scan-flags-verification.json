@@ -1,0 +1,216 @@
+{
+  "protocol": "Natural seed1 major-witness, all24 actor slots, free initial LOOK, original graphics off after boot, uppercase injected keys and immediate MORE. No world/actor patches. Observe PUSH/CALL and EX(SP),HL stores, including identical-value stores; record unclassified value changes separately. Two stack bytes are observed to distinguish roles; this dossier implements only5D1E. Offline only.",
+  "native_commands": 76,
+  "native_through": {
+    "tick": 3061,
+    "due": 3781,
+    "minute": 0,
+    "hour": 11,
+    "day": 2,
+    "period": "am",
+    "label": "Wed 11:00am"
+  },
+  "unclassified_transitions": [],
+  "actual_reads": [
+    {
+      "address": "5D1E",
+      "value": 0,
+      "clock": {
+        "tick": 3009,
+        "due": 3781,
+        "minute": 8,
+        "hour": 10,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 10:08am"
+      },
+      "actor": 8,
+      "last_store": {
+        "pc": "C3B8",
+        "sp": "5D20",
+        "af": 0,
+        "bc": 258,
+        "de": 16279,
+        "hl": 22311,
+        "tick": 964,
+        "actor": 2,
+        "glyph": {
+          "frame": 23850,
+          "char": 114,
+          "descriptor": 23563,
+          "screen_address": 20519,
+          "shift": 2,
+          "caller_count": 1,
+          "word": "inspector.l."
+        },
+        "address": "5D1E",
+        "value": 0
+      }
+    }
+  ],
+  "controlled_abi_cases": 1728,
+  "controlled_real_clear_calls": 288,
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 235,
+    "bytes_roundtripped": 419,
+    "regions": [
+      {
+        "start": "682A",
+        "end_exclusive": "6830",
+        "kind": "data",
+        "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+        "atlas_priority": 131,
+        "fields": [
+          [
+            "682A",
+            "programma del testo",
+            "6804 ->67F7 ->nome attore, poi comando composto"
+          ]
+        ]
+      },
+      {
+        "start": "A59F",
+        "end_exclusive": "A5CD",
+        "kind": "code",
+        "label": "Ingresso pubblico del testo e stack degli argomenti",
+        "atlas_priority": 131
+      },
+      {
+        "start": "A720",
+        "end_exclusive": "A771",
+        "kind": "code",
+        "label": "Nome dell\u2019attore e chiamate relative dei testi",
+        "atlas_priority": 131
+      },
+      {
+        "start": "A7C5",
+        "end_exclusive": "A7D0",
+        "kind": "code",
+        "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+        "atlas_priority": 131
+      },
+      {
+        "start": "D3E8",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+        "atlas_priority": 131
+      },
+      {
+        "start": "A95B",
+        "end_exclusive": "A990",
+        "kind": "code",
+        "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+        "atlas_priority": 131
+      },
+      {
+        "start": "C363",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "Pulizia riga: CALL reale e byte alto del return link",
+        "atlas_priority": 131
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: righe e registri salvati; F della scansione salvato a5D1E nel frame5D2A",
+        "atlas_priority": 131,
+        "fields": [
+          [
+            "5D1E",
+            "F salvato, chiamante verificato",
+            "Con frame5D2A: flag della scansione. C39D prendeF daINC H, C3B8 daDEC/INC C. Calcolo dalla riga e dallo shift, non da un0 globale"
+          ],
+          [
+            "Altri frame",
+            "sei ruoli indipendenti",
+            "5D20:F chiamante;5D22:C chiamante;5D24:E descrittore;5D26:L video;5D28:C scansione;5D2A:F scansione"
+          ],
+          [
+            "Propriet\u00e0",
+            "prefisso proprio del nome in682A",
+            "Il GO TO verificato preserva anche5D1E. Chiamanti sconosciuti, scene generiche ed errori revocano. Old SAVE assente resta sconosciuto"
+          ],
+          [
+            "5D24\u20135D27",
+            "non introdotti",
+            "Non estendere il contratto ai byte vicini"
+          ]
+        ]
+      },
+      {
+        "start": "CE10",
+        "end_exclusive": "CE18",
+        "kind": "code",
+        "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+        "atlas_priority": 131
+      }
+    ]
+  },
+  "atlas": {
+    "before": {
+      "partial": 466,
+      "unknown": 2605,
+      "documented": 38529
+    },
+    "after": {
+      "partial": 466,
+      "unknown": 2605,
+      "documented": 38529
+    },
+    "newly_documented_payload_bytes": 0,
+    "gameplay_equivalence": false
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 374,
+    "random_draws": 7225,
+    "clock": {
+      "tick": 3001,
+      "due": 3781,
+      "day": 2,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Wed 10:00am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 7223,
+    "compared_random_reads": 15464,
+    "certified_checkpoint_range": [
+      0,
+      373
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 374,
+      "target_clock": "Wed 10:10am",
+      "resolved_address": "5D1E",
+      "unknown_address": "5D24",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "unknown_next_operand": "5D24",
+  "natural_terminal_variants_still_open": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "separate_cab_boundary": "5D0C",
+  "full_game_equivalence": false,
+  "validation": {
+    "initial_related_tests": 150,
+    "final_targeted_tests": 55,
+    "witness_prefix": "374 checkpoints, all actors, random draws/reads, arena, bitmaps and LOAD future passed",
+    "full_suite": "GitHub Actions verifies all tests on the publishing commit"
+  }
+}

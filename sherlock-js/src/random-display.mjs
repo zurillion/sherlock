@@ -42,7 +42,7 @@ export class RandomDisplay {
   // C388 ABI tests distinguish eight frames and both caller counts. The extra 5D1F byte is owned only
   // in a verified caller scope; scene frames retain their old low-byte
   // contract and unprojected EXAMINE/statement output revokes ownership.
-  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at>=0x5D20&&at<=0x5D23)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D1D||at>=0x5D1F&&at<=0x5D23))s[at]=v;};
+  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at>=0x5D20&&at<=0x5D23)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&at<=0x5D23)s[at]=v;};
   // C374's CALL leaves its return link at the glyph-entry stack position.
   // A deep wrap can overwrite previously owned cells with that link.
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
@@ -54,7 +54,7 @@ export class RandomDisplay {
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D1D||at>=0x5D1F&&at<=0x5D23))delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&at<=0x5D23)delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -65,11 +65,17 @@ export class RandomDisplay {
   // points at the word buffer; the following delimiter restores the caller's
   // descriptor (A815/D438: $5000 | noun). C374's row clear uses $5A20.
   put(frame-6,descriptor&255);put(frame-5,descriptor>>>8);
-  put(frame-10,shift);put(frame-9,1);put(frame-12,0);put(frame-11,glyph[7]);
+  // On the last scan, C39D retains flags from INC H at the end of
+  // scan seven. A split byte restores them, then DEC/INC C before C3B8.
+  // Derive those flags from the row address and shift, not a boot zero.
+  const incFlags=(before,carry)=>{const after=(before+1)&255;return (after&0xA8)|(after===0?64:0)|((before&15)===15?16:0)|(before===127?4:0)|carry;};
+  const lastRowFlags=incFlags(((address>>>8)+6)&255,0);
+  const savedScanFlags=shift?incFlags((shift-1)&255,lastRowFlags&1):lastRowFlags;
+  put(frame-10,shift);put(frame-9,1);put(frame-12,savedScanFlags);put(frame-11,glyph[7]);
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke all four bytes; each register has its own role.
- invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1E:0x5D1A,0x5D23);}
+ invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:0x5D1A,0x5D23);}
  get state(){return this.world.display;}
  invalidateScratch(from=0x5CEC,to=0x5D23){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}

@@ -7,20 +7,21 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    374 checkpoint, da0 a373, fino a mercoledì10:00: tutti24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
    contatore MORE e futuro dopo LOAD.7223 draw e15464 read confrontati.
-   Vedere MODELLI-LESSICALI-E-FLAG.md e
-   results/model-flags/witness-prefix.json.
+   Vedere GLIFI-E-FLAG-DI-SCANSIONE.md e
+   results/glyph-scan-flags/witness-prefix.json.
 
-2. **Prossimo confine reale: $5D1E al checkpoint374 verso mercoledì10:10.**
-   A01D/A01E sono i flag del modello lessicale, estratti dai nibble alti
-   dei record a8259. Gli aggiornamenti provengono dal resolver, dal
-   dispatch delle azioni e dagli annunci/ordini composti, non dal solo
-   ultimo comando del giocatore. I quattro chiamanti di A2BD e i valori
-   a ogni draw sono verificati nelle sequenze brevi. Old LOAD senza
-   coppia resta unknown fino a un writer. Il vecchio test5D23 ora esige
-   la prosecuzione completa sino alle10:00, senza il vecchio limiteA01D.
-   Ricostruire ora i reali writer/frame/chiamanti di5D1E, includendo
-   scritture invariate; non estendere automaticamente i contratti dei
-   byte adiacenti. Nessun nuovo finale naturale certificato.
+2. **Prossimo confine reale: $5D24 al checkpoint374 verso mercoledì10:10.**
+   Il primo operando5D1E è superato: nel prefisso proprio del nome attore,
+   frameC388=5D2A, èF della scansione salvato daC39D/C3B8. Calcolare i
+   flag daINC H e DEC/INC C, conservando il carry realmente prodotto;
+   non assegnare0 alla cella globalmente. GO TO verificato lo preserva,
+   scene/errori/chiamanti sconosciuti revocano. Vecchi LOAD senza la
+   cella restano unknown fino al writer. Altri frame hannoF/C chiamante,
+   E descrittore,L video,C scansione. Vedere GLIFI-E-FLAG-DI-SCANSIONE.md.
+   Il secondo operando5D24 resta sconosciuto nella medesima estrazione:
+   nessun nuovo checkpoint completo oltre0–373. Non estendere il
+   contratto al byte adiacente, né derivarne il valore da5D23.
+   Cinque finali naturali restano aperti e il limite cab5D0C è separato.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
