@@ -50,6 +50,8 @@ for(const e of entities)if(e.description)ensure(e.description);
 const assets=await read('locazioni/spectrum-assets.json');
 const cabCatalog=await read('cab/results/cab-data.json');
 const npcPrograms=extendObjectPrograms(await read('ai/results/domain-programs.json'),payload);
+// Immutable FF sentinel after the fixed 24 eight-byte actor rows.
+npcPrograms.actorTerminator=byte(0x9920);if(npcPrograms.actorTerminator!==255)throw Error('Unexpected actor-table terminator');
 if(npcPrograms.source_sha256!==sha)throw Error('NPC programs refer to a different source payload');
 // TELL is an actor/topic table, not a search in descriptions or fact memory.
 // FE is the default speaker, used only when that actor has no own table.

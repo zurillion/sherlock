@@ -1,10 +1,11 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [GLIFI-E-DESCRITTORE-SALVATO.md](GLIFI-E-DESCRITTORE-SALVATO.md).
-La coppia5D1E/5D24 è superata:393 checkpoint0–392 sino a Wed13:10,
-7718 draw/16516 read. Prossimo confine5D26 al checkpoint393 versoWed13:20.
-Cinque finali naturali restano aperti. Per il backlog corrente vedere
-RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico dei nuclei.
+Aggiornamento corrente: [NOMI-LOCAZIONI-E-STACK.md](NOMI-LOCAZIONI-E-STACK.md).
+Superati5D26 e il terminatore immutabile9920:402 checkpoint0–401 sino a
+Wed14:40,7959 draw/17042 read. Prossimo confine5D27 al checkpoint402
+versoWed14:50, con lettura originale alle14:43. Cinque finali naturali
+restano aperti. Per il backlog corrente vedere RIPRESA-GAMEPLAY.md;
+le sezioni seguenti conservano lo storico dei nuclei.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle

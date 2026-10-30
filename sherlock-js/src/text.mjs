@@ -72,7 +72,14 @@ export class Text {
      const action=context.action,model=this.data.actions.find(a=>a.id===action),args=context.args||[255,255];
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
      if(w.npcs)w.npcs.modelFlags=model.modelFlags?[...model.modelFlags]:[null,null]; // A38B, no restore on return.
-     const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});for(const part of parts){feed(' ',{dict:true});if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});}remember(0x5000|(r.nameWords[0]&4095));};
+     const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});
+      const word=part=>{if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});};
+      // A3DE/A745/A7BA/D405: the qualified proper room prefix is flushed
+      // inside the name call (frame5D32 in the verified CE13 order).
+      // The final noun remains buffered and flushes after that call returns.
+      if(context.roomNamePrefix&&proper&&parts.length>1){context.roomNamePrefix(()=>{for(const part of parts.slice(0,-1)){feed(' ',{dict:true});word(part);}feed(' ',{dict:true});});word(parts.at(-1));}
+      else{context.unknownRoomName?.();for(const part of parts){feed(' ',{dict:true});word(part);}}
+      remember(0x5000|(r.nameWords[0]&4095));};
      const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
      // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;
      // A3C8/A3CE prints "me" when the first argument is the speaker.

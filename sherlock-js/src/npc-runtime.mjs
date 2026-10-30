@@ -97,7 +97,7 @@ export class NpcRuntime {
   // CE10–CE13 prints 682A; its two nested calls reach the proper
   // actor-name prefix at glyph frame 5D2A. Non-proper names stay unknown
   // for the newly owned byte; do not reuse the prefab TELL frame 5D1A.
-  order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});const e=this.w.entity(actor);this.print('682A',actor,{object:recipient,action,args,...(e.person&&(e.noun&32768)?{actorNameFrame:0x5D2A,actorNameUpper:true,preserveGlyphFlags:[29,30].includes(action)}:{})},messages);},
+  order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});const e=this.w.entity(actor);this.print('682A',actor,{object:recipient,action,args,...(e.person&&(e.noun&32768)?{actorNameFrame:0x5D2A,actorNameUpper:true,...([29,30].includes(action)?{roomNameFrame:0x5D32}:{}),preserveGlyphFlags:[29,30].includes(action)}:{})},messages);},
   request:(r,c)=>this.request(r,c,messages,actions),
   rule:(name,args,c)=>this.rule(name,args,c,messages,actions),
   action:(action,args,c)=>this.action(action,args,c,messages,actions)
@@ -107,7 +107,7 @@ export class NpcRuntime {
   // CC37/C821 select the output by perception; successful NPC speech is
   // still printed in darkness (A2E4 only rejects dark failure output).
   const g=this.game,visible=force||this.w.perceived(actor);
-  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
+  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D26);}c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,options);
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
@@ -647,6 +647,7 @@ export class NpcRuntime {
   if(address===0x9CA1)return this.state.burningNoteTicks;
   if(address===0xA11A||address===0xA11B)return this.state.recordsSourceKnown?this.use(({records})=>{const link=records.arena.allocationLink;return link===null?null:address===0xA11A?link&255:link>>>8;}):null;
   const head=Object.entries(RECORD_HEADS).find(([,at])=>address===at||address===at+1);if(head||address===0x9FE3||address===0x9FE4)return this.state.recordsSourceKnown?this.use(({records})=>{const value=head?records.heads[head[0]]:records.arena.freeHead,at=head?head[1]:0x9FE3;return address===at?value&255:value>>>8;}):null;
+  if(address===0x9920)return this.game.data.npcPrograms.actorTerminator??null;
   if(address>=0x9860&&address<0x9920){const index=Math.floor((address-0x9860)/8),a=this.w.scheduler.actors[index],s=index===0?{pc:this.state.playerProgramCounter??'9923',saved:this.state.playerRootSaved}:this.active?.vm.state(a.id)||this.state.program.states[a.id],pc=parseInt(s.pc,16);return [a.id,pc&255,pc>>>8,...s.saved,a.due&255,a.due>>>8][(address-0x9860)%8];}
   const encounterCells={0x9D92:this.state.encounters[2][0],0x9D93:this.state.encounters[2][2],0x9D94:this.state.encounters[2][1]};for(const [id,start]of[[3,0x9D10],[4,0x9D2E],[11,0x9D45],[12,0x9D70]])for(const [i,v]of this.state.encounters[id].entries())encounterCells[start+i]=v;if(address in encounterCells)return encounterCells[address];
   if(address===0x9D90)return Number(this.state.flags.strakerMet);if(address===0x9D91)return Number(this.state.flags.lestradeMet);

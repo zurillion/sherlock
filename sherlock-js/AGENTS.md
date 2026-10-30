@@ -404,3 +404,24 @@ Verifica naturaleE: ultimo storeC38A/tick964/Lestrade2/glifo r diInspector/
 frame5D2A/SP5D26/DE5C0B/HL5027. Lettura giardiniere8/tick3009/Wed10:08,
 E=0B. Nessuna transizione non classificata; osservato25 per distinguereD,
 ma non introdotto. Non installare0B come fallback dei vecchi salvataggi.
+
+
+30 ottobre2026 — leggere NOMI-LOCAZIONI-E-STACK.md e
+results/room-name-stack-verification.json.5D26 è sovrascritto dal prefisso
+proprio del nome locazione nell’ordine CE13: A360/A3DE/A745/A4AB/A7BA/D405,
+frameC388=5D32, C3B8 salvaF della scansione finale della t diParliament.
+Il precedenteC diInspector/frame5D2A è un ruoloABI valido, non ultimo writer.
+Soggetto temporaneoA036=0 nella citazione; non cambiare lo scheduler.
+Delimitatore dopo il prefisso ancora nel frame; Street rimane nel buffer
+fino al ritorno. DerivareF daINC H eDEC/INC C, non0 dalla traccia.
+Lettura cuoca9/tick3192/Wed13:11; ultimo writer964/AF0000/HL5035/shift2.
+1728ABI e1152 varianti archiviate;109 test mirati passati. OldLOAD senza26
+restaunknown; output senza contratto revoca.25/27 ancora non posseduti.
+9920 èFF immutabile dopo24 righe da8 byte: esportarlo dal payload;
+metadato assente rimaneunknown, non fallback. Prefisso402 checkpoint0–401
+sinoWed14:40,7959draw/17042read,24 attori/arena752/bitmap/LOAD.
+Prossimo confine5D27 al402 verso14:50, lettura originale14:43/tick3284.
+Probe originale sino16:00 non è certificato completo. Cinque finali naturali
+e cab5D0C restano aperti. Atlante324 istruzioni/616byte elencati,40 byte
+prima grigiA360–A37C eA7BA–A7C4; approfonditiA37D–A418,C388–C3E3,
+D3E8–D447,CE10–CE17,9920,workspace5D26 e ponti del testo. Riferire le zone.

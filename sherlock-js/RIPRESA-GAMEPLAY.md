@@ -4,24 +4,22 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   393 checkpoint, da0 a392, fino a mercoledì13:10: tutti24 posti attore,
+   402 checkpoint, da 0 a 401, fino a mercoledì 14:40: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD.7718 draw e16516 read confrontati.
-   Vedere GLIFI-E-DESCRITTORE-SALVATO.md e
-   results/glyph-descriptor-low/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD. 7959 draw e 17042 read confrontati.
+   Vedere NOMI-LOCAZIONI-E-STACK.md e results/room-name-stack/witness-prefix.json.
 
-2. **Prossimo confine reale: $5D26 al checkpoint393 verso mercoledì13:20.**
-   La coppia5D1E/5D24 è superata.5D24 èE del descrittore salvato daC38A
-   nel frame5D2A del prefisso proprio del nome attore682A. Calcolare
-   descriptor&FF; non usare0B della traccia né il byte video5D23.
-   Tre descrittori diversi verificano che il parametro è realmente
-   variabile. Proprietà condizionata al chiamante; scene, errori e
-   caller sconosciuti revocano. Old SAVE senza24 rimane unknown.
-   Il vecchio test5D1E ora richiede tutto il proprio probe sinoWed11:00;
-   il test del nuovo descrittore arriva al proprio termineWed12:00.
-   Ricostruire ora i writer/frame/chiamanti di5D26, incluse scritture
-   dello stesso valore; non proiettare5D25–5D27 per estensione.
-   Cinque finali naturali restano aperti e il limite cab5D0C è separato.
+2. **Prossimo confine reale: $5D27 al checkpoint402 verso mercoledì14:50.**
+   Superati5D26 e l’omissione del terminatore immutabile9920.
+   Il writer finale di26 èC3B8 nel frame5D32 del prefisso proprio della
+   destinazione in un ordine NPC, nonC del precedente nome attore.
+   La t diParliament lasciaF derivato dalle operazioni di scansione;
+   Street rimane nel buffer fino al ritorno. Lettura cuoca9/tick3192.
+   Ricostruire ora27 indipendentemente: il probe lo osserva al tick3284,
+   Wed14:43, ma il runtime lo lascia unknown. Non installare lo zero
+   osservato né proiettare25 per vicinanza. OldLOAD assente restaunknown;
+   chiamanti senza contratto revocano. Cinque finali naturali ancora aperti;
+   il limite cab5D0C è separato. Atlante:40 byte nuoviA360–A37C/A7BA–A7C4.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -61,7 +59,7 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 30 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite e prove correnti: vedere `results/glyph-descriptor-low-verification.json` e
+Suite e prove correnti: vedere `results/room-name-stack-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 
