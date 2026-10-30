@@ -1,0 +1,21 @@
+import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';import{gunzipSync}from'node:zlib';import{ClientSession}from'../src/session.mjs';import{Game}from'../src/game.mjs';import{assertOriginalState}from'./helpers/original-state.mjs';
+const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url))),ref={cases:[]};for(const name of['channel-reference','syntax-reference'])ref.cases.push(...JSON.parse(gunzipSync(await readFile(new URL('../results/output-channel/'+name+'.json.gz',import.meta.url)))).cases);
+// Exploratory cases11/12 have baseline-proven unrelated differences; retain them
+// as explicit counterexamples in output-channel-boundaries.test.mjs, not parity claims.
+for(const[index,c]of [...ref.cases.entries()].filter(([i])=>![11,12].includes(i)))test('Native output-channel lifecycle '+index,async()=>{
+ const s=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=s.game;let seen=[],loaded=null,out;const channel=()=>g.npcRuntime.read(0xA027),absolute=g.runtimeRandom.absolute.bind(g.runtimeRandom);g.runtimeRandom.absolute=(...a)=>{seen.push(channel());return absolute(...a);};assert.equal(channel(),c.initial);assert.deepEqual(c.unclassified_transitions,[]);
+ for(const row of c.steps){seen=[];const n=g.world.random.draws;out=row.input?s.request(row.input.startsWith('WAIT UNTIL')?'start-command':'command',{command:row.input}):s.request('continue-command',{job:out.job});assert.notEqual(out.state.analysis.outcome,'not_translated',out.state.prototype_notice);assert.equal(channel(),row.channel,'channel after '+row.input);assert.deepEqual(seen,row.random.map(d=>d.channel),'channel at every draw '+row.input);
+ const count=g.world.random.draws-n,draws=count?g.world.random.trace.slice(-count):[];assert.equal(draws.length,row.random.length);for(const[i,d]of row.random.entries())for(const k of['actor','width','mixOffset','seed','cursor','reads','result','next_seed','next_cursor'])assert.deepEqual(draws[i][k],d[k],row.input+' '+k);assertOriginalState(g,row.after,'channel case'+index+' '+row.input);
+ if(loaded&&row.input&&!row.input.startsWith('WAIT UNTIL')){loaded.submit(row.input);assert.deepEqual(loaded.dump(),g.dump(),'future after LOAD');}if(!out.running){const saved=JSON.parse(JSON.stringify(g.dump()));loaded=Game.load(data,saved);assert.deepEqual(loaded.dump(),saved,'exact JSON save representation');}
+ }
+});
+test('Channel writers distinguish boot, prompt, editor return, errors and unknown old LOAD',()=>{
+ assert.equal(data.argumentChecks.initialOutputChannel,0);const g=new Game(data,{npc_profile:'world-v5',seed:1}),p=g.sourceDisplay;assert.equal(g.npcRuntime.read(0xA027),1);
+ p.command('I');assert.equal(g.npcRuntime.read(0xA027),0);p.prompt();assert.equal(g.npcRuntime.read(0xA027),1);p.repeat();assert.equal(g.npcRuntime.read(0xA027),0);
+ const channels=[],lower=p.lowerText.bind(p);p.lowerText=text=>{channels.push(g.npcRuntime.read(0xA027));return lower(text);};p.setChannel(1);p.error([{text:'WHAT ?'}]);assert.deepEqual(channels,[1]);assert.equal(g.npcRuntime.read(0xA027),0,'errors write zero instead of restoring one');p.prompt();assert.equal(g.npcRuntime.read(0xA027),1);
+ const save=JSON.parse(JSON.stringify(g.dump()));assert.equal(Game.load(data,save).npcRuntime.read(0xA027),1);delete save.world.npcs.outputChannel;const old=Game.load(data,save);assert.equal(old.npcRuntime.read(0xA027),null);assert.throws(()=>old.runtimeRandom.read(0xA027),/\$A027/);old.sourceDisplay.prompt();assert.equal(old.npcRuntime.read(0xA027),1,'idempotent prompt still executes the understood writer');old.sourceDisplay.command('I');assert.equal(old.npcRuntime.read(0xA027),0);save.world.npcs.outputChannel=2;assert.throws(()=>Game.load(data,save),/Canale di output/);
+});
+test('Original writer catalogue includes semantic errors and action-announcement resets',async()=>{
+ const pcs=new Set(ref.cases.flatMap(c=>c.steps.flatMap(r=>r.events.map(e=>e.pc))));for(const pc of['A306','A352','CB69','CB74','D6E7','D710','D7C0','D7CA','D8A0','D8A8','9A90'])assert(pcs.has(pc),pc);
+ for(const c of ref.cases)for(const r of c.steps)for(const e of r.events){assert.equal(e.value,e.a);assert([0,1].includes(e.value));}
+});

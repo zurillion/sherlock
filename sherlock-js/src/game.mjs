@@ -158,7 +158,7 @@ export class Game {
   if(w.dark(actor)&&![31,43,46,47,48,49,50,51,53,54].includes(action)&&!lightFreeLocal)return reject('SORRY IT IS TOO DARK.');
   if(action===34)return actor===w.player?ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf()}]):ok([],1);
   if(action===33){const listed=w.entities.filter(e=>e.parent===actor&&e.rooms.length<2&&w.perceived(e.id,actor));for(const e of listed)e.status|=128;const items=listed.map(e=>w.name(e.id,{indefinite:true}));const name=actor===0?'You are':w.name(actor,{indefinite:true})+' is';return ok([name.replace(/^./,c=>c.toUpperCase())+' carrying '+(items.length?joinList(items)+'.':'nothing')]);}
-  if(action===32){if(actor===w.player)return ok([this.error(this.text.render('6915').toUpperCase())],0);const context=this.npcTextContext(actor),out=ok([this.textMessage(this.text.greeting(actor,context),context)],0);out.projected=Boolean(context.sink);return out;}
+  if(action===32){this.sourceDisplay.setChannel(actor===0?1:0);if(actor===w.player)return ok([this.error(this.text.render('6915').toUpperCase())],0);const context=this.npcTextContext(actor),out=ok([this.textMessage(this.text.greeting(actor,context),context)],0);out.projected=Boolean(context.sink);return out;}
   if(action===37){
    const literal=node.groups[0]?.noun;
    if(!(literal&32768)||!(literal&128))return reject("DON'T BE SILLY.");

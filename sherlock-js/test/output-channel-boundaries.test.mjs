@@ -1,0 +1,7 @@
+// Counterexamples, explicitly NOT native equivalence certificates.
+import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';import{gunzipSync}from'node:zlib';import{ClientSession}from'../src/session.mjs';import{assertOriginalState}from'./helpers/original-state.mjs';
+const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url))),ref=JSON.parse(gunzipSync(await readFile(new URL('../results/output-channel/channel-reference.json.gz',import.meta.url)))),known=JSON.parse(await readFile(new URL('../results/output-channel/unrelated-boundaries.json',import.meta.url)));
+for(const b of known.results)test('Retained baseline counterexample: '+b.input,()=>{
+ const s=new ClientSession(data,{npc_profile:'world-v5',seed:1});let out,n=0;
+ assert.throws(()=>{for(const row of ref.cases[b.case].steps){out=row.input?s.request(row.input.startsWith('WAIT UNTIL')?'start-command':'command',{command:row.input}):s.request('continue-command',{job:out.job});assert.notEqual(out.state.analysis.outcome,'not_translated');assert.equal(s.game.npcRuntime.read(0xA027),row.channel);assertOriginalState(s.game,row.after,'counterexample '+b.case+' '+row.input);n++;}},e=>{assert.equal(n,b.checkpoint);assert.equal(e.actual,b.actual);assert.equal(e.expected,b.expected);assert.match(e.message,b.case===11?/cumulative MORE counter/:/failure budget/);return true;});
+});

@@ -5,14 +5,15 @@ import {bootstrapKeyboard,bootstrapWordWorkspace} from './keyboard-profile.mjs';
 // original screen image or machine snapshot is installed here.
 export class RandomDisplay {
  constructor(data,world){this.data=data;this.world=world;}
- initialize(opening,{sceneTrace=[]}={}){this.world.display={version:1,profile:'historical-text-only',wordBuffer:bootstrapWordWorkspace(this.data.randomInputs.bootOptions),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
+ initialize(opening,{sceneTrace=[],deferPrompt=false}={}){this.world.display={version:1,profile:'historical-text-only',wordBuffer:bootstrapWordWorkspace(this.data.randomInputs.bootOptions),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
   if(this.data.randomInputs.editorInitial){this.state.input=this.data.randomInputs.editorInitial.slice(0,129);this.state.inputKnown=this.state.input.map(()=>true);this.state.tokens=this.data.randomInputs.editorInitial.slice(129);this.state.tokenKnown=this.state.tokens.map(()=>true);}
   // ROM 0616–062B allocates a LOAD header after the BASIC program, its
   // variable terminator and the five-byte LOAD "" editor line. It fills
   // eleven bytes with spaces. The USR calculator replaces the first five;
   // the untouched filename tail remains until a deeper renderer owns it.
   if(this.data.randomInputs.basicProgramLength){const workspace=0x5CCB+this.data.randomInputs.basicProgramLength+6;for(let i=5;i<11;i++)this.state.scratch[workspace+i]=32;}
-  this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');this.prompt();}
+  this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');if(!deferPrompt)this.prompt();}
+ setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[]){this.invalidateGlyphExtras();const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
    // D5C4 renders the last word of the carrying person's name and the
    // copula via the actor-is text argument. Its glyph frame differs from
@@ -109,9 +110,9 @@ export class RandomDisplay {
  }
  write(text,{leading=false,sceneTrace=null}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras();if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const c of text)this.feed(c);if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
- prompt(){const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
- repeat(){const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
- command(normalized){const s=this.state;if(!s)return;
+ prompt(){this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
+ repeat(){this.setChannel(0);const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
+ command(normalized){this.setChannel(0);const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.
   const column=((s.lowerCursor??16)-2)/7,line=s.lower[4].slice(0,column)+normalized.toUpperCase();s.lower[4]=line.slice(0,36);s.lowerKnown[4]=true;
   // Filling the final column scrolls immediately; ENTER then scrolls again.
@@ -122,10 +123,11 @@ export class RandomDisplay {
   s.lowerCursor=2;
   for(let i=0;i<Math.min(129,normalized.length);i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}if(normalized.length<129){s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;}
  }
- error(messages,{inline=false}={}){const s=this.state;if(!s)return;this.invalidateGlyphExtras();if(this.world.npcs)this.world.npcs.dictionaryReference=null;
+ error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras();if(this.world.npcs)this.world.npcs.dictionaryReference=null;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
   // including the dictionary's initial space; CR scrolls before the prompt.
   for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));
+  this.setChannel(0); // D710/D7CA/CB74 write zero, rather than restoring the incoming channel.
  }
  lexed(tokens){const s=this.state;if(!s?.tokens)return;s.counter=0;s.cursor=0;s.remaining=36;s.pending=''; // D719/C142 reset the formatter and word-buffer pointer.
   for(let i=0;i<96;i++){s.tokens[i]=0;s.tokenKnown[i]=true;}const bytes=tokens.flatMap(t=>[t.type,...([128,160,176,192].includes(t.type)?[]:[t.value>>>8,t.value&255])]);for(const [i,v]of bytes.entries()){s.tokens[i]=v;s.tokenKnown[i]=true;}}

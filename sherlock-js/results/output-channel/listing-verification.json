@@ -1,0 +1,99 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 160,
+  "bytes_roundtripped": 338,
+  "regions": [
+    {
+      "start": "A027",
+      "end_exclusive": "A028",
+      "kind": "data",
+      "label": "Canale di output corrente: superiore0 / inferiore1",
+      "atlas_priority": 139,
+      "fields": [
+        [
+          "0",
+          "canale superiore",
+          "Buffer delle parole, output del mondo e normale esecuzione degli attori"
+        ],
+        [
+          "1",
+          "canale inferiore",
+          "Editor/prompt ed errori, non un\u2019opzione della presentazione web"
+        ],
+        [
+          "LOAD",
+          "propriet\u00e0 esplicita",
+          "Se assente,unknown fino al writer. Non inferire da un prompt gi\u00e0 disegnato"
+        ],
+        [
+          "Protocollo",
+          "input iniettato",
+          "L\u2019oracolo forza1 prima di riprendere il suo editor; le scritture del bridge sono registrate separatamente da quelle Z80"
+        ]
+      ]
+    },
+    {
+      "start": "9A80",
+      "end_exclusive": "9A99",
+      "kind": "code",
+      "label": "Saluto: Holmes nel canale inferiore, NPC nel superiore",
+      "atlas_priority": 139
+    },
+    {
+      "start": "A2E4",
+      "end_exclusive": "A35D",
+      "kind": "code",
+      "label": "Annuncio dell\u2019azione: selezione del canale e reset esplicito",
+      "atlas_priority": 139
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "A9BF",
+      "kind": "code",
+      "label": "Formatter: il canale inferiore salta il buffer delle parole",
+      "atlas_priority": 139
+    },
+    {
+      "start": "C1E1",
+      "end_exclusive": "C1F4",
+      "kind": "code",
+      "label": "Router del testo: abilitazione e selezione della finestra",
+      "atlas_priority": 139
+    },
+    {
+      "start": "CB43",
+      "end_exclusive": "CB79",
+      "kind": "code",
+      "label": "Fallimento della regola: messaggio nel canale inferiore",
+      "atlas_priority": 139
+    },
+    {
+      "start": "CBA7",
+      "end_exclusive": "CBBB",
+      "kind": "code",
+      "label": "Rifiuto della richiesta: forza il canale superiore",
+      "atlas_priority": 139
+    },
+    {
+      "start": "D6E5",
+      "end_exclusive": "D714",
+      "kind": "code",
+      "label": "Errore lessicale: apre il canale inferiore e poi scrive zero",
+      "atlas_priority": 139
+    },
+    {
+      "start": "D7BA",
+      "end_exclusive": "D7D0",
+      "kind": "code",
+      "label": "Errore sintattico What?: selezione e chiusura del canale",
+      "atlas_priority": 139
+    },
+    {
+      "start": "D898",
+      "end_exclusive": "D8AD",
+      "kind": "code",
+      "label": "Editor: seleziona il canale inferiore fino al ritorno",
+      "atlas_priority": 139
+    }
+  ]
+}

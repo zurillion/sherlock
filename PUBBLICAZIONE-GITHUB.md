@@ -49,6 +49,6 @@ perché richiede il relativo server locale. Per trasferire una partita dal sito
 locale al sito pubblico, usare **Salva partita** e poi **Carica partita**:
 i browser conservano separatamente lo stato dei due indirizzi.
 
-Il lavoro di reverse engineering resta aperto sul limite A027, come indicato
+Il lavoro di reverse engineering resta aperto sul limite 5D28, come indicato
 in `sherlock-js/RIPRESA-GAMEPLAY.md`. La pubblicazione non estende la copertura
 del gameplay o la certificazione dei finali.

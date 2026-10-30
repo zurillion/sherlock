@@ -53,6 +53,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.outputChannel=g.data.argumentChecks?.initialOutputChannel??null;
   w.npcs.modelFlags=g.data.argumentChecks?.initialModelFlags?[...g.data.argumentChecks.initialModelFlags]:[null,null];
   w.npcs.dictionaryReference=null;w.npcs.resolutionMode=g.data.argumentChecks?.initialResolutionMode??null;w.npcs.playerResolutionMode=0;w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
   // Graphics are presentation-only in the declared text-only source profile.
@@ -66,7 +67,7 @@ export class NpcRuntime {
   w.npcs.playerFailures=0;
   w.npcs.playerProgramCounter='9923';
   w.npcs.parserPending=null;
-  w.tick=1;w.minutes=480;g.sourceDisplay.initialize(g.initial,{sceneTrace:g.bootstrapSceneTrace});const messages=[],actions=[];
+  w.tick=1;w.minutes=480;g.sourceDisplay.initialize(g.initial,{sceneTrace:g.bootstrapSceneTrace,deferPrompt:true});const messages=[],actions=[];
   // The initial LOOK has consumed the player's first turn. Run the remaining
   // actor visits of that SAME tick before opening the next editor prompt.
   for(const a of w.scheduler.actors.slice(1)){
@@ -276,7 +277,7 @@ export class NpcRuntime {
    const ctx={...context,request:true,node,sender:job.sender,prefab:job.prefab};
    let result,objectSemantic=false;
    if(node&&![21,22,29,30,45].includes(action)){
-    const out=this.game.executeAs(node,actor,{requestRestriction:context.restriction});if(out.requestRefused){this.print('681A',actor,{object:job.sender},messages);this.game.sourceDisplay.invalidateScratch(0x5D06);cancel(true);return {handled:true,cost:0};}
+    const out=this.game.executeAs(node,actor,{requestRestriction:context.restriction});if(out.requestRefused){this.game.sourceDisplay.setChannel(0);this.print('681A',actor,{object:job.sender},messages);this.game.sourceDisplay.invalidateScratch(0x5D06);cancel(true);return {handled:true,cost:0};}
     // B969 jumps to B9B4 before storing the search iterator on refusal.
     if(action===26&&out.semanticFailed){cancel(true);return {handled:true,cost:0};}
     objectSemantic=Boolean(out.objectRule);this.showAction(out,actor,messages,actions);result=out.objectRule?this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],{...ctx,saved:[action,...out.args,255].slice(0,3),isolated:true},messages,actions):{...yes(out.cost,{args:out.args}),success:out.cost>0||action===32};
@@ -498,6 +499,7 @@ export class NpcRuntime {
    }
  }
  showAction(out,actor,messages,actions,{argumentFlags=false}={}){
+  this.game.sourceDisplay.setChannel(0); // A306: action announcement mode1; A352 leaves zero, including suppressed output.
   const w=this.w,visible=out.visibilityResolved||w.perceived(actor);
   // CAAF/CAF0: a shared door can be acted on from another room. Announce
   // its change to an observer in either room, replacing the unseen actor
@@ -514,7 +516,7 @@ export class NpcRuntime {
   const w=this.w,g=this.game,before=w.roomOf(),visible=w.perceived(id),old=w.roomOf(id),actorOld=notification.actor===undefined?null:w.roomOf(notification.actor),directional=id===notification.actor&&notification.direction>=1&&notification.direction<=10;
   // E4B0 selects the FIRST exit of the old room for a walking entity. CA76
   // announces that action before E49B moves it, even when Holmes is in a train.
-  if(directional)this.modelFlags(notification.direction); // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
+  if(directional){g.sourceDisplay.setChannel(0);this.modelFlags(notification.direction);} // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
   if(directional&&visible){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
@@ -565,7 +567,7 @@ export class NpcRuntime {
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner});const suffix=' '+formatMoney((-amount)&16383)+' "\n';for(const ch of suffix.replace(/d\./g,'D.'))g.sourceDisplay.bufferFeed(ch);if(c.sink)for(const ch of suffix)c.sink(ch);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }
- sayPayment(actor,recipient,pence,messages){this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
+ sayPayment(actor,recipient,pence,messages){this.game.sourceDisplay.setChannel(0);this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
   const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.')+'.\n')this.game.sourceDisplay.bufferFeed(ch);return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1)};messages.push(message);this.game.projectMessages([message]);}}
  callback(actor,oldDue,messages){
   const id=actor.id,w=this.w;
@@ -620,6 +622,7 @@ export class NpcRuntime {
   if(address===0xD6B8)return this.state.playerResolutionMode??null;
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
   if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
+  if(address===0xA027)return this.state.outputChannel??null;
   if(address===0xA021)return this.state.argumentCheck??null;
   if(address===0xA01B)return this.state.clarificationOffset??null;
   if(address===0xA01A)return this.state.parserAll??null;
@@ -660,6 +663,7 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
+  if(s.outputChannel!==undefined&&s.outputChannel!==null&&![0,1].includes(s.outputChannel))throw Error('Canale di output non valido');
   if(s.modelFlags!==undefined&&(!Array.isArray(s.modelFlags)||s.modelFlags.length!==2||s.modelFlags.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Flag del modello non validi');
   if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');
   if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');

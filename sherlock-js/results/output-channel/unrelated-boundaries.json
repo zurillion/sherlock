@@ -1,0 +1,40 @@
+{
+  "baseline_commit": "15db4552ee438a7989c9b35c15186519431cd5c3",
+  "method": "Unmodified baseline JS sources, same data and native oracle records; compare all original-state fields until first difference. No normalized acceptance.",
+  "results": [
+    {
+      "case": 11,
+      "checkpoint": 2,
+      "input": "PRINT",
+      "clock": {
+        "tick": 3,
+        "due": 3,
+        "day": 0,
+        "minute": 2,
+        "hour": 8,
+        "period": "am",
+        "label": "Mon 08:02am"
+      },
+      "message": "baseline case11 PRINT cumulative MORE counter\n\n0 !== 2\n",
+      "actual": 0,
+      "expected": 2
+    },
+    {
+      "case": 12,
+      "checkpoint": 0,
+      "input": "TAKE TO",
+      "clock": {
+        "tick": 1,
+        "due": 1,
+        "day": 0,
+        "minute": 0,
+        "hour": 8,
+        "period": "am",
+        "label": "Mon 08:00am"
+      },
+      "message": "baseline case12 TAKE TO failure budget\n\n3 !== 0\n",
+      "actual": 3,
+      "expected": 0
+    }
+  ]
+}

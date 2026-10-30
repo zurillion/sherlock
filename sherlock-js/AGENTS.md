@@ -452,3 +452,38 @@ Verifica conclusiva27:164 test mirati distinti passati, nessun errore residuo.
 Probe originale76 input sinoWed18:00, nessuna transizione non classificata;
 modello verificato solo sinoWed15:00. Anche28 osservato al tick3373 ma
 non introdotto: il prossimo confine del modello èA027, non28.
+
+
+31 ottobre2026 — leggere CANALE-DEL-TESTO.md e
+results/output-channel-verification.json. A027 è il canale superiore0 /
+inferiore1, non un valore immutabile del decoder. Payload iniziale esportato
+in argumentChecks.initialOutputChannel. Campo corrente npcs.outputChannel:
+D8A0 prompt1,D8A8 ritorno0,erroriD6E7/D710,D7C0/D7CA,CB69/CB74 1->0;
+A306 sceglie dal modoA00C eA352 resetta0 anche fuori scena,CBAF forza0,
+9A90 distingue soggetto0 dagliNPC. Non ripristinare il valore precedente
+sui reset0. Prompt iniziale differito finché terminano gli NPC dello stesso
+tick; prompt idempotente riscrive comunque1. OldLOAD senza campo rimane
+unknown nel lettore dominio E casuale fino al writer; nientefallback0.
+Nuova traccia originale3241 checkpoint sinoWed16:10, canale e ogni draw;
+ultima scrittura alla lettura giardiniere8 èA352/tick3305/cuoca9.
+Protocollo oracolo forza1 riprendendo l’editor: distinto dagli store Z80.
+12 storie brevi conformi; 2 esplorative mantengono differenze già su15db455:
+PRINT dopo SAY WATSON "WAIT UNTIL 9AM",I:MORE JS0/nativo2;
+TAKE TO:failure budget JS3/nativo0. Corpus intatto; test di controesempio
+separati, non certificati di parità. Vedere unrelated-boundaries.json.
+Prefisso411 checkpoint0–410 sinoWed16:10,8201draw/17558read,24attori,
+arena752/bitmap/futuroLOAD. Prossimo5D28 al411 verso16:20; lettura
+originale16:12 già osservata. Non introdurreA028 o5D28 per vicinanza.
+Cinque finali naturali e cab5D0C restano aperti. Atlante160istruzioni/338byte:
+79byte prima grigi9A80–9A98 eCB43–CB78; A027 parziale->documentato.
+ApprofonditiA2E4–A35C,A9B7–A9BE,C1E1–C1F3,CBA7–CBBA,D6E5–D713,
+D7BA–D7CF,D898–D8AC. Riferire le nuove zone in chat.
+
+Verifica conclusivaA027:47 controlli mirati distinti passati. Il nuovo
+confronto continuo ha un confine di stato completo al1671/Tue14:02:
+giardiniere8 PC EDE1 savedJS[50,33,1] contro nativo[50,255,1]. Riprodotto
+anche su15db455 in minute-boundary.json. Confronto completo0–1670, poi
+ambito esplicito canale/draw fino3241; non normalizzare la riga per
+certificare lo stato intermedio. I411 checkpoint originali conLOAD
+restano integralmente confrontati. PRINT/TAKE TO e questo residuo vanno
+ricostruiti separatamente; corpus completo conservato.

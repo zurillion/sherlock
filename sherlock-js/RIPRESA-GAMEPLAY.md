@@ -4,22 +4,24 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   404 checkpoint, da 0 a 403, fino a mercoledì 15:00: tutti i 24 posti attore,
+   411 checkpoint, da 0 a 410, fino a mercoledì 16:10: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. 8011 draw e 17166 read confrontati.
-   Vedere GLIFI-E-ULTIMA-RIGA.md e results/glyph-last-row/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD. 8201 draw e 17558 read confrontati.
+   Vedere CANALE-DEL-TESTO.md e results/output-channel/witness-prefix.json.
 
-2. **Prossimo confine reale: $A027 al checkpoint404 verso mercoledì15:10.**
-   Superato5D27: è A della scansione finale nel frame5D32 del prefisso
-   proprio del nome locazione nell’ordine NPC. Calcolare glyph[7] prima
-   dello shift, non0 osservato per t néF di26. Ultimo writerC3B8/tick964,
-   soggetto temporaneo0; lettura cuoca9/tick3284/Wed14:43.
-   Verificati tutti96 glifi per otto shift, più1728ABI e288 vere CALL.
-   OldLOAD senza27 restaunknown; output senza contratto revoca26/27.
-   Non proiettare25/28 per vicinanza. RicostruireA027 dai suoi writer,
-   distinguendolo dai flag lessicaliA01D/E e dagli altri stati del testo.
-   Cinque finali naturali ancora aperti; il limite cab5D0C è separato.
-   Atlante: approfonditi rendererC388–C3E3 e workspace27; nessun nuovo grigio.
+2. **Prossimo confine reale: $5D28 al checkpoint411 verso mercoledì16:20.**
+   SuperatoA027: canale superiore0 / inferiore1. Payload iniziale esportato;
+   ingresso editor1, ritorno0; errori1->0, annunci A306/A352 anche fuori
+   scena e saluto9A90 dipendente dal soggetto. Il prompt iniziale segue
+   gli NPC dell’avvio. OldLOAD assente restaunknown fino a un writer.
+   Lettura giardiniere8: ultimo writerA352/tick3305/cuoca9, non soloD8A8.
+   Nuova traccia continua3241 checkpoint finoWed16:10: canale e ogni draw.
+   Il confronto completo al minuto si ferma a1671/Tue14:02 per una riga
+   del giardiniere diversa; vedere il controesempio qui sotto.
+   Ricostruire5D28 indipendentemente: il probe precedente lo osserva
+   alle16:12/tick3373 ma il runtime non lo proietta. Non introdurreA028.
+   Cinque finali naturali ancora aperti; cab5D0C è separato.
+   Atlante:79 byte grigi9A80–9A98/CB43–CB78 eA027 da parziale a documentato.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -47,6 +49,20 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    e nessun campo del confronto è stato rimosso. Vedere
    results/dictionary-reference/unrelated-boundary.json.
 
+   Due controesempi esplorativi, riprodotti anche sul commit15db455:
+   dopo SAY WATSON "WAIT UNTIL 9AM", I, PRINT il contatore MORE è0 inJS
+   e2 nell’originale; TAKE TO lascia il budget fallimenti3 inJS e0 nativo.
+   Conservati nel corpus e in test separati, senza certificare equivalenza.
+   Vedere results/output-channel/unrelated-boundaries.json. Non rimuovere
+   campi dal confronto per farli passare; restano da ricostruire.
+
+   Ulteriore controesempio nel campionamento continuo: al checkpoint1671,
+   Tue14:02, PC EDE1 del giardiniere8 ha saved[50,33,1] inJS contro
+   [50,255,1] nativo. Conservato in results/output-channel/minute-boundary.json.
+   Non chiamare3241 checkpoint un certificato completo: canale/draw proseguono
+   conformi, il controllo completo della nuova traccia si ferma a0–1670.
+   Il certificato completo dei411 checkpoint originali resta separato.
+
 5. **Estendere l’equivalenza della partita completa.**
    Più seed e ordini delle azioni, attese lunghe e mezzi di trasporto, diversi
    tempi di input e grafica nativa. Il protocollo certificato attuale usa seed 1,
@@ -59,7 +75,7 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 31 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite e prove correnti: vedere `results/glyph-last-row-verification.json` e
+Suite e prove correnti: vedere `results/output-channel-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 

@@ -1,10 +1,13 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [GLIFI-E-ULTIMA-RIGA.md](GLIFI-E-ULTIMA-RIGA.md).
-Superato5D27:404 checkpoint0–403 sino a Wed15:00,8011 draw/17166 read.
-Prossimo confineA027 al checkpoint404 versoWed15:10. Cinque finali naturali
-restano aperti. Per il backlog corrente vedere RIPRESA-GAMEPLAY.md;
-le sezioni seguenti conservano lo storico dei nuclei.
+Aggiornamento corrente: [CANALE-DEL-TESTO.md](CANALE-DEL-TESTO.md).
+SuperatoA027:411 checkpoint0–410 sino a Wed16:10,8201 draw/17558 read.
+Prossimo confine5D28 al checkpoint411 versoWed16:20. Canale del testo
+ricostruito; canale e draw verificati in3241 checkpoint continui, con un
+confine di stato completo al1671/Tue14:02 nella riga del giardiniere.
+PRINT/MORE, TAKE TO e questo residuo sono controesempi separati.
+Cinque finali naturali restano aperti. Per il backlog corrente vedere
+RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico dei nuclei.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle

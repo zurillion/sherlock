@@ -1,0 +1,31 @@
+{
+  "baseline_commit": "15db4552ee438a7989c9b35c15186519431cd5c3",
+  "method": "Unmodified baseline JS sources, same data and native oracle records; compare all original-state fields until first difference. No normalized acceptance.",
+  "results": [
+    {
+      "case": 0,
+      "checkpoint": 1671,
+      "input": null,
+      "clock": {
+        "tick": 1803,
+        "due": 2341,
+        "day": 1,
+        "minute": 2,
+        "hour": 2,
+        "period": "pm",
+        "label": "Tue 02:02pm"
+      },
+      "message": "baseline case0 null arguments 8\n+ actual - expected\n\n  [\n    50,\n+   33,\n-   255,\n    1\n  ]\n",
+      "actual": [
+        50,
+        33,
+        1
+      ],
+      "expected": [
+        50,
+        255,
+        1
+      ]
+    }
+  ]
+}

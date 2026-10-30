@@ -1,0 +1,337 @@
+{
+  "protocol": "Seed1, all24 actor slots, free initial LOOK, original graphics disabled after boot, uppercase injected input and immediate MORE; explicit channel1 in native editor bridge. Source stores including identical-value writes captured. No world patches. Offline only.",
+  "short_corpus": {
+    "retained_histories": 14,
+    "full_state_conforming_histories": 12,
+    "conforming_input_commands": 47,
+    "conforming_checkpoints": 57,
+    "compared_draws": 205,
+    "compared_reads": 410,
+    "observed_writers": [
+      "9A90",
+      "A306",
+      "A352",
+      "CB69",
+      "CB74",
+      "D6E7",
+      "D710",
+      "D7C0",
+      "D7CA",
+      "D8A0",
+      "D8A8"
+    ],
+    "static_only_writer": "CBAF",
+    "unclassified_transitions": []
+  },
+  "continuous_witness": {
+    "checkpoints": 3241,
+    "through": {
+      "tick": 3371,
+      "due": 3781,
+      "minute": 10,
+      "hour": 4,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 04:10pm"
+    },
+    "channel_and_each_draw_compared": true,
+    "full_state_compared_range": [
+      0,
+      1670
+    ],
+    "first_full_state_difference": {
+      "baseline_commit": "15db4552ee438a7989c9b35c15186519431cd5c3",
+      "method": "Unmodified baseline JS sources, same data and native oracle records; compare all original-state fields until first difference. No normalized acceptance.",
+      "results": [
+        {
+          "case": 0,
+          "checkpoint": 1671,
+          "input": null,
+          "clock": {
+            "tick": 1803,
+            "due": 2341,
+            "day": 1,
+            "minute": 2,
+            "hour": 2,
+            "period": "pm",
+            "label": "Tue 02:02pm"
+          },
+          "message": "baseline case0 null arguments 8\n+ actual - expected\n\n  [\n    50,\n+   33,\n-   255,\n    1\n  ]\n",
+          "actual": [
+            50,
+            33,
+            1
+          ],
+          "expected": [
+            50,
+            255,
+            1
+          ]
+        }
+      ]
+    },
+    "unclassified_transitions": [],
+    "actual_A027_reads": [
+      {
+        "checkpoint": 3177,
+        "checkpoint_clock": {
+          "tick": 3308,
+          "due": 3781,
+          "minute": 7,
+          "hour": 3,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 03:07pm"
+        },
+        "draw": {
+          "channel": 0,
+          "last_store": {
+            "pc": "A352",
+            "a": 0,
+            "tick": 3305,
+            "actor": 9,
+            "caller": "0005",
+            "value": 0
+          },
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 85,
+          "cursor": 40737,
+          "reads": [
+            {
+              "address": 40993,
+              "value": 0
+            },
+            {
+              "address": 40999,
+              "value": 0
+            },
+            {
+              "address": 41249,
+              "value": 198
+            },
+            {
+              "address": 41255,
+              "value": 227
+            }
+          ],
+          "result": 25,
+          "next_seed": 248,
+          "next_cursor": 41249
+        }
+      }
+    ],
+    "not_full_3241_state_certificate": true
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 160,
+    "bytes_roundtripped": 338,
+    "regions": [
+      {
+        "start": "A027",
+        "end_exclusive": "A028",
+        "kind": "data",
+        "label": "Canale di output corrente: superiore0 / inferiore1",
+        "atlas_priority": 139,
+        "fields": [
+          [
+            "0",
+            "canale superiore",
+            "Buffer delle parole, output del mondo e normale esecuzione degli attori"
+          ],
+          [
+            "1",
+            "canale inferiore",
+            "Editor/prompt ed errori, non un’opzione della presentazione web"
+          ],
+          [
+            "LOAD",
+            "proprietà esplicita",
+            "Se assente,unknown fino al writer. Non inferire da un prompt già disegnato"
+          ],
+          [
+            "Protocollo",
+            "input iniettato",
+            "L’oracolo forza1 prima di riprendere il suo editor; le scritture del bridge sono registrate separatamente da quelle Z80"
+          ]
+        ]
+      },
+      {
+        "start": "9A80",
+        "end_exclusive": "9A99",
+        "kind": "code",
+        "label": "Saluto: Holmes nel canale inferiore, NPC nel superiore",
+        "atlas_priority": 139
+      },
+      {
+        "start": "A2E4",
+        "end_exclusive": "A35D",
+        "kind": "code",
+        "label": "Annuncio dell’azione: selezione del canale e reset esplicito",
+        "atlas_priority": 139
+      },
+      {
+        "start": "A9B7",
+        "end_exclusive": "A9BF",
+        "kind": "code",
+        "label": "Formatter: il canale inferiore salta il buffer delle parole",
+        "atlas_priority": 139
+      },
+      {
+        "start": "C1E1",
+        "end_exclusive": "C1F4",
+        "kind": "code",
+        "label": "Router del testo: abilitazione e selezione della finestra",
+        "atlas_priority": 139
+      },
+      {
+        "start": "CB43",
+        "end_exclusive": "CB79",
+        "kind": "code",
+        "label": "Fallimento della regola: messaggio nel canale inferiore",
+        "atlas_priority": 139
+      },
+      {
+        "start": "CBA7",
+        "end_exclusive": "CBBB",
+        "kind": "code",
+        "label": "Rifiuto della richiesta: forza il canale superiore",
+        "atlas_priority": 139
+      },
+      {
+        "start": "D6E5",
+        "end_exclusive": "D714",
+        "kind": "code",
+        "label": "Errore lessicale: apre il canale inferiore e poi scrive zero",
+        "atlas_priority": 139
+      },
+      {
+        "start": "D7BA",
+        "end_exclusive": "D7D0",
+        "kind": "code",
+        "label": "Errore sintattico What?: selezione e chiusura del canale",
+        "atlas_priority": 139
+      },
+      {
+        "start": "D898",
+        "end_exclusive": "D8AD",
+        "kind": "code",
+        "label": "Editor: seleziona il canale inferiore fino al ritorno",
+        "atlas_priority": 139
+      }
+    ]
+  },
+  "atlas": {
+    "before": {
+      "documented": 38569,
+      "partial": 466,
+      "unknown": 2565
+    },
+    "after": {
+      "documented": 38649,
+      "partial": 465,
+      "unknown": 2486
+    },
+    "newly_documented_grey_bytes": 79,
+    "newly_documented_partial_bytes": 1,
+    "new_ranges": [
+      "9A80–9A98",
+      "CB43–CB78"
+    ],
+    "partial_to_documented": "A027",
+    "gameplay_equivalence": false
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 411,
+    "random_draws": 8203,
+    "clock": {
+      "tick": 3371,
+      "due": 3781,
+      "day": 2,
+      "minute": 10,
+      "hour": 4,
+      "period": "pm",
+      "label": "Wed 04:10pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8201,
+    "compared_random_reads": 17558,
+    "certified_checkpoint_range": [
+      0,
+      410
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 411,
+      "target_clock": "Wed 04:20pm",
+      "resolved_address": "A027",
+      "unknown_address": "5D28",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "separate_counterexamples": {
+    "baseline_commit": "15db4552ee438a7989c9b35c15186519431cd5c3",
+    "method": "Unmodified baseline JS sources, same data and native oracle records; compare all original-state fields until first difference. No normalized acceptance.",
+    "results": [
+      {
+        "case": 11,
+        "checkpoint": 2,
+        "input": "PRINT",
+        "clock": {
+          "tick": 3,
+          "due": 3,
+          "day": 0,
+          "minute": 2,
+          "hour": 8,
+          "period": "am",
+          "label": "Mon 08:02am"
+        },
+        "message": "baseline case11 PRINT cumulative MORE counter\n\n0 !== 2\n",
+        "actual": 0,
+        "expected": 2
+      },
+      {
+        "case": 12,
+        "checkpoint": 0,
+        "input": "TAKE TO",
+        "clock": {
+          "tick": 1,
+          "due": 1,
+          "day": 0,
+          "minute": 0,
+          "hour": 8,
+          "period": "am",
+          "label": "Mon 08:00am"
+        },
+        "message": "baseline case12 TAKE TO failure budget\n\n3 !== 0\n",
+        "actual": 3,
+        "expected": 0
+      }
+    ]
+  },
+  "unknown_next_operand": "5D28",
+  "natural_terminal_variants_still_open": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "separate_cab_boundary": "5D0C",
+  "full_game_equivalence": false,
+  "validation": {
+    "targeted_suite_tests_passed": 46,
+    "legacy_unknown_fallback_test": "passed after adding direct RuntimeRandom guard assertion",
+    "continuous_witness_test": "passed: channel/draw parity across3241 checkpoints; full-state prefix bounded at1671 and counterexample asserted",
+    "full_suite": "GitHub Actions checks the complete suite on the publishing commit",
+    "distinct_targeted_tests_passed": 47
+  }
+}
