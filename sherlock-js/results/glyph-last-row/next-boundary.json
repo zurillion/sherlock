@@ -1,0 +1,8 @@
+{
+  "lookahead": "Original major-witness full history, unmodified comparison fields and actors; stops at first unsupported checkpoint",
+  "checkpoint": 404,
+  "unknown_address": "A027",
+  "target_clock": "Wed 03:10pm",
+  "exception": "AssertionError [ERR_ASSERTION]: 404 Ingresso casuale originale non ancora ricostruito: $A027. Il comando non è stato applicato.\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)\n    at async file:///private/tmp/sherlock-lookahead-5d27.mjs:3:17",
+  "full_ending_certified": false
+}

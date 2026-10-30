@@ -425,3 +425,30 @@ Probe originale sino16:00 non è certificato completo. Cinque finali naturali
 e cab5D0C restano aperti. Atlante324 istruzioni/616byte elencati,40 byte
 prima grigiA360–A37C eA7BA–A7C4; approfonditiA37D–A418,C388–C3E3,
 D3E8–D447,CE10–CE17,9920,workspace5D26 e ponti del testo. Riferire le zone.
+
+
+31 ottobre2026 — leggere GLIFI-E-ULTIMA-RIGA.md e
+results/glyph-last-row-verification.json.5D27 è A dell’ultima scansione
+prima dello shift, salvato daC39D/C3B8 nel frame5D32 del prefisso proprio
+della destinazione CE13. Derivare glyph[7] dal font: t=0,q=6,underscore255;
+non0 catturato néF di26 o byte video ruotato. Ultimo writer964/soggetto
+citato0/glifo t/frame5D32/HL5035/shift2, lettura cuoca9/tick3284/Wed14:43.
+Altri frame:5D28 A chiamante,5D2A B chiamante,5D2C D descrittore,
+5D2E H video,5D30 B scansione,5D32 A font. CALL realeC374/frame5D26
+lascia inveceC3 del returnC377.768 nuovi ABI tutti96glifi/8shift,
+1728ABI archiviati e288CALL. OldLOAD senza27 restaunknown anche con26;
+scene/errori/caller sconosciuti revocano; unknownRoomName revoca26/27.
+25/28 non introdotti. Test naturale26 deve raggiungereWed15:00 senza
+not_translated, poi interrompereWAIT regolarmente perSAVE; stesso limite
+esplicito nel test27. Non chiamare la durata maggiore del probe originale
+un certificato completo. Prefisso404 checkpoint0–403 sinoWed15:00,
+8011 draw/17166 read,24attori/arena752/bitmap/futuroLOAD. ProssimoA027
+al404 versoWed15:10. Cinque finali naturali e cab5D0C ancora aperti.
+Atlante324istruzioni/616byte approfonditi, nessun nuovo byte prima grigio:
+C388–C3E3,C363–C37C,A360–A418,A7BA–A7C4,D3E8–D447,CE10–CE17,
+workspace5D27 e ponti del testo. Riferire le zone e distinguere i raffinamenti.
+
+Verifica conclusiva27:164 test mirati distinti passati, nessun errore residuo.
+Probe originale76 input sinoWed18:00, nessuna transizione non classificata;
+modello verificato solo sinoWed15:00. Anche28 osservato al tick3373 ma
+non introdotto: il prossimo confine del modello èA027, non28.

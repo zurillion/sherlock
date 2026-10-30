@@ -1,0 +1,120 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 324,
+  "bytes_roundtripped": 616,
+  "regions": [
+    {
+      "start": "9920",
+      "end_exclusive": "9921",
+      "kind": "data",
+      "label": "Terminatore immutabile FF della tabella attori",
+      "atlas_priority": 137
+    },
+    {
+      "start": "A360",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Ordine citato: soggetto temporaneo e nome della destinazione",
+      "atlas_priority": 137
+    },
+    {
+      "start": "A7BA",
+      "end_exclusive": "A7C5",
+      "kind": "code",
+      "label": "Nome locazione: ingresso distinto dal nome entit\u00e0",
+      "atlas_priority": 137
+    },
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 137,
+      "fields": [
+        [
+          "682A",
+          "ordine con nome della destinazione",
+          "Il successivo prefisso proprio della locazione riscrive le celle del precedente nome attore"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 137
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 137
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 137
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 137
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 137
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia riga: CALL reale e byte alto del return link",
+      "atlas_priority": 137
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; 5D27: riga grezza del font salvata dal prefisso locazione, frame5D32",
+      "atlas_priority": 137,
+      "fields": [
+        [
+          "5D27",
+          "A: ottava riga grezza del font",
+          "Frame5D32: C39D e, se shift nonzero,C3B8. Calcolare glyph[7]; t=0 ma q=6 e underscore=255. Non ricavare daF/5D26 n\u00e9 dal byte video ruotato"
+        ],
+        [
+          "Altri frame",
+          "sei ruoli distinti",
+          "5D28:A chiamante;5D2A:B chiamante;5D2C:D descrittore;5D2E:H video;5D30:B scansione;5D32:A font"
+        ],
+        [
+          "CALL realeC374",
+          "return link",
+          "Frame5D26: byte altoC3 del returnC377, non font"
+        ],
+        [
+          "Propriet\u00e0",
+          "contratto del nome locazione",
+          "Stesso prefisso proprio verificato per26; sostantivo finale scaricato al ritorno. Scene/errori/chiamanti sconosciuti revocano. OldLOAD assente restaunknown.25/28 non introdotti"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 137
+    }
+  ]
+}

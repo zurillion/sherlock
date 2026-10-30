@@ -1,9 +1,8 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [NOMI-LOCAZIONI-E-STACK.md](NOMI-LOCAZIONI-E-STACK.md).
-Superati5D26 e il terminatore immutabile9920:402 checkpoint0–401 sino a
-Wed14:40,7959 draw/17042 read. Prossimo confine5D27 al checkpoint402
-versoWed14:50, con lettura originale alle14:43. Cinque finali naturali
+Aggiornamento corrente: [GLIFI-E-ULTIMA-RIGA.md](GLIFI-E-ULTIMA-RIGA.md).
+Superato5D27:404 checkpoint0–403 sino a Wed15:00,8011 draw/17166 read.
+Prossimo confineA027 al checkpoint404 versoWed15:10. Cinque finali naturali
 restano aperti. Per il backlog corrente vedere RIPRESA-GAMEPLAY.md;
 le sezioni seguenti conservano lo storico dei nuclei.
 

@@ -1,0 +1,306 @@
+{
+  "protocol": "Natural seed1 major-witness, all24 actor slots, free initial LOOK, original graphics off after boot, uppercase injected keys and immediate MORE. No world/actor patches. Observe PUSH/CALL and EX(SP),HL stores, including identical-value stores; record unclassified value changes separately. Two stack bytes are observed to distinguish roles; this dossier implements only5D27. Offline only.",
+  "native_commands": 76,
+  "native_through": {
+    "tick": 3481,
+    "due": 3781,
+    "minute": 0,
+    "hour": 6,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 06:00pm"
+  },
+  "native_through_is_not_full_model_certificate": true,
+  "unclassified_transitions": [],
+  "actual_reads": [
+    {
+      "address": "5D27",
+      "value": 0,
+      "clock": {
+        "tick": 3284,
+        "due": 3781,
+        "minute": 43,
+        "hour": 2,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 02:43pm"
+      },
+      "actor": 9,
+      "last_store": {
+        "pc": "C3B8",
+        "sp": "5D28",
+        "af": 0,
+        "bc": 258,
+        "de": 16295,
+        "hl": 22325,
+        "tick": 964,
+        "actor": 0,
+        "glyph": {
+          "frame": 23858,
+          "char": 116,
+          "descriptor": 23563,
+          "screen_address": 20533,
+          "shift": 2,
+          "caller_count": 1,
+          "word": "parliamentl."
+        },
+        "address": "5D27",
+        "value": 0
+      }
+    },
+    {
+      "address": "5D28",
+      "value": 2,
+      "clock": {
+        "tick": 3373,
+        "due": 3781,
+        "minute": 12,
+        "hour": 4,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 04:12pm"
+      },
+      "actor": 8,
+      "last_store": {
+        "pc": "C3B7",
+        "sp": "5D2A",
+        "af": 0,
+        "bc": 258,
+        "de": 16295,
+        "hl": 22325,
+        "tick": 964,
+        "actor": 0,
+        "glyph": {
+          "frame": 23858,
+          "char": 116,
+          "descriptor": 23563,
+          "screen_address": 20533,
+          "shift": 2,
+          "caller_count": 1,
+          "word": "parliamentl."
+        },
+        "address": "5D28",
+        "value": 2
+      }
+    }
+  ],
+  "archived_abi_cases": 1728,
+  "new_font_abi_cases": 768,
+  "real_clear_calls": 288,
+  "font_final_row_values": [
+    0,
+    6,
+    8,
+    16,
+    24,
+    32,
+    56,
+    60,
+    64,
+    255
+  ],
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 324,
+    "bytes_roundtripped": 616,
+    "regions": [
+      {
+        "start": "9920",
+        "end_exclusive": "9921",
+        "kind": "data",
+        "label": "Terminatore immutabile FF della tabella attori",
+        "atlas_priority": 137
+      },
+      {
+        "start": "A360",
+        "end_exclusive": "A419",
+        "kind": "code",
+        "label": "Ordine citato: soggetto temporaneo e nome della destinazione",
+        "atlas_priority": 137
+      },
+      {
+        "start": "A7BA",
+        "end_exclusive": "A7C5",
+        "kind": "code",
+        "label": "Nome locazione: ingresso distinto dal nome entità",
+        "atlas_priority": 137
+      },
+      {
+        "start": "682A",
+        "end_exclusive": "6830",
+        "kind": "data",
+        "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+        "atlas_priority": 137,
+        "fields": [
+          [
+            "682A",
+            "ordine con nome della destinazione",
+            "Il successivo prefisso proprio della locazione riscrive le celle del precedente nome attore"
+          ]
+        ]
+      },
+      {
+        "start": "A59F",
+        "end_exclusive": "A5CD",
+        "kind": "code",
+        "label": "Ingresso pubblico del testo e stack degli argomenti",
+        "atlas_priority": 137
+      },
+      {
+        "start": "A720",
+        "end_exclusive": "A771",
+        "kind": "code",
+        "label": "Nome dell’attore e chiamate relative dei testi",
+        "atlas_priority": 137
+      },
+      {
+        "start": "A7C5",
+        "end_exclusive": "A7D0",
+        "kind": "code",
+        "label": "Descrittore del nome: ponte al renderer di entità",
+        "atlas_priority": 137
+      },
+      {
+        "start": "D3E8",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+        "atlas_priority": 137
+      },
+      {
+        "start": "A95B",
+        "end_exclusive": "A990",
+        "kind": "code",
+        "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+        "atlas_priority": 137
+      },
+      {
+        "start": "C363",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "Pulizia riga: CALL reale e byte alto del return link",
+        "atlas_priority": 137
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: righe e registri salvati; 5D27: riga grezza del font salvata dal prefisso locazione, frame5D32",
+        "atlas_priority": 137,
+        "fields": [
+          [
+            "5D27",
+            "A: ottava riga grezza del font",
+            "Frame5D32: C39D e, se shift nonzero,C3B8. Calcolare glyph[7]; t=0 ma q=6 e underscore=255. Non ricavare daF/5D26 né dal byte video ruotato"
+          ],
+          [
+            "Altri frame",
+            "sei ruoli distinti",
+            "5D28:A chiamante;5D2A:B chiamante;5D2C:D descrittore;5D2E:H video;5D30:B scansione;5D32:A font"
+          ],
+          [
+            "CALL realeC374",
+            "return link",
+            "Frame5D26: byte altoC3 del returnC377, non font"
+          ],
+          [
+            "Proprietà",
+            "contratto del nome locazione",
+            "Stesso prefisso proprio verificato per26; sostantivo finale scaricato al ritorno. Scene/errori/chiamanti sconosciuti revocano. OldLOAD assente restaunknown.25/28 non introdotti"
+          ]
+        ]
+      },
+      {
+        "start": "CE10",
+        "end_exclusive": "CE18",
+        "kind": "code",
+        "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+        "atlas_priority": 137
+      }
+    ]
+  },
+  "atlas": {
+    "before": {
+      "documented": 38569,
+      "partial": 466,
+      "unknown": 2565
+    },
+    "after": {
+      "documented": 38569,
+      "partial": 466,
+      "unknown": 2565
+    },
+    "newly_documented_payload_bytes": 0,
+    "refined_ranges": [
+      "C388–C3E3",
+      "C363–C37C",
+      "A360–A418",
+      "A7BA–A7C4",
+      "D3E8–D447",
+      "CE10–CE17",
+      "workspace5D27"
+    ],
+    "gameplay_equivalence": false
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 404,
+    "random_draws": 8013,
+    "clock": {
+      "tick": 3301,
+      "due": 3781,
+      "day": 2,
+      "minute": 0,
+      "hour": 3,
+      "period": "pm",
+      "label": "Wed 03:00pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8011,
+    "compared_random_reads": 17166,
+    "certified_checkpoint_range": [
+      0,
+      403
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 404,
+      "target_clock": "Wed 03:10pm",
+      "resolved_address": "5D27",
+      "unknown_address": "A027",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "next_boundary": {
+    "lookahead": "Original major-witness full history, unmodified comparison fields and actors; stops at first unsupported checkpoint",
+    "checkpoint": 404,
+    "unknown_address": "A027",
+    "target_clock": "Wed 03:10pm",
+    "exception": "AssertionError [ERR_ASSERTION]: 404 Ingresso casuale originale non ancora ricostruito: $A027. Il comando non è stato applicato.\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)\n    at async file:///private/tmp/sherlock-lookahead-5d27.mjs:3:17",
+    "full_ending_certified": false
+  },
+  "unknown_next_operand": "A027",
+  "natural_terminal_variants_still_open": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "separate_cab_boundary": "5D0C",
+  "full_game_equivalence": false,
+  "validation": {
+    "font_abi_and_ownership_tests_passed": 51,
+    "room_name_dossier_tests_passed": 53,
+    "descriptor_dossier_tests_passed": 51,
+    "map_and_hosting_tests_passed": 8,
+    "full_suite": "GitHub Actions checks the complete suite on the publishing commit",
+    "new_dossier_tests_passed": 52,
+    "distinct_targeted_tests_passed": 164
+  }
+}
