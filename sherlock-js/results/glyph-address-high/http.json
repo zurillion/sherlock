@@ -1,0 +1,18 @@
+{
+  "port": 8768,
+  "restarted": false,
+  "checks": [
+    {
+      "path": "src/random-display.mjs",
+      "status": 200,
+      "exact_match": true,
+      "sha256": "084f51f8cadb6645746421619d5a0c4f65256e40bc74b338ca7f65e3bfc7eaba"
+    },
+    {
+      "path": "src/memory-map-data.json",
+      "status": 200,
+      "exact_match": true,
+      "sha256": "df12dc7cb2e16c12833170937aee0d749d9ac35920b5578eef21356ec3be5c7f"
+    }
+  ]
+}

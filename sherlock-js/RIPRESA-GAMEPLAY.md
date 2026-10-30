@@ -4,22 +4,23 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   365 checkpoint, da0 a364, fino a mercoledì08:30: tutti gli attori,
+   368 checkpoint, da0 a367, fino a mercoledì09:00: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD.6992 draw e14966 read confrontati.
-   Vedere GLIFI-E-CONTEGGIO-SALVATO.md e
-   results/glyph-count/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD.7059 draw e15134 read confrontati.
+   Vedere GLIFI-E-BYTE-ALTO-VIDEO.md e
+   results/glyph-address-high/witness-prefix.json.
 
-2. **Prossimo confine reale: $5D23 al checkpoint365 verso mercoledì08:40.**
-   Il primo operando5D1D è superato: il B della scansione è derivato dal
-   ciclo a8 righe e viene salvato prima di DJNZ, con ultimo valore1 nel
-   frame5D26. L’ultimo writer è C3B7/tick962/Lestrade; la cuoca lo legge
-   al tick2918,08:37. Manca il secondo operando5D23 della stessa estrazione.
-   Ricostruire ultimo writer, registro e frame di5D23; non installare80
-   dalla traccia né derivare il byte dal solo indirizzo del cursore.
-   Il prefisso completo rimane0–364 fino08:30: nessun checkpoint aggiunto
-   per una singola lettura.5D1D mantiene proprietà e revoche indipendenti;
-   vecchi save assenti restano sconosciuti.5D1E non è introdotto.
+2. **Prossimo confine reale: $A01D al checkpoint368 verso mercoledì09:10.**
+   Entrambi gli operandi5D1D/5D23 sono superati.5D23 deriva dal registroH
+   video salvato nel frame5D2A del prefisso dell’attore; ultimo writer
+   C398/tick964/Lestrade,HL5027. Non è un80 globale. La prova5D1D ora
+   richiede la prosecuzione completa sino al proprio termine08:50.
+   Ricostruire i writer, l’inizializzazione e la persistenza diA01D; non
+   dedurlo dal solo ultimo comando o installare il byte della traccia.
+   Il prefisso completo è0–367 sino09:00, nessun nuovo finale certificato.
+   I vecchi save senza5D23 rimangono sconosciuti;5D24–5D27 e5D1E non sono
+   proiettati per estensione. Vedere il nuovo rapporto per la proprietà
+   indipendente diH e per il diverso ruolo del return linkC377.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -59,7 +60,7 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 30 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **1054 test verificati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **1155 test verificati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 
 
@@ -134,3 +135,28 @@ A3D6–A3E1,A9DF–AA0F,C363–C37C,C388–C3E3 e annotazione workspace5D1D.
 Conservare il limite separato del cab5D0C, riportare le zone in chat.
 
 Verifica conclusiva 5D1D: suite completa 1.104 test passati, 0 errori; 55 controlli mirati passati.
+
+
+30 ottobre2026 — byte alto video: leggere GLIFI-E-BYTE-ALTO-VIDEO.md e
+results/glyph-address-high-verification.json.5D23 è H salvato da C38B/C398
+solo nel frame5D2A del prefisso proprio del nome attore in682A (CE13 ->6804
+->67F7 ->A7C5/D3E8). Calcolare (5020+floor((2+7*colonna)/8))>>>8;
+non installare80. Ultimo writer C398/tick964/Lestrade/r di Inspector,
+colonna8,HL5027. Lettura cuoca9/tick2918/Wed08:37:80, dopo5D1D=1.
+6 ruoli del glifo: frame5D24:A chiamante,5D26:B chiamante,5D28:D descrittore,
+5D2A:H video,5D2C:B scansione,5D2E:A font. La vera CALL C374, con frame5D22,
+scrive invece C377 e lascia C3 a5D23.1.728 ABI glifo più288 pulizie reali,
+8 frame e36 colonne. Vecchi LOAD senza5D23 restano sconosciuti anche con
+5D22 noto; chiamanti senza contratto revocano.5D24–5D27 e5D1E non introdotti.
+Il vecchio test naturale5D1D ora ESIGE l’assenza di not_translated fino08:50;
+non accetta più il vecchio limite5D23. Nuovo probe originale sino10:00,
+modello confronta valori posseduti e lettura ma si ferma suA01D: non
+spacciare10:00 per certificazione completa. Confine attualeA01D al
+checkpoint368 verso Wed09:10. Prefisso esteso0–367/368 sino Wed09:00,
+7059 draw/15134 read,24 attori, arena/bitmap e futuro LOAD. Cinque finali
+naturali restano aperti. Il limite cab5D0C rimane separato.
+Atlante235 istruzioni/419 byte approfonditi, nessun nuovo byte grigio:
+682A–682F,A59F–A5CC,A720–A770,A7C5–A7CF,A95B–A98F,C363–C37C,
+C388–C3E3,CE10–CE17,D3E8–D447 più workspace5D23. Riferire le zone in chat.
+
+Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 controlli mirati passati.

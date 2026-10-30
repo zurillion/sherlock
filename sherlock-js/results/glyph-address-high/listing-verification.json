@@ -1,0 +1,109 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 235,
+  "bytes_roundtripped": 419,
+  "regions": [
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 129,
+      "fields": [
+        [
+          "682A",
+          "testo compresso",
+          "6804 ->67F7 ->nome attore, poi comando composto e chiusura"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 129
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 129
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 129
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 129
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 129
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia riga: CALL reale e byte alto del return link",
+      "atlas_priority": 129
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; HL video salvato: H a5D23 e L a5D22",
+      "atlas_priority": 129,
+      "fields": [
+        [
+          "5D23",
+          "H salvato, chiamante verificato",
+          "Frame5D2A: parte alta dell\u2019indirizzo video iniziale. C38B/C398 salvano HL prima del disegno; non installare50hex come costante globale"
+        ],
+        [
+          "Altri frame",
+          "sei ruoli di5D23",
+          "5D24:A chiamante;5D26:B chiamante;5D28:D descrittore;5D2A:H video;5D2C:B scansione;5D2E:A font.5D30/32 non raggiungono la cella"
+        ],
+        [
+          "PuliziaC374",
+          "return link nel frame5D22",
+          "La CALL reale scrive C377 a5D22/5D23. Il byte altoC3 \u00e8 verificato separatamente dal registroH; non ogni valore pubblicato \u00e8 una coordinata video"
+        ],
+        [
+          "5D1D",
+          "contratto B indipendente conservato",
+          "Frame5D26: ultimo contatore salvato1 prima diDJNZ. Il nuovo H non cambia il contratto diAF/BC n\u00e9 introduce5D1E"
+        ],
+        [
+          "Propriet\u00e0",
+          "prefisso proprio del nome in682A",
+          "Calcolo dal frame e dal cursore. Chiamanti sconosciuti/scene/errori revocano; old LOAD senza5D23 resta sconosciuto anche con5D22 noto"
+        ],
+        [
+          "5D24\u20135D27",
+          "non introdotti",
+          "I byte adiacenti non acquistano propriet\u00e0 per estensione"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 129
+    }
+  ]
+}

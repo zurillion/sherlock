@@ -1,15 +1,13 @@
 # Continuazione ancora in ricerca
 
-Stato corrente30 ottobre2026: prefisso365 checkpoint0–364, fino a Wed08:30,
-6992 draw/14966 read confrontati, tutti24 attori, arena/bitmap e futuro LOAD.
-A022/A023 è ricostruito dall’emissione lessicale;5D1D è ora ricostruito dal
-B salvato nel renderer. Il confronto completo passa quella lettura e si
-ferma al checkpoint365 verso Wed08:40 su5D23, nella stessa estrazione.
-Il certificato resta fino08:30, senza un nuovo checkpoint per il primo operando.
-Rapporti: results/glyph-count-verification.json e
-results/glyph-count/witness-prefix.json. Cinque finali naturali
-ancora da certificare. Le sezioni successive conservano la cronologia delle
-analisi, non sostituiscono questo limite corrente.
+Stato corrente30 ottobre2026: prefisso368 checkpoint0–367 sino Wed09:00,
+7059 draw/15134 read confrontati,24 attori, arena/bitmap e futuro LOAD.
+5D23 è ricostruito dal registroH video nel chiamante verificato. Il
+confronto completo si ferma al checkpoint368 verso Wed09:10 suA01D.
+Rapporti: results/glyph-address-high-verification.json e
+results/glyph-address-high/witness-prefix.json. Cinque finali naturali
+ancora da certificare; il probe originale sino10:00 non è un traguardo
+del modello. Le sezioni seguenti conservano la cronologia delle analisi.
 
 `major-witness.txt` formula le due ipotesi prima della visita e poi osserva
 la confessione nella fumeria. Non imposta flag interni. Il riferimento nativo

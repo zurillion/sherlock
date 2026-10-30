@@ -14,16 +14,17 @@ test('5D1D ownership and save: independent B, known shallow preservation, unknow
  p.glyphFlagsKnown=false;p.glyphResidue('q',0x5D26,35,0x5C0B,7);assert.equal(p.read(0x5D1D),null);p.glyphFlagsKnown=true;p.glyphResidue('q',0x5D26,35,0x5C0B,7);p.write('Unprojected caller.');assert.equal(p.read(0x5D1D),null);p.glyphFlagsKnown=true;p.glyphResidue('q',0x5D26,35,0x5C0B,7);p.error([{text:'WHAT ?'}]);assert.equal(p.read(0x5D1D),null);
 });
 
-test('Natural5D1D: every owned input checkpoint and first operand before the5D23 boundary',async()=>{
+test('Natural5D1D: every owned input checkpoint through08:50 and exact cook read',async()=>{
  const ref=JSON.parse(await readFile(new URL('../results/glyph-count/natural-stores.json',import.meta.url))),s=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=s.game,reads=[];
- assert.deepEqual(ref.unclassified_transitions,[]);const read=g.runtimeRandom.read.bind(g.runtimeRandom);g.runtimeRandom.read=address=>{const value=read(address);if(address===0x5D1D)reads.push({value,tick:g.world.tick,actor:g.runtimeRandom.inFlight?.actor});return value;};let produced=0,blocked=false;
+ assert.deepEqual(ref.unclassified_transitions,[]);const read=g.runtimeRandom.read.bind(g.runtimeRandom);g.runtimeRandom.read=address=>{const value=read(address);if(address===0x5D1D)reads.push({value,tick:g.world.tick,actor:g.runtimeRandom.inFlight?.actor});return value;};let produced=0;
  for(const[index,row]of ref.steps.entries()){
   let out=s.request(row.input.startsWith('WAIT UNTIL')?'start-command':'command',{command:row.input});
-  for(;;){if(out.state.analysis.outcome==='not_translated'){assert.equal(index,ref.steps.length-1);assert.match(out.state.prototype_notice,/\$5D23/);blocked=true;break;}if(!out.running||index===ref.steps.length-1&&g.world.tick===row.clock.tick)break;assert(g.world.tick<=row.clock.tick);out=s.request('continue-command',{job:out.job});}
-  if(blocked)break;assert.equal(g.world.tick,row.clock.tick);const value=g.sourceDisplay.read(0x5D1D);if(value!==null){produced++;assert.equal(value,row.cells['5D1D'],row.input+' '+row.clock.label);}
+  for(;;){assert.notEqual(out.state.analysis.outcome,'not_translated',out.state.prototype_notice);if(!out.running||index===ref.steps.length-1&&g.world.tick===row.clock.tick)break;assert(g.world.tick<=row.clock.tick);out=s.request('continue-command',{job:out.job});}
+  assert.equal(g.world.tick,row.clock.tick);const value=g.sourceDisplay.read(0x5D1D);if(value!==null){produced++;assert.equal(value,row.cells['5D1D'],row.input+' '+row.clock.label);}
  }
- assert(produced>0);assert(blocked,'source observation continues beyond the supported first operand; no complete late checkpoint is claimed');
+ assert(produced>0);
  const target=ref.reads.filter(r=>r.address==='5D1D');assert.equal(reads.length,1);assert.deepEqual(reads,target.map(r=>({value:r.value,tick:r.clock.tick,actor:r.actor})));
  const writer=target[0].last_store;assert.equal(writer.pc,'C3B7');assert.equal(writer.tick,962);assert.equal(writer.actor,2);assert.equal(writer.glyph.frame,0x5D26);assert.equal(writer.glyph.char,32);assert.equal(writer.value,writer.bc>>>8);assert.equal(g.sourceDisplay.read(0x5D1D),writer.value);
+ if(s.job?.liveWait)s.request('continue-command',{job:s.job.id,interrupt:true});
  const saved=JSON.parse(JSON.stringify(g.dump()));assert.equal(Game.load(data,saved).sourceDisplay.read(0x5D1D),writer.value);
 });

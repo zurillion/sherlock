@@ -1,0 +1,26 @@
+{
+  "previous": {
+    "partial": 468,
+    "unknown": 2666,
+    "documented": 38466
+  },
+  "current": {
+    "partial": 468,
+    "unknown": 2666,
+    "documented": 38466
+  },
+  "new_grey_bytes_documented": 0,
+  "refined_regions": [
+    "682A–682F",
+    "A59F–A5CC",
+    "A720–A770",
+    "A7C5–A7CF",
+    "A95B–A98F",
+    "C363–C37C",
+    "C388–C3E3",
+    "CE10–CE17",
+    "D3E8–D447"
+  ],
+  "workspace_annotation": "5D23",
+  "scope": "Refined source-backed semantics in already classified code/text. Stack below5D80 is outside payload totals; no full-game equivalence claim."
+}

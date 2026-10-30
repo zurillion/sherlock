@@ -1,5 +1,10 @@
 # Il registro B salvato a5D1D
 
+Aggiornamento successivo:5D23 è ora superato. La prova naturale5D1D richiede
+la prosecuzione fino08:50; il prefisso corrente arriva a Wed09:00 e il nuovo
+limite èA01D. Vedere GLIFI-E-BYTE-ALTO-VIDEO.md. Il dossier seguente conserva
+il contesto della ricostruzione originaria del registroB.
+
 30 ottobre 2026. È ricostruito il primo operando che bloccava la cuoca nel
 percorso naturale, senza riempire il byte con il valore letto nella traccia.
 Il motore resta JavaScript autonomo: nessun interprete CPU o replay viene

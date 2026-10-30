@@ -1,0 +1,26 @@
+✖ Research comparison / major-witness (86476.726709ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86484.419167
+
+✖ failing tests:
+
+test at tools/compare-witness-research.mjs:4:63
+✖ Research comparison / major-witness (86476.726709ms)
+  AssertionError [ERR_ASSERTION]: 368 Ingresso casuale originale non ancora ricostruito: $A01D. Il comando non è stato applicato.
+      at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)
+      at async TestContext.<anonymous> (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/compare-witness-research.mjs:4:139)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'not_translated',
+    expected: 'not_translated',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
