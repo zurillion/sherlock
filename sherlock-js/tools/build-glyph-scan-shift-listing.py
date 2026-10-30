@@ -1,0 +1,23 @@
+"""Saved scan shift at5D28 in a composed proper room-name prefix."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
+regions=[(0x9920,0x9921,'data','Terminatore immutabile FF della tabella attori'),(0xA360,0xA419,'code','Ordine citato: soggetto temporaneo e nome della destinazione'),(0xA7BA,0xA7C5,'code','Nome locazione: ingresso distinto dal nome entità'),(0x682A,0x6830,'data','Testo degli ordini NPC: prefisso, comando composto e chiusura'),(0xA59F,0xA5CD,'code','Ingresso pubblico del testo e stack degli argomenti'),(0xA720,0xA771,'code','Nome dell’attore e chiamate relative dei testi'),(0xA7C5,0xA7D0,'code','Descrittore del nome: ponte al renderer di entità'),(0xD3E8,0xD448,'code','Nome composto: prefissi e sostantivo finale con scarico differito'),(0xA95B,0xA990,'code','Decoder dei candidati: scrittore alternativo del medesimo stack'),(0xC363,0xC37D,'code','Pulizia riga: CALL reale e byte alto del return link'),(0xC388,0xC3E4,'code','Glifo: righe e registri salvati; 5D28: shiftC della scansione nel prefisso locazione, frame5D32'),(0xCE10,0xCE18,'code','Ordine NPC: stampa 682A dopo aver registrato la richiesta')]
+notes={0xC39C:'Con frameC388=5D32 salvaC a5D28 prima dello shift. Il valore è(2+7*colonna)&7. Ultima scansioneB1; il byteC non è il contatoreB.',0xC3B2:'RipristinaBC dopo il primo byte video. DEC/INC C lascia invariato lo shift e consente il ramoZ perC0.',0xC3B7:'Shift nonzero: risalvaBC prima del secondo byte. Ultimo writer naturale: tick964,soggetto citato0,glifo t diParliament,colonna24,frame5D32,BC0102,SP5D2A. Non installare2: deriva dalla colonna.',0xC3B5:'SeC èzero, saltaC3B7: l’ultimo writer restaC39C conC0. Le prove coprono ogni colonna, incluso lo shift nullo.',0xC3C4:'Il C usato temporaneamente dal secondo shift viene poi ripristinato daPOP BC: non leggere8-shift come residuo finale.',0xC3CF:'Ripristina lo shift originale eB della scansione, prima diDJNZ. L’ultima coppia salvata conservaC calcolato eB1.',0xA360:'Il soggetto temporaneo0 della citazione spiega il writer osservato comeHolmes: l’ordine è diLestrade, non un turno del giocatore.',0xA7BA:'Nome locazione distinto dal nome attore: il prefisso proprio usa il frame5D32 verificato nel percorsoCE13.',0xD438:'Street resta nel buffer fino al ritorno. Il frame profondo riguarda il prefissoParliament scaricato dal delimitatore, non l’intera frase.',0xC374:'La CALL reale al renderer può scrivere77 a5D28 con frame5D28: il returnC377 è un ruolo distinto dal registroC.',0xCE13:'Proprietà28 soltanto nei chiamanti verificati. Nomi non proiettati revocano26–28; output senza contratto revoca il byte, non conserva uno shift vecchio.'}
+fields={0xC388:[['5D28','C della scansione nel prefisso del nome locazione','Frame5D32: C39C e, seC nonzero,C3B7. Calcolare(2+7*colonna)&7; nella t diParliament,colonna24,vale2'],['Altri frame','sei ruoli distinti','5D2A:F chiamante;5D2C:C chiamante;5D2E:E descrittore;5D30:L video;5D32:C scansione;5D34:F scansione'],['CALL realeC374','return link','Frame5D28:77 del returnC377; non shift della colonna'],['Proprietà','contratto del prefisso proprio','OldLOAD senza28 restaunknown anche con27 noto; scene/errori/caller senza contratto revocano.25/29 non introdotti']],0x682A:[['682A','destinazione nell’ordine NPC','La t del prefissoParliament lascia lo shift; il nomeInspector precedente non è l’ultimo writer']]}
+
+lines=['; Dossier offline: i byte sono riassellati contro il payload, non eseguiti nel runtime JS.'];count=total=0
+for a,b,kind,label in regions:
+ lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {label}'];at=a
+ while at<b:
+  if kind=='data':n=min(8,b-at);op='DEFB '+','.join(f'${v:02X}'for v in m[at:at+n])
+  else:op,n=disassemble(m,at);count+=1
+  assert at+n<=b,(hex(at),op);assert bytes(asm.assemble(op,at))==m[at:at+n]
+  lines.append(f'    {op:<37} ; ${at:04X} {m[at:at+n].hex(" ")}'+(' | '+notes[at]if at in notes else''));at+=n;total+=n
+root=p/'sherlock-js/results/glyph-scan-shift';root.mkdir(exist_ok=True)
+(root/'glyph-scan-shift.asm').write_text('\n'.join(lines)+'\n')
+(root/'listing-verification.json').write_text(json.dumps(dict(roundtrip_equal=True,instructions=count,bytes_roundtripped=total,regions=[dict(start=f'{a:04X}',end_exclusive=f'{b:04X}',kind=k,label=l,atlas_priority=141,**({'fields':fields[a]}if a in fields else{}))for a,b,k,l in regions]),indent=2)+'\n');print(count,total)

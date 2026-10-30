@@ -4,24 +4,27 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   411 checkpoint, da 0 a 410, fino a mercoledì 16:10: tutti i 24 posti attore,
+   413 checkpoint, da 0 a 412, fino a mercoledì 16:30: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. 8201 draw e 17558 read confrontati.
-   Vedere CANALE-DEL-TESTO.md e results/output-channel/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD. 8254 draw e 17684 read confrontati.
+   Vedere GLIFI-SHIFT-SCANSIONE-5D28.md e results/glyph-scan-shift/witness-prefix.json.
 
-2. **Prossimo confine reale: $5D28 al checkpoint411 verso mercoledì16:20.**
-   SuperatoA027: canale superiore0 / inferiore1. Payload iniziale esportato;
-   ingresso editor1, ritorno0; errori1->0, annunci A306/A352 anche fuori
-   scena e saluto9A90 dipendente dal soggetto. Il prompt iniziale segue
-   gli NPC dell’avvio. OldLOAD assente restaunknown fino a un writer.
-   Lettura giardiniere8: ultimo writerA352/tick3305/cuoca9, non soloD8A8.
-   Nuova traccia continua3241 checkpoint finoWed16:10: canale e ogni draw.
-   Il confronto completo al minuto si ferma a1671/Tue14:02 per una riga
-   del giardiniere diversa; vedere il controesempio qui sotto.
-   Ricostruire5D28 indipendentemente: il probe precedente lo osserva
-   alle16:12/tick3373 ma il runtime non lo proietta. Non introdurreA028.
-   Cinque finali naturali ancora aperti; cab5D0C è separato.
-   Atlante:79 byte grigi9A80–9A98/CB43–CB78 eA027 da parziale a documentato.
+2. **Prossimo confine reale: $A028 al checkpoint413 verso mercoledì16:40.**
+   Superato5D28: C della scansione nel frame5D32 del prefisso proprio
+   della destinazioneCE13. Calcolare(2+7*colonna)&7, non2 catturato.
+   C39C salva sempre, C3B7 solo conC nonzero. Ultimo writer964/soggetto
+   citato0/t diParliament/colonna24/BC0102. Lettura giardiniere8/tick3373.
+   Acquisizione naturale riutilizzata con SHA256 dalla fase glyph-last-row;
+   216 nuove ABI frame5D34 distinguono F dello scan nella stessa cella.
+   OldLOAD assente restaunknown anche con27 noto; revocare su chiamanti
+   senza contratto, scene, errori e nomi locazione non proiettati.
+   RicostruireA028 indipendentemente; non introdurre25/29 per vicinanza.
+   Il test del font27 deve ora arrivare al proprio limite dichiarato16:10;
+   la nuova prova28 arriva16:30 e confronta la lettura effettiva.
+   Cinque finali naturali e cab5D0C ancora aperti. I tre controesempi diA027
+   restano nel backlog sotto. Atlante: approfonditi C388–C3E3 e workspace28;
+   nessun nuovo byte prima grigio. Il campionamento continuo diA027 conserva
+   il proprio ambito canale/draw dopo il confine di stato al1671/Tue14:02.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -75,7 +78,7 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 31 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite e prove correnti: vedere `results/output-channel-verification.json` e
+Suite e prove correnti: vedere `results/glyph-scan-shift-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 

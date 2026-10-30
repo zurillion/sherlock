@@ -44,13 +44,15 @@ export class RandomDisplay {
   // C388 ABI tests distinguish eight frames and both caller counts. The extra 5D1F byte is owned only
   // in a verified caller scope; scene frames retain their old low-byte
   // contract and unprojected EXAMINE/statement output revokes ownership.
-  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at>=0x5D20&&at<=0x5D27)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&at<=0x5D27&&at!==0x5D25)s[at]=v;};
+  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at>=0x5D20&&at<=0x5D28)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&at<=0x5D28&&at!==0x5D25)s[at]=v;};
   // C389 retains caller C at frame-4 (5D26 for frame5D2A).
   // This is supplied by the pixel-column calculation, not a global shift2.
   // The later proper room prefix uses frame5D32: saved scan F supersedes
   // that caller C at5D26. Its final noun flushes after the name returns.
   // C39D/C3B8 save A alongside F: frame5D32 owns5D27 as the raw
-  // eighth font row, before rotation. 5D25 remains deliberately unowned.
+  // eighth font row, before rotation. C39C/C3B7 retain C at5D28 in
+  // the same frame: (2+7*column)&7, before either pixel rotation.
+  // 5D25 and5D29 remain deliberately unowned.
   // C374's CALL leaves its return link at the glyph-entry stack position.
   // A deep wrap can overwrite previously owned cells with that link.
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
@@ -62,7 +64,7 @@ export class RandomDisplay {
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&at<=0x5D27&&at!==0x5D25)delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&at<=0x5D28&&at!==0x5D25)delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -83,9 +85,9 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:0x5D1A,0x5D27);}
+ invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:0x5D1A,0x5D28);}
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D27){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D28){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15)s.counter=255;s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  flush(){const s=this.state,word=s.pending;if(!word.length)return;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exact)s.started=false;}

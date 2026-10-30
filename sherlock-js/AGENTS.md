@@ -487,3 +487,30 @@ ambito esplicito canale/draw fino3241; non normalizzare la riga per
 certificare lo stato intermedio. I411 checkpoint originali conLOAD
 restano integralmente confrontati. PRINT/TAKE TO e questo residuo vanno
 ricostruiti separatamente; corpus completo conservato.
+
+
+31 ottobre2026 — leggere GLIFI-SHIFT-SCANSIONE-5D28.md e
+results/glyph-scan-shift-verification.json.5D28 è C della scansione nel
+frame5D32 del prefisso proprio destinazioneCE13. Derivare(2+7*colonna)&7;
+C39C salva sempre,C3B7 solo conC nonzero. Non2 globale,8-C oB contatore.
+Ultimo writerC3B7/tick964/soggetto citato0/t diParliament/colonna24/BC0102;
+lettura giardiniere8/tick3373/Wed16:12. La traccia naturale è riutilizzata
+con percorso eSHA256 da glyph-last-row, non una nuova esecuzione naturale.
+216 nuove ABI frame5D34, più1728 ABI/1152varianti/288 vereCALL archiviate.
+Sei ruoli:5D2A F chiamante,5D2C C chiamante,5D2E E descrittore,5D30 Lvideo,
+5D32 Cscan,5D34 Fscan. CALL realeC374/frame5D28 lascia77 del returnC377.
+OldLOAD senza28 restaunknown anche con27; errori/scene/caller ignoti
+revocano. UnknownRoomName revoca26–28.25/29 ancora non posseduti.
+Il test27 deve completareWed16:10, quello28 Wed16:30, poi interrompere
+WAIT regolarmente prima del SAVE. Prefisso413 checkpoint0–412 sinoWed16:30,
+8254draw/17684read,24attori/arena752/bitmap/futuroLOAD. ProssimoA028
+al413 versoWed16:40. Non cambiare i test di controesempioA027: PRINT/MORE,
+TAKE TO e riga del giardiniere al1671. La prova continuaA027 resta solo
+canale/draw dopo tale confine di stato. Cinque finali e cab5D0C aperti.
+Atlante324istruzioni/616byte approfonditi: C388–C3E3,C363–C37C,A360–A418,
+A7BA–A7C4,D3E8–D447,CE10–CE17,workspace5D28 e ponti del testo.
+Nessun nuovo byte prima grigio: comunicarlo, senza aumentare la copertura.
+
+Verifica conclusiva5D28:113 controlli mirati distinti passati. Il prossimo
+ingresso osservato èA028, prima del successivo byte dello stack29; non
+estendere il certificato sino18:00 per la sola presenza della traccia.
