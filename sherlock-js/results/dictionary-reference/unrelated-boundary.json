@@ -1,0 +1,14 @@
+{
+  "baseline_commit": "8e3b605",
+  "reproduced_with_baseline_sources": true,
+  "fixture": "test/fixtures/dictionary-reference.json.gz",
+  "case": 4,
+  "certified_inputs": 7,
+  "first_uncompared_input": "SAY CABBIE \"GO TO KINGS CROSS ROAD\"",
+  "existing_divergence": {
+    "address": "5D0C",
+    "actual": 47,
+    "expected": 0
+  },
+  "scope": "Retained offline source suffix; not claimed as complete state equivalence. The same exact owned-field divergence is reproduced without the A022 implementation. No comparison field has been removed or normalized."
+}

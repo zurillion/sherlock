@@ -1,0 +1,70 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 265,
+  "bytes_roundtripped": 523,
+  "regions": [
+    {
+      "start": "A022",
+      "end_exclusive": "A024",
+      "kind": "data",
+      "label": "Ultimo riferimento lessicale emesso: offset12 bit e contesto4 bit",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A37D",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Composizione dell\u2019azione: riferimenti lessicali e nomi argomento",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A5CD",
+      "end_exclusive": "A5F2",
+      "kind": "code",
+      "label": "Token lungo: conserva il nibble di modo nella chiamata lessicale",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A63F",
+      "end_exclusive": "A65E",
+      "kind": "code",
+      "label": "Terminazione: parola finale e CR senza riscrittura del riferimento",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A815",
+      "end_exclusive": "A82F",
+      "kind": "code",
+      "label": "Nome: ricompone il modo40 o50 prima dell\u2019emissione",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A880",
+      "end_exclusive": "A895",
+      "kind": "code",
+      "label": "Ingresso lessicale: gating, primo store e riferimento zero",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A895",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Spazio iniziale e secondo store del riferimento con il suo modo",
+      "atlas_priority": 127
+    },
+    {
+      "start": "A8B9",
+      "end_exclusive": "A92F",
+      "kind": "code",
+      "label": "Ricostruzione della parola e suffisso: il riferimento rimane conservato",
+      "atlas_priority": 127
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nomi dinamici: qualificatori con modo40, sostantivo con modo50",
+      "atlas_priority": 127
+    }
+  ]
+}

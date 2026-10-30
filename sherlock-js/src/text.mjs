@@ -4,6 +4,9 @@ import {UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 // This renderer interprets semantic text operations, not CPU instructions.
 export class Text {
  constructor(data,dictionary,world,{chooseIndex}={}){this.data=data;this.dictionary=dictionary;this.world=world;this.chooseIndex=chooseIndex;}
+ // A88C/A8B5 retain the last emitted dictionary descriptor, including its
+ // context nibble. Suppressed dictionary output and literal characters keep it.
+ rememberDictionaryReference(value){if(this.world.npcs)this.world.npcs.dictionaryReference=value;}
  greeting(actor,context={}){return this.render('6920',{...context,actor});}
  examinePreservesLowScratch(description){
   // DF49/DF5B's ordinary inspection stays above $5D1E at its deepest
@@ -18,6 +21,7 @@ export class Text {
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
   let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false,pending='',pendingCap=true;const fragments=[];
+  const remember=value=>{if(context.bufferVisible!==false)this.rememberDictionaryReference(value);};
   let nameBuffer=false;
   const feed=(text,{raw=text,dict=false,buffer=true}={})=>{if(buffer&&context.bufferSink&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))context.bufferSink(c,{known:!nameBuffer});for(let c of String(text)){
    if(c==='\b'){result=result.slice(0,-1);pending=pending.slice(0,-1);context.sink?.(c);continue;}
@@ -38,11 +42,11 @@ export class Text {
     if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);}feed(' ');});capitalize=true;feed(parts.at(-1));}
     else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
    else if(actorToken&&context.actorNamePrefix&&id!==w.player){const parts=w.name(id,{indefinite:Boolean(e.person)}).split(' ');context.actorNamePrefix(()=>{feed(parts.slice(0,-1).join(' '));feed(' ');});feed(parts.at(-1)+(be?' is':''));}
-   else feed(name(id,be));}finally{nameBuffer=previousNameBuffer;}
+   else feed(name(id,be));if(e.noun&4095)remember(0x5000|(e.noun&4095));if(be)remember(id===0?0x007A:0x0485);}finally{nameBuffer=previousNameBuffer;}
   };
   const emit=t=>{
    switch(t.op){
-    case 'word':{mixOffset=t.randomContext??null;if(t.id){feed(' ',{dict:true});if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
+    case 'word':{mixOffset=t.randomContext??null;remember(t.randomContext??null);if(t.id){feed(' ',{dict:true});if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
     case 'call':case 'jump':mixOffset=t.relativeOffset===undefined?null:(t.relativeOffset-(t.op==='jump'?1:0))&65535;walk(t.text);break;
     case 'choice':{
@@ -64,9 +68,10 @@ export class Text {
      walk(id);break;
     }
     case 'compose':{
+     remember(null); // Model-only words without a resolved argument remain unowned.
      const action=context.action,model=this.data.actions.find(a=>a.id===action),args=context.args||[255,255];
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
-     const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});for(const part of parts){feed(' ',{dict:true});if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});}};
+     const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});for(const part of parts){feed(' ',{dict:true});if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});}remember(0x5000|(r.nameWords[0]&4095));};
      const argument=(id,slot)=>{if(id===255)return;if([18,27,29,30].includes(action)||action===45&&slot===1)roomName(id);else feedName(id);};
      // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;
      // A3C8/A3CE prints "me" when the first argument is the speaker.
@@ -77,10 +82,10 @@ export class Text {
     case 'actorName':feedName(actor,false,true);break;
     case 'objectName':feedName(object);break;
     case 'otherName':feedName(other);break;
-    case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;break;
-    case 'objectIs':feedName(object,true);mixOffset=object===0?0x007A:0x0485;break;
-    case 'actorPossessive':feed(actor===0?'your':'his',{dict:true});mixOffset=actor===0?0x09F2:0x0414;break;
-    case 'objectPossessive':feed(object===0?'your':'his',{dict:true});mixOffset=object===0?0x09F2:0x0414;break;
+    case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;remember(mixOffset);break;
+    case 'objectIs':feedName(object,true);mixOffset=object===0?0x007A:0x0485;remember(mixOffset);break;
+    case 'actorPossessive':feed(actor===0?'your':'his',{dict:true});mixOffset=actor===0?0x09F2:0x0414;remember(mixOffset);break;
+    case 'objectPossessive':feed(object===0?'your':'his',{dict:true});mixOffset=object===0?0x09F2:0x0414;remember(mixOffset);break;
     case 'newline':feed('\n');break;
     case 'endLine':mixOffset=mixOffset===null?null:0x6000|(mixOffset&255);feed('\n');break;
     case 'endSentence':mixOffset=mixOffset===null?null:0x3000|(mixOffset&255);feed('.\n');break;

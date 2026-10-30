@@ -4,22 +4,21 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   359 checkpoint, da 0 a 358, fino a mercoledì 07:30: tutti gli attori,
+   365 checkpoint, da0 a364, fino a mercoledì08:30: tutti gli attori,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. Vedere `MODALITA-ALL-E-CONTINUAZIONE-SEMANTICA.md`
-   e `results/resolution-mode-verification.json`.
+   contatore MORE e futuro dopo LOAD.6992 draw e14966 read confrontati.
+   Vedere ULTIMO-RIFERIMENTO-LESSICALE.md e
+   results/dictionary-reference/witness-prefix.json.
 
-2. **Prossimo confine reale: $A022, secondo ingresso della stessa estrazione.**
-   A01C è superato: il giardiniere legge0 dal modo del resolver, quindi
-   incontra A022 ancora sconosciuto al checkpoint359 verso Wed07:40.
-   Ricostruire writer, inizializzazione e conservazione di A022; non
-   installare il97 registrato né inferirlo dai flag del parser o del testo.
-   A01C segue D800/B959/B1EC/B1FD e ha contesti distinti D6B8/record richiesta+2.
-   Errori precedenti al resolver conservano il residuo; ALL esaurito può
-   lasciare A01C=128 mentre D6B8=0. CLIMB INTO/HAIL forzano selezione singola.
-   Fine ALL NPC: libera quel nodo e passa al comando successivo, non cancella
-   il suffisso. Vecchi save senza campo rimangono sconosciuti fino a un writer.
-   Il prefisso resta0–358 sino a Wed07:30; nessun nuovo finale certificato.
+2. **Prossimo confine reale: $5D1D al checkpoint365 verso mercoledì08:40.**
+   A022 è superato. Ricostruire ultimo writer, frame e conservazione di5D1D;
+   non installare il byte della traccia o inferirlo dal solo cursore video.
+   A022/A023 conserva il descrittore lessicale: offset12 bit e tag. I writer
+   A88C/A8B5 sono gated da5C3C; letterali e dizionario nascosto conservano.
+   Output sintetici privi di contratto revocano; old save assenti restano
+   sconosciuti. Il nome della destinazione termina in STREET0861 con modo50,
+   tick964; il giardiniere legge61hex al tick2852. Nessun valore catturato
+   entra nel motore. Nessun nuovo finale è certificato.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -40,6 +39,13 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    quelli del cab della polizia, e i casi di corruzione dei buffer citati in
    `LINGUAGGIO-COMPLESSO.md`. Non inserire byte iniziali o catturati come fallback.
 
+   Limite separato emerso il30 ottobre: ingresso naturale nel cab seguito da
+   SAY CABBIE "GO TO KINGS CROSS ROAD" diverge nel campo5D0C (JS47/nativo0).
+   Riprodotto anche sul vecchio commit8e3b605: non è una regressione diA022.
+   Il corpus breve certifica solo i7 input precedenti; il suffisso è conservato
+   e nessun campo del confronto è stato rimosso. Vedere
+   results/dictionary-reference/unrelated-boundary.json.
+
 5. **Estendere l’equivalenza della partita completa.**
    Più seed e ordini delle azioni, attese lunghe e mezzi di trasporto, diversi
    tempi di input e grafica nativa. Il protocollo certificato attuale usa seed 1,
@@ -49,10 +55,10 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 `results/final-solution/RESEARCH.md`, `AGENTS.md`.
-Aggiornamento 29 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
+Aggiornamento 30 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite di regressione attuale: **956 test verificati**. Prefisso esteso ripetibile
+Suite di regressione attuale: **1054 test verificati**. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 
 
@@ -78,3 +84,27 @@ naturale0–358 sino a Wed07:30. Cinque finali ancora aperti. Riferire in chat
 le nuove zone dell’atlante, senza confondere copertura statica e gameplay.
 
 Verifica conclusiva consegne NPC: suite completa982 test,982 passati,0 errori.
+
+
+Aggiornamento30 ottobre2026 — leggere ULTIMO-RIFERIMENTO-LESSICALE.md e
+results/dictionary-reference-verification.json. A022/A023 conserva il
+riferimento lessicale completo (offset12 bit più contesto), scritto daA88C e
+A8B5 soltanto con5C3C nonzero. Anche offset0 scrive il primo descrittore;
+letterali e dizionario fuori scena conservano. I nomi usano40/50; i comandi
+senza parola di terminazione non chiamanoA887. Non ricavare il campo dal
+testo inglese finale o dal seed. Text.render lo proietta dalle operazioni;
+output sintetici/errori privi di contratto revocano. Old LOAD assente resta
+unknown fino a un writer, nessun valore iniziale/catturato di ripiego.
+Ultimo writer naturale tick964 attore0, nome destinazione STREET0861 con
+modo50:5861. Lettura giardiniere attore8/tick2852/Wed07:31:61hex.
+Prefisso ora365 checkpoint0–364 sino a Wed08:30,6992 draw/14966 read,
+tutti24 attori, arena752 byte, bitmap e futuro LOAD. Prossimo confine5D1D
+al checkpoint365 verso Wed08:40; cinque finali naturali ancora aperti.
+64 casi ABI;6 storie brevi complete più prefisso cab7 input:31 input,
+158 draw/316 read. Il suffisso cab fallisce su5D0C (47 JS/0 nativo),
+riprodotto sul baseline8e3b605: conservarlo come limite separato, senza
+normalizzare o ignorare quel campo. Vedi unrelated-boundary.json.
+Suite1054 test tutti passati. Atlante265 istruzioni/523 byte: A022–A023
+parziale->documentato;78 byte prima grigi in A3E2–A413,A65C–A65D,A815–A82E.
+Approfonditi A37D–A418,A5CD–A5F1,A63F–A65D,A880–A92E,D3E8–D447.
+Riportare le nuove zone in chat; la copertura statica non è gameplay completo.

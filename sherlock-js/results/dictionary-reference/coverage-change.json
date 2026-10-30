@@ -1,0 +1,38 @@
+{
+  "previous": {
+    "partial": 470,
+    "unknown": 2744,
+    "documented": 38386
+  },
+  "current": {
+    "partial": 468,
+    "unknown": 2666,
+    "documented": 38466
+  },
+  "changes": [
+    {
+      "start": "A022",
+      "end_exclusive": "A024",
+      "from_status": "partial",
+      "to_status": "documented"
+    },
+    {
+      "start": "A3E2",
+      "end_exclusive": "A414",
+      "from_status": "unknown",
+      "to_status": "documented"
+    },
+    {
+      "start": "A65C",
+      "end_exclusive": "A65E",
+      "from_status": "unknown",
+      "to_status": "documented"
+    },
+    {
+      "start": "A815",
+      "end_exclusive": "A82F",
+      "from_status": "unknown",
+      "to_status": "documented"
+    }
+  ]
+}

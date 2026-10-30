@@ -435,3 +435,27 @@ naturale0–358 sino a Wed07:30. Cinque finali ancora aperti. Riferire in chat
 le nuove zone dell’atlante, senza confondere copertura statica e gameplay.
 
 Verifica conclusiva consegne NPC: suite completa982 test,982 passati,0 errori.
+
+
+Aggiornamento30 ottobre2026 — leggere ULTIMO-RIFERIMENTO-LESSICALE.md e
+results/dictionary-reference-verification.json. A022/A023 conserva il
+riferimento lessicale completo (offset12 bit più contesto), scritto daA88C e
+A8B5 soltanto con5C3C nonzero. Anche offset0 scrive il primo descrittore;
+letterali e dizionario fuori scena conservano. I nomi usano40/50; i comandi
+senza parola di terminazione non chiamanoA887. Non ricavare il campo dal
+testo inglese finale o dal seed. Text.render lo proietta dalle operazioni;
+output sintetici/errori privi di contratto revocano. Old LOAD assente resta
+unknown fino a un writer, nessun valore iniziale/catturato di ripiego.
+Ultimo writer naturale tick964 attore0, nome destinazione STREET0861 con
+modo50:5861. Lettura giardiniere attore8/tick2852/Wed07:31:61hex.
+Prefisso ora365 checkpoint0–364 sino a Wed08:30,6992 draw/14966 read,
+tutti24 attori, arena752 byte, bitmap e futuro LOAD. Prossimo confine5D1D
+al checkpoint365 verso Wed08:40; cinque finali naturali ancora aperti.
+64 casi ABI;6 storie brevi complete più prefisso cab7 input:31 input,
+158 draw/316 read. Il suffisso cab fallisce su5D0C (47 JS/0 nativo),
+riprodotto sul baseline8e3b605: conservarlo come limite separato, senza
+normalizzare o ignorare quel campo. Vedi unrelated-boundary.json.
+Suite1054 test tutti passati. Atlante265 istruzioni/523 byte: A022–A023
+parziale->documentato;78 byte prima grigi in A3E2–A413,A65C–A65D,A815–A82E.
+Approfonditi A37D–A418,A5CD–A5F1,A63F–A65D,A880–A92E,D3E8–D447.
+Riportare le nuove zone in chat; la copertura statica non è gameplay completo.

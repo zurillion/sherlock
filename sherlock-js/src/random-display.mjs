@@ -108,7 +108,7 @@ export class RandomDisplay {
   s.lowerCursor=2;
   for(let i=0;i<Math.min(129,normalized.length);i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}if(normalized.length<129){s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;}
  }
- error(messages,{inline=false}={}){const s=this.state;if(!s)return;this.invalidateGlyphExtras();
+ error(messages,{inline=false}={}){const s=this.state;if(!s)return;this.invalidateGlyphExtras();if(this.world.npcs)this.world.npcs.dictionaryReference=null;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
   // including the dictionary's initial space; CR scrolls before the prompt.
   for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));

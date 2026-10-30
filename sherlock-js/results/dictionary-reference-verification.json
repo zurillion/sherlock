@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-30",
+  "field": {
+    "addresses": [
+      "A022",
+      "A023"
+    ],
+    "meaning": "Last enabled dictionary-output descriptor:12-bit offset plus context nibble",
+    "writers": [
+      "A88C",
+      "A8B5"
+    ],
+    "visibility_gate": "5C3C",
+    "literal_output_preserves": true,
+    "zero_offset_stores_first_descriptor": true,
+    "old_missing_saves_remain_unknown": true,
+    "unprojected_synthetic_output_revokes": true
+  },
+  "controlled_abi": {
+    "cases": 64,
+    "contexts": 8,
+    "offsets": 4,
+    "visibility_gates": 2,
+    "fixture": "test/fixtures/dictionary-reference-abi.json",
+    "natural_equivalence_claim": false
+  },
+  "natural_short": {
+    "sequences": 7,
+    "complete_sequences": 6,
+    "cab_prefix_inputs": 7,
+    "inputs_compared": 31,
+    "draws_compared": 158,
+    "reads_compared": 316,
+    "all_actor_slots": 24,
+    "arena_bytes": 752,
+    "exact_bitmaps": true,
+    "load_future": true,
+    "unrelated_boundary": "results/dictionary-reference/unrelated-boundary.json"
+  },
+  "natural_long": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 365,
+    "random_draws": 6994,
+    "clock": {
+      "tick": 2911,
+      "due": 3781,
+      "day": 2,
+      "minute": 30,
+      "hour": 8,
+      "period": "am",
+      "label": "Wed 08:30am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 6992,
+    "compared_random_reads": 14966,
+    "certified_checkpoint_range": [
+      0,
+      364
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 365,
+      "target_clock": "Wed 08:40am",
+      "unknown_address": "5D1D",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "last_native_writer": {
+    "address": "A022",
+    "value": 97,
+    "clock": {
+      "tick": 2852,
+      "due": 3781,
+      "minute": 31,
+      "hour": 7,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 07:31am"
+    },
+    "actor": 8,
+    "last_store": {
+      "pc": "A8B5",
+      "value": 22625,
+      "actor": 0,
+      "tick": 964,
+      "visible": 1,
+      "stack_top": "0861"
+    }
+  },
+  "native_stores_observed": 3362,
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 265,
+    "bytes_roundtripped": 523,
+    "regions": [
+      {
+        "start": "A022",
+        "end_exclusive": "A024",
+        "kind": "data",
+        "label": "Ultimo riferimento lessicale emesso: offset12 bit e contesto4 bit",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A37D",
+        "end_exclusive": "A419",
+        "kind": "code",
+        "label": "Composizione dell’azione: riferimenti lessicali e nomi argomento",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A5CD",
+        "end_exclusive": "A5F2",
+        "kind": "code",
+        "label": "Token lungo: conserva il nibble di modo nella chiamata lessicale",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A63F",
+        "end_exclusive": "A65E",
+        "kind": "code",
+        "label": "Terminazione: parola finale e CR senza riscrittura del riferimento",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A815",
+        "end_exclusive": "A82F",
+        "kind": "code",
+        "label": "Nome: ricompone il modo40 o50 prima dell’emissione",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A880",
+        "end_exclusive": "A895",
+        "kind": "code",
+        "label": "Ingresso lessicale: gating, primo store e riferimento zero",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A895",
+        "end_exclusive": "A8B9",
+        "kind": "code",
+        "label": "Spazio iniziale e secondo store del riferimento con il suo modo",
+        "atlas_priority": 127
+      },
+      {
+        "start": "A8B9",
+        "end_exclusive": "A92F",
+        "kind": "code",
+        "label": "Ricostruzione della parola e suffisso: il riferimento rimane conservato",
+        "atlas_priority": 127
+      },
+      {
+        "start": "D3E8",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nomi dinamici: qualificatori con modo40, sostantivo con modo50",
+        "atlas_priority": 127
+      }
+    ]
+  },
+  "atlas": {
+    "previous": {
+      "partial": 470,
+      "unknown": 2744,
+      "documented": 38386
+    },
+    "current": {
+      "partial": 468,
+      "unknown": 2666,
+      "documented": 38466
+    },
+    "changes": [
+      {
+        "start": "A022",
+        "end_exclusive": "A024",
+        "from_status": "partial",
+        "to_status": "documented"
+      },
+      {
+        "start": "A3E2",
+        "end_exclusive": "A414",
+        "from_status": "unknown",
+        "to_status": "documented"
+      },
+      {
+        "start": "A65C",
+        "end_exclusive": "A65E",
+        "from_status": "unknown",
+        "to_status": "documented"
+      },
+      {
+        "start": "A815",
+        "end_exclusive": "A82F",
+        "from_status": "unknown",
+        "to_status": "documented"
+      }
+    ]
+  },
+  "tests": {
+    "command": "node --test --test-concurrency=4 test/*.test.mjs",
+    "tests": 1054,
+    "passed": 1054,
+    "failed": 0,
+    "exit_code": 0,
+    "log": "results/dictionary-reference/full-suite.log"
+  },
+  "http": "results/dictionary-reference/http.json",
+  "scope": "Source-derived standalone JS descriptor ownership. Unknown synthetic outputs remain unknown; natural prefix is not whole-game or every-ending parity.",
+  "remaining_terminal_variants": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ]
+}

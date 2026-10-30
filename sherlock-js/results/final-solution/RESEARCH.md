@@ -1,5 +1,14 @@
 # Continuazione ancora in ricerca
 
+Stato corrente30 ottobre2026: prefisso365 checkpoint0–364, fino a Wed08:30,
+6992 draw/14966 read confrontati, tutti24 attori, arena/bitmap e futuro LOAD.
+A022/A023 è ricostruito dall’emissione lessicale. Il confronto completo si
+ferma al checkpoint365 verso Wed08:40 su5D1D ancora sconosciuto.
+Rapporti: results/dictionary-reference-verification.json e
+results/dictionary-reference/witness-prefix.json. Cinque finali naturali
+ancora da certificare. Le sezioni successive conservano la cronologia delle
+analisi, non sostituiscono questo limite corrente.
+
 `major-witness.txt` formula le due ipotesi prima della visita e poi osserva
 la confessione nella fumeria. Non imposta flag interni. Il riferimento nativo
 contiene 521 checkpoint e termina in 6A33 giovedì 10:00; è compresso in
