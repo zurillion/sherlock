@@ -2,8 +2,8 @@ import {Game} from './game.mjs';
 
 export const TAB_SESSION_KEY='sherlock-autonomous-tab-v1';
 
-export function capturePresentation(terminal,{transcript,history,view,allowIncomplete=false,inProgress=false}){
- const base={version:1,compatibility:terminal.active,transcript:transcript.slice(-200),history:history.slice(-200),view:[...view]};
+export function capturePresentation(terminal,{transcript,history,view,textTranscript,allowIncomplete=false,inProgress=false}){
+ const base={version:1,compatibility:terminal.active,transcript:transcript.slice(-200),history:history.slice(-200),view:[...view],...(textTranscript?{textTranscript:structuredClone(textTranscript)}:{})};
  if(allowIncomplete&&(inProgress||terminal.processing||terminal.waiting))return {...base,spectrum:null,redraw:true,pictures:terminal.pictures,pictureMode:terminal.pictureMode};
  return {...base,spectrum:terminal.snapshot()};
 }

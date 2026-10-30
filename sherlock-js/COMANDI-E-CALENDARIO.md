@@ -59,13 +59,26 @@ handler originali: `PAUSE. I` non esegue INVENTORY. SAVE invece prosegue:
 `SAVE. I` impiega due minuti. Sono verificati anche PAUSE/PRINT/SAVE durante
 una domanda `WHICH DOOR ?`, seguiti dalla specificazione `YOUR`.
 
-La stampante originale riceve gli **otto scan della riga superiore prima
-dello scroll**, non le parole appena aggiunte in basso. La pagina raccoglie
-quei byte e mostra «Scarica stampa», che esporta la carta in SVG nero/bianco.
-Anche i ritorni a capo di NOPRINT finiscono sulla carta, prima dello spegnimento.
-Carta e flag di stampa sono conservati nei salvataggi. Il taccuino moderno
-conserva il transcript; la cancellazione video e PAUSE sono riprodotti dalla
-modalità Spectrum.
+La pagina offre **Scarica trascrizione .txt**: raccoglie tutto il testo di
+partita dall’avvio, indipendentemente da PRINT/NOPRINT, MORE, immagini e
+modalità di presentazione. Non tronca il registro alle ultime 200 voci del
+taccuino ripristinato. Il registro testuale completo è salvato nella
+presentazione JSON e nel checkpoint della scheda; Riavvia ne inizia uno nuovo.
+I vecchi salvataggi recuperano il testo ancora presente nella loro presentazione,
+ma non possono ricostruire righe già eliminate da una versione precedente.
+
+**Includi comandi eseguiti** aggiunge gli input in maiuscolo, preceduti da
+`> `, nella posizione in cui sono stati impartiti. Un input è incluso se
+l’analisi registra almeno un’azione eseguita da Holmes (anche LOOK, INVENTORY,
+attese o un ordine accodato a un NPC). Errori, chiarimenti senza azioni,
+servizi PRINT/NOPRINT e rollback del prototipo non qualificano l’input.
+Un input composto è incluso se ne è stata eseguita almeno una parte.
+Il semplice movimento autonomo di un NPC non qualifica un comando rifiutato.
+
+L’esportazione SVG della stampante non è più proposta nell’interfaccia.
+Il comportamento sorgente di PRINT/NOPRINT e i relativi byte restano nel
+modello, perché contribuiscono allo stato originale, inclusi gli ingressi
+casuali; il download TXT è invece metadato di presentazione indipendente.
 
 I servizi periferici sono adattamenti espliciti: nessuna stampa di sistema,
 nessun formato nastro Spectrum. SAVE conserva uno stato portabile al prompt,

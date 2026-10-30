@@ -1,3 +1,4 @@
+import {Transcript} from './transcript.mjs';
 import {SpectrumTerminal} from './spectrum.mjs';
 import {ClientSession,engineStatus,gameStatus} from './session.mjs';
 import {rememberTab,recallTab,TAB_SESSION_KEY,capturePresentation,lastResponse} from './tab-session.mjs';
@@ -9,13 +10,14 @@ let operationEpoch=0,restarting=false,persisting=false;
 let activeJob=null,canInterrupt=false,interruptRequested=false;
 const pendingRequests=new Set();
 let transcriptRows=[],replayingTranscript=false;
+let textTranscript=new Transcript(),pendingTranscriptCommand=null;
 let data,state,busy=false,history=[],historyAt=0,view=[-15,-15,805,675],drag=null,moved=false;
 const rooms=new Map(),nodes=new Map(),edgeEls=[];
 const spectrum=new SpectrumTerminal({canvas:$('spectrum-screen'),input:$('spectrum-input'),upper:$('spectrum-upper'),lower:$('spectrum-lower'),status:$('spectrum-status'),onCommand:text=>command(text)});
 function preference(key,fallback){try{return localStorage.getItem(key)??fallback;}catch{return fallback;}}
 function savePreference(key,value){try{localStorage.setItem(key,String(value));}catch{}}
 function focusCommand(){if(document.querySelector('dialog[open]'))return;if(spectrum.active)spectrum.focus();else $('command').focus({preventScroll:true});}
-function presentation(options={}){return capturePresentation(spectrum,{transcript:transcriptRows,history,view,...options});}
+function presentation(options={}){return capturePresentation(spectrum,{transcript:transcriptRows,history,view,textTranscript:textTranscript.dump(),...options});}
 function checkpointTab(){if(state)rememberTab(sessionStorage,session.game,presentation({allowIncomplete:true,inProgress:busy||persisting}));}
 window.addEventListener('sherlock:engine-change',event=>{
  try{checkpointTab();}catch(error){event.preventDefault();notice('Non posso conservare la partita in questa scheda: '+error.message);}
@@ -45,7 +47,7 @@ function svg(tag,attrs={}){const el=document.createElementNS(NS,tag);for(const [
 function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
 function append(kind,text,record=true){if(!text)return;if(record&&!replayingTranscript)transcriptRows.push({kind,text});$('transcript').append(el('div',text,`entry ${kind}`));$('transcript').scrollTop=$('transcript').scrollHeight;}
 function appendScene(message){
- if(!replayingTranscript)transcriptRows.push(structuredClone(message));
+ if(!replayingTranscript){transcriptRows.push(structuredClone(message));textTranscript.message(message);}
  const url=data.pictures?.[message.image_room];let picture=null;
  if(url){const figure=el('figure',undefined,'scene-picture'),link=el('a'),img=el('img');
   link.href=url;link.target='_blank';link.rel='noopener';img.src=url;img.width=1024;img.height=1408;img.alt=`${String(message.image_room).padStart(3,'0')} · ${rooms.get(message.image_room)?.name_hint||'Locazione'}`;
@@ -65,13 +67,13 @@ $('show-history').onclick=()=>{$('history-status').textContent='';$('command-his
 $('close-history').onclick=()=>$('command-history').close();
 $('copy-history').onclick=async()=>{renderHistory();const area=$('history-text');try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(area.value);$('history-status').textContent='Cronologia copiata.';}catch{area.focus();area.select();$('history-status').textContent=document.execCommand('copy')?'Cronologia copiata.':'Testo selezionato: premi ⌘C o Ctrl+C per copiarlo.';}};
 
-function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;if($('printer-download'))$('printer-download').disabled=value||!state?.printer?.rows;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
 function updateGameStatus(s){
  const text=gameStatus(s);
  $('game-status').textContent=text;$('game-status').hidden=!text;
 }
-function update(s){const previousRoom=state?.room;state=s;if($('printer-download')){$('printer-download').hidden=!(s.printer?.enabled||s.printer?.rows);$('printer-download').disabled=busy||!s.printer?.rows;}if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);updateGameStatus(s);$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
+function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);updateGameStatus(s);$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
  updateCharacters(s);
@@ -112,7 +114,7 @@ async function perform(path,body,focus=true){
  }catch(error){if(epoch===operationEpoch)await showMessages([{kind:'system',text:error.message}]);}
  finally{
   if(epoch===operationEpoch){
-   waitControls(null,false);setBusy(false);renderHistory();
+   waitControls(null,false);if(path==='start-command'){textTranscript.finish(pendingTranscriptCommand,completed?state?.analysis:null);pendingTranscriptCommand=null;}setBusy(false);renderHistory();
    try{checkpointTab();}catch(error){notice('Cronologia disponibile, ma non conservata al ricaricamento: '+error.message);}
    if(focus||spectrum.active)focusCommand();
    if(completed&&path==='start-command'&&state?.analysis?.outcome!=='not_translated'){
@@ -122,7 +124,7 @@ async function perform(path,body,focus=true){
   }
  }
 }
-async function command(text){if(busy||!text.trim())return;if(state?.game_over)return;history.push(text);historyAt=history.length;append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('start-command',{command:text});}
+async function command(text){if(busy||!text.trim())return;if(state?.game_over)return;history.push(text);historyAt=history.length;pendingTranscriptCommand=textTranscript.begin(text);append('command',text);if(spectrum.active)spectrum.commit(text);$('command').value='';await perform('start-command',{command:text});}
 function notice(text){$('session-notice').textContent=text;}
 async function saveGame(){
  if(busy||!state)return;
@@ -137,6 +139,7 @@ async function saveGame(){
 function chooseLoad(){if(!busy&&state){$('load-file').value='';$('load-file').click();}}
 function validatePresentation(p){
  if(p==null)return;
+ Transcript.fromPresentation(p);
  if(p.version!==1||typeof p.compatibility!=='boolean'||!Array.isArray(p.transcript)||p.transcript.length>200||!p.transcript.every(m=>m&&['command','narrative','error','system'].includes(m.kind)&&typeof m.text==='string')||!Array.isArray(p.history)||p.history.length>200||!p.history.every(t=>typeof t==='string')||!Array.isArray(p.view)||p.view.length!==4||!p.view.every(Number.isFinite)||p.view[2]<=0||p.view[3]<=0)throw new Error('Presentazione nel salvataggio non valida.');
  if(p.redraw===true){if(p.spectrum!==null||typeof p.pictures!=='boolean'||!['svg','pixel'].includes(p.pictureMode))throw new Error('Presentazione da ridisegnare non valida.');}
  else SpectrumTerminal.validateSnapshot(p.spectrum);
@@ -149,14 +152,21 @@ async function restorePresentation(p,current){
  const pictureMode=p.redraw?p.pictureMode:p.spectrum.pictureMode;
  $('compat-picture-mode').value=pictureMode;savePreference('sherlock-compat-picture-mode',pictureMode);
  replayingTranscript=true;try{for(const row of p.transcript){if(row.kind==='command')append(row.kind,row.text);else appendScene(row);}}finally{replayingTranscript=false;}
- transcriptRows=structuredClone(p.transcript);history=[...p.history];historyAt=history.length;view=[...p.view];applyView();update(current);
+ textTranscript=Transcript.fromPresentation(p);pendingTranscriptCommand=null;transcriptRows=structuredClone(p.transcript);history=[...p.history];historyAt=history.length;view=[...p.view];applyView();update(current);
  if(p.redraw&&spectrum.active){
   for(const text of history.slice(-5))spectrum.commit(text);
   const messages=lastResponse(p.transcript);
   await spectrum.writeMessages(messages.length?messages:[{kind:'narrative',text:current.initial,image_room:current.room}]);
  }
 }
-$('printer-download').onclick=async()=>{try{const result=await engineRequest('printer'),url=URL.createObjectURL(new Blob([result.svg],{type:'image/svg+xml'})),link=el('a');link.href=url;link.download='sherlock-printer.svg';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(error){notice(error.message);}};
+$('transcript-commands').checked=preference('sherlock-transcript-commands','false')==='true';
+$('transcript-commands').onchange=()=>savePreference('sherlock-transcript-commands',$('transcript-commands').checked);
+$('transcript-download').onclick=()=>{
+ if(pendingTranscriptCommand&&state?.analysis?.input===pendingTranscriptCommand.text)textTranscript.finish(pendingTranscriptCommand,state.analysis);
+ const text=textTranscript.text({includeCommands:$('transcript-commands').checked});
+ const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'})),link=el('a');
+ link.href=url;link.download='sherlock-transcript.txt';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
 $('save-game').onclick=saveGame;$('load-game').onclick=chooseLoad;
 $('load-file').onchange=async()=>{
  const file=$('load-file').files[0];if(!file||busy)return;persisting=true;setBusy(true);
@@ -164,7 +174,7 @@ $('load-file').onchange=async()=>{
   if(file.size>20000000)throw new Error('File di salvataggio troppo grande.');
   const document=JSON.parse(await file.text());validatePresentation(document.presentation);setBusy(true);
   const result=await engineRequest('load',{save:document});const epoch=++operationEpoch;
-  spectrum.reset();$('transcript').replaceChildren();$('analysis').textContent='';$('command').value='';transcriptRows=[];
+  spectrum.reset();$('transcript').replaceChildren();$('analysis').textContent='';$('command').value='';transcriptRows=[];textTranscript=new Transcript();pendingTranscriptCommand=null;
   const p=result.presentation;
   if(p){
    await restorePresentation(p,result.state);
@@ -238,7 +248,7 @@ $('reset').onclick=async()=>{
  if(restarting||persisting||!data)return;const epoch=++operationEpoch;restarting=true;notice('');
  try{sessionStorage.removeItem(TAB_SESSION_KEY);}catch{}
  waitControls(null,false);interruptRequested=false;
- spectrum.reset();$('transcript').replaceChildren();transcriptRows=[];$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
+ spectrum.reset();$('transcript').replaceChildren();transcriptRows=[];textTranscript=new Transcript();pendingTranscriptCommand=null;$('command').value='';$('analysis').textContent='';history=[];historyAt=0;
  $('search').value='';$('search-results').hidden=true;setBusy(true);
  try{
   // Let an already submitted action finish before replacing its session.
