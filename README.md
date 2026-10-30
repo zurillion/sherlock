@@ -49,11 +49,17 @@ node --test --test-concurrency=2 test/*.test.mjs
 npm run build:pages
 ```
 
-Il secondo comando genera `_site/` alla radice del repository, con solo i file
-necessari al browser e all’atlante. Il pacchetto è escluso da Git.
+Il secondo comando genera `_site/` alla radice del repository: gioco e atlante
+sono alla radice del sito; tutti i file del progetto tracciati da Git (eccetto
+la configurazione di pubblicazione) sono copiati sotto `archivio/`, conservando
+i percorsi del repository. Il pacchetto è escluso da Git.
 
 Il workflow `.github/workflows/pages.yml` esegue i test e pubblica su Pages a
-ogni push su `main`, oppure su avvio manuale. Ricerca offline, fixture e materiali
-originali rimangono nel repository, senza essere copiati nel pacchetto Pages.
+ogni push su `main`, oppure su avvio manuale. Analisi, disassemblati, prove e
+materiali di riferimento sono quindi disponibili anche tramite URL diretto su
+Pages. [Il manifest dell’archivio](https://zurillion.github.io/sherlock/archivio/manifest.json)
+elenca percorsi, URL relativi alla cartella archivio, dimensioni e hash SHA-256.
+Non è ancora prevista un’interfaccia di consultazione: i file `.asm`, `.md`,
+`.txt` e gli altri formati sono serviti come file statici, non eseguiti.
 La cronologia Git locale è conservata. File di sistema, cache, credenziali
 locali e oggetti di compilazione sono esclusi dalla versione corrente.

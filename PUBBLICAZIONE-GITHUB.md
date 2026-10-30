@@ -15,10 +15,27 @@ non è stata riscritta.
 
 Il workflow `.github/workflows/pages.yml` pubblica tramite GitHub Actions dopo
 un push su `main` o un avvio manuale. Prima esegue tutti i test su Node.js 24;
-poi `npm run build:pages` copia solo `index.html`, `style.css`, `src`, `data`
-e `images` in `_site/`. Il pacchetto è ignorato da Git e non comprende corpora,
-strumenti offline o materiali originali separati. Le versioni delle azioni
-ufficiali sono fissate a commit verificati.
+poi `npm run build:pages` copia `index.html`, `style.css`, `src`, `data`
+e `images` alla radice di `_site/` per il gioco. Inoltre pubblica sotto
+`archivio/` tutti i file tracciati da Git, esclusi `.github/` e `.gitignore`,
+con gli stessi percorsi del repository. Sono compresi analisi, disassemblati,
+documentazione, strumenti, prove differenziali e materiali di riferimento.
+Usare l’elenco Git impedisce di includere cache, credenziali locali ignorate
+o file temporanei non tracciati. Il pacchetto è ignorato da Git. Le versioni
+delle azioni ufficiali sono fissate a commit verificati.
+
+Esempi di URL diretti:
+
+- https://zurillion.github.io/sherlock/archivio/sherlock-analisi/LEGGIMI.md
+- https://zurillion.github.io/sherlock/archivio/sherlock-analisi/ai/results/npc-ai.asm
+- https://zurillion.github.io/sherlock/archivio/sherlock-js/results/resolution-mode/resolution-mode.asm
+
+L’indice completo è https://zurillion.github.io/sherlock/archivio/manifest.json:
+per ogni file contiene `path`, `url` relativo ad `archivio/`, `bytes` e `sha256`.
+Gli URL codificano correttamente spazi e caratteri speciali. Il manifest serve
+alla futura interfaccia di consultazione; al momento non è presente un indice
+HTML né un elenco automatico delle directory. I file sono risorse statiche:
+il browser può mostrarli o scaricarli secondo il formato.
 
 ```sh
 git push origin main
