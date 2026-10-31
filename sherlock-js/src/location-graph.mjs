@@ -7,7 +7,43 @@ export function portDirection(dx,dy){
  return x>y?(dx<0?'W':'E'):(dy<0?'N':'S');
 }
 export function boundary(x,y,dx,dy){const t=Math.min((NODE_W/2+3)/(Math.abs(dx)||1e-9),(NODE_H/2+3)/(Math.abs(dy)||1e-9));return [x+dx*t,y+dy*t];}
-export function cornerPoint(x,y,direction){return [x+(direction.includes('E')?1:-1)*(NODE_W/2+3),y+(direction.includes('S')?1:-1)*(NODE_H/2+3)];}
+export function cornerPoint(x,y,direction){return [x+(direction.includes('E')?1:-1)*(NODE_W/2),y+(direction.includes('S')?1:-1)*(NODE_H/2)];}
+// Lay out pure diagonal paths from their exit directions (station/platform chains),
+// then project clearance constraints together with rectangle collision constraints.
+export function arrangeGraph(roomList,edges){
+ const list=roomList.filter(r=>r.id),rooms=new Map(list.map(r=>[r.id,r])),adj=new Map(list.map(r=>[r.id,[]])),pairs=[];
+ for(const e of edges)if(rooms.has(e.source)&&rooms.has(e.target)&&e.source<e.target){
+  const reverse=edges.find(r=>r.source===e.target&&r.target===e.source&&r.direction===OPPOSITE[e.direction]);
+  if(reverse){pairs.push(e);adj.get(e.source).push(e);adj.get(e.target).push({...reverse});}
+ }
+ const seen=new Set();
+ for(const r of list){if(seen.has(r.id))continue;const ids=[r.id];seen.add(r.id);
+  for(const id of ids)for(const e of adj.get(id))if(!seen.has(e.target)){seen.add(e.target);ids.push(e.target);}
+  if(ids.length<2||ids.some(id=>!adj.get(id).length||adj.get(id).length>2||adj.get(id).some(e=>! /^(NE|NW|SE|SW)$/.test(e.direction)))||ids.filter(id=>adj.get(id).length===1).length!==2)continue;
+  const root=ids.find(id=>adj.get(id).length===1),positions=new Map([[root,[0,0]]]),queue=[root];
+  for(const id of queue)for(const e of adj.get(id))if(!positions.has(e.target)){
+   const [x,y]=positions.get(id);positions.set(e.target,[x+(e.direction.includes('E')?1:-1)*(NODE_W+40),y+(e.direction.includes('S')?1:-1)*(NODE_H+40)]);queue.push(e.target);
+  }
+  const mean=values=>values.reduce((a,b)=>a+b,0)/values.length;
+  const offset=[0,1].map(axis=>mean(ids.map(id=>rooms.get(id).layout[axis]))-mean(ids.map(id=>positions.get(id)[axis])));
+  for(const id of ids)rooms.get(id).layout=positions.get(id).map((n,axis)=>n+offset[axis]);
+ }
+ const diagonals=pairs.filter(e=>diagonalFits(e,rooms));
+ for(let pass=0;pass<1200;pass++){
+  let maxShift=0;
+  for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++){
+   const a=list[i].layout,b=list[j].layout,dx=b[0]-a[0],dy=b[1]-a[1],ox=NODE_W+16-Math.abs(dx),oy=NODE_H+16-Math.abs(dy);
+   if(ox>0&&oy>0){const axis=ox<oy?0:1,d=((axis===0?ox:oy)+.01)/2*((axis===0?dx:dy)>=0?1:-1);a[axis]-=d;b[axis]+=d;maxShift=Math.max(maxShift,Math.abs(d));}
+  }
+  for(const e of diagonals){const a=rooms.get(e.source).layout,b=rooms.get(e.target).layout;
+   for(const axis of [0,1]){const sign=(axis===0?e.direction.includes('E'):e.direction.includes('S'))?1:-1,min=(axis===0?NODE_W:NODE_H)+40,missing=min-sign*(b[axis]-a[axis]);
+    if(missing>0){a[axis]-=sign*missing/2;b[axis]+=sign*missing/2;maxShift=Math.max(maxShift,missing/2);}
+   }
+  }
+  if(maxShift<.001)break;
+ }
+ return rooms;
+}
 function diagonalFits(edge,rooms){
  if(!/^(NE|NW|SE|SW)$/.test(edge.direction))return false;
  const [x,y]=rooms.get(edge.source).layout,[tx,ty]=rooms.get(edge.target).layout;

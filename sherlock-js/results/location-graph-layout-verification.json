@@ -1,0 +1,9 @@
+{
+ "scope":"Presentation only: arrange rectangles along reciprocal diagonal exits before connecting actual rectangle corners",
+ "tests_passed":12,
+ "dataset":{"rooms":105,"overlapping_rectangles":0,"diagonal_pairs":32,"minimum_clearance_per_axis":39.9,"visual_connections":111},
+ "browser":{"chain":[18,19,20,21,22,23],"result":"All five links connect the facing corners along NE/SW, with visible spacing, no arrows or direction labels"},
+ "screenshot":"location-graph/layout-preview.png",
+ "memory_analysis_changed":false,
+ "next_gameplay_boundary":"A029"
+}

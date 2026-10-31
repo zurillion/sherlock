@@ -706,3 +706,17 @@ Quadrante contrario, inverso discordante o mancante restano espliciti.
 11 controlli grafo/hosting passati; browser Aldergate14–17:tre linee
 singole senza marker,112 collegamenti visivi complessivi. Gameplay e
 atlante memoria invariati; prossimo confine resta A029.
+
+Correzione layout diagonale: non basta agganciare gli angoli quando i
+rettangoli si sovrappongono nella proiezione orizzontale/verticale.
+arrangeGraph ricostruisce le componenti a catena interamente diagonali
+secondo le direzioni reali, anche se le coordinate originali sono sfalsate
+(es.King'sCross20/21). Conserva il baricentro iniziale; poi proietta insieme
+vincoli di distanza diagonale e collisioni dei riquadri nell'intera mappa.
+Minimo40unità libere su entrambi gli assi dei raccordi diagonali; cornerPoint
+usa NODE_W/2,NODE_H/2 senza il vecchio margine3. Le altre direzioni restano
+esplicite.12 test passati; dataset completo:105rettangoli senza sovrapposizioni,
+32coppie diagonali con distanza libera>=39.9 per asse e111linee visive.
+Browser King'sCross18–23 verificato con tutti5segmenti agli angoli e senza
+frecce/sigle. Sostituisce il layout precedente che produceva zigzag.
+Nessuna modifica gameplay o atlante memoria; prossimo A029 invariato.

@@ -1,4 +1,4 @@
-import {NODE_W,NODE_H,OPPOSITE,portDirection,boundary,cornerPoint,graphConnections,graphZones} from './location-graph.mjs';
+import {NODE_W,NODE_H,OPPOSITE,portDirection,boundary,cornerPoint,graphConnections,graphZones,arrangeGraph} from './location-graph.mjs';
 import {Transcript} from './transcript.mjs';
 import {SpectrumTerminal} from './spectrum.mjs';
 import {ClientSession,engineStatus,gameStatus} from './session.mjs';
@@ -225,8 +225,7 @@ function centerRoom(id=state?.room||8){const [x,y]=rooms.get(id).layout;view=[x-
 function buildGraph(){
  const list=data.rooms.filter(r=>r.id);
  for(const r of data.rooms){rooms.set(r.id,r);const [x,y]=r.coordinates||[30+r.id%10*70,620];r.layout=[x*4.6,y*4.1];}
- // Allontana solo i riquadri sovrapposti, preservando la disposizione di riferimento.
- for(let pass=0;pass<160;pass++){let changed=false;for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++){const a=list[i].layout,b=list[j].layout,dx=b[0]-a[0],dy=b[1]-a[1],ox=NODE_W+14-Math.abs(dx),oy=NODE_H+14-Math.abs(dy);if(ox>0&&oy>0){changed=true;if(ox<oy){const d=(ox+.1)/2*(dx>=0?1:-1);a[0]-=d;b[0]+=d;}else{const d=(oy+.1)/2*(dy>=0?1:-1);a[1]-=d;b[1]+=d;}}}if(!changed)break;}
+ arrangeGraph(list,data.edges);
  const geography=graphZones(list,data.edges),cabStops=new Set(data.cab_stops||[]);
  const legend=$('zone-legend');legend.replaceChildren();
  for(const zone of geography.zones){const item=el('span'),swatch=el('i');swatch.style.background=zone.colour;item.append(swatch,document.createTextNode(zone.name));legend.append(item);}
