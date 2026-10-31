@@ -5,34 +5,32 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 Correzione successiva: [PAY-SENZA-TO.md](PAY-SENZA-TO.md). `PAY 10D` ora
 produce il rifiuto originale senza bloccare il comando successivo; le forme
-valide conservano l’ordine dativo. Il successivo lavoro ha superato5D29; il prossimo limite è **5D2A**.
+valide conservano l’ordine dativo. Il successivo lavoro ha superato5D29; il prossimo limite è **A024**.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   430 checkpoint, da 0 a 429, fino a mercoledì 19:20: tutti i 24 posti
-   attore, ogni estrazione/lettura, arena completa, entità, programmi,
-   bitmap, contatore MORE e futuro dopo LOAD. 8.685 draw e 18.604 read.
-   Vedere PUNTATORE-INIZIO-TOKEN-A029.md e
-   results/parser-token-start/witness-prefix.json.
-   Ripetibile con `node tools/verify-parser-token-prefix.mjs`.
+   432checkpoint0–431 fino a mercoledì19:40, con8.738draw/18.710read,
+   tutti24posti attore, entità, fatti, programmi, arena752byte, bitmap e
+   futuro dopoLOAD. Vedere GLIFI-E-BYTE-VIDEO-5D2A.md e
+   results/glyph-video-low-2a/witness-prefix.json.
+   Ripetibile con `node tools/verify-glyph-video-low-2a-prefix.mjs`.
 
-2. **A029 superato; prossimo confine 5D2A.**
-   D9CD scrive l’indirizzo del primo carattere dopo gli spazi nel buffer
-   editor; AE82 scrive quello del token prima di leggerne tipo e payload.
-   A029/A02A conserva l’inizio, A02B il cursore successivo. Citazioni
-   differite mantengono la base originale. Old LOAD senza il campo rimane
-   sconosciuto fino a un writer compreso. Nessun 8A iniziale/catturato.
-   Ultimo store naturale: AE82, tick2341, Holmes0, callerAC33, punto B0
-   a5B8A; letto dal giardiniere8 nella precedente estrazione bloccante.
-   Confronto continuo separato: 3.371 checkpoint, 8.526 draw/18.256 read,
-   soltanto puntatore ed estrazioni, NON lo stato completo minuto per minuto.
-   Conservare il controesempio della riga del giardiniere sotto.
-   **Osservato: 5D2A al checkpoint430 verso mercoledì19:30**, cuoca9,
-   draw indice4 del riferimento. Il valore53 osservato non è un fallback.
-   48 ABI controllate del lettore, quattro boot con seed1/2/77/255 e nove
-   storie brevi positive. I due casi di ricerca con rollback del bridge
-   originale (controlli PRINT/NOPRINT/SAVE e TAKE TO) restano separati.
-   Atlante:263 istruzioni/564byte approfonditi; A029–A02A passa da parziale
-   a documentato, zero nuovi byte grigi. Copertura38846/431/2323 su41600.
+2. **5D2A superato; prossimo confine A024.**
+   Nel frameC388=5D32, PUSH HL/C38B eC398 salva a5D2A il byte basso
+   di5020+floor((2+7*colonna)/8). Altri frame conservanoF/C chiamante,
+   E descrittore, C shift oF scansione. CALL realeC374 con frame5D2A
+   lascia77 del ritornoC377. Unknowncaller e vecchiLOAD restanounknown;
+   non inferire da5D29.5D25 e5D2B non introdotti.
+   Nuova acquisizione originale degli store, anche invariati, sino3571:
+   ultimoC398/tick964/Holmes0/HL5035, t del prefissoParliament, colonna24;
+   lettura cuoca9/tick3562/Wed19:21. Non installare53 come fallback.
+   **Prossimo A024 al checkpoint432 verso mercoledì19:50**, Watson3,
+   draw indice17 del riferimento. Non installare1: ricostruire i writer
+   della modalità del parser e distinguere comando, affermazione, citazione.
+   Atlante324istruzioni/615byte approfonditi, zero nuovi byte grigi:
+   C388–C3E3,C363–C37C,A360–A418,A59F–A5CC,A720–A770,A7BA–A7CF,
+   D3E8–D447,A95B–A98F,CE10–CE17,testo682A–682F eworkspace5D2A.
+   Copertura38846/431/2323 su41600. Il certificato è separato dalla
+   precedente verifica continua di solo cursore/estrazioni diA029.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -88,7 +86,7 @@ La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
 Suite e prove correnti: vedere `results/name-qualifier-mode-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
-con `node tools/verify-parser-token-prefix.mjs`.
+con `node tools/verify-glyph-video-low-2a-prefix.mjs`.
 
 
 Aggiornamento29 ottobre2026 — consegna/restituzione NPC: leggere

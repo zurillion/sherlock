@@ -1,0 +1,9 @@
+{
+  "checkpoint": 432,
+  "target_clock": "Wed 07:50pm",
+  "unknown_address": "A024",
+  "native_actor": 3,
+  "native_draw_index_zero_based": 17,
+  "native_value": 1,
+  "note": "Offline observation only. Do not install1 as fallback; reconstruct parser-mode writers and lifetime. Failed checkpoint432 is not certified."
+}

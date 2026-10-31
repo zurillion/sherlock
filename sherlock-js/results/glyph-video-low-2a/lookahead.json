@@ -1,0 +1,23 @@
+{
+  "completed_checkpoints": 432,
+  "last_complete_clock": {
+    "tick": 3581,
+    "due": 3781,
+    "day": 2,
+    "minute": 40,
+    "hour": 7,
+    "period": "pm",
+    "label": "Wed 07:40pm"
+  },
+  "partial_checkpoint": 432,
+  "target_clock": {
+    "tick": 3591,
+    "due": 3781,
+    "minute": 50,
+    "hour": 7,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 07:50pm"
+  },
+  "error": "432 Ingresso casuale originale non ancora ricostruito: $A024. Il comando non è stato applicato."
+}

@@ -1,17 +1,18 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [PUNTATORE-INIZIO-TOKEN-A029.md](PUNTATORE-INIZIO-TOKEN-A029.md).
-Superato A029: 430 checkpoint 0–429 fino a mercoledì 19:20,
-8.685 draw e 18.604 read, stato completo, bitmap e futuro dopo LOAD.
-Prossimo ingresso sconosciuto **5D2A** al checkpoint 430 verso le 19:30,
-cuoca 9, indice draw 4 del riferimento originale. Non installare il valore
-53 osservato: ricostruire il writer e il frame del chiamante.
-A029/A02A è il puntatore iniziale dell’ultima lettura lessicale/sintattica,
-non un valore derivato da A028. Quattro boot e 48 ABI originali;
-9 storie brevi complete più un confronto continuo distinto di solo cursore
-ed estrazioni. Restano PRINT/MORE, TAKE TO, la riga transitoria del
-giardiniere, i cinque finali naturali e il limite cab5D0C.
-Atlante: A029–A02A da parziale a documentato, zero nuovi byte grigi.
+Aggiornamento corrente: [GLIFI-E-BYTE-VIDEO-5D2A.md](GLIFI-E-BYTE-VIDEO-5D2A.md).
+Superato5D2A:432 checkpoint0–431 fino a mercoledì19:40,
+8.738draw/18.710read, stato completo, bitmap e futuro dopoLOAD.
+Prossimo ingresso sconosciuto **A024** al432 verso19:50, Watson3,
+draw indice17 della traccia originale. Ricostruire i writer della modalità
+del parser e la loro persistenza; non installare il valore1 osservato.
+5D2A deriva dal byte basso del video nel frame5D32; altri cinque frame
+hanno ruoli distinti. Nuova traccia naturale degli store invariati compresi:
+C398/tick964/Holmes0/HL5035, t del prefissoParliament, colonna24;
+lettura cuoca9/tick3562/Wed19:21.5D25 e5D2B restano ignoti.
+Atlante324istruzioni/615byte approfonditi, nessuna nuova zona grigia.
+Restano i cinque finali naturali, cab5D0C e i controesempi PRINT/MORE,
+TAKE TO e riga transitoria del giardiniere nel campionamento continuo.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo

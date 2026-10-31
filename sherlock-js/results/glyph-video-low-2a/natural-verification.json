@@ -1,0 +1,46 @@
+{
+  "scope": "Natural original store provenance, each owned command checkpoint and exact cook random read. This report does not compare the complete world or normalize unknown callers; full-state acceptance is separate.",
+  "checkpoints": 76,
+  "owned_checkpoints": 3,
+  "unknown_checkpoints": 73,
+  "clock": {
+    "tick": 3571,
+    "due": 3781,
+    "day": 2,
+    "minute": 30,
+    "hour": 7,
+    "period": "pm",
+    "label": "Wed 07:30pm"
+  },
+  "unclassified_original_transitions": [],
+  "reads": [
+    {
+      "value": 53,
+      "tick": 3562,
+      "actor": 9
+    }
+  ],
+  "last_store": {
+    "pc": "C398",
+    "sp": "5D2C",
+    "af": 29736,
+    "bc": 258,
+    "de": 16288,
+    "hl": 20533,
+    "tick": 964,
+    "actor": 0,
+    "glyph": {
+      "frame": 23858,
+      "char": 116,
+      "descriptor": 23563,
+      "screen_address": 20533,
+      "shift": 2,
+      "caller_count": 1,
+      "word": "parliamentl."
+    },
+    "address": "5D2A",
+    "value": 53
+  },
+  "derived_column": 24,
+  "save_load_after_interruption": true
+}

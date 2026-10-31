@@ -1,0 +1,77 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 324,
+  "bytes_roundtripped": 615,
+  "regions": [
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Renderer dei glifi: 5D2A conserva il byte basso video soltanto nel frame5D32",
+      "atlas_priority": 150
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia della riga: vera CALL e ritorno C377 a5D2A nel frame corrispondente",
+      "atlas_priority": 150
+    },
+    {
+      "start": "A360",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Ordine NPC e nome della destinazione: chiamante del frame5D32",
+      "atlas_priority": 150
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Testo con argomenti: profondit\u00e0 del chiamante e ripristino",
+      "atlas_priority": 150
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nomi dei referenti e chiamate relative dei testi",
+      "atlas_priority": 150
+    },
+    {
+      "start": "A7BA",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Ingresso separato per tuple nome e nome entit\u00e0",
+      "atlas_priority": 150
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Formatter del nome: prefisso proprio e sostantivo finale differito",
+      "atlas_priority": 150
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: altro writer del medesimo stack",
+      "atlas_priority": 150
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: annuncio dopo la registrazione della richiesta",
+      "atlas_priority": 150
+    },
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo compresso dell\u2019ordine: nome attore e comando con destinazione",
+      "atlas_priority": 150
+    }
+  ]
+}

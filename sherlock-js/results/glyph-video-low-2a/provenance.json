@@ -1,0 +1,59 @@
+{
+  "scope": "New natural writer/read capture and216 original frame5D36 calls. Archived original ABI data reused for other frames, distinct descriptors/font bytes and real C374 CALL. No synthetic return used as real return-link evidence.",
+  "files": [
+    {
+      "source": "sherlock-js/test/fixtures/glyph-address-high-abi.json",
+      "sha256": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28",
+      "acquisition": "reused",
+      "protocol": "Controlled C388 calls from native boot; synthetic return0008, CP13 flags, supplied frame and BC/DE/HL. Bottom text row5020, all36 columns, eight frames, two caller counts and three characters; includes all six5D23 roles. No natural-play certificate.",
+      "cases": 1728
+    },
+    {
+      "source": "sherlock-js/results/glyph-scan-shift/deeper-frame-abi.json",
+      "sha256": "49f70d945f7563ff455a90ef04333087aafdfd8fb39532ffc2785bca002fd5ed",
+      "acquisition": "reused",
+      "protocol": "Controlled C388 calls from native boot; synthetic return0008, CP13 flags, supplied frame and BC/DE/HL. Bottom text row5020, all36 columns, frame5D34, two caller counts and three characters; includes all saved scan flags at physical5D28. No natural-play certificate.",
+      "cases": 216
+    },
+    {
+      "source": "sherlock-js/test/fixtures/glyph-address-high-clear-abi.json",
+      "sha256": "47e88438f677b5145a5a774f028a1443f96ba7cfa9a3f250424dbf8840d57370",
+      "acquisition": "reused",
+      "protocol": "Controlled C374 final clear iteration: actual CALL C388 writes C377; supplied B1,A32,F54,C shift,HL video,DE5A20. Dummy three saved words and return0008 form the controlled caller. All36 columns,eight frames. No natural-play claim.",
+      "cases": 288
+    },
+    {
+      "source": "sherlock-js/results/glyph-descriptor-low/descriptor-abi.json",
+      "sha256": "0c89f3a8f24831bd5a978ce03ba046f53aa9a2fdeffce4c02114697b2fb85a50",
+      "acquisition": "reused",
+      "protocol": "Controlled original C388 calls, supplied DE=5C0B/5C42/5123, BC counts3/7, space/r/q and eight shifts, eight physical stack frames. Synthetic return0008 at supplied frame; original code unchanged. This verifies register preservation, not natural caller reachability.",
+      "cases": 1152
+    },
+    {
+      "source": "sherlock-js/results/glyph-last-row/font-abi.json",
+      "sha256": "1da8eabde1a019d7e3857e939da77bb5bf643b1e4c79a2bfdddbc19fc5ec3238",
+      "acquisition": "reused",
+      "protocol": "Controlled original C388 calls for all96 original glyphs, eight shifts, frame5D32, DE5C42 and B7. Synthetic return0008 at supplied frame; no opcode or font patches. Check saved raw last font row at5D27, not shifted bitmap or captured zero. Offline ABI evidence, not natural gameplay",
+      "cases": 768
+    },
+    {
+      "source": "sherlock-js/results/glyph-video-low-2a/deeper-frame-abi.json",
+      "sha256": "966ed9fd673f22c75c18a420b13709241155bbf174d14bec6b71c7e6f0e27c86",
+      "acquisition": "new",
+      "protocol": "Controlled C388 calls from native boot; synthetic return0008, CP13 flags, supplied frame and BC/DE/HL. Bottom text row5020, all36 columns, frame5D36, two caller counts and three characters; includes all saved scan flags at physical5D2A. No natural-play certificate.",
+      "cases": 216
+    },
+    {
+      "source": "sherlock-js/results/glyph-video-low-2a/natural-stores.json",
+      "sha256": "36a2f3a05caafa6c32ed0c29bf2d98e74d99ca8404febdc032ce14a3884ab7c3",
+      "acquisition": "new",
+      "protocol": "Natural seed1 major-witness, all24 actor slots, free initial LOOK, original graphics off after boot, uppercase injected keys and immediate MORE. No world/actor patches. Observe PUSH/CALL and EX(SP),HL stores, including identical-value stores; record unclassified value changes separately. Two stack bytes are observed to distinguish roles; this dossier implements only5D2A. Offline only.",
+      "cases": 0
+    },
+    {
+      "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+      "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+      "acquisition": "reused"
+    }
+  ]
+}

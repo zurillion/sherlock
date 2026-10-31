@@ -774,3 +774,32 @@ TAKE TO e la riga continua del giardiniere restano aperti.
 Verifica conclusiva A029: suite completa di 1.575 test passata, zero errori.
 107 controlli mirati parser/lexer e 8 controlli atlante/hosting passati.
 Il certificato positivo di 430 checkpoint è completato e salvato.
+
+31 ottobre2026 — leggere GLIFI-E-BYTE-VIDEO-5D2A.md e
+results/glyph-video-low-2a-verification.json.5D2A è L del video soltanto
+nel frameC388=5D32: C38B/C398 salva5020+floor((2+7*colonna)/8).
+Non derivare53 da5D29 o da una traccia. Sei ruoli: frame2C F chiamante,
+2E C chiamante(solo BC posseduto),30 E descrittore,32 L video,34 C shift,
+36 F scansione. CALL veraC374 con frame2A lascia77 del returnC377;
+return0008 controllato non prova questo link. Nuove216ABI frame36;
+altri frame,descrittori,font e vereCALL riutilizzano riferimenti conSHA256.
+Proprietà put e revoca estese a2A, non2B; unknownRoomName revoca26–2A.
+VecchiLOAD senza2A restanounknown anche con29 noto;25 e2B non introdotti.
+Nuova traccia originale sino3571 osserva2A/2B con store invariati e senza
+transizioni non classificate. UltimoC398/tick964/Holmes0/SP5D2C/HL5035,
+t diParliament alla colonna24; cuoca9 legge53 altick3562/Wed19:21.
+Prova naturale:76checkpoint comando,3 posseduti confrontati e73unknown;
+una lettura esatta, piùSAVE/LOAD dopo interruzione. Non chiamarla RAM completa.
+Certificato positivo completo separato:432checkpoint0–431 sinoWed19:40,
+8738draw/18710read,24postiattore,arena752,bitmap e futuroLOAD. Le8740
+estrazioni runtime comprendono2 delboot. ProssimoA024 al432 versoWed19:50,
+Watson3/drawindice17: ricostruire modalitàparser; non installare1 di fallback.
+Atlante324istruzioni/615byte approfonditi: C388–C3E3,C363–C37C,A360–A418,
+A59F–A5CC,A720–A770,A7BA–A7CF,D3E8–D447,A95B–A98F,CE10–CE17,
+testo682A–682F eworkspace5D2A. Zero nuovi bytegrigi;38846/431/2323 su41600.
+Cinque finali,cab5D0C,PRINT/MORE,TAKE TO e la riga continua del giardiniere
+restano aperti.193 controlli mirati distinti passati; certificato432 salvato.
+
+Verifica conclusiva 5D2A: suite completa1.613test passati, zero errori.
+193 controlli mirati distinti passati. La nuova prova naturale del writer
+e della lettura e il certificato completo432checkpoint sono conclusi e salvati.

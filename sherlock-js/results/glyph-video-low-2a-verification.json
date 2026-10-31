@@ -1,0 +1,125 @@
+{
+  "status": "5D2A reconstructed from caller-specific glyph output operations",
+  "scope": "Historical text-only source protocol; no CPU interpreter, captured-byte fallback or original state installed in playable runtime",
+  "tests": {
+    "targeted_regression_passed": 193,
+    "targeted_regression_failed": 0,
+    "full_suite": {
+      "passed": 1613,
+      "failed": 0,
+      "command": "node --test --test-concurrency=2 test/*.test.mjs"
+    }
+  },
+  "new_original_acquisitions": {
+    "natural_store_trace": "glyph-video-low-2a/natural-stores.json",
+    "frame5D36_abi_calls": 216
+  },
+  "natural_writer_proof": {
+    "scope": "Natural original store provenance, each owned command checkpoint and exact cook random read. This report does not compare the complete world or normalize unknown callers; full-state acceptance is separate.",
+    "checkpoints": 76,
+    "owned_checkpoints": 3,
+    "unknown_checkpoints": 73,
+    "clock": {
+      "tick": 3571,
+      "due": 3781,
+      "day": 2,
+      "minute": 30,
+      "hour": 7,
+      "period": "pm",
+      "label": "Wed 07:30pm"
+    },
+    "unclassified_original_transitions": [],
+    "reads": [
+      {
+        "value": 53,
+        "tick": 3562,
+        "actor": 9
+      }
+    ],
+    "last_store": {
+      "pc": "C398",
+      "sp": "5D2C",
+      "af": 29736,
+      "bc": 258,
+      "de": 16288,
+      "hl": 20533,
+      "tick": 964,
+      "actor": 0,
+      "glyph": {
+        "frame": 23858,
+        "char": 116,
+        "descriptor": 23563,
+        "screen_address": 20533,
+        "shift": 2,
+        "caller_count": 1,
+        "word": "parliamentl."
+      },
+      "address": "5D2A",
+      "value": 53
+    },
+    "derived_column": 24,
+    "save_load_after_interruption": true
+  },
+  "full_prefix": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 432,
+    "random_draws": 8740,
+    "clock": {
+      "tick": 3581,
+      "due": 3781,
+      "day": 2,
+      "minute": 40,
+      "hour": 7,
+      "period": "pm",
+      "label": "Wed 07:40pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8738,
+    "compared_random_reads": 18710,
+    "certified_checkpoint_range": [
+      0,
+      431
+    ],
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 432,
+      "target_clock": "Wed 07:50pm",
+      "unknown_address": "A024"
+    }
+  },
+  "next_boundary": {
+    "checkpoint": 432,
+    "target_clock": "Wed 07:50pm",
+    "unknown_address": "A024",
+    "native_actor": 3,
+    "native_draw_index_zero_based": 17,
+    "native_value": 1,
+    "note": "Offline observation only. Do not install1 as fallback; reconstruct parser-mode writers and lifetime. Failed checkpoint432 is not certified."
+  },
+  "atlas": {
+    "instructions_roundtripped": 324,
+    "bytes_roundtripped": 615,
+    "newly_documented_unknown_bytes": 0,
+    "payload_counts": {
+      "documented": 38846,
+      "partial": 431,
+      "unknown": 2323
+    },
+    "workspace": "5D2A caller roles and ownership updated"
+  },
+  "still_unknown_stack_cells": [
+    "5D25",
+    "5D2B"
+  ],
+  "prior_limits_retained": [
+    "Five natural endings",
+    "Cab5D0C",
+    "PRINT/MORE",
+    "TAKE TO failure budget",
+    "Continuous gardener-row transient mismatch"
+  ]
+}

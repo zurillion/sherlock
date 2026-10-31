@@ -1,0 +1,31 @@
+{
+  "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+  "checkpoints": 432,
+  "random_draws": 8740,
+  "clock": {
+    "tick": 3581,
+    "due": 3781,
+    "day": 2,
+    "minute": 40,
+    "hour": 7,
+    "period": "pm",
+    "label": "Wed 07:40pm"
+  },
+  "terminal": null,
+  "all_actors": 24,
+  "load_future_compared": true,
+  "arena_bytes_per_checkpoint": 752,
+  "bitmaps_compared": true,
+  "compared_random_draws": 8738,
+  "compared_random_reads": 18710,
+  "certified_checkpoint_range": [
+    0,
+    431
+  ],
+  "full_ending_certified": false,
+  "next_boundary": {
+    "checkpoint": 432,
+    "target_clock": "Wed 07:50pm",
+    "unknown_address": "A024"
+  }
+}

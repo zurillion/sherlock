@@ -1,0 +1,19 @@
+"""Typed source dossier: caller-dependent low video byte saved at5D2A."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
+regions=[(0xC388,0xC3E4,'code','Renderer dei glifi: 5D2A conserva il byte basso video soltanto nel frame5D32'),(0xC363,0xC37D,'code','Pulizia della riga: vera CALL e ritorno C377 a5D2A nel frame corrispondente'),(0xA360,0xA419,'code','Ordine NPC e nome della destinazione: chiamante del frame5D32'),(0xA59F,0xA5CD,'code','Testo con argomenti: profondità del chiamante e ripristino'),(0xA720,0xA771,'code','Nomi dei referenti e chiamate relative dei testi'),(0xA7BA,0xA7D0,'code','Ingresso separato per tuple nome e nome entità'),(0xD3E8,0xD448,'code','Formatter del nome: prefisso proprio e sostantivo finale differito'),(0xA95B,0xA990,'code','Decoder dei candidati: altro writer del medesimo stack'),(0xCE10,0xCE18,'code','Ordine NPC: annuncio dopo la registrazione della richiesta'),(0x682A,0x6830,'data','Testo compresso dell’ordine: nome attore e comando con destinazione')]
+notes={0xC388:'PUSH AF: nel frame5D2C salva F del chiamante a5D2A. Per output normale deriva da CP0D; nella pulizia deriva da AND0. Non è sempre il byte video.',0xC389:'PUSH BC: nel frame5D2E salva C del chiamante a5D2A; se il contratto BC non è posseduto, il valore precedente viene revocato.',0xC38A:'PUSH DE: nel frame5D30 salva E del descrittore a5D2A, distinto da quello del video. Provati descrittori diversi.',0xC38B:'PUSH HL: nel frame5D32 salva L della posizione video a5D2A. HL iniziale = 5020 + floor((2+7*colonna)/8).',0xC398:'Ripete il PUSH HL del medesimo indirizzo prima delle scansioni. Può essere l’ultimo store anche senza cambiamento del valore.',0xC39C:'Nel frame5D34 salva C dello shift a5D2A, non L video. Lo shift zero resta un valore calcolato.',0xC39D:'Nel frame5D36 salva F della scansione a5D2A. Contratto provato separatamente dalle altre profondità.',0xC3B7:'Secondo PUSH BC per il glifo spezzato: stesso C a5D2A nel frame5D34.',0xC3B8:'PUSH AF dopo DEC/INC C: nel frame5D36 conserva F della scansione spezzata. Non usare un flag fisso.',0xC374:'CALL reale aC388: scrive C377. Con ingresso del glifo aSP5D2A, il byte basso77 resta a5D2A; non confondere con il return0008 delle ABI sintetiche.',0xA7BA:'Il prefisso proprio della destinazione nell’ordine CE13 usa il frame verificato5D32. Il sostantivo finale può essere scaricato dopo il ritorno.',0xD438:'Invia il sostantivo; il delimitatore successivo può avere un altro frame. Non derivare il residuo dal testo finale normalizzato.',0xCE13:'Annuncio682A dopo la richiesta: i prefissi attore e destinazione hanno profondità di stack distinte.'}
+lines=['; Dossier offline: istruzioni e dati tipizzati, verificati e riassellati sul payload.'];count=total=0
+for a,b,kind,label in regions:
+ lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {label}'];at=a
+ while at<b:
+  if kind=='data':n=min(8,b-at);op='DEFB '+','.join(f'${v:02X}'for v in m[at:at+n])
+  else:op,n=disassemble(m,at);count+=1
+  assert at+n<=b,(hex(at),op);assert bytes(asm.assemble(op,at))==m[at:at+n]
+  lines.append(f'    {op:<37} ; ${at:04X} {m[at:at+n].hex(" ")}'+(' | '+notes[at]if at in notes else''));at+=n;total+=n
+root=p/'sherlock-js/results/glyph-video-low-2a';root.mkdir(exist_ok=True);(root/'glyph-video-low-2a.asm').write_text('\n'.join(lines)+'\n');(root/'listing-verification.json').write_text(json.dumps(dict(roundtrip_equal=True,instructions=count,bytes_roundtripped=total,regions=[dict(start=f'{a:04X}',end_exclusive=f'{b:04X}',kind=k,label=l,atlas_priority=150)for a,b,k,l in regions]),indent=2)+'\n');print(count,total)
