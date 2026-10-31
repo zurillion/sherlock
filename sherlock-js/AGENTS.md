@@ -675,3 +675,12 @@ metadati porte. Linea unificata evidenziata da entrambi gli estremi.
 7 controlli unitari/hosting passati e DOM browser verificato:199 uscite
 visibili rappresentate da130tracciati,69 coppie unificate e61archi espliciti.
 Nessuna nuova scoperta di memoria: prossimo lavoro resta A029.
+
+Aggiornamento mappa: la richiesta successiva estende la riduzione alle
+coppie reciproche UP/DOWN anche quando non sono direzioni geometriche
+ovvie. Una linea senza frecce, etichetta unica DOWN/UP al centro; tratteggio
+se almeno un verso ha gate, linea continua altrimenti. Non accoppiare UP
+con N/S né togliere la freccia a un UP/DOWN senza inverso. Sostituisce la
+precedente nota che lasciava separate queste coppie.9 controlli passati e
+DOM verificato:4 coppie verticali ridotte,126 collegamenti visivi totali.
+Il prossimo confine di reverse engineering resta A029.

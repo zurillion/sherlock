@@ -1,0 +1,50 @@
+{
+  "scope": "Presentation of reciprocal UP/DOWN exits as one arrowless line with one DOWN/UP label. The directed gameplay graph is preserved.",
+  "tests": {
+    "passed": 9,
+    "failed": 0,
+    "covers_both_input_orders": true,
+    "covers_obstacle_and_no_obstacle": true,
+    "unpaired_vertical_exit_stays_directed": true
+  },
+  "browser": {
+    "connections": 126,
+    "labels": [
+      {
+        "bidirectional": "true",
+        "dash": "4px, 3px",
+        "marker": "none",
+        "source": "6",
+        "target": "7",
+        "text": "DOWN/UP"
+      },
+      {
+        "bidirectional": "true",
+        "dash": "4px, 3px",
+        "marker": "none",
+        "source": "41",
+        "target": "43",
+        "text": "DOWN/UP"
+      },
+      {
+        "bidirectional": "true",
+        "dash": "4px, 3px",
+        "marker": "none",
+        "source": "56",
+        "target": "61",
+        "text": "DOWN/UP"
+      },
+      {
+        "bidirectional": "true",
+        "dash": "4px, 3px",
+        "marker": "none",
+        "source": "96",
+        "target": "100",
+        "text": "DOWN/UP"
+      }
+    ]
+  },
+  "screenshot": "results/location-graph/vertical-preview.png",
+  "memory_analysis_changed": false,
+  "next_gameplay_boundary": "A029"
+}

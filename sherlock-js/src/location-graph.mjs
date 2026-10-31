@@ -17,8 +17,9 @@ export function graphConnections(edges,rooms){
  const visible=edges.filter(e=>e.source&&e.target&&rooms.has(e.source)&&rooms.has(e.target)),used=new Set(),result=[];
  for(const [i,edge]of visible.entries()){
   if(used.has(i))continue;used.add(i);
-  const reverse=obvious(edge,rooms)?visible.findIndex((r,j)=>!used.has(j)&&r.source===edge.target&&r.target===edge.source&&obvious(r,rooms)):-1;
-  if(reverse>=0){used.add(reverse);result.push({...edge,reverse:visible[reverse]});}
+  const vertical=edge.direction==='UP'||edge.direction==='DOWN',opposite=edge.direction==='UP'?'DOWN':'UP';
+  const reverse=vertical||obvious(edge,rooms)?visible.findIndex((r,j)=>!used.has(j)&&r.source===edge.target&&r.target===edge.source&&(vertical?r.direction===opposite:obvious(r,rooms))):-1;
+  if(reverse>=0){used.add(reverse);result.push({...edge,reverse:visible[reverse],label:vertical?'DOWN/UP':null});}
   else result.push({...edge,reverse:null});
  }
  return result;
