@@ -1,15 +1,18 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [GLIFI-E-REGISTRI-ALTI-5D25.md](GLIFI-E-REGISTRI-ALTI-5D25.md).
-5D25 ricostruito dai sei ruoli del renderer e dal ritorno realeC377.
-Nuova traccia originale: Watson legge92 al3656/Wed20:55; ultimoC38A al964,
-Lestrade2, descrittore5C0B. Corretto lo0 attribuito erroneamente a5D25:
-era la lettura precedente5C25. Nessuna costante o fallback nel runtime.
-Certificato completo443checkpoint0–442 sinoWed21:30,8987draw/19234read,
-24attori,arena752,stato,bitmap e futuroLOAD. ProssimoA025 al443 versoWed21:40,
-Watson3/draw12; ricostruire il writer, non installare lo0 osservato.
-Atlante324istruzioni/615byte approfonditi; nessun nuovo byte grigio.
-Argomenti del giardiniere risolti, compresa la prova continua0–1671.
+Aggiornamento corrente: [SPAZI-E-FORMATTER-A025.md](SPAZI-E-FORMATTER-A025.md).
+A025 è ora ricostruito come flag persistente degli spazi: writerAA2C,AA36,AA08.
+Confronto di riempimento esatto precedente al wrap; output letterale invisibile
+compresi suffissi monetari; cursore, parser e cambio finestra sono indipendenti.
+Certificato completo463checkpoint0–462 sinoThu00:30,9237draw/19736read,
+24attori,arena752,stato,bitmap e futuroLOAD. Prova separata continuaA025:
+3571checkpoint,9000draw/19260read sinoWed21:40, nessuna transizione non classificata.
+Watson legge0 al3700, ultimoAA36 al3698/steam train36: non è un fallback0.
+ProssimoA026 al463 versoThu00:40,Watson3/draw17; ricostruire i writer delle
+maiuscole senza installare1 osservato. VecchiSAVE senzaA025 restanounknown.
+Atlante150istruzioni/276byte approfonditi; A025 parziale→documentato,
+nessun nuovo byte grigio. Copertura38848/429/2323 su41600.
+5D25 e argomenti del giardiniere risolti; conservare i rispettivi contratti.
 Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e il dialogo
 SAY WATSON "WATSON KILLED YOU" con7 drawJS contro10 nativo.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.

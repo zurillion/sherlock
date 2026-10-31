@@ -1,0 +1,42 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 150,
+  "bytes_roundtripped": 276,
+  "regions": [
+    {
+      "start": "A025",
+      "end_exclusive": "A026",
+      "kind": "data",
+      "label": "Stato degli spazi: normalizzazione distinta dal cursore e dal parser",
+      "atlas_priority": 154
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "AA71",
+      "kind": "code",
+      "label": "Buffer e normalizzazione: i tre writer A025, confronto esatto prima del wrap",
+      "atlas_priority": 154
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8AC",
+      "kind": "code",
+      "label": "Dizionario: emissione soppressa prima del formatter se non visibile",
+      "atlas_priority": 154
+    },
+    {
+      "start": "C1E1",
+      "end_exclusive": "C1F4",
+      "kind": "code",
+      "label": "Uscita invisibile: scarta pixel dopo gli aggiornamenti del normalizzatore",
+      "atlas_priority": 154
+    },
+    {
+      "start": "C129",
+      "end_exclusive": "C14A",
+      "kind": "code",
+      "label": "Cambio finestra: aggiorna cursore e contatore, conserva A025",
+      "atlas_priority": 154
+    }
+  ]
+}

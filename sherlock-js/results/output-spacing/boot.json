@@ -1,0 +1,21 @@
+{
+  "protocol": "Four original cold starts with all24 actors; A025 at the first command prompt.",
+  "cases": [
+    {
+      "seed": 1,
+      "value": 0
+    },
+    {
+      "seed": 2,
+      "value": 0
+    },
+    {
+      "seed": 77,
+      "value": 0
+    },
+    {
+      "seed": 255,
+      "value": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+50 Mon 10:37am
+100 Mon 02:30pm
+150 Mon 10:50pm
+200 Tue 05:40am
+250 Tue 01:40pm
+300 Tue 10:00pm
+350 Wed 06:00am
+400 Wed 02:20pm
+450 Wed 10:40pm
+{
+  completed_checkpoints: 463,
+  last_complete_clock: {
+    tick: 3871,
+    due: 4501,
+    day: 3,
+    minute: 30,
+    hour: 12,
+    period: 'am',
+    label: 'Thu 12:30am'
+  },
+  partial_checkpoint: 463,
+  target_clock: {
+    tick: 3881,
+    due: 4501,
+    minute: 40,
+    hour: 12,
+    day: 3,
+    period: 'am',
+    label: 'Thu 12:40am'
+  },
+  error: '463 Ingresso casuale originale non ancora ricostruito: $A026. Il comando non è stato applicato.'
+}

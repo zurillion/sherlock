@@ -1,0 +1,23 @@
+{
+  "completed_checkpoints": 463,
+  "last_complete_clock": {
+    "tick": 3871,
+    "due": 4501,
+    "day": 3,
+    "minute": 30,
+    "hour": 12,
+    "period": "am",
+    "label": "Thu 12:30am"
+  },
+  "partial_checkpoint": 463,
+  "target_clock": {
+    "tick": 3881,
+    "due": 4501,
+    "minute": 40,
+    "hour": 12,
+    "day": 3,
+    "period": "am",
+    "label": "Thu 12:40am"
+  },
+  "error": "463 Ingresso casuale originale non ancora ricostruito: $A026. Il comando non è stato applicato."
+}

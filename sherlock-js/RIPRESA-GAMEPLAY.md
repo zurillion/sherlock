@@ -3,30 +3,32 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [GLIFI-E-REGISTRI-ALTI-5D25.md](GLIFI-E-REGISTRI-ALTI-5D25.md).
+Aggiornamento corrente: [SPAZI-E-FORMATTER-A025.md](SPAZI-E-FORMATTER-A025.md).
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   443 checkpoint0–442 fino a mercoledì21:30,8.987 draw/19.234 read,
+   463 checkpoint0–462 fino a giovedì00:30,9.237 draw/19.736 read,
    tutti24 posti attore, entità, fatti, programmi, arena752 byte, bitmap e
-   futuro dopoLOAD. Vedere results/glyph-high-role-25/witness-prefix.json.
-   Ripetibile con `node tools/verify-glyph-high-role-25-prefix.mjs`.
+   futuro dopoLOAD. Vedere results/output-spacing/witness-prefix.json.
+   Ripetibile con `node tools/verify-output-spacing-prefix.mjs`.
 
-2. **5D25 ricostruito; prossimo ingresso A025.**
-   Sei ruoli indipendenti: A/B chiamante,D descrittore,H video,B scansione,
-   A ultima riga del font. Il frame stabilisce quale registro salva il byte.
-   Il ritorno realeC377 lasciaC3; ritorni e chiamanti ignoti revocano proprietà.
-   Traccia originale nuova: Watson3 legge92 al3656/Wed20:55; ultimo writer
-   C38A al964/Lestrade2, carattere«r» di«Inspector», descrittore5C0B.
-   Lo0 annotato prima era5C25, lettura precedente della stessa draw.
-   Nessun fallback catturato; SAVE incompleti restano ignoti.5D2B non introdotto.
-   **Prossimo A025 al443 verso mercoledì21:40**, Watson3/draw12.
-   Non installare lo0 osservato né inferire daA024. Checkpoint443 escluso.
-   Atlante324 istruzioni/615 byte approfonditi: C388–C3E3,C363–C37C,
-   A360–A418,A59F–A5CC,A720–A770,A7BA–A7CF,D3E8–D447,A95B–A98F,
-   CE10–CE17,testo682A–682F e workspace5D25. Nessun nuovo byte grigio;
-   copertura invariata38.847/430/2.323 su41.600.
-   Argomenti del giardiniere risolti nel lavoro precedente; preservare la
-   prova positiva continua0–1671/4573draw/9796read e il commit selettivoD026.
+2. **A025 ricostruito; prossimo ingresso A026.**
+   Flag del normalizzatore degli spazi, distinto da cursore, inizio riga eA024.
+   AA2C scrive1, AA36 scrive0 perCR, AA08 scrive0 se la parola occupava
+   esattamente le colonne rimaste PRIMA del wrap. C142 e wrap grezzo non scrivono.
+   I letterali invisibili passano ancora dal formatter; dizionario e nomi sono
+   soppressi prima. Includere suffissi delle richieste di pagamento e pagamenti.
+   Campo display.spacingFlag; dati iniziali estratti, oldSAVE assente ignoto.
+   Nuova traccia3571checkpoint sinoWed21:40:9000draw/19260read, flag a ogni
+   draw/minuto, nessuna transizione non classificata. Watson3 legge0 al3700;
+   ultimoAA36 al3698/steam train36. Nessuno0 catturato installato.
+   **Prossimo A026 al463 verso giovedì00:40**, Watson3/draw17, valore originale1.
+   Ricostruire maiuscole e writer; non inferire1 daA025 o dal testo finale.
+   Checkpoint463 escluso dal certificato positivo.5D2B resta non introdotto.
+   Atlante150istruzioni/276byte: A025,A9B7–AA70,A887–A8AB,C1E1–C1F3,
+   C129–C149. A025 parziale→documentato, nessun nuovo byte grigio:
+   38.848documentati/429parziali/2.323sconosciuti su41.600.
+   5D25 risolto nel dossier precedente, con correzione dello storico5C25=0/5D25=92.
+   Argomenti del giardiniere risolti; preservare la prova continua0–1671 eD026.
    Dialogo SAY WATSON "WATSON KILLED YOU":7 drawJS contro10 nativo ancora aperto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**

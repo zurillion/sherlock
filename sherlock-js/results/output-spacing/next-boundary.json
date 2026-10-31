@@ -1,0 +1,9 @@
+{
+  "checkpoint": 463,
+  "target_clock": "Thu 12:40am",
+  "unknown_address": "A026",
+  "actor": 3,
+  "draw_index": 17,
+  "native_value": 1,
+  "scope": "Failed checkpoint excluded from positive full-state acceptance. Reconstruct capitalization writers; no observed-value fallback or deduction from adjacent A025."
+}

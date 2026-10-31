@@ -900,3 +900,40 @@ room-name pretendevano25unknown. Aggiornate a D=5C e rieseguite2/2PASS.
 1689test distinti verificati senza errori residui; log iniziale e rerun
 separati. Non dichiarare una seconda esecuzione completa1689/0.
 Cinque finali,cab5D0C,PRINT/MORE,TAKE TO,dialogoWatsonKilledYou restanoaperti.
+
+31 ottobre2026 — leggere SPAZI-E-FORMATTER-A025.md e
+results/output-spacing-verification.json. A025 è il flag del normalizzatore,
+non il parser o un alias di started/cursor. Campo display.spacingFlag, dato
+iniziale estratto daA025. AA2C=1 sui caratteri non soppressi; AA36=0 perCR;
+AA08=0 soltanto con uguaglianza lunghezza/colonne PRIMA del possibile wrap.
+CP salvato prima del CR: parola36 con iniziale1colonna non esegueAA08.
+C142 e wrap grezzo conservano il flag. Buffer non scaricato/backspace non
+scrivono; canale inferiore saltaAA14. OldSAVE assente restaunknown fino a
+writer; non inferire daA024, started, pending o bitmap. SAVE/LOAD conserva.
+5C3C=0 sopprime dizionario/nomi inA887, MA i letterali passano ancora da
+A9B7/AA14 prima che C1E1 scarti pixel senza muovere il cursore. Conservare
+questo percorso in npcTextContext/print/demand/sayPayment, compresi suffissi
+numerici e chiusura della frase. Non sostituirlo con reset per turno.
+480ABI originali controllati, visibili/invisibili, flag0/1/255, colonne1/2/4/36,
+parole36/37, quote/CR/spazi/backspace:2616caratteri/2688store, confrontoA025,
+non certificato di bitmap per ogni setup.9storie naturali,34input/64checkpoint,
+199draw/398read/2796store, stato completo e futuroLOAD;48test mirati passati.
+Nuova traccia originale continua3571checkpoint sinoWed21:40:9000draw/19260read,
+flag a ogni minuto/draw e nessuna transizione non classificata. Watson3 legge0
+al3700/Wed21:39; ultimoAA36 al3698/steam train36. Il dato stack_top dei probe
+è la word corrente aSP (inAA14 spessoAF salvato), NON un indirizzo di ritorno.
+Nessun valore registrato viene importato nel runtime. Il CR pubblica il risultato
+finale0; la scrittura intermedia1 non ha chiamate casuali interposte.
+Certificato positivo completo separato463checkpoint0–462 sinoThu00:30,
+9237draw/19736read,24attori,arena752,bitmap e futuroLOAD;9239runtime con2boot.
+ProssimoA026 al463 versoThu00:40,Watson3/draw17; osservato1, non installarlo
+né dedurlo daA025 o dalle maiuscole del testo normalizzato. Checkpoint463escluso.
+Atlante150istruzioni/276byte: A025,A9B7–AA70,A887–A8AB,C1E1–C1F3,C129–C149.
+A025 parziale→documentato, nessun nuovo byte grigio:38848/429/2323 su41600.
+Riferire le zone e l’orologio.5D2B non introdotto. Cinque finali naturali,cab5D0C,
+PRINT/MORE,TAKE TO e dialogoWatsonKilledYou restanoaperti.
+
+Verifica finaleA025:48test mirati passati; suite completa1737/1737PASS,
+zero errori/skipped/cancelled. Certificato completo e lookahead rieseguiti sul
+runtime definitivo dopo i suffissi monetari invisibili, nessun campo escluso.
+Dossier, atlante, screenshot e provenienza salvati; pubblicare suorigin/main.
