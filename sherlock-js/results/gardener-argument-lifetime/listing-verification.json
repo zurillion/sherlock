@@ -1,0 +1,56 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 137,
+  "bytes_roundtripped": 362,
+  "regions": [
+    {
+      "start": "CC78",
+      "end_exclusive": "CC94",
+      "kind": "code",
+      "label": "Ingresso di ogni passo DOMAIN: ricarica gli argomenti di lavoro dalla riga o dal contesto",
+      "atlas_priority": 152
+    },
+    {
+      "start": "CA48",
+      "end_exclusive": "CA76",
+      "kind": "code",
+      "label": "Binding prima del corpo: riempie gli slot FF solo negli argomenti di lavoro",
+      "atlas_priority": 152
+    },
+    {
+      "start": "CE8F",
+      "end_exclusive": "CEDE",
+      "kind": "code",
+      "label": "Successo e fallimento: commit, ramo interno oppure costo forzato",
+      "atlas_priority": 152
+    },
+    {
+      "start": "CD82",
+      "end_exclusive": "CD95",
+      "kind": "code",
+      "label": "Yield temporale e punto comune di commit degli argomenti",
+      "atlas_priority": 152
+    },
+    {
+      "start": "CF80",
+      "end_exclusive": "CFB6",
+      "kind": "code",
+      "label": "Sottosequenza: salva un nuovo contesto senza aggiornare la riga attore",
+      "atlas_priority": 152
+    },
+    {
+      "start": "CFCF",
+      "end_exclusive": "D045",
+      "kind": "code",
+      "label": "Ritorno dal contesto e distinzione fra lettura D008 e commit D026",
+      "atlas_priority": 152
+    },
+    {
+      "start": "ED6A",
+      "end_exclusive": "ED7C",
+      "kind": "data",
+      "label": "Programma giardiniere: due test di probabilit\u00e0 e sottosequenza di movimento",
+      "atlas_priority": 152
+    }
+  ]
+}

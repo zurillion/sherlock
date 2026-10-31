@@ -1,0 +1,19 @@
+"""Typed source dossier: DOMAIN working arguments and persistent actor rows."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
+regions=[(0xCC78,0xCC94,'code','Ingresso di ogni passo DOMAIN: ricarica gli argomenti di lavoro dalla riga o dal contesto'),(0xCA48,0xCA76,'code','Binding prima del corpo: riempie gli slot FF solo negli argomenti di lavoro'),(0xCE8F,0xCEDE,'code','Successo e fallimento: commit, ramo interno oppure costo forzato'),(0xCD82,0xCD95,'code','Yield temporale e punto comune di commit degli argomenti'),(0xCF80,0xCFB6,'code','Sottosequenza: salva un nuovo contesto senza aggiornare la riga attore'),(0xCFCF,0xD045,'code','Ritorno dal contesto e distinzione fra lettura D008 e commit D026'),(0xED6A,0xED7C,'data','Programma giardiniere: due test di probabilità e sottosequenza di movimento')]
+notes={0xCC7F:'D008 carica i tre argomenti nella zona di lavoro9FD6–9FD8. La riga persistente non è un alias della zona di lavoro.',0xCA48:'Il binding di uno slot FF avviene prima del body. Un body fallito può lasciare33 negli argomenti di lavoro senza aver aggiornato la riga attore.',0xCA51:'Writer dell’argomento di lavoro1, non del byte+4 della riga attore.',0xCA5D:'Analogo binding dell’argomento2 soltanto se lo slot eraFF.',0xCE8F:'Successo: dopo il ramo esegue CD91/D026, anche se il costo è zero.',0xCEB8:'Fallimento: conserva gli argomenti di lavoro per il ramo successivo. Non esegue qui un commit della riga.',0xCED8:'Soltanto l’autoloop fallito passa daCD8B e quindi esegue il commit con costo1; il ramo non ciclico prosegue daCC82.',0xCEDB:'Ramo fallito interno: non ricarica conD008 e non salva conD026. I successivi test vedono gli slot di lavoro già riempiti.',0xCD8B:'Costo forzato1 e commit. La riga riceve gli argomenti di lavoro anche dopo un fallimento in autoloop.',0xCD91:'Punto di commit D026: separare il successo di un body dalla precedente mutazione dei suoi argomenti.',0xCF80:'Avvio sottosequenza. Se raggiunto dopo due body falliti, il binding temporaneo non diventa un aggiornamento della riga radice.',0xCF93:'Il nuovo contesto salva gli argomenti correntiA034/A035 della sottosequenza, distinti da9FD7/9FD8 e dai byte della riga attore.',0xD008:'Lettura degli argomenti: seleziona contesto attivo o riga attore. Non è un commit.',0xD026:'Commit degli argomenti di lavoro: contesto dell’attore se esiste, altrimenti riga. Non chiamato a ogni singolo binding.',0xD03E:'Writer reale dell’argomento1 della riga attore: nella prova naturale il valore rimaneFF mentre9FD7 contiene33.',0xED6A:'Dati DOMAIN, non assembler: test percentuale33, se fallisce prosegue al test50, poi una sottosequenza di movimento. Nessuna costante33→FF nel runtime.'}
+lines=['; Dossier offline: istruzioni e dati tipizzati, verificati e riassellati sul payload.'];count=total=0
+for a,b,kind,label in regions:
+ lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {label}'];at=a
+ while at<b:
+  if kind=='data':n=min(8,b-at);op='DEFB '+','.join(f'${v:02X}'for v in m[at:at+n])
+  else:op,n=disassemble(m,at);count+=1
+  assert at+n<=b,(hex(at),op);assert bytes(asm.assemble(op,at))==m[at:at+n]
+  lines.append(f'    {op:<37} ; ${at:04X} {m[at:at+n].hex(" ")}'+(' | '+notes[at]if at in notes else''));at+=n;total+=n
+root=p/'sherlock-js/results/gardener-argument-lifetime';root.mkdir(exist_ok=True);(root/'gardener-argument-lifetime.asm').write_text('\n'.join(lines)+'\n');(root/'listing-verification.json').write_text(json.dumps(dict(roundtrip_equal=True,instructions=count,bytes_roundtripped=total,regions=[dict(start=f'{a:04X}',end_exclusive=f'{b:04X}',kind=k,label=l,atlas_priority=152)for a,b,k,l in regions]),indent=2)+'\n');print(count,total)

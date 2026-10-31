@@ -1,0 +1,413 @@
+{
+  "implemented": true,
+  "runtime": "Autonomous JavaScript DOMAIN argument lifetime; no CPU interpreter or recorded-byte fallback.",
+  "change": "Root working arguments are cloned on CC78/D008 entry; existing D026 commit and CF80 defer points preserve distinct persistent actor-row bytes.",
+  "source_flow": {
+    "scope": "Fresh original seed1/all24 natural control-flow and actor-row stores. Compares the specific failed-binding/defer sequence with baseline and corrected JS. Full-state/random certification is the separate positive prefix report.",
+    "tick": 3650,
+    "clock": {
+      "tick": 3651,
+      "due": 3781,
+      "minute": 50,
+      "hour": 8,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 08:50pm"
+    },
+    "failed_bodies": [
+      {
+        "tick": 3650,
+        "pc": "CEB8",
+        "source_pc": "ED6A",
+        "row": [
+          8,
+          106,
+          237,
+          50,
+          255,
+          1,
+          66,
+          14
+        ],
+        "saved": [
+          50,
+          33,
+          1
+        ],
+        "working": [
+          255,
+          33,
+          255
+        ],
+        "actor": 8,
+        "iy": 39072,
+        "ix": 61848,
+        "a": 0,
+        "f": 68,
+        "hl": 0,
+        "contexts_head": 38942
+      },
+      {
+        "tick": 3650,
+        "pc": "CEB8",
+        "source_pc": "ED71",
+        "row": [
+          8,
+          113,
+          237,
+          50,
+          255,
+          1,
+          66,
+          14
+        ],
+        "saved": [
+          50,
+          33,
+          1
+        ],
+        "working": [
+          255,
+          50,
+          255
+        ],
+        "actor": 8,
+        "iy": 39072,
+        "ix": 61848,
+        "a": 0,
+        "f": 68,
+        "hl": 0,
+        "contexts_head": 38942
+      }
+    ],
+    "deferred_call": {
+      "tick": 3650,
+      "pc": "CF80",
+      "source_pc": "ED78",
+      "row": [
+        8,
+        120,
+        237,
+        50,
+        255,
+        1,
+        66,
+        14
+      ],
+      "saved": [
+        50,
+        33,
+        1
+      ],
+      "working": [
+        139,
+        2,
+        20
+      ],
+      "actor": 8,
+      "iy": 39072,
+      "ix": 36060,
+      "a": 128,
+      "f": 129,
+      "hl": 60792,
+      "contexts_head": 38942
+    },
+    "baseline_root": [
+      50,
+      33,
+      1
+    ],
+    "corrected_root": [
+      50,
+      255,
+      1
+    ],
+    "child_scope": [
+      50,
+      2,
+      20
+    ],
+    "changes": [
+      {
+        "tick": 3632,
+        "writer": {
+          "pc": "D03B",
+          "actor": 8,
+          "tick": 3632,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          16,
+          5,
+          1
+        ]
+      },
+      {
+        "tick": 3632,
+        "writer": {
+          "pc": "D03E",
+          "actor": 8,
+          "tick": 3632,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          16,
+          3,
+          1
+        ]
+      },
+      {
+        "tick": 3643,
+        "writer": {
+          "pc": "D03B",
+          "actor": 8,
+          "tick": 3643,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          30,
+          3,
+          1
+        ]
+      },
+      {
+        "tick": 3643,
+        "writer": {
+          "pc": "D03E",
+          "actor": 8,
+          "tick": 3643,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          30,
+          4,
+          1
+        ]
+      },
+      {
+        "tick": 3648,
+        "writer": {
+          "pc": "D03B",
+          "actor": 8,
+          "tick": 3648,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          2,
+          4,
+          1
+        ]
+      },
+      {
+        "tick": 3648,
+        "writer": {
+          "pc": "D03E",
+          "actor": 8,
+          "tick": 3648,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          2,
+          5,
+          1
+        ]
+      },
+      {
+        "tick": 3650,
+        "writer": {
+          "pc": "D03B",
+          "actor": 8,
+          "tick": 3650,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          50,
+          5,
+          1
+        ]
+      },
+      {
+        "tick": 3650,
+        "writer": {
+          "pc": "D03E",
+          "actor": 8,
+          "tick": 3650,
+          "iy": 39072,
+          "ix": 0
+        },
+        "after": [
+          50,
+          255,
+          1
+        ]
+      }
+    ]
+  },
+  "full_witness_prefix": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 439,
+    "random_draws": 8921,
+    "clock": {
+      "tick": 3651,
+      "due": 3781,
+      "day": 2,
+      "minute": 50,
+      "hour": 8,
+      "period": "pm",
+      "label": "Wed 08:50pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8919,
+    "compared_random_reads": 19078,
+    "certified_checkpoint_range": [
+      0,
+      438
+    ],
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 439,
+      "target_clock": "Wed 09:00pm",
+      "unknown_address": "5D25"
+    }
+  },
+  "continuous_positive_prefix": {
+    "scope": "All original-state helper fields, all24 actor slots, entities/facts/arena752/editor/bitmaps, and every random draw/read. Native minute-granularity reference reused with hash in provenance. Positive bounded check through previous gardener counterexample; no whole-game or ending claim.",
+    "checkpoints": 1672,
+    "last_checkpoint": 1671,
+    "clock": {
+      "tick": 1803,
+      "due": 2341,
+      "day": 1,
+      "minute": 2,
+      "hour": 2,
+      "period": "pm",
+      "label": "Tue 02:02pm"
+    },
+    "draws": 4573,
+    "reads": 9796,
+    "previous_boundary": "results/output-channel/minute-boundary.json",
+    "gardener": [
+      50,
+      255,
+      1
+    ]
+  },
+  "next_boundary": {
+    "checkpoint": 439,
+    "target_clock": "Wed 09:00pm",
+    "unknown_address": "5D25",
+    "actor": 3,
+    "draw_index": 13,
+    "scope": "Failed checkpoint excluded from positive full-state certificate. Native value0 is evidence only, never runtime fallback."
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 137,
+    "bytes_roundtripped": 362,
+    "regions": [
+      {
+        "start": "CC78",
+        "end_exclusive": "CC94",
+        "kind": "code",
+        "label": "Ingresso di ogni passo DOMAIN: ricarica gli argomenti di lavoro dalla riga o dal contesto",
+        "atlas_priority": 152
+      },
+      {
+        "start": "CA48",
+        "end_exclusive": "CA76",
+        "kind": "code",
+        "label": "Binding prima del corpo: riempie gli slot FF solo negli argomenti di lavoro",
+        "atlas_priority": 152
+      },
+      {
+        "start": "CE8F",
+        "end_exclusive": "CEDE",
+        "kind": "code",
+        "label": "Successo e fallimento: commit, ramo interno oppure costo forzato",
+        "atlas_priority": 152
+      },
+      {
+        "start": "CD82",
+        "end_exclusive": "CD95",
+        "kind": "code",
+        "label": "Yield temporale e punto comune di commit degli argomenti",
+        "atlas_priority": 152
+      },
+      {
+        "start": "CF80",
+        "end_exclusive": "CFB6",
+        "kind": "code",
+        "label": "Sottosequenza: salva un nuovo contesto senza aggiornare la riga attore",
+        "atlas_priority": 152
+      },
+      {
+        "start": "CFCF",
+        "end_exclusive": "D045",
+        "kind": "code",
+        "label": "Ritorno dal contesto e distinzione fra lettura D008 e commit D026",
+        "atlas_priority": 152
+      },
+      {
+        "start": "ED6A",
+        "end_exclusive": "ED7C",
+        "kind": "data",
+        "label": "Programma giardiniere: due test di probabilit\u00e0 e sottosequenza di movimento",
+        "atlas_priority": 152
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "183994a93ab05117cd110738a70267b631a1e630dfe71b6f3817a0e4518cd5db",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 430,
+      "unknown": 2323,
+      "documented": 38847
+    },
+    "segments": 1118,
+    "sources": 69,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 53449,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "tests": {
+    "targeted": 65,
+    "targeted_failed": 0,
+    "full_suite_initial_run": {
+      "total": 1650,
+      "passed": 1649,
+      "failed": 1,
+      "sole_failure": "Historical assertion expected the now-fixed gardener divergence: Missing expected exception."
+    },
+    "updated_output_channel_regression": {
+      "passed": 1,
+      "failed": 0,
+      "scope": "Same original reference, every channel/draw comparison retained; full equality now required at checkpoint1671 too."
+    },
+    "consolidated_distinct_tests": 1650,
+    "remaining_failures": 0,
+    "validation_method": "Complete suite run plus passing targeted rerun of its sole updated expected-defect test. The unchanged1649 passing tests were not rerun."
+  },
+  "scope_limits": [
+    "Root argument working scope; existing context and record-return semantics preserved.",
+    "Next checkpoint439 with5D25 excluded.",
+    "Continuous full-state proof bounded at checkpoint1671; not all3461 minute snapshots certified.",
+    "Five natural endings, cab5D0C, PRINT/MORE, TAKE TO and WatsonKilledYou dialogue remain open."
+  ],
+  "full_game_equivalence_claimed": false
+}

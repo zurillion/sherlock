@@ -1,0 +1,8 @@
+{
+  "checkpoint": 439,
+  "target_clock": "Wed 09:00pm",
+  "unknown_address": "5D25",
+  "actor": 3,
+  "draw_index": 13,
+  "scope": "Failed checkpoint excluded from positive full-state certificate. Native value0 is evidence only, never runtime fallback."
+}

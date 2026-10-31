@@ -1,14 +1,14 @@
 import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';import{gunzipSync}from'node:zlib';import{ClientSession}from'../src/session.mjs';import{assertOriginalState}from'./helpers/original-state.mjs';
 const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url))),ref=JSON.parse(gunzipSync(await readFile(new URL('../results/output-channel/witness-reference.json.gz',import.meta.url))));
-test('Channel and draw parity at3241 checkpoints, with explicit minute-state counterexample',()=>{
+test('Channel/draw parity at3241 checkpoints and full state through the fixed gardener boundary',()=>{
  const c=ref.cases[0],s=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=s.game;assert.equal(c.steps.length,3241);assert.deepEqual(c.unclassified_transitions,[]);let out,seen=[],reads=[],n=g.world.random.draws;
  const read=g.runtimeRandom.read.bind(g.runtimeRandom),absolute=g.runtimeRandom.absolute.bind(g.runtimeRandom);g.runtimeRandom.read=address=>{const value=read(address);if(address===0xA027)reads.push({value,actor:g.runtimeRandom.inFlight?.actor});return value;};g.runtimeRandom.absolute=(...a)=>{seen.push(g.npcRuntime.read(0xA027));return absolute(...a);};assert.equal(g.npcRuntime.read(0xA027),c.initial);
  for(const[index,row]of c.steps.entries()){
   seen=[];out=row.input?s.request(row.input.startsWith('WAIT UNTIL')?'start-command':'command',{command:row.input}):s.request('continue-command',{job:out.job});assert.notEqual(out.state.analysis.outcome,'not_translated',index+' '+out.state.prototype_notice);assert.equal(g.npcRuntime.read(0xA027),row.channel,'channel #'+index);assert.deepEqual(seen,row.random.map(d=>d.channel),'channel at each draw #'+index);
-  const count=g.world.random.draws-n,draws=count?g.world.random.trace.slice(-count):[];n=g.world.random.draws;assert.equal(draws.length,row.random.length,'draw count #'+index);for(const[i,d]of row.random.entries())for(const k of['actor','width','mixOffset','seed','cursor','reads','result','next_seed','next_cursor'])assert.deepEqual(draws[i][k],d[k],'draw #'+index+' '+i+' '+k);// A newly observed, baseline-reproduced transient actor-row difference
-  // bounds FULL-state parity; channel/draw checks continue without patches.
-  if(index<1671)assertOriginalState(g,row.after,'channel witness #'+index);
-  else if(index===1671)assert.throws(()=>assertOriginalState(g,row.after,'channel witness #'+index),e=>{assert.match(e.message,/arguments 8/);assert.deepEqual(e.actual,[50,33,1]);assert.deepEqual(e.expected,[50,255,1]);return true;});
+  const count=g.world.random.draws-n,draws=count?g.world.random.trace.slice(-count):[];n=g.world.random.draws;assert.equal(draws.length,row.random.length,'draw count #'+index);for(const[i,d]of row.random.entries())for(const k of['actor','width','mixOffset','seed','cursor','reads','result','next_seed','next_cursor'])assert.deepEqual(draws[i][k],d[k],'draw #'+index+' '+i+' '+k);// The historical failing row at1671 is now checked for full equality too.
+  // Later checkpoints retain their narrower channel/draw scope.
+  if(index<=1671)assertOriginalState(g,row.after,'channel witness #'+index);
+
  }
  const actual=c.steps.flatMap(r=>r.random).filter(d=>d.reads.some(r=>r.address===0xA027));assert.equal(actual.length,1);assert.deepEqual(reads,[{actor:8,value:0}]);assert.deepEqual(actual[0].last_store,{pc:'A352',a:0,tick:3305,actor:9,caller:'0005',value:0});assert.equal(g.world.clock().label,'Wed 04:10pm');if(s.job){const done=s.request('continue-command',{job:s.job.id,interrupt:true});assert.equal(done.running,false);assert.notEqual(done.state.analysis.outcome,'not_translated');}
 });

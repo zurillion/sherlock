@@ -1,18 +1,17 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [MODALITA-SINTATTICHE-A024.md](MODALITA-SINTATTICHE-A024.md).
-SuperatoA024:438 checkpoint0–437 fino a mercoledì20:40,
-8.893 draw/19.026 read, stato completo, bitmap e futuro dopoLOAD.
-Prossimo limite al438 verso20:50: argomenti del giardiniere8, PC EDE1,
-JS[50,33,1] contro nativo[50,255,1]. Il checkpoint fallito è escluso.
-A024 deriva dai sette writer del parser: ingresso ordinario1, citazione0,
-autodetect1/2, chiarimento1 e pronomi2. Non usare il valore1 registrato.
-Atlante134 istruzioni/302 byte approfonditi; A024 da parziale a documentato,
-nessun nuovo byte grigio. Restano i cinque finali naturali, cab5D0C,
-PRINT/MORE, TAKE TO e la riga del giardiniere nel campionamento continuo.
-Un nuovo controesempio breve, già presente su89d8dd3: SAY WATSON
-"WATSON KILLED YOU" produce7 draw inJS contro10 nativo; modalità uguale
-non significa conversazione equivalente. Vedere il dossierA024.
+Aggiornamento corrente: [ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md](ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md).
+Superata la divergenza degli argomenti del giardiniere:439 checkpoint0–438
+fino a mercoledì20:50,8.919 draw/19.078 read, stato completo, bitmap e
+futuro dopoLOAD. Prossimo ingresso sconosciuto5D25 al439 verso21:00,
+Watson3/draw13 del riferimento: ricostruire il writer, non installare0.
+Il binding modifica la copia di lavoro; D026 effettua il commit della riga.
+Un fallimento non ciclico seguito da CF80 conserva i byte precedenti della
+radice. Risolto anche il controesempio continuo del1671/Tue14:02, con prova
+positiva completa0–1671/4573draw/9796read. Tracce storiche conservate.
+Atlante137 istruzioni/362 byte approfonditi, nessun nuovo byte grigio.
+Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e il dialogo
+SAY WATSON "WATSON KILLED YOU" con7 drawJS contro10 nativo.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo

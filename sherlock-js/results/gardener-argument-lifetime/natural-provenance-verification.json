@@ -1,0 +1,248 @@
+{
+  "scope": "Fresh original seed1/all24 natural control-flow and actor-row stores. Compares the specific failed-binding/defer sequence with baseline and corrected JS. Full-state/random certification is the separate positive prefix report.",
+  "tick": 3650,
+  "clock": {
+    "tick": 3651,
+    "due": 3781,
+    "minute": 50,
+    "hour": 8,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 08:50pm"
+  },
+  "failed_bodies": [
+    {
+      "tick": 3650,
+      "pc": "CEB8",
+      "source_pc": "ED6A",
+      "row": [
+        8,
+        106,
+        237,
+        50,
+        255,
+        1,
+        66,
+        14
+      ],
+      "saved": [
+        50,
+        33,
+        1
+      ],
+      "working": [
+        255,
+        33,
+        255
+      ],
+      "actor": 8,
+      "iy": 39072,
+      "ix": 61848,
+      "a": 0,
+      "f": 68,
+      "hl": 0,
+      "contexts_head": 38942
+    },
+    {
+      "tick": 3650,
+      "pc": "CEB8",
+      "source_pc": "ED71",
+      "row": [
+        8,
+        113,
+        237,
+        50,
+        255,
+        1,
+        66,
+        14
+      ],
+      "saved": [
+        50,
+        33,
+        1
+      ],
+      "working": [
+        255,
+        50,
+        255
+      ],
+      "actor": 8,
+      "iy": 39072,
+      "ix": 61848,
+      "a": 0,
+      "f": 68,
+      "hl": 0,
+      "contexts_head": 38942
+    }
+  ],
+  "deferred_call": {
+    "tick": 3650,
+    "pc": "CF80",
+    "source_pc": "ED78",
+    "row": [
+      8,
+      120,
+      237,
+      50,
+      255,
+      1,
+      66,
+      14
+    ],
+    "saved": [
+      50,
+      33,
+      1
+    ],
+    "working": [
+      139,
+      2,
+      20
+    ],
+    "actor": 8,
+    "iy": 39072,
+    "ix": 36060,
+    "a": 128,
+    "f": 129,
+    "hl": 60792,
+    "contexts_head": 38942
+  },
+  "baseline_root": [
+    50,
+    33,
+    1
+  ],
+  "corrected_root": [
+    50,
+    255,
+    1
+  ],
+  "child_scope": [
+    50,
+    2,
+    20
+  ],
+  "changes": [
+    {
+      "tick": 3632,
+      "writer": {
+        "pc": "D03B",
+        "actor": 8,
+        "tick": 3632,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        16,
+        5,
+        1
+      ]
+    },
+    {
+      "tick": 3632,
+      "writer": {
+        "pc": "D03E",
+        "actor": 8,
+        "tick": 3632,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        16,
+        3,
+        1
+      ]
+    },
+    {
+      "tick": 3643,
+      "writer": {
+        "pc": "D03B",
+        "actor": 8,
+        "tick": 3643,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        30,
+        3,
+        1
+      ]
+    },
+    {
+      "tick": 3643,
+      "writer": {
+        "pc": "D03E",
+        "actor": 8,
+        "tick": 3643,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        30,
+        4,
+        1
+      ]
+    },
+    {
+      "tick": 3648,
+      "writer": {
+        "pc": "D03B",
+        "actor": 8,
+        "tick": 3648,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "tick": 3648,
+      "writer": {
+        "pc": "D03E",
+        "actor": 8,
+        "tick": 3648,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        2,
+        5,
+        1
+      ]
+    },
+    {
+      "tick": 3650,
+      "writer": {
+        "pc": "D03B",
+        "actor": 8,
+        "tick": 3650,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        50,
+        5,
+        1
+      ]
+    },
+    {
+      "tick": 3650,
+      "writer": {
+        "pc": "D03E",
+        "actor": 8,
+        "tick": 3650,
+        "iy": 39072,
+        "ix": 0
+      },
+      "after": [
+        50,
+        255,
+        1
+      ]
+    }
+  ]
+}

@@ -3,30 +3,31 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [MODALITA-SINTATTICHE-A024.md](MODALITA-SINTATTICHE-A024.md).
+Aggiornamento corrente: [ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md](ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md).
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   438 checkpoint0–437 fino a mercoledì20:40, con8.893 draw/19.026 read,
+   439 checkpoint0–438 fino a mercoledì20:50, con8.919 draw/19.078 read,
    tutti24 posti attore, entità, fatti, programmi, arena752 byte, bitmap e
-   futuro dopoLOAD. Vedere results/parser-mode/witness-prefix.json.
-   Ripetibile con `node tools/verify-parser-mode-prefix.mjs`.
+   futuro dopoLOAD. Vedere results/gardener-argument-lifetime/witness-prefix.json.
+   Ripetibile con `node tools/verify-gardener-argument-prefix.mjs`.
 
-2. **A024 superato; prossimo limite: argomenti temporanei del giardiniere.**
-   A024 è la modalità sintattica persistente:0 autodetect nelle citazioni,
-   1 comando e2 affermazione. Sette writer ricostruiti; il ciclo citato
-   conserva il modo fra unità, il wrapper ordinario scrive1 a ogni ingresso.
-   Salvataggi completi; vecchiLOAD senza campo restano sconosciuti fino
-   al writer. Nessun valore1 catturato installato nel lettore casuale.
-   **Checkpoint438 verso mercoledì20:50**: giardiniere8, PC EDE1,
-   saved `[50,33,1]` inJS contro `[50,255,1]` nativo. Ricostruire la durata
-   degli argomenti in quel percorso; non normalizzare la riga o il confronto.
-   Il checkpoint fallito non fa parte del certificato positivo.
-   Atlante approfondito: A024,AAB2–AB10,B135–B16C,B8AA–B90D,D780–D7B1,
-   134 istruzioni/302 byte. A024 da parziale a documentato; zero byte grigi
-   aggiunti. Copertura38.847/430/2.323 su41.600.
-   Ulteriore controesempio breve conservato: SAY WATSON "WATSON KILLED YOU"
-   dà7 draw inJS contro10 nativo, anche sul codice89d8dd3. La modalità e
-   le sue scritture coincidono; la conversazione non è certificata.
+2. **Argomenti del giardiniere corretti; prossimo ingresso 5D25.**
+   CC78/D008 carica gli argomenti di lavoro dalla riga o dal contesto.
+   CA48 riempie gli slot FF prima del body, senza aggiornare la riga.
+   Un fallimento non ciclico continua daCC82 senza commit; un successivo
+   CF80 può sospendere una nuova sottosequenza lasciando la riga intatta.
+   Ora la radice JavaScript usa una copia di lavoro, salvata ai punti D026
+   già ricostruiti. Nessuna condizione speciale sul valore33 o sull’attore8.
+   Risolto anche il vecchio controesempio continuo al1671/Tue14:02: verifica
+   positiva completa0–1671,4573draw/9796read,24 posti attore e arena752.
+   **Prossimo 5D25 al checkpoint439 verso mercoledì21:00**, Watson3,
+   draw indice13 del riferimento. Il valore0 catturato non è un fallback:
+   ricostruire il writer e la sua proprietà.5D2B resta non introdotto.
+   Atlante137 istruzioni/362 byte approfonditi: CC78–CC93,CA48–CA75,
+   CE8F–CEDD,CD82–CD94,CF80–CFB5,CFCF–D044,ED6A–ED7B.
+   Copertura invariata38.847/430/2.323 su41.600; nessun nuovo byte grigio.
+   Rimane il controesempio SAY WATSON "WATSON KILLED YOU":7 drawJS contro10
+   nativo, già sul codiceb8b00c3. La modalitàA024 coincide, il dialogo no.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -61,12 +62,11 @@ Aggiornamento corrente: [MODALITA-SINTATTICHE-A024.md](MODALITA-SINTATTICHE-A024
    Vedere results/output-channel/unrelated-boundaries.json. Non rimuovere
    campi dal confronto per farli passare; restano da ricostruire.
 
-   Ulteriore controesempio nel campionamento continuo: al checkpoint1671,
-   Tue14:02, PC EDE1 del giardiniere8 ha saved[50,33,1] inJS contro
-   [50,255,1] nativo. Conservato in results/output-channel/minute-boundary.json.
-   Non chiamare3241 checkpoint un certificato completo: canale/draw proseguono
-   conformi, il controllo completo della nuova traccia si ferma a0–1670.
-   Il certificato completo dei411 checkpoint originali resta separato.
+   Il precedente controesempio continuo al1671/Tue14:02 è ora risolto dalla
+   separazione degli argomenti di lavoro: prova completa positiva0–1671.
+   Il vecchio rapporto results/output-channel/minute-boundary.json resta
+   come evidenza storica. Questo non estende automaticamente il controllo
+   completo ai restanti checkpoint delle tracce continueA024/A029.
 
 5. **Estendere l’equivalenza della partita completa.**
    Più seed e ordini delle azioni, attese lunghe e mezzi di trasporto, diversi

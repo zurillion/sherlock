@@ -35,6 +35,10 @@ export class NpcProgram {
  }
  visit(actor,environment,{maxInternal=10000}={}){
   const s=this.state(actor);environment.beginStep?.();
+  // CC78/D008 loads root arguments into a working scope. A failed rule may
+  // bind an FF slot without committing D026; a following child suspends that
+  // work while the actor row still contains its preceding values.
+  if(!s.contexts.length&&!s.working)s.working=clone(s.saved);
   for(let guard=0;guard<maxInternal;guard++){
    if(s.failures===10){environment.forcedCost?.(1);return {cost:1};}
    const op=this.node(s.pc),saved=this.saved(actor);

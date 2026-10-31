@@ -837,3 +837,37 @@ Verifica conclusiva A024:1.645 test passati, zero errori;158 controlli mirati.
 Prova continua di solo modo e ogni draw/read conclusa:3461checkpoint,
 8763draw/18762read finoWed19:50. Il certificato completo resta quello separato
 di438checkpoint. Dossier,atlante,provenienza e limiti sono salvati.
+
+31 ottobre2026 — leggere ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md e
+results/gardener-argument-lifetime-verification.json. Il difetto al438
+non era RNG: la radice NPC usava direttamente s.saved come zona di lavoro.
+CC78/D008 carica9FD6–9FD8; CA48–CA5D riempie slotFF PRIMA del body.
+Un body fallito può lasciare33 nel lavoro senza D026. CEDB prosegueCC82
+senza ricaricare né salvare. SuccessoCE8F→CD91 salva anche a costo0;
+autoloop fallito e budget10 passanoCD8B con costo1 e commit. CF80 salva
+un nuovo contesto dai parametri correnti senza committare la radice.
+NpcProgram.visit crea ora s.working come copia della radice, solo se non
+c’è contesto né working precedente; conservare gli altri contratti di
+return.failure e i punti di commit esistenti. Nessuna regola33→FF o casoactor8.
+Nuova acquisizione originale naturale fino3651:330eventi/8cambiamenti riga.
+Al3650 D03E scriveFF; ED6A eED71 falliscono lasciando[50,33,1]solo nel lavoro;
+CF80/ED78 conserva la radice[50,FF,1] e sospende[50,2,20]. Baselineb8b00c3
+conservata separatamente dalla traccia JS corretta; verificatore dei writer.
+Il vecchio controesempio continuo1671/Tue14:02 è risolto: prova positiva
+separata completa0–1671,1672checkpoint/4573draw/9796read/24attori/arena752,
+bitmap e stato. Non estenderla automaticamente all’intera traccia3461.
+Nuovo certificato positivo principale439checkpoint0–438 sinoWed20:50,
+8919draw/19078read,24postiattore,arena752,bitmap e futuroLOAD. Le8921
+drawruntime comprendono2boot. Prossimo5D25 al439 versoWed21:00,
+Watson3/draw13; non installare0 catturato né inferire dal byte vicino.
+Atlante137istruzioni/362byte approfonditi: CC78–CC93,CA48–CA75,CE8F–CEDD,
+CD82–CD94,CF80–CFB5,CFCF–D044,ED6A–ED7B. Zero byte prima grigi,
+copertura38847/430/2323 su41600 invariata. Riferire le zone e l’orologio.
+Cinque finali,cab5D0C,PRINT/MORE,TAKE TO e dialogoWatsonKilledYou restanoaperti.
+
+Verifica finale argomenti:65 test mirati passati. Suite completa1650:
+1649pass,1fallimento della vecchia asserzione che pretendeva il difetto1671.
+Test output-channel-witness aggiornato a uguaglianza completa0–1671 e
+rieseguitoPASS; confronti canale/draw a3241 preservati.1650 test distinti
+verificati senza errori residui; log integrale iniziale e rerun separati,
+non dichiarare una seconda esecuzione completa1650/0.

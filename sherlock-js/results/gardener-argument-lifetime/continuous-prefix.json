@@ -1,0 +1,22 @@
+{
+  "scope": "All original-state helper fields, all24 actor slots, entities/facts/arena752/editor/bitmaps, and every random draw/read. Native minute-granularity reference reused with hash in provenance. Positive bounded check through previous gardener counterexample; no whole-game or ending claim.",
+  "checkpoints": 1672,
+  "last_checkpoint": 1671,
+  "clock": {
+    "tick": 1803,
+    "due": 2341,
+    "day": 1,
+    "minute": 2,
+    "hour": 2,
+    "period": "pm",
+    "label": "Tue 02:02pm"
+  },
+  "draws": 4573,
+  "reads": 9796,
+  "previous_boundary": "results/output-channel/minute-boundary.json",
+  "gardener": [
+    50,
+    255,
+    1
+  ]
+}

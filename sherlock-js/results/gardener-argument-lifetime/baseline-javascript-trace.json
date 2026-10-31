@@ -1,0 +1,2517 @@
+{
+  "events": [
+    {
+      "tick": 3630,
+      "before": {
+        "pc": "ED34",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              255
+            ],
+            "record": 38912
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED38",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              255
+            ],
+            "record": 38912
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3631,
+      "before": {
+        "pc": "ED38",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              255
+            ],
+            "record": 38912
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3631,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3632,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF7",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3632,
+      "before": {
+        "pc": "EDF7",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED5E",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3632,
+      "before": {
+        "pc": "ED5E",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDEB",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3632,
+      "before": {
+        "pc": "EDEB",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED2A",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3632,
+      "before": {
+        "pc": "ED2A",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED2E",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3633,
+      "before": {
+        "pc": "ED2E",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED34",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 2
+      }
+    },
+    {
+      "tick": 3635,
+      "before": {
+        "pc": "ED34",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED38",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3636,
+      "before": {
+        "pc": "ED38",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3636,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3637,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3638,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3639,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3640,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3641,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3642,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3643,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF7",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3643,
+      "before": {
+        "pc": "EDF7",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED62",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3643,
+      "before": {
+        "pc": "ED62",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDEB",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3643,
+      "before": {
+        "pc": "EDEB",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED2A",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3643,
+      "before": {
+        "pc": "ED2A",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED2E",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3644,
+      "before": {
+        "pc": "ED2E",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED34",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 2
+      }
+    },
+    {
+      "tick": 3646,
+      "before": {
+        "pc": "ED34",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED38",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3647,
+      "before": {
+        "pc": "ED38",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3647,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF0",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 1
+      }
+    },
+    {
+      "tick": 3648,
+      "before": {
+        "pc": "EDF0",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDF7",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3648,
+      "before": {
+        "pc": "EDF7",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED66",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3648,
+      "before": {
+        "pc": "ED66",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDDF",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3648,
+      "before": {
+        "pc": "EDDF",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDE1",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 2
+      }
+    },
+    {
+      "tick": 3650,
+      "before": {
+        "pc": "EDE1",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDE8",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3650,
+      "before": {
+        "pc": "EDE8",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "ED6A",
+        "saved": [
+          50,
+          255,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3650,
+      "before": {
+        "pc": "ED6A",
+        "saved": [
+          50,
+          255,
+          1
+        ],
+        "contexts": [],
+        "failures": 0,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDDF",
+        "saved": [
+          50,
+          33,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED78",
+            "request": false,
+            "saved": [
+              50,
+              2,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 2,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 0
+      }
+    },
+    {
+      "tick": 3650,
+      "before": {
+        "pc": "EDDF",
+        "saved": [
+          50,
+          33,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED78",
+            "request": false,
+            "saved": [
+              50,
+              2,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 2,
+        "requestAvailable": false
+      },
+      "after": {
+        "pc": "EDE1",
+        "saved": [
+          50,
+          33,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED78",
+            "request": false,
+            "saved": [
+              50,
+              2,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 2,
+        "requestAvailable": false
+      },
+      "out": {
+        "cost": 2
+      }
+    }
+  ],
+  "rows": [
+    {
+      "tick": 3630,
+      "state": {
+        "pc": "ED34",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              255
+            ],
+            "record": 38912
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3631,
+      "state": {
+        "pc": "ED38",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              255
+            ],
+            "record": 38912
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3632,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5A",
+            "request": false,
+            "saved": [
+              2,
+              49,
+              30
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3633,
+      "state": {
+        "pc": "ED2E",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3634,
+      "state": {
+        "pc": "ED34",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3635,
+      "state": {
+        "pc": "ED34",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3636,
+      "state": {
+        "pc": "ED38",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              255
+            ],
+            "record": 38922
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3637,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3638,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3639,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3640,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3641,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3642,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3643,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          16,
+          3,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED5E",
+            "request": false,
+            "saved": [
+              16,
+              48,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3644,
+      "state": {
+        "pc": "ED2E",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3645,
+      "state": {
+        "pc": "ED34",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3646,
+      "state": {
+        "pc": "ED34",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3647,
+      "state": {
+        "pc": "ED38",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          },
+          {
+            "origin": "EDEB",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              255
+            ],
+            "record": 38932
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3648,
+      "state": {
+        "pc": "EDF0",
+        "saved": [
+          30,
+          4,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED62",
+            "request": false,
+            "saved": [
+              30,
+              45,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 1,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3649,
+      "state": {
+        "pc": "EDE1",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3650,
+      "state": {
+        "pc": "EDE1",
+        "saved": [
+          2,
+          5,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED66",
+            "request": false,
+            "saved": [
+              2,
+              1,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 0,
+        "requestAvailable": false
+      }
+    },
+    {
+      "tick": 3651,
+      "state": {
+        "pc": "EDE1",
+        "saved": [
+          50,
+          33,
+          1
+        ],
+        "contexts": [
+          {
+            "origin": "ED78",
+            "request": false,
+            "saved": [
+              50,
+              2,
+              20
+            ],
+            "record": 39001
+          }
+        ],
+        "failures": 2,
+        "requestAvailable": false
+      }
+    }
+  ],
+  "clock": {
+    "tick": 3651,
+    "due": 3781,
+    "day": 2,
+    "minute": 50,
+    "hour": 8,
+    "period": "pm",
+    "label": "Wed 08:50pm"
+  }
+}
