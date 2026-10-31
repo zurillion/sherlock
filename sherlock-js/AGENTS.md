@@ -731,3 +731,14 @@ la presenza di un gate non implica una porta/ostacolo. Nessuna modifica
 alle uscite originali.13 test passati e browser verificato:2tracciati64/69,
 nessun tratteggio,1freccia soltanto sulDOWN, lineaS/N centrale.111link.
 Atlante memoria e confineA029 invariati.
+
+Icone treni nella mappa: Game.state().trains è proiezione sola lettura
+delle entità originariamente steam train36–43. Segnala soltanto le rooms
+platform con attributo128(visibile/in stazione); veicoli in viaggio nelle
+rooms2/3/4 o nascosti non hanno binari marcati. updateTrains ridisegna i
+segnaposti SVG a ogni update, separati dai personaggi, in alto a destra;
+raggruppa più treni sullo stesso binario e indica il numero. Nessuna nuova
+simulazione di orari.15 controlli passati: grafo/hosting e arrivo, partenza,
+caricamento, più primoWAIT world-v5 naturale(seed1):08:05 binari20/27/31.
+Browser avvio:treno36 albinario16, icona SVG verificata adAldergate.
+Atlante memoria e confineA029 invariati: cambiamento di presentazione.

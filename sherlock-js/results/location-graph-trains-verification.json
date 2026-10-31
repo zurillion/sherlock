@@ -1,0 +1,10 @@
+{
+ "scope":"Read-only projection of existing train entity locations into SVG platform markers",
+ "tests_passed":15,
+ "controlled_checks":["Arrival on platform20","Hidden train omitted","In-transit room2 omitted","Arrival on platform54","Save/load preserves projected locations"],
+ "natural_check":{"profile":"world-v5","seed":1,"command":"WAIT","clock":"Mon 08:05am","trains":[[36,20],[40,27],[41,31]]},
+ "browser":{"startup_marker":{"train":36,"platform":16},"icon":"SVG train at the top right of the room rectangle"},
+ "screenshot":"location-graph/trains-preview.png",
+ "memory_analysis_changed":false,
+ "next_gameplay_boundary":"A029"
+}

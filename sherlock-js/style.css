@@ -54,3 +54,8 @@ html{scroll-padding-top:16px}header{position:static}.divider{position:relative;h
 #zone-legend{display:flex;flex-wrap:wrap;gap:8px 16px;padding-top:10px}
 #zone-legend span{display:inline-flex;align-items:center;gap:6px}
 #zone-legend i{width:15px;height:12px;border:1px solid #728778;border-radius:2px}
+
+.node .train-marker .train-body{fill:#2b6654;stroke:#f8f5ec;stroke-width:1}
+.node .train-marker .train-window{fill:#f8f5ec;stroke:none}
+.node .train-marker .train-rails{fill:none;stroke:#2b6654;stroke-width:2;stroke-linecap:round}
+.node .train-marker text{fill:var(--ink);font:700 10px ui-monospace,monospace}

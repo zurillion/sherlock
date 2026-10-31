@@ -77,7 +77,7 @@ function updateGameStatus(s){
 function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);updateGameStatus(s);$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
  for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room||edge.reverse?.source===s.room);
- updateCharacters(s);
+ updateCharacters(s);updateTrains(s);
  if(previousRoom!==undefined&&previousRoom!==s.room&&(previousRoom===1||s.room===1))centerRoom(s.room);
  $('exits').replaceChildren();for(const e of s.exits){const row=el('div',undefined,'exit'),button=el('button',e.direction),desc=el('div',`${String(e.target).padStart(3,'0')} ${e.target_name||'destinazione non attiva'}`);button.title='Esegui il movimento, rispettando gli ostacoli';button.onclick=()=>command(e.direction);desc.append(el('small',`${e.gate_name?e.gate_name+' · ':''}${e.status}`));row.append(button,desc);$('exits').append(row);}if(!s.exits.length)$('exits').append(el('span','Nessuna uscita direzionale.'));
  $('objects').replaceChildren();for(const o of s.visible){const item=el('span',o.name,'entity');item.title=`Entità ${o.id}${s.objects.some(x=>x.id===o.id)?' · elencata nella scena':''}`;$('objects').append(item);}if(!s.visible.length)$('objects').append(el('span',s.dark?'È buio: nessun elenco visivo disponibile.':'Nessuna entità percepibile.'));
@@ -200,6 +200,16 @@ function addDirectionLabel(edge,geometry){
  const width=16+caption.length*8;label.append(svg('rect',{x:-width/2,y:-10,width,height:20,rx:4}));
  const text=svg('text');text.textContent=caption;label.append(text);$('edge-labels').append(label);edgeEls.push([edge,label]);
 }
+function updateTrains(s){
+ for(const marker of document.querySelectorAll('#nodes .train-marker'))marker.remove();
+ const groups=new Map();for(const train of s.trains||[])for(const room of train.rooms){if(!nodes.has(room))continue;if(!groups.has(room))groups.set(room,[]);groups.get(room).push(train);}
+ for(const [room,trains]of groups){
+  const name=trains.length===1?'Steam train at platform':`${trains.length} steam trains at platform`,marker=svg('g',{class:'train-marker',transform:`translate(${NODE_W/2-20} -37)`,'data-trains':trains.map(t=>t.id).join(','),'data-name':name,role:'img','aria-label':name}),title=svg('title');title.textContent=name+' · '+trains.map(t=>`#${t.id}`).join(', ');marker.append(title);
+  marker.append(svg('path',{class:'train-body',d:'M -8 -11 Q -11 -11 -11 -7 L -11 6 Q -11 9 -7 9 L 7 9 Q 11 9 11 6 L 11 -7 Q 11 -11 8 -11 Z'}),svg('path',{class:'train-window',d:'M -7 -6 H 7 V 0 H -7 Z M -7 3 H -4 V 6 H -7 Z M 4 3 H 7 V 6 H 4 Z'}),svg('path',{class:'train-rails',d:'M -6 9 L -10 13 M 6 9 L 10 13 M -8 12 H 8'}));
+  if(trains.length>1){const count=svg('text',{x:-17,y:1});count.textContent=trains.length;marker.append(count);}
+  nodes.get(room).append(marker);
+ }
+}
 function characterColour(character){return character.is_player?'#85602d':`hsl(${(character.id*67+190)%360} 42% 36%)`;}
 function characterTitle(character){return character.name+(character.parent_id!==null?` · contenuto in entità ${character.parent_id}`:'');}
 function updateCharacters(s){
@@ -234,7 +244,7 @@ function buildGraph(){
   const path=svg('path',{d:straight?`M ${sx} ${sy} L ${ex} ${ey}`:`M ${sx} ${sy} Q ${cx} ${cy} ${ex} ${ey}`,class:`edge ${graphHasObstacle(e)?'gated':''} ${e.reverse?'bidirectional':''}`,'data-source':e.source,'data-target':e.target,'data-direction':e.direction,'data-bidirectional':Boolean(e.reverse)});const title=svg('title');title.textContent=`${e.source} ${e.reverse?'↔':'→'} ${e.target} · ${e.direction}${e.reverse?' / '+e.reverse.direction:''}${[...new Set([e.gate_name,e.reverse?.gate_name].filter(Boolean))].map(name=>' · '+name).join('')}`;path.append(title);$('edges').append(path);edgeEls.push([e,path]);if(!e.reverse||e.label)addDirectionLabel(e,{x,y,tx,ty,sx,sy,ex,ey,cx,cy,parallelCount,parallelIndex,alternate});}
  for(const r of list){const [x,y]=r.layout,node=svg('g',{transform:`translate(${x} ${y})`,class:`node${cabStops.has(r.id)?' cab-stop':''}`,style:`--zone-colour:${geography.byRoom.get(r.id).colour};--zone-visited:${geography.byRoom.get(r.id).visitedColour}`,'data-zone':geography.byRoom.get(r.id).key,tabindex:0,role:'button','aria-label':`Vai a ${String(r.id).padStart(3,'0')} ${r.name_hint}`,'data-room':r.id});const title=svg('title');title.textContent=geography.byRoom.get(r.id).name+(cabStops.has(r.id)?' · Fermata cab':'');node.append(title);node.append(svg('rect',{x:-NODE_W/2,y:-NODE_H/2,width:NODE_W,height:NODE_H,rx:5}));const num=svg('text',{y:-37,class:'node-number'});num.textContent=String(r.id).padStart(3,'0');node.append(num);const name=svg('text',{class:'node-name'}),lines=wrapName(r.name_hint);lines.forEach((line,i)=>{const span=svg('tspan',{x:0,y:-17+i*13});span.textContent=line;name.append(span);});node.append(name);
   node.addEventListener('click',()=>{if(!moved)teleport(r.id);});node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();teleport(r.id);}});
-  node.addEventListener('pointermove',e=>{const box=$('map').parentElement.getBoundingClientRect();const person=e.target.closest('.character-marker');$('tooltip').textContent=person?person.getAttribute('data-name'):`${String(r.id).padStart(3,'0')} · ${r.name_hint} · ${geography.byRoom.get(r.id).name}${cabStops.has(r.id)?' · Fermata cab':''}`;$('tooltip').style.left=Math.max(5,Math.min(e.clientX-box.left+12,box.width-230))+'px';$('tooltip').style.top=Math.max(3,e.clientY-box.top-35)+'px';$('tooltip').hidden=false;});node.addEventListener('pointerleave',()=>{$('tooltip').hidden=true;});$('nodes').append(node);nodes.set(r.id,node);}
+  node.addEventListener('pointermove',e=>{const box=$('map').parentElement.getBoundingClientRect();const person=e.target.closest('.character-marker,.train-marker');$('tooltip').textContent=person?person.getAttribute('data-name'):`${String(r.id).padStart(3,'0')} · ${r.name_hint} · ${geography.byRoom.get(r.id).name}${cabStops.has(r.id)?' · Fermata cab':''}`;$('tooltip').style.left=Math.max(5,Math.min(e.clientX-box.left+12,box.width-230))+'px';$('tooltip').style.top=Math.max(3,e.clientY-box.top-35)+'px';$('tooltip').hidden=false;});node.addEventListener('pointerleave',()=>{$('tooltip').hidden=true;});$('nodes').append(node);nodes.set(r.id,node);}
  $('graph-count').textContent=`${nodes.size} luoghi · ${connections.length} collegamenti`;$('map').classList.add('show-labels');centerRoom(8);
 }
 $('command-form').addEventListener('submit',e=>{e.preventDefault();command($('command').value);});
