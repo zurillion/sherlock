@@ -1,13 +1,13 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [RISULTATI-DELLE-REGOLE-CB28.md](RISULTATI-DELLE-REGOLE-CB28.md).
-Superato il limite CB28 nel percorso naturale:421 checkpoint0–420 sino a
-Wed17:50,8441draw/18066read,stato completo,bitmap e futuroLOAD.
-Prossimo confine effettivo5D29 al421 versoWed18:00. Il ponte delle regole
-conserva due risultati distinti; proprietà parziale esplicita, nessun fallback.
-Restano PRINT/MORE,TAKE TO e la riga transitoria del giardiniere nella traccia
-continua separata, cinque finali naturali e il limite cab5D0C. Vedere
-RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
+Aggiornamento corrente: [GLIFI-CONTATORE-SCANSIONE-5D29.md](GLIFI-CONTATORE-SCANSIONE-5D29.md).
+Superato5D29:423 checkpoint0–422 sinoWed18:10,8493draw/18188read,
+stato completo,bitmap e futuroLOAD. Prossimo ingresso sconosciuto A029
+al423 versoWed18:20.29 deriva dal writer del renderer, non da un1globale:
+sei ruoli distinti e vero return link verificati. Nessuna nuova zona grigia.
+Restano PRINT/MORE,TAKE TO e la riga transitoria del giardiniere nella
+traccia continua separata, cinque finali naturali e il limite cab5D0C.
+Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle

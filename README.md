@@ -9,10 +9,10 @@ web esegue la logica ricostruita nel browser.
 - [Stato e lavoro ancora da fare](sherlock-js/RIPRESA-GAMEPLAY.md)
 
 La ricostruzione è ancora parziale. L’ultimo prefisso naturale certificato
-comprende 421 checkpoint fino a mercoledì 17:50, con tutti i 24 posti attore,
-estrazioni casuali, stato e output confrontati con l’originale. Superato CB28,
-il prossimo limite effettivo è 5D29. Vedere
-`sherlock-js/RISULTATI-DELLE-REGOLE-CB28.md`. La documentazione distingue i test
+comprende 423 checkpoint fino a mercoledì 18:10, con tutti i 24 posti attore,
+estrazioni casuali, stato e output confrontati con l’originale. Superato 5D29,
+il prossimo limite effettivo è A029. Vedere
+`sherlock-js/GLIFI-CONTATORE-SCANSIONE-5D29.md`. La documentazione distingue i test
 controllati dalla certificazione di una partita completa e conserva i limiti aperti.
 
 ## Contenuto

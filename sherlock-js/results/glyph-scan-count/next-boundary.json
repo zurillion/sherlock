@@ -1,0 +1,39 @@
+{
+  "checkpoint": 423,
+  "target_clock": {
+    "tick": 3501,
+    "due": 3781,
+    "minute": 20,
+    "hour": 6,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 06:20pm"
+  },
+  "observed_unknown": "A029",
+  "native_draws": [
+    {
+      "draw": 22,
+      "random": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 252,
+        "cursor": 40739,
+        "reads": [
+          {
+            "address": 40995,
+            "value": 88
+          },
+          {
+            "address": 41001,
+            "value": 138
+          }
+        ],
+        "result": 12,
+        "next_seed": 222,
+        "next_cursor": 40995
+      }
+    }
+  ],
+  "note": "Native reference only; failed checkpoint423 is outside the complete-state certificate."
+}

@@ -1,0 +1,113 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 324,
+  "bytes_roundtripped": 615,
+  "regions": [
+    {
+      "start": "A360",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Ordine citato: soggetto temporaneo e nome della destinazione",
+      "atlas_priority": 148
+    },
+    {
+      "start": "A7BA",
+      "end_exclusive": "A7C5",
+      "kind": "code",
+      "label": "Nome locazione: ingresso distinto dal nome entit\u00e0",
+      "atlas_priority": 148
+    },
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo degli ordini NPC: prefisso, comando composto e chiusura",
+      "atlas_priority": 148,
+      "fields": [
+        [
+          "682A",
+          "prefisso della destinazione",
+          "La t diParliament scaricata nel frame5D32 conserva BC; il sostantivoStreet non ha lo stesso ultimo writer"
+        ]
+      ]
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso pubblico del testo e stack degli argomenti",
+      "atlas_priority": 148
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome dell\u2019attore e chiamate relative dei testi",
+      "atlas_priority": 148
+    },
+    {
+      "start": "A7C5",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Descrittore del nome: ponte al renderer di entit\u00e0",
+      "atlas_priority": 148
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome composto: prefissi e sostantivo finale con scarico differito",
+      "atlas_priority": 148
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo del medesimo stack",
+      "atlas_priority": 148
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia riga: CALL reale e byte alto del return link",
+      "atlas_priority": 148
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: righe e registri salvati; 5D29: contatore B della scansione, non shift n\u00e9 byte del font",
+      "atlas_priority": 148,
+      "fields": [
+        [
+          "5D29",
+          "B della scansione con frame5D32",
+          "C39C/C3B7: valore dell\u2019iterazione prima diDJNZ. Nell\u2019ultima scansione1, non0 n\u00e9 FF"
+        ],
+        [
+          "Sei ruoli",
+          "dipendono dal frame",
+          "5D2A:A chiamante;5D2C:B chiamante;5D2E:D descrittore;5D30:H video;5D32:B scansione;5D34:A font"
+        ],
+        [
+          "CALL realeC374",
+          "alto del returnC377",
+          "Con frame5D28 scriveC3 a5D29; non un valore del contatore"
+        ],
+        [
+          "Propriet\u00e0",
+          "solo writer compresi",
+          "Nessun1 di fallback. Scene/errori/caller ignoti revocano; oldLOAD senza29 restaunknown anche con28 noto;25 resta ignoto"
+        ]
+      ]
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine NPC: stampa 682A dopo aver registrato la richiesta",
+      "atlas_priority": 148
+    }
+  ]
+}

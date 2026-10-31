@@ -5,32 +5,33 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 Correzione successiva: [PAY-SENZA-TO.md](PAY-SENZA-TO.md). `PAY 10D` ora
 produce il rifiuto originale senza bloccare il comando successivo; le forme
-valide conservano l’ordine dativo. Il prossimo limite resta **5D29**.
+valide conservano l’ordine dativo. Il successivo lavoro ha superato5D29; il prossimo limite è **A029**.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   421 checkpoint, da 0 a 420, fino a mercoledì 17:50: tutti i 24 posti attore,
+   423 checkpoint, da0 a422, fino a mercoledì18:10: tutti24posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. 8441 draw e 18066 read confrontati.
-   Vedere RISULTATI-DELLE-REGOLE-CB28.md e results/rule-registers/witness-prefix.json.
+   contatore MORE e futuro dopoLOAD.8493 draw e18188 read confrontati.
+   Vedere GLIFI-CONTATORE-SCANSIONE-5D29.md e
+   results/glyph-scan-count/witness-prefix.json.
 
-2. **CB28 superato nel percorso naturale; prossimo confine 5D29.**
-   CB28/CB2A conservano i risultati IX/IY delle regole. CB2C li ricarica
-   per il corpo; CB34 chiama e CB37/CB3B salvano anche dopo predicato falso.
-   Ricostruiti contatori, link di rilascio e OPEN/CLOSE ordinari. La lettura
-   cuoca9 al415/draw19 vede il descrittore della plain door50 (90CC),
-   derivato dal precedente OPEN/CLOSE del giardiniere, non un204 di fallback.
-   I callback sconosciuti e il polling del prompt revocano il campo. OldLOAD
-   senza ruleResultPointers restaunknown fino a un writer compreso. Due word
-   con proprietà separata: IX noto non implica IY noto. Durante il draw della
-   creazione di un contatore CB28 conserva ancora il risultato precedente.
-   12 storie/57checkpoint/205draw/410read; 92 ABI contatori/arena,162 ABI
-   OPEN/CLOSE. Origine delle letture lunghe riutilizzata conSHA256.
-   **Osservato: 5D29 al checkpoint421 verso mercoledì18:00.** Nessuna proprietà
-   di29 è dedotta dai vicini27/28. Non estendere il certificato al comando
-   annullato. Cinque finali e i controesempi elencati sotto restano aperti.
-   Atlante:14 byte prima grigi F19A–F1A7;31 byte parziali ora documentati
-   E58C–E5A7/E5AA–E5AC. Approfonditi CB28–CB40,C9BF–CA75,A1C7–A24C,
-   E52F–E5AC,DE9D–DEC0,D769–D77D,F198–F1A7,F1D6–F1F5.
+2. **5D29 superato; prossimo confine A029.**
+   Con frameC388=5D32, PUSH BC/C39C eC3B7 salva il contatore della
+   scansione nel bytealto29: ultimoB1 prima del decremento finale, non0/FF.
+   Altri frame salvano A/B chiamante,D descrittore,H video,A font; vera
+   CALL C374/frame5D28 lasciaC3 del ritornoC377. Proprietà condizionata al
+   caller compreso; oldLOAD senza29 restaunknown anche con28 noto.25 ignoto.
+   ABI originali e writer a16bit riutilizzati conSHA256, non una nuova
+   acquisizione completa degli store29. Il record originale del PUSH BC
+   a28 contieneBC0102 eSP5D2A: la stessa scrittura lascia1 a29. Tutti i
+   byte dichiarati posseduti sono confrontati con le ABI; la lettura naturale
+   al421/draw8 della cuoca è ora inclusa nel certificato completo.
+   **Osservato: A029 al checkpoint423 verso mercoledì18:20.**22 draw prima
+   del blocco sono confrontati, ma non lo stato completo del comando annullato.
+   Non dedurre A029 da A028. Cinque finali e i controesempi sotto restano aperti.
+   Atlante:324 istruzioni/615byte approfonditi, zero nuovi byte grigi.
+   RendererC388–C3E3,puliziaC363–C37C,nomi/argomentiA360–A418,A59F–A5CC,
+   A720–A770,A7BA–A7CF,D3E8–D447,decoderA95B–A98F,ordineCE10–CE17,
+   testo682A–682F eworkspace5D29. Copertura invariata38844/433/2323 su41600.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

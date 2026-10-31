@@ -632,3 +632,36 @@ vuoto che attiverebbe una falsa domanda non allocata.11 storie native/24input,
 Atlante141istruzioni/312byte:8379–8380,B39D–B482,E345–E38E con header
 E370–E373 dati. Certificato lungo non ampliato:421 checkpoint0–420 fino
 Wed17:50, prossimo5D29. Restano tutti i limiti precedenti.
+
+
+31ottobre2026 — leggere GLIFI-CONTATORE-SCANSIONE-5D29.md e
+results/glyph-scan-count-verification.json.5D29 è il byte alto diBC delle
+scansioni per frameC388=5D32. C399 inizializzaB8,C39C/C3B7 salva prima
+diDJNZ; ultimoB1,non0 néFF dei temporanei. Sei ruoli: frame5D2A A caller,
+5D2C B caller,5D2E D descrittore,5D30 H video,5D32 B scansione,5D34 A font.
+VeraCALL C374/frame5D28 scriveC3 a29 del returnC377. UnknownB nel frame2C
+revoca29; no1di fallback. La proiezione estende il put/invalidation a29,
+non25. OldLOAD senza29 restaunknown anche con28 noto. UnknownRoomName
+revoca26–29. Scene/errori/caller ignoti revocano; nuovi writer ristabiliscono.
+Le ABI archiviate sono riutilizzate conSHA256, così il record originale
+C3B7/SP5D2A/BC0102/tick964 del medesimo store16bit già osservato a28.
+Derivare29 dal bytealto diBC, non dal valore di28. Nessuna nuova acquisizione
+naturale completa degli store29 è dichiarata. Il riferimento lungo legge29=1
+al421/draw8/cuoca9; la lettura al503 resta fuori dal certificato.
+423 checkpoint completi0–422 sinoWed18:10,8493draw/18188read,24attori,
+arena752,bitmap e futuroLOAD. ProssimoA029 al423 versoWed18:20,22draw
+parziali confrontati senza certificare lo stato del checkpoint annullato.
+Non inferire A029 da A028. Cinque finali,cab5D0C e i tre controesempi
+precedenti restano aperti. I test28 aggiornano soltanto la precedente
+aspettativa29unknown al nuovo risultato del writer verificato; nessun
+campo del confronto viene normalizzato o rimosso.
+Atlante324istruzioni/615byte: C388–C3E3,C363–C37C,A360–A418,A59F–A5CC,
+A720–A770,A7BA–A7CF,D3E8–D447,A95B–A98F,CE10–CE17,682A–682F eworkspace29.
+Zero nuovi byte grigi;38844documentati/433parziali/2323sconosciuti su41600.
+
+Verifica conclusiva5D29:155 test mirati distinti passati (40 nuovo dossier,
+53 shift28,52 font27,8 mappa/hosting,2 controesempi conservati). Il confronto
+positivo delimitato423 checkpoint è completato e scritto; non soltanto
+ricavato dalla presenza della traccia lunga. A029 è letto dal giardiniere8
+al draw22 del423 nel riferimento nativo; non installare il valore138 come
+fallback. Seconda lettura29 al503 non certificata.

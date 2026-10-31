@@ -1,0 +1,88 @@
+{
+  "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+  "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+  "reads": [
+    {
+      "checkpoint": 421,
+      "draw": 8,
+      "checkpoint_clock": {
+        "tick": 3481,
+        "due": 3781,
+        "minute": 0,
+        "hour": 6,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 06:00pm"
+      },
+      "random": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 140,
+        "cursor": 23331,
+        "reads": [
+          {
+            "address": 23587,
+            "value": 0
+          },
+          {
+            "address": 23593,
+            "value": 0
+          },
+          {
+            "address": 23843,
+            "value": 80
+          },
+          {
+            "address": 23849,
+            "value": 1
+          }
+        ],
+        "result": 11,
+        "next_seed": 221,
+        "next_cursor": 23843
+      }
+    },
+    {
+      "checkpoint": 503,
+      "draw": 10,
+      "checkpoint_clock": {
+        "tick": 4281,
+        "due": 4501,
+        "minute": 20,
+        "hour": 7,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 07:20am"
+      },
+      "random": {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 71,
+        "cursor": 23337,
+        "reads": [
+          {
+            "address": 23593,
+            "value": 0
+          },
+          {
+            "address": 63766,
+            "value": 0
+          },
+          {
+            "address": 23849,
+            "value": 1
+          },
+          {
+            "address": 64022,
+            "value": 79
+          }
+        ],
+        "result": 92,
+        "next_seed": 7,
+        "next_cursor": 23849
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "completed_checkpoints": 423,
+  "last_complete_clock": {
+    "tick": 3491,
+    "due": 3781,
+    "minute": 10,
+    "hour": 6,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 06:10pm"
+  },
+  "partial_checkpoint": 423,
+  "partial_draws_compared": 22,
+  "last_compared_draw_pointers": [
+    null,
+    null
+  ],
+  "error": "423 Ingresso casuale originale non ancora ricostruito: $A029. Il comando non è stato applicato."
+}

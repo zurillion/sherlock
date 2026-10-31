@@ -49,6 +49,6 @@ perché richiede il relativo server locale. Per trasferire una partita dal sito
 locale al sito pubblico, usare **Salva partita** e poi **Carica partita**:
 i browser conservano separatamente lo stato dei due indirizzi.
 
-Il lavoro di reverse engineering prosegue dopo il superamento di CB28 sul confine 5D29, come indicato
+Il lavoro di reverse engineering prosegue dopo il superamento di 5D29 sul confine A029, come indicato
 in `sherlock-js/RIPRESA-GAMEPLAY.md`. La pubblicazione non estende la copertura
 del gameplay o la certificazione dei finali.
