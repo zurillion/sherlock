@@ -665,3 +665,13 @@ positivo delimitato423 checkpoint è completato e scritto; non soltanto
 ricavato dalla presenza della traccia lunga. A029 è letto dal giardiniere8
 al draw22 del423 nel riferimento nativo; non installare il valore138 come
 fallback. Seconda lettura29 al503 non certificata.
+
+Mappa delle locazioni: src/location-graph.mjs riduce solo la presentazione.
+Coppie reciproche con entrambi i versi coerenti coi lati/spigoli diventano
+una linea senza frecce; senso unico resta frecciato; direzioni non ovvie e
+UP/DOWN restano esplicite con etichette. Non modificare le uscite dirette
+del mondo. Accoppiare ogni arco una sola volta, conservando paralleli e
+metadati porte. Linea unificata evidenziata da entrambi gli estremi.
+7 controlli unitari/hosting passati e DOM browser verificato:199 uscite
+visibili rappresentate da130tracciati,69 coppie unificate e61archi espliciti.
+Nessuna nuova scoperta di memoria: prossimo lavoro resta A029.

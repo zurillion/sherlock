@@ -1,3 +1,4 @@
+import {NODE_W,NODE_H,OPPOSITE,portDirection,boundary,graphConnections} from './location-graph.mjs';
 import {Transcript} from './transcript.mjs';
 import {SpectrumTerminal} from './spectrum.mjs';
 import {ClientSession,engineStatus,gameStatus} from './session.mjs';
@@ -75,7 +76,7 @@ function updateGameStatus(s){
 }
 function update(s){const previousRoom=state?.room;state=s;if($('engine-hint'))$('engine-hint').textContent=engineStatus(s);$('seed').value=s.seed??1;$('start-mode').value=s.start_mode||'free';spectrum.setRoom(s.room);spectrum.setEnded(s.game_over);setClock(s.clock);updateGameStatus(s);$('room-id').textContent=String(s.room).padStart(3,'0');$('room-name').textContent=s.name;
  for(const [id,node] of nodes){node.classList.toggle('current',id===s.room);node.classList.toggle('visited',s.visited.includes(id));node.setAttribute('aria-pressed',String(id===s.room));}
- for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room);
+ for(const [edge,node] of edgeEls)node.classList.toggle('near',edge.source===s.room||edge.reverse?.source===s.room);
  updateCharacters(s);
  if(previousRoom!==undefined&&previousRoom!==s.room&&(previousRoom===1||s.room===1))centerRoom(s.room);
  $('exits').replaceChildren();for(const e of s.exits){const row=el('div',undefined,'exit'),button=el('button',e.direction),desc=el('div',`${String(e.target).padStart(3,'0')} ${e.target_name||'destinazione non attiva'}`);button.title='Esegui il movimento, rispettando gli ostacoli';button.onclick=()=>command(e.direction);desc.append(el('small',`${e.gate_name?e.gate_name+' · ':''}${e.status}`));row.append(button,desc);$('exits').append(row);}if(!s.exits.length)$('exits').append(el('span','Nessuna uscita direzionale.'));
@@ -188,13 +189,6 @@ async function teleport(id){if(busy||state?.game_over)return;$('search-results')
 function applyView(){$('map').setAttribute('viewBox',view.join(' '));}
 function zoom(factor,cx=view[0]+view[2]/2,cy=view[1]+view[3]/2){const width=Math.min(7000,Math.max(250,view[2]*factor)),ratio=width/view[2];view=[cx+(view[0]-cx)*ratio,cy+(view[1]-cy)*ratio,width,view[3]*ratio];applyView();}
 function point(e){const p=$('map').createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform($('map').getScreenCTM().inverse());}
-const NODE_W=142,NODE_H=104;
-const OPPOSITE={N:'S',S:'N',E:'W',W:'E',NE:'SW',SW:'NE',NW:'SE',SE:'NW'};
-function portDirection(dx,dy){
- const x=Math.abs(dx)/(NODE_W/2+3),y=Math.abs(dy)/(NODE_H/2+3);
- if(x>=.78&&y>=.78)return (dy<0?'N':'S')+(dx<0?'W':'E');
- return x>y?(dx<0?'W':'E'):(dy<0?'N':'S');
-}
 function addDirectionLabel(edge,geometry){
  const {x,y,tx,ty,sx,sy,ex,ey,cx,cy,parallelCount,parallelIndex}=geometry;
  const departure=portDirection(sx-x,sy-y),arrival=portDirection(ex-tx,ey-ty);
@@ -232,14 +226,13 @@ function buildGraph(){
  for(const r of data.rooms){rooms.set(r.id,r);const [x,y]=r.coordinates||[30+r.id%10*70,620];r.layout=[x*4.6,y*4.1];}
  // Allontana solo i riquadri sovrapposti, preservando la disposizione di riferimento.
  for(let pass=0;pass<160;pass++){let changed=false;for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++){const a=list[i].layout,b=list[j].layout,dx=b[0]-a[0],dy=b[1]-a[1],ox=NODE_W+14-Math.abs(dx),oy=NODE_H+14-Math.abs(dy);if(ox>0&&oy>0){changed=true;if(ox<oy){const d=(ox+.1)/2*(dx>=0?1:-1);a[0]-=d;b[0]+=d;}else{const d=(oy+.1)/2*(dy>=0?1:-1);a[1]-=d;b[1]+=d;}}}if(!changed)break;}
- const counts=new Map(),indices=new Map();for(const e of data.edges){const key=e.source+':'+e.target;counts.set(key,(counts.get(key)||0)+1);}
- const boundary=(x,y,dx,dy)=>{const t=Math.min((NODE_W/2+3)/(Math.abs(dx)||1e-9),(NODE_H/2+3)/(Math.abs(dy)||1e-9));return [x+dx*t,y+dy*t];};
- for(const e of data.edges){if(!e.target||!e.source)continue;const [x,y]=rooms.get(e.source).layout,[tx,ty]=rooms.get(e.target).layout,dx=tx-x,dy=ty-y,len=Math.hypot(dx,dy)||1;const key=e.source+':'+e.target,parallelCount=counts.get(key),parallelIndex=indices.get(key)||0;indices.set(key,parallelIndex+1);const bend=10+parallelIndex*30;const [sx,sy]=boundary(x,y,dx,dy),[ex,ey]=boundary(tx,ty,-dx,-dy),cx=(sx+ex)/2-dy/len*bend,cy=(sy+ey)/2+dx/len*bend;
-  const path=svg('path',{d:`M ${sx} ${sy} Q ${cx} ${cy} ${ex} ${ey}`,class:`edge ${e.gate?'gated':''}`,'data-source':e.source,'data-target':e.target,'data-direction':e.direction});const title=svg('title');title.textContent=`${e.source} → ${e.target} · ${e.direction}${e.gate_name?' · '+e.gate_name:''}`;path.append(title);$('edges').append(path);edgeEls.push([e,path]);addDirectionLabel(e,{x,y,tx,ty,sx,sy,ex,ey,cx,cy,parallelCount,parallelIndex});}
+ const connections=graphConnections(data.edges,rooms),counts=new Map(),indices=new Map(),pairs=new Map(),pairKey=e=>[e.source,e.target].sort((a,b)=>a-b).join(':');for(const e of connections){const key=e.source+':'+e.target;counts.set(key,(counts.get(key)||0)+1);pairs.set(pairKey(e),(pairs.get(pairKey(e))||0)+1);}
+ for(const e of connections){const [x,y]=rooms.get(e.source).layout,[tx,ty]=rooms.get(e.target).layout,dx=tx-x,dy=ty-y,len=Math.hypot(dx,dy)||1;const key=e.source+':'+e.target,parallelCount=counts.get(key),parallelIndex=indices.get(key)||0;indices.set(key,parallelIndex+1);const straight=Boolean(e.reverse)||pairs.get(pairKey(e))===1,bend=straight?0:10+parallelIndex*30;const [sx,sy]=boundary(x,y,dx,dy),[ex,ey]=boundary(tx,ty,-dx,-dy),cx=(sx+ex)/2-dy/len*bend,cy=(sy+ey)/2+dx/len*bend;
+  const path=svg('path',{d:straight?`M ${sx} ${sy} L ${ex} ${ey}`:`M ${sx} ${sy} Q ${cx} ${cy} ${ex} ${ey}`,class:`edge ${e.gate||e.reverse?.gate?'gated':''} ${e.reverse?'bidirectional':''}`,'data-source':e.source,'data-target':e.target,'data-direction':e.direction,'data-bidirectional':Boolean(e.reverse)});const title=svg('title');title.textContent=`${e.source} ${e.reverse?'↔':'→'} ${e.target} · ${e.direction}${e.reverse?' / '+e.reverse.direction:''}${[...new Set([e.gate_name,e.reverse?.gate_name].filter(Boolean))].map(name=>' · '+name).join('')}`;path.append(title);$('edges').append(path);edgeEls.push([e,path]);if(!e.reverse)addDirectionLabel(e,{x,y,tx,ty,sx,sy,ex,ey,cx,cy,parallelCount,parallelIndex});}
  for(const r of list){const [x,y]=r.layout,node=svg('g',{transform:`translate(${x} ${y})`,class:'node',tabindex:0,role:'button','aria-label':`Vai a ${String(r.id).padStart(3,'0')} ${r.name_hint}`,'data-room':r.id});node.append(svg('rect',{x:-NODE_W/2,y:-NODE_H/2,width:NODE_W,height:NODE_H,rx:5}));const num=svg('text',{y:-37,class:'node-number'});num.textContent=String(r.id).padStart(3,'0');node.append(num);const name=svg('text',{class:'node-name'}),lines=wrapName(r.name_hint);lines.forEach((line,i)=>{const span=svg('tspan',{x:0,y:-17+i*13});span.textContent=line;name.append(span);});node.append(name);
   node.addEventListener('click',()=>{if(!moved)teleport(r.id);});node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();teleport(r.id);}});
   node.addEventListener('pointermove',e=>{const box=$('map').parentElement.getBoundingClientRect();const person=e.target.closest('.character-marker');$('tooltip').textContent=person?person.getAttribute('data-name'):`${String(r.id).padStart(3,'0')} · ${r.name_hint}`;$('tooltip').style.left=Math.max(5,Math.min(e.clientX-box.left+12,box.width-230))+'px';$('tooltip').style.top=Math.max(3,e.clientY-box.top-35)+'px';$('tooltip').hidden=false;});node.addEventListener('pointerleave',()=>{$('tooltip').hidden=true;});$('nodes').append(node);nodes.set(r.id,node);}
- $('graph-count').textContent=`${nodes.size} luoghi · ${data.edges.length} archi`;$('map').classList.add('show-labels');centerRoom(8);
+ $('graph-count').textContent=`${nodes.size} luoghi · ${connections.length} collegamenti`;$('map').classList.add('show-labels');centerRoom(8);
 }
 $('command-form').addEventListener('submit',e=>{e.preventDefault();command($('command').value);});
 $('command').addEventListener('keydown',e=>{if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();historyAt=Math.max(0,Math.min(history.length,historyAt+(e.key==='ArrowUp'?-1:1)));$('command').value=history[historyAt]||'';}});

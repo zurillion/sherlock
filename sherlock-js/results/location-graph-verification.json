@@ -1,0 +1,30 @@
+{
+  "scope": "Location graph presentation only. Merge reciprocal exits only when both directions match the actual rectangle ports. Directed gameplay exits remain unchanged.",
+  "unit_and_hosting_tests": {
+    "total": 7,
+    "failures": 0,
+    "cases": [
+      "Cardinal and diagonal reciprocal connections",
+      "Theoretical one-way exits in both orientations",
+      "Non-obvious reciprocal directions remain explicit",
+      "Parallel alternatives paired once, gate metadata preserved",
+      "Existing hosting and engine selector checks"
+    ]
+  },
+  "browser": {
+    "connections": 130,
+    "directed": 61,
+    "directedHaveArrow": true,
+    "merged": 69,
+    "mergedAreStraight": true,
+    "mergedHaveNoArrow": true,
+    "reverseCurrentRoomHighlighted": true
+  },
+  "visible_directed_source_exits": 199,
+  "rendered_connections": 130,
+  "reciprocal_pairs_collapsed": 69,
+  "explicit_directed_paths": 61,
+  "screenshot": "results/location-graph/preview.png",
+  "memory_analysis_changed": false,
+  "gameplay_next_boundary": "A029, checkpoint423 towardWed18:20; unchanged."
+}
