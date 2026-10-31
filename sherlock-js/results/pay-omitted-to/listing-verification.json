@@ -1,0 +1,78 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 141,
+  "bytes_roundtripped": 312,
+  "regions": [
+    {
+      "start": "8379",
+      "end_exclusive": "8381",
+      "kind": "data",
+      "label": "Modello PAY: TO opzionale e ruoli dativi",
+      "atlas_priority": 147,
+      "fields": [
+        [
+          "Modello",
+          "37 /8379",
+          "PAY con TO opzionale; flags0C/2D"
+        ],
+        [
+          "Con TO",
+          "importo TO destinatario",
+          "Ordine canonico"
+        ],
+        [
+          "Senza TO",
+          "destinatario importo",
+          "Scambio semantico anche per slot vuoti; nodo fisico intatto"
+        ],
+        [
+          "PAY10D",
+          "DON'T BE SILLY.",
+          "Nessun destinatario implicito, nessun turno pagato, nessuna continuation"
+        ]
+      ]
+    },
+    {
+      "start": "B39D",
+      "end_exclusive": "B405",
+      "kind": "code",
+      "label": "Ricerca del modello lessicale prima dei ruoli degli argomenti",
+      "atlas_priority": 147
+    },
+    {
+      "start": "B405",
+      "end_exclusive": "B468",
+      "kind": "code",
+      "label": "Ordinamento semantico: senza TO destinatario prima dell’importo",
+      "atlas_priority": 147
+    },
+    {
+      "start": "B468",
+      "end_exclusive": "B483",
+      "kind": "code",
+      "label": "Copia dei nominali nei ruoli senza alterare il nodo sintattico",
+      "atlas_priority": 147
+    },
+    {
+      "start": "E345",
+      "end_exclusive": "E370",
+      "kind": "code",
+      "label": "Preflight del saldo e rifiuto del pagamento",
+      "atlas_priority": 147
+    },
+    {
+      "start": "E370",
+      "end_exclusive": "E374",
+      "kind": "data",
+      "label": "Intestazione PAY: letterale monetario e persona destinataria",
+      "atlas_priority": 147
+    },
+    {
+      "start": "E374",
+      "end_exclusive": "E38F",
+      "kind": "code",
+      "label": "Corpo del pagamento: addebito e accredito",
+      "atlas_priority": 147
+    }
+  ]
+}

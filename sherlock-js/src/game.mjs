@@ -46,7 +46,7 @@ export class Game {
  action(node){
   if(!node.verb)return 1;
   const verb=this.word(node.verb),modifier=this.word(node.modifier),relations=node.groups.flatMap(g=>g.relations).map(id=>this.word(id));
-  if(verb==='pay'&&!relations.length&&node.groups.length===2)return 37;
+  if(verb==='pay'&&!modifier&&!relations.length)return 37;
   if(verb==='sit'&&!relations.length)return 40;
   if(['get','climb'].includes(verb)&&relations.join(' ')==='out')return verb==='get'?25:13;
   // The conversation form accepts the optional TO: SAY CABBIE and SAY TO
@@ -88,7 +88,7 @@ export class Game {
  }
  error(text){return {kind:'error',text};}
  question(node,slot){const sourceSlot=node.sourceGroupOrder?.[slot]??slot;this.pending={node:clone(node.sourceNode||node),slot:sourceSlot};if(this.world.npcs&&this.actor===this.world.player)this.npcRuntime.setClarificationOffset(sourceSlot?18:8);}
- semanticNode(node){if(node.sourceNode)return node;if(this.action(node)===37&&!(node.groups[0]?.noun&32768)&&node.groups[1]?.noun&32768)return {...node,groups:[node.groups[1],node.groups[0]],sourceNode:node,sourceGroupOrder:[1,0]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}
+ semanticNode(node){if(node.sourceNode)return node;if(!node.resolved&&this.action(node)===37&&node.groups.every(g=>!g.relations.length))return {...node,groups:[node.groups[1]||{noun:0,qualifiers:[],relations:[]},node.groups[0]||{noun:0,qualifiers:[],relations:[]}],sourceNode:node,sourceGroupOrder:[1,0]};if(this.world.npcs&&this.action(node)===46&&!node.groups[0]?.noun&&!node.groups[0]?.qualifiers.length){const b=this.world.npcs.information.addressee,query={noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean)};if(!this.world.entities.some(e=>this.world.nounMatches(e,query)&&this.canResolve(e,46,0)))return {...node,implicitMissing:true};return {...node,groups:[{noun:b[0]|b[1]<<8,qualifiers:[b[2]|b[3]<<8,b[4]|b[5]<<8].filter(Boolean),relations:node.groups[0]?.relations||[]}]};}
   // B421/B445 use the model's dative mode: without TO, GIVE names the
   // recipient before the object. ALL can leave that second nominal slot
   // empty. Preserve physical syntax slots for clarification and arena state.
@@ -118,9 +118,9 @@ export class Game {
  resolve(node,action,slot=0){
   if(node.resolved?.[slot]!==undefined)return {entity:this.world.entity(node.resolved[slot])};
   const w=this.world,group=node.groups[slot]||{noun:0,qualifiers:[],relations:[]};
-  if(!group.noun&&!group.qualifiers.length&&!node.collective){const {possible}=this.referenceCandidates(node,action,slot);const ask=possible.length>1;if(!ask&&possible.length===1)return {entity:possible[0]};if(ask)this.question(node,slot);const words=[this.word(node.verb),...(action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase();return {message:this.error(ask?`${this.word(node.verb).toUpperCase()} WHAT ?`:`I SEE NOTHING THAT YOU CAN ${words}`)};}
   const {nominal,possible}=this.referenceCandidates(node,action,slot);
   if(action===37&&possible.length>1)return {message:this.error("DON'T BE SILLY.")};
+  if(!group.noun&&!group.qualifiers.length&&!node.collective){const ask=possible.length>1;if(!ask&&possible.length===1)return {entity:possible[0]};if(ask)this.question(node,slot);const words=[this.word(node.verb),...(action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean)||[])].join(' ').toUpperCase();return {message:this.error(ask?`${this.word(node.verb).toUpperCase()} WHAT ?`:`I SEE NOTHING THAT YOU CAN ${words}`)};}
   // B6FD distinguishes a rejected described object from an absent pair.
   if(action===26&&!possible.length&&!w.npcs?.sceneryFailure?.found&&nominal.some(e=>w.owns(this.actor,e.id)))return {message:this.error('I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN GIVE')};
   if(possible.length>1){this.question(node,slot);return {message:this.error(`WHICH ${this.word(group.noun).toUpperCase()||'ONE'} ?`)};}
@@ -151,12 +151,7 @@ export class Game {
    if(!w.npcs)for(const quote of node.quotes||[node.quote])try{this.parser.quoted(quote);}catch(error){if(error instanceof InputError)throw new InputError('quoted_syntax_error','WHAT ?');throw error;}
    throw new UnsupportedFeature('citazioni per questa forma di conversazione');
   }
-  if(!action){if(this.word(node.verb)==='pay'){
-   // PAY's first argument must be a money literal; PAY CABBIE fails that
-   // semantic preflight before a recipient/action can be selected.
-   if(node.groups.length===1&&node.groups[0].noun&&!(node.groups[0].noun&32768))return reject("DON'T BE SILLY.");
-   throw new UnsupportedFeature('forma PAY senza TO e relativo passaggio al turno seguente');
-  }const words=[node.modifier,node.verb,...node.groups.flatMap(g=>g.relations)].filter(Boolean).map(id=>' '+this.word(id).toUpperCase()).join('');return reject(`I DO NOT KNOW THE VERB"${words}"`);}
+  if(!action){const words=[node.modifier,node.verb,...node.groups.flatMap(g=>g.relations)].filter(Boolean).map(id=>' '+this.word(id).toUpperCase()).join('');return reject(`I DO NOT KNOW THE VERB"${words}"`);}
   // 9FC5 has class-zero arguments and a predicate that always fails.
   // It rejects before light/reference resolution and never enters combat.
   if(action===52)return reject(this.text.render('680B').toUpperCase());

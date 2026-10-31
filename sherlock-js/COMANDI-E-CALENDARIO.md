@@ -42,6 +42,9 @@ compare l'annuncio del suo gesto, non la descrizione remota per Holmes.
 `PAY WATSON 6D` e `PAY WATSON £1` funzionano anche senza TO. La risoluzione
 scambia i ruoli semantici, conservando l'ordine dei record sintattici originali;
 non cambia il gestore condiviso dei pagamenti, del conto o del resto.
+PAY senza TO legge sempre destinatario e poi importo, anche con slot mancanti:
+`PAY 10D` e `PAY 10D WATSON` danno `DON'T BE SILLY.`, senza turno o continuation.
+Vedere [PAY-SENZA-TO.md](PAY-SENZA-TO.md) per la correzione verificata.
 
 ## Comandi di servizio nella pagina
 

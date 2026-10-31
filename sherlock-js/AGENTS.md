@@ -619,3 +619,16 @@ lo store del rapporto EPERM; lookahead.json lo distingue dal certificato
 positivo, senza inventare un numero di draw parziali al421. Traccia cache
 JS in /private/tmp usata solo per diagnosi rapida, non come prova nativa
 o fixture giocabile; la prova completa riparte dall’avvio naturale.
+
+31ottobre2026 — leggere PAY-SENZA-TO.md e results/pay-omitted-to-verification.json.
+PAY senza TO seleziona modello37 anche con0/1 nominali, non solo2. Ruoli
+sempre destinatario/importo: B421/B445 usa il modo dativo, non la presenza
+del denaro nel secondo gruppo. Preservare sourceNode/sourceGroupOrder e
+slot fisici. PAY10D, PAY10DWATSON, PAY e PAYWATSON dannoDON’T BE SILLY.,
+nessun pagamento/tempo/continuation. PAYWATSON10D e PAY10DTO WATSON
+restano validi. In resolve, PAY ambiguo viene rifiutato prima del nominale
+vuoto che attiverebbe una falsa domanda non allocata.11 storie native/24input,
+74draw/148read,24attori,stato completo/bitmap/futuroLOAD,78 test mirati.
+Atlante141istruzioni/312byte:8379–8380,B39D–B482,E345–E38E con header
+E370–E373 dati. Certificato lungo non ampliato:421 checkpoint0–420 fino
+Wed17:50, prossimo5D29. Restano tutti i limiti precedenti.

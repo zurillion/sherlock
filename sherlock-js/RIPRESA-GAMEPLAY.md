@@ -3,6 +3,10 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
+Correzione successiva: [PAY-SENZA-TO.md](PAY-SENZA-TO.md). `PAY 10D` ora
+produce il rifiuto originale senza bloccare il comando successivo; le forme
+valide conservano l’ordine dativo. Il prossimo limite resta **5D29**.
+
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
    421 checkpoint, da 0 a 420, fino a mercoledì 17:50: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
