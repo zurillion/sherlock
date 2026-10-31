@@ -54,6 +54,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.parserMode=g.data.argumentChecks?.initialParserMode??null;
   w.npcs.parserTokenStart=g.data.argumentChecks?.initialParserTokenStart??null;
   w.npcs.nameQualifierMode=g.data.argumentChecks?.initialNameQualifierMode??null;
   w.npcs.outputChannel=g.data.argumentChecks?.initialOutputChannel??null;
@@ -232,7 +233,7 @@ export class NpcRuntime {
  finishCollective(node,visits){if(visits)this.beginResolution(node,{player:true});this.finishPlayerResolution(false);this.popParsed();}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
- invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
+ invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;this.state.parserMode=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
  canHail(vehicle){return this.use(({vm})=>vm.state(vehicle+1).contexts.length===0);}
  hail(vehicle,customer){this.use(runtime=>{
   const s=runtime.vm.state(vehicle+1),origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
@@ -640,6 +641,7 @@ export class NpcRuntime {
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
   if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
   if(address===0xA029||address===0xA02A){const value=this.state.parserTokenStart;return Number.isInteger(value)?address===0xA029?value&255:value>>>8:null;}
+  if(address===0xA024)return this.state.parserMode??null;
   if(address===0xA028)return this.state.nameQualifierMode??null;
   if(address===0xA027)return this.state.outputChannel??null;
   if(address===0xA021)return this.state.argumentCheck??null;
@@ -682,6 +684,7 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
+  if(s.parserMode!=null&&(!Number.isInteger(s.parserMode)||s.parserMode<0||s.parserMode>255))throw Error('Modo sintattico non valido');
   if(s.nameQualifierMode!==undefined&&s.nameQualifierMode!==null&&(!Number.isInteger(s.nameQualifierMode)||s.nameQualifierMode<0||s.nameQualifierMode>255))throw Error('Modo dei qualificatori non valido');
   if(s.outputChannel!==undefined&&s.outputChannel!==null&&![0,1].includes(s.outputChannel))throw Error('Canale di output non valido');
   if(s.modelFlags!==undefined&&(!Array.isArray(s.modelFlags)||s.modelFlags.length!==2||s.modelFlags.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Flag del modello non validi');

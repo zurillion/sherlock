@@ -1,0 +1,12 @@
+{
+  "baseline": "89d8dd3",
+  "command": "SAY WATSON \"WATSON KILLED YOU\"",
+  "javascript_draws": 7,
+  "native_draws": 10,
+  "outcome": "ok",
+  "messages": [
+    "You talk to Watson.",
+    "Watson remarks \" That is brilliant Holmes. \"."
+  ],
+  "scope": "Pre-existing conversation divergence; not fixed or certified by parser mode work."
+}

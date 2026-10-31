@@ -1,0 +1,48 @@
+{
+  "scope": "Narrow continuous parser-mode and every random draw/read ONLY. Full-state acceptance remains separate; this does not dismiss the known transient gardener-row counterexample.",
+  "checkpoints": 3461,
+  "clock": {
+    "tick": 3591,
+    "due": 3781,
+    "day": 2,
+    "minute": 50,
+    "hour": 7,
+    "period": "pm",
+    "label": "Wed 07:50pm"
+  },
+  "draws": 8763,
+  "reads": 18762,
+  "unclassified_original_transitions": [],
+  "observed_A024_reads": [
+    {
+      "checkpoint": 3458,
+      "parser_mode": 1,
+      "last_store": {
+        "pc": "D785",
+        "a": 1,
+        "tick": 2341,
+        "actor": 0,
+        "caller": "CB37",
+        "value": 1
+      },
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 190,
+      "cursor": 40740,
+      "reads": [
+        {
+          "address": 40996,
+          "value": 1
+        },
+        {
+          "address": 15633,
+          "value": 36
+        }
+      ],
+      "result": 56,
+      "next_seed": 155,
+      "next_cursor": 40996
+    }
+  ]
+}

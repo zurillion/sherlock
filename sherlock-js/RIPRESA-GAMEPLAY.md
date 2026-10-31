@@ -3,34 +3,30 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Correzione successiva: [PAY-SENZA-TO.md](PAY-SENZA-TO.md). `PAY 10D` ora
-produce il rifiuto originale senza bloccare il comando successivo; le forme
-valide conservano l’ordine dativo. Il successivo lavoro ha superato5D29; il prossimo limite è **A024**.
+Aggiornamento corrente: [MODALITA-SINTATTICHE-A024.md](MODALITA-SINTATTICHE-A024.md).
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   432checkpoint0–431 fino a mercoledì19:40, con8.738draw/18.710read,
-   tutti24posti attore, entità, fatti, programmi, arena752byte, bitmap e
-   futuro dopoLOAD. Vedere GLIFI-E-BYTE-VIDEO-5D2A.md e
-   results/glyph-video-low-2a/witness-prefix.json.
-   Ripetibile con `node tools/verify-glyph-video-low-2a-prefix.mjs`.
+   438 checkpoint0–437 fino a mercoledì20:40, con8.893 draw/19.026 read,
+   tutti24 posti attore, entità, fatti, programmi, arena752 byte, bitmap e
+   futuro dopoLOAD. Vedere results/parser-mode/witness-prefix.json.
+   Ripetibile con `node tools/verify-parser-mode-prefix.mjs`.
 
-2. **5D2A superato; prossimo confine A024.**
-   Nel frameC388=5D32, PUSH HL/C38B eC398 salva a5D2A il byte basso
-   di5020+floor((2+7*colonna)/8). Altri frame conservanoF/C chiamante,
-   E descrittore, C shift oF scansione. CALL realeC374 con frame5D2A
-   lascia77 del ritornoC377. Unknowncaller e vecchiLOAD restanounknown;
-   non inferire da5D29.5D25 e5D2B non introdotti.
-   Nuova acquisizione originale degli store, anche invariati, sino3571:
-   ultimoC398/tick964/Holmes0/HL5035, t del prefissoParliament, colonna24;
-   lettura cuoca9/tick3562/Wed19:21. Non installare53 come fallback.
-   **Prossimo A024 al checkpoint432 verso mercoledì19:50**, Watson3,
-   draw indice17 del riferimento. Non installare1: ricostruire i writer
-   della modalità del parser e distinguere comando, affermazione, citazione.
-   Atlante324istruzioni/615byte approfonditi, zero nuovi byte grigi:
-   C388–C3E3,C363–C37C,A360–A418,A59F–A5CC,A720–A770,A7BA–A7CF,
-   D3E8–D447,A95B–A98F,CE10–CE17,testo682A–682F eworkspace5D2A.
-   Copertura38846/431/2323 su41600. Il certificato è separato dalla
-   precedente verifica continua di solo cursore/estrazioni diA029.
+2. **A024 superato; prossimo limite: argomenti temporanei del giardiniere.**
+   A024 è la modalità sintattica persistente:0 autodetect nelle citazioni,
+   1 comando e2 affermazione. Sette writer ricostruiti; il ciclo citato
+   conserva il modo fra unità, il wrapper ordinario scrive1 a ogni ingresso.
+   Salvataggi completi; vecchiLOAD senza campo restano sconosciuti fino
+   al writer. Nessun valore1 catturato installato nel lettore casuale.
+   **Checkpoint438 verso mercoledì20:50**: giardiniere8, PC EDE1,
+   saved `[50,33,1]` inJS contro `[50,255,1]` nativo. Ricostruire la durata
+   degli argomenti in quel percorso; non normalizzare la riga o il confronto.
+   Il checkpoint fallito non fa parte del certificato positivo.
+   Atlante approfondito: A024,AAB2–AB10,B135–B16C,B8AA–B90D,D780–D7B1,
+   134 istruzioni/302 byte. A024 da parziale a documentato; zero byte grigi
+   aggiunti. Copertura38.847/430/2.323 su41.600.
+   Ulteriore controesempio breve conservato: SAY WATSON "WATSON KILLED YOU"
+   dà7 draw inJS contro10 nativo, anche sul codice89d8dd3. La modalità e
+   le sue scritture coincidono; la conversazione non è certificata.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

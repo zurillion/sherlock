@@ -1,18 +1,18 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [GLIFI-E-BYTE-VIDEO-5D2A.md](GLIFI-E-BYTE-VIDEO-5D2A.md).
-Superato5D2A:432 checkpoint0–431 fino a mercoledì19:40,
-8.738draw/18.710read, stato completo, bitmap e futuro dopoLOAD.
-Prossimo ingresso sconosciuto **A024** al432 verso19:50, Watson3,
-draw indice17 della traccia originale. Ricostruire i writer della modalità
-del parser e la loro persistenza; non installare il valore1 osservato.
-5D2A deriva dal byte basso del video nel frame5D32; altri cinque frame
-hanno ruoli distinti. Nuova traccia naturale degli store invariati compresi:
-C398/tick964/Holmes0/HL5035, t del prefissoParliament, colonna24;
-lettura cuoca9/tick3562/Wed19:21.5D25 e5D2B restano ignoti.
-Atlante324istruzioni/615byte approfonditi, nessuna nuova zona grigia.
-Restano i cinque finali naturali, cab5D0C e i controesempi PRINT/MORE,
-TAKE TO e riga transitoria del giardiniere nel campionamento continuo.
+Aggiornamento corrente: [MODALITA-SINTATTICHE-A024.md](MODALITA-SINTATTICHE-A024.md).
+SuperatoA024:438 checkpoint0–437 fino a mercoledì20:40,
+8.893 draw/19.026 read, stato completo, bitmap e futuro dopoLOAD.
+Prossimo limite al438 verso20:50: argomenti del giardiniere8, PC EDE1,
+JS[50,33,1] contro nativo[50,255,1]. Il checkpoint fallito è escluso.
+A024 deriva dai sette writer del parser: ingresso ordinario1, citazione0,
+autodetect1/2, chiarimento1 e pronomi2. Non usare il valore1 registrato.
+Atlante134 istruzioni/302 byte approfonditi; A024 da parziale a documentato,
+nessun nuovo byte grigio. Restano i cinque finali naturali, cab5D0C,
+PRINT/MORE, TAKE TO e la riga del giardiniere nel campionamento continuo.
+Un nuovo controesempio breve, già presente su89d8dd3: SAY WATSON
+"WATSON KILLED YOU" produce7 draw inJS contro10 nativo; modalità uguale
+non significa conversazione equivalente. Vedere il dossierA024.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo

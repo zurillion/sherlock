@@ -1,0 +1,21 @@
+{
+  "protocol": "Four original cold starts with all24 actor slots; source A024 initial mode, not a controlled overwritten byte.",
+  "boot": [
+    {
+      "seed": 1,
+      "mode": 0
+    },
+    {
+      "seed": 2,
+      "mode": 0
+    },
+    {
+      "seed": 77,
+      "mode": 0
+    },
+    {
+      "seed": 255,
+      "mode": 0
+    }
+  ]
+}

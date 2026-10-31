@@ -1,0 +1,23 @@
+{
+  "completed_checkpoints": 438,
+  "last_complete_clock": {
+    "tick": 3641,
+    "due": 3781,
+    "day": 2,
+    "minute": 40,
+    "hour": 8,
+    "period": "pm",
+    "label": "Wed 08:40pm"
+  },
+  "partial_checkpoint": 438,
+  "target_clock": {
+    "tick": 3651,
+    "due": 3781,
+    "minute": 50,
+    "hour": 8,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 08:50pm"
+  },
+  "error": "major-witness #438 arguments 8\n+ actual - expected\n\n  [\n    50,\n+   33,\n-   255,\n    1\n  ]\n"
+}

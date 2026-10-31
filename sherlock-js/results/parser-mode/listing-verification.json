@@ -1,0 +1,42 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 134,
+  "bytes_roundtripped": 302,
+  "regions": [
+    {
+      "start": "A024",
+      "end_exclusive": "A025",
+      "kind": "data",
+      "label": "Modalit\u00e0 sintattica persistente:0 automatica,1 comando,2 affermazione",
+      "atlas_priority": 151
+    },
+    {
+      "start": "AAB2",
+      "end_exclusive": "AB11",
+      "kind": "code",
+      "label": "Parser comune: continuazione e scelta speculativa della modalit\u00e0",
+      "atlas_priority": 151
+    },
+    {
+      "start": "B135",
+      "end_exclusive": "B16D",
+      "kind": "code",
+      "label": "Pronomi HE e IT/THEY: writer espliciti della modalit\u00e0 affermazione",
+      "atlas_priority": 151
+    },
+    {
+      "start": "B8AA",
+      "end_exclusive": "B90E",
+      "kind": "code",
+      "label": "Citazione differita: modo0 una volta, conservato fra le unit\u00e0 e nel record",
+      "atlas_priority": 151
+    },
+    {
+      "start": "D780",
+      "end_exclusive": "D7B2",
+      "kind": "code",
+      "label": "Parser ordinario: modo1 a ogni ingresso, prima dell\u2019analisi",
+      "atlas_priority": 151
+    }
+  ]
+}

@@ -803,3 +803,37 @@ restano aperti.193 controlli mirati distinti passati; certificato432 salvato.
 Verifica conclusiva 5D2A: suite completa1.613test passati, zero errori.
 193 controlli mirati distinti passati. La nuova prova naturale del writer
 e della lettura e il certificato completo432checkpoint sono conclusi e salvati.
+
+31 ottobre 2026 — leggere MODALITA-SINTATTICHE-A024.md e
+results/parser-mode-verification.json. A024 è modo sintattico persistente:
+0 autodetect,1 comando,2 affermazione. Sette writer: D7851 a ogni ingresso
+ordinario, B8B1 0 una sola volta nella citazione, AACC1 per chiarimento,
+AAEC2/AB0A1 dopo la scansione speculativa, B13A/B1562 dopo AFE1 per pronomi.
+THAT eredita2 ma non è writer. Il ciclo B8BE non resetta il modo fra unità;
+il parser ordinario D780 sì. Il lexer non scrive A024 e un errore lessicale
+non stabilisce un campo assente. Campo npcs.parserMode, boot estratto dal
+payload e verificato con seed1/2/77/255; vecchiLOAD senza campo restanounknown
+fino al writer. Invalidazione parser revoca. SAVE/LOAD conserva il futuro.
+14 storie brevi/41 input/51 checkpoint/195 draw/390 read/62 store, tutti24
+posti attore, arena752, stato e bitmap; sequenze esatte dei writer invariati
+comprese. Caso SAY WATSON "WATSON KILLED YOU": modo e writer uguali, ma7drawJS
+contro10 nativo, già sul commit89d8dd3. Controesempio conservato, non risolto
+normalizzando o escludendo campi. PRINT/NOPRINT/SAVE e TAKE TO rifiutati dal
+bridge restano fuori dal certificato; i rollbackA536 non sono writer originali.
+Nuova acquisizione originale continua3461checkpoint sinoWed19:50, nessuna
+transizione modo non classificata. Watson3 legge1 altick3589/Wed19:48;
+ultimoD785/tick2341/Holmes0. Mai installare1 dal riferimento registrato.
+Certificato positivo completo separato438checkpoint0–437 sinoWed20:40,
+8893draw/19026read,24postiattore,arena752,bitmap e futuroLOAD. Prossimo al438
+versoWed20:50: giardiniere8/PC EDE1/saved[50,33,1]JS contro[50,255,1]nativo.
+Ricostruire la durata degli argomenti, non normalizzare33. Checkpoint438 escluso.
+Atlante134istruzioni/302byte approfonditi: A024,AAB2–AB10,B135–B16C,
+B8AA–B90D,D780–D7B1. A024 parziale→documentato, nessun byte prima grigio:
+38847documentati/430parziali/2323sconosciuti su41600. Riferire le zone.
+Cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO,controesempio del giardiniere
+continuo e nuova conversazione restano aperti; nessuna equivalenza globale.
+
+Verifica conclusiva A024:1.645 test passati, zero errori;158 controlli mirati.
+Prova continua di solo modo e ogni draw/read conclusa:3461checkpoint,
+8763draw/18762read finoWed19:50. Il certificato completo resta quello separato
+di438checkpoint. Dossier,atlante,provenienza e limiti sono salvati.

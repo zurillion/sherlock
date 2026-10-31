@@ -1,0 +1,216 @@
+{
+  "implemented": true,
+  "runtime": "Autonomous JavaScript parser state; no CPU execution or captured byte fallback.",
+  "cell": "A024",
+  "field": "world.npcs.parserMode",
+  "writers": [
+    "D785",
+    "B8B1",
+    "AACC",
+    "AAEC",
+    "AB0A",
+    "B13A",
+    "B156"
+  ],
+  "short_full_state": {
+    "histories": 14,
+    "inputs": 41,
+    "checkpoints": 51,
+    "draws": 195,
+    "reads": 390,
+    "stores": 62,
+    "all_actors": 24,
+    "arena_bytes": 752,
+    "bitmaps": true,
+    "save_load_future": true
+  },
+  "continuous_mode_only": {
+    "scope": "Narrow continuous parser-mode and every random draw/read ONLY. Full-state acceptance remains separate; this does not dismiss the known transient gardener-row counterexample.",
+    "checkpoints": 3461,
+    "clock": {
+      "tick": 3591,
+      "due": 3781,
+      "day": 2,
+      "minute": 50,
+      "hour": 7,
+      "period": "pm",
+      "label": "Wed 07:50pm"
+    },
+    "draws": 8763,
+    "reads": 18762,
+    "unclassified_original_transitions": [],
+    "observed_A024_reads": [
+      {
+        "checkpoint": 3458,
+        "parser_mode": 1,
+        "last_store": {
+          "pc": "D785",
+          "a": 1,
+          "tick": 2341,
+          "actor": 0,
+          "caller": "CB37",
+          "value": 1
+        },
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 190,
+        "cursor": 40740,
+        "reads": [
+          {
+            "address": 40996,
+            "value": 1
+          },
+          {
+            "address": 15633,
+            "value": 36
+          }
+        ],
+        "result": 56,
+        "next_seed": 155,
+        "next_cursor": 40996
+      }
+    ]
+  },
+  "full_witness_prefix": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 438,
+    "random_draws": 8895,
+    "clock": {
+      "tick": 3641,
+      "due": 3781,
+      "day": 2,
+      "minute": 40,
+      "hour": 8,
+      "period": "pm",
+      "label": "Wed 08:40pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8893,
+    "compared_random_reads": 19026,
+    "certified_checkpoint_range": [
+      0,
+      437
+    ],
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 438,
+      "target_clock": "Wed 08:50pm",
+      "actor": 8,
+      "field": "saved arguments",
+      "javascript": [
+        50,
+        33,
+        1
+      ],
+      "native": [
+        50,
+        255,
+        1
+      ]
+    }
+  },
+  "next_boundary": {
+    "scope": "First failed full-state checkpoint, excluded from positive certificate. No field of the acceptance comparison is normalized or removed.",
+    "checkpoint": 438,
+    "target_clock": "Wed 08:50pm",
+    "actor": 8,
+    "field": "saved arguments",
+    "javascript": [
+      50,
+      33,
+      1
+    ],
+    "native": [
+      50,
+      255,
+      1
+    ],
+    "source_pc": "EDE1",
+    "related_prior_counterexample": "results/output-channel/minute-boundary.json"
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 134,
+    "bytes_roundtripped": 302,
+    "regions": [
+      {
+        "start": "A024",
+        "end_exclusive": "A025",
+        "kind": "data",
+        "label": "Modalit\u00e0 sintattica persistente:0 automatica,1 comando,2 affermazione",
+        "atlas_priority": 151
+      },
+      {
+        "start": "AAB2",
+        "end_exclusive": "AB11",
+        "kind": "code",
+        "label": "Parser comune: continuazione e scelta speculativa della modalit\u00e0",
+        "atlas_priority": 151
+      },
+      {
+        "start": "B135",
+        "end_exclusive": "B16D",
+        "kind": "code",
+        "label": "Pronomi HE e IT/THEY: writer espliciti della modalit\u00e0 affermazione",
+        "atlas_priority": 151
+      },
+      {
+        "start": "B8AA",
+        "end_exclusive": "B90E",
+        "kind": "code",
+        "label": "Citazione differita: modo0 una volta, conservato fra le unit\u00e0 e nel record",
+        "atlas_priority": 151
+      },
+      {
+        "start": "D780",
+        "end_exclusive": "D7B2",
+        "kind": "code",
+        "label": "Parser ordinario: modo1 a ogni ingresso, prima dell\u2019analisi",
+        "atlas_priority": 151
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "36eb7309629a1b75606f1d55498ffbfa1a6fbd47693a4ea7aec1a226b144500a",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 430,
+      "unknown": 2323,
+      "documented": 38847
+    },
+    "segments": 1116,
+    "sources": 68,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 53087,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "tests": {
+    "targeted": 158,
+    "full_suite": 1645,
+    "failed": 0
+  },
+  "excluded_explorations": [
+    {
+      "case": 1,
+      "reason": "Pre-existing Watson statement dialogue divergence:7 versus10 draws; exact mode stores still compared."
+    },
+    {
+      "case": 10,
+      "reason": "Original bridge rejects special controls; A536 rollback transitions are not source writers."
+    },
+    {
+      "case": 14,
+      "reason": "TAKE TO failure-budget/bridge boundary retained."
+    }
+  ],
+  "full_game_equivalence_claimed": false
+}

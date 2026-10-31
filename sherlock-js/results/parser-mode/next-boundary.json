@@ -1,0 +1,19 @@
+{
+  "scope": "First failed full-state checkpoint, excluded from positive certificate. No field of the acceptance comparison is normalized or removed.",
+  "checkpoint": 438,
+  "target_clock": "Wed 08:50pm",
+  "actor": 8,
+  "field": "saved arguments",
+  "javascript": [
+    50,
+    33,
+    1
+  ],
+  "native": [
+    50,
+    255,
+    1
+  ],
+  "source_pc": "EDE1",
+  "related_prior_counterexample": "results/output-channel/minute-boundary.json"
+}
