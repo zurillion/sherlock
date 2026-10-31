@@ -33,7 +33,7 @@ export class ClientSession {
   if(!result.running){this.job=null;return {running:false,state:this.state(),messages};}
   return {running:true,job:job.id,state:this.state(),clock:g.world.clock(),messages,can_interrupt:true};
  }
- publicData(){return {rooms:this.data.rooms.map(r=>({...r,name_hint:r.name})),edges:this.data.rooms.flatMap(r=>r.exits),pictures:this.data.pictures};}
+ publicData(){return {rooms:this.data.rooms.map(r=>({...r,name_hint:r.name})),edges:this.data.rooms.flatMap(r=>r.exits),pictures:this.data.pictures,cab_stops:this.data.cab.streets};}
  frameState(frame){
   const before=this.game.world.dump();try{this.game.world.restore(frame.world);const s=this.game.state();if(s.analysis)s.analysis={...s.analysis,actions:s.analysis.actions.slice(0,frame.actionCount)};return {...s,command_running:true,job:this.job?.id};}finally{this.game.world.restore(before);}
  }

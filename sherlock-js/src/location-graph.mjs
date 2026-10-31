@@ -24,3 +24,24 @@ export function graphConnections(edges,rooms){
  }
  return result;
 }
+
+// UI geography: weak components of static exits, with Leatherhead subdivisions.
+// These labels and colours never participate in world state or random inputs.
+export function graphZones(roomList,edges){
+ const rooms=new Map(roomList.filter(r=>r.id).map(r=>[r.id,r])),adj=new Map([...rooms.keys()].map(id=>[id,new Set()]));
+ for(const e of edges)if(adj.has(e.source)&&adj.has(e.target)){adj.get(e.source).add(e.target);adj.get(e.target).add(e.source);}
+ const unseen=new Set([...rooms.keys()].sort((a,b)=>a-b)),zones=new Map(),byRoom=new Map();
+ const names={1:'Hansom cab',2:'Steam train 1',3:'Steam train 2',4:'Steam train 3',5:'Baker Street',10:'Scotland Yard',12:'Slater Street',14:'Aldergate',18:"King’s Cross",24:'Paddington',28:'Victoria',32:'Basil · Camden Street',40:'Sidmouth Street',45:'Casa di Tricia',50:'Leatherhead · esterni e giardini',103:'Old Mill Road',105:'Police cab'};
+ function zone(key,name){if(!zones.has(key)){const hue=(zones.size*137.508+35)%360;zones.set(key,{key,name,colour:`hsl(${hue.toFixed(2)} 58% 91%)`,visitedColour:`hsl(${hue.toFixed(2)} 43% 76%)`});}return zones.get(key);}
+ while(unseen.size){const root=unseen.values().next().value,queue=[root];unseen.delete(root);
+  for(const id of queue){for(const next of adj.get(id))if(unseen.delete(next))queue.push(next);
+   let key=`component-${root}`,name=names[root]||rooms.get(root).name_hint||rooms.get(root).name||`Zona ${root}`;
+   if(root===50){if(id>=53&&id<=55){key='leatherhead-station';name='Leatherhead · stazione';}
+    else if(id>=56&&id<=61){key='leatherhead-basil';name='Leatherhead · casa di Basil';}
+    else if(id>=64&&id<=75){key='leatherhead-brown';name='Leatherhead · casa Brown';}
+    else if(id>=94&&id<=101){key='leatherhead-jones';name='Leatherhead · casa Jones';}}
+   byRoom.set(id,zone(key,name));
+  }
+ }
+ return {zones:[...zones.values()],byRoom};
+}

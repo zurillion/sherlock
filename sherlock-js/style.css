@@ -40,3 +40,17 @@ html{scroll-padding-top:16px}header{position:static}.divider{position:relative;h
 
 /* A single reciprocal connection has no directional marker. */
 .edge.bidirectional{marker-end:none}
+
+/* Geographic colours are presentation only; visited rooms keep their zone hue. */
+.node rect{fill:var(--zone-colour,var(--paper))}
+.node.visited rect,.node.current rect{fill:var(--zone-visited,#d7e3cf)}
+.node.current rect{stroke:var(--teal);stroke-width:4;filter:drop-shadow(0 0 3px #2b6654)}
+.node.current text,.node.current .node-name,.node.current .node-number{fill:var(--ink)}
+.node.cab-stop rect,.node.cab-stop:hover rect,.node.cab-stop:focus rect{stroke:#8b3041;stroke-width:4}
+.legend i{border-radius:2px;width:12px;height:10px}
+.legend i.current{background:transparent;border:2px solid var(--teal)}
+.legend i.cab-stop-key{background:transparent;border:3px solid #8b3041;width:16px;height:12px}
+.zone-key{padding:10px 20px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+#zone-legend{display:flex;flex-wrap:wrap;gap:8px 16px;padding-top:10px}
+#zone-legend span{display:inline-flex;align-items:center;gap:6px}
+#zone-legend i{width:15px;height:12px;border:1px solid #728778;border-radius:2px}

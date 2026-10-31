@@ -684,3 +684,16 @@ con N/S né togliere la freccia a un UP/DOWN senza inverso. Sostituisce la
 precedente nota che lasciava separate queste coppie.9 controlli passati e
 DOM verificato:4 coppie verticali ridotte,126 collegamenti visivi totali.
 Il prossimo confine di reverse engineering resta A029.
+
+Mappa geografica: graphZones calcola le componenti debolmente connesse
+sulle sole uscite statiche, escludendo room0; Leatherhead è divisa in
+stazione53–55, Basil56–61, Brown64–75, Jones94–101 ed esterni rimanenti.
+Cancelli e porte esterne62/63/92/93 restano negli esterni.21 zone per105
+locazioni; colori pastello chiari e variante più scura per visitate/corrente.
+La corrente conserva il colore della zona con contorno/alone verde; il
+bordo rosso scuro spesso delle fermate cab ha precedenza anche lì.
+Fermate da publicData.cab_stops, estratte da data.cab.streets, non dedotte
+dalle coordinate. Legenda espandibile e tooltip nominano le zone.
+9 controlli grafo/hosting passati, verifica dataset completa e browser:
+105 nodi,21 zone,10 fermate, colori visitato/non visitato distinti.
+Nessun nuovo byte analizzato: atlante memoria invariato; prossimo A029.

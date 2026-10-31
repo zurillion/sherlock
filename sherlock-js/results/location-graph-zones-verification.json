@@ -1,0 +1,12 @@
+{
+  "scope": "Location graph presentation only; gameplay and random state unchanged",
+  "rooms": 105,
+  "zones": 21,
+  "cab_stops": [5,10,12,14,18,24,28,32,40,45],
+  "cab_source": "game.json cab.streets via Session.publicData().cab_stops",
+  "leatherhead": {"station": [53,54,55], "basil": [56,57,58,59,60,61], "brown": [64,65,66,67,68,69,70,71,72,73,74,75], "jones": [94,95,96,97,98,99,100,101], "exteriors": "Remaining rooms in component rooted at 50; includes gates and outside front doors"},
+  "verification": {"graph_and_hosting_tests_passed":9, "dataset_assertions":"All rooms assigned; unique zone colours; expected Leatherhead groups; source data unchanged", "browser":"21 legend entries, all 10 cab-stop nodes; visited room 8 darker than unvisited room 9; five Leatherhead colours distinct"},
+  "screenshot": "location-graph/zones-preview.png",
+  "memory_analysis_changed": false,
+  "next_gameplay_boundary": "A029"
+}
