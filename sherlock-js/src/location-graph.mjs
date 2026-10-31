@@ -7,6 +7,12 @@ export function portDirection(dx,dy){
  return x>y?(dx<0?'W':'E'):(dy<0?'N':'S');
 }
 export function boundary(x,y,dx,dy){const t=Math.min((NODE_W/2+3)/(Math.abs(dx)||1e-9),(NODE_H/2+3)/(Math.abs(dy)||1e-9));return [x+dx*t,y+dy*t];}
+export function cornerPoint(x,y,direction){return [x+(direction.includes('E')?1:-1)*(NODE_W/2+3),y+(direction.includes('S')?1:-1)*(NODE_H/2+3)];}
+function diagonalFits(edge,rooms){
+ if(!/^(NE|NW|SE|SW)$/.test(edge.direction))return false;
+ const [x,y]=rooms.get(edge.source).layout,[tx,ty]=rooms.get(edge.target).layout;
+ return (edge.direction.includes('E')?tx>x:tx<x)&&(edge.direction.includes('S')?ty>y:ty<y);
+}
 function obvious(edge,rooms){
  const [x,y]=rooms.get(edge.source).layout,[tx,ty]=rooms.get(edge.target).layout;
  if(x===tx&&y===ty)return false;
@@ -18,8 +24,9 @@ export function graphConnections(edges,rooms){
  for(const [i,edge]of visible.entries()){
   if(used.has(i))continue;used.add(i);
   const vertical=edge.direction==='UP'||edge.direction==='DOWN',opposite=edge.direction==='UP'?'DOWN':'UP';
-  const reverse=vertical||obvious(edge,rooms)?visible.findIndex((r,j)=>!used.has(j)&&r.source===edge.target&&r.target===edge.source&&(vertical?r.direction===opposite:obvious(r,rooms))):-1;
-  if(reverse>=0){used.add(reverse);result.push({...edge,reverse:visible[reverse],label:vertical?'DOWN/UP':null});}
+  const diagonal=diagonalFits(edge,rooms);
+  const reverse=vertical||diagonal||obvious(edge,rooms)?visible.findIndex((r,j)=>!used.has(j)&&r.source===edge.target&&r.target===edge.source&&(vertical?r.direction===opposite:diagonal?r.direction===OPPOSITE[edge.direction]&&diagonalFits(r,rooms):obvious(r,rooms))):-1;
+  if(reverse>=0){used.add(reverse);result.push({...edge,reverse:visible[reverse],label:vertical?'DOWN/UP':null,cornerDirection:diagonal?edge.direction:null});}
   else result.push({...edge,reverse:null});
  }
  return result;

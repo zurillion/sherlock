@@ -697,3 +697,12 @@ dalle coordinate. Legenda espandibile e tooltip nominano le zone.
 9 controlli grafo/hosting passati, verifica dataset completa e browser:
 105 nodi,21 zone,10 fermate, colori visitato/non visitato distinti.
 Nessun nuovo byte analizzato: atlante memoria invariato; prossimo A029.
+
+Raccordi diagonali della mappa: coppie reciproche NE/SW o NW/SE nello
+stesso quadrante dei centri usano cornerDirection e cornerPoint per
+raccordare gli angoli, indipendentemente dalla pendenza della linea tra
+centri. Una linea senza frecce/etichette; porte preservano il tratteggio.
+Quadrante contrario, inverso discordante o mancante restano espliciti.
+11 controlli grafo/hosting passati; browser Aldergate14–17:tre linee
+singole senza marker,112 collegamenti visivi complessivi. Gameplay e
+atlante memoria invariati; prossimo confine resta A029.

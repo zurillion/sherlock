@@ -1,0 +1,9 @@
+{
+ "scope":"Presentation only: reciprocal compass diagonals in matching centre quadrants connect opposite rectangle corners",
+ "tests_passed":11,
+ "browser":{"connections":112,"aldergate_pairs":[[14,15],[15,16],[16,17]],"pair_rendering":"One straight path per pair, marker-end none, no direction labels"},
+ "preserved":"Gates, unmatched directions, one-way exits, original directed world data and UP/DOWN labels",
+ "screenshot":"location-graph/corners-preview.png",
+ "memory_analysis_changed":false,
+ "next_gameplay_boundary":"A029"
+}
