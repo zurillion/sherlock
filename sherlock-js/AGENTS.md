@@ -986,3 +986,38 @@ I40file rieseguiti conNode_2 aggiornato:694/694PASS. Non dichiarare una
 seconda esecuzione intera1787/0; log iniziale e rerun separati. Prefisso completo
 e lookahead sul codice definitivo dopo il collegamento dei rami monetari.
 Dossier,atlante,provenienza,screenshot e rapporti salvati; pubblicare suorigin/main.
+
+
+31 ottobre2026 — leggere DURATA-DEI-RISULTATI-CB28.md e
+results/rule-result-lifetime-verification.json. DD6E/D471 pubblica inIX il
+PRIMO record uscita coltarget richiesto o il terminatoreFF se assente.
+Non filtrare prima per direzione:>=11 fallisce sulprimo,0..10accetta.
+D471 conservaIY dell’intestazioneDD61; DD65 conserva entrambi i risultati.
+CB37/CB3B scrivono anche dopo predicato falso. Preflight rifiutato prima del
+ponte non scrive; non invalidare genericamente all’ingresso diNpcRuntime.action.
+Conservare solo rifiuti dimostrati globali senza override locale; altri callback
+restanounknown. FOLLOW/TAKE differiti hanno predicati: non conservare il risultato
+precedente ignorandoE44C. Parser/prompt restano esplicitamenteunowned; oldSAVE
+assente non ottiene valori dal payload. Nessun interpreteCPU o replay nelruntime.
+516ABI controllate11stanze/3coppie e varianti esplicite di duplicati/direzioni.
+Nuova traccia originale continua4102checkpoint sinoThu06:30,150897store perword,
+0transizioni nonclassificate. Associare bridge annidati perSP, non ultimo target.
+Al4221 Watson3 cerca12 daSlaterStreet12:8583 è il TERMINATORE, non un opcode né
+un’uscita valida. Daphne5 fallisce senza store, WAIT6/104 risalvano8583/DD61;
+cuoca9 leggeCB28=131,CB2E=40,result59,nextseed158/cursorCB28. Mai installare131.
+Confronto continuo POSITIVO separato4100checkpoint sino4229/Thu06:28,
+14619word note/13195ignote conteggiate,9807draw/20922read. Questo non certifica
+word ignote né da solo lo stato completo. Certificato completo499checkpoint
+0–498: ultimi8minuti dal nuovo snapshot originale4229,24attori,arena752,
+bitmap,stato,ogni draw/read,futuroLOAD.9809drawruntime includono2boot.
+ProssimoE22E nella visita4229/giardiniere8 verso minuto4230: leggeE228175,
+E22E17. Non dedurre17 dal payload. Tentativo successivo escluso dalpositivo.
+Atlante208istruzioni/456byte:CB28–CB40,C9BF–CA75,C4E8–C570,D206–D21B,
+D33C–D348,D46C–D494,DD61–DD83,intestazione4byte separata. Zero nuovi grigi,
+38850/428/2322su41600 invariati. Riferirezone/orologio. Restano cinque finali
+naturali,cab5D0C,PRINT/MORE,TAKE TO e dialogoWatsonKilledYou aperti.
+
+Verifica finale durataCB28: suite definitiva1795/1795PASS, zero errori/skipped/
+cancelled;30test miratiPASS. Confronto continuo definitivo14619word note/
+13195ignote dopo la restrizione ai preflight globali senza override locale.
+Non usare i conteggi intermedi14671/13143. I log delle due suite sono distinti.

@@ -1,0 +1,92 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 208,
+  "bytes_roundtripped": 456,
+  "regions": [
+    {
+      "start": "CB28",
+      "end_exclusive": "CB2C",
+      "kind": "data",
+      "label": "Risultati persistenti: conservati anche attraverso rifiuti senza callback",
+      "atlas_priority": 156,
+      "fields": [
+        [
+          "CB28–CB29",
+          "Risultato IX",
+          "Primo record uscita oppure terminatore; persiste nei rifiuti senza callback"
+        ],
+        [
+          "CB2A–CB2B",
+          "Risultato IY",
+          "DD61 nel predicato; preservato dal bodyDD65"
+        ],
+        [
+          "Writer",
+          "CB37/CB3B",
+          "Anche dopo predicato falso; mai per il solo preflight"
+        ],
+        [
+          "LOAD",
+          "Proprietà esplicita",
+          "Assente restaunknown fino a writer ricostruito"
+        ]
+      ]
+    },
+    {
+      "start": "CB2C",
+      "end_exclusive": "CB41",
+      "kind": "code",
+      "label": "Ponte: il predicato falso salva i registri, il corpo ricarica i risultati",
+      "atlas_priority": 156
+    },
+    {
+      "start": "C9BF",
+      "end_exclusive": "CA76",
+      "kind": "code",
+      "label": "Confine tra preflight, predicato e corpo immediato o differito",
+      "atlas_priority": 156
+    },
+    {
+      "start": "D206",
+      "end_exclusive": "D21C",
+      "kind": "code",
+      "label": "Iteratore delle uscite: avanza di tre byte e lascia il terminatore",
+      "atlas_priority": 156
+    },
+    {
+      "start": "D33C",
+      "end_exclusive": "D349",
+      "kind": "code",
+      "label": "Stanza dell’attore dal descrittore A017",
+      "atlas_priority": 156
+    },
+    {
+      "start": "D46C",
+      "end_exclusive": "D495",
+      "kind": "code",
+      "label": "Ricerca prima uscita per cancello o destinazione: conserva IY",
+      "atlas_priority": 156
+    },
+    {
+      "start": "DD61",
+      "end_exclusive": "DD65",
+      "kind": "data",
+      "label": "Intestazione location.exitDirection: classi e predicato",
+      "atlas_priority": 156
+    },
+    {
+      "start": "DD65",
+      "end_exclusive": "DD84",
+      "kind": "code",
+      "label": "Direzione dalla prima uscita: ritorno del record anche su fallimento",
+      "atlas_priority": 156
+    },
+    {
+      "start": "C4E8",
+      "end_exclusive": "C571",
+      "kind": "code",
+      "label": "Preflight delle azioni: rifiuti senza entrare nel ponte",
+      "atlas_priority": 156
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (7.14ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (0.531ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (25.992625ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (6.878167ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (1.826542ms)
+✔ 516 original exit predicate/body ABI cases, including failed first match and terminator (57.959958ms)
+✔ Preflight failures preserve unwritten bridge results 0,0 (20.749541ms)
+✔ Preflight failures preserve unwritten bridge results 9320,4951 (18.184541ms)
+✔ Preflight failures preserve unwritten bridge results ,56673 (15.139084ms)
+✔ Preflight failures preserve unwritten bridge results 34179, (11.858917ms)
+✔ Exit result is a room-relative record identity, not a captured low byte (14.325083ms)
+✔ Old LOAD remains unknown until a proven exit writer; SAVE keeps the complete future state (76.737958ms)
+✔ Unprojected FOLLOW/TAKE predicates revoke prior values before deferral (16.042125ms)
+✔ Native rule-result pointer ownership 0 (512.771083ms)
+✔ Native rule-result pointer ownership 1 (249.514792ms)
+✔ Native rule-result pointer ownership 2 (247.556333ms)
+✔ Native rule-result pointer ownership 3 (401.867959ms)
+✔ Native rule-result pointer ownership 4 (521.661209ms)
+✔ Native rule-result pointer ownership 5 (303.272209ms)
+✔ Native rule-result pointer ownership 6 (114.43575ms)
+✔ Native rule-result pointer ownership 7 (84.309875ms)
+✔ Native rule-result pointer ownership 8 (92.395917ms)
+✔ Native rule-result pointer ownership 9 (140.569209ms)
+✔ Native rule-result pointer ownership 10 (293.521917ms)
+✔ Native rule-result pointer ownership 11 (86.244792ms)
+✔ Old LOAD does not infer rule results from payload or neighbouring state (17.082333ms)
+✔ 92 controlled original counter bridge returns and arena effects (37.082042ms)
+✔ 162 original ordinary OPEN/CLOSE bodies overwrite IX and preserve IY (10.294666ms)
+✔ Original native bridge reads retain reference SHA and exact draw records (78.547ms)
+✔ Creating a random counter preserves the previous bridge results during its draw (10.037292ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3516.296125

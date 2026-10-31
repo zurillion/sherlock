@@ -3,34 +3,36 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [MAIUSCOLE-E-FORMATTER-A026.md](MAIUSCOLE-E-FORMATTER-A026.md).
+Aggiornamento corrente: [DURATA-DEI-RISULTATI-CB28.md](DURATA-DEI-RISULTATI-CB28.md).
 
-1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   498 checkpoint0–497 fino a giovedì06:20;24 posti attore, entità, fatti,
-   programmi, arena752 byte, bitmap, ogni draw/read e futuro dopoLOAD.
-   9.785draw/20.878read. Vedere results/output-capitalization/witness-prefix.json.
-   Ripetibile con `node tools/verify-output-capitalization-prefix.mjs`.
+1. **Ultimo prefisso completo del ramo che scagiona Ffoulkes.**
+   499 checkpoint0–498 fino a giovedì06:28. L’ultimo è un nuovo snapshot
+   originale completo dentro ilWAIT, dopo i precedenti498 fino06:20.
+   Tutti24 posti attore, entità, fatti, programmi, arena752, bitmap,
+   ogni draw/read e futuroLOAD. 9807draw/20922read;9809runtime con2boot.
+   Rapporto results/rule-result-lifetime/witness-prefix.json;
+   ripetibile con `node tools/verify-rule-result-lifetime-prefix.mjs`.
 
-2. **A026 ricostruito; prossimo ingresso CB28.**
-   Flag persistente della maiuscola, distinto daA025,cursore e forzaturaA851.
-   Writer AA4C=1 per punto/quote normalizzati; AA66=0 perlettera;
-   A8A9=1 per contesto70 visibile non nullo; A82C |= latchA7EA dopo nome,
-   anche invisibile; A464=0 solo nei rami monetariD-punto/scellini esatti.
-   Il CR conservaA026. Parola ancora nel buffer non scrive. Valore iniziale1
-   estratto dal payload; non dedotto dal fatto che una frase inizi maiuscola.
-   Campo display.capitalizationFlag e classi del buffer, preservati daSAVE.
-   OldSAVE assente restaunknown; OR1 non basta a stabilire un valore assente.
-   Traccia nuova3752checkpoint sinoThu00:40:9255draw/19772read, flag a ogni
-   minuto/draw, zero transizioni non classificate. Watson3 legge1 al3880;
-   ultimoAA4C al3878/steam train36. Nessun1 catturato installato.
-   **Prossimo CB28 al498 verso giovedì06:30**, cuoca9/draw1, originale131.
-   Ricostruire writer e proprietà del risultato; non installare83esadecimale
-   e non rimuovere il campo dal confronto. Checkpoint498 escluso dal positivo.
-   Atlante249istruzioni/477byte: A026,A7D0–A7E9,A7EA,A815–A82E,A887–A8AB,
-   A9B7–AA70,A419–A475,D3E8–D447,A851–A85B. A026 parziale→documentato;
-   A7EA è1byte dati prima grigio. Copertura38850/428/2322 su41600.
-   A851 non viene pubblicato come nuovo ingresso casuale.5D2B non introdotto.
-   A025,5D25 e argomenti del giardiniere risolti; preservare i loro contratti.
+2. **CB28 risolto per la ricerca delle uscite; prossimo E22E.**
+   DD6E/D471 pubblicano il primo record corrispondente o il terminatoreFF,
+   anche su fallimento; DD65 conserva le word. Preflight senza callback non
+   cancella i risultati. FOLLOW/TAKE mantengono ignoti i loro predicati:
+   corpo differito non significa assenza di predicato. Parser/prompt ignoti
+   revocano ancora la proprietà. Nessun fallback per vecchiSAVE.
+   Al4221 Watson cerca12 daSlaterStreet12 e lascia il terminatore8583,
+   IYDD61; Daphne fallisce prima del ponte, poi WAIT6/104 conservano.
+   La cuoca9 legge131 aCB28, derivato dal record e non installato dalla traccia.
+   ABI516 originali; nuova traccia4102checkpoint/150897store perword/0nonclassificati.
+   Prova continua positiva separata4100checkpoint fino06:28:14619word note,
+   13195word ignote conteggiate,9807draw/20922read. Non è da sola stato completo.
+   **Prossimo E22E nella visita4229 del giardiniere8**, tentando il minuto
+   successivo alle06:28. Originale leggeE228=175 eE22E=17; ricostruire la
+   proprietà del secondo ingresso, senza installare17 né eliminare il confronto.
+   Snapshot minuto successivo escluso dal certificato.
+   Atlante208istruzioni/456byte: CB28–CB40,C9BF–CA75,C4E8–C570,D206–D21B,
+   D33C–D348,D46C–D494,DD61–DD83. Zero byte prima grigi;
+   copertura38850documentati/428parziali/2322sconosciuti su41600 invariata.
+   Conservare i contratti A026,A025,5D25 e argomenti del giardiniere.
    Dialogo SAY WATSON "WATSON KILLED YOU":7drawJS contro10nativo ancora aperto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**

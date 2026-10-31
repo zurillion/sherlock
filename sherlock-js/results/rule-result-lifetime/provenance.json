@@ -1,0 +1,21 @@
+{
+  "profile": "seed1/all24/free initial LOOK/native graphics off after boot/injected uppercase/immediate MORE",
+  "bridge_frames": "Matched by SP at CB34 and CB37/CB3B, including nested bridges.",
+  "prior_oracle": "Full witness checkpoints0\u2013497 reused with hash. Minute4229 independently acquired this turn. Unknown next minute excluded.",
+  "sha256": {
+    "sherlock-analisi/block-10.bin": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "sherlock-js/results/final-solution/witness-native-reference.json.gz": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "sherlock-js/results/final-solution/major-witness.txt": "95b00cd3e4760304dd14b5defaad72dcc4d9d5bf8af0b2a52ba974e79eb88ec3",
+    "sherlock-js/results/rule-result-lifetime/natural-reference.json.gz": "ee377554769b15b736df29ae88bcc8642fc2866ae34568763c9734d17ddbc279",
+    "sherlock-js/results/rule-result-lifetime/boundary-state.json.gz": "4d3159ea25bc0f60032e94011fc9fbdd532625f47d530953a4a81a167802f099",
+    "sherlock-js/results/rule-result-lifetime/exit-controls.json": "74a49fd4f683e3651c600f1bbd2fac4baf53b0e4311b96aab4c0ebce699d4189",
+    "sherlock-js/src/npc-runtime.mjs": "ad314606a65111a30521406708a1227dbe4a21fc01efd61f99b3a3ba338b6ce4",
+    "sherlock-js/src/rule-results.mjs": "87f7382f4e70d5756928a1a47f4f8783ad4cb7b71e167eaafb8b4ef10c61ca5e",
+    "sherlock-js/tools/probe-rule-result-lifetime.py": "43edec33eeb99ed58634ac02a9e96273b8d4178aa426f48c03b8cdc25562ead8",
+    "sherlock-js/tools/probe-rule-result-boundary.py": "2ddd7b09c0c19b8acf5c1912bc0654464a98398ef5356614cca513d280936b05",
+    "sherlock-js/tools/probe-exit-rule-results.py": "8ca664004965354786d21f9c27ad1a2658ea63796e98b89122b77ba8cbb65543",
+    "sherlock-js/tools/build-rule-result-lifetime-listing.py": "b7f777aa82aa16491feffcd6d6c5fcee9b001d288f69e064177d7f1aea311595",
+    "sherlock-js/tools/verify-rule-result-lifetime-continuous.mjs": "4dd5fe2ae85134a237f1098f0624a0b74cc1aad3ac7ab16f531e4551f86da8da",
+    "sherlock-js/tools/verify-rule-result-lifetime-prefix.mjs": "9a8b75b46acf1078c6586b0d2ad847dd19b734cf31a42c8ac3efd3df4aec5923"
+  }
+}

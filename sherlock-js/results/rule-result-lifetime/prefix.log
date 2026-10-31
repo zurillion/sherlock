@@ -1,0 +1,49 @@
+{
+  protocol: 'Natural seed1/all24 actors/free initial LOOK/native graphics off/injected uppercase/immediate MORE. Checkpoints0–497 reuse the full witness oracle with provenance hash; checkpoint498 is a fresh unpatched full original snapshot at4229. Every draw/read, full state,752 arena bytes,bitmaps and futureLOAD. No comparison normalization or runtime trace input.',
+  checkpoints: 499,
+  random_draws: 9809,
+  clock: {
+    tick: 4229,
+    due: 4501,
+    day: 3,
+    minute: 28,
+    hour: 6,
+    period: 'am',
+    label: 'Thu 06:28am'
+  },
+  terminal: null,
+  all_actors: 24,
+  load_future_compared: true,
+  arena_bytes_per_checkpoint: 752,
+  bitmaps_compared: true,
+  compared_random_draws: 9807,
+  compared_random_reads: 20922,
+  certified_checkpoint_range: [ 0, 498 ],
+  last_checkpoint_is_partial_wait: true,
+  full_ending_certified: false
+}
+{
+  last_complete_clock: {
+    tick: 4229,
+    due: 4501,
+    day: 3,
+    minute: 28,
+    hour: 6,
+    period: 'am',
+    label: 'Thu 06:28am'
+  },
+  actor_visit_tick: 4229,
+  attempted_clock_tick: 4230,
+  error: 'Ingresso casuale originale non ancora ricostruito: $E22E. Il comando non è stato applicato.',
+  partial_native_checkpoint: 498,
+  native_target_clock: {
+    tick: 4231,
+    due: 4501,
+    minute: 30,
+    hour: 6,
+    day: 3,
+    period: 'am',
+    label: 'Thu 06:30am'
+  },
+  scope: 'Discovery only: rejected minute is excluded from the positive certificate.'
+}

@@ -1,0 +1,583 @@
+{
+  "read": {
+    "checkpoint": 4092,
+    "tick": 4221,
+    "pointers": [
+      34179,
+      56673
+    ],
+    "last_stores": [
+      {
+        "pc": "CB37",
+        "tick": 4221,
+        "actor": 104,
+        "ix": 34179,
+        "iy": 56673,
+        "bridge": {
+          "stack_pointer": 23916,
+          "target": "E5AA",
+          "ix": 34179,
+          "iy": 56673,
+          "args": [
+            255,
+            255,
+            255
+          ],
+          "tick": 4221,
+          "actor": 104,
+          "stack_top": "CA67"
+        },
+        "value": 34179
+      },
+      {
+        "pc": "CB3B",
+        "tick": 4221,
+        "actor": 104,
+        "ix": 34179,
+        "iy": 56673,
+        "bridge": {
+          "stack_pointer": 23916,
+          "target": "E5AA",
+          "ix": 34179,
+          "iy": 56673,
+          "args": [
+            255,
+            255,
+            255
+          ],
+          "tick": 4221,
+          "actor": 104,
+          "stack_top": "CA67"
+        },
+        "value": 56673
+      }
+    ],
+    "actor": 9,
+    "width": 99,
+    "mixOffset": 5,
+    "seed": 51,
+    "cursor": 51752,
+    "reads": [
+      {
+        "address": 52008,
+        "value": 131
+      },
+      {
+        "address": 52014,
+        "value": 40
+      }
+    ],
+    "result": 59,
+    "next_seed": 158,
+    "next_cursor": 52008
+  },
+  "preceding_visit_stores": [
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 2,
+      "ix": 34057,
+      "iy": 56766,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "F1D8",
+        "ix": 34057,
+        "iy": 56766,
+        "args": [
+          136,
+          10,
+          255
+        ],
+        "tick": 4221,
+        "actor": 2,
+        "stack_top": "CA67"
+      },
+      "value": 34057
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "E604",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E601",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E48A",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          255,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "DD6E",
+        "ix": 34167,
+        "iy": 56673,
+        "args": [
+          255,
+          12,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 34179
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "E604",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E601",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E48A",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          255,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "DD6E",
+        "ix": 34167,
+        "iy": 56673,
+        "args": [
+          255,
+          12,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 34179
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "E604",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E601",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E48A",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          255,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "DD6E",
+        "ix": 34167,
+        "iy": 56673,
+        "args": [
+          255,
+          12,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 34179
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "E604",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E601",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E48A",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          255,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "DD6E",
+        "ix": 34167,
+        "iy": 56673,
+        "args": [
+          255,
+          12,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 34179
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "E604",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E601",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          130,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 36026,
+      "iy": 58877,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E48A",
+        "ix": 36026,
+        "iy": 58877,
+        "args": [
+          255,
+          0,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "CA67"
+      },
+      "value": 36026
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 3,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23914,
+        "target": "DD6E",
+        "ix": 34167,
+        "iy": 56673,
+        "args": [
+          255,
+          12,
+          255
+        ],
+        "tick": 4221,
+        "actor": 3,
+        "stack_top": "C9EE"
+      },
+      "value": 34179
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 6,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E5AA",
+        "ix": 34179,
+        "iy": 56673,
+        "args": [
+          255,
+          255,
+          255
+        ],
+        "tick": 4221,
+        "actor": 6,
+        "stack_top": "CA67"
+      },
+      "value": 34179
+    },
+    {
+      "pc": "CB37",
+      "tick": 4221,
+      "actor": 104,
+      "ix": 34179,
+      "iy": 56673,
+      "bridge": {
+        "stack_pointer": 23916,
+        "target": "E5AA",
+        "ix": 34179,
+        "iy": 56673,
+        "args": [
+          255,
+          255,
+          255
+        ],
+        "tick": 4221,
+        "actor": 104,
+        "stack_top": "CA67"
+      },
+      "value": 34179
+    }
+  ],
+  "meaning": "8583 is the FF terminator of SlaterStreet12, reached by Watson3 searching destination12. DD6E publishes it on failure; Daphne preflight has no callback stores; WAIT6/104 preserve it until cook9 reads CB28."
+}

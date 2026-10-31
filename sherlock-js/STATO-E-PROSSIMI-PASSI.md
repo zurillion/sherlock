@@ -1,22 +1,23 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [MAIUSCOLE-E-FORMATTER-A026.md](MAIUSCOLE-E-FORMATTER-A026.md).
-A026 ricostruito: punto/quote1,lettera0,contesto70,dopo-nome OR A7EA e
-reset monetari selettivi. CR,cursore eA851 sono indipendenti. Iniziale1 estratto;
-nessun fallback catturato. OldSAVE assente restaunknown fino a writer dimostrato.
-Certificato completo498checkpoint0–497 sinoThu06:20,24attori,arena752,stato,
-bitmap, ogni draw/read e futuroLOAD. 9.785draw/20.878read;9.787runtime con2boot.
-Prova continua separata3752checkpoint/9255draw/19772read sinoThu00:40,
-flag a ogni minuto/draw e zero transizioni non classificate. Watson3 legge1
-al3880, ultimoAA4C al3878/steam train36. Tutti5writer originali osservati.
-ProssimoCB28 al498 versoThu06:30,cuoca9/draw1; originale131, non installarlo
-né eliminare il campo dal confronto. Ricostruire writer/proprietà del risultato.
-Atlante249istruzioni/477byte, A026 parziale→documentato; nuovo datoA7EA
-prima grigio1byte. Copertura38850/428/2322 su41600. A851 non introdotto come
-nuovo ingresso casuale.5D2B non introdotto. A025,5D25 e giardiniere risolti.
-Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e il dialogo
-SAY WATSON "WATSON KILLED YOU" con7 drawJS contro10 nativo.
-Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
+Aggiornamento corrente: [DURATA-DEI-RISULTATI-CB28.md](DURATA-DEI-RISULTATI-CB28.md).
+Ricerca uscite DD6E/D471 e durata dei risultati ricostruite: primo record
+corrispondente o terminatoreFF, pubblicati anche se il predicato fallisce.
+I rifiuti dimostrati prima del ponte conservano le word; i callback ignoti
+le revocano. Nessun valore catturato installato e nessun fallback oldSAVE.
+Certificato completo499checkpoint0–498 sinoThu06:28:24attori,arena752,stato,
+bitmap,ogni draw/read,futuroLOAD. Ultimo snapshot nuovo dentroWAIT;
+9807draw/20922read,9809runtime con2boot. Traccia continua positiva separata
+4100checkpoint/14619word note/13195ignote, ogni draw/read sino06:28.
+Nuova acquisizione originale4102checkpoint/150897store perword,0nonclassificati.
+Il limiteCB28/cuoca9 è superato:8583 è il terminatore uscite diSlaterStreet,
+lasciato daWatson al4221. ProssimoE22E nella visita4229/giardiniere8;
+originale17,non installarlo. Minuto successivo escluso dal positivo.
+Atlante208istruzioni/456byte approfonditi,zero byte prima grigi;
+copertura38850/428/2322 su41600 invariata. Riferire le zone aggiornate.
+Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e dialogo
+WatsonKilledYou(7drawJS/10nativo). VedereRIPRESA-GAMEPLAY.md.
+Le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle

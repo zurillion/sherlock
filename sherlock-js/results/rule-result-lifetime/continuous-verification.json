@@ -1,0 +1,169 @@
+{
+  "scope": "Owned result words at every minute/draw and every RNG draw/read; unknown words are counted explicitly. This is not the separate full-state certificate.",
+  "checkpoints": 4100,
+  "clock": {
+    "tick": 4229,
+    "due": 4501,
+    "day": 3,
+    "minute": 28,
+    "hour": 6,
+    "period": "am",
+    "label": "Thu 06:28am"
+  },
+  "owned_words_compared": 14619,
+  "unknown_words": 13195,
+  "draws": 9807,
+  "reads": 20922,
+  "unclassified_transitions": [],
+  "store_counts": {
+    "CB37": 150897,
+    "CB3B": 150897
+  },
+  "bridge_frames": "Matched by SP at CB34 and CB37/CB3B, including nested bridges.",
+  "CB28_reads": [
+    {
+      "checkpoint": 3287,
+      "tick": 3417,
+      "pointers": [
+        37068,
+        56673
+      ],
+      "last_stores": [
+        {
+          "pc": "CB37",
+          "tick": 3417,
+          "actor": 8,
+          "ix": 37068,
+          "iy": 56673,
+          "bridge": {
+            "stack_pointer": 23920,
+            "target": "DEA4",
+            "ix": 34179,
+            "iy": 56673,
+            "args": [
+              36,
+              50,
+              255
+            ],
+            "tick": 3417,
+            "actor": 8,
+            "stack_top": "CA67"
+          },
+          "value": 37068
+        },
+        {
+          "pc": "CB3B",
+          "tick": 3417,
+          "actor": 8,
+          "ix": 37068,
+          "iy": 56673,
+          "bridge": {
+            "stack_pointer": 23920,
+            "target": "DEA4",
+            "ix": 34179,
+            "iy": 56673,
+            "args": [
+              36,
+              50,
+              255
+            ],
+            "tick": 3417,
+            "actor": 8,
+            "stack_top": "CA67"
+          },
+          "value": 56673
+        }
+      ],
+      "actor": 9,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 68,
+      "cursor": 51746,
+      "reads": [
+        {
+          "address": 52002,
+          "value": 17
+        },
+        {
+          "address": 52008,
+          "value": 204
+        }
+      ],
+      "result": 54,
+      "next_seed": 153,
+      "next_cursor": 52002
+    },
+    {
+      "checkpoint": 4092,
+      "tick": 4221,
+      "pointers": [
+        34179,
+        56673
+      ],
+      "last_stores": [
+        {
+          "pc": "CB37",
+          "tick": 4221,
+          "actor": 104,
+          "ix": 34179,
+          "iy": 56673,
+          "bridge": {
+            "stack_pointer": 23916,
+            "target": "E5AA",
+            "ix": 34179,
+            "iy": 56673,
+            "args": [
+              255,
+              255,
+              255
+            ],
+            "tick": 4221,
+            "actor": 104,
+            "stack_top": "CA67"
+          },
+          "value": 34179
+        },
+        {
+          "pc": "CB3B",
+          "tick": 4221,
+          "actor": 104,
+          "ix": 34179,
+          "iy": 56673,
+          "bridge": {
+            "stack_pointer": 23916,
+            "target": "E5AA",
+            "ix": 34179,
+            "iy": 56673,
+            "args": [
+              255,
+              255,
+              255
+            ],
+            "tick": 4221,
+            "actor": 104,
+            "stack_top": "CA67"
+          },
+          "value": 56673
+        }
+      ],
+      "actor": 9,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 51,
+      "cursor": 51752,
+      "reads": [
+        {
+          "address": 52008,
+          "value": 131
+        },
+        {
+          "address": 52014,
+          "value": 40
+        }
+      ],
+      "result": 59,
+      "next_seed": 158,
+      "next_cursor": 52008
+    }
+  ]
+}

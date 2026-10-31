@@ -13,16 +13,22 @@ export class RuleResults {
    if(source==='DE9D'||source==='DEAF')this.write(this.host.worldSource.layout.entities.find(e=>e.id===id)?.start,previous[1]);
   }
  }
- predicate(name,meta,actor){
+ predicate(name,meta,actor,args){
   if(['counter.delete','counter.decrement'].includes(name)){
    const r=this.host.active.records,p=r.records('counters').find(p=>r.arena.byte(p)===actor)??0;
    this.write(p,parseInt(meta.source,16)); // E573/E560 preserves the rule header in IY.
+  }else if(name==='location.exitDirection'){
+   // D471 selects the FIRST matching exit, or the terminating FF record.
+   // DD6E publishes that pointer even when its direction rejects the rule.
+   const room=this.host.w.rooms[this.host.w.roomOf(actor)],layout=this.host.worldSource.layout.rooms.find(r=>r.id===room.id);
+   const found=room.exits.findIndex(e=>e.target===args[0]),index=found<0?room.exits.length:found;
+   this.write(layout.start+9+3*index,parseInt(meta.source,16));
   }else if(name==='entity.at')this.write(this.state.argumentPointers?.[0],parseInt(meta.source,16));
   else this.invalidate();
  }
  begin(name,actor){
   const prior=[...this.values],r=this.host.active.records;
-  if(['wait.tick','clock.hour','unimplemented.F198','entity.samePlace','entity.sameContainer','parent.save'].includes(name))return {kind:'preserve',prior};
+  if(['wait.tick','clock.hour','unimplemented.F198','entity.samePlace','entity.sameContainer','parent.save','location.exitDirection'].includes(name))return {kind:'preserve',prior};
   if(name==='location.save'||name==='entity.at')return {kind:'argument',prior,pointer:this.state.argumentPointers?.[0]??null};
   if(name==='counter.create')return {kind:'create',prior};
   if(['counter.delete','counter.decrement'].includes(name)){

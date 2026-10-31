@@ -366,7 +366,7 @@ export class NpcRuntime {
  predicate(name,args,context){
   const meta=this.game.data.npcPrograms.rules[name];
   if(meta.predicateSource&&!['counter.delete','counter.decrement','entity.at'].includes(name))this.ruleResults.invalidate();
-  const result=this.evaluatePredicate(name,args,context);if(meta.predicateSource)this.ruleResults.predicate(name,meta,context.actor);return result;
+  const result=this.evaluatePredicate(name,args,context);if(meta.predicateSource)this.ruleResults.predicate(name,meta,context.actor,args);return result;
  }
  evaluatePredicate(name,args,context){
   const [first,second]=args,w=this.w,actor=context.actor;
@@ -376,7 +376,7 @@ export class NpcRuntime {
    case 'entity.samePlace':return first!==second&&w.roomOf(first)===w.roomOf(second);
    case 'entity.sameContainer':return first!==actor&&this.active.primitives.root(first)===this.active.primitives.root(actor);
    case 'parent.save':return w.entity(first).parent!==null;
-   case 'location.exitDirection':return w.rooms[w.roomOf(actor)].exits.some(e=>e.target===first&&e.direction_id<=10);
+   case 'location.exitDirection':{const edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.target===first);return !!edge&&edge.direction_id<=10;}
    case 'balance.negative':return balance(w,actor)!==null&&balance(w,actor)<0;
    case 'balance.positive':return balance(w,actor)!==null&&balance(w,actor)>0;
    case 'balance.settled':return balance(w,actor)===null||balance(w,actor)===0;
@@ -418,7 +418,7 @@ export class NpcRuntime {
    case 'counter.delete':if(!counter)return no();records.remove('counters',counter);result=yes();break;
    case 'unimplemented.F198':result=first>=g.runtimeRandom.percent({actor,mixOffset:5,purpose:'probability-predicate'})?yes():no();break;
    case 'entity.relocate':result=yes(2,{observerScopeLost:this.relocate(first,second,messages,{actor,direction:w.entity(first).attributes&64?w.rooms[w.roomOf(first)].exits[0]?.direction_id:null})});break;
-   case 'location.exitDirection':{const edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.target===first&&e.direction_id<=10);if(!edge)return no();context.saved[1]=edge.direction_id;result=yes();break;}
+   case 'location.exitDirection':{const edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.target===first);if(!edge||edge.direction_id>10)return no();context.saved[1]=edge.direction_id;result=yes();break;}
    case 'unimplemented.E4C9':{
     const travel=[2,3,4].includes(first);
     if(travel)this.print('7611',actor,{},messages); // Announce before hiding the train.
@@ -474,28 +474,30 @@ export class NpcRuntime {
  }
  setActionClasses(action){this.modelFlags(action);const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
  action(action,input,context,messages,actions){
-  this.ruleResults.invalidate(); // Unprojected ordinary action callbacks must not retain a stale result.
-
-  const actor=context.actor,w=this.w,g=this.game;this.state.executionPhase=0; // C4E9 action preflight.
+  // Failed preflight never enters CB34. Deferred actions may call a predicate first.
+  const actor=context.actor,w=this.w,g=this.game,priorResults=[...this.ruleResults.values];let preflightRejected=false;this.state.executionPhase=0; // C4E9 action preflight.
   if(action>=128&&action<153){const meta=g.data.npcPrograms.internalActions?.[action];if(!meta)throw new UnsupportedFeature('azione interna '+action);return this.rule(meta,input,context,messages,actions);}
   this.setActionClasses(action);
   if(!this.state.argumentClasses.some((kind,i)=>kind!==0&&input[i]===255))this.projectArguments(input);
-  if([29,30].includes(action)&&[31,34].includes(actor))return this.travel(actor,input[0],action===30,messages);
-  if([29,30].includes(action)&&actor===11)return this.advanced.policeTravel(actor,input[0],action===30,messages,input[1]);
-  if(action===45&&[31,34].includes(actor))return {cost:0,defer:'E08F',args:input};
-  if([21,22].includes(action))return {cost:0,defer:'E456',args:[input[0],255]};
+  if([29,30].includes(action)&&[31,34].includes(actor)){this.ruleResults.invalidate();return this.travel(actor,input[0],action===30,messages);}
+  if([29,30].includes(action)&&actor===11){this.ruleResults.invalidate();return this.advanced.policeTravel(actor,input[0],action===30,messages,input[1]);}
+  if(action===45&&[31,34].includes(actor)){this.ruleResults.invalidate();return {cost:0,defer:'E08F',args:input};}
+  if([21,22].includes(action)){this.ruleResults.invalidate();return {cost:0,defer:'E456',args:[input[0],255]};} // E44C predicate results remain unprojected.
   const classByAction={12:8,13:8,24:8,25:8,40:8,31:8,19:8,41:9,42:9,44:9,11:9,23:9,16:10,17:10,38:10,39:10,36:8,14:8,26:10,32:0,49:0};
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
-  else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>{const checked=this.checkAction(action,[e.id,args[1]],actor,{phase:0});return checked!==false&&this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0);});if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{this.checkAction(action,args,actor);const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
+  else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>{const checked=this.checkAction(action,[e.id,args[1]],actor,{phase:0});return checked!==false&&this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0);});if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{preflightRejected=this.checkAction(action,args,actor)===false;const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
   this.projectArguments(args);
   // Action lookup: a resolved entity without an OPEN/CLOSE rule is a
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
+  this.ruleResults.invalidate(); // Selected ordinary callbacks remain unknown until projected.
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
-  if(input[0]===255||classByAction[action]===undefined)this.checkAction(action,args,actor);
+  if(input[0]===255||classByAction[action]===undefined)preflightRejected=this.checkAction(action,args,actor)===false;
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
   const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}
+  // Only a rejected global header with no local override proves no callback ran.
+  if(preflightRejected&&!g.data.argumentChecks.entities[args[0]]?.[action]&&!out.cost&&!out.objectRule)this.ruleResults.write(...priorResults);
   this.showAction(out,actor,messages,actions,{argumentFlags:!context.request&&!context.isolated});
   if(actor===w.player){const errors=out.messages.filter(m=>m.kind==='error');if(errors.length){for(const e of errors)e.lower_projected=true;messages.push(...errors);g.sourceDisplay.error(errors);}}
   if(out.objectRule)return this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],context,messages,actions);

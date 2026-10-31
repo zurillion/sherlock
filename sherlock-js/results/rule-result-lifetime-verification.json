@@ -1,0 +1,349 @@
+{
+  "mechanism": "First exit or FF terminator result; first-match rejection, body preservation, proven preflight lifetimes. Semantic JS only.",
+  "abi_cases": 516,
+  "native_trace": {
+    "checkpoints": 4102,
+    "stores": {
+      "CB37": 150897,
+      "CB3B": 150897
+    },
+    "unclassified": []
+  },
+  "continuous": {
+    "scope": "Owned result words at every minute/draw and every RNG draw/read; unknown words are counted explicitly. This is not the separate full-state certificate.",
+    "checkpoints": 4100,
+    "clock": {
+      "tick": 4229,
+      "due": 4501,
+      "day": 3,
+      "minute": 28,
+      "hour": 6,
+      "period": "am",
+      "label": "Thu 06:28am"
+    },
+    "owned_words_compared": 14619,
+    "unknown_words": 13195,
+    "draws": 9807,
+    "reads": 20922,
+    "unclassified_transitions": [],
+    "store_counts": {
+      "CB37": 150897,
+      "CB3B": 150897
+    },
+    "bridge_frames": "Matched by SP at CB34 and CB37/CB3B, including nested bridges.",
+    "CB28_reads": [
+      {
+        "checkpoint": 3287,
+        "tick": 3417,
+        "pointers": [
+          37068,
+          56673
+        ],
+        "last_stores": [
+          {
+            "pc": "CB37",
+            "tick": 3417,
+            "actor": 8,
+            "ix": 37068,
+            "iy": 56673,
+            "bridge": {
+              "stack_pointer": 23920,
+              "target": "DEA4",
+              "ix": 34179,
+              "iy": 56673,
+              "args": [
+                36,
+                50,
+                255
+              ],
+              "tick": 3417,
+              "actor": 8,
+              "stack_top": "CA67"
+            },
+            "value": 37068
+          },
+          {
+            "pc": "CB3B",
+            "tick": 3417,
+            "actor": 8,
+            "ix": 37068,
+            "iy": 56673,
+            "bridge": {
+              "stack_pointer": 23920,
+              "target": "DEA4",
+              "ix": 34179,
+              "iy": 56673,
+              "args": [
+                36,
+                50,
+                255
+              ],
+              "tick": 3417,
+              "actor": 8,
+              "stack_top": "CA67"
+            },
+            "value": 56673
+          }
+        ],
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 68,
+        "cursor": 51746,
+        "reads": [
+          {
+            "address": 52002,
+            "value": 17
+          },
+          {
+            "address": 52008,
+            "value": 204
+          }
+        ],
+        "result": 54,
+        "next_seed": 153,
+        "next_cursor": 52002
+      },
+      {
+        "checkpoint": 4092,
+        "tick": 4221,
+        "pointers": [
+          34179,
+          56673
+        ],
+        "last_stores": [
+          {
+            "pc": "CB37",
+            "tick": 4221,
+            "actor": 104,
+            "ix": 34179,
+            "iy": 56673,
+            "bridge": {
+              "stack_pointer": 23916,
+              "target": "E5AA",
+              "ix": 34179,
+              "iy": 56673,
+              "args": [
+                255,
+                255,
+                255
+              ],
+              "tick": 4221,
+              "actor": 104,
+              "stack_top": "CA67"
+            },
+            "value": 34179
+          },
+          {
+            "pc": "CB3B",
+            "tick": 4221,
+            "actor": 104,
+            "ix": 34179,
+            "iy": 56673,
+            "bridge": {
+              "stack_pointer": 23916,
+              "target": "E5AA",
+              "ix": 34179,
+              "iy": 56673,
+              "args": [
+                255,
+                255,
+                255
+              ],
+              "tick": 4221,
+              "actor": 104,
+              "stack_top": "CA67"
+            },
+            "value": 56673
+          }
+        ],
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 51,
+        "cursor": 51752,
+        "reads": [
+          {
+            "address": 52008,
+            "value": 131
+          },
+          {
+            "address": 52014,
+            "value": 40
+          }
+        ],
+        "result": 59,
+        "next_seed": 158,
+        "next_cursor": 52008
+      }
+    ]
+  },
+  "full_state": {
+    "protocol": "Natural seed1/all24 actors/free initial LOOK/native graphics off/injected uppercase/immediate MORE. Checkpoints0\u2013497 reuse the full witness oracle with provenance hash; checkpoint498 is a fresh unpatched full original snapshot at4229. Every draw/read, full state,752 arena bytes,bitmaps and futureLOAD. No comparison normalization or runtime trace input.",
+    "checkpoints": 499,
+    "random_draws": 9809,
+    "clock": {
+      "tick": 4229,
+      "due": 4501,
+      "day": 3,
+      "minute": 28,
+      "hour": 6,
+      "period": "am",
+      "label": "Thu 06:28am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 9807,
+    "compared_random_reads": 20922,
+    "certified_checkpoint_range": [
+      0,
+      498
+    ],
+    "last_checkpoint_is_partial_wait": true,
+    "full_ending_certified": false
+  },
+  "next_boundary": {
+    "last_complete_clock": {
+      "tick": 4229,
+      "due": 4501,
+      "day": 3,
+      "minute": 28,
+      "hour": 6,
+      "period": "am",
+      "label": "Thu 06:28am"
+    },
+    "actor_visit_tick": 4229,
+    "attempted_clock_tick": 4230,
+    "error": "Ingresso casuale originale non ancora ricostruito: $E22E. Il comando non \u00e8 stato applicato.",
+    "partial_native_checkpoint": 498,
+    "native_target_clock": {
+      "tick": 4231,
+      "due": 4501,
+      "minute": 30,
+      "hour": 6,
+      "day": 3,
+      "period": "am",
+      "label": "Thu 06:30am"
+    },
+    "scope": "Discovery only: rejected minute is excluded from the positive certificate."
+  },
+  "atlas": {
+    "roundtrip_equal": true,
+    "instructions": 208,
+    "bytes_roundtripped": 456,
+    "regions": [
+      {
+        "start": "CB28",
+        "end_exclusive": "CB2C",
+        "kind": "data",
+        "label": "Risultati persistenti: conservati anche attraverso rifiuti senza callback",
+        "atlas_priority": 156,
+        "fields": [
+          [
+            "CB28\u2013CB29",
+            "Risultato IX",
+            "Primo record uscita oppure terminatore; persiste nei rifiuti senza callback"
+          ],
+          [
+            "CB2A\u2013CB2B",
+            "Risultato IY",
+            "DD61 nel predicato; preservato dal bodyDD65"
+          ],
+          [
+            "Writer",
+            "CB37/CB3B",
+            "Anche dopo predicato falso; mai per il solo preflight"
+          ],
+          [
+            "LOAD",
+            "Propriet\u00e0 esplicita",
+            "Assente restaunknown fino a writer ricostruito"
+          ]
+        ]
+      },
+      {
+        "start": "CB2C",
+        "end_exclusive": "CB41",
+        "kind": "code",
+        "label": "Ponte: il predicato falso salva i registri, il corpo ricarica i risultati",
+        "atlas_priority": 156
+      },
+      {
+        "start": "C9BF",
+        "end_exclusive": "CA76",
+        "kind": "code",
+        "label": "Confine tra preflight, predicato e corpo immediato o differito",
+        "atlas_priority": 156
+      },
+      {
+        "start": "D206",
+        "end_exclusive": "D21C",
+        "kind": "code",
+        "label": "Iteratore delle uscite: avanza di tre byte e lascia il terminatore",
+        "atlas_priority": 156
+      },
+      {
+        "start": "D33C",
+        "end_exclusive": "D349",
+        "kind": "code",
+        "label": "Stanza dell\u2019attore dal descrittore A017",
+        "atlas_priority": 156
+      },
+      {
+        "start": "D46C",
+        "end_exclusive": "D495",
+        "kind": "code",
+        "label": "Ricerca prima uscita per cancello o destinazione: conserva IY",
+        "atlas_priority": 156
+      },
+      {
+        "start": "DD61",
+        "end_exclusive": "DD65",
+        "kind": "data",
+        "label": "Intestazione location.exitDirection: classi e predicato",
+        "atlas_priority": 156
+      },
+      {
+        "start": "DD65",
+        "end_exclusive": "DD84",
+        "kind": "code",
+        "label": "Direzione dalla prima uscita: ritorno del record anche su fallimento",
+        "atlas_priority": 156
+      },
+      {
+        "start": "C4E8",
+        "end_exclusive": "C571",
+        "kind": "code",
+        "label": "Preflight delle azioni: rifiuti senza entrare nel ponte",
+        "atlas_priority": 156
+      }
+    ]
+  },
+  "tests": {
+    "tests.log": {
+      "tests": 30,
+      "pass": 30,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "full-suite-final.log": {
+      "tests": 1795,
+      "pass": 1795,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "runtime_imports_captured_bytes": false,
+  "remaining": [
+    "Five natural terminal variants",
+    "Police cab5D0C",
+    "PRINT/MORE",
+    "TAKE TO",
+    "WatsonKilledYou7JSvs10native"
+  ]
+}
