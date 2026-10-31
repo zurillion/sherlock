@@ -720,3 +720,14 @@ esplicite.12 test passati; dataset completo:105rettangoli senza sovrapposizioni,
 Browser King'sCross18–23 verificato con tutti5segmenti agli angoli e senza
 frecce/sigle. Sostituisce il layout precedente che produceva zigzag.
 Nessuna modifica gameplay o atlante memoria; prossimo A029 invariato.
+
+Scala64/69: conservare la linea S/N reciproca senza frecce E la freccia
+aggiuntiva69→64DOWN. La proposta di accorpare l'alias è stata annullata
+dall'utente prima del commit. graphGeometry aggancia le coppie cardinali
+ovvie al centro delle facce; la direzione verticale alternativa sullo stesso
+passaggio ha ancoraggi laterali e curva separata, etichetta nello spazio
+tra le linee. graphHasObstacle esclude stairway/wide stairway dal tratteggio:
+la presenza di un gate non implica una porta/ostacolo. Nessuna modifica
+alle uscite originali.13 test passati e browser verificato:2tracciati64/69,
+nessun tratteggio,1freccia soltanto sulDOWN, lineaS/N centrale.111link.
+Atlante memoria e confineA029 invariati.

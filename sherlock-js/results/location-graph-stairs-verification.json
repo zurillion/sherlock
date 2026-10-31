@@ -1,0 +1,10 @@
+{
+ "scope":"Presentation only; preserve both the reciprocal S/N passage and the additional one-way DOWN exit",
+ "source":{"64_to_69":"S, gate44 wide stairway","69_to_64":["N, gate44 wide stairway","DOWN, gate44 wide stairway"]},
+ "tests_passed":13,
+ "browser":{"paths_between_64_69":2,"cardinal":"Straight line, no marker, face-centre anchors, solid","down":"Separate quadratic curve, arrow toward64, label between lines, solid","visual_connections":111},
+ "stairway_style":"stairway and wide stairway are not treated as blocking doors",
+ "screenshot":"location-graph/stairs-preview.png",
+ "memory_analysis_changed":false,
+ "next_gameplay_boundary":"A029"
+}

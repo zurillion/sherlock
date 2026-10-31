@@ -1,4 +1,4 @@
-import test from'node:test';import assert from'node:assert/strict';import{graphConnections,cornerPoint,arrangeGraph,NODE_W,NODE_H}from'../src/location-graph.mjs';
+import test from'node:test';import assert from'node:assert/strict';import{graphConnections,cornerPoint,arrangeGraph,graphHasObstacle,graphGeometry,NODE_W,NODE_H}from'../src/location-graph.mjs';
 const rooms=new Map([[1,{layout:[0,0]}],[2,{layout:[300,0]}],[3,{layout:[400,300]}]]),edge=(source,target,direction,gate=0)=>({source,target,direction,gate});
 test('Obvious reciprocal exits become one undirected visual connection without mutating exits',()=>{const edges=[edge(1,2,'E'),edge(2,1,'W')],before=structuredClone(edges),links=graphConnections(edges,rooms);assert.equal(links.length,1);assert.equal(links[0].source,1);assert.equal(links[0].target,2);assert.equal(links[0].reverse,edges[1]);assert.deepEqual(edges,before);const diagonal=graphConnections([edge(1,3,'SE'),edge(3,1,'NW')],rooms);assert.equal(diagonal.length,1);assert(diagonal[0].reverse);});
 test('A one-way exit remains directed, including the reversed input order',()=>{for(const e of[edge(1,2,'E'),edge(2,1,'W')]){const links=graphConnections([e],rooms);assert.equal(links.length,1);assert.equal(links[0].reverse,null);assert.equal(links[0].source,e.source);}});
@@ -26,4 +26,11 @@ test('Platform chains follow their directions with clear corner-to-corner segmen
  for(let i=1;i<4;i++)edges.push(edge(i,i+1,'NE'),edge(i+1,i,'SW'));
  const rooms=arrangeGraph(list,edges),links=graphConnections(edges,rooms);assert.equal(links.length,3);
  for(const e of links){assert.equal(e.cornerDirection,'NE');const a=cornerPoint(...rooms.get(e.source).layout,'NE'),b=cornerPoint(...rooms.get(e.target).layout,'SW');assert(b[0]-a[0]>=39.99);assert(a[1]-b[1]>=39.99);}
+});
+
+test('Stairway compass passage is central, with a separate curved DOWN arrow',()=>{
+ const r=new Map([[64,{layout:[0,0]}],[69,{layout:[0,400]}]]),edges=[{...edge(64,69,'S',44),gate_name:'wide stairway'},{...edge(69,64,'N',44),gate_name:'wide stairway'},{...edge(69,64,'DOWN',44),gate_name:'wide stairway'}],links=graphConnections(edges,r);
+ assert.equal(links.length,2);const main=links.find(e=>e.reverse),down=links.find(e=>!e.reverse),a=graphGeometry(main,r,{connections:links,pairCount:2}),b=graphGeometry(down,r,{connections:links,pairCount:2});
+ assert(a.straight);assert.equal(a.sx,0);assert.equal(a.ex,0);assert.equal(a.sy,NODE_H/2);assert.equal(a.ey,400-NODE_H/2);assert(b.alternate);assert(!b.straight);assert(b.cx>a.cx+40);assert(!graphHasObstacle(main));assert(!graphHasObstacle(down));
+ assert(graphHasObstacle({...main,gate_name:'large oak door'}));assert(!graphHasObstacle({...main,gate_name:'stairway',reverse:null}));
 });

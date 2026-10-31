@@ -88,3 +88,19 @@ export function graphZones(roomList,edges){
  }
  return {zones:[...zones.values()],byRoom};
 }
+
+// Stairways are passage descriptors, not blocking doors.
+export function graphHasObstacle(edge){return [edge,edge.reverse].some(e=>e?.gate&&!['stairway','wide stairway'].includes(e.gate_name));}
+export function graphGeometry(edge,rooms,{parallelIndex=0,pairCount=1,connections=[]}={}){
+ const [x,y]=rooms.get(edge.source).layout,[tx,ty]=rooms.get(edge.target).layout,dx=tx-x,dy=ty-y,len=Math.hypot(dx,dy)||1;
+ const alternate=!edge.reverse&&['UP','DOWN'].includes(edge.direction)&&connections.some(other=>other.reverse&&!other.label&&[other,other.reverse].some(e=>e.source===edge.source&&e.target===edge.target&&e.gate===edge.gate));
+ const straight=!alternate&&(Boolean(edge.reverse)||pairCount===1),bend=alternate?90:straight?0:10+parallelIndex*30;
+ let [sx,sy]=edge.cornerDirection?cornerPoint(x,y,edge.cornerDirection):boundary(x,y,dx,dy),[ex,ey]=edge.cornerDirection?cornerPoint(tx,ty,OPPOSITE[edge.cornerDirection]):boundary(tx,ty,-dx,-dy);
+ // Obvious cardinal pairs meet the middle of the matching rectangle faces.
+ if(edge.reverse&&/^[NSEW]$/.test(edge.direction)&&edge.reverse.direction===OPPOSITE[edge.direction]){
+  const anchors={N:[0,-NODE_H/2],S:[0,NODE_H/2],E:[NODE_W/2,0],W:[-NODE_W/2,0]},a=anchors[edge.direction],b=anchors[edge.reverse.direction];[sx,sy]=[x+a[0],y+a[1]];[ex,ey]=[tx+b[0],ty+b[1]];
+ }
+ if(alternate){if(Math.abs(dy)>=Math.abs(dx)){sx=x+20;ex=tx+20;sy=y+Math.sign(dy)*NODE_H/2;ey=ty-Math.sign(dy)*NODE_H/2;}else{sy=y-20;ey=ty-20;sx=x+Math.sign(dx)*NODE_W/2;ex=tx-Math.sign(dx)*NODE_W/2;}}
+ const cx=(sx+ex)/2+(alternate&&Math.abs(dy)>=Math.abs(dx)?bend:-dy/len*bend),cy=(sy+ey)/2+(alternate&&Math.abs(dy)<Math.abs(dx)?-bend:alternate?0:dx/len*bend);
+ return {x,y,tx,ty,sx,sy,ex,ey,cx,cy,straight,alternate};
+}
