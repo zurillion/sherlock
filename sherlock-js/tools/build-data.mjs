@@ -1,3 +1,4 @@
+import {buildConversationTopics} from './build-conversation-topics.mjs';
 // Offline asset extraction only. No simulator, Z80 execution or save snapshot.
 import {readFile,writeFile,mkdir,copyFile,readdir} from 'node:fs/promises';
 import {resolve,dirname,join} from 'node:path';
@@ -55,10 +56,10 @@ npcPrograms.actorTerminator=byte(0x9920);if(npcPrograms.actorTerminator!==255)th
 if(npcPrograms.source_sha256!==sha)throw Error('NPC programs refer to a different source payload');
 // TELL is an actor/topic table, not a search in descriptions or fact memory.
 // FE is the default speaker, used only when that actor has no own table.
-const conversationTopics={};let topicCursor=0xE22A;
-while(byte(topicCursor)!==255){const actor=byte(topicCursor++),topics={};while(byte(topicCursor)!==255){const id=byte(topicCursor),text=word(topicCursor+1).toString(16).toUpperCase();topics[id]=text;ensure(text);topicCursor+=3;}topicCursor++;conversationTopics[actor]=topics;}
-if(topicCursor!==0xE28C)throw Error('Unexpected TELL table boundary');
+const {topics:conversationTopics,table:conversationTable}=buildConversationTopics(payload,ensure);
 const randomInputs=await buildRandomInputs(project,payload,npcPrograms);
+// Same typed content used by TELL, kept in SOURCE order for entropy reads.
+randomInputs.worldLayout.tables.push(conversationTable);
 const descriptionSearch=buildDescriptionSearch(payload,rooms);
 if(byte(0x9A7D)!==255)throw Error('Unexpected nonempty Watson exception table');
 const informationRules={predicates:Array.from({length:11},(_,i)=>word(0x994D+2*i)),exceptions:[]};

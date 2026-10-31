@@ -1,0 +1,209 @@
+{
+  "mechanism": "Typed immutable nested TELL table, actor-wide FE default and761D missing-topic response; physical source order available to RNG through WorldSource.",
+  "data_range": [
+    "E22A",
+    "E28C"
+  ],
+  "table_bytes": 99,
+  "actor_sections": 10,
+  "topic_triples": 26,
+  "catalogued_direct_write_intersection": [],
+  "abi_cases": 3072,
+  "native_table_reads": [
+    {
+      "checkpoint": 498,
+      "draw": 24,
+      "clock": {
+        "tick": 4231,
+        "due": 4501,
+        "minute": 30,
+        "hour": 6,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 06:30am"
+      },
+      "random": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 91,
+        "cursor": 57640,
+        "reads": [
+          {
+            "address": 57896,
+            "value": 175
+          },
+          {
+            "address": 57902,
+            "value": 17
+          }
+        ],
+        "result": 72,
+        "next_seed": 27,
+        "next_cursor": 57896
+      }
+    }
+  ],
+  "full_state": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 512,
+    "random_draws": 10146,
+    "clock": {
+      "tick": 4361,
+      "due": 4501,
+      "day": 3,
+      "minute": 40,
+      "hour": 8,
+      "period": "am",
+      "label": "Thu 08:40am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10144,
+    "compared_random_reads": 21630,
+    "certified_checkpoint_range": [
+      0,
+      511
+    ],
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 512,
+      "target_clock": "Thu 08:50am",
+      "unknown_address": "5D30"
+    }
+  },
+  "lookahead": {
+    "completed_checkpoints": 512,
+    "last_complete_clock": {
+      "tick": 4361,
+      "due": 4501,
+      "day": 3,
+      "minute": 40,
+      "hour": 8,
+      "period": "am",
+      "label": "Thu 08:40am"
+    },
+    "partial_checkpoint": 512,
+    "target_clock": {
+      "tick": 4371,
+      "due": 4501,
+      "minute": 50,
+      "hour": 8,
+      "day": 3,
+      "period": "am",
+      "label": "Thu 08:50am"
+    },
+    "error": "512 Ingresso casuale originale non ancora ricostruito: $5D30. Il comando non \u00e8 stato applicato."
+  },
+  "next_boundary_random": {
+    "actor": 9,
+    "width": 99,
+    "mixOffset": 5,
+    "seed": 190,
+    "cursor": 23338,
+    "reads": [
+      {
+        "address": 23594,
+        "value": 0
+      },
+      {
+        "address": 23600,
+        "value": 0
+      },
+      {
+        "address": 23850,
+        "value": 53
+      },
+      {
+        "address": 23856,
+        "value": 26
+      }
+    ],
+    "result": 17,
+    "next_seed": 233,
+    "next_cursor": 23850
+  },
+  "atlas": {
+    "roundtrip_equal": true,
+    "instructions": 60,
+    "bytes_roundtripped": 214,
+    "regions": [
+      {
+        "start": "D349",
+        "end_exclusive": "D36A",
+        "kind": "code",
+        "label": "Ricerca di coppie o triple: prima chiave e terminatoreFF",
+        "atlas_priority": 157
+      },
+      {
+        "start": "E1D8",
+        "end_exclusive": "E22A",
+        "kind": "code",
+        "label": "TELL: selezione della sezione del parlante, argomento e risposta di ripiego",
+        "atlas_priority": 157
+      },
+      {
+        "start": "E22A",
+        "end_exclusive": "E28D",
+        "kind": "data",
+        "label": "Risposte TELL: dieci sezioni ordinate per parlante, 26 argomenti",
+        "atlas_priority": 157,
+        "fields": [
+          [
+            "Struttura",
+            "10 sezioni / 26 triple / 99 byte",
+            "byte parlante, [byte argomento + word testo]*,FF; poiFF globale"
+          ],
+          [
+            "FE",
+            "Parlante predefinito",
+            "Solo se non c\u2019\u00e8 una sezione del parlante; non \u00e8 un fallback per argomenti mancanti"
+          ],
+          [
+            "FF",
+            "Due livelli di terminazione",
+            "Fine argomenti del parlante e fine tabella dei parlanti"
+          ],
+          [
+            "Ordine",
+            "8,9,10,6,5,4,7,13,95,254",
+            "La lookup logica pu\u00f2 usare mappe, ma le letture casuali richiedono l\u2019ordine sorgente"
+          ],
+          [
+            "E22E",
+            "17: your alibi del giardiniere",
+            "Byte dati seguito dal testo7846; asset immutabile, nessun nuovo campo nelSAVE"
+          ]
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "tests.log": {
+      "tests": 21,
+      "pass": 21,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "full-suite.log": {
+      "tests": 1801,
+      "pass": 1801,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "new_mutable_save_fields": [],
+  "runtime_cpu_or_trace_playback": false,
+  "remaining": [
+    "Five natural endings",
+    "Police cab5D0C",
+    "PRINT/MORE",
+    "TAKE TO",
+    "WatsonKilledYou7JSvs10native"
+  ]
+}

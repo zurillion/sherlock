@@ -3,37 +3,36 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [DURATA-DEI-RISULTATI-CB28.md](DURATA-DEI-RISULTATI-CB28.md).
+Aggiornamento corrente: [RISPOSTE-TELL-E22A.md](RISPOSTE-TELL-E22A.md).
 
 1. **Ultimo prefisso completo del ramo che scagiona Ffoulkes.**
-   499 checkpoint0–498 fino a giovedì06:28. L’ultimo è un nuovo snapshot
-   originale completo dentro ilWAIT, dopo i precedenti498 fino06:20.
-   Tutti24 posti attore, entità, fatti, programmi, arena752, bitmap,
-   ogni draw/read e futuroLOAD. 9807draw/20922read;9809runtime con2boot.
-   Rapporto results/rule-result-lifetime/witness-prefix.json;
-   ripetibile con `node tools/verify-rule-result-lifetime-prefix.mjs`.
+   512 checkpoint 0–511 fino a giovedì 08:40. Tutti i 24 posti attore,
+   entità, fatti, programmi, arena di 752 byte, bitmap, ogni draw/read
+   e futuro dopo LOAD. 10.144 draw / 21.630 read; 10.146 runtime con 2 boot.
+   Rapporto results/conversation-topic-table/witness-prefix.json;
+   ripetibile con `node tools/verify-conversation-table-prefix.mjs`.
+   L’oracolo naturale originale è riutilizzato con SHA, non una nuova cattura lunga.
 
-2. **CB28 risolto per la ricerca delle uscite; prossimo E22E.**
-   DD6E/D471 pubblicano il primo record corrispondente o il terminatoreFF,
-   anche su fallimento; DD65 conserva le word. Preflight senza callback non
-   cancella i risultati. FOLLOW/TAKE mantengono ignoti i loro predicati:
-   corpo differito non significa assenza di predicato. Parser/prompt ignoti
-   revocano ancora la proprietà. Nessun fallback per vecchiSAVE.
-   Al4221 Watson cerca12 daSlaterStreet12 e lascia il terminatore8583,
-   IYDD61; Daphne fallisce prima del ponte, poi WAIT6/104 conservano.
-   La cuoca9 legge131 aCB28, derivato dal record e non installato dalla traccia.
-   ABI516 originali; nuova traccia4102checkpoint/150897store perword/0nonclassificati.
-   Prova continua positiva separata4100checkpoint fino06:28:14619word note,
-   13195word ignote conteggiate,9807draw/20922read. Non è da sola stato completo.
-   **Prossimo E22E nella visita4229 del giardiniere8**, tentando il minuto
-   successivo alle06:28. Originale leggeE228=175 eE22E=17; ricostruire la
-   proprietà del secondo ingresso, senza installare17 né eliminare il confronto.
-   Snapshot minuto successivo escluso dal certificato.
-   Atlante208istruzioni/456byte: CB28–CB40,C9BF–CA75,C4E8–C570,D206–D21B,
-   D33C–D348,D46C–D494,DD61–DD83. Zero byte prima grigi;
-   copertura38850documentati/428parziali/2322sconosciuti su41600 invariata.
-   Conservare i contratti A026,A025,5D25 e argomenti del giardiniere.
-   Dialogo SAY WATSON "WATSON KILLED YOU":7drawJS contro10nativo ancora aperto.
+2. **E22E risolto; prossimo ingresso 5D30.**
+   E22A–E28C è la tabella immutabile TELL: 10 sezioni, 26 triple, 99 byte.
+   E22E è l’argomento 17 (your alibi) del giardiniere; segue la word 7846.
+   E207 sceglie la sezione del parlante A036 o FE; E201/D34E cerca A035.
+   Argomento assente nella sezione scelta →761D, senza fallback ad FE.
+   Builder tipizzato condiviso fra mappe logiche e serializzazione in ordine
+   sorgente: non ordinare per chiave. WorldSource espone i 99 byte a RNG;
+   nessuna costante17 isolata e nessun nuovo campo mutabile nel SAVE.
+   Pacchetto dati vecchio senza tabella resta unknown a E22E.
+   3072 ABI originali (256 byte attore ×12 argomenti), tabella invariata;
+   21 controlli mirati e suite completa 1801/1801 passati.
+   Lettura naturale E22E al498/draw24/giardiniere8 coperta dal positivo.
+   **Prossimo 5D30 al512 verso giovedì08:50**, cuoca9/draw15, originale26.
+   Ricostruire proprietà e writer: non installare26 e non inferire dai vicini.
+   Checkpoint512 escluso dal certificato, nessun finale naturale nuovo.
+   Atlante: E22A–E28C sono99 nuovi byte prima grigi ora documentati;
+   approfonditi E1D8–E229 eD349–D369,60 istruzioni/214 byte riassemblati.
+   Copertura38949 documentati/428 parziali/2223 sconosciuti su41600.
+   Conservare i contratti CB28, A026, A025, 5D25 e argomenti del giardiniere.
+   Dialogo SAY WATSON "WATSON KILLED YOU":7 drawJS contro10 nativo ancora aperto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

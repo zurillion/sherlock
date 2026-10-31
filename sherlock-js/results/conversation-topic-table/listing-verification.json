@@ -1,0 +1,55 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 60,
+  "bytes_roundtripped": 214,
+  "regions": [
+    {
+      "start": "D349",
+      "end_exclusive": "D36A",
+      "kind": "code",
+      "label": "Ricerca di coppie o triple: prima chiave e terminatoreFF",
+      "atlas_priority": 157
+    },
+    {
+      "start": "E1D8",
+      "end_exclusive": "E22A",
+      "kind": "code",
+      "label": "TELL: selezione della sezione del parlante, argomento e risposta di ripiego",
+      "atlas_priority": 157
+    },
+    {
+      "start": "E22A",
+      "end_exclusive": "E28D",
+      "kind": "data",
+      "label": "Risposte TELL: dieci sezioni ordinate per parlante, 26 argomenti",
+      "atlas_priority": 157,
+      "fields": [
+        [
+          "Struttura",
+          "10 sezioni / 26 triple / 99 byte",
+          "byte parlante, [byte argomento + word testo]*,FF; poiFF globale"
+        ],
+        [
+          "FE",
+          "Parlante predefinito",
+          "Solo se non c’è una sezione del parlante; non è un fallback per argomenti mancanti"
+        ],
+        [
+          "FF",
+          "Due livelli di terminazione",
+          "Fine argomenti del parlante e fine tabella dei parlanti"
+        ],
+        [
+          "Ordine",
+          "8,9,10,6,5,4,7,13,95,254",
+          "La lookup logica può usare mappe, ma le letture casuali richiedono l’ordine sorgente"
+        ],
+        [
+          "E22E",
+          "17: your alibi del giardiniere",
+          "Byte dati seguito dal testo7846; asset immutabile, nessun nuovo campo nelSAVE"
+        ]
+      ]
+    }
+  ]
+}

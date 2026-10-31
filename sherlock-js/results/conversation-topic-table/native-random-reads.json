@@ -1,0 +1,68 @@
+{
+  "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+  "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+  "scope": "Reused original natural oracle, not a fresh long capture. Table reads inside certified prefix; next draw is discovery only.",
+  "table_reads": [
+    {
+      "checkpoint": 498,
+      "draw": 24,
+      "clock": {
+        "tick": 4231,
+        "due": 4501,
+        "minute": 30,
+        "hour": 6,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 06:30am"
+      },
+      "random": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 91,
+        "cursor": 57640,
+        "reads": [
+          {
+            "address": 57896,
+            "value": 175
+          },
+          {
+            "address": 57902,
+            "value": 17
+          }
+        ],
+        "result": 72,
+        "next_seed": 27,
+        "next_cursor": 57896
+      }
+    }
+  ],
+  "next_boundary_random": {
+    "actor": 9,
+    "width": 99,
+    "mixOffset": 5,
+    "seed": 190,
+    "cursor": 23338,
+    "reads": [
+      {
+        "address": 23594,
+        "value": 0
+      },
+      {
+        "address": 23600,
+        "value": 0
+      },
+      {
+        "address": 23850,
+        "value": 53
+      },
+      {
+        "address": 23856,
+        "value": 26
+      }
+    ],
+    "result": 17,
+    "next_seed": 233,
+    "next_cursor": 23850
+  }
+}

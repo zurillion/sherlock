@@ -1,0 +1,29 @@
+✔ 99 original table bytes roundtrip with ten actor sections and 26 ordered triples (1.576333ms)
+✔ 3072 original E207/E201 selections agree with the functional TELL lookup (42.622875ms)
+✔ Known speaker with missing topic does not borrow the FE default response (22.064875ms)
+✔ Every immutable source byte is available to RNG and survives ordinary SAVE/LOAD (114.562709ms)
+✔ An old data package without the typed table cannot fall back to the payload (69.942833ms)
+✔ Truncation, premature terminator and invalid prose pointers fail extraction (0.251458ms)
+✔ Native numeric suffix/delimiter boundaries, including consumed periods (16 cases) (1.885375ms)
+✔ Original TELL actor/topic table, generated selector context and supplied native random inputs (90 bodies) (108.315333ms)
+✔ Native player and delayed Watson PAY: payments (82.498167ms)
+✔ Native player and delayed Watson PAY: payment_literals (41.375917ms)
+✔ Native player and delayed Watson PAY: payment_funds (36.520416ms)
+✔ Original cab account payments, driver turns disabled in both compared profiles (47.459833ms)
+✔ PAY validates currency and person classes without spending time (41.491791ms)
+✔ A payment and a pending quoted payment survive a logical save/load (155.894542ms)
+✔ Money display preserves period and whole-pound conventions (0.431792ms)
+✔ A legacy game without random state never invents a says/remarks prefix (38.962083ms)
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (7.033417ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (0.57925ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (20.103042ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (3.136792ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (1.349292ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 796.655292

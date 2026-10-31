@@ -1021,3 +1021,31 @@ Verifica finale durataCB28: suite definitiva1795/1795PASS, zero errori/skipped/
 cancelled;30test miratiPASS. Confronto continuo definitivo14619word note/
 13195ignote dopo la restrizione ai preflight globali senza override locale.
 Non usare i conteggi intermedi14671/13143. I log delle due suite sono distinti.
+
+
+31 ottobre2026 — leggere RISPOSTE-TELL-E22A.md e
+results/conversation-topic-table-verification.json. E22A–E28C è tabella TELL
+IMMUTABILE,99 byte,10 sezioni/26 triple;E28C èFF globale,E28D confine esclusivo.
+Ogni sezione:byte parlante,[byte argomento+word testo]*,FF. FE sceglie il
+parlante senza sezione propria;un argomento assente nella sezione scelta usa
+761D, NON la risposta FE. E207 usaA036,E201/D34E usaA035;A034 èdestinatario.
+E22E è17,your alibi del giardiniere8,seguito dalla word7846. Non èopcode.
+Conservare ordine8,9,10,6,5,4,7,13,95,254. Il builder tipizzato genera mappe
+logiche e serializzazione perWorldSource dallo stesso contenuto; roundtrip99byte.
+Non serializzare l’oggettoJSON riordinato numericamente. Nessun17 catturato
+installato e nessun nuovo campo mutabile neiSAVE. Vecchio pacchetto dati senza
+asset restaunknown; vecchioSAVE con gli asset aggiornati ha questi dati immutabili.
+3072 nuoveABI originali E207/E201,tutti256byte attore ×12argomenti; confronto
+sezione,record/terminatore,testo scelto.Tabella identica dopo ogni coppia.
+ÈABI,non ammissibilità di attori arbitrari né certificato di ogni stampa.
+Nessuno store diretto catalogato interseca99byte; i lettori non scrivono la tabella.
+Oracolo naturale lungo RIUTILIZZATO con percorso/SHA,non nuova acquisizione:
+E22E al498/draw24/giardiniere8,lettureE228175/E22E17 ora risolte come dati.
+Certificato positivo completo512checkpoint0–511 sinoThu08:40,tutti24attori,
+arena752,stato,bitmap,ogni draw/read e futuroLOAD.10144draw/21630read,
+10146runtime con2boot. Prossimo5D30 al512 versoThu08:50,cuoca9/draw15,
+originale26. Non installare26 né dedurlo dal vicino;512 escluso dal positivo.
+Atlante60istruzioni/214byte:nuovi99bytegrigiE22A–E28C→documentati,
+approfonditiE1D8–E229,D349–D369.38949/428/2223 su41600. Riferirelezone.
+21test mirati e suite completa1801/1801PASS,zeroerrori/skipped/cancelled.
+Cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO,WatsonKilledYou restanoaperti.

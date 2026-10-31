@@ -1,20 +1,19 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [DURATA-DEI-RISULTATI-CB28.md](DURATA-DEI-RISULTATI-CB28.md).
-Ricerca uscite DD6E/D471 e durata dei risultati ricostruite: primo record
-corrispondente o terminatoreFF, pubblicati anche se il predicato fallisce.
-I rifiuti dimostrati prima del ponte conservano le word; i callback ignoti
-le revocano. Nessun valore catturato installato e nessun fallback oldSAVE.
-Certificato completo499checkpoint0–498 sinoThu06:28:24attori,arena752,stato,
-bitmap,ogni draw/read,futuroLOAD. Ultimo snapshot nuovo dentroWAIT;
-9807draw/20922read,9809runtime con2boot. Traccia continua positiva separata
-4100checkpoint/14619word note/13195ignote, ogni draw/read sino06:28.
-Nuova acquisizione originale4102checkpoint/150897store perword,0nonclassificati.
-Il limiteCB28/cuoca9 è superato:8583 è il terminatore uscite diSlaterStreet,
-lasciato daWatson al4221. ProssimoE22E nella visita4229/giardiniere8;
-originale17,non installarlo. Minuto successivo escluso dal positivo.
-Atlante208istruzioni/456byte approfonditi,zero byte prima grigi;
-copertura38850/428/2322 su41600 invariata. Riferire le zone aggiornate.
+Aggiornamento corrente: [RISPOSTE-TELL-E22A.md](RISPOSTE-TELL-E22A.md).
+Superato E22E: tabella TELL immutabile E22A–E28C,10 sezioni/26 triple/99 byte.
+E22E è argomento17 del giardiniere, non codice né stato mutabile. Il builder
+conserva l’ordine sorgente, condivide contenuto logico e serializzazione per RNG.
+FE vale per il parlante senza sezione, non per l’argomento mancante; ripiego761D.
+Nuove3072 ABI originali dei selettori; tabella invariata dopo ogni coppia.
+Certificato completo512 checkpoint0–511 sinoThu08:40,24 attori,arena752,
+stato,bitmap,ogni draw/read,futuroLOAD.10144 draw/21630 read,10146 con2boot.
+Oracolo naturale originale riutilizzato con SHA dichiarato, non nuova cattura.
+Prossimo5D30 al512 versoThu08:50,cuoca9/draw15,originale26: non installarlo.
+Nuova zona dati nell’atlante E22A–E28C (99 byte prima grigi); approfonditi
+E1D8–E229,D349–D369.60 istruzioni/214 byte riassemblati.
+Copertura38949/428/2223 su41600, distinta dalla copertura del gameplay.
+21 controlli mirati e suite completa1801/1801 PASS, nessun errore residuo.
 Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e dialogo
 WatsonKilledYou(7drawJS/10nativo). VedereRIPRESA-GAMEPLAY.md.
 Le sezioni seguenti conservano lo storico.
