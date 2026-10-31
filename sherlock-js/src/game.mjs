@@ -136,6 +136,13 @@ export class Game {
  }
  executeAs(node,actor,{textContext=null,requestRestriction=false}={}){const previous=this.actingActor,pending=this.pending,priorText=this.actingTextContext,priorRestriction=this.actingRequestRestriction;this.actingActor=actor;this.actingTextContext=textContext;this.actingRequestRestriction=requestRestriction;try{return this.execute(node);}finally{this.actingActor=previous;this.actingTextContext=priorText;this.actingRequestRestriction=priorRestriction;this.pending=pending;}}
  execute(node){
+  const prior=this.world.npcs?[...this.npcRuntime.ruleResults.values]:null;
+  if(this.world.npcs)this.npcRuntime.ruleResults.invalidate();
+  const out=this.executeNode(node);
+  if(this.world.npcs)this.npcRuntime.ruleResults.ordinaryAction(out,prior);
+  return out;
+ }
+ executeNode(node){
   node=this.semanticNode(node);
   const w=this.world,action=this.action(node),actor=this.actor,subject=actor===0?'You':w.name(actor).replace(/^./,c=>c.toUpperCase()),verb=(base,third=this.dictionary.word(this.dictionary.lookup(base.toUpperCase()).value)?.form||base+'s')=>actor===0?base:third,say=(base,tail,third)=>{this.text.setQualifierMode(0);return `${subject} ${verb(base,third)}${tail}`;},narrative=text=>({kind:'narrative',text}),ok=(messages,cost=1,args=[])=>{if(w.npcs)this.npcRuntime.temporaryCost(cost);return {messages:messages.map(m=>typeof m==='string'?narrative(m):m),cost,action,args};},reject=text=>({messages:[this.error(text)],cost:0,action,args:[]});
   if(w.npcs&&action)this.npcRuntime.setActionClasses(action);
@@ -336,6 +343,7 @@ export class Game {
    // D6C8 clears the transient @ token-reuse flag after accepted input,
    // before lexical validation or any paid actor visit.
    if(this.world.npcs)this.world.npcs.editorTokenFlag=0;
+   if(this.world.npcs)this.npcRuntime.ruleResults.invalidate(); // Native editor/parser rule callbacks precede lexical validation.
    this.lastInput=input;lexed=this.lexer.scan(input);this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    let emptyPending=Boolean(this.pending)&&!ignoredPendingRepeat;while(index<lexed.tokens.length&&(lexed.tokens[index].type!==192||emptyPending)){emptyPending=false;
@@ -401,7 +409,7 @@ export class Game {
    if(messages.some(m=>m.kind==='error'&&!m.lower_projected&&!projectedErrors.has(m)))this.sourceDisplay.error(messages.filter(m=>m.kind==='error'&&!m.lower_projected&&!projectedErrors.has(m)),{inline:this.analysis.outcome==='clarification'});
    if(this.world.npcs){const syntax=Boolean(this.analysis.control)||['syntax_error','lexical_error','quoted_syntax_error'].includes(this.analysis.outcome),failed=lastOutcome?.collectiveExhausted||lastOutcome?.messages.some(m=>m.kind==='error')&&lastOutcome.action!==32;
     this.npcRuntime.playerInputFailures(syntax?['9923']:failed?[lastOutcome?.semanticResolved?'9945':'9937','992D','9923']:['992D','9923'],messages,actions);if(!this.pending&&!this.ended)this.npcRuntime.discardParsed();}
-   if(!this.ended)this.sourceDisplay.prompt();
+   if(!this.ended){if(this.world.npcs)this.npcRuntime.ruleResults.invalidate();this.sourceDisplay.prompt();}
   }catch(error){cancel();messages.length=0;actions.length=0;if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,outcome:'not_translated',notice:error.message,units:[],actions:[]};messages.push({kind:'system',text:error.message});}else throw error;}
   if(this.ended)this.analysis.outcome='game_over';
   if(this.pendingWait)this.pendingWait.cancelInput=cancel;
@@ -432,7 +440,7 @@ export class Game {
   if(result.type==='ended'){delete this.pendingWait;this.analysis.outcome='game_over';const entry=this.history.entries.findLast(e=>e.kind==='command');if(entry)this.history.finish(entry,w,{outcome:'game_over'});return {running:false,messages:wait.messages};}
   if(result.type==='pause')return {running:true,messages:wait.messages};
   if(result.type!=='input')throw new UnsupportedFeature('continuazione dell’attesa');
-  this.npcRuntime.playerInputFailures(['992D','9923'],wait.messages,wait.actions);if(this.ended)this.analysis.outcome='game_over';else this.sourceDisplay.prompt();delete this.pendingWait;
+  this.npcRuntime.playerInputFailures(['992D','9923'],wait.messages,wait.actions);if(this.ended)this.analysis.outcome='game_over';else{this.npcRuntime.ruleResults.invalidate();this.sourceDisplay.prompt();}delete this.pendingWait;
   const entry=this.history.entries.findLast(e=>e.kind==='command');if(entry)this.history.finish(entry,w,{outcome:this.analysis.outcome});
   if(interrupt){const event=this.history.begin('interrupt',w.clock().label,w);this.history.finish(event,w);}
   return {running:false,messages:wait.messages};

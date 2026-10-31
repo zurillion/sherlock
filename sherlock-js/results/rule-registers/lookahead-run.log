@@ -1,0 +1,36 @@
+20 Mon 08:46am
+40 Mon 10:04am
+60 Mon 11:50am
+80 Mon 01:37pm
+100 Mon 02:30pm
+120 Mon 05:50pm
+140 Mon 09:10pm
+160 Mon 11:57pm
+180 Tue 02:20am
+200 Tue 05:40am
+220 Tue 08:40am
+240 Tue 12:00pm
+260 Tue 03:20pm
+280 Tue 06:40pm
+300 Tue 10:00pm
+320 Wed 01:00am
+340 Wed 04:20am
+360 Wed 07:40am
+380 Wed 11:00am
+400 Wed 02:20pm
+420 Wed 05:40pm
+AssertionError [ERR_ASSERTION]: 421 Ingresso casuale originale non ancora ricostruito: $5D29. Il comando non è stato applicato.
+    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)
+    at async file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/discover-witness-boundary.mjs:5:18
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+[Error: EPERM: operation not permitted, open '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/rule-registers/lookahead.json'] {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'open',
+  path: '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/rule-registers/lookahead.json'
+}
+
+Node.js v26.13.0

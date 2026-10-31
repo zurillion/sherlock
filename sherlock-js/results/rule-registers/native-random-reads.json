@@ -1,0 +1,139 @@
+{
+  "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+  "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+  "protocol": "Reuse of the original natural major-witness seed1 reference; all24 actors and original graphics disabled. No fresh long native acquisition is claimed. Times label checkpoints, not individual stores.",
+  "reads": [
+    {
+      "checkpoint": 415,
+      "draw": 19,
+      "checkpoint_clock": {
+        "tick": 3421,
+        "due": 3781,
+        "minute": 0,
+        "hour": 5,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 05:00pm"
+      },
+      "random": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 68,
+        "cursor": 51746,
+        "reads": [
+          {
+            "address": 52002,
+            "value": 17
+          },
+          {
+            "address": 52008,
+            "value": 204
+          }
+        ],
+        "result": 54,
+        "next_seed": 153,
+        "next_cursor": 52002
+      }
+    },
+    {
+      "checkpoint": 498,
+      "draw": 1,
+      "checkpoint_clock": {
+        "tick": 4231,
+        "due": 4501,
+        "minute": 30,
+        "hour": 6,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 06:30am"
+      },
+      "random": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 51,
+        "cursor": 51752,
+        "reads": [
+          {
+            "address": 52008,
+            "value": 131
+          },
+          {
+            "address": 52014,
+            "value": 40
+          }
+        ],
+        "result": 59,
+        "next_seed": 158,
+        "next_cursor": 52008
+      }
+    },
+    {
+      "checkpoint": 507,
+      "draw": 9,
+      "checkpoint_clock": {
+        "tick": 4321,
+        "due": 4501,
+        "minute": 0,
+        "hour": 8,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 08:00am"
+      },
+      "random": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 223,
+        "cursor": 51753,
+        "reads": [
+          {
+            "address": 52009,
+            "value": 133
+          },
+          {
+            "address": 52015,
+            "value": 203
+          }
+        ],
+        "result": 76,
+        "next_seed": 175,
+        "next_cursor": 52009
+      }
+    },
+    {
+      "checkpoint": 517,
+      "draw": 0,
+      "checkpoint_clock": {
+        "tick": 4421,
+        "due": 4501,
+        "minute": 40,
+        "hour": 9,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 09:40am"
+      },
+      "random": {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 152,
+        "cursor": 51754,
+        "reads": [
+          {
+            "address": 52010,
+            "value": 97
+          },
+          {
+            "address": 26647,
+            "value": 7
+          }
+        ],
+        "result": 28,
+        "next_seed": 254,
+        "next_cursor": 52010
+      }
+    }
+  ]
+}

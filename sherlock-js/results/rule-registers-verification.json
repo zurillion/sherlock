@@ -1,0 +1,475 @@
+{
+  "scope": "Partial functional ownership of the two rule-result pointer words CB28/CB2A. This is not complete coverage of every native callback or parser-return path.",
+  "native_short_histories": {
+    "cases": 12,
+    "checkpoints": 57,
+    "compared_random_draws": 205,
+    "compared_random_reads": 410,
+    "all_actors": 24,
+    "full_original_state": true,
+    "owned_pointer_bytes_compared_at_draws_and_checkpoints": true,
+    "unknown_bytes_excluded_from_ownership_claim": true,
+    "load_future_compared": true
+  },
+  "controlled_original_calls": {
+    "counter_bridge_and_arena": 92,
+    "ordinary_open_close_body_abi": 162,
+    "total": 254,
+    "body_abi_is_not_header_eligibility": true
+  },
+  "source_mode": "Natural seed1, free initial LOOK, all24 actors, original graphics off after boot, injected uppercase keys and immediate MORE.",
+  "reused_native_evidence": {
+    "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+    "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "protocol": "Reuse of the original natural major-witness seed1 reference; all24 actors and original graphics disabled. No fresh long native acquisition is claimed. Times label checkpoints, not individual stores.",
+    "reads": [
+      {
+        "checkpoint": 415,
+        "draw": 19,
+        "checkpoint_clock": {
+          "tick": 3421,
+          "due": 3781,
+          "minute": 0,
+          "hour": 5,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 05:00pm"
+        },
+        "random": {
+          "actor": 9,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 68,
+          "cursor": 51746,
+          "reads": [
+            {
+              "address": 52002,
+              "value": 17
+            },
+            {
+              "address": 52008,
+              "value": 204
+            }
+          ],
+          "result": 54,
+          "next_seed": 153,
+          "next_cursor": 52002
+        }
+      },
+      {
+        "checkpoint": 498,
+        "draw": 1,
+        "checkpoint_clock": {
+          "tick": 4231,
+          "due": 4501,
+          "minute": 30,
+          "hour": 6,
+          "day": 3,
+          "period": "am",
+          "label": "Thu 06:30am"
+        },
+        "random": {
+          "actor": 9,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 51,
+          "cursor": 51752,
+          "reads": [
+            {
+              "address": 52008,
+              "value": 131
+            },
+            {
+              "address": 52014,
+              "value": 40
+            }
+          ],
+          "result": 59,
+          "next_seed": 158,
+          "next_cursor": 52008
+        }
+      },
+      {
+        "checkpoint": 507,
+        "draw": 9,
+        "checkpoint_clock": {
+          "tick": 4321,
+          "due": 4501,
+          "minute": 0,
+          "hour": 8,
+          "day": 3,
+          "period": "am",
+          "label": "Thu 08:00am"
+        },
+        "random": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 223,
+          "cursor": 51753,
+          "reads": [
+            {
+              "address": 52009,
+              "value": 133
+            },
+            {
+              "address": 52015,
+              "value": 203
+            }
+          ],
+          "result": 76,
+          "next_seed": 175,
+          "next_cursor": 52009
+        }
+      },
+      {
+        "checkpoint": 517,
+        "draw": 0,
+        "checkpoint_clock": {
+          "tick": 4421,
+          "due": 4501,
+          "minute": 40,
+          "hour": 9,
+          "day": 3,
+          "period": "am",
+          "label": "Thu 09:40am"
+        },
+        "random": {
+          "actor": 3,
+          "width": 99,
+          "mixOffset": 40172,
+          "seed": 152,
+          "cursor": 51754,
+          "reads": [
+            {
+              "address": 52010,
+              "value": 97
+            },
+            {
+              "address": 26647,
+              "value": 7
+            }
+          ],
+          "result": 28,
+          "next_seed": 254,
+          "next_cursor": 52010
+        }
+      }
+    ]
+  },
+  "certified_native_pointer_reads": [
+    {
+      "checkpoint": 415,
+      "draw": 19,
+      "checkpoint_clock": {
+        "tick": 3421,
+        "due": 3781,
+        "minute": 0,
+        "hour": 5,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 05:00pm"
+      },
+      "random": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 68,
+        "cursor": 51746,
+        "reads": [
+          {
+            "address": 52002,
+            "value": 17
+          },
+          {
+            "address": 52008,
+            "value": 204
+          }
+        ],
+        "result": 54,
+        "next_seed": 153,
+        "next_cursor": 52002
+      }
+    }
+  ],
+  "natural_last_store_traced": false,
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 421,
+    "random_draws": 8443,
+    "clock": {
+      "tick": 3471,
+      "due": 3781,
+      "day": 2,
+      "minute": 50,
+      "hour": 5,
+      "period": "pm",
+      "label": "Wed 05:50pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8441,
+    "compared_random_reads": 18066,
+    "certified_checkpoint_range": [
+      0,
+      420
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 421,
+      "target_clock": "Wed 06:00pm",
+      "resolved_address": "CB28",
+      "unknown_address": "5D29",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 255,
+    "bytes_roundtripped": 573,
+    "regions": [
+      {
+        "start": "CB28",
+        "end_exclusive": "CB2C",
+        "kind": "data",
+        "label": "Puntatori IX/IY restituiti dall’ultima regola",
+        "atlas_priority": 146,
+        "fields": [
+          [
+            "CB28–CB29",
+            "Risultato IX",
+            "Descrittore, contatore o link restituito; solo callback compresi posseduti"
+          ],
+          [
+            "CB2A–CB2B",
+            "Risultato IY",
+            "Intestazione o predecessore; può essere sconosciuto anche con IX noto"
+          ],
+          [
+            "Writer",
+            "CB37 / CB3B",
+            "Store anche dopo predicato falso; corpo differito non esegue CB2C"
+          ],
+          [
+            "LOAD",
+            "Proprietà esplicita",
+            "Assente resta sconosciuto; non installare zero o il valore di una cattura"
+          ]
+        ]
+      },
+      {
+        "start": "CB2C",
+        "end_exclusive": "CB41",
+        "kind": "code",
+        "label": "Ponte regole: ripristino, chiamata e conservazione dei risultati",
+        "atlas_priority": 146
+      },
+      {
+        "start": "C9BF",
+        "end_exclusive": "CA76",
+        "kind": "code",
+        "label": "Preflight, predicato, durata e corpo immediato o differito",
+        "atlas_priority": 146
+      },
+      {
+        "start": "A1C7",
+        "end_exclusive": "A24D",
+        "kind": "code",
+        "label": "Rilascio dei record: link finale e fusioni dei blocchi liberi",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E52F",
+        "end_exclusive": "E531",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Creazione del contatore privato",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E531",
+        "end_exclusive": "E560",
+        "kind": "code",
+        "label": "Creazione del contatore privato",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E57A",
+        "end_exclusive": "E57E",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Decremento del contatore privato",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E57E",
+        "end_exclusive": "E588",
+        "kind": "code",
+        "label": "Decremento del contatore privato",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E588",
+        "end_exclusive": "E58C",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Cancellazione del contatore privato",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E58C",
+        "end_exclusive": "E5A8",
+        "kind": "code",
+        "label": "Cancellazione del contatore privato",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E5A8",
+        "end_exclusive": "E5AA",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Attesa di un tick",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E5AA",
+        "end_exclusive": "E5AD",
+        "kind": "code",
+        "label": "Attesa di un tick",
+        "atlas_priority": 146
+      },
+      {
+        "start": "DE9D",
+        "end_exclusive": "DEA4",
+        "kind": "data",
+        "label": "Intestazione tipizzata · OPEN ordinario: descrittore dell’oggetto restituito",
+        "atlas_priority": 146
+      },
+      {
+        "start": "DEA4",
+        "end_exclusive": "DEAF",
+        "kind": "code",
+        "label": "OPEN ordinario: descrittore dell’oggetto restituito",
+        "atlas_priority": 146
+      },
+      {
+        "start": "DEAF",
+        "end_exclusive": "DEB6",
+        "kind": "data",
+        "label": "Intestazione tipizzata · CLOSE ordinario: descrittore dell’oggetto restituito",
+        "atlas_priority": 146
+      },
+      {
+        "start": "DEB6",
+        "end_exclusive": "DEC1",
+        "kind": "code",
+        "label": "CLOSE ordinario: descrittore dell’oggetto restituito",
+        "atlas_priority": 146
+      },
+      {
+        "start": "F198",
+        "end_exclusive": "F19A",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Scelta probabilistica: conserva i puntatori della regola",
+        "atlas_priority": 146
+      },
+      {
+        "start": "F19A",
+        "end_exclusive": "F1A8",
+        "kind": "code",
+        "label": "Scelta probabilistica: conserva i puntatori della regola",
+        "atlas_priority": 146
+      },
+      {
+        "start": "F1D6",
+        "end_exclusive": "F1D8",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Test dell’ora: conserva i puntatori entranti",
+        "atlas_priority": 146
+      },
+      {
+        "start": "F1D8",
+        "end_exclusive": "F1F6",
+        "kind": "code",
+        "label": "Test dell’ora: conserva i puntatori entranti",
+        "atlas_priority": 146
+      },
+      {
+        "start": "D769",
+        "end_exclusive": "D76D",
+        "kind": "data",
+        "label": "Intestazione tipizzata · Polling del parser: rami di ritorno ancora non proiettati",
+        "atlas_priority": 146
+      },
+      {
+        "start": "D76D",
+        "end_exclusive": "D77E",
+        "kind": "code",
+        "label": "Polling del parser: rami di ritorno ancora non proiettati",
+        "atlas_priority": 146
+      },
+      {
+        "start": "E560",
+        "end_exclusive": "E57A",
+        "kind": "code",
+        "label": "Ricerca del contatore: puntatore al record o zero",
+        "atlas_priority": 146
+      }
+    ]
+  },
+  "atlas_changes": {
+    "unknown": {
+      "ranges_end_exclusive": [
+        [
+          "F19A",
+          "F1A8"
+        ]
+      ],
+      "bytes": 14
+    },
+    "partial": {
+      "ranges_end_exclusive": [
+        [
+          "E58C",
+          "E5A8"
+        ],
+        [
+          "E5AA",
+          "E5AD"
+        ]
+      ],
+      "bytes": 31
+    }
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "34b44d3c2a4a985aab5fe96f659036aff45c6bf0c8e8e9a0413f5abac2b67934",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 433,
+      "unknown": 2383,
+      "documented": 38784
+    },
+    "segments": 1132,
+    "sources": 63,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 50679,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "targeted_tests": {
+    "total_distinct": 42,
+    "failures": 0,
+    "includes_two_retained_counterexample_tests": true
+  },
+  "retained_limits": [
+    "Five natural endings6A33/6ABD/6AF3/6B79/75D2",
+    "Separate cab5D0C divergence",
+    "PRINT/MORE and TAKE TO baseline differences",
+    "Continuous-trace gardener row at checkpoint1671",
+    "Unknown callback results and parser polling revoke pointer ownership; old LOAD has no inferred pointer",
+    "Next observed unsupported input5D29 at checkpoint421 towardWed18:00"
+  ]
+}

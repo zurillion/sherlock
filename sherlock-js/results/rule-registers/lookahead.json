@@ -1,0 +1,21 @@
+{
+  "completed_checkpoints": 421,
+  "last_complete_clock": {
+    "tick": 3471,
+    "due": 3781,
+    "day": 2,
+    "minute": 50,
+    "hour": 5,
+    "period": "pm",
+    "label": "Wed 05:50pm"
+  },
+  "next_boundary": {
+    "checkpoint": 421,
+    "target_clock": "Wed 06:00pm",
+    "resolved_address": "CB28",
+    "unknown_address": "5D29",
+    "note": "No captured or initial byte is installed as a fallback."
+  },
+  "partial_checkpoint_draws_compared": null,
+  "evidence": "lookahead-run.log observed the unsupported boundary after complete checkpoint420. Its report write failed with EPERM; witness-prefix.json independently completed the bounded positive comparison. No count of partial draws at421 is claimed."
+}

@@ -4,29 +4,29 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   415 checkpoint, da 0 a 414, fino a mercoledì 16:50: tutti i 24 posti attore,
+   421 checkpoint, da 0 a 420, fino a mercoledì 17:50: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. 8296 draw e 17768 read confrontati.
-   Prefisso riconfermato dopo C128: FINESTRA-DEL-TESTO-C128.md e
-   results/text-window-mode/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD. 8441 draw e 18066 read confrontati.
+   Vedere RISULTATI-DELLE-REGOLE-CB28.md e results/rule-registers/witness-prefix.json.
 
-2. **$C128 ricostruito: finestra sorgente del testo.**
-   Vedere FINESTRA-DEL-TESTO-C128.md e results/text-window-mode-verification.json.
-   Zero significa 36 colonne; nonzero 18. C129 azzera il contatore MORE,
-   C142 lo conserva. Boot, input accettato e MORE scrivono il modo largo.
-   Il runtime espone il campo ai random; vecchi LOAD privi del campo restano
-   unknown fino a un writer compreso. SVG/pixel della pagina non lo modificano.
-   12 storie native brevi, 57 checkpoint, 205 draw/410 read, più 36 ABI
-   originali dei controlli. Le letture casuali native sono riutilizzate dal
-   riferimento completo con SHA256, non da una nuova acquisizione lunga.
-   Il renderer sorgente mantiene il profilo senza immagini originali:
-   controlli stretti verificati, bitmap stretti completi non certificati.
-   Nessun nuovo byte grigio: approfonditi C128, C129–C15F, A277–A295,
-   C2CA–C37C, D719–D725. Non anticipare il prossimo indirizzo senza il
-   primo fallimento effettivo del confronto lungo.
-   **Osservato: CB28 al checkpoint415, cuoca9, verso Wed17:00.**
-   Valore nativo204 al draw19; non usare tale byte come fallback. Il comando
-   è annullato, quindi il certificato completo resta0–414 senza ampliamento.
+2. **CB28 superato nel percorso naturale; prossimo confine 5D29.**
+   CB28/CB2A conservano i risultati IX/IY delle regole. CB2C li ricarica
+   per il corpo; CB34 chiama e CB37/CB3B salvano anche dopo predicato falso.
+   Ricostruiti contatori, link di rilascio e OPEN/CLOSE ordinari. La lettura
+   cuoca9 al415/draw19 vede il descrittore della plain door50 (90CC),
+   derivato dal precedente OPEN/CLOSE del giardiniere, non un204 di fallback.
+   I callback sconosciuti e il polling del prompt revocano il campo. OldLOAD
+   senza ruleResultPointers restaunknown fino a un writer compreso. Due word
+   con proprietà separata: IX noto non implica IY noto. Durante il draw della
+   creazione di un contatore CB28 conserva ancora il risultato precedente.
+   12 storie/57checkpoint/205draw/410read; 92 ABI contatori/arena,162 ABI
+   OPEN/CLOSE. Origine delle letture lunghe riutilizzata conSHA256.
+   **Osservato: 5D29 al checkpoint421 verso mercoledì18:00.** Nessuna proprietà
+   di29 è dedotta dai vicini27/28. Non estendere il certificato al comando
+   annullato. Cinque finali e i controesempi elencati sotto restano aperti.
+   Atlante:14 byte prima grigi F19A–F1A7;31 byte parziali ora documentati
+   E58C–E5A7/E5AA–E5AC. Approfonditi CB28–CB40,C9BF–CA75,A1C7–A24C,
+   E52F–E5AC,DE9D–DEC0,D769–D77D,F198–F1A7,F1D6–F1F5.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

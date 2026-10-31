@@ -1,3 +1,4 @@
+import {RuleResults} from './rule-results.mjs';
 import {WorldSource} from './world-source.mjs';
 import {NpcProgram} from './npc-program.mjs';
 import {RecordLists,RECORD_HEADS} from './record-arena.mjs';
@@ -19,7 +20,7 @@ const clone=structuredClone;
 // Host for the game's DOMAIN programs. Each named rule below is a functional
 // translation of its contract; source labels are provenance, not CPU dispatch.
 export class NpcRuntime {
- constructor(game){this.game=game;this.checks=new ArgumentChecks(this);this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
+ constructor(game){this.game=game;this.ruleResults=new RuleResults(this);this.checks=new ArgumentChecks(this);this.information=new Information(this);this.advanced=new AdvancedNpcs(this);this.active=null;this.worldSource=new WorldSource(game.data,game.world);this.routes=new CabRoutes(game.data.cab.routes);this.sourceBytes=new Map([...game.data.randomInputs.npcBytes,...game.data.randomInputs.ruleBytes]);}
  get w(){return this.game.world;}
  get state(){return this.w.npcs;}
  // A2BD decodes two packed flag bytes from the selected lexical model.
@@ -78,6 +79,7 @@ export class NpcRuntime {
   }
   if(g.startMode==='original'){w.tick=2;w.minutes=481;}else for(const a of w.scheduler.actors.slice(1))a.due=Math.max(0,a.due-1);
   w.playerDue=g.startMode==='original'?2:1;g.sourceDisplay.prompt();
+  this.ruleResults.invalidate(); // Boot input/WAIT bridge result is not yet projected.
   return messages;
  }
  prepare(actor){if(actor.id===this.w.player)return {};return this.use(({vm})=>{if(this.state.pending[actor.id]&&!this.w.scheduler.requests.some(r=>r.recipient===actor.id))this.w.scheduler.requests.unshift({sender:this.state.pending[actor.id].sender,recipient:actor.id,command:{continuation:true}});vm.prepare(actor.id);return {};});}
@@ -360,6 +362,11 @@ export class NpcRuntime {
   return no();
  }
  predicate(name,args,context){
+  const meta=this.game.data.npcPrograms.rules[name];
+  if(meta.predicateSource&&!['counter.delete','counter.decrement','entity.at'].includes(name))this.ruleResults.invalidate();
+  const result=this.evaluatePredicate(name,args,context);if(meta.predicateSource)this.ruleResults.predicate(name,meta,context.actor);return result;
+ }
+ evaluatePredicate(name,args,context){
   const [first,second]=args,w=this.w,actor=context.actor;
   switch(name){
    case 'counter.delete':case 'counter.decrement':return this.active.records.records('counters').some(p=>this.active.records.arena.byte(p)===actor);
@@ -381,6 +388,10 @@ export class NpcRuntime {
   }
  }
  ruleBody(name,args,context,messages,actions){
+  if(this.game.data.npcPrograms.rules[name].program)return this.runRuleBody(name,args,context,messages,actions);
+  const frame=this.ruleResults.begin(name,context.actor),result=this.runRuleBody(name,args,context,messages,actions);this.ruleResults.finish(frame);return result;
+ }
+ runRuleBody(name,args,context,messages,actions){
   const g=this.game,w=this.w,meta=g.data.npcPrograms.rules[name],actor=context.actor;
   const [first,second]=args;
   // Predicates run before allocating a deferred context or binding arguments.
@@ -461,6 +472,8 @@ export class NpcRuntime {
  }
  setActionClasses(action){this.modelFlags(action);const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
  action(action,input,context,messages,actions){
+  this.ruleResults.invalidate(); // Unprojected ordinary action callbacks must not retain a stale result.
+
   const actor=context.actor,w=this.w,g=this.game;this.state.executionPhase=0; // C4E9 action preflight.
   if(action>=128&&action<153){const meta=g.data.npcPrograms.internalActions?.[action];if(!meta)throw new UnsupportedFeature('azione interna '+action);return this.rule(meta,input,context,messages,actions);}
   this.setActionClasses(action);
@@ -617,6 +630,7 @@ export class NpcRuntime {
   if(address===0xCC0B){const actor=this.w.scheduler.current?.actor;if(actor===this.w.player)return this.state.playerFailures;return this.active?.vm.states[actor]?.failures??this.state.program.states[actor]?.failures??null;}
   if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
   if(address===0xD714)return this.state.editorTokenFlag??null;
+  if(address>=0xCB28&&address<=0xCB2B)return this.ruleResults.read(address);
   if(address===0xC128)return this.w.display?.windowMode??null;
   if(address===0xA019)return this.w.display?.counter??null;
   if(address===0xA01F||address===0xA020)return this.state.temporaryCost?.[address-0xA01F]??null;
@@ -669,6 +683,7 @@ export class NpcRuntime {
   if(s.nameQualifierMode!==undefined&&s.nameQualifierMode!==null&&(!Number.isInteger(s.nameQualifierMode)||s.nameQualifierMode<0||s.nameQualifierMode>255))throw Error('Modo dei qualificatori non valido');
   if(s.outputChannel!==undefined&&s.outputChannel!==null&&![0,1].includes(s.outputChannel))throw Error('Canale di output non valido');
   if(s.modelFlags!==undefined&&(!Array.isArray(s.modelFlags)||s.modelFlags.length!==2||s.modelFlags.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Flag del modello non validi');
+  if(s.ruleResultPointers!==undefined&&(!Array.isArray(s.ruleResultPointers)||s.ruleResultPointers.length!==2||s.ruleResultPointers.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>65535))))throw Error('Invalid saved rule result pointers');
   if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');
   if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');

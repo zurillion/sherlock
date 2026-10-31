@@ -1,15 +1,13 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [FINESTRA-DEL-TESTO-C128.md](FINESTRA-DEL-TESTO-C128.md).
-C128 è ricostruito nel profilo sorgente senza grafica originale: controlli
-18/36 colonne distinti, writer del modo e del contatore MORE, proprietà dei
-vecchi LOAD e lettura del generatore casuale. Prove brevi: 12 storie native,
-57 checkpoint, 205 draw/410 read; 36 chiamate originali controllate.
-Il confronto lungo riconferma 415 checkpoint0–414 sinoWed16:50,
-8296draw/17768read. Il prossimo limite effettivo è CB28 al checkpoint415,
-cuoca9, versoWed17:00: il comando è annullato, nessun ampliamento dichiarato. Restano PRINT/MORE, TAKE TO e la riga
-transitoria del giardiniere, cinque finali naturali e il limite cab separato.
-Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
+Aggiornamento corrente: [RISULTATI-DELLE-REGOLE-CB28.md](RISULTATI-DELLE-REGOLE-CB28.md).
+Superato il limite CB28 nel percorso naturale:421 checkpoint0–420 sino a
+Wed17:50,8441draw/18066read,stato completo,bitmap e futuroLOAD.
+Prossimo confine effettivo5D29 al421 versoWed18:00. Il ponte delle regole
+conserva due risultati distinti; proprietà parziale esplicita, nessun fallback.
+Restano PRINT/MORE,TAKE TO e la riga transitoria del giardiniere nella traccia
+continua separata, cinque finali naturali e il limite cab5D0C. Vedere
+RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle

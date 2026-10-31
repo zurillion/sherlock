@@ -1,0 +1,24 @@
+{
+  "unknown": {
+    "ranges_end_exclusive": [
+      [
+        "F19A",
+        "F1A8"
+      ]
+    ],
+    "bytes": 14
+  },
+  "partial": {
+    "ranges_end_exclusive": [
+      [
+        "E58C",
+        "E5A8"
+      ],
+      [
+        "E5AA",
+        "E5AD"
+      ]
+    ],
+    "bytes": 31
+  }
+}

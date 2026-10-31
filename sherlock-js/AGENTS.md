@@ -574,3 +574,48 @@ poi si ferma ancora al415 ma oraCB28, cuoca9/draw19 nel riferimento nativo,
 valore204. Non usare il valore catturato come fallback. La letturaC128 è
 draw10 del giardiniere8. Il confronto dello stato e di ogni draw NON viene
 esteso al checkpoint415 annullato. Prossimo lavoroCB28, non5D29 dedotto.
+
+
+31 ottobre2026 — leggere RISULTATI-DELLE-REGOLE-CB28.md e
+results/rule-registers-verification.json. CB28–CB2B sono risultati IX/IY:
+CB2C li ricarica per il corpo; CB34 chiama; CB37/CB3B salvano anche dopo
+predicato falso. Preflight fallito prima del ponte e corpo differito non
+sono writer. Campo npcs.ruleResultPointers=[word|null,word|null], oldLOAD
+assente restaunknown. Mai inferire IY da IX o installare zero/catture.
+RuleResults ricostruisce counter.create/decrement/delete, entity.at,
+location.save e i preservatori wait.tick/clock.hour/F198. Counter.create
+pubblica il nuovo record solo dopo il draw; durante il draw CB28 è precedente.
+E573 trova record o0 e conserva IY=intestazione. Rilascio E58C: IY è9FE7
+per il primo contatore o il record predecessore; IX è link del precedente
+blocco libero se la prima fusione riesce, altrimenti start del blocco
+liberato (A1FD/A204), non start+2. Non modificare l’allocatore per “correggerlo”.
+Game.executeNode resta il comportamento dell’azione; execute proietta solo
+il corpo OPEN/CLOSE ordinario riuscito(DE9D/DEAF): IX=descrittore risolto daA013,
+IY entrante se posseduto. Azioni rifiutate non stabiliscono il valore.
+Callback ignoti, parser/input e ritorno al prompt revocano la proprietà:
+D770 può sovrascrivere l’ultimoNPC. Non rivendicare tutti i rami del ponte.
+12 storie native/57checkpoint/205draw/410read con tutti24attori; controllo
+di ogni byte dichiarato posseduto, stato originale completo e futuroLOAD.
+92ABI contatori/arena e162ABI dei corpi OPEN/CLOSE. Quest’ultime bypassano
+maschere: non sono una prova di ammissibilità arbitraria dell’azione.
+Lettura naturale CB28 al415/draw19/cuoca9: il modello deriva90CC dalla
+plain door50 dopo l’azione del giardiniere; riferimento nativo legge204.
+Traccia lunga originale riutilizzata con percorso/SHA256, non una nuova
+acquisizione né una traccia dello store originale di quel minuto.
+Prefisso completo421 checkpoint0–420 sinoWed17:50,8441draw/18066read,
+24attori,arena752,bitmap e futuroLOAD. Prossimo5D29 al421 versoWed18:00,
+ora osservato, non dedotto per vicinanza. Cinque finali,cab5D0C e i tre
+controesempi precedenti restano aperti. Helper compareNaturalHistory ha
+hook solo osservativi opzionali: nessuna asserzione è tolta o normalizzata.
+Atlante255istruzioni/573byte:14 byte grigiF19A–F1A7 e31 byte parziali
+E58C–E5A7/E5AA–E5AC ora documentati. Approfonditi CB28–CB40,C9BF–CA75,
+A1C7–A24C,E52F–E5AC,DE9D–DEC0,D769–D77D,F198–F1A7,F1D6–F1F5.
+Copertura38784documentati/433parziali/2383sconosciuti su41600.
+
+Verifica conclusiva CB28:42 test mirati distinti passati, inclusi i due
+controesempi conservati. Certificato positivo tools/verify-witness-prefix.mjs
+completato e scritto. Il log di scoperta aveva trovato5D29 ma fallito solo
+lo store del rapporto EPERM; lookahead.json lo distingue dal certificato
+positivo, senza inventare un numero di draw parziali al421. Traccia cache
+JS in /private/tmp usata solo per diagnosi rapida, non come prova nativa
+o fixture giocabile; la prova completa riparte dall’avvio naturale.

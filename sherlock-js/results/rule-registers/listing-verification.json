@@ -1,0 +1,190 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 255,
+  "bytes_roundtripped": 573,
+  "regions": [
+    {
+      "start": "CB28",
+      "end_exclusive": "CB2C",
+      "kind": "data",
+      "label": "Puntatori IX/IY restituiti dall’ultima regola",
+      "atlas_priority": 146,
+      "fields": [
+        [
+          "CB28–CB29",
+          "Risultato IX",
+          "Descrittore, contatore o link restituito; solo callback compresi posseduti"
+        ],
+        [
+          "CB2A–CB2B",
+          "Risultato IY",
+          "Intestazione o predecessore; può essere sconosciuto anche con IX noto"
+        ],
+        [
+          "Writer",
+          "CB37 / CB3B",
+          "Store anche dopo predicato falso; corpo differito non esegue CB2C"
+        ],
+        [
+          "LOAD",
+          "Proprietà esplicita",
+          "Assente resta sconosciuto; non installare zero o il valore di una cattura"
+        ]
+      ]
+    },
+    {
+      "start": "CB2C",
+      "end_exclusive": "CB41",
+      "kind": "code",
+      "label": "Ponte regole: ripristino, chiamata e conservazione dei risultati",
+      "atlas_priority": 146
+    },
+    {
+      "start": "C9BF",
+      "end_exclusive": "CA76",
+      "kind": "code",
+      "label": "Preflight, predicato, durata e corpo immediato o differito",
+      "atlas_priority": 146
+    },
+    {
+      "start": "A1C7",
+      "end_exclusive": "A24D",
+      "kind": "code",
+      "label": "Rilascio dei record: link finale e fusioni dei blocchi liberi",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E52F",
+      "end_exclusive": "E531",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Creazione del contatore privato",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E531",
+      "end_exclusive": "E560",
+      "kind": "code",
+      "label": "Creazione del contatore privato",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E57A",
+      "end_exclusive": "E57E",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Decremento del contatore privato",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E57E",
+      "end_exclusive": "E588",
+      "kind": "code",
+      "label": "Decremento del contatore privato",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E588",
+      "end_exclusive": "E58C",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Cancellazione del contatore privato",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E58C",
+      "end_exclusive": "E5A8",
+      "kind": "code",
+      "label": "Cancellazione del contatore privato",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E5A8",
+      "end_exclusive": "E5AA",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Attesa di un tick",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E5AA",
+      "end_exclusive": "E5AD",
+      "kind": "code",
+      "label": "Attesa di un tick",
+      "atlas_priority": 146
+    },
+    {
+      "start": "DE9D",
+      "end_exclusive": "DEA4",
+      "kind": "data",
+      "label": "Intestazione tipizzata · OPEN ordinario: descrittore dell’oggetto restituito",
+      "atlas_priority": 146
+    },
+    {
+      "start": "DEA4",
+      "end_exclusive": "DEAF",
+      "kind": "code",
+      "label": "OPEN ordinario: descrittore dell’oggetto restituito",
+      "atlas_priority": 146
+    },
+    {
+      "start": "DEAF",
+      "end_exclusive": "DEB6",
+      "kind": "data",
+      "label": "Intestazione tipizzata · CLOSE ordinario: descrittore dell’oggetto restituito",
+      "atlas_priority": 146
+    },
+    {
+      "start": "DEB6",
+      "end_exclusive": "DEC1",
+      "kind": "code",
+      "label": "CLOSE ordinario: descrittore dell’oggetto restituito",
+      "atlas_priority": 146
+    },
+    {
+      "start": "F198",
+      "end_exclusive": "F19A",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Scelta probabilistica: conserva i puntatori della regola",
+      "atlas_priority": 146
+    },
+    {
+      "start": "F19A",
+      "end_exclusive": "F1A8",
+      "kind": "code",
+      "label": "Scelta probabilistica: conserva i puntatori della regola",
+      "atlas_priority": 146
+    },
+    {
+      "start": "F1D6",
+      "end_exclusive": "F1D8",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Test dell’ora: conserva i puntatori entranti",
+      "atlas_priority": 146
+    },
+    {
+      "start": "F1D8",
+      "end_exclusive": "F1F6",
+      "kind": "code",
+      "label": "Test dell’ora: conserva i puntatori entranti",
+      "atlas_priority": 146
+    },
+    {
+      "start": "D769",
+      "end_exclusive": "D76D",
+      "kind": "data",
+      "label": "Intestazione tipizzata · Polling del parser: rami di ritorno ancora non proiettati",
+      "atlas_priority": 146
+    },
+    {
+      "start": "D76D",
+      "end_exclusive": "D77E",
+      "kind": "code",
+      "label": "Polling del parser: rami di ritorno ancora non proiettati",
+      "atlas_priority": 146
+    },
+    {
+      "start": "E560",
+      "end_exclusive": "E57A",
+      "kind": "code",
+      "label": "Ricerca del contatore: puntatore al record o zero",
+      "atlas_priority": 146
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "completed_checkpoints": 415,
+  "last_complete_clock": {
+    "tick": 3411,
+    "due": 3781,
+    "minute": 50,
+    "hour": 4,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 04:50pm"
+  },
+  "partial_checkpoint": 415,
+  "partial_draws_compared": 19,
+  "last_compared_draw_pointers": [
+    null,
+    null
+  ],
+  "error": "415 Ingresso casuale originale non ancora ricostruito: $CB28. Il comando non è stato applicato."
+}
