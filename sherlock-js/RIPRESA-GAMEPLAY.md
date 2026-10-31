@@ -7,23 +7,26 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
    415 checkpoint, da 0 a 414, fino a mercoledì 16:50: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
    contatore MORE e futuro dopo LOAD. 8296 draw e 17768 read confrontati.
-   Vedere QUALIFICATORI-DEI-NOMI-A028.md e results/name-qualifier-mode/witness-prefix.json.
+   Prefisso riconfermato dopo C128: FINESTRA-DEL-TESTO-C128.md e
+   results/text-window-mode/witness-prefix.json.
 
-2. **Prossimo confine reale: $C128 al checkpoint415 verso mercoledì17:00.**
-   SuperatoA028: modo dei qualificatori nella tuple nomeD405/D410.
-   Zero considera i due qualificatori, nonzero salta al sostantivo.
-   D3E8 per il nome entità non legge il flag: non applicare il filtro a
-   ogni oggetto. Otto writer ricostruiti, incluso HAIL speciale degliNPC.
-   Comando testo0/A65E scrive0, comando4/A709 conserva; il metadato
-   nameMode:full mantiene questa distinzione senza confondere roomID
-   ed entityID. Argomento con copulaA7B4 prende ID daD e scrive modo1.
-   Lettura cuoca9: ultimo writerA37E/tick3399/giardiniere8/chiamanteA34B.
-   OldLOAD senza campo restaunknown; i nomi della mappa restano puri.
-   12 storie brevi, 16ABI di tuple e18ABI di token; traccia continua3281
-   checkpoint sinoWed16:50 verifica modo e ogni draw, non ogni stato.
-   I tre controesempi preesistenti restano sotto, cinque finali e cab5D0C
-   ancora aperti. Atlante:89 byte grigiA65E–A678/A709–A71F/A793–A7B9,
-   eA028 da parziale a documentato. Non introdurre5D29 per vicinanza.
+2. **$C128 ricostruito: finestra sorgente del testo.**
+   Vedere FINESTRA-DEL-TESTO-C128.md e results/text-window-mode-verification.json.
+   Zero significa 36 colonne; nonzero 18. C129 azzera il contatore MORE,
+   C142 lo conserva. Boot, input accettato e MORE scrivono il modo largo.
+   Il runtime espone il campo ai random; vecchi LOAD privi del campo restano
+   unknown fino a un writer compreso. SVG/pixel della pagina non lo modificano.
+   12 storie native brevi, 57 checkpoint, 205 draw/410 read, più 36 ABI
+   originali dei controlli. Le letture casuali native sono riutilizzate dal
+   riferimento completo con SHA256, non da una nuova acquisizione lunga.
+   Il renderer sorgente mantiene il profilo senza immagini originali:
+   controlli stretti verificati, bitmap stretti completi non certificati.
+   Nessun nuovo byte grigio: approfonditi C128, C129–C15F, A277–A295,
+   C2CA–C37C, D719–D725. Non anticipare il prossimo indirizzo senza il
+   primo fallimento effettivo del confronto lungo.
+   **Osservato: CB28 al checkpoint415, cuoca9, verso Wed17:00.**
+   Valore nativo204 al draw19; non usare tale byte come fallback. Il comando
+   è annullato, quindi il certificato completo resta0–414 senza ampliamento.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

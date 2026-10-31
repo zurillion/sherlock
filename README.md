@@ -10,8 +10,9 @@ web esegue la logica ricostruita nel browser.
 
 La ricostruzione è ancora parziale. L’ultimo prefisso naturale certificato
 comprende 415 checkpoint fino a mercoledì 16:50, con tutti i 24 posti attore,
-estrazioni casuali, stato e output confrontati con l’originale. Il prossimo
-limite dichiarato è C128. La documentazione distingue i test controllati dalla
+estrazioni casuali, stato e output confrontati con l’originale. La successiva dipendenza C128 è stata ricostruita
+con prove native mirate; il prossimo limite effettivo è CB28. Vedere
+`sherlock-js/FINESTRA-DEL-TESTO-C128.md`. La documentazione distingue i test controllati dalla
 certificazione di una partita completa e conserva i limiti ancora aperti.
 
 ## Contenuto

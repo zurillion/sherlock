@@ -342,6 +342,10 @@ export class Game {
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
     const pendingBefore=this.pending;let parsed;try{parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null,onAll:this.world.npcs?value=>{this.world.npcs.parserAll=value;}:null});}finally{if(this.world.npcs&&!['load','quit'].includes(parsed?.control))this.npcRuntime.setClarificationOffset(0);}index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
     if(parsed.outcome==='control'){
+     // Special-control preflight has separate source paths (including the
+     // retained PRINT counter boundary). It cannot establish a missing flag
+     // merely because this adapter tokenized the line.
+     if(this.world.display&&!units.length&&checkpoint.world.display?.windowMode==null)this.world.display.windowMode=null;
      this.pending=pendingBefore;const control=parsed.control;this.analysis.control=control;(this.analysis.controls??=[]).push(control);if(this.world.npcs&&(!pendingBefore||control==='save'))this.npcRuntime.use(({records})=>{const p=this.npcRuntime.syntaxRecord({verb:0,modifier:0,groups:[],subject:null},records);if(control==='quit')records.heads.syntax=p;else records.arena.release(p);});
      if(!['pause','print','noprint','save','load','quit'].includes(control))throw new UnsupportedFeature('controllo '+control+' (porta nastro non ancora collegata)');
      if(control==='quit'){if(this.world.npcs)this.world.npcs.playerProgramCounter='9932';this.ended={entry:'B0A6',reason:'quit'};break;}

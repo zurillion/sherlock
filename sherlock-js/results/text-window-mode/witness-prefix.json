@@ -1,0 +1,35 @@
+{
+  "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+  "checkpoints": 415,
+  "random_draws": 8298,
+  "clock": {
+    "tick": 3411,
+    "due": 3781,
+    "day": 2,
+    "minute": 50,
+    "hour": 4,
+    "period": "pm",
+    "label": "Wed 04:50pm"
+  },
+  "terminal": null,
+  "all_actors": 24,
+  "load_future_compared": true,
+  "arena_bytes_per_checkpoint": 752,
+  "bitmaps_compared": true,
+  "compared_random_draws": 8296,
+  "compared_random_reads": 17768,
+  "certified_checkpoint_range": [
+    0,
+    414
+  ],
+  "full_history_checkpoints": 521,
+  "full_ending_certified": false,
+  "next_boundary": {
+    "checkpoint": 415,
+    "target_clock": "Wed 05:00pm",
+    "resolved_address": "C128",
+    "unknown_address": "CB28",
+    "note": "No captured or initial byte is installed as a fallback."
+  },
+  "evidence": "The full lookahead ran compareNaturalHistory and completed checkpoints0\u2013414 before its explicit unsupported assertion at415; results/text-window-mode/lookahead.txt. No full-state certification of the rolled-back checkpoint415."
+}

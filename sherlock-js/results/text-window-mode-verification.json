@@ -1,0 +1,230 @@
+{
+  "scope": "C128 source text-window mode. Canonical native graphics-off profile; browser image preferences are presentation only.",
+  "native_short_histories": {
+    "cases": 12,
+    "checkpoints": 57,
+    "compared_random_draws": 205,
+    "compared_random_reads": 410,
+    "all_actors": 24,
+    "full_original_state": true,
+    "load_future_compared": true,
+    "unclassified_transitions": 0
+  },
+  "controlled_original_calls": {
+    "cases": 36,
+    "entries": [
+      "C129",
+      "C142",
+      "C306"
+    ],
+    "incoming_modes": [
+      0,
+      1,
+      7
+    ],
+    "incoming_counters": [
+      0,
+      7,
+      15,
+      255
+    ],
+    "narrow_bitmaps_certified": false
+  },
+  "reused_native_random_evidence": {
+    "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+    "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "protocol": "Reuse of original major-witness seed1 reference, all24 actors and original graphics disabled; no new long native run is claimed. Native clock shown is the checkpoint, not an invented exact draw time.",
+    "reads": [
+      {
+        "checkpoint": 415,
+        "draw": 10,
+        "checkpoint_clock": {
+          "tick": 3421,
+          "due": 3781,
+          "minute": 0,
+          "hour": 5,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 05:00pm"
+        },
+        "random": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 146,
+          "cursor": 49186,
+          "reads": [
+            {
+              "address": 49442,
+              "value": 2
+            },
+            {
+              "address": 49448,
+              "value": 0
+            }
+          ],
+          "result": 49,
+          "next_seed": 148,
+          "next_cursor": 49442
+        }
+      },
+      {
+        "checkpoint": 497,
+        "draw": 16,
+        "checkpoint_clock": {
+          "tick": 4221,
+          "due": 4501,
+          "minute": 20,
+          "hour": 6,
+          "day": 3,
+          "period": "am",
+          "label": "Thu 06:20am"
+        },
+        "random": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 89,
+          "cursor": 49192,
+          "reads": [
+            {
+              "address": 49448,
+              "value": 0
+            },
+            {
+              "address": 49454,
+              "value": 50
+            }
+          ],
+          "result": 8,
+          "next_seed": 107,
+          "next_cursor": 49448
+        }
+      }
+    ]
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 140,
+    "bytes_roundtripped": 279,
+    "regions": [
+      {
+        "start": "C128",
+        "end_exclusive": "C129",
+        "kind": "data",
+        "label": "Modo della finestra sorgente: largo0 / stretto nonzero",
+        "atlas_priority": 145,
+        "fields": [
+          [
+            "0",
+            "36 colonne",
+            "Profilo sorgente canonico senza grafica originale; indipendente dal browser"
+          ],
+          [
+            "1 / nonzero",
+            "18 colonne",
+            "IngressoC129 per immagini; controlli logici verificati, nessun certificato completo dei bitmap nativi stretti"
+          ],
+          [
+            "Writer",
+            "C12E eC143",
+            "18 resettaA019,36 lo preserva. Boot/parsing/MORE ristabiliscono0"
+          ],
+          [
+            "LOAD",
+            "proprietà esplicita",
+            "Campo assente restaunknown fino al writer; non derivare daSVG/pixel o dal numero di caratteri di una riga"
+          ]
+        ]
+      },
+      {
+        "start": "C129",
+        "end_exclusive": "C160",
+        "kind": "code",
+        "label": "Controlli della finestra e inizializzazione tramite C142",
+        "atlas_priority": 145
+      },
+      {
+        "start": "A277",
+        "end_exclusive": "A296",
+        "kind": "code",
+        "label": "Schermo per immagine: pulizia e ingresso a18 colonne",
+        "atlas_priority": 145
+      },
+      {
+        "start": "C2CA",
+        "end_exclusive": "C306",
+        "kind": "code",
+        "label": "Linefeed: contatore MORE e ripristino della larghezza",
+        "atlas_priority": 145
+      },
+      {
+        "start": "C306",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "MORE: ritorno largo; scroll parziale o completo",
+        "atlas_priority": 145
+      },
+      {
+        "start": "D719",
+        "end_exclusive": "D726",
+        "kind": "code",
+        "label": "Input accettato: azzera il contatore e chiama C142",
+        "atlas_priority": 145
+      }
+    ]
+  },
+  "atlas": {
+    "new_previously_grey_bytes": 0,
+    "documented": 38739,
+    "partial": 464,
+    "unknown": 2397,
+    "total": 41600
+  },
+  "limitations": [
+    "Only historical-text-only source display profile is supported. Logical narrow controls are verified; full narrow native bitmaps are not.",
+    "Old LOAD missing windowMode stays unknown until a reconstructed writer.",
+    "PRINT/MORE, TAKE TO, continuous gardener state checkpoint1671, cab5D0C and five natural endings remain open."
+  ],
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 415,
+    "random_draws": 8298,
+    "clock": {
+      "tick": 3411,
+      "due": 3781,
+      "day": 2,
+      "minute": 50,
+      "hour": 4,
+      "period": "pm",
+      "label": "Wed 04:50pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8296,
+    "compared_random_reads": 17768,
+    "certified_checkpoint_range": [
+      0,
+      414
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 415,
+      "target_clock": "Wed 05:00pm",
+      "resolved_address": "C128",
+      "unknown_address": "CB28",
+      "note": "No captured or initial byte is installed as a fallback."
+    },
+    "evidence": "The full lookahead ran compareNaturalHistory and completed checkpoints0–414 before its explicit unsupported assertion at415; results/text-window-mode/lookahead.txt. No full-state certification of the rolled-back checkpoint415."
+  },
+  "targeted_tests": {
+    "runtime_native_ownership_provenance_and_retained_boundaries": 17,
+    "atlas_and_hosting": 8,
+    "total_distinct": 25,
+    "failures": 0
+  }
+}

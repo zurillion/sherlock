@@ -547,3 +547,30 @@ A7BA–A7CF,D1C6–D1DA,D3D5–D447,D526–D559,D60B–D66F. Riferire le zone.
 Verifica conclusivaA028:49 controlli mirati distinti passati. La prova
 continua include3281 checkpoint/8296draw/17768read, senza allargare la
 certificazione di stato completo oltre i415 checkpoint originali.
+
+
+31 ottobre 2026 — leggere FINESTRA-DEL-TESTO-C128.md e
+results/text-window-mode-verification.json. C128 è modo finestra sorgente:
+0 largo36, nonzero stretto18. C129/C12E azzeraA019 e scrive1; C142/C143
+scrive0 ma conservaA019. Entrambi riposizionano il cursore; non cancellano
+la parola pendente. BootC15D e inputD71D chiamanoC142; inputD719 azzera
+prima il contatore. MOREC311 chiamaC142 senza azzerareA019: callerC2D4
+FF/INC ->0. CR senzaMORE non è writer. world.display.windowMode posseduto
+solo da writer compresi; oldLOAD assente restaunknown anche dopo prompt,
+eco ed errori lessicali. Preflight controlli speciali non stabilisce un
+flag assente: conservare il controesempio PRINT/MORE. C142 funziona anche
+con tokens workspace mancante. Profilo casuale historical-text-only largo:
+LOAD nonzero rifiutato; controlli ABI stretti verificati, bitmap completi
+nativi stretti no. SVG/pixel UI sono presentazione, non writerC128.
+12 storie/57checkpoint/205draw/410read,36ABI C129/C142/C306, provenienza
+SHA256 delle due letture C128 nel riferimento nativo completo riutilizzato.
+Atlante140istruzioni/279byte approfonditi: C128,C129–C15F,A277–A295,
+C2CA–C37C,D719–D725. Zero byte prima grigi; copertura invariata.
+Tre controesempi precedenti, cinque finali naturali e cab5D0C ancora aperti.
+
+Esito C128:25 test mirati distinti passati. Il lookahead completo riconferma
+415checkpoint0–414 sinoWed16:50,8296draw/17768read, stato completo eLOAD,
+poi si ferma ancora al415 ma oraCB28, cuoca9/draw19 nel riferimento nativo,
+valore204. Non usare il valore catturato come fallback. La letturaC128 è
+draw10 del giardiniere8. Il confronto dello stato e di ogni draw NON viene
+esteso al checkpoint415 annullato. Prossimo lavoroCB28, non5D29 dedotto.

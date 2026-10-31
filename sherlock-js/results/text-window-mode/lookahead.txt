@@ -1,0 +1,3 @@
+AssertionError [ERR_ASSERTION]: 415 Ingresso casuale originale non ancora ricostruito: $CB28. Il comando non è stato applicato.
+    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)
+    at async file:///private/tmp/sherlock-lookahead-5d27.mjs:3:17

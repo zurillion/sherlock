@@ -617,6 +617,7 @@ export class NpcRuntime {
   if(address===0xCC0B){const actor=this.w.scheduler.current?.actor;if(actor===this.w.player)return this.state.playerFailures;return this.active?.vm.states[actor]?.failures??this.state.program.states[actor]?.failures??null;}
   if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
   if(address===0xD714)return this.state.editorTokenFlag??null;
+  if(address===0xC128)return this.w.display?.windowMode??null;
   if(address===0xA019)return this.w.display?.counter??null;
   if(address===0xA01F||address===0xA020)return this.state.temporaryCost?.[address-0xA01F]??null;
   if(address===0xA01C)return this.state.resolutionMode??null;

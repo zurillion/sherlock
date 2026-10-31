@@ -1,0 +1,73 @@
+{
+  "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+  "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+  "protocol": "Reuse of original major-witness seed1 reference, all24 actors and original graphics disabled; no new long native run is claimed. Native clock shown is the checkpoint, not an invented exact draw time.",
+  "reads": [
+    {
+      "checkpoint": 415,
+      "draw": 10,
+      "checkpoint_clock": {
+        "tick": 3421,
+        "due": 3781,
+        "minute": 0,
+        "hour": 5,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 05:00pm"
+      },
+      "random": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 146,
+        "cursor": 49186,
+        "reads": [
+          {
+            "address": 49442,
+            "value": 2
+          },
+          {
+            "address": 49448,
+            "value": 0
+          }
+        ],
+        "result": 49,
+        "next_seed": 148,
+        "next_cursor": 49442
+      }
+    },
+    {
+      "checkpoint": 497,
+      "draw": 16,
+      "checkpoint_clock": {
+        "tick": 4221,
+        "due": 4501,
+        "minute": 20,
+        "hour": 6,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 06:20am"
+      },
+      "random": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 89,
+        "cursor": 49192,
+        "reads": [
+          {
+            "address": 49448,
+            "value": 0
+          },
+          {
+            "address": 49454,
+            "value": 50
+          }
+        ],
+        "result": 8,
+        "next_seed": 107,
+        "next_cursor": 49448
+      }
+    }
+  ]
+}

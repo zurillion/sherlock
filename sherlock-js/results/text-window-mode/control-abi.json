@@ -1,0 +1,617 @@
+{
+  "protocol": "Controlled original C129/C142/C306 calls, initial flag0/1/7 and A0190/7/15/255. Cursor supplied as declared. C415 gets immediate SPACE under the standard oracle protocol. No opcode patches; control registers only, not full narrow-mode graphics parity.",
+  "cases": [
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 1,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 1,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 1,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 7,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 7,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 7,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C129",
+      "before": {
+        "mode": 7,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 18,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 1,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 1,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 1,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 7,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 7,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 7,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C142",
+      "before": {
+        "mode": 7,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 1,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 1,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 1,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 1,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 7,
+        "counter": 0,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 0,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 7,
+        "counter": 7,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 7,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 7,
+        "counter": 15,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 15,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    },
+    {
+      "entry": "C306",
+      "before": {
+        "mode": 7,
+        "counter": 255,
+        "remaining": 11,
+        "pointer": 20522,
+        "shift": 3
+      },
+      "after": {
+        "mode": 0,
+        "counter": 255,
+        "remaining": 36,
+        "pointer": 20512,
+        "shift": 2
+      }
+    }
+  ]
+}
