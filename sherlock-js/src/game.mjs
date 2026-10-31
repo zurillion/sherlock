@@ -39,7 +39,7 @@ export class Game {
  // only the screen sink and dictionary/name writes are suppressed there.
  npcTextContext(actor,{preserveFlags=false}={}){if(!this.world.display)return {};if(!this.world.perceived(actor))return {bufferVisible:false,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,{...options,hidden:true})};this.sourceDisplay.invalidateGlyphExtras({preserveFlags});const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame,upper=this.sourceDisplay.upperGlyphKnown;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;this.sourceDisplay.upperGlyphKnown=false;try{write();}finally{this.sourceDisplay.glyphFrame=previous;this.sourceDisplay.upperGlyphKnown=upper;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
- projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative'){this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace});if(this.world.npcs&&/[A-Za-z]/.test(m.raw_text??m.text))this.world.npcs.dictionaryReference=null;}}
+ projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative'){this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace,moneyEnds:m.money_ends});if(this.world.npcs&&/[A-Za-z]/.test(m.raw_text??m.text))this.world.npcs.dictionaryReference=null;}}
  sceneMessage(options={}){const scene_trace=[];return {kind:'narrative',text:this.text.scene({source:'arrival',...options,trace:scene_trace}),scene_trace};}
  word(id){return this.dictionary.word(id)?.stem||'';}
  queryName(group){return [...group.qualifiers,group.noun].filter(Boolean).map(id=>this.word(id)).join(' ')||'anything';}
@@ -174,7 +174,7 @@ export class Game {
    // E36A "not enough" routine is not the visible player-command result.
    if(!transferMoney(w,actor,target.entity.id,pence))return reject("DON'T BE SILLY.");
    const amount=formatMoney(pence);
-   return ok([say('pay',' '+amount+(amount.endsWith('.')?' To ':' to ')+w.name(target.entity.id)+'.','pays')],1,[254,target.entity.id]);
+   const text=say('pay',' '+amount+(amount.endsWith('.')?' To ':' to ')+w.name(target.entity.id)+'.','pays');return ok([{kind:'narrative',text,money_ends:[{end:text.indexOf(amount)+amount.length,pence}]}],1,[254,target.entity.id]);
   }
   if(action===47||action===48){
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
@@ -294,7 +294,7 @@ export class Game {
   if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs){if(!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();else this.sourceDisplay.invalidateScratch(0x5D12);}e.status|=64;
    const characters=[],description=e.description?this.text.render(e.description,{object:e.id,sink:c=>{if(c==='\b')characters.pop();else characters.push(c);}}):`${subject} see ${w.name(e.id,{indefinite:true})}.`,announcement=say('examine',' '+w.name(e.id)+'.')+'\n';
    return ok([{kind:'narrative',text:announcement+description,raw_text:announcement+(e.description?characters.join(''):description)+'\n'}],1,[e.id]);}
-  if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');return ok([`You count ${w.name(e.id)}.\nIt totals ${formatMoney(e.pence&16383)}`],1,[e.id]);}
+  if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');const pence=e.pence&16383,text=`You count ${w.name(e.id)}.\nIt totals ${formatMoney(pence)}`;return ok([{kind:'narrative',text,money_ends:[{end:text.length,pence}]}],1,[e.id]);}
   throw new UnsupportedFeature('azione '+action);
  }
  // ALL selects references, rather than turning into one synthetic action with

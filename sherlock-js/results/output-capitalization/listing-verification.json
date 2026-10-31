@@ -1,0 +1,77 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 249,
+  "bytes_roundtripped": 477,
+  "regions": [
+    {
+      "start": "A026",
+      "end_exclusive": "A027",
+      "kind": "data",
+      "label": "Maiuscola pendente: stato persistente distinto da spazio, CR e forzatura",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A7D0",
+      "end_exclusive": "A7EA",
+      "kind": "code",
+      "label": "Nome proprio: selezione del bit e caso YOU",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A7EA",
+      "end_exclusive": "A7EB",
+      "kind": "data",
+      "label": "Latch del nome proprio:0 oppure1, azzerato per entit\u00e0 non persona",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A815",
+      "end_exclusive": "A82F",
+      "kind": "code",
+      "label": "Emissione del nome: OR indiretto dopo la parola, anche invisibile",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8AC",
+      "kind": "code",
+      "label": "Dizionario in contesto70: writer1 dopo il separatore iniziale",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "AA71",
+      "kind": "code",
+      "label": "Buffer e normalizzazione: maiuscola decisa quando la parola viene scaricata",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A419",
+      "end_exclusive": "A476",
+      "kind": "code",
+      "label": "Importi: writer0 soltanto nei rami con D-punto o scellini esatti",
+      "atlas_priority": 155
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Tuple nome: propagazione della maiuscola tra qualificatori e sostantivo",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A851",
+      "end_exclusive": "A852",
+      "kind": "data",
+      "label": "Forzatura delle maiuscole: stato diverso daA026",
+      "atlas_priority": 155
+    },
+    {
+      "start": "A852",
+      "end_exclusive": "A85C",
+      "kind": "code",
+      "label": "Toggle della forzatura: A026 resta indipendente",
+      "atlas_priority": 155
+    }
+  ]
+}

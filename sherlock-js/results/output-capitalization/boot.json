@@ -1,0 +1,21 @@
+{
+  "protocol": "Four original cold starts/all24 actors, A026 at first prompt.",
+  "cases": [
+    {
+      "seed": 1,
+      "value": 1
+    },
+    {
+      "seed": 2,
+      "value": 1
+    },
+    {
+      "seed": 77,
+      "value": 1
+    },
+    {
+      "seed": 255,
+      "value": 1
+    }
+  ]
+}

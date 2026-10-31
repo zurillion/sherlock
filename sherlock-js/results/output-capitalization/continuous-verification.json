@@ -1,0 +1,52 @@
+{
+  "scope": "Continuous A026 at every minute checkpoint and every draw/read. Full-state acceptance is a separate bounded certificate. No normalization or byte fallback.",
+  "checkpoints": 3752,
+  "clock": {
+    "tick": 3881,
+    "due": 4501,
+    "day": 3,
+    "minute": 40,
+    "hour": 12,
+    "period": "am",
+    "label": "Thu 12:40am"
+  },
+  "draws": 9255,
+  "reads": 19772,
+  "unclassified_original_transitions": [],
+  "observed_A026_reads": [
+    {
+      "checkpoint": 3751,
+      "tick": 3880,
+      "capitalization": 1,
+      "last_store": {
+        "pc": "AA4C",
+        "a": 1,
+        "tick": 3878,
+        "actor": 36,
+        "name_capital": 0,
+        "force": 0,
+        "spacing": 1,
+        "stack_top": "2E22",
+        "value": 1
+      },
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 180,
+      "cursor": 40742,
+      "reads": [
+        {
+          "address": 40998,
+          "value": 1
+        },
+        {
+          "address": 15635,
+          "value": 0
+        }
+      ],
+      "result": 82,
+      "next_seed": 181,
+      "next_cursor": 40998
+    }
+  ]
+}

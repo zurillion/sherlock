@@ -937,3 +937,52 @@ Verifica finaleA025:48test mirati passati; suite completa1737/1737PASS,
 zero errori/skipped/cancelled. Certificato completo e lookahead rieseguiti sul
 runtime definitivo dopo i suffissi monetari invisibili, nessun campo escluso.
 Dossier, atlante, screenshot e provenienza salvati; pubblicare suorigin/main.
+
+31 ottobre2026 — leggere MAIUSCOLE-E-FORMATTER-A026.md e
+results/output-capitalization-verification.json. A026 proiettato in
+world.display.capitalizationFlag, iniziale1 estratto dal payload; boot1 con
+seed1/2/77/255. Non inferire dalla grafia finale, daA025 o da started/cursor.
+Cinque writer: AA4C=1 per punto/quote normalizzati; AA66=0 perlettera;
+A8A9=1 dopo il separatore di contesto70 visibile e offset nonzero;
+A82C |= A7EA dopo ogni parola del nome nonnulla, anche se invisibile;
+A464=0 solo nei rami monetariD-punto o scellini esatti/trattino.
+CR non scriveA026. La parola ancora nel buffer non normalizza. A851
+forza la grafia ma A026 dopolettera è0 in entrambi i rami, quindi non
+introdurre una proprietà fittizia diA851 come ingresso casuale.
+A7D0 inizializza il latch0, eccezioneYOU/09EE, altri propri1; D3F9
+azzera per entità senza attributo persona. OR1 conserva255 e non rende
+noto un vecchioSAVE senza campo. D405 delle locazioni non ha quel filtro.
+Classi dei caratteri del buffer preservanolettera/punto-quote/altro anche
+quando il byte fisico restaunknown. Backspace mantiene solo i superstiti;
+lexicalWorkspace aggiorna le classi dei byte sovrascritti. OldSAVE assente
+restaunknown fino a writer. SAVE/LOAD preserva flag/classi e futuro.
+A419 riceve valuta CODIFICATA, non pence grezzo. PAY/COUNT/demand/sayPayment
+collegano moneyCapital dopo i caratteri dell’importo e prima del resto.
+Nessun reset generico a fine comando. Nuovo modulo output-capitalization.mjs
+è logica funzionale di caratteri/dati, nessun interpreteCPU o replay.
+ABI984formatter+32nomeOR+144valuta+32dizionario; confrontoA026 non tutte
+le bitmap dei setup controllati.9storie naturali/34input/64checkpoint,
+ogni draw e futuroLOAD;98test mirati comprendono50nuovi+48regressioneA025.
+Nuova traccia continua originale3752checkpoint sinoThu00:40,9255draw/
+19772read; flag a ogni minuto/draw,0transizioni non classificate, tutti5writer.
+Watson3 legge1 al3880/Thu00:39, ultimoAA4C al3878/steam train36.
+Counts originali: A82C8672,AA66596,AA4C6925,A46415,A8A962.
+Certificato positivo completo separato498checkpoint0–497 sinoThu06:20,
+9785draw/20878read,24attori,arena752,bitmap e futuroLOAD;9787runtime con2boot.
+ProssimoCB28 al498 versoThu06:30,cuoca9/draw1,originale131. Non installare83
+catturato né inferire dal vicino; ricostruire proprietà e writer del risultato.
+Checkpoint498 escluso.5D2B non introdotto. A851 non pubblicato come ingresso.
+Atlante249istruzioni/477byte: A026,A7D0–A7E9,A7EA,A815–A82E,A887–A8AB,
+A9B7–AA70,A419–A475,D3E8–D447,A851–A85B. A026 parziale→documentato,
+A7EA è1byte dati prima grigio. Copertura38850/428/2322 su41600. Riferirezone.
+Questa è la proiezioneA026, non nuova equivalenza globale di tutti i percorsi
+dell’impaginazione/casing. Bitmap certificate soltanto nei profili dichiarati.
+Cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO,dialogoWatsonKilledYou restanoaperti.
+
+Verifica finaleA026:98test mirati(50nuovi+48regressioneA025)passati;
+verificati1787test distinti senza errori applicativi residui. Suite iniziale:
+1093pass,40worker non avviati perlibsimdjson.34dylib mancante nel vecchioNode_1.
+I40file rieseguiti conNode_2 aggiornato:694/694PASS. Non dichiarare una
+seconda esecuzione intera1787/0; log iniziale e rerun separati. Prefisso completo
+e lookahead sul codice definitivo dopo il collegamento dei rami monetari.
+Dossier,atlante,provenienza,screenshot e rapporti salvati; pubblicare suorigin/main.

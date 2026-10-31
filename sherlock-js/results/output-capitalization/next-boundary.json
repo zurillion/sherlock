@@ -1,0 +1,9 @@
+{
+  "checkpoint": 498,
+  "target_clock": "Thu 06:30am",
+  "unknown_address": "CB28",
+  "actor": 9,
+  "draw_index": 1,
+  "native_value": 131,
+  "scope": "Failed checkpoint excluded from positive full-state certificate. Reconstruct actual writer and ownership; no recorded-value fallback, inference from neighbours or excluded comparisons."
+}

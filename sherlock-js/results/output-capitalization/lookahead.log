@@ -1,0 +1,32 @@
+50 Mon 10:37am
+100 Mon 02:30pm
+150 Mon 10:50pm
+200 Tue 05:40am
+250 Tue 01:40pm
+300 Tue 10:00pm
+350 Wed 06:00am
+400 Wed 02:20pm
+450 Wed 10:40pm
+{
+  completed_checkpoints: 498,
+  last_complete_clock: {
+    tick: 4221,
+    due: 4501,
+    day: 3,
+    minute: 20,
+    hour: 6,
+    period: 'am',
+    label: 'Thu 06:20am'
+  },
+  partial_checkpoint: 498,
+  target_clock: {
+    tick: 4231,
+    due: 4501,
+    minute: 30,
+    hour: 6,
+    day: 3,
+    period: 'am',
+    label: 'Thu 06:30am'
+  },
+  error: '498 Ingresso casuale originale non ancora ricostruito: $CB28. Il comando non è stato applicato.'
+}

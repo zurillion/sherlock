@@ -1,0 +1,23 @@
+{
+  "completed_checkpoints": 498,
+  "last_complete_clock": {
+    "tick": 4221,
+    "due": 4501,
+    "day": 3,
+    "minute": 20,
+    "hour": 6,
+    "period": "am",
+    "label": "Thu 06:20am"
+  },
+  "partial_checkpoint": 498,
+  "target_clock": {
+    "tick": 4231,
+    "due": 4501,
+    "minute": 30,
+    "hour": 6,
+    "day": 3,
+    "period": "am",
+    "label": "Thu 06:30am"
+  },
+  "error": "498 Ingresso casuale originale non ancora ricostruito: $CB28. Il comando non è stato applicato."
+}

@@ -3,33 +3,35 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [SPAZI-E-FORMATTER-A025.md](SPAZI-E-FORMATTER-A025.md).
+Aggiornamento corrente: [MAIUSCOLE-E-FORMATTER-A026.md](MAIUSCOLE-E-FORMATTER-A026.md).
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   463 checkpoint0–462 fino a giovedì00:30,9.237 draw/19.736 read,
-   tutti24 posti attore, entità, fatti, programmi, arena752 byte, bitmap e
-   futuro dopoLOAD. Vedere results/output-spacing/witness-prefix.json.
-   Ripetibile con `node tools/verify-output-spacing-prefix.mjs`.
+   498 checkpoint0–497 fino a giovedì06:20;24 posti attore, entità, fatti,
+   programmi, arena752 byte, bitmap, ogni draw/read e futuro dopoLOAD.
+   9.785draw/20.878read. Vedere results/output-capitalization/witness-prefix.json.
+   Ripetibile con `node tools/verify-output-capitalization-prefix.mjs`.
 
-2. **A025 ricostruito; prossimo ingresso A026.**
-   Flag del normalizzatore degli spazi, distinto da cursore, inizio riga eA024.
-   AA2C scrive1, AA36 scrive0 perCR, AA08 scrive0 se la parola occupava
-   esattamente le colonne rimaste PRIMA del wrap. C142 e wrap grezzo non scrivono.
-   I letterali invisibili passano ancora dal formatter; dizionario e nomi sono
-   soppressi prima. Includere suffissi delle richieste di pagamento e pagamenti.
-   Campo display.spacingFlag; dati iniziali estratti, oldSAVE assente ignoto.
-   Nuova traccia3571checkpoint sinoWed21:40:9000draw/19260read, flag a ogni
-   draw/minuto, nessuna transizione non classificata. Watson3 legge0 al3700;
-   ultimoAA36 al3698/steam train36. Nessuno0 catturato installato.
-   **Prossimo A026 al463 verso giovedì00:40**, Watson3/draw17, valore originale1.
-   Ricostruire maiuscole e writer; non inferire1 daA025 o dal testo finale.
-   Checkpoint463 escluso dal certificato positivo.5D2B resta non introdotto.
-   Atlante150istruzioni/276byte: A025,A9B7–AA70,A887–A8AB,C1E1–C1F3,
-   C129–C149. A025 parziale→documentato, nessun nuovo byte grigio:
-   38.848documentati/429parziali/2.323sconosciuti su41.600.
-   5D25 risolto nel dossier precedente, con correzione dello storico5C25=0/5D25=92.
-   Argomenti del giardiniere risolti; preservare la prova continua0–1671 eD026.
-   Dialogo SAY WATSON "WATSON KILLED YOU":7 drawJS contro10 nativo ancora aperto.
+2. **A026 ricostruito; prossimo ingresso CB28.**
+   Flag persistente della maiuscola, distinto daA025,cursore e forzaturaA851.
+   Writer AA4C=1 per punto/quote normalizzati; AA66=0 perlettera;
+   A8A9=1 per contesto70 visibile non nullo; A82C |= latchA7EA dopo nome,
+   anche invisibile; A464=0 solo nei rami monetariD-punto/scellini esatti.
+   Il CR conservaA026. Parola ancora nel buffer non scrive. Valore iniziale1
+   estratto dal payload; non dedotto dal fatto che una frase inizi maiuscola.
+   Campo display.capitalizationFlag e classi del buffer, preservati daSAVE.
+   OldSAVE assente restaunknown; OR1 non basta a stabilire un valore assente.
+   Traccia nuova3752checkpoint sinoThu00:40:9255draw/19772read, flag a ogni
+   minuto/draw, zero transizioni non classificate. Watson3 legge1 al3880;
+   ultimoAA4C al3878/steam train36. Nessun1 catturato installato.
+   **Prossimo CB28 al498 verso giovedì06:30**, cuoca9/draw1, originale131.
+   Ricostruire writer e proprietà del risultato; non installare83esadecimale
+   e non rimuovere il campo dal confronto. Checkpoint498 escluso dal positivo.
+   Atlante249istruzioni/477byte: A026,A7D0–A7E9,A7EA,A815–A82E,A887–A8AB,
+   A9B7–AA70,A419–A475,D3E8–D447,A851–A85B. A026 parziale→documentato;
+   A7EA è1byte dati prima grigio. Copertura38850/428/2322 su41600.
+   A851 non viene pubblicato come nuovo ingresso casuale.5D2B non introdotto.
+   A025,5D25 e argomenti del giardiniere risolti; preservare i loro contratti.
+   Dialogo SAY WATSON "WATSON KILLED YOU":7drawJS contro10nativo ancora aperto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

@@ -1,3 +1,4 @@
+import {nameCapital} from './output-capitalization.mjs';
 import {UnsupportedFeature,joinList,DIRECTION_NAMES} from './world.mjs';
 
 // Compressed prose has been decoded to JSON data by the offline build step.
@@ -24,6 +25,8 @@ export class Text {
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
   let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false,pending='',pendingCap=true;const fragments=[];
   const remember=value=>{if(context.bufferVisible!==false)this.rememberDictionaryReference(value);};
+  const properCapital=(proper=true)=>{if(w.display&&(context.bufferSink||context.sink))w.display.capitalizationFlag=nameCapital(w.display.capitalizationFlag,proper);};
+  const dictionaryCapital=()=>{if(w.display&&context.bufferVisible!==false&&context.sink)w.display.capitalizationFlag=1;};
   let nameBuffer=false;
   const feed=(text,{raw=text,dict=false,buffer=true}={})=>{if(buffer&&context.bufferSink&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))context.bufferSink(c,{known:!nameBuffer});for(let c of String(text)){
    if(c==='\b'){result=result.slice(0,-1);pending=pending.slice(0,-1);context.sink?.(c);continue;}
@@ -41,14 +44,14 @@ export class Text {
    if(e.person&&(e.noun&32768)&&id!==w.player){const parts=w.name(id).split(' ');
     // In the prefab TELL path, the actor-name prefix flushes while the
     // nested name call is active. Its last noun is flushed after return.
-    if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);}feed(' ');});capitalize=true;feed(parts.at(-1));}
-    else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);}if(be)feed(' is');}
+    if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);properCapital(Boolean(e.attributes&64));}feed(' ');});capitalize=true;feed(parts.at(-1));properCapital(Boolean(e.attributes&64));}
+    else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);properCapital(Boolean(e.attributes&64));}if(be)feed(' is');}
    else if(actorToken&&context.actorNamePrefix&&id!==w.player){const parts=w.name(id,{indefinite:Boolean(e.person)}).split(' ');context.actorNamePrefix(()=>{feed(parts.slice(0,-1).join(' '));feed(' ');});feed(parts.at(-1)+(be?' is':''));}
    else feed(name(id,be));if(e.noun&4095)remember(0x5000|(e.noun&4095));if(be)remember(id===0?0x007A:0x0485);}finally{nameBuffer=previousNameBuffer;}
   };
   const emit=t=>{
    switch(t.op){
-    case 'word':{mixOffset=t.randomContext??null;remember(t.randomContext??null);if(t.id){feed(' ',{dict:true});if(t.capitalized)capitalize=true;const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
+    case 'word':{mixOffset=t.randomContext??null;remember(t.randomContext??null);if(t.id){feed(' ',{dict:true});if(t.capitalized){capitalize=true;dictionaryCapital();}const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
     case 'call':case 'jump':mixOffset=t.relativeOffset===undefined?null:(t.relativeOffset-(t.op==='jump'?1:0))&65535;walk(t.text);break;
     case 'choice':{
@@ -77,7 +80,7 @@ export class Text {
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
      if(w.npcs)w.npcs.modelFlags=model.modelFlags?[...model.modelFlags]:[null,null]; // A38B, no restore on return.
      const roomName=id=>{const r=w.rooms[id],proper=Boolean(r.nameWords[0]&32768),parts=[];if(!proper)parts.push({text:({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]});for(const v of r.nameWords.slice(1).filter(Boolean)){const word=this.dictionary.word(v);parts.push({text:word.form,raw:word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||'')});}parts.push({text:this.dictionary.word(r.nameWords[0]).stem});
-      const word=part=>{if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});};
+      const word=part=>{if(proper)capitalize=true;feed(part.text,{dict:true,raw:part.raw??part.text});if(proper)properCapital();};
       // A3DE/A745/A7BA/D405: the qualified proper room prefix is flushed
       // inside the name call (frame5D32 in the verified CE13 order).
       // The final noun remains buffered and flushes after that call returns.

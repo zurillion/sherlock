@@ -1,18 +1,19 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [SPAZI-E-FORMATTER-A025.md](SPAZI-E-FORMATTER-A025.md).
-A025 è ora ricostruito come flag persistente degli spazi: writerAA2C,AA36,AA08.
-Confronto di riempimento esatto precedente al wrap; output letterale invisibile
-compresi suffissi monetari; cursore, parser e cambio finestra sono indipendenti.
-Certificato completo463checkpoint0–462 sinoThu00:30,9237draw/19736read,
-24attori,arena752,stato,bitmap e futuroLOAD. Prova separata continuaA025:
-3571checkpoint,9000draw/19260read sinoWed21:40, nessuna transizione non classificata.
-Watson legge0 al3700, ultimoAA36 al3698/steam train36: non è un fallback0.
-ProssimoA026 al463 versoThu00:40,Watson3/draw17; ricostruire i writer delle
-maiuscole senza installare1 osservato. VecchiSAVE senzaA025 restanounknown.
-Atlante150istruzioni/276byte approfonditi; A025 parziale→documentato,
-nessun nuovo byte grigio. Copertura38848/429/2323 su41600.
-5D25 e argomenti del giardiniere risolti; conservare i rispettivi contratti.
+Aggiornamento corrente: [MAIUSCOLE-E-FORMATTER-A026.md](MAIUSCOLE-E-FORMATTER-A026.md).
+A026 ricostruito: punto/quote1,lettera0,contesto70,dopo-nome OR A7EA e
+reset monetari selettivi. CR,cursore eA851 sono indipendenti. Iniziale1 estratto;
+nessun fallback catturato. OldSAVE assente restaunknown fino a writer dimostrato.
+Certificato completo498checkpoint0–497 sinoThu06:20,24attori,arena752,stato,
+bitmap, ogni draw/read e futuroLOAD. 9.785draw/20.878read;9.787runtime con2boot.
+Prova continua separata3752checkpoint/9255draw/19772read sinoThu00:40,
+flag a ogni minuto/draw e zero transizioni non classificate. Watson3 legge1
+al3880, ultimoAA4C al3878/steam train36. Tutti5writer originali osservati.
+ProssimoCB28 al498 versoThu06:30,cuoca9/draw1; originale131, non installarlo
+né eliminare il campo dal confronto. Ricostruire writer/proprietà del risultato.
+Atlante249istruzioni/477byte, A026 parziale→documentato; nuovo datoA7EA
+prima grigio1byte. Copertura38850/428/2322 su41600. A851 non introdotto come
+nuovo ingresso casuale.5D2B non introdotto. A025,5D25 e giardiniere risolti.
 Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e il dialogo
 SAY WATSON "WATSON KILLED YOU" con7 drawJS contro10 nativo.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
