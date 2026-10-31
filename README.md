@@ -9,9 +9,9 @@ web esegue la logica ricostruita nel browser.
 - [Stato e lavoro ancora da fare](sherlock-js/RIPRESA-GAMEPLAY.md)
 
 La ricostruzione è ancora parziale. L’ultimo prefisso naturale certificato
-comprende 413 checkpoint fino a mercoledì 16:30, con tutti i 24 posti attore,
+comprende 415 checkpoint fino a mercoledì 16:50, con tutti i 24 posti attore,
 estrazioni casuali, stato e output confrontati con l’originale. Il prossimo
-limite dichiarato è A028. La documentazione distingue i test controllati dalla
+limite dichiarato è C128. La documentazione distingue i test controllati dalla
 certificazione di una partita completa e conserva i limiti ancora aperti.
 
 ## Contenuto

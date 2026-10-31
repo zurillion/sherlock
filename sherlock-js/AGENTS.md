@@ -514,3 +514,36 @@ Nessun nuovo byte prima grigio: comunicarlo, senza aumentare la copertura.
 Verifica conclusiva5D28:113 controlli mirati distinti passati. Il prossimo
 ingresso osservato èA028, prima del successivo byte dello stack29; non
 estendere il certificato sino18:00 per la sola presenza della traccia.
+
+
+31 ottobre2026 — leggere QUALIFICATORI-DEI-NOMI-A028.md e
+results/name-qualifier-mode-verification.json. A028 è il modo dei due
+qualificatori nel formatter tupleD405:0 completo,nonzero solo sostantivo
+più articolo. Nome entitàD3E8 NON leggeA028: non troncare i nomi ovunque.
+Campo npcs.nameQualifierMode; valore iniziale estratto dal payload in
+argumentChecks.initialNameQualifierMode. Writer A37E0,A65E0,A7210,
+A72E1,A73D1,A7980/1,D1D20,D5360 per ogni oggetto elencato. Input
+lessicale o singole parole non resettano automaticamente. Mappa/UI
+world.name/roomName restano puri. Il formatter foglia può conservare1/7/128.
+Comando testo0(nameMode:full) e4(letterale) non condividono il writer:
+A65E0 controA709nessuna scrittura. L’argomento è una tuple nome anche
+per entità, non sempre roomID. Token19A7B4 prende l’ID daD, lo conserva
+inAF alternativo e scrive1, nonD come modo; nome+copula ora supportato
+con argomenti semantici dichiarati. OldLOAD senza campo restaunknown
+anche nel lettore casuale fino al writer; non fallback dal payload.
+HAIL speciale degliNPC deve fare A37D0 anche se il suo messaggio è
+costruito senza Text.compose. D658 nome passaggio conserva il modo.
+12 storie naturali/47input/57checkpoint,205draw/410read;16ABI tuple
+modi0/1/7/128 e18ABI ingressi token. Traccia continua3281 checkpoint fino
+Wed16:50: modo e ogni draw, NON stato completo oltre il controesempio
+precedente. Lettura cuoca9:ultimoA37E/tick3399/giardiniere8/callerA34B.
+Prefisso completo415 checkpoint0–414 sinoWed16:50,8296draw/17768read,
+24attori,arena752,bitmap e futuroLOAD. ProssimoC128 al415 versoWed17:00.
+Cinque finali, cab5D0C e i tre controesempi precedenti restano aperti.
+Atlante282istruzioni/607byte:89 byte prima grigiA65E–A678,A709–A71F,
+A793–A7B9;A028 parziale->documentato. ApprofonditiA37D–A418,A720–A750,
+A7BA–A7CF,D1C6–D1DA,D3D5–D447,D526–D559,D60B–D66F. Riferire le zone.
+
+Verifica conclusivaA028:49 controlli mirati distinti passati. La prova
+continua include3281 checkpoint/8296draw/17768read, senza allargare la
+certificazione di stato completo oltre i415 checkpoint originali.

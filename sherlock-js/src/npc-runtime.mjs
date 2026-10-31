@@ -53,6 +53,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.nameQualifierMode=g.data.argumentChecks?.initialNameQualifierMode??null;
   w.npcs.outputChannel=g.data.argumentChecks?.initialOutputChannel??null;
   w.npcs.modelFlags=g.data.argumentChecks?.initialModelFlags?[...g.data.argumentChecks.initialModelFlags]:[null,null];
   w.npcs.dictionaryReference=null;w.npcs.resolutionMode=g.data.argumentChecks?.initialResolutionMode??null;w.npcs.playerResolutionMode=0;w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
@@ -475,7 +476,7 @@ export class NpcRuntime {
   // Action lookup: a resolved entity without an OPEN/CLOSE rule is a
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
-  if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
+  if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
   if(input[0]===255||classByAction[action]===undefined)this.checkAction(action,args,actor);
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
@@ -516,7 +517,7 @@ export class NpcRuntime {
   const w=this.w,g=this.game,before=w.roomOf(),visible=w.perceived(id),old=w.roomOf(id),actorOld=notification.actor===undefined?null:w.roomOf(notification.actor),directional=id===notification.actor&&notification.direction>=1&&notification.direction<=10;
   // E4B0 selects the FIRST exit of the old room for a walking entity. CA76
   // announces that action before E49B moves it, even when Holmes is in a train.
-  if(directional){g.sourceDisplay.setChannel(0);this.modelFlags(notification.direction);} // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
+  if(directional){g.text.setQualifierMode(0);g.sourceDisplay.setChannel(0);this.modelFlags(notification.direction);} // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
   if(directional&&visible){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
@@ -528,7 +529,7 @@ export class NpcRuntime {
    const parent=w.entity(w.player).parent;
    if(notification.sceneSource==='cab-arrival'&&!room.description&&parent===109)g.sourceDisplay.invalidateScratch(0x5D08,0x5D0F);
   }else if(old!==room&&id!==w.player&&[30,33].includes(id)&&notification.sceneSource!=='cab-arrival'&&w.perceived(id)){
-   const message={kind:'narrative',text:w.name(id)+' is in '+w.roomName(room)+'.'};message.text=message.text[0].toUpperCase()+message.text.slice(1);messages.push(message);g.projectMessages([message]);
+   const message={kind:'narrative',text:w.name(id)+' is in '+g.text.roomName(room)+'.'};message.text=message.text[0].toUpperCase()+message.text.slice(1);messages.push(message);g.projectMessages([message]);
   }else if(old!==room&&!visible&&w.perceived(id)){
    // CAAF/CBC2 announce the outermost arriving entity; a vehicle's
    // passengers are described by their own subsequent actions.
@@ -567,7 +568,7 @@ export class NpcRuntime {
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner});const suffix=' '+formatMoney((-amount)&16383)+' "\n';for(const ch of suffix.replace(/d\./g,'D.'))g.sourceDisplay.bufferFeed(ch);if(c.sink)for(const ch of suffix)c.sink(ch);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }
- sayPayment(actor,recipient,pence,messages){this.game.sourceDisplay.setChannel(0);this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
+ sayPayment(actor,recipient,pence,messages){this.game.text.setQualifierMode(0);this.game.sourceDisplay.setChannel(0);this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
   const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.')+'.\n')this.game.sourceDisplay.bufferFeed(ch);return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1)};messages.push(message);this.game.projectMessages([message]);}}
  callback(actor,oldDue,messages){
   const id=actor.id,w=this.w;
@@ -622,6 +623,7 @@ export class NpcRuntime {
   if(address===0xD6B8)return this.state.playerResolutionMode??null;
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
   if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
+  if(address===0xA028)return this.state.nameQualifierMode??null;
   if(address===0xA027)return this.state.outputChannel??null;
   if(address===0xA021)return this.state.argumentCheck??null;
   if(address===0xA01B)return this.state.clarificationOffset??null;
@@ -663,6 +665,7 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
+  if(s.nameQualifierMode!==undefined&&s.nameQualifierMode!==null&&(!Number.isInteger(s.nameQualifierMode)||s.nameQualifierMode<0||s.nameQualifierMode>255))throw Error('Modo dei qualificatori non valido');
   if(s.outputChannel!==undefined&&s.outputChannel!==null&&![0,1].includes(s.outputChannel))throw Error('Canale di output non valido');
   if(s.modelFlags!==undefined&&(!Array.isArray(s.modelFlags)||s.modelFlags.length!==2||s.modelFlags.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Flag del modello non validi');
   if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');

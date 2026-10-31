@@ -6,6 +6,8 @@ export class Text {
  constructor(data,dictionary,world,{chooseIndex}={}){this.data=data;this.dictionary=dictionary;this.world=world;this.chooseIndex=chooseIndex;}
  // A88C/A8B5 retain the last emitted dictionary descriptor, including its
  // context nibble. Suppressed dictionary output and literal characters keep it.
+ setQualifierMode(value){if(this.world.npcs)this.world.npcs.nameQualifierMode=value;}
+ roomName(id,{reset=true}={}){if(reset)this.setQualifierMode(0);const mode=this.world.npcs?.nameQualifierMode;if(!reset&&this.world.npcs&&mode==null)throw new UnsupportedFeature('modo dei qualificatori del nome locazione');return this.world.roomName(id,{short:mode!=null&&mode!==0});}
  rememberDictionaryReference(value){if(this.world.npcs)this.world.npcs.dictionaryReference=value;}
  greeting(actor,context={}){return this.render('6920',{...context,actor});}
  examinePreservesLowScratch(description){
@@ -59,7 +61,8 @@ export class Text {
      if(!Number.isInteger(index)||index<0||index>=t.options.length)throw Error('Invalid original text choice');
      inChoice=true;emit(t.options[index]);inChoice=false;break;
     }
-    case 'nameArgument':{const id=context.nameArguments?.[argumentsUsed++];if(!Number.isInteger(id))throw new UnsupportedFeature('nome nella memoria delle informazioni');feedName(id);break;}
+    case 'nameArgument':{const id=context.nameArguments?.[argumentsUsed++];if(!Number.isInteger(id))throw new UnsupportedFeature('nome nella memoria delle informazioni');if(t.nameMode==='full')this.setQualifierMode(0);feedName(id);break;}
+    case 'argumentIs':{const id=context.nameArguments?.[argumentsUsed++];if(!Number.isInteger(id))throw new UnsupportedFeature('nome con copula nell’argomento di testo');this.setQualifierMode(1);feedName(id,true);mixOffset=id===0?0x007A:0x0485;remember(mixOffset);break;}
     case 'relationArgument':{const f=context.fact;if(!f)throw new UnsupportedFeature('relazione nella memoria delle informazioni');feedName(f.subject);const id=this.data.informationRules.predicates[f.predicate-1];feed(' ');const word=this.dictionary.word(id??93);if(!word)throw new UnsupportedFeature('predicato delle informazioni');feed(actor===0?word.stem:word.form);feedName(f.object);mixOffset=id;break;}
     case 'textArgument':{
      mixOffset=context.argumentContexts?.[argumentsUsed]??null;
@@ -68,6 +71,7 @@ export class Text {
      walk(id);break;
     }
     case 'compose':{
+     this.setQualifierMode(0); // A37D/A37E, before any model words or arguments.
      remember(null); // Model-only words without a resolved argument remain unowned.
      const action=context.action,model=this.data.actions.find(a=>a.id===action),args=context.args||[255,255];
      if(!model)throw new UnsupportedFeature('testo dell’ordine NPC '+action);
@@ -87,11 +91,11 @@ export class Text {
      feed(' ',{dict:true});feed(model.words[0],{dict:true});if(model.words[3]){feed(' ',{dict:true});feed(model.words[3],{dict:true});}if(model.words[1]){feed(' ',{dict:true});feed(model.words[1],{dict:true});}argument(args[0],0);if(model.words[2]){feed(' ',{dict:true});feed(model.words[2],{dict:true});}argument(args[1],1);feed('.');break;
     }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
-    case 'actorName':feedName(actor,false,true);break;
-    case 'objectName':feedName(object);break;
-    case 'otherName':feedName(other);break;
-    case 'actorIs':feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;remember(mixOffset);break;
-    case 'objectIs':feedName(object,true);mixOffset=object===0?0x007A:0x0485;remember(mixOffset);break;
+    case 'actorName':this.setQualifierMode(0);feedName(actor,false,true);break;
+    case 'objectName':this.setQualifierMode(1);feedName(object);break;
+    case 'otherName':this.setQualifierMode(1);feedName(other);break;
+    case 'actorIs':this.setQualifierMode(0);feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;remember(mixOffset);break;
+    case 'objectIs':this.setQualifierMode(1);feedName(object,true);mixOffset=object===0?0x007A:0x0485;remember(mixOffset);break;
     case 'actorPossessive':feed(actor===0?'your':'his',{dict:true});mixOffset=actor===0?0x09F2:0x0414;remember(mixOffset);break;
     case 'objectPossessive':feed(object===0?'your':'his',{dict:true});mixOffset=object===0?0x09F2:0x0414;remember(mixOffset);break;
     case 'newline':feed('\n');break;
@@ -125,7 +129,7 @@ export class Text {
   const list=parent=>w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&e.rooms.length<2&&!w.owns(w.player,e.id)&&w.perceived(e.id));
   const renderChildren=(parent,depth=0)=>{
    const children=list(parent);if(!children.length)return;
-   const names=children.map(e=>w.name(e.id,{indefinite:true}));
+   const names=children.map(e=>{this.setQualifierMode(0);return w.name(e.id,{indefinite:true});});
    let prefix;
    // A414 leaves the final exit/passage noun buffered. The room-list
    // introduction provides its delimiter, then SEE flushes in the first
@@ -179,6 +183,7 @@ export class Text {
    text.push(this.render(r.description));
   };
   if(parent!==null){
+   this.setQualifierMode(0); // actor-is in the container introduction.
    const expand=full&&Boolean(r.description);
    const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id,{indefinite:true}));
    text.push(actorIs+' in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
@@ -190,14 +195,14 @@ export class Text {
    if(trace&&expand&&names.length){const inventory=joinList(names),base=text.join(' ').length-inventory.length-1;let offset=0;for(const [i,e]of peers.entries()){const name=names[i],prefix=name.lastIndexOf(' ');offset=inventory.indexOf(name,offset);if(prefix>0&&!(e.noun&32768))trace.push({kind:'passenger-name-prefix',parent:e.id,start:base+offset,end:base+offset+prefix,frame:listFrame(0)+4});offset+=name.length;}}
    if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
    if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
-   else{const start=text.join(' ').length+1,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+w.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
+   else{const start=text.join(' ').length+1,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+this.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
    if(briefDark)return text.join(' ')+' '+this.render('68C1');
    if(full)describePassages();
    const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
    return text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   }
   if(full&&r.description)describe();
-  else text.push(remote?`${actorName} can see ${w.roomName(room)}.`:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${w.roomName(room)}.`);
+  else text.push(remote?`${actorName} can see ${this.roomName(room)}.`:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${this.roomName(room)}.`);
   if(briefDark)text.push(this.render('68C1'));
   if(full)describePassages();
   const exits=briefDark?[]:r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);

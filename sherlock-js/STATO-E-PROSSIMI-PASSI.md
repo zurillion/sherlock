@@ -1,12 +1,12 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [GLIFI-SHIFT-SCANSIONE-5D28.md](GLIFI-E-SHIFT-SALVATO.md).
-Superato5D28:413 checkpoint0–412 sino a Wed16:30,8254 draw/17684 read.
-Prossimo confineA028 al checkpoint413 versoWed16:40. Shift del glifo
-ricostruito dalla colonna, con contratti distinti dagli altri registri.
+Aggiornamento corrente: [QUALIFICATORI-DEI-NOMI-A028.md](QUALIFICATORI-DEI-NOMI-A028.md).
+SuperatoA028:415 checkpoint0–414 sino a Wed16:50,8296 draw/17768 read.
+Prossimo confineC128 al checkpoint415 versoWed17:00. Il modo dei nomi
+è ricostruito e confrontato anche in3281 checkpoint continui (solo modo/draw).
 Restano PRINT/MORE, TAKE TO e la riga transitoria del giardiniere, oltre
-ai cinque finali naturali aperti e al limite cab separato. Per il backlog
-corrente vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
+ai cinque finali naturali e al limite cab separato. Per il backlog corrente
+vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo
 il completamento delle regole degli oggetti e delle identità. I documenti delle

@@ -1,0 +1,12 @@
+// Narrow continuous proof of A028 and every random draw. Full-state acceptance
+// remains the separate witness prefix; the prior transient actor-row boundary
+// is neither normalized nor claimed resolved here.
+import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';import{gunzipSync}from'node:zlib';import{ClientSession}from'../src/session.mjs';
+const data=JSON.parse(await readFile(new URL('../data/game.json',import.meta.url))),ref=JSON.parse(gunzipSync(await readFile(new URL('../results/name-qualifier-mode/witness-reference.json.gz',import.meta.url))));
+test('Continuous name-mode and draw parity up to its first natural random read',()=>{
+ const c=ref.cases[0],s=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=s.game,cutoff=3411;let seen=[],out,n=g.world.random.draws,checkpoints=0;assert.deepEqual(c.unclassified_transitions,[]);assert.equal(g.npcRuntime.read(0xA028),c.initial);
+ const absolute=g.runtimeRandom.absolute.bind(g.runtimeRandom);g.runtimeRandom.absolute=(...a)=>{seen.push(g.npcRuntime.read(0xA028));return absolute(...a);};
+ for(const[index,row]of c.steps.entries()){if(row.after.clock.tick>cutoff)break;seen=[];out=row.input?s.request(row.input.startsWith('WAIT UNTIL')?'start-command':'command',{command:row.input}):s.request('continue-command',{job:out.job});assert.notEqual(out.state.analysis.outcome,'not_translated',index+' '+out.state.prototype_notice);assert.equal(g.npcRuntime.read(0xA028),row.qualifier_mode,'mode #'+index+' '+row.after.clock.label+' last '+JSON.stringify(row.last_store));assert.deepEqual(seen,row.random.map(d=>d.qualifier_mode),'mode at every draw #'+index);const count=g.world.random.draws-n,draws=count?g.world.random.trace.slice(-count):[];n=g.world.random.draws;assert.equal(draws.length,row.random.length);for(const[i,d]of row.random.entries())for(const k of['actor','width','mixOffset','seed','cursor','reads','result','next_seed','next_cursor'])assert.deepEqual(draws[i][k],d[k],'draw #'+index+' '+k);checkpoints++;}
+ assert.equal(g.world.tick,cutoff);assert.equal(checkpoints,3281);const reads=c.steps.filter(r=>r.after.clock.tick<=cutoff).flatMap(r=>r.random).filter(d=>d.reads.some(r=>r.address===0xA028));assert.equal(reads.length,1);assert.equal(reads[0].actor,9);assert.deepEqual(reads[0].last_store,{pc:'A37E',a:0,tick:3399,actor:8,caller:'A34B',value:0});
+ if(s.job){const out=s.request('continue-command',{job:s.job.id,interrupt:true});assert.equal(out.running,false);assert.notEqual(out.state.analysis.outcome,'not_translated');}
+});

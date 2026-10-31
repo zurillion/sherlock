@@ -1,0 +1,8 @@
+{
+  "comparison": "Original major-witness whole history, every original-state field retained; first unsupported checkpoint",
+  "checkpoint": 415,
+  "unknown_address": "C128",
+  "target_clock": "Wed 05:00pm",
+  "exception": "AssertionError [ERR_ASSERTION]: 415 Ingresso casuale originale non ancora ricostruito: $C128. Il comando non è stato applicato.\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)\n    at async file:///private/tmp/sherlock-lookahead-5d27.mjs:3:17",
+  "full_ending_certified": false
+}

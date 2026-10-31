@@ -1,0 +1,283 @@
+{
+  "protocol": "Natural seed1, all24 actors, original graphics off after boot, uppercase injected keys and immediate MORE. A028 writers include unchanged stores; qualifier modes at every draw/checkpoint. Editor input bridge does not setA028. No world patches. Offline only.",
+  "short_corpus": {
+    "histories": 12,
+    "input_commands": 47,
+    "checkpoints": 57,
+    "native_stores": 165,
+    "compared_draws": 205,
+    "compared_reads": 410,
+    "observed_writer_pcs": [
+      "A37E",
+      "A65E",
+      "A721",
+      "A72E",
+      "A798",
+      "D1D2",
+      "D536"
+    ],
+    "unclassified_transitions": [],
+    "full_original_state_and_load_future_compared": true
+  },
+  "controlled_tuple_calls": 16,
+  "controlled_token_entry_calls": 18,
+  "controlled_modes": [
+    0,
+    1,
+    7,
+    128
+  ],
+  "controlled_modes_are_not_natural_reachability": true,
+  "continuous_witness": {
+    "native_checkpoints": 3291,
+    "native_through": {
+      "tick": 3421,
+      "due": 3781,
+      "minute": 0,
+      "hour": 5,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 05:00pm"
+    },
+    "compared_mode_draw_checkpoints": 3281,
+    "compared_through": {
+      "tick": 3411,
+      "due": 3781,
+      "minute": 50,
+      "hour": 4,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 04:50pm"
+    },
+    "compared_draws": 8296,
+    "compared_reads": 17768,
+    "unclassified_transitions": [],
+    "actual_A028_reads": [
+      {
+        "checkpoint": 3269,
+        "checkpoint_clock": {
+          "tick": 3400,
+          "due": 3781,
+          "minute": 39,
+          "hour": 4,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 04:39pm"
+        },
+        "draw": {
+          "qualifier_mode": 0,
+          "last_store": {
+            "pc": "A37E",
+            "a": 0,
+            "tick": 3399,
+            "actor": 8,
+            "caller": "A34B",
+            "value": 0
+          },
+          "actor": 9,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 107,
+          "cursor": 40738,
+          "reads": [
+            {
+              "address": 40994,
+              "value": 97
+            },
+            {
+              "address": 41000,
+              "value": 0
+            }
+          ],
+          "result": 3,
+          "next_seed": 204,
+          "next_cursor": 40994
+        }
+      }
+    ],
+    "scope": "Name qualifier mode at every checkpoint and every random draw/read; not full-state equivalence at every intermediate minute. Prior actor-row counterexample at1671 is retained."
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 282,
+    "bytes_roundtripped": 607,
+    "regions": [
+      {
+        "start": "A028",
+        "end_exclusive": "A029",
+        "kind": "data",
+        "label": "Modo dei qualificatori nella tuple nome: completo0 / senza qualificatori nonzero",
+        "atlas_priority": 143,
+        "fields": [
+          [
+            "0",
+            "nome completo",
+            "Il formatter generico considera i due qualificatori prima del sostantivo"
+          ],
+          [
+            "nonzero",
+            "salta i qualificatori",
+            "Conserva articolo e sostantivo; 1,7,128 verificati contro il codice originale"
+          ],
+          [
+            "Entità",
+            "ingressoD3E8",
+            "Non consulta questo byte: non cancellare gli aggettivi degli oggetti solo perché il modo è1"
+          ],
+          [
+            "LOAD/UI",
+            "proprietà e purezza",
+            "OldLOAD assente restaunknown; i nomi consultati dalla mappa non modificano lo stato del gioco"
+          ]
+        ]
+      },
+      {
+        "start": "A37D",
+        "end_exclusive": "A419",
+        "kind": "code",
+        "label": "Composizione dell’azione: nome completo prima di parole e argomenti",
+        "atlas_priority": 143
+      },
+      {
+        "start": "A65D",
+        "end_exclusive": "A679",
+        "kind": "code",
+        "label": "Argomento nome completo e lettura della coda argomenti",
+        "atlas_priority": 143
+      },
+      {
+        "start": "A709",
+        "end_exclusive": "A751",
+        "kind": "code",
+        "label": "Nome letterale, soggetto, oggetto e altro referente: writer distinti",
+        "atlas_priority": 143
+      },
+      {
+        "start": "A793",
+        "end_exclusive": "A7BA",
+        "kind": "code",
+        "label": "Nome con copula: modo0 del soggetto e modo1 dell’oggetto",
+        "atlas_priority": 143
+      },
+      {
+        "start": "A7BA",
+        "end_exclusive": "A7D0",
+        "kind": "code",
+        "label": "Tuple nome e nome entità: due ingressi distinti",
+        "atlas_priority": 143
+      },
+      {
+        "start": "D1C6",
+        "end_exclusive": "D1DB",
+        "kind": "code",
+        "label": "Nome della locazione: reset del modo prima del formatter",
+        "atlas_priority": 143
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Formatter dei nomi: entità e tuple generica, salto dei qualificatori",
+        "atlas_priority": 143
+      },
+      {
+        "start": "D526",
+        "end_exclusive": "D55A",
+        "kind": "code",
+        "label": "Elenco dei contenuti: modo completo per ogni oggetto",
+        "atlas_priority": 143
+      },
+      {
+        "start": "D60B",
+        "end_exclusive": "D670",
+        "kind": "code",
+        "label": "Descrizione dei passaggi: ingresso diretto nel nome entità, conserva il modo",
+        "atlas_priority": 143
+      }
+    ]
+  },
+  "atlas": {
+    "before": {
+      "documented": 38649,
+      "partial": 465,
+      "unknown": 2486
+    },
+    "after": {
+      "documented": 38739,
+      "partial": 464,
+      "unknown": 2397
+    },
+    "newly_documented_grey_bytes": 89,
+    "newly_documented_partial_bytes": 1,
+    "new_ranges": [
+      "A65E–A678",
+      "A709–A71F",
+      "A793–A7B9"
+    ],
+    "partial_to_documented": "A028",
+    "gameplay_equivalence": false
+  },
+  "witness_prefix": {
+    "protocol": "Natural seed-1, all 24 actor slots, free initial LOOK, original graphics off after boot, injected uppercase keys and immediate MORE. No teleport or world patches. Every random draw/read, scheduler, entities, facts, all arena bytes and exact bitmaps compared; LOAD follows each completed input and each live WAIT minute.",
+    "checkpoints": 415,
+    "random_draws": 8298,
+    "clock": {
+      "tick": 3411,
+      "due": 3781,
+      "day": 2,
+      "minute": 50,
+      "hour": 4,
+      "period": "pm",
+      "label": "Wed 04:50pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8296,
+    "compared_random_reads": 17768,
+    "certified_checkpoint_range": [
+      0,
+      414
+    ],
+    "full_history_checkpoints": 521,
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 415,
+      "target_clock": "Wed 05:00pm",
+      "resolved_address": "A028",
+      "unknown_address": "C128",
+      "note": "No captured or initial byte is installed as a fallback."
+    }
+  },
+  "next_boundary": {
+    "comparison": "Original major-witness whole history, every original-state field retained; first unsupported checkpoint",
+    "checkpoint": 415,
+    "unknown_address": "C128",
+    "target_clock": "Wed 05:00pm",
+    "exception": "AssertionError [ERR_ASSERTION]: 415 Ingresso casuale originale non ancora ricostruito: $C128. Il comando non è stato applicato.\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)\n    at async file:///private/tmp/sherlock-lookahead-5d27.mjs:3:17",
+    "full_ending_certified": false
+  },
+  "unknown_next_operand": "C128",
+  "previous_counterexamples_still_open": [
+    "PRINT/MORE after deferred Watson WAIT",
+    "TAKE TO failure budget",
+    "Gardener actor-row transient state at continuous checkpoint1671 Tue14:02"
+  ],
+  "natural_terminal_variants_still_open": [
+    "6A33",
+    "6ABD",
+    "6AF3",
+    "6B79",
+    "75D2"
+  ],
+  "separate_cab_boundary": "5D0C",
+  "full_game_equivalence": false,
+  "validation": {
+    "targeted_suite_tests_passed": 48,
+    "continuous_mode_and_draw_test_passed": 1,
+    "distinct_targeted_tests_passed": 49,
+    "full_suite": "GitHub Actions checks the complete suite on the publishing commit"
+  }
+}

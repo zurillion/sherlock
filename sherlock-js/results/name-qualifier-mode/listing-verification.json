@@ -1,0 +1,99 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 282,
+  "bytes_roundtripped": 607,
+  "regions": [
+    {
+      "start": "A028",
+      "end_exclusive": "A029",
+      "kind": "data",
+      "label": "Modo dei qualificatori nella tuple nome: completo0 / senza qualificatori nonzero",
+      "atlas_priority": 143,
+      "fields": [
+        [
+          "0",
+          "nome completo",
+          "Il formatter generico considera i due qualificatori prima del sostantivo"
+        ],
+        [
+          "nonzero",
+          "salta i qualificatori",
+          "Conserva articolo e sostantivo; 1,7,128 verificati contro il codice originale"
+        ],
+        [
+          "Entit\u00e0",
+          "ingressoD3E8",
+          "Non consulta questo byte: non cancellare gli aggettivi degli oggetti solo perch\u00e9 il modo \u00e81"
+        ],
+        [
+          "LOAD/UI",
+          "propriet\u00e0 e purezza",
+          "OldLOAD assente restaunknown; i nomi consultati dalla mappa non modificano lo stato del gioco"
+        ]
+      ]
+    },
+    {
+      "start": "A37D",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Composizione dell\u2019azione: nome completo prima di parole e argomenti",
+      "atlas_priority": 143
+    },
+    {
+      "start": "A65D",
+      "end_exclusive": "A679",
+      "kind": "code",
+      "label": "Argomento nome completo e lettura della coda argomenti",
+      "atlas_priority": 143
+    },
+    {
+      "start": "A709",
+      "end_exclusive": "A751",
+      "kind": "code",
+      "label": "Nome letterale, soggetto, oggetto e altro referente: writer distinti",
+      "atlas_priority": 143
+    },
+    {
+      "start": "A793",
+      "end_exclusive": "A7BA",
+      "kind": "code",
+      "label": "Nome con copula: modo0 del soggetto e modo1 dell\u2019oggetto",
+      "atlas_priority": 143
+    },
+    {
+      "start": "A7BA",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Tuple nome e nome entit\u00e0: due ingressi distinti",
+      "atlas_priority": 143
+    },
+    {
+      "start": "D1C6",
+      "end_exclusive": "D1DB",
+      "kind": "code",
+      "label": "Nome della locazione: reset del modo prima del formatter",
+      "atlas_priority": 143
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Formatter dei nomi: entit\u00e0 e tuple generica, salto dei qualificatori",
+      "atlas_priority": 143
+    },
+    {
+      "start": "D526",
+      "end_exclusive": "D55A",
+      "kind": "code",
+      "label": "Elenco dei contenuti: modo completo per ogni oggetto",
+      "atlas_priority": 143
+    },
+    {
+      "start": "D60B",
+      "end_exclusive": "D670",
+      "kind": "code",
+      "label": "Descrizione dei passaggi: ingresso diretto nel nome entit\u00e0, conserva il modo",
+      "atlas_priority": 143
+    }
+  ]
+}

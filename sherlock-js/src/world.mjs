@@ -49,8 +49,8 @@ export class World {
   const article=({0:'the ',4096:'a ',8192:'an ',12288:'some '})[e.noun&12288];
   return (indefinite?article:'the ')+name;
  }
- roomName(id,{indefinite=true}={}){
-  const room=this.rooms[id],word=value=>this.data.dictionary.find(w=>w.id===(value&4095)),name=[...room.nameWords.slice(1).filter(Boolean).map(v=>word(v).form),word(room.nameWords[0])?.stem].filter(Boolean).join(' ');
+ roomName(id,{indefinite=true,short=false}={}){
+  const room=this.rooms[id],word=value=>this.data.dictionary.find(w=>w.id===(value&4095)),name=[...(short?[]:room.nameWords.slice(1).filter(Boolean).map(v=>word(v).form)),word(room.nameWords[0])?.stem].filter(Boolean).join(' ');
   if(room.nameWords[0]&32768)return this.player===0&&/^your\b/.test(name)?name:name.replace(/\b\w/g,c=>c.toUpperCase());
   return indefinite?(({0:'the ',4096:'a ',8192:'an ',12288:'some '})[room.nameWords[0]&12288])+name:name;
  }

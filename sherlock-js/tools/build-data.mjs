@@ -21,7 +21,7 @@ const rooms=catalog.rooms.map(r=>({id:r.id,name:r.name_hint,flags:r.flags,nameWo
 const actions=(await read('locazioni/results/gameplay-action-inventory.json')).models.map(a=>{const at=parseInt(a.address,16),flags=(byte(at+1)>>>4)|(byte(at+3)&240),modes=(byte(at+5)>>>4)|(byte(at+7)&240);return {id:a.id,words:a.words,rule:a.general_rule,headerCost:a.general_rule?byte(parseInt(a.general_rule,16)+1)>>>4:null,modelFlags:[flags,modes],singleSelection:Boolean(modes&16),classes:[!(flags&8)?0:flags&128?4:(modes&12)===12?5:7,!(flags&4)?0:flags&64?4:(modes&3)===3?5:7]};});
 // Rule headers are data, including masks; expose no instruction bodies.
 function constraintHeader(at){const first=byte(at),second=byte(at+1);let cursor=at+2;if(first&64)cursor+=2;const masks=[];if(first&16){const control=byte(cursor++);for(let slot=0;slot<2;slot++){const modes=(control>>>(slot?0:4))&15;masks.push({argument:slot+1,tests:[{mode:modes>>>2,mask:byte(cursor++)},{mode:modes&3,mask:byte(cursor++)}]});}}return {classes:[first&15,second&15],requiresLight:Boolean(first&32),masks};}
-const argumentChecks={initialOutputChannel:byte(0xA027),initialValue:byte(0xA021),initialResolutionMode:byte(0xA01C),initialModelFlags:[byte(0xA01D),byte(0xA01E)],headers:{},entities:{}};
+const argumentChecks={initialNameQualifierMode:byte(0xA028),initialOutputChannel:byte(0xA027),initialValue:byte(0xA021),initialResolutionMode:byte(0xA01C),initialModelFlags:[byte(0xA01D),byte(0xA01E)],headers:{},entities:{}};
 for(const e of catalog.entities){const rules={};for(const r of e.rules.filter(r=>r.action_id)){rules[r.action_id]=r.rule_pointer;argumentChecks.headers[r.rule_pointer]=constraintHeader(parseInt(r.rule_pointer,16));}argumentChecks.entities[e.id]=rules;}
 for(const a of actions)if(a.rule)argumentChecks.headers[a.rule]=constraintHeader(parseInt(a.rule,16));
 // Decode the *data language* used for compressed prose into a semantic AST.
@@ -38,7 +38,7 @@ function token(p){
  if(b===2||b===11)return [{op:b===2?'jump':'call',text:((p+word(p+1))&65535).toString(16).toUpperCase(),relativeOffset:word(p+1)},p+3,b===2];
  if(b===10){const options=[];let q=p+2;for(let n=0;n<byte(p+1);n++){const [t,end]=token(q);options.push(t);q=end;}return [{op:'choice',options},q,false];}
  if([15,20,21,22,23].includes(b)){const [t,end]=token(p+1);return [{op:'time',value:({15:5,20:4,21:3,22:2,23:1})[b],token:t},end,false];}
- return [{op:commands[b]},p+1,[26,29,30,31].includes(b)];
+ return [{op:commands[b],...(b===0?{nameMode:'full'}:{})},p+1,[26,29,30,31].includes(b)];
 }
 const texts={};let p=0x67f7;
 while(p<0x8258){const start=p,events=[];for(let n=0;n<4096;n++){const [t,end,terminal]=token(p);events.push(t);p=end;if(terminal)break;}if(p<=start||p>0x8258)throw Error('Invalid compressed data boundary');texts[start.toString(16).toUpperCase()]=events;}

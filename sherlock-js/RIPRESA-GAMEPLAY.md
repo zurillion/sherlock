@@ -4,27 +4,26 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   413 checkpoint, da 0 a 412, fino a mercoledì 16:30: tutti i 24 posti attore,
+   415 checkpoint, da 0 a 414, fino a mercoledì 16:50: tutti i 24 posti attore,
    ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopo LOAD. 8254 draw e 17684 read confrontati.
-   Vedere GLIFI-SHIFT-SCANSIONE-5D28.md e results/glyph-scan-shift/witness-prefix.json.
+   contatore MORE e futuro dopo LOAD. 8296 draw e 17768 read confrontati.
+   Vedere QUALIFICATORI-DEI-NOMI-A028.md e results/name-qualifier-mode/witness-prefix.json.
 
-2. **Prossimo confine reale: $A028 al checkpoint413 verso mercoledì16:40.**
-   Superato5D28: C della scansione nel frame5D32 del prefisso proprio
-   della destinazioneCE13. Calcolare(2+7*colonna)&7, non2 catturato.
-   C39C salva sempre, C3B7 solo conC nonzero. Ultimo writer964/soggetto
-   citato0/t diParliament/colonna24/BC0102. Lettura giardiniere8/tick3373.
-   Acquisizione naturale riutilizzata con SHA256 dalla fase glyph-last-row;
-   216 nuove ABI frame5D34 distinguono F dello scan nella stessa cella.
-   OldLOAD assente restaunknown anche con27 noto; revocare su chiamanti
-   senza contratto, scene, errori e nomi locazione non proiettati.
-   RicostruireA028 indipendentemente; non introdurre25/29 per vicinanza.
-   Il test del font27 deve ora arrivare al proprio limite dichiarato16:10;
-   la nuova prova28 arriva16:30 e confronta la lettura effettiva.
-   Cinque finali naturali e cab5D0C ancora aperti. I tre controesempi diA027
-   restano nel backlog sotto. Atlante: approfonditi C388–C3E3 e workspace28;
-   nessun nuovo byte prima grigio. Il campionamento continuo diA027 conserva
-   il proprio ambito canale/draw dopo il confine di stato al1671/Tue14:02.
+2. **Prossimo confine reale: $C128 al checkpoint415 verso mercoledì17:00.**
+   SuperatoA028: modo dei qualificatori nella tuple nomeD405/D410.
+   Zero considera i due qualificatori, nonzero salta al sostantivo.
+   D3E8 per il nome entità non legge il flag: non applicare il filtro a
+   ogni oggetto. Otto writer ricostruiti, incluso HAIL speciale degliNPC.
+   Comando testo0/A65E scrive0, comando4/A709 conserva; il metadato
+   nameMode:full mantiene questa distinzione senza confondere roomID
+   ed entityID. Argomento con copulaA7B4 prende ID daD e scrive modo1.
+   Lettura cuoca9: ultimo writerA37E/tick3399/giardiniere8/chiamanteA34B.
+   OldLOAD senza campo restaunknown; i nomi della mappa restano puri.
+   12 storie brevi, 16ABI di tuple e18ABI di token; traccia continua3281
+   checkpoint sinoWed16:50 verifica modo e ogni draw, non ogni stato.
+   I tre controesempi preesistenti restano sotto, cinque finali e cab5D0C
+   ancora aperti. Atlante:89 byte grigiA65E–A678/A709–A71F/A793–A7B9,
+   eA028 da parziale a documentato. Non introdurre5D29 per vicinanza.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -78,7 +77,7 @@ Riferimenti principali: `STATO-E-PROSSIMI-PASSI.md`, `FINALI-E-CONFESSIONI.md`,
 Aggiornamento 31 ottobre 2026: mappa aggiornata insieme alle nuove analisi.
 La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
-Suite e prove correnti: vedere `results/glyph-scan-shift-verification.json` e
+Suite e prove correnti: vedere `results/name-qualifier-mode-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
 con `node tools/verify-witness-prefix.mjs`.
 

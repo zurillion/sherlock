@@ -1,0 +1,113 @@
+{
+  "protocol": "Controlled original text-token entries, actor/object/otherID3, initial mode0/1/7; argument0300 supplies entityID3 inD. No instruction patches. Observe A028 after the entry; not natural gameplay.",
+  "cases": [
+    {
+      "entry": "A720",
+      "initial": 0,
+      "expected": 0,
+      "argument": null
+    },
+    {
+      "entry": "A720",
+      "initial": 1,
+      "expected": 0,
+      "argument": null
+    },
+    {
+      "entry": "A720",
+      "initial": 7,
+      "expected": 0,
+      "argument": null
+    },
+    {
+      "entry": "A72C",
+      "initial": 0,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A72C",
+      "initial": 1,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A72C",
+      "initial": 7,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A73B",
+      "initial": 0,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A73B",
+      "initial": 1,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A73B",
+      "initial": 7,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A793",
+      "initial": 0,
+      "expected": 0,
+      "argument": null
+    },
+    {
+      "entry": "A793",
+      "initial": 1,
+      "expected": 0,
+      "argument": null
+    },
+    {
+      "entry": "A793",
+      "initial": 7,
+      "expected": 0,
+      "argument": null
+    },
+    {
+      "entry": "A7AC",
+      "initial": 0,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A7AC",
+      "initial": 1,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A7AC",
+      "initial": 7,
+      "expected": 1,
+      "argument": null
+    },
+    {
+      "entry": "A7B4",
+      "initial": 0,
+      "expected": 1,
+      "argument": 768
+    },
+    {
+      "entry": "A7B4",
+      "initial": 1,
+      "expected": 1,
+      "argument": 768
+    },
+    {
+      "entry": "A7B4",
+      "initial": 7,
+      "expected": 1,
+      "argument": 768
+    }
+  ]
+}

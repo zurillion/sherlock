@@ -1,0 +1,101 @@
+{
+  "protocol": "Controlled original A7BA/D405 calls with genuine room name tuples, A028=0/1/7/128. Reset formatter cursor and case as declared; original code/data/font unchanged. Check text and persistent mode; no natural-play claim.",
+  "cases": [
+    {
+      "room": 1,
+      "mode": 0,
+      "after": 0,
+      "text": "a hansom cab"
+    },
+    {
+      "room": 1,
+      "mode": 1,
+      "after": 1,
+      "text": "a cab"
+    },
+    {
+      "room": 1,
+      "mode": 7,
+      "after": 7,
+      "text": "a cab"
+    },
+    {
+      "room": 1,
+      "mode": 128,
+      "after": 128,
+      "text": "a cab"
+    },
+    {
+      "room": 7,
+      "mode": 0,
+      "after": 0,
+      "text": "a hall"
+    },
+    {
+      "room": 7,
+      "mode": 1,
+      "after": 1,
+      "text": "a hall"
+    },
+    {
+      "room": 7,
+      "mode": 7,
+      "after": 7,
+      "text": "a hall"
+    },
+    {
+      "room": 7,
+      "mode": 128,
+      "after": 128,
+      "text": "a hall"
+    },
+    {
+      "room": 10,
+      "mode": 0,
+      "after": 0,
+      "text": "Parliament Street"
+    },
+    {
+      "room": 10,
+      "mode": 1,
+      "after": 1,
+      "text": "Street"
+    },
+    {
+      "room": 10,
+      "mode": 7,
+      "after": 7,
+      "text": "Street"
+    },
+    {
+      "room": 10,
+      "mode": 128,
+      "after": 128,
+      "text": "Street"
+    },
+    {
+      "room": 53,
+      "mode": 0,
+      "after": 0,
+      "text": "the leatherhead station"
+    },
+    {
+      "room": 53,
+      "mode": 1,
+      "after": 1,
+      "text": "the station"
+    },
+    {
+      "room": 53,
+      "mode": 7,
+      "after": 7,
+      "text": "the station"
+    },
+    {
+      "room": 53,
+      "mode": 128,
+      "after": 128,
+      "text": "the station"
+    }
+  ]
+}
