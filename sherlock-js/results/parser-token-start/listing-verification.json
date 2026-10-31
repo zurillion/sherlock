@@ -1,0 +1,97 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 263,
+  "bytes_roundtripped": 564,
+  "regions": [
+    {
+      "start": "A029",
+      "end_exclusive": "A02B",
+      "kind": "data",
+      "label": "Inizio dell\u2019ultimo token letto: puntatore condiviso lexer/parser",
+      "atlas_priority": 149,
+      "fields": [
+        [
+          "A029/A02A",
+          "word little-endian",
+          "Indirizzo iniziale dell\u2019ultima lettura: caratteri per il lexer, token per il parser"
+        ],
+        [
+          "D9CD",
+          "writer lessicale",
+          "Primo carattere dopo gli spazi; comprende rifiuti lessicali e fine input"
+        ],
+        [
+          "AE82",
+          "writer sintattico",
+          "Prima del tipo e del payload. La scansione nominale pu\u00f2 rileggere il medesimo token"
+        ],
+        [
+          "LOAD",
+          "propriet\u00e0 esplicita",
+          "Vecchi salvataggi senza campo restanounknown fino a un writer verificato; non dedurre8A daA028 o dalla registrazione"
+        ],
+        [
+          "Limiti",
+          "protocolli distinti",
+          "I comandi di controllo rifiutati dall\u2019oracolo e il controesempioTAKE TO con rollback non sono storie native certificate"
+        ]
+      ]
+    },
+    {
+      "start": "AE7F",
+      "end_exclusive": "AEA9",
+      "kind": "code",
+      "label": "Lettore dei token: conserva inizio e avanza secondo la classe",
+      "atlas_priority": 149
+    },
+    {
+      "start": "D9C5",
+      "end_exclusive": "DA32",
+      "kind": "code",
+      "label": "Lexer: salto degli spazi e writer del puntatore al carattere iniziale",
+      "atlas_priority": 149
+    },
+    {
+      "start": "D6CE",
+      "end_exclusive": "D714",
+      "kind": "code",
+      "label": "Preflight lessicale e rifiuto della parola sconosciuta",
+      "atlas_priority": 149
+    },
+    {
+      "start": "D719",
+      "end_exclusive": "D769",
+      "kind": "code",
+      "label": "Seconda scansione lessicale e serializzazione in5B81",
+      "atlas_priority": 149
+    },
+    {
+      "start": "D780",
+      "end_exclusive": "D7B2",
+      "kind": "code",
+      "label": "Parser del giocatore: cursore di ripresa e lista di sintassi",
+      "atlas_priority": 149
+    },
+    {
+      "start": "AAD1",
+      "end_exclusive": "AB11",
+      "kind": "code",
+      "label": "Scansione speculativa del soggetto e ritorno al token",
+      "atlas_priority": 149
+    },
+    {
+      "start": "AB4C",
+      "end_exclusive": "AB8E",
+      "kind": "code",
+      "label": "Gruppi nominali e predicati: rilettura dal token corrente",
+      "atlas_priority": 149
+    },
+    {
+      "start": "B049",
+      "end_exclusive": "B09A",
+      "kind": "code",
+      "label": "Citazione differita: puntatore al contenuto e terminatore temporaneo",
+      "atlas_priority": 149
+    }
+  ]
+}

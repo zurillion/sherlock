@@ -5,33 +5,34 @@ richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la 
 
 Correzione successiva: [PAY-SENZA-TO.md](PAY-SENZA-TO.md). `PAY 10D` ora
 produce il rifiuto originale senza bloccare il comando successivo; le forme
-valide conservano l’ordine dativo. Il successivo lavoro ha superato5D29; il prossimo limite è **A029**.
+valide conservano l’ordine dativo. Il successivo lavoro ha superato5D29; il prossimo limite è **5D2A**.
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   423 checkpoint, da0 a422, fino a mercoledì18:10: tutti24posti attore,
-   ogni estrazione/lettura, arena completa, entità, programmi, bitmap,
-   contatore MORE e futuro dopoLOAD.8493 draw e18188 read confrontati.
-   Vedere GLIFI-CONTATORE-SCANSIONE-5D29.md e
-   results/glyph-scan-count/witness-prefix.json.
+   430 checkpoint, da 0 a 429, fino a mercoledì 19:20: tutti i 24 posti
+   attore, ogni estrazione/lettura, arena completa, entità, programmi,
+   bitmap, contatore MORE e futuro dopo LOAD. 8.685 draw e 18.604 read.
+   Vedere PUNTATORE-INIZIO-TOKEN-A029.md e
+   results/parser-token-start/witness-prefix.json.
+   Ripetibile con `node tools/verify-parser-token-prefix.mjs`.
 
-2. **5D29 superato; prossimo confine A029.**
-   Con frameC388=5D32, PUSH BC/C39C eC3B7 salva il contatore della
-   scansione nel bytealto29: ultimoB1 prima del decremento finale, non0/FF.
-   Altri frame salvano A/B chiamante,D descrittore,H video,A font; vera
-   CALL C374/frame5D28 lasciaC3 del ritornoC377. Proprietà condizionata al
-   caller compreso; oldLOAD senza29 restaunknown anche con28 noto.25 ignoto.
-   ABI originali e writer a16bit riutilizzati conSHA256, non una nuova
-   acquisizione completa degli store29. Il record originale del PUSH BC
-   a28 contieneBC0102 eSP5D2A: la stessa scrittura lascia1 a29. Tutti i
-   byte dichiarati posseduti sono confrontati con le ABI; la lettura naturale
-   al421/draw8 della cuoca è ora inclusa nel certificato completo.
-   **Osservato: A029 al checkpoint423 verso mercoledì18:20.**22 draw prima
-   del blocco sono confrontati, ma non lo stato completo del comando annullato.
-   Non dedurre A029 da A028. Cinque finali e i controesempi sotto restano aperti.
-   Atlante:324 istruzioni/615byte approfonditi, zero nuovi byte grigi.
-   RendererC388–C3E3,puliziaC363–C37C,nomi/argomentiA360–A418,A59F–A5CC,
-   A720–A770,A7BA–A7CF,D3E8–D447,decoderA95B–A98F,ordineCE10–CE17,
-   testo682A–682F eworkspace5D29. Copertura invariata38844/433/2323 su41600.
+2. **A029 superato; prossimo confine 5D2A.**
+   D9CD scrive l’indirizzo del primo carattere dopo gli spazi nel buffer
+   editor; AE82 scrive quello del token prima di leggerne tipo e payload.
+   A029/A02A conserva l’inizio, A02B il cursore successivo. Citazioni
+   differite mantengono la base originale. Old LOAD senza il campo rimane
+   sconosciuto fino a un writer compreso. Nessun 8A iniziale/catturato.
+   Ultimo store naturale: AE82, tick2341, Holmes0, callerAC33, punto B0
+   a5B8A; letto dal giardiniere8 nella precedente estrazione bloccante.
+   Confronto continuo separato: 3.371 checkpoint, 8.526 draw/18.256 read,
+   soltanto puntatore ed estrazioni, NON lo stato completo minuto per minuto.
+   Conservare il controesempio della riga del giardiniere sotto.
+   **Osservato: 5D2A al checkpoint430 verso mercoledì19:30**, cuoca9,
+   draw indice4 del riferimento. Il valore53 osservato non è un fallback.
+   48 ABI controllate del lettore, quattro boot con seed1/2/77/255 e nove
+   storie brevi positive. I due casi di ricerca con rollback del bridge
+   originale (controlli PRINT/NOPRINT/SAVE e TAKE TO) restano separati.
+   Atlante:263 istruzioni/564byte approfonditi; A029–A02A passa da parziale
+   a documentato, zero nuovi byte grigi. Copertura38846/431/2323 su41600.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
@@ -87,7 +88,7 @@ La verifica completa dei finali rimane aperta; il corpus di ricerca fallente
 è separato dalla suite di regressione e dal prefisso naturale certificato.
 Suite e prove correnti: vedere `results/name-qualifier-mode-verification.json` e
 GitHub Actions del commit pubblicato. Prefisso esteso ripetibile
-con `node tools/verify-witness-prefix.mjs`.
+con `node tools/verify-parser-token-prefix.mjs`.
 
 
 Aggiornamento29 ottobre2026 — consegna/restituzione NPC: leggere

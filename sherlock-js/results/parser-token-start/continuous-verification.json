@@ -1,0 +1,49 @@
+{
+  "scope": "Narrow continuous token-start and every random draw/read ONLY. Full-state acceptance remains separate; this does not dismiss the known transient gardener-row counterexample.",
+  "checkpoints": 3371,
+  "clock": {
+    "tick": 3501,
+    "due": 3781,
+    "day": 2,
+    "minute": 20,
+    "hour": 6,
+    "period": "pm",
+    "label": "Wed 06:20pm"
+  },
+  "draws": 8526,
+  "reads": 18256,
+  "unclassified_original_transitions": [],
+  "observed_A029_reads": [
+    {
+      "checkpoint": 3367,
+      "token_start": 23434,
+      "last_store": {
+        "pc": "AE82",
+        "hl": 23434,
+        "tick": 2341,
+        "actor": 0,
+        "caller": "AC33",
+        "token": 176,
+        "value": 23434
+      },
+      "actor": 8,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 252,
+      "cursor": 40739,
+      "reads": [
+        {
+          "address": 40995,
+          "value": 88
+        },
+        {
+          "address": 41001,
+          "value": 138
+        }
+      ],
+      "result": 12,
+      "next_seed": 222,
+      "next_cursor": 40995
+    }
+  ]
+}

@@ -54,6 +54,7 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.parserTokenStart=g.data.argumentChecks?.initialParserTokenStart??null;
   w.npcs.nameQualifierMode=g.data.argumentChecks?.initialNameQualifierMode??null;
   w.npcs.outputChannel=g.data.argumentChecks?.initialOutputChannel??null;
   w.npcs.modelFlags=g.data.argumentChecks?.initialModelFlags?[...g.data.argumentChecks.initialModelFlags]:[null,null];
@@ -231,7 +232,7 @@ export class NpcRuntime {
  finishCollective(node,visits){if(visits)this.beginResolution(node,{player:true});this.finishPlayerResolution(false);this.popParsed();}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
- invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
+ invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
  canHail(vehicle){return this.use(({vm})=>vm.state(vehicle+1).contexts.length===0);}
  hail(vehicle,customer){this.use(runtime=>{
   const s=runtime.vm.state(vehicle+1),origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
@@ -638,6 +639,7 @@ export class NpcRuntime {
   if(address===0xD6B8)return this.state.playerResolutionMode??null;
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
   if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
+  if(address===0xA029||address===0xA02A){const value=this.state.parserTokenStart;return Number.isInteger(value)?address===0xA029?value&255:value>>>8:null;}
   if(address===0xA028)return this.state.nameQualifierMode??null;
   if(address===0xA027)return this.state.outputChannel??null;
   if(address===0xA021)return this.state.argumentCheck??null;
@@ -689,6 +691,7 @@ export class NpcRuntime {
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');
   if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
+  if(s.parserTokenStart!=null&&(!Number.isInteger(s.parserTokenStart)||s.parserTokenStart<0||s.parserTokenStart>65535))throw Error('Puntatore iniziale del token non valido');
   if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');
   if(s.parserAll!==undefined&&s.parserAll!==null&&![0,1,2].includes(s.parserAll))throw Error('Stato ALL/BUT non valido');
   if(s.parserCount!==undefined&&s.parserCount!==null&&!byte(s.parserCount))throw Error('Contatore parser non valido');

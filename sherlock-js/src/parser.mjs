@@ -1,4 +1,4 @@
-import {InputError} from './lexer.mjs';
+import {InputError,tokenWidth} from './lexer.mjs';
 const clone=value=>structuredClone(value);
 const emptyGroup=()=>({relations:[],noun:0,qualifiers:[]});
 const node=()=>({verb:0,modifier:0,groups:[],subject:null,all:false,exclusion:false,quote:null});
@@ -18,7 +18,7 @@ export class Parser {
   }
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
- unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null}={}){
+ unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null,onTokenStart=null,tokenBase=0x5B81}={}){
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
   // AE19 commits omitted verbs only after successful parsing. Failed
   // records must retain their pre-inheritance payload.
@@ -26,7 +26,8 @@ export class Parser {
   let allState=0;onAll?.(allState);
   let count=0;const publishCount=()=>onCount?.(count);publishCount();
   const fail=()=>{throw new InputError('syntax_error','WHAT ?', {partialNodes:clone([...nodes,current].map(n=>deferredFields.has(n)?{...n,verb:0,modifier:0,groups:n.groups.slice(deferredFields.get(n))}:n))});};
-  const peek=()=>tokens[index]||{type:192},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
+  const offsets=[];let offset=0;for(const t of tokens){offsets.push(offset);offset+=tokenWidth(t.type);}
+  const peek=()=>{if(tokens[index])onTokenStart?.(tokenBase+offsets[index]);return tokens[index]||{type:192};},take=()=>tokens[index++],meaning=t=>t?.word||this.dictionary.word(t?.value||0)?.stem;
   const nominal=()=>{
    const group=emptyGroup(),publish=()=>onNominal?.(clone(group));publish();let article=false,started=false,qualified=false;
    while(true){const t=peek();
@@ -77,7 +78,7 @@ export class Parser {
     fail();
    }
    if(peek().type===144&&peek().value===0){
-    take();const tokenPointer=0x5B81+tokens.slice(0,index).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0),inner=[];while(peek().type!==192&&!(peek().type===144&&peek().value===0))inner.push(take());if(peek().type!==144)fail();take();
+    take();const tokenPointer=0x5B81+tokens.slice(0,index).reduce((n,t)=>n+(tokenWidth(t.type)),0),inner=[];while(peek().type!==192&&!(peek().type===144&&peek().value===0))inner.push(take());if(peek().type!==144)fail();take();
     if(!current.verb)current.verb=this.dictionary.lookup('TALK').value;
     const quote={tokens:[...inner,{type:192,value:0,word:null}],source:inner.map(t=>t.source).join(' '),tokenPointer};
     (current.quotes??=[]).push(quote);current.quote=current.quotes[0];continue;
@@ -113,7 +114,7 @@ export class Parser {
 
   return {nodes,next:index,mode:workingMode,outcome:'ok',...(lookahead?{lookahead}:{}),...(discarded.length?{discarded}:{}),...(continuationAnswer?{continuationAnswer}: {})};
  }
- quoted(quote,{onNominal=null,onCount=null,onAll=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount,onAll});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
+ quoted(quote,{onNominal=null,onCount=null,onAll=null,onTokenStart=null}={}){const units=[];let index=0,mode=0;try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount,onAll,onTokenStart,tokenBase:quote.tokenPointer});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
 }
 
 export function nodeWords(n){

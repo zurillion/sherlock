@@ -1,0 +1,144 @@
+{
+  "status": "A029 reconstructed from lexer/parser cursor semantics",
+  "short_native_histories": {
+    "cases": 9,
+    "inputs": 31,
+    "checkpoints": 41,
+    "draws": 151,
+    "reads": 302,
+    "observed_stores": 410,
+    "all_actors": 24,
+    "full_original_state_and_bitmaps": true,
+    "save_load_roundtrip": true
+  },
+  "controlled_reader_abi_cases": 48,
+  "boot_seeds": [
+    1,
+    2,
+    77,
+    255
+  ],
+  "full_prefix": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 430,
+    "random_draws": 8687,
+    "clock": {
+      "tick": 3561,
+      "due": 3781,
+      "day": 2,
+      "minute": 20,
+      "hour": 7,
+      "period": "pm",
+      "label": "Wed 07:20pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 8685,
+    "compared_random_reads": 18604,
+    "certified_checkpoint_range": [
+      0,
+      429
+    ],
+    "full_ending_certified": false,
+    "next_boundary": {
+      "checkpoint": 430,
+      "target_clock": "Wed 07:30pm",
+      "unknown_address": "5D2A"
+    }
+  },
+  "continuous_scope": {
+    "scope": "Narrow continuous token-start and every random draw/read ONLY. Full-state acceptance remains separate; this does not dismiss the known transient gardener-row counterexample.",
+    "checkpoints": 3371,
+    "clock": {
+      "tick": 3501,
+      "due": 3781,
+      "day": 2,
+      "minute": 20,
+      "hour": 6,
+      "period": "pm",
+      "label": "Wed 06:20pm"
+    },
+    "draws": 8526,
+    "reads": 18256,
+    "unclassified_original_transitions": [],
+    "observed_A029_reads": [
+      {
+        "checkpoint": 3367,
+        "token_start": 23434,
+        "last_store": {
+          "pc": "AE82",
+          "hl": 23434,
+          "tick": 2341,
+          "actor": 0,
+          "caller": "AC33",
+          "token": 176,
+          "value": 23434
+        },
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 252,
+        "cursor": 40739,
+        "reads": [
+          {
+            "address": 40995,
+            "value": 88
+          },
+          {
+            "address": 41001,
+            "value": 138
+          }
+        ],
+        "result": 12,
+        "next_seed": 222,
+        "next_cursor": 40995
+      }
+    ]
+  },
+  "excluded_research_cases": [
+    {
+      "case_index": 4,
+      "reason": "Native explorer rolls back unsupported PRINT/NOPRINT/SAVE controls; not a successful original history"
+    },
+    {
+      "case_index": 8,
+      "reason": "Retained TAKE TO boundary triggers native explorer rollback; not a positive certificate"
+    }
+  ],
+  "atlas": {
+    "instructions_roundtripped": 263,
+    "bytes_roundtripped": 564,
+    "newly_documented_from_partial": [
+      "A029",
+      "A02A"
+    ],
+    "newly_documented_from_unknown": 0,
+    "counts": {
+      "documented": 38846,
+      "partial": 431,
+      "unknown": 2323
+    }
+  },
+  "prior_limits_retained": [
+    "Five natural endings",
+    "Cab5D0C",
+    "PRINT/MORE",
+    "TAKE TO failure budget",
+    "Continuous gardener-row transient mismatch"
+  ],
+  "tests": {
+    "targeted": 107,
+    "full_suite": {
+      "passed": 1575,
+      "failed": 0,
+      "command": "node --test --test-concurrency=2 test/*.test.mjs"
+    },
+    "atlas_after_asset_order_update": {
+      "passed": 8,
+      "failed": 0
+    }
+  }
+}

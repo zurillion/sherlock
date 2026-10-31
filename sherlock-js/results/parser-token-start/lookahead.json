@@ -1,0 +1,23 @@
+{
+  "completed_checkpoints": 430,
+  "last_complete_clock": {
+    "tick": 3561,
+    "due": 3781,
+    "day": 2,
+    "minute": 20,
+    "hour": 7,
+    "period": "pm",
+    "label": "Wed 07:20pm"
+  },
+  "partial_checkpoint": 430,
+  "target_clock": {
+    "tick": 3571,
+    "due": 3781,
+    "minute": 30,
+    "hour": 7,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 07:30pm"
+  },
+  "error": "430 Ingresso casuale originale non ancora ricostruito: $5D2A. Il comando non è stato applicato."
+}

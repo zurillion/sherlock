@@ -1,12 +1,17 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [GLIFI-CONTATORE-SCANSIONE-5D29.md](GLIFI-CONTATORE-SCANSIONE-5D29.md).
-Superato5D29:423 checkpoint0–422 sinoWed18:10,8493draw/18188read,
-stato completo,bitmap e futuroLOAD. Prossimo ingresso sconosciuto A029
-al423 versoWed18:20.29 deriva dal writer del renderer, non da un1globale:
-sei ruoli distinti e vero return link verificati. Nessuna nuova zona grigia.
-Restano PRINT/MORE,TAKE TO e la riga transitoria del giardiniere nella
-traccia continua separata, cinque finali naturali e il limite cab5D0C.
+Aggiornamento corrente: [PUNTATORE-INIZIO-TOKEN-A029.md](PUNTATORE-INIZIO-TOKEN-A029.md).
+Superato A029: 430 checkpoint 0–429 fino a mercoledì 19:20,
+8.685 draw e 18.604 read, stato completo, bitmap e futuro dopo LOAD.
+Prossimo ingresso sconosciuto **5D2A** al checkpoint 430 verso le 19:30,
+cuoca 9, indice draw 4 del riferimento originale. Non installare il valore
+53 osservato: ricostruire il writer e il frame del chiamante.
+A029/A02A è il puntatore iniziale dell’ultima lettura lessicale/sintattica,
+non un valore derivato da A028. Quattro boot e 48 ABI originali;
+9 storie brevi complete più un confronto continuo distinto di solo cursore
+ed estrazioni. Restano PRINT/MORE, TAKE TO, la riga transitoria del
+giardiniere, i cinque finali naturali e il limite cab5D0C.
+Atlante: A029–A02A da parziale a documentato, zero nuovi byte grigi.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo

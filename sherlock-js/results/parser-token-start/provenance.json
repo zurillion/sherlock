@@ -1,0 +1,26 @@
+{
+  "new_acquisitions": [
+    "results/parser-token-start/natural-reference.json.gz",
+    "results/parser-token-start/witness-reference.json.gz",
+    "results/parser-token-start/reader-abi.json"
+  ],
+  "reused_long_full_state_reference": "results/final-solution/witness-native-reference.json.gz",
+  "files": [
+    {
+      "path": "results/parser-token-start/natural-reference.json.gz",
+      "sha256": "f7754f7e9600d39b062b4196f2a7495f3a17841516d8e47aab318dba34cda476"
+    },
+    {
+      "path": "results/parser-token-start/witness-reference.json.gz",
+      "sha256": "7f4de9f87f52f46c6a48f57214272c5d75a267fa4cf765858bedb6151920424b"
+    },
+    {
+      "path": "results/parser-token-start/reader-abi.json",
+      "sha256": "3c59aaa524b1bbf5888a626d75769458896978dd7859ea69e1a82ab9f8ff4665"
+    },
+    {
+      "path": "results/final-solution/witness-native-reference.json.gz",
+      "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82"
+    }
+  ]
+}

@@ -742,3 +742,35 @@ simulazione di orari.15 controlli passati: grafo/hosting e arrivo, partenza,
 caricamento, più primoWAIT world-v5 naturale(seed1):08:05 binari20/27/31.
 Browser avvio:treno36 albinario16, icona SVG verificata adAldergate.
 Atlante memoria e confineA029 invariati: cambiamento di presentazione.
+
+31 ottobre 2026 — leggere PUNTATORE-INIZIO-TOKEN-A029.md e
+results/parser-token-start-verification.json. A029/A02A è l'inizio
+little-endian dell'ultima lettura: D9CD per i caratteri nel buffer5B00,
+AE82 per i token5B81. A02B è distinto e avanza dopo tipo/payload. Classi
+<80 e90/E0/F0 occupano3byte, altre1. Il parser pubblica il cursore delle
+consultazioni, incluse speculazioni/riletture e citazioni con base originale.
+Non dedurre il puntatore dalla lunghezza dell'intera riga o daA028.
+Boot0 dal payload verificato con seed1/2/77/255; vecchi LOAD senza campo
+restanounknown fino a un writer, invalidazione parser revoca la proprietà.
+9 storie brevi complete,31input/41checkpoint/151draw/302read/410store,
+tutti24attori,stato/bitmap e roundtripLOAD;48ABI controllate del lettore.
+Due tentativi di ricerca restano esplicitamente esclusi: il bridge originale
+rifiuta PRINT/NOPRINT/SAVE e annullaTAKE TO. Le transizioniA536 dopo questi
+rollback non sono nuovi writer originali e non vanno certificate come tali.
+Nuova acquisizione continua sinoWed18:20:3371checkpoint,8526draw/18256read,
+confronta SOLO puntatore ed estrazioni, non rimuove il controesempio della
+riga transitoria del giardiniere. Ultimo storeAE82/tick2341/Holmes0/callerAC33,
+puntoB0 a5B8A; letto dal giardiniere8 conA023=58. Nessun8A di fallback.
+Certificato positivo completo separato:430checkpoint0–429 sinoWed19:20,
+8685draw/18604read,24postiattore,arena752,bitmap e futuroLOAD. Due draw del
+boot sono fuori dal conteggio dei comandi. Prossimo5D2A al430 versoWed19:30,
+cuoca9/drawindice4: non dedurre da5D29 né installare il53 del riferimento.
+Atlante263istruzioni/564byte: A029–A02A da parziale a documentato, zero
+nuovi bytegrigi;38846documentati/431parziali/2323sconosciuti su41600.
+ApprofonditiAE7F–AEA8,D9C5–DA31,D6CE–D713,D719–D768,D780–D7B1,
+AAD1–AB10,AB4C–AB8D,B049–B099. Cinque finali,cab5D0C,PRINT/MORE,
+TAKE TO e la riga continua del giardiniere restano aperti.
+
+Verifica conclusiva A029: suite completa di 1.575 test passata, zero errori.
+107 controlli mirati parser/lexer e 8 controlli atlante/hosting passati.
+Il certificato positivo di 430 checkpoint è completato e salvato.

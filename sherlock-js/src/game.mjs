@@ -210,7 +210,7 @@ export class Game {
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
    const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote():node.quote;
-   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null,onAll:w.npcs?value=>{w.npcs.parserAll=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
+   if(quote){try{const parsed=this.parser.quoted(quote,{onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null,onAll:w.npcs?value=>{w.npcs.parserAll=value;}:null,onTokenStart:w.npcs?value=>{w.npcs.parserTokenStart=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
     if(!(error instanceof InputError))throw error;
     if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
     else throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
@@ -339,11 +339,11 @@ export class Game {
    // before lexical validation or any paid actor visit.
    if(this.world.npcs)this.world.npcs.editorTokenFlag=0;
    if(this.world.npcs)this.npcRuntime.ruleResults.invalidate(); // Native editor/parser rule callbacks precede lexical validation.
-   this.lastInput=input;lexed=this.lexer.scan(input);this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
+   this.lastInput=input;lexed=this.lexer.scan(input,{onTokenStart:this.world.npcs?value=>{this.world.npcs.parserTokenStart=value;}:null});this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    let emptyPending=Boolean(this.pending)&&!ignoredPendingRepeat;while(index<lexed.tokens.length&&(lexed.tokens[index].type!==192||emptyPending)){emptyPending=false;
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
-    const pendingBefore=this.pending;let parsed;try{parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null,onAll:this.world.npcs?value=>{this.world.npcs.parserAll=value;}:null});}finally{if(this.world.npcs&&!['load','quit'].includes(parsed?.control))this.npcRuntime.setClarificationOffset(0);}index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
+    const pendingBefore=this.pending;let parsed;try{parsed=this.parser.unit(lexed.tokens,index,{pending:pendingBefore,mode,onNominal:this.world.npcs?group=>this.npcRuntime.nominal(group):null,onCount:this.world.npcs?value=>{this.world.npcs.parserCount=value;}:null,onAll:this.world.npcs?value=>{this.world.npcs.parserAll=value;}:null,onTokenStart:this.world.npcs?value=>{this.world.npcs.parserTokenStart=value;}:null});}finally{if(this.world.npcs&&!['load','quit'].includes(parsed?.control))this.npcRuntime.setClarificationOffset(0);}index=parsed.next;mode=parsed.mode;units.push(...parsed.nodes);this.pending=null;
     if(parsed.outcome==='control'){
      // Special-control preflight has separate source paths (including the
      // retained PRINT counter boundary). It cannot establish a missing flag

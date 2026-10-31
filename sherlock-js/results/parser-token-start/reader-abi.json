@@ -1,0 +1,455 @@
+{
+  "protocol": "Original AE7F called with controlled token-buffer address, type and 1234 payload; code and dictionary untouched. These are ABI calls, not naturally reached states. Four complete seed boots separately establish initial A029/A02A.",
+  "boot": [
+    {
+      "seed": 1,
+      "pointer": 0
+    },
+    {
+      "seed": 2,
+      "pointer": 0
+    },
+    {
+      "seed": 77,
+      "pointer": 0
+    },
+    {
+      "seed": 255,
+      "pointer": 0
+    }
+  ],
+  "cases": [
+    {
+      "pointer": 23425,
+      "type": 0,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 0
+    },
+    {
+      "pointer": 23425,
+      "type": 16,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 16
+    },
+    {
+      "pointer": 23425,
+      "type": 32,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 32
+    },
+    {
+      "pointer": 23425,
+      "type": 48,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 48
+    },
+    {
+      "pointer": 23425,
+      "type": 64,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 64
+    },
+    {
+      "pointer": 23425,
+      "type": 80,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 80
+    },
+    {
+      "pointer": 23425,
+      "type": 96,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 96
+    },
+    {
+      "pointer": 23425,
+      "type": 112,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 112
+    },
+    {
+      "pointer": 23425,
+      "type": 128,
+      "start": 23425,
+      "next": 23426,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 128
+    },
+    {
+      "pointer": 23425,
+      "type": 144,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 144
+    },
+    {
+      "pointer": 23425,
+      "type": 160,
+      "start": 23425,
+      "next": 23426,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 160
+    },
+    {
+      "pointer": 23425,
+      "type": 176,
+      "start": 23425,
+      "next": 23426,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 176
+    },
+    {
+      "pointer": 23425,
+      "type": 192,
+      "start": 23425,
+      "next": 23426,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 192
+    },
+    {
+      "pointer": 23425,
+      "type": 208,
+      "start": 23425,
+      "next": 23426,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 208
+    },
+    {
+      "pointer": 23425,
+      "type": 224,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 224
+    },
+    {
+      "pointer": 23425,
+      "type": 240,
+      "start": 23425,
+      "next": 23428,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 240
+    },
+    {
+      "pointer": 23440,
+      "type": 0,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 0
+    },
+    {
+      "pointer": 23440,
+      "type": 16,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 16
+    },
+    {
+      "pointer": 23440,
+      "type": 32,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 32
+    },
+    {
+      "pointer": 23440,
+      "type": 48,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 48
+    },
+    {
+      "pointer": 23440,
+      "type": 64,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 64
+    },
+    {
+      "pointer": 23440,
+      "type": 80,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 80
+    },
+    {
+      "pointer": 23440,
+      "type": 96,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 96
+    },
+    {
+      "pointer": 23440,
+      "type": 112,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 112
+    },
+    {
+      "pointer": 23440,
+      "type": 128,
+      "start": 23440,
+      "next": 23441,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 128
+    },
+    {
+      "pointer": 23440,
+      "type": 144,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 144
+    },
+    {
+      "pointer": 23440,
+      "type": 160,
+      "start": 23440,
+      "next": 23441,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 160
+    },
+    {
+      "pointer": 23440,
+      "type": 176,
+      "start": 23440,
+      "next": 23441,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 176
+    },
+    {
+      "pointer": 23440,
+      "type": 192,
+      "start": 23440,
+      "next": 23441,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 192
+    },
+    {
+      "pointer": 23440,
+      "type": 208,
+      "start": 23440,
+      "next": 23441,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 208
+    },
+    {
+      "pointer": 23440,
+      "type": 224,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 224
+    },
+    {
+      "pointer": 23440,
+      "type": 240,
+      "start": 23440,
+      "next": 23443,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 240
+    },
+    {
+      "pointer": 23520,
+      "type": 0,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 0
+    },
+    {
+      "pointer": 23520,
+      "type": 16,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 16
+    },
+    {
+      "pointer": 23520,
+      "type": 32,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 32
+    },
+    {
+      "pointer": 23520,
+      "type": 48,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 48
+    },
+    {
+      "pointer": 23520,
+      "type": 64,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 64
+    },
+    {
+      "pointer": 23520,
+      "type": 80,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 80
+    },
+    {
+      "pointer": 23520,
+      "type": 96,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 96
+    },
+    {
+      "pointer": 23520,
+      "type": 112,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 112
+    },
+    {
+      "pointer": 23520,
+      "type": 128,
+      "start": 23520,
+      "next": 23521,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 128
+    },
+    {
+      "pointer": 23520,
+      "type": 144,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 144
+    },
+    {
+      "pointer": 23520,
+      "type": 160,
+      "start": 23520,
+      "next": 23521,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 160
+    },
+    {
+      "pointer": 23520,
+      "type": 176,
+      "start": 23520,
+      "next": 23521,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 176
+    },
+    {
+      "pointer": 23520,
+      "type": 192,
+      "start": 23520,
+      "next": 23521,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 192
+    },
+    {
+      "pointer": 23520,
+      "type": 208,
+      "start": 23520,
+      "next": 23521,
+      "value": 0,
+      "previous_class": 112,
+      "result_class": 208
+    },
+    {
+      "pointer": 23520,
+      "type": 224,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 224
+    },
+    {
+      "pointer": 23520,
+      "type": 240,
+      "start": 23520,
+      "next": 23523,
+      "value": 4660,
+      "previous_class": 112,
+      "result_class": 240
+    }
+  ]
+}

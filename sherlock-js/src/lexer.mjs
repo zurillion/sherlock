@@ -1,3 +1,4 @@
+export const tokenWidth=type=>type<128||[144,224,240].includes(type)?3:1;
 export class InputError extends Error {
  constructor(kind,text,detail={}){super(text);this.kind=kind;this.detail=detail;}
 }
@@ -62,9 +63,9 @@ export function numericLiteral(text){const result=scanNumeric(text+' .\r');if(!r
 
 export class Lexer {
  constructor(dictionary){this.dictionary=dictionary;}
- scan(raw){
+ scan(raw,{onTokenStart=null}={}){
   const normalized=normalizeInput(raw),tokens=[],workspaceCopies=[];if(normalized.length>128)throw new InputError('tool_limit','Sovrapposizione originale fra buffer editor e token non ancora ricostruita: comando non applicato.');let pos=0,lookupState=null;
-  while(pos<normalized.length){const start=pos,c=normalized[pos];if(c===' '){pos++;continue;}
+  while(pos<normalized.length){const start=pos,c=normalized[pos];if(c===' '){pos++;continue;}onTokenStart?.(0x5B00+pos);
    const special={'.':176,',':160,'"':144}[c];if(special!==undefined){tokens.push({type:special,value:0,word:null,start,end:++pos,source:c});continue;}
    let result;
    if(/[0-9`]/.test(c)){
@@ -75,7 +76,7 @@ export class Lexer {
    if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized,lookupState,workspaceCopies});}
    tokens.push({...result,start,end:pos,source:normalized.slice(start,pos)});
   }
-  tokens.push({type:192,value:0,word:null,start:pos,end:pos,source:''});
+  onTokenStart?.(0x5B00+pos);tokens.push({type:192,value:0,word:null,start:pos,end:pos,source:''});
   return {normalized,tokens,lookupState,workspaceCopies};
  }
 }
