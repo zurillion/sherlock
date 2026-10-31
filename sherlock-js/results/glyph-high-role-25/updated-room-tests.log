@@ -1,0 +1,10 @@
+✔ Caller shift ownership is independent of descriptor and caller B (29.842167ms)
+✔ A composed proper room prefix replaces actor-name C with its deeper saved scan F (9.506042ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 228.634083

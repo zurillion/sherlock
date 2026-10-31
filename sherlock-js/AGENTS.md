@@ -859,7 +859,8 @@ bitmap e stato. Non estenderla automaticamente all’intera traccia3461.
 Nuovo certificato positivo principale439checkpoint0–438 sinoWed20:50,
 8919draw/19078read,24postiattore,arena752,bitmap e futuroLOAD. Le8921
 drawruntime comprendono2boot. Prossimo5D25 al439 versoWed21:00,
-Watson3/draw13; non installare0 catturato né inferire dal byte vicino.
+Watson3/draw13; correzione successiva:5D25=92, mentre lo0 era letto a5C25
+nel tentativo precedente della stessa draw. Non installare valori catturati.
 Atlante137istruzioni/362byte approfonditi: CC78–CC93,CA48–CA75,CE8F–CEDD,
 CD82–CD94,CF80–CFB5,CFCF–D044,ED6A–ED7B. Zero byte prima grigi,
 copertura38847/430/2323 su41600 invariata. Riferire le zone e l’orologio.
@@ -871,3 +872,31 @@ Test output-channel-witness aggiornato a uguaglianza completa0–1671 e
 rieseguitoPASS; confronti canale/draw a3241 preservati.1650 test distinti
 verificati senza errori residui; log integrale iniziale e rerun separati,
 non dichiarare una seconda esecuzione completa1650/0.
+
+
+31 ottobre2026 — leggere GLIFI-E-REGISTRI-ALTI-5D25.md e
+results/glyph-high-role-25-verification.json. Ricostruito5D25, non5D2B.
+C388 frame26→callerA,28→callerB se noto,2A→descriptorD,2C→videoH,
+2E→scanB finale1,30→rawfontA. Applicare upperGlyphKnown; BC ignoto
+revoca il byte anziché preservarlo. C374 reale lasciaC377: frame24→C3.
+Ritorno non proiettato revoca25. Il frame stanza32 scrive da26 in avanti:
+non cancellare25 valido lasciato dal prefisso attore2A.
+Correzione dello storico: la draw13 al439 legge5C25=0,F912=0,5D25=92,
+FA12=145. Lo0 era stato attribuito erroneamente a5D25. Nuova traccia
+originale invariata: Watson3 legge92 al3656/Wed20:55; ultimoC38A al964,
+Lestrade2,frame2A,char114 finale diInspector,DE5C0B.76checkpoint writer,
+3owned/73unknown,zero transizioni non classificate; store invariati inclusi.
+Riferimenti ABI riutilizzati dichiarati e hashati; nessun valore importato
+nel runtime. SAVE/LOAD conserva proprietà, vecchioSAVE assente resta ignoto.
+Certificato positivo separato completo443checkpoint0–442 sinoWed21:30,
+8987draw/19234read,24attori,arena752,bitmap e futuroLOAD;8989runtime con2boot.
+ProssimoA025 al443 versoWed21:40,Watson3/draw12; non installare0 osservato
+né inferire daA024. Fallito443 escluso, non avviare altre correzioni in questo giro.
+Atlante324istruzioni/615byte riassemblati: C388–C3E3,C363–C37C,A360–A418,
+A59F–A5CC,A720–A770,A7BA–A7CF,D3E8–D447,A95B–A98F,CE10–CE17,682A–682F;
+workspace25 approfondito. Nessun nuovo byte grigio,38847/430/2323 invariati.
+Test mirati117pass. Suite completa1689:1687pass,2 vecchie asserzioni
+room-name pretendevano25unknown. Aggiornate a D=5C e rieseguite2/2PASS.
+1689test distinti verificati senza errori residui; log iniziale e rerun
+separati. Non dichiarare una seconda esecuzione completa1689/0.
+Cinque finali,cab5D0C,PRINT/MORE,TAKE TO,dialogoWatsonKilledYou restanoaperti.

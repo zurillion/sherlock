@@ -1,0 +1,77 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 324,
+  "bytes_roundtripped": 615,
+  "regions": [
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Renderer dei glifi: sei registri distinti possono scrivere il byte alto5D25",
+      "atlas_priority": 153
+    },
+    {
+      "start": "C363",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Pulizia della riga: ritorno realeC377, altoC3 a5D25 nel frame5D24",
+      "atlas_priority": 153
+    },
+    {
+      "start": "A360",
+      "end_exclusive": "A419",
+      "kind": "code",
+      "label": "Ordine NPC e nomi: provenienza dei frame del renderer",
+      "atlas_priority": 153
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "Ingresso del testo e profondit\u00e0 dei salvataggi",
+      "atlas_priority": 153
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nomi e chiamate del linguaggio dei testi",
+      "atlas_priority": 153
+    },
+    {
+      "start": "A7BA",
+      "end_exclusive": "A7D0",
+      "kind": "code",
+      "label": "Tuple nome e nome entit\u00e0: chiamanti separati",
+      "atlas_priority": 153
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Formatter del nome: qualificatori e sostantivo finale differito",
+      "atlas_priority": 153
+    },
+    {
+      "start": "A95B",
+      "end_exclusive": "A990",
+      "kind": "code",
+      "label": "Decoder dei candidati: scrittore alternativo dello stack",
+      "atlas_priority": 153
+    },
+    {
+      "start": "CE10",
+      "end_exclusive": "CE18",
+      "kind": "code",
+      "label": "Ordine fra NPC: stampa dopo la registrazione della richiesta",
+      "atlas_priority": 153
+    },
+    {
+      "start": "682A",
+      "end_exclusive": "6830",
+      "kind": "data",
+      "label": "Testo compresso degli ordini: nome attore e comando con destinazione",
+      "atlas_priority": 153
+    }
+  ]
+}

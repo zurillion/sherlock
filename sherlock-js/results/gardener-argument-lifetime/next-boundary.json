@@ -4,5 +4,5 @@
   "unknown_address": "5D25",
   "actor": 3,
   "draw_index": 13,
-  "scope": "Failed checkpoint excluded from positive full-state certificate. Native value0 is evidence only, never runtime fallback."
+  "scope": "Historical failed checkpoint excluded from its positive certificate. Correction: native5D25 is92; zero belongs to prior5C25 read in the same draw. Resolved subsequently by glyph-high-role-25, without captured-byte fallback."
 }

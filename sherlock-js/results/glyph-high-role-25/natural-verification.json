@@ -1,0 +1,47 @@
+{
+  "scope": "Fresh original stack-store provenance including unchanged writes; each owned command checkpoint and exact Watson read. Unknown checkpoints stay explicit. Not complete-state acceptance, which is a separate positive certificate.",
+  "checkpoints": 76,
+  "owned_checkpoints": 3,
+  "unknown_checkpoints": 73,
+  "clock": {
+    "tick": 3661,
+    "due": 3781,
+    "day": 2,
+    "minute": 0,
+    "hour": 9,
+    "period": "pm",
+    "label": "Wed 09:00pm"
+  },
+  "unclassified_original_transitions": [],
+  "reads": [
+    {
+      "value": 92,
+      "tick": 3656,
+      "actor": 3
+    }
+  ],
+  "last_store": {
+    "pc": "C38A",
+    "sp": "5D26",
+    "af": 29210,
+    "bc": 258,
+    "de": 23563,
+    "hl": 20519,
+    "tick": 964,
+    "actor": 2,
+    "glyph": {
+      "frame": 23850,
+      "char": 114,
+      "descriptor": 23563,
+      "screen_address": 20519,
+      "shift": 2,
+      "caller_count": 1,
+      "word": "inspector.l."
+    },
+    "address": "5D25",
+    "value": 92
+  },
+  "derived_role": "descriptor D",
+  "derived_value": 92,
+  "save_load_after_interruption": true
+}

@@ -5,7 +5,7 @@ for(const frame of[0x5D24,0x5D26,0x5D28,0x5D2A,0x5D2C,0x5D2E,0x5D30,0x5D32])for(
  for(const row of rows){g.world.display.scratch={};p.glyphFlagsKnown=true;p.upperGlyphKnown=true;p.glyphResidue(row.char,row.frame,row.column,row.descriptor,row.count);for(const[at,v]of Object.entries(g.world.display.scratch))if(at in row.cells)assert.equal(v,row.cells[at],JSON.stringify({frame,count,char,column:row.column,at}));if(frame>=0x5D28&&frame<=0x5D32)assert.equal(p.read(0x5D26),row.cells[0x5D26]);else assert.equal(p.read(0x5D26),null);}
 });
 test('Caller shift ownership is independent of descriptor and caller B',()=>{
- const g=new Game(data,{npc_profile:'world-v5',seed:1}),p=g.sourceDisplay;assert.equal(p.read(0x5D26),null);p.upperGlyphKnown=true;p.glyphResidue('r',0x5D2A,8,0x5C42,7);assert.equal(p.read(0x5D26),(2+8*7)&7);assert.equal(p.read(0x5D25),null);
+ const g=new Game(data,{npc_profile:'world-v5',seed:1}),p=g.sourceDisplay;assert.equal(p.read(0x5D26),null);p.upperGlyphKnown=true;p.glyphResidue('r',0x5D2A,8,0x5C42,7);assert.equal(p.read(0x5D26),(2+8*7)&7);assert.equal(p.read(0x5D25),0x5C,'independent descriptor D is now owned');
  const saved=JSON.parse(JSON.stringify(g.dump()));assert.equal(Game.load(data,saved).sourceDisplay.read(0x5D26),2);delete saved.world.display.scratch[0x5D26];const old=Game.load(data,saved);assert.equal(old.sourceDisplay.read(0x5D26),null);assert.equal(old.sourceDisplay.read(0x5D24),0x42);
  p.upperGlyphKnown=false;p.glyphResidue('r',0x5D2A,8,0x5C0B,1);assert.equal(p.read(0x5D26),null);p.upperGlyphKnown=true;p.glyphResidue('r',0x5D2A,8,0x5C0B,1);p.write('Unknown caller.');assert.equal(p.read(0x5D26),null);
  p.upperGlyphKnown=true;p.glyphResidue('r',0x5D2A,8,0x5C0B,1);p.error([{text:'WHAT ?'}]);assert.equal(p.read(0x5D26),null);p.glyphResidue('r',0x5D2A,8,0x5C0B);assert.equal(p.read(0x5D26),null,'unprojected caller BC stays unknown');
@@ -18,7 +18,7 @@ test('A composed proper room prefix replaces actor-name C with its deeper saved 
  const g=new Game(data,{npc_profile:'world-v5',seed:1}),p=g.sourceDisplay,seen=[],glyph=p.glyphResidue.bind(p);p.glyphResidue=(c,frame,...args)=>{if(frame===0x5D32)seen.push(c);return glyph(c,frame,...args);};
  p.upperGlyphKnown=true;p.glyphResidue('r',0x5D2A,8,0x5C0B,1);assert.equal(p.read(0x5D26),2);
  g.npcRuntime.print('682A',2,{object:31,action:29,args:[10,255],actorNameFrame:0x5D2A,actorNameUpper:true,roomNameFrame:0x5D32,preserveGlyphFlags:true},[],{force:true});
- assert(seen.join('').toLowerCase().includes('parliament'));assert.equal(p.read(0x5D26),0);assert.equal(p.read(0x5D25),null);
+ assert(seen.join('').toLowerCase().includes('parliament'));assert.equal(p.read(0x5D26),0);assert.equal(p.read(0x5D25),0x5C,'independent descriptor D is now owned');
 });
 test('The actor-table terminator is extracted immutable data, never an invented legacy fallback',()=>{
  const g=new Game(data,{npc_profile:'world-v5',seed:1});assert.equal(data.npcPrograms.actorTerminator,255);assert.equal(g.npcRuntime.read(0x9920),255);

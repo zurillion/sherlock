@@ -1,0 +1,23 @@
+{
+  "completed_checkpoints": 443,
+  "last_complete_clock": {
+    "tick": 3691,
+    "due": 3781,
+    "day": 2,
+    "minute": 30,
+    "hour": 9,
+    "period": "pm",
+    "label": "Wed 09:30pm"
+  },
+  "partial_checkpoint": 443,
+  "target_clock": {
+    "tick": 3701,
+    "due": 3781,
+    "minute": 40,
+    "hour": 9,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 09:40pm"
+  },
+  "error": "443 Ingresso casuale originale non ancora ricostruito: $A025. Il comando non è stato applicato."
+}

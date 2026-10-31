@@ -1,15 +1,15 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md](ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md).
-Superata la divergenza degli argomenti del giardiniere:439 checkpoint0–438
-fino a mercoledì20:50,8.919 draw/19.078 read, stato completo, bitmap e
-futuro dopoLOAD. Prossimo ingresso sconosciuto5D25 al439 verso21:00,
-Watson3/draw13 del riferimento: ricostruire il writer, non installare0.
-Il binding modifica la copia di lavoro; D026 effettua il commit della riga.
-Un fallimento non ciclico seguito da CF80 conserva i byte precedenti della
-radice. Risolto anche il controesempio continuo del1671/Tue14:02, con prova
-positiva completa0–1671/4573draw/9796read. Tracce storiche conservate.
-Atlante137 istruzioni/362 byte approfonditi, nessun nuovo byte grigio.
+Aggiornamento corrente: [GLIFI-E-REGISTRI-ALTI-5D25.md](GLIFI-E-REGISTRI-ALTI-5D25.md).
+5D25 ricostruito dai sei ruoli del renderer e dal ritorno realeC377.
+Nuova traccia originale: Watson legge92 al3656/Wed20:55; ultimoC38A al964,
+Lestrade2, descrittore5C0B. Corretto lo0 attribuito erroneamente a5D25:
+era la lettura precedente5C25. Nessuna costante o fallback nel runtime.
+Certificato completo443checkpoint0–442 sinoWed21:30,8987draw/19234read,
+24attori,arena752,stato,bitmap e futuroLOAD. ProssimoA025 al443 versoWed21:40,
+Watson3/draw12; ricostruire il writer, non installare lo0 osservato.
+Atlante324istruzioni/615byte approfonditi; nessun nuovo byte grigio.
+Argomenti del giardiniere risolti, compresa la prova continua0–1671.
 Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e il dialogo
 SAY WATSON "WATSON KILLED YOU" con7 drawJS contro10 nativo.
 Vedere RIPRESA-GAMEPLAY.md; le sezioni seguenti conservano lo storico.

@@ -116,7 +116,9 @@ tempo del gioco dall’avvio gratuito di lunedì08:00, per il profilo verificato
 
 Il prossimo checkpoint439, verso mercoledì21:00, resta escluso: Watson3
 raggiunge un ingresso casuale non posseduto a5D25, draw indice13 del riferimento.
-Il valore originale0 non è implementato come costante. Restano da certificare
+Correzione successiva: il valore originale è92 ($5C); lo0 appartiene alla
+precedente lettura a5C25 nella stessa estrazione. Vedere
+GLIFI-E-REGISTRI-ALTI-5D25.md per writer e soluzione, senza costanti catturate. Restano da certificare
 i cinque finali naturali e gli altri limiti elencati nel punto di ripresa.
 
 La prova della nuova acquisizione è conclusa:330 eventi e8 cambiamenti della

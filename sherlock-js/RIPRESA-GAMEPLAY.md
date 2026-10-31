@@ -3,31 +3,31 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md](ARGOMENTI-TEMPORANEI-DEL-GIARDINIERE.md).
+Aggiornamento corrente: [GLIFI-E-REGISTRI-ALTI-5D25.md](GLIFI-E-REGISTRI-ALTI-5D25.md).
 
 1. **Ultimo prefisso verificato del ramo che scagiona Ffoulkes.**
-   439 checkpoint0–438 fino a mercoledì20:50, con8.919 draw/19.078 read,
+   443 checkpoint0–442 fino a mercoledì21:30,8.987 draw/19.234 read,
    tutti24 posti attore, entità, fatti, programmi, arena752 byte, bitmap e
-   futuro dopoLOAD. Vedere results/gardener-argument-lifetime/witness-prefix.json.
-   Ripetibile con `node tools/verify-gardener-argument-prefix.mjs`.
+   futuro dopoLOAD. Vedere results/glyph-high-role-25/witness-prefix.json.
+   Ripetibile con `node tools/verify-glyph-high-role-25-prefix.mjs`.
 
-2. **Argomenti del giardiniere corretti; prossimo ingresso 5D25.**
-   CC78/D008 carica gli argomenti di lavoro dalla riga o dal contesto.
-   CA48 riempie gli slot FF prima del body, senza aggiornare la riga.
-   Un fallimento non ciclico continua daCC82 senza commit; un successivo
-   CF80 può sospendere una nuova sottosequenza lasciando la riga intatta.
-   Ora la radice JavaScript usa una copia di lavoro, salvata ai punti D026
-   già ricostruiti. Nessuna condizione speciale sul valore33 o sull’attore8.
-   Risolto anche il vecchio controesempio continuo al1671/Tue14:02: verifica
-   positiva completa0–1671,4573draw/9796read,24 posti attore e arena752.
-   **Prossimo 5D25 al checkpoint439 verso mercoledì21:00**, Watson3,
-   draw indice13 del riferimento. Il valore0 catturato non è un fallback:
-   ricostruire il writer e la sua proprietà.5D2B resta non introdotto.
-   Atlante137 istruzioni/362 byte approfonditi: CC78–CC93,CA48–CA75,
-   CE8F–CEDD,CD82–CD94,CF80–CFB5,CFCF–D044,ED6A–ED7B.
-   Copertura invariata38.847/430/2.323 su41.600; nessun nuovo byte grigio.
-   Rimane il controesempio SAY WATSON "WATSON KILLED YOU":7 drawJS contro10
-   nativo, già sul codiceb8b00c3. La modalitàA024 coincide, il dialogo no.
+2. **5D25 ricostruito; prossimo ingresso A025.**
+   Sei ruoli indipendenti: A/B chiamante,D descrittore,H video,B scansione,
+   A ultima riga del font. Il frame stabilisce quale registro salva il byte.
+   Il ritorno realeC377 lasciaC3; ritorni e chiamanti ignoti revocano proprietà.
+   Traccia originale nuova: Watson3 legge92 al3656/Wed20:55; ultimo writer
+   C38A al964/Lestrade2, carattere«r» di«Inspector», descrittore5C0B.
+   Lo0 annotato prima era5C25, lettura precedente della stessa draw.
+   Nessun fallback catturato; SAVE incompleti restano ignoti.5D2B non introdotto.
+   **Prossimo A025 al443 verso mercoledì21:40**, Watson3/draw12.
+   Non installare lo0 osservato né inferire daA024. Checkpoint443 escluso.
+   Atlante324 istruzioni/615 byte approfonditi: C388–C3E3,C363–C37C,
+   A360–A418,A59F–A5CC,A720–A770,A7BA–A7CF,D3E8–D447,A95B–A98F,
+   CE10–CE17,testo682A–682F e workspace5D25. Nessun nuovo byte grigio;
+   copertura invariata38.847/430/2.323 su41.600.
+   Argomenti del giardiniere risolti nel lavoro precedente; preservare la
+   prova positiva continua0–1671/4573draw/9796read e il commit selettivoD026.
+   Dialogo SAY WATSON "WATSON KILLED YOU":7 drawJS contro10 nativo ancora aperto.
 
 3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
    6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove

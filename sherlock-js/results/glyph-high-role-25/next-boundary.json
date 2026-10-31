@@ -1,0 +1,9 @@
+{
+  "checkpoint": 443,
+  "target_clock": "Wed 09:40pm",
+  "unknown_address": "A025",
+  "actor": 3,
+  "draw_index": 12,
+  "native_value": 0,
+  "scope": "Failed checkpoint excluded from positive full-state certificate. Reconstruct actual writer and ownership; do not install captured zero or infer fromA024."
+}
