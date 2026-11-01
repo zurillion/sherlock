@@ -48,7 +48,7 @@ export class RandomDisplay {
   // C388 ABI tests distinguish eight frames and both caller counts. The extra 5D1F byte is owned only
   // in a verified caller scope; scene frames retain their old low-byte
   // contract and unprojected EXAMINE/statement output revokes ownership.
-  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if((at>=0x5D20&&at<=0x5D2A)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&at<=0x5D2A)s[at]=v;};
+  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if(((at>=0x5D20&&at<=0x5D2A)||at===0x5D30)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D2A||at===0x5D30))s[at]=v;};
   // C389 retains caller C at frame-4 (5D26 for frame5D2A).
   // This is supplied by the pixel-column calculation, not a global shift2.
   // The later proper room prefix uses frame5D32: saved scan F supersedes
@@ -69,6 +69,9 @@ export class RandomDisplay {
   // A deep wrap can overwrite previously owned cells with that link.
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
   else if(frame===0x5D24)delete s[0x5D25]; // An unprojected return link cannot preserve an old high byte.
+  if(descriptor!==0x5A20&&frame===0x5D30)delete s[0x5D30]; // Unknown return link, not an AF save.
+  // 5D30 is projected independently: AF/BC/DE/HL/scan fields depend on entry depth.
+  // Cells2B–2F and31 remain unowned.
   // The verified caller owns both bytes of the saved scan AF: F at
   // frame-12 and raw font row A at frame-11 (5D1A/5D1B for frame5D26).
   // With frame5D26, frame-10/-9 retain C and B at5D1C/5D1D. B is the
@@ -77,7 +80,7 @@ export class RandomDisplay {
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&at<=0x5D2A)delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D2A||at===0x5D30))delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -98,9 +101,9 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:0x5D1A,0x5D2A);}
+ invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:0x5D1A,0x5D30);}
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D2A){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D30){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin

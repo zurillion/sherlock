@@ -1,0 +1,37 @@
+{
+  "scope": "Original play from boot unmodified, with late instruction-store observation. Every owned command checkpoint and exact cook read; unknown checkpoints and unobserved earlier writer remain explicit. Separate from complete-state acceptance.",
+  "observation_start": {
+    "tick": 4351,
+    "due": 4501,
+    "minute": 30,
+    "hour": 8,
+    "day": 3,
+    "period": "am",
+    "label": "Thu 08:30am"
+  },
+  "checkpoints": 77,
+  "owned_checkpoints": 4,
+  "unknown_checkpoints": 73,
+  "clock": {
+    "tick": 4371,
+    "due": 4501,
+    "day": 3,
+    "minute": 50,
+    "hour": 8,
+    "period": "am",
+    "label": "Thu 08:50am"
+  },
+  "unclassified_original_transitions": [],
+  "reads": [
+    {
+      "value": 26,
+      "tick": 4365,
+      "actor": 9
+    }
+  ],
+  "last_store": null,
+  "derived_role": null,
+  "derived_value": null,
+  "last_original_writer_observed": false,
+  "save_load_after_interruption": true
+}

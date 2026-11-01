@@ -3,41 +3,36 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [RISPOSTE-TELL-E22A.md](RISPOSTE-TELL-E22A.md).
+Aggiornamento corrente: [FLAG-DEL-CHIAMANTE-5D30.md](FLAG-DEL-CHIAMANTE-5D30.md).
 
-1. **Ultimo prefisso completo del ramo che scagiona Ffoulkes.**
-   512 checkpoint 0–511 fino a giovedì 08:40. Tutti i 24 posti attore,
-   entità, fatti, programmi, arena di 752 byte, bitmap, ogni draw/read
-   e futuro dopo LOAD. 10.144 draw / 21.630 read; 10.146 runtime con 2 boot.
-   Rapporto results/conversation-topic-table/witness-prefix.json;
-   ripetibile con `node tools/verify-conversation-table-prefix.mjs`.
-   L’oracolo naturale originale è riutilizzato con SHA, non una nuova cattura lunga.
+1. **Prima storia del ramo witness verificata fino al finale6A33.**
+   521 checkpoint0–520 da lunedì08:00 a giovedì10:00; tutti24 i posti attore,
+   entità,fatti,programmi,arena752 byte,bitmap,ogni estrazione e futuroLOAD.
+   10.345 draw/22.058 read confrontati;10.347 runtime incluse2 estrazioni boot.
+   Anche pausa terminale,bitmap prima dell’acknowledgement e comandi congelati
+   dopo il finale. Rapporto results/glyph-caller-flags-30/witness-complete.json;
+   ripetibile con node tools/verify-glyph-caller-flags-30-witness.mjs.
+   Oracolo lungo originale RIUTILIZZATO conSHA, non nuova acquisizione terminale.
+   Profilo:seed1/all24/LOOK iniziale gratuito/grafica nativa spenta dopo boot/
+   input maiuscoli iniettati/MORE immediato. Non è equivalenza globale del gioco.
 
-2. **E22E risolto; prossimo ingresso 5D30.**
-   E22A–E28C è la tabella immutabile TELL: 10 sezioni, 26 triple, 99 byte.
-   E22E è l’argomento 17 (your alibi) del giardiniere; segue la word 7846.
-   E207 sceglie la sezione del parlante A036 o FE; E201/D34E cerca A035.
-   Argomento assente nella sezione scelta →761D, senza fallback ad FE.
-   Builder tipizzato condiviso fra mappe logiche e serializzazione in ordine
-   sorgente: non ordinare per chiave. WorldSource espone i 99 byte a RNG;
-   nessuna costante17 isolata e nessun nuovo campo mutabile nel SAVE.
-   Pacchetto dati vecchio senza tabella resta unknown a E22E.
-   3072 ABI originali (256 byte attore ×12 argomenti), tabella invariata;
-   21 controlli mirati e suite completa 1801/1801 passati.
-   Lettura naturale E22E al498/draw24/giardiniere8 coperta dal positivo.
-   **Prossimo 5D30 al512 verso giovedì08:50**, cuoca9/draw15, originale26.
-   Ricostruire proprietà e writer: non installare26 e non inferire dai vicini.
-   Checkpoint512 escluso dal certificato, nessun finale naturale nuovo.
-   Atlante: E22A–E28C sono99 nuovi byte prima grigi ora documentati;
-   approfonditi E1D8–E229 eD349–D369,60 istruzioni/214 byte riassemblati.
-   Copertura38949 documentati/428 parziali/2223 sconosciuti su41600.
-   Conservare i contratti CB28, A026, A025, 5D25 e argomenti del giardiniere.
+2. **5D30 risolto, nessun altro limite in questa storia fino al finale.**
+   Il byte di stack ha sei ruoli secondo il frame del renderer: F/C chiamante,
+   E descrittore,L video,C/F scansione; veraCALLC374 può lasciare77 del returnC377.
+   Canale superioreC2BA–C305: CP0D prima dellaCALL, q→26/n→10; clear→84.
+   Non installare26 né ricavarlo dal vicino. Chiamanti non proiettati e dati
+   mancanti revocano la proprietà; oldSAVE senza30 restaunknown.2B–2F e31 ignoti.
+   Nuove4284 ABI originali e256 esecuzioni indipendenti diCP0D.
+   Atlante:362 istruzioni/691 byte riassemblati,approfonditiC2BA–C305,
+   C363–C37C,C388–C3E3 e relativi formatter/annunci. Nuovo campo5D30 nelworkspace.
+   Nessun nuovo byte grigio del payload;38949/428/2223su41600 invariati.
+   Conservare contrattiCB28,A026,A025,5D25 e argomenti del giardiniere.
    Dialogo SAY WATSON "WATSON KILLED YOU":7 drawJS contro10 nativo ancora aperto.
 
-3. **Certificare naturalmente i cinque testi terminali ancora aperti:**
-   6A33, 6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
+3. **Certificare naturalmente i quattro testi terminali ancora aperti:**
+   6ABD, 6AF3, 6B79 e 75D2. Sono già coperti i nove selettori con prove
    controllate; le partite naturali certificate raggiungono soltanto
-   693A, 69BF, 6A26 e 759C. Occorrono acquisizione reale degli indizi e delle
+   693A, 69BF, 6A26, 6A33 e 759C. Occorrono acquisizione reale degli indizi e delle
    confessioni, deduzioni degli omicidi, caso dei piani e percorso finale.
    Tricia/Mrs Jones è implementata ma la nuova confessione è verificata in
    un setup controllato, non ancora nella soluzione naturale completa.

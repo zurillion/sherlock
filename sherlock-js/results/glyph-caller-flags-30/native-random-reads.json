@@ -1,0 +1,48 @@
+{
+  "source": "sherlock-js/results/final-solution/witness-native-reference.json.gz",
+  "sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+  "scope": "Reused original complete-state reference, not a new terminal acquisition. Fresh late-window store acquisition is separate.",
+  "reads": [
+    {
+      "checkpoint": 512,
+      "draw": 15,
+      "clock": {
+        "tick": 4371,
+        "due": 4501,
+        "minute": 50,
+        "hour": 8,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 08:50am"
+      },
+      "random": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 190,
+        "cursor": 23338,
+        "reads": [
+          {
+            "address": 23594,
+            "value": 0
+          },
+          {
+            "address": 23600,
+            "value": 0
+          },
+          {
+            "address": 23850,
+            "value": 53
+          },
+          {
+            "address": 23856,
+            "value": 26
+          }
+        ],
+        "result": 17,
+        "next_seed": 233,
+        "next_cursor": 23850
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "profile": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+  "abi_protocol": "Controlled original C388 and real C374 calls; seven entry depths30..3C,36 columns,descriptors5C0B/5123,two caller counts,four characters. C388 synthetic return0008 is distinct from real C374 CALL returnC377.5D30 initiallyAA; parameters explicit. ABI only, not natural reachability of every frame.",
+  "sha256": {
+    "sherlock-analisi/block-10.bin": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "sherlock-js/results/final-solution/witness-native-reference.json.gz": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "sherlock-js/results/glyph-video-low-2a/natural-verification.json": "f4cead17d879a825d3835ad26258fc588a62db79fc893d06e35ba4cbfe5e0356",
+    "sherlock-js/src/random-display.mjs": "5ab1b48bd26fc2e4f71bc19cd025aebff9f79df6ccaec33e5e0d63462783631d",
+    "sherlock-js/src/npc-runtime.mjs": "a29f95c27ce010e0c3e95271dfd1a53e0d6fe3443925e143a8cde155f3fc7438",
+    "sherlock-js/data/game.json": "a27b3efd780a79b5f53abb0f62b51492877d1af9ba4b0f1800171aa31bb7c0ed",
+    "sherlock-js/tools/probe-glyph-caller-flags-30.py": "51f7136569ee052b226a70434070fa40bd768b53fce456c7212c7f0570368f97",
+    "sherlock-js/tools/probe-glyph-caller-flags-30-abi.py": "43541f13e8ed84bca81adae64802f9dec78412c327ba571bfce046dd3ebc1258",
+    "sherlock-js/tools/verify-glyph-caller-flags-30-natural.mjs": "2e7f1aaa834430361ff545023c6a2b714e77dfc0ac50b9a0918f593b56e07900",
+    "sherlock-js/tools/verify-glyph-caller-flags-30-witness.mjs": "5d231710cc9fd229ebfe7393197eb2eb30939b589a46b4a452094617efd7046c",
+    "sherlock-js/test/glyph-caller-flags-30.test.mjs": "0aeaaa350f3993096b9870540472421a255b8a8be0d053fa432ec30acfd76561",
+    "sherlock-js/results/glyph-caller-flags-30/glyph-abi.json": "9ec8a20c533cf57e76820c0f0f26639e233620ad456a1230b1a19dd543fed637",
+    "sherlock-js/results/glyph-caller-flags-30/natural-stores.json": "50771ddea90d2c9ff6c780f93efa5ca8bd2075cc047050b1b5e7a8c75a3fabac"
+  }
+}

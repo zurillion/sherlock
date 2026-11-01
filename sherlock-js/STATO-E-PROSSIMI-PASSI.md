@@ -1,21 +1,20 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento corrente: [RISPOSTE-TELL-E22A.md](RISPOSTE-TELL-E22A.md).
-Superato E22E: tabella TELL immutabile E22A–E28C,10 sezioni/26 triple/99 byte.
-E22E è argomento17 del giardiniere, non codice né stato mutabile. Il builder
-conserva l’ordine sorgente, condivide contenuto logico e serializzazione per RNG.
-FE vale per il parlante senza sezione, non per l’argomento mancante; ripiego761D.
-Nuove3072 ABI originali dei selettori; tabella invariata dopo ogni coppia.
-Certificato completo512 checkpoint0–511 sinoThu08:40,24 attori,arena752,
-stato,bitmap,ogni draw/read,futuroLOAD.10144 draw/21630 read,10146 con2boot.
-Oracolo naturale originale riutilizzato con SHA dichiarato, non nuova cattura.
-Prossimo5D30 al512 versoThu08:50,cuoca9/draw15,originale26: non installarlo.
-Nuova zona dati nell’atlante E22A–E28C (99 byte prima grigi); approfonditi
-E1D8–E229,D349–D369.60 istruzioni/214 byte riassemblati.
-Copertura38949/428/2223 su41600, distinta dalla copertura del gameplay.
-21 controlli mirati e suite completa1801/1801 PASS, nessun errore residuo.
-Restano cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO e dialogo
-WatsonKilledYou(7drawJS/10nativo). VedereRIPRESA-GAMEPLAY.md.
+Aggiornamento corrente: [FLAG-DEL-CHIAMANTE-5D30.md](FLAG-DEL-CHIAMANTE-5D30.md).
+Superato5D30: sei ruoli del byte di stack in base al frameC388; CP0D del
+chiamante superiore produce flag variabili,q26/n10,clear84; non un26 catturato.
+4284 ABI originali +256 vere esecuzioniCP0D; oldSAVE assente restaunknown;
+nessuna proprietà inventata per2B–2F/31. Atlante ampliato conC2BA–C305 e
+approfondimenti renderer/formatter/annunci:362 istruzioni/691 byte riassemblati.
+Copertura payload invariata38949/428/2223su41600;5D30 sta nelworkspace opzionale.
+Certificato completo521checkpoint0–520 sinoThu10:00,finale6A33:
+24 attori,arena752,bitmap,stato,ogni draw/read e futuroLOAD;
+10345draw/22058read,10347 con2boot. Pausa terminale e congelamento verificati.
+Oracolo lungo originale riutilizzato conSHA,non nuova acquisizione del finale.
+Nessun altro ingresso sconosciuto in QUESTA storia e profilo,non nel gioco intero.
+Prossimo lavoro:quattro finali naturali6ABD/6AF3/6B79/75D2;
+restano cab5D0C,PRINT/MORE,TAKE TO eWatsonKilledYou7JS/10nativo.
+VedereRIPRESA-GAMEPLAY.md per profilo e limiti delle prove.
 Le sezioni seguenti conservano lo storico.
 
 27 ottobre 2026. Inventario del motore JavaScript autonomo `world-v5`, dopo

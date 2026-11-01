@@ -1,0 +1,278 @@
+{
+  "implemented": true,
+  "runtime": "Functional JavaScript projection of independent byte5D30 from source caller/frame/character/column. No CPU interpreter, captured-byte fallback or normalization.",
+  "abi_cases": 4284,
+  "independent_original_cp_cases": 256,
+  "native_provenance": {
+    "scope": "Original play from boot unmodified, with late instruction-store observation. Every owned command checkpoint and exact cook read; unknown checkpoints and unobserved earlier writer remain explicit. Separate from complete-state acceptance.",
+    "observation_start": {
+      "tick": 4351,
+      "due": 4501,
+      "minute": 30,
+      "hour": 8,
+      "day": 3,
+      "period": "am",
+      "label": "Thu 08:30am"
+    },
+    "checkpoints": 77,
+    "owned_checkpoints": 4,
+    "unknown_checkpoints": 73,
+    "clock": {
+      "tick": 4371,
+      "due": 4501,
+      "day": 3,
+      "minute": 50,
+      "hour": 8,
+      "period": "am",
+      "label": "Thu 08:50am"
+    },
+    "unclassified_original_transitions": [],
+    "reads": [
+      {
+        "value": 26,
+        "tick": 4365,
+        "actor": 9
+      }
+    ],
+    "last_store": null,
+    "derived_role": null,
+    "derived_value": null,
+    "last_original_writer_observed": false,
+    "save_load_after_interruption": true
+  },
+  "associated_native_frame": {
+    "source": "sherlock-js/results/glyph-video-low-2a/natural-verification.json",
+    "sha256": "f4cead17d879a825d3835ad26258fc588a62db79fc893d06e35ba4cbfe5e0356",
+    "store": {
+      "pc": "C398",
+      "sp": "5D2C",
+      "af": 29736,
+      "bc": 258,
+      "de": 16288,
+      "hl": 20533,
+      "tick": 964,
+      "actor": 0,
+      "glyph": {
+        "frame": 23858,
+        "char": 116,
+        "descriptor": 23563,
+        "screen_address": 20533,
+        "shift": 2,
+        "caller_count": 1,
+        "word": "parliamentl."
+      },
+      "address": "5D2A",
+      "value": 53
+    },
+    "derived_caller_flags": 26,
+    "scope": "Reused natural evidence of the same real frame and character at tick964. C388 source plus independently executed CP0D derive its associated5D30 write. Not a direct complete audit of all subsequent5D30 stores."
+  },
+  "full_state": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true
+  },
+  "natural_reads": [
+    {
+      "checkpoint": 512,
+      "draw": 15,
+      "clock": {
+        "tick": 4371,
+        "due": 4501,
+        "minute": 50,
+        "hour": 8,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 08:50am"
+      },
+      "random": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 190,
+        "cursor": 23338,
+        "reads": [
+          {
+            "address": 23594,
+            "value": 0
+          },
+          {
+            "address": 23600,
+            "value": 0
+          },
+          {
+            "address": 23850,
+            "value": 53
+          },
+          {
+            "address": 23856,
+            "value": 26
+          }
+        ],
+        "result": 17,
+        "next_seed": 233,
+        "next_cursor": 23850
+      }
+    }
+  ],
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 362,
+    "bytes_roundtripped": 691,
+    "regions": [
+      {
+        "start": "C2BA",
+        "end_exclusive": "C306",
+        "kind": "code",
+        "label": "Canale superiore: CP0D prima della CALL al renderer",
+        "atlas_priority": 158
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Renderer dei glifi: 5D30 conserva registri diversi secondo il frame",
+        "atlas_priority": 158
+      },
+      {
+        "start": "C363",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "Pulizia della riga: vera CALL e ritorno C377 a5D30 nel frame corrispondente",
+        "atlas_priority": 158
+      },
+      {
+        "start": "A360",
+        "end_exclusive": "A419",
+        "kind": "code",
+        "label": "Ordine NPC e nome della destinazione: chiamante del frame5D32",
+        "atlas_priority": 158
+      },
+      {
+        "start": "A59F",
+        "end_exclusive": "A5CD",
+        "kind": "code",
+        "label": "Testo con argomenti: profondit\u00e0 del chiamante e ripristino",
+        "atlas_priority": 158
+      },
+      {
+        "start": "A720",
+        "end_exclusive": "A771",
+        "kind": "code",
+        "label": "Nomi dei referenti e chiamate relative dei testi",
+        "atlas_priority": 158
+      },
+      {
+        "start": "A7BA",
+        "end_exclusive": "A7D0",
+        "kind": "code",
+        "label": "Ingresso separato per tuple nome e nome entit\u00e0",
+        "atlas_priority": 158
+      },
+      {
+        "start": "D3E8",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Formatter del nome: prefisso proprio e sostantivo finale differito",
+        "atlas_priority": 158
+      },
+      {
+        "start": "A95B",
+        "end_exclusive": "A990",
+        "kind": "code",
+        "label": "Decoder dei candidati: altro writer del medesimo stack",
+        "atlas_priority": 158
+      },
+      {
+        "start": "CE10",
+        "end_exclusive": "CE18",
+        "kind": "code",
+        "label": "Ordine NPC: annuncio dopo la registrazione della richiesta",
+        "atlas_priority": 158
+      },
+      {
+        "start": "682A",
+        "end_exclusive": "6830",
+        "kind": "data",
+        "label": "Testo compresso dell\u2019ordine: nome attore e comando con destinazione",
+        "atlas_priority": 158
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "2f661f3daee5683658af93ed18260eb1b77d18b33b177820978de249abbe8fdb",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 428,
+      "unknown": 2223,
+      "documented": 38949
+    },
+    "segments": 1115,
+    "sources": 75,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 56178,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "tests": {
+    "tests.log": {
+      "tests": 86,
+      "pass": 86,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "full-tests.log": {
+      "tests": 1810,
+      "pass": 1809,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "caller-and-atlas-tests.log": {
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "test_reconciliation": "The full suite started before the newly acquired CP table was written: one worker loaded the earlier ABI without cp_flags. Updated ABI plus expanded caller tests and atlas all pass in the 14-test targeted rerun; 1810 distinct tests verified, not a second all-green full-suite execution.",
+  "next_work": "Four remaining natural endings6ABD/6AF3/6B79/75D2; this521-checkpoint history reaches6A33 and has no subsequent unknown boundary.",
+  "remaining": [
+    "Four natural endings6ABD/6AF3/6B79/75D2",
+    "Police cab5D0C",
+    "PRINT/MORE",
+    "TAKE TO",
+    "WatsonKilledYou7JSvs10native"
+  ],
+  "full_game_equivalence_claimed": false
+}

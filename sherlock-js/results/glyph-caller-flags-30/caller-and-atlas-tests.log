@@ -1,0 +1,22 @@
+✔ Original5D30 physical role at frame5d32 (178.762625ms)
+✔ Original5D30 physical role at frame5d34 (97.752ms)
+✔ Original5D30 physical role at frame5d36 (73.047ms)
+✔ Original5D30 physical role at frame5d38 (34.635541ms)
+✔ Original5D30 physical role at frame5d3a (41.271ms)
+✔ Original5D30 physical role at frame5d3c (32.037959ms)
+✔ Real C374 return link and its different row-clear AF are source-derived (31.734125ms)
+✔ Caller flag changes with character: it is not constant26 or adjacent-cell data (25.904625ms)
+✔ Ownership, unknown caller count and oldSAVE absence are explicit; LOAD preserves the future (229.940875ms)
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (13.724125ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (1.260708ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (46.469541ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (9.242791ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (1.048208ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1623.487334

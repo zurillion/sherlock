@@ -1049,3 +1049,39 @@ Atlante60istruzioni/214byte:nuovi99bytegrigiE22A–E28C→documentati,
 approfonditiE1D8–E229,D349–D369.38949/428/2223 su41600. Riferirelezone.
 21test mirati e suite completa1801/1801PASS,zeroerrori/skipped/cancelled.
 Cinque finali naturali,cab5D0C,PRINT/MORE,TAKE TO,WatsonKilledYou restanoaperti.
+
+1 novembre2026 — leggere FLAG-DEL-CHIAMANTE-5D30.md e
+results/glyph-caller-flags-30-verification.json.5D30 è byte basso dello stack,
+con ruoli dipendenti dall’ingressoC388:frame32/F chiamante,34/C chiamante,
+36/E descrittore,38/L video,3A/C scansione,3C/F scansione. C2BA–C305 prova
+CP0D prima dellaCALLC2EE; flagX/Y dall’operando, q26/n10. ClearC374 dopoAND0
+haF54; veraCALL lasciaC377,frame30→77. Return0008 ABI non provaunreturnreale.
+Non installare26 del draw della cuoca né inferire30 dai vicini. ContatoreBC
+non posseduto e chiamanti non proiettati revocano il campo; roomName unknown
+revoca fino30. OldSAVE assente restaunknown finoawriter;2B–2F/31 non introdotti.
+Nuove4284ABI originaliC388/C374,7profondità/36colonne,descrittori5C0B/5123,
+2contatori,4caratteri. Inoltre tutte256A sulla veraCP0D aC2C6:flag indipendenti
+rispettoallaformulaJS. ParametriABI non certificano raggiungibilitànaturale.
+Certificato completo521checkpoint0–520 finoThu10:00,finale6A33,10345draw/
+22058read,10347runtime incluse2boot. Tutti24attori,arena752,bitmap,stato,
+futuroLOAD aogni minuto,pausa terminale e congelamento dopoack. Oracolo lungo
+RIUTILIZZATO conSHA,non nuova acquisizione del finale. Profiloseed1/all24/
+LOOK iniziale gratuito/grafica nativa off dopoboot/uppercaseiniettato/MOREimmediato.
+Nessun altro limite inQUESTAstoria,non certificareequivalenzaglobale.
+Quattro finali naturali restanoaperti6ABD/6AF3/6B79/75D2;6A33 oraèpositivo.
+Atlante362istruzioni/691byte:C2BA–C305,C363–C37C,C388–C3E3,A360–A418,
+A59F–A5CC,A720–A770,A7BA–A7CF,D3E8–D447,A95B–A98F,CE10–CE17,682A–682F.
+Workspace5D30 ha campo separato. Zero nuovi byte grigi delpayload;
+38949documentati/428parziali/2223ignoti su41600 invariati. Riferirelezone.
+Restano cab5D0C,PRINT/MORE,TAKE TO,WatsonKilledYou7JS/10nativo ealtri limiti
+nelbacklog;non trasferire ilcertificato521 a questi percorsi.
+Verifica finale5D30:86test miratiPASS; suite1810/1809PASS/1errorestrumentale:
+worker aveva già caricatoABI precedente senza cp_flags durante l’aggiunta
+delnuovo controllo. Assetdefinitivo e14test caller+atlantePASS,nessunerrore
+residuo su1810testdistinti;NON una seconda suite1810/0. Logseparati.
+Nuova traccia originale77checkpoint,4owned/73unknown;osservatoreistruzioni
+soltanto4351–4371/Thu08:30–08:50. Zero store30 nella finestra e0cambiamenti
+nonclassificati30/31;cuoca9 legge26 al4365/Thu08:44. Laststore precedente
+NON osservato daquesta finestra. Prova2A RIUTILIZZATA mostraC388frame32,
+tick964/Holmes0/char116(t)diParliament;CP0D derivailrelativoF26. Non chiamare
+questa associazione una nuova traccia diretta dell’ultimostore30 integrale.

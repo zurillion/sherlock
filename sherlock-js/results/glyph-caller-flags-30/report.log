@@ -1,0 +1,92 @@
+{
+  "full_state": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true
+  },
+  "tests": {
+    "tests.log": {
+      "tests": 86,
+      "pass": 86,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "full-tests.log": {
+      "tests": 1810,
+      "pass": 1809,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "caller-and-atlas-tests.log": {
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "scope": "Original play from boot unmodified, with late instruction-store observation. Every owned command checkpoint and exact cook read; unknown checkpoints and unobserved earlier writer remain explicit. Separate from complete-state acceptance.",
+    "observation_start": {
+      "tick": 4351,
+      "due": 4501,
+      "minute": 30,
+      "hour": 8,
+      "day": 3,
+      "period": "am",
+      "label": "Thu 08:30am"
+    },
+    "checkpoints": 77,
+    "owned_checkpoints": 4,
+    "unknown_checkpoints": 73,
+    "clock": {
+      "tick": 4371,
+      "due": 4501,
+      "day": 3,
+      "minute": 50,
+      "hour": 8,
+      "period": "am",
+      "label": "Thu 08:50am"
+    },
+    "unclassified_original_transitions": [],
+    "reads": [
+      {
+        "value": 26,
+        "tick": 4365,
+        "actor": 9
+      }
+    ],
+    "last_store": null,
+    "derived_role": null,
+    "derived_value": null,
+    "last_original_writer_observed": false,
+    "save_load_after_interruption": true
+  }
+}
