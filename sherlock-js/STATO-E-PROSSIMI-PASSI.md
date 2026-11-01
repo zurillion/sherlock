@@ -1,5 +1,19 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 1 novembre2026: [DESTINATARIO-E-STACK-5D15.md](DESTINATARIO-E-STACK-5D15.md).
+Superato5D15: A grezzo dell'ottava riga del font nel frame5D20, non uno zero.
+MrsJones95 scarica TO prima del destinatarioYOU al1472/Tue08:31; cuoca9 lo
+legge al1519/Tue09:18. HAIL DOMAIN invisibile non tocca il workspace basso:
+ingresso5D6E,minimo5D4E. Destinatari con articolo e altri chiamanti restano prudenziali.
+3672ABI glyph+24ABI HAIL; oldSAVE assente restaunknown finoawriter.
+Prefisso completo esteso:362checkpoint0–361 finoTue15:20,4624draw/9874read,
+4626runtime incluse2boot;24attori,arena752,bitmap e futuroLOAD. Ilcheckpoint362
+originale arriva15:22:nuovoingresso5C13,cuoca9,valore105. IlJS siarresta15:21.
+Non installare105 e non inferirne lo scrittore dal valore ASCII. 6ABD ancoraaperto.
+Atlante293istruzioni/584byte; nuovi46bytegrigiE2EE–E31B documentati;
+39133documentati/428parziali/2039ignoti su41600.5D15 è campo workspace opzionale.
+
+
 Aggiornamento 1 novembre 2026: [DEDUZIONI-E-NOMI-NEL-BUFFER.md](DEDUZIONI-E-NOMI-NEL-BUFFER.md).
 Percorso naturale6ABD ancora aperto; acquisizione delle due confessioni di Mrs Jones
 verificata senza patch. Certificato nuovo308checkpoint finoTue09:12,3659draw runtime,

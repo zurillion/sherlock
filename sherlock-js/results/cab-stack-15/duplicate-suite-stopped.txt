@@ -1,0 +1,1 @@
+Stopped only the superseded duplicate test processes holding full-suite.log; final-full-suite.log is a separate final verification. No user process was selected by name. PIDs: 66771

@@ -1,0 +1,28 @@
+checkpoint 100
+checkpoint 200
+checkpoint 300
+checkpoint 400
+checkpoint 500
+{
+  protocol: 'Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.',
+  checkpoints: 521,
+  random_draws: 10347,
+  clock: {
+    tick: 4441,
+    due: 4501,
+    day: 3,
+    minute: 0,
+    hour: 10,
+    period: 'am',
+    label: 'Thu 10:00am'
+  },
+  terminal: { entry: '9E74', reason: 'story', text_pointer: '6A33' },
+  all_actors: 24,
+  load_future_compared: true,
+  arena_bytes_per_checkpoint: 752,
+  bitmaps_compared: true,
+  compared_random_draws: 10345,
+  compared_random_reads: 22058,
+  certified_checkpoint_range: [ 0, 520 ],
+  full_ending_certified: true
+}

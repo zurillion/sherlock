@@ -1111,3 +1111,36 @@ Verifica finale del seguito6ABD:1816/1816testPASS,zeroerrori/skip/cancel;
 originale. HAIL traccia naturale E2BA→CFB9(A30)→E2C3 osservata tick1513,
 prima dell'incremento a1514; presente contesto31 e assente30. NuovoHAIL
 sospendeF37A anziché rifiutare. Ilpositivo308 non si estende alnuovolimite5D15.
+
+1 novembre2026,5D15: leggere DESTINATARIO-E-STACK-5D15.md e
+results/cab-stack-15-verification.json. Nuova traccia da Portmanprompt08:18
+ripristinato INTEGRO, comandi normali open/reveal/talk/drop/cab/WAIT;9.090store
+su14–16,zerotransizioni nonclassificate. Ultimostore15 C3B8 al1472/Tue08:31,
+MrsJones95,charo di TO prima del destinatarioYOU,frame5D20: A=riga8grezza font,
+o0/q6/underscore255,nonbitmap. Non assumere che un valore dello stack sia PC.
+TELL E1D8 usa6830→6804→A72C/D3D5: lo spazio del nome stampa il precedenteTO.
+NuovohookobjectNameEntry solo nel corpo TELL con destinatario proprio; ilnome
+resta differito al chiamante successivo. Destinatari con articolo:contratto ancora
+nonposseduto,revoca5D10invece di applicare indiscriminatamenteframe20.
+HAIL regolareDOMAINinvisibile entraE2CB conSP5D6E,min5D4E,zeroC388;non revocare
+il byte basso già posseduto in questo percorso. Altri chiamanti/visibilità/request
+restano prudenziali.3672ABI glyph,6frame16..20/36colonne/2descrittori/2contatori/
+4caratteri piùclear;24ABI HAIL marker00/A5,veicoli30/33,SP66/6E,azione0/31/255.
+Parametri sintetici noncertificano raggiungibilità. OldSAVE assente restaunknown.
+Nuovo confronto completo338checkpoint finoTue11:36/4048runtime; lookahead
+originale nuovo da brownprompt completo. Positivoesteso362checkpoint0–361 fino
+Tue15:20,4624drawconfrontati/9874read/4626runtimeincl2boot,tutti24attori,arena752,
+bitmap e futuroLOAD. Checkpoint362 ESCLUSO:originale15:22 legge5C13=105/cuoca9;
+JSfermo15:21. Identificare vero writer; noninstallare105 né dedurlo daASCII.
+6ABD noncertificato: storia conserva viaggi falliti, non patchdiindizi o posizioni.
+Atlante293istruzioni/584byte,nuovi46byteE2EE–E31B:39133/428/2039su41600.
+ApprofonditiC388,A720,D3D5,E1D8,HAIL/CF80,daticompressi67F7–680A/6830–6835.
+Riferire nuovezone e orari all'utente.
+
+Verifica finale5D15: generale1829test/1828PASS/1errore di SETUP del nuovo test
+TELL(c.saved mancante); corretto saved+isolated, intero filefinale13/13PASS e
+2scope testseparatiPASS. AtlantefinalePASS. Non dichiarareuna seconda1829/0;
+report e log riconciliano i1829test distinti. Il precedente duplicato parziale
+è stato interrotto, non è prova. Baseline6A33 completa ripetuta sulcodicefinale:
+521checkpoint/10345draw/22058read(10347runtimeincl2boot),pausa/freeze verificati.
+Oracolo baseline RIUTILIZZATO conSHA,nessunnuovo finale originale acquisito.

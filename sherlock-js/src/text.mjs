@@ -104,7 +104,7 @@ export class Text {
     }
     case 'time':if(w.timeClass()===t.value)emit(t.token);break;
     case 'actorName':this.setQualifierMode(0);feedName(actor,false,true);break;
-    case 'objectName':this.setQualifierMode(1);feedName(object);break;
+    case 'objectName':this.setQualifierMode(1);if(context.objectNameEntry)context.objectNameEntry(()=>feedName(object));else feedName(object);break;
     case 'otherName':this.setQualifierMode(1);feedName(other);break;
     case 'actorIs':this.setQualifierMode(0);feedName(actor,true);mixOffset=actor===0?0x007A:0x0485;remember(mixOffset);break;
     case 'objectIs':this.setQualifierMode(1);feedName(object,true);mixOffset=object===0?0x007A:0x0485;remember(mixOffset);break;

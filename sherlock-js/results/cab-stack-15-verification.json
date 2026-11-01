@@ -1,0 +1,389 @@
+{
+  "implemented": true,
+  "runtime": "Autonomous functional JavaScript; derive scan A from font and character/frame. No original state import, CPU interpreter, captured0 or recorded-input fallback.",
+  "physical_byte": "5D15",
+  "natural_read": {
+    "address": "5D15",
+    "value": 0,
+    "clock": {
+      "tick": 1519,
+      "due": 1579,
+      "minute": 18,
+      "hour": 9,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 09:18am"
+    },
+    "actor": 9,
+    "last_store": {
+      "pc": "C3B8",
+      "opcode": [
+        245,
+        62,
+        8
+      ],
+      "sp": "5D16",
+      "af": 0,
+      "bc": 258,
+      "de": 16255,
+      "hl": 22318,
+      "glyph": {
+        "frame": 23840,
+        "char": 111,
+        "descriptor": 23563,
+        "screen_address": 20526,
+        "shift": 2,
+        "caller_count": 1,
+        "word": "toySs."
+      },
+      "actor": 95,
+      "clock": {
+        "tick": 1472,
+        "due": 1473,
+        "minute": 31,
+        "hour": 8,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 08:31am"
+      },
+      "stack": [
+        "0102",
+        "502E",
+        "5C0B",
+        "0102",
+        "6F0A",
+        "C2F1",
+        "6F0A",
+        "0143",
+        "5C0C",
+        "AA00",
+        "8C43",
+        "1502",
+        "59EE",
+        "09EE",
+        "20A8",
+        "A89F",
+        "59EE",
+        "8C43",
+        "09EE",
+        "6808",
+        "A824",
+        "D445",
+        "58DB",
+        "0008",
+        "A7CD",
+        "E5AD",
+        "A758",
+        "A72C",
+        "A636",
+        "A5CA",
+        "A769",
+        "6830"
+      ],
+      "address": "5D15",
+      "value": 0
+    }
+  },
+  "observed_stores": 9090,
+  "unclassified_transitions": [],
+  "glyph_abi_cases": 3672,
+  "hail_abi_cases": 24,
+  "hail_scopes": [
+    {
+      "actor": 6,
+      "entry_sp": 23918,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "return_sp": 23918
+    }
+  ],
+  "full_state_338": {
+    "label": "murder-evidence-brown-full",
+    "passed": true,
+    "checkpoints": 338,
+    "random_draws": 4048,
+    "clock": {
+      "tick": 1657,
+      "due": 1657,
+      "day": 1,
+      "minute": 36,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:36am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  },
+  "extended_positive_prefix": {
+    "scope": "Only completed checkpoints before the first failed next checkpoint; all compareNaturalHistory assertions, each draw/read, all24actors, arena752, bitmaps and future after LOAD. No normalization of the failed checkpoint.",
+    "checkpoints": 362,
+    "range": [
+      0,
+      361
+    ],
+    "clock": {
+      "tick": 1881,
+      "due": 2341,
+      "minute": 20,
+      "hour": 3,
+      "day": 1,
+      "period": "pm",
+      "label": "Tue 03:20pm"
+    },
+    "runtime_draws": 4626,
+    "compared_draws": 4624,
+    "compared_reads": 9874
+  },
+  "next_boundary": {
+    "address": "5C13",
+    "excluded_checkpoint": 362,
+    "native_checkpoint_clock": {
+      "tick": 1883,
+      "due": 2341,
+      "minute": 22,
+      "hour": 3,
+      "day": 1,
+      "period": "pm",
+      "label": "Tue 03:22pm"
+    },
+    "last_certified_clock": {
+      "tick": 1881,
+      "due": 2341,
+      "day": 1,
+      "minute": 20,
+      "hour": 3,
+      "period": "pm",
+      "label": "Tue 03:20pm"
+    },
+    "native_reads": [
+      {
+        "actor": 9,
+        "address": 23571,
+        "value": 105
+      }
+    ],
+    "detail": "362 Ingresso casuale originale non ancora ricostruito: $5C13. Il comando non \u00e8 stato applicato."
+  },
+  "baseline_6A33": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true
+  },
+  "tests": {
+    "full_suite": {
+      "total": 1829,
+      "passed": 1828,
+      "failed": 1,
+      "log": "results/cab-stack-15/final-full-suite.log"
+    },
+    "final_file": {
+      "total": 13,
+      "passed": 13,
+      "failed": 0,
+      "log": "results/cab-stack-15/final-file-tests.log"
+    },
+    "reconciliation": "The whole suite loaded the earlier new unit test with an incomplete synthetic context. Its one setup failure was corrected (saved arguments + isolated flag); the complete final13-test file passes independently. This is not a claim of a second clean1829-test suite."
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 293,
+    "bytes_roundtripped": 584,
+    "regions": [
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Renderer: 5D15 \u00e8 A grezzo della scansione con frame5D20",
+        "atlas_priority": 160
+      },
+      {
+        "start": "A59F",
+        "end_exclusive": "A5CD",
+        "kind": "code",
+        "label": "TEXT con argomento: chiamante del prefisso di una risposta TELL",
+        "atlas_priority": 160
+      },
+      {
+        "start": "A720",
+        "end_exclusive": "A771",
+        "kind": "code",
+        "label": "Nome destinatario: lo spazio scarica la parola TO precedente",
+        "atlas_priority": 160
+      },
+      {
+        "start": "A7BA",
+        "end_exclusive": "A7EA",
+        "kind": "code",
+        "label": "Formatter di nome proprio e YOU: articolo distinto",
+        "atlas_priority": 160
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nome entit\u00e0: delimitatore prima dei qualificatori e del sostantivo",
+        "atlas_priority": 160
+      },
+      {
+        "start": "E1D8",
+        "end_exclusive": "E201",
+        "kind": "code",
+        "label": "Risposta TELL ABOUT: seleziona il testo e usa il modello6830",
+        "atlas_priority": 160
+      },
+      {
+        "start": "E2CB",
+        "end_exclusive": "E31C",
+        "kind": "code",
+        "label": "HAIL invisibile: sospensione del cocchiere sopra il workspace basso",
+        "atlas_priority": 160
+      },
+      {
+        "start": "CF80",
+        "end_exclusive": "CFB6",
+        "kind": "code",
+        "label": "Crea contesto esterno del cocchiere: conserva origine e argomenti",
+        "atlas_priority": 160
+      },
+      {
+        "start": "67F7",
+        "end_exclusive": "680B",
+        "kind": "data",
+        "label": "Prefissi compressi della conversazione: attore, TO e destinatario",
+        "atlas_priority": 160
+      },
+      {
+        "start": "6830",
+        "end_exclusive": "6836",
+        "kind": "data",
+        "label": "Modello compresso della risposta: prefisso, argomento e virgolette",
+        "atlas_priority": 160
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "4e5caaf71e27f676d2892575857a3a950a77bec53582ef1447847e3dbfd8111b",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 428,
+      "unknown": 2039,
+      "documented": 39133
+    },
+    "segments": 1119,
+    "sources": 77,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 57909,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "provenance": {
+    "prior_chain": "results/murder-evidence-verification.json",
+    "prior_chain_sha256": "267b1dcc4ecf1423f55e03c77b76ddacf972210e37606caea6fa0b2b6eeec137",
+    "native_restore": "results/murder-ending/portman-native-prompt.json.gz",
+    "native_restore_sha256": "1c78b49bcc5c64e31b07bf9c436ab471d6b37edc625576730442139bbd140d6a",
+    "lookahead_restore": "results/murder-ending/brown-native-prompt.json.gz",
+    "lookahead_restore_sha256": "b141b6d9a42d9615d29897e1e0a395729c54d91dbc7508b487d40bb1cdd703c8",
+    "startup": "seed1/all24/freeLOOK/native graphics off after boot/injected uppercase/immediate MORE; original entire prompt states resumed unchanged, never selectively patched"
+  },
+  "runtime_sha256": {
+    "src/advanced-npcs.mjs": "c9ad13596ba6312f7ca28824f549e2f28298bd0b7e3e930eaa3e0b2eed0c96a3",
+    "src/app.mjs": "85233f105c3b900a35c3433adbf0d429f7ca9cb9b105fa8c741b572fe33d9e41",
+    "src/argument-checks.mjs": "212f9212e2815e8919c37353f0e8860f596b69a6df04dda783371b5969aae320",
+    "src/cab-economy.mjs": "d3a430280fcf529ab8194a5c6e8173992ab57c686c7f289e7b9ce7827f4ce1ab",
+    "src/cab.mjs": "b1cf576f3997d3f056aab5e23bb7e421710e10a324ba493696c7f3eb62df4b3b",
+    "src/characters.mjs": "c04d06ddf628ea3e1e9ee296163a398949416423a28a33575d52ed5f2ceaa7b5",
+    "src/command-history.mjs": "5eeac2d1e6083bea122e50788a2ae9f494dbcb2a9b5e4d5873741cc4774657b1",
+    "src/conversation.mjs": "b5ae73f7d69b67a191a489886df82fec6ea97c4d3c5215e9d83e83633072d142",
+    "src/description-search.mjs": "afe8f9b9e61672023011cd2541d376b758c9f329cc2f1cb1587c942eb05d7870",
+    "src/endings.mjs": "32f8269d1e66071ecafe7ac32e4acfa965af2b62d1ba2fc42000caeb70975e7a",
+    "src/game.mjs": "699b1a1a2c4033be6acecaf0a1cc47733ca38544149d6e98a92be2e840bcf334",
+    "src/identity.mjs": "9fd32e6ed257092f70b42c2deee57b301bafa1e69ba48dd234671430ee32f115",
+    "src/information.mjs": "27ab8df1e19d36df255086a5e4b79440a65512a9c3ec1378710824dd819fbeb0",
+    "src/keyboard-profile.mjs": "bcddf84cef78302c9ff1a77f351a79d53dab385796653bc2249cc2a622ef6a99",
+    "src/lexer.mjs": "806e28cb3dc23f154d96937f0cea75bdd484723db0d2311dbc5257ac242cd56b",
+    "src/location-graph.mjs": "06e2c51849ff8dde2ffc8ac719e68597e1a689d519b69658544f8732d2ff12d1",
+    "src/memory-map.mjs": "39c6b36b385d91072423f3bff7b7788ceb7ae42b911886c1207af41e5149bc94",
+    "src/memory-model.mjs": "f7286e94b66cd1f83503b5980e458d5b65cd1135e372f438bd77ec250b547b41",
+    "src/npc-primitives.mjs": "8a245ab395ecef91ab45e4958d7eec5bc1960e898de9a43feb4e6d9a3d2f9fa9",
+    "src/npc-program.mjs": "ad551cf4225233defb3bdecf1767e6886437c1f04c610ad1c693c300f0fe2668",
+    "src/npc-runtime.mjs": "20d4c1d74bbba70586e30d96fce530bf4da6865e6f8fab69f097c891ca125cf3",
+    "src/objects.mjs": "bb641920a34877ff6ec66747280161e0d818ee0f224c0878a91b179d0348861d",
+    "src/output-capitalization.mjs": "ce4b90cf04051a88ced102d55583628ff99f2b7b57011272cff49a4b81edece0",
+    "src/parser.mjs": "bb09d417a315980d1d2e1e89d6e82dcdff4fe4b60dea19ffc08b9a64c0816608",
+    "src/player-program.mjs": "3db7040f1d7286b261440b997da08da9e7b7cc9a8ca15ff3bdd5863c6566e5e2",
+    "src/random-display.mjs": "a28df380eba93145e17a3c6836c435d32afd334a6e5393b7739837b59c5bd076",
+    "src/random.mjs": "784dfbe72c4b6cbbddda4356f608b02e6d0e975d59dea1a6b368b1e507348060",
+    "src/record-arena.mjs": "13e8b477673da4d9b8e6dc86b21bcc702ffeb91c16c8e304103a5ab16a643123",
+    "src/rule-results.mjs": "87f7382f4e70d5756928a1a47f4f8783ad4cb7b71e167eaafb8b4ef10c61ca5e",
+    "src/runtime-random.mjs": "3a4eac3129a7a7fa210668706de998cc720bb116b7c337e2f527d555296a0270",
+    "src/save.mjs": "67015d24c64f5373fc333b353928b85ca7fefcdbdc51b3ce4a4caeb73f6275e2",
+    "src/scheduler.mjs": "fceb48a98a0ae8d2fc0c8e6df5327f99ba4bf034e075fb12f34cfa9c7c45eec7",
+    "src/session.mjs": "af63fb0f71e55010b8e419d0429011957f27c03123c95b2bfb3d8fd2a1aad756",
+    "src/special-objects.mjs": "7238997794be61d077b200a3f51c6a504574988378996e5ef2b87e519a73d0cc",
+    "src/spectrum.mjs": "88d6de40fbaee93b65856bd3e62d979db784f32a5742b9d22d9d6f037f80661d",
+    "src/tab-session.mjs": "1f0c364b358519529681c26aea4da6e1e2c13aa23c55d12a2aa5e254ffdbc342",
+    "src/text-window.mjs": "1e7f409bd175218040944e8f5be7453a8ff4eee32acfa9bc77b4cbb6650023b2",
+    "src/text.mjs": "2608fa45ca931f19bc69db3bffa0b7d937bd2b5dbeee96ef1c75f9293a558ae0",
+    "src/transcript.mjs": "4e16c4ac67baeb25e6d2cc3ad71ca184642f44f3e52282e387fc35b7fbf9f200",
+    "src/virtual-printer.mjs": "17fb5ca698c8e3ca72b1bccb9699776310b6e1fc6c47434cf14e3bc5c4a62b0a",
+    "src/wait-until.mjs": "cccd72fcd81108969c1e59e497b392ab68e1a0dd779c0311f79c0df60de4fe1d",
+    "src/watson.mjs": "89ec8565f7e59a65fa658e18535878efd69c10d6e56cb255aeb61ca265c33722",
+    "src/world-source.mjs": "52e0c749b5eef36dc532317ac4dbf6a6cc6a8f3778161ed6e45c70f141de66a9",
+    "src/world.mjs": "e7e6b151eecf089c9d87543c925d07aee9a8177b93728d725840f513131dec5a"
+  },
+  "evidence_sha256": {
+    "results/cab-stack-15/baseline-6a33.json": "40ff20401e2cf02c9473a126667ca0cdc6f3647c544f6ec67ad3111d30509ee4",
+    "results/cab-stack-15/before-drop-save.json": "f67d0eb65065535fcb7e0aea1d76f3e6b084b72d29fbc2b0aaa1072f45e5b336",
+    "results/cab-stack-15/dense-positive.json": "6fc34f91de8d7c4e6d95ff6fdb60b647d4ac0c0c00c2650f9d84c62a981dfc40",
+    "results/cab-stack-15/full-comparison.json": "ad7da6303bbb06acaae7a4e6581dc87810e8acce37654a9c72dc265de77a0bea",
+    "results/cab-stack-15/glyph-abi.json": "6c918cbf11835f46e2df07ac3aa8afe53745a8184d37cb9c4494c086060d95c3",
+    "results/cab-stack-15/hail-abi.json": "904d3cbf586d613001d1fa5fc55745ba669a2bfd61ef3eccf3ddc556faa0158e",
+    "results/cab-stack-15/hail-entry.json.gz": "e7a5dd10820cc22fa62ce00ae692e9e9eb4fdfd9e7226e910f2de76bd9f750b4",
+    "results/cab-stack-15/listing-verification.json": "2eb70a385a41c862d9e50e19804e70301a68ebe8ff47b47813ad0b0d88d75ea1",
+    "results/cab-stack-15/lookahead-comparison.json": "7b8cc2b000226e776a6e72d92952b726887d77536d00ad3b4871b1b257523564",
+    "results/cab-stack-15/lookahead-manifest.json": "fad8477120b66f57b3d25c3f04ece6742ed28bd82a88ba052e26c1104f0b79ee",
+    "results/cab-stack-15/lookahead-native.json": "f349e1250210d04ce702ea823be99f477ca675883a54a66417dc4596bfb7b78e",
+    "results/cab-stack-15/lookahead-reference.json": "40137770e71e114f6c433f80acfbcf0c9295e36de8b0a7bea4920aa3484b2f3b",
+    "results/cab-stack-15/lookahead-save.json": "91293cfd2f4f95a91f8673e6cc10825869b24bf4bf1213a6a541f5fe4a734d2b",
+    "results/cab-stack-15/natural-stores.json": "a58137e29e557a842c30301d7fa8c5737aa79d10c593c58847ded83ffb55681f",
+    "results/cab-stack-15/research-last.json": "33141c870aff2ab55f547cde87872a307a80cdff739314e612fcc9c83f2f173b",
+    "results/cab-stack-15/through-brown-save.json": "f017cb6eb3eed328445204352f4119682e48b13b2ebec840ff9f569795d931eb"
+  },
+  "full_6ABD_ending_certified": false,
+  "remaining": [
+    "Identify raw-word writer5C13 after longer WAIT",
+    "Natural Brown proof and delivery to Lestrade",
+    "Other natural endings6AF3/6B79/75D2 and existing backlog"
+  ]
+}

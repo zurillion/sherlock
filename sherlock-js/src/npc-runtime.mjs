@@ -113,7 +113,7 @@ export class NpcRuntime {
   // CC37/C821 select the output by perception; successful NPC speech is
   // still printed in darkness (A2E4 only rejects dark failure output).
   const g=this.game,visible=force||this.w.perceived(actor);
-  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
@@ -236,8 +236,11 @@ export class NpcRuntime {
  invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;this.state.parserMode=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
  // E2BA/CFB9 searches contexts by the VEHICLE id, not its driver.
  canHail(vehicle){return this.use(({records})=>!records.records('contexts').some(p=>records.arena.byte(p)===vehicle));}
- hail(vehicle,customer){this.use(runtime=>{
-  const s=runtime.vm.state(vehicle+1);if(s.contexts.length)this.game.sourceDisplay.invalidateScratch(0x5D10);const origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
+ hail(vehicle,customer,{domainAction=false}={}){this.use(runtime=>{
+  // E2CB's hidden DOMAIN action reaches SP5D4E from entry5D6E,
+  // without a renderer call. It cannot overwrite the lower text workspace.
+  const hiddenDomain=domainAction&&customer!==this.w.player&&!this.w.perceived(customer);
+  const s=runtime.vm.state(vehicle+1);if(s.contexts.length&&!hiddenDomain)this.game.sourceDisplay.invalidateScratch(0x5D10);const origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
   frame.record=runtime.records.prepend('contexts',[vehicle+1,parseInt(origin,16)&255,parseInt(origin,16)>>>8,customer,vehicle,2,prior]);s.contexts.push(frame);s.pc='F2B6';
  });}
  request(request,context,messages,actions){
@@ -411,7 +414,7 @@ export class NpcRuntime {
   switch(name){
    case 'npc.jonesEvidence':if([16,17,67].includes(second))this.state.facts.find(f=>f.start===0x9981).terms[7]|=0x200;result=yes();break;
    case 'npc.revealJones':if(second!==67){result=yes();break;}if(!w.perceived(67,actor))throw new UnsupportedFeature('TELL di Tricia senza i vestiti visibili: il rifiuto originale non ritorna al prompt (A9B0)');this.active.identityChange=95;this.state.facts.find(f=>f.start===0x9981).terms[5]|=0x200;result=yes();break;
-   case 'npc.tellBody':this.print('6830',actor,{object:first,actorNameFrame:0x5D16,textArguments:[g.dialogue.topic(actor,second)]},messages);result=yes(1);break;
+   case 'npc.tellBody':{const proper=Boolean(w.entity(first).noun&32768);if(!proper)g.sourceDisplay.invalidateScratch(0x5D10);this.print('6830',actor,{object:first,actorNameFrame:0x5D16,...(proper?{objectNameFrame:0x5D20}:{}),textArguments:[g.dialogue.topic(actor,second)]},messages);result=yes(1);break;}
    case 'counter.create':{
     const p=records.prepend('counters',[actor,0]);const random=second===255?0:g.runtimeRandom.absolute(second,{actor,mixOffset:5,purpose:'private-counter'});records.arena.putByte(p+1,(first+random)&255);result=yes();break;
    }
@@ -492,7 +495,7 @@ export class NpcRuntime {
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
   this.ruleResults.invalidate(); // Selected ordinary callbacks remain unknown until projected.
-  if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor);const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
+  if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor,{domainAction:!context.request});const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
   if(input[0]===255||classByAction[action]===undefined)preflightRejected=this.checkAction(action,args,actor)===false;
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.

@@ -1,0 +1,10 @@
+✔ The text callback projects the preceding word, not the recipient noun (219.424292ms)
+✔ TELL body owns the proper recipient entry only; article-bearing recipients remain unowned (150.852459ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1567.007833

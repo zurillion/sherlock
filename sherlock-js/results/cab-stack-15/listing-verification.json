@@ -1,0 +1,77 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 293,
+  "bytes_roundtripped": 584,
+  "regions": [
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Renderer: 5D15 \u00e8 A grezzo della scansione con frame5D20",
+      "atlas_priority": 160
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5CD",
+      "kind": "code",
+      "label": "TEXT con argomento: chiamante del prefisso di una risposta TELL",
+      "atlas_priority": 160
+    },
+    {
+      "start": "A720",
+      "end_exclusive": "A771",
+      "kind": "code",
+      "label": "Nome destinatario: lo spazio scarica la parola TO precedente",
+      "atlas_priority": 160
+    },
+    {
+      "start": "A7BA",
+      "end_exclusive": "A7EA",
+      "kind": "code",
+      "label": "Formatter di nome proprio e YOU: articolo distinto",
+      "atlas_priority": 160
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome entit\u00e0: delimitatore prima dei qualificatori e del sostantivo",
+      "atlas_priority": 160
+    },
+    {
+      "start": "E1D8",
+      "end_exclusive": "E201",
+      "kind": "code",
+      "label": "Risposta TELL ABOUT: seleziona il testo e usa il modello6830",
+      "atlas_priority": 160
+    },
+    {
+      "start": "E2CB",
+      "end_exclusive": "E31C",
+      "kind": "code",
+      "label": "HAIL invisibile: sospensione del cocchiere sopra il workspace basso",
+      "atlas_priority": 160
+    },
+    {
+      "start": "CF80",
+      "end_exclusive": "CFB6",
+      "kind": "code",
+      "label": "Crea contesto esterno del cocchiere: conserva origine e argomenti",
+      "atlas_priority": 160
+    },
+    {
+      "start": "67F7",
+      "end_exclusive": "680B",
+      "kind": "data",
+      "label": "Prefissi compressi della conversazione: attore, TO e destinatario",
+      "atlas_priority": 160
+    },
+    {
+      "start": "6830",
+      "end_exclusive": "6836",
+      "kind": "data",
+      "label": "Modello compresso della risposta: prefisso, argomento e virgolette",
+      "atlas_priority": 160
+    }
+  ]
+}

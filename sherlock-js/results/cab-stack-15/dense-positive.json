@@ -1,0 +1,18 @@
+{
+  "protocol": "JS boot generated normal history SAVE, resumed for each-minute original continuation; full state/draw diagnostic, separate from repeated-LOAD/browser-packet certificate.",
+  "passed": true,
+  "checkpoints": 30,
+  "last": {
+    "i": 29,
+    "clock": {
+      "tick": 1521,
+      "due": 1579,
+      "day": 1,
+      "minute": 20,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:20am"
+    },
+    "count": 2
+  }
+}

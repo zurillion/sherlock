@@ -1,0 +1,19 @@
+"""Typed source dossier: physical byte5D15: recipient delimiter and hidden HAIL preservation."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
+regions=[(50056, 50148, 'code', 'Renderer: 5D15 è A grezzo della scansione con frame5D20'), (42399, 42445, 'code', 'TEXT con argomento: chiamante del prefisso di una risposta TELL'), (42784, 42865, 'code', 'Nome destinatario: lo spazio scarica la parola TO precedente'), (42938, 42986, 'code', 'Formatter di nome proprio e YOU: articolo distinto'), (54229, 54344, 'code', 'Nome entità: delimitatore prima dei qualificatori e del sostantivo'), (57816, 57857, 'code', 'Risposta TELL ABOUT: seleziona il testo e usa il modello6830'), (58059, 58140, 'code', 'HAIL invisibile: sospensione del cocchiere sopra il workspace basso'), (53120, 53174, 'code', 'Crea contesto esterno del cocchiere: conserva origine e argomenti'), (26615, 26635, 'data', 'Prefissi compressi della conversazione: attore, TO e destinatario'), (26672, 26678, 'data', 'Modello compresso della risposta: prefisso, argomento e virgolette')]
+notes={50056: 'I sei frame16/18/1A/1C/1E/20 fanno assumere a5D15 sei ruoli distinti: A chiamante, B chiamante, D descrittore, H video, B scansione, A scansione. ABI separate:3672casi.', 50077: 'Con frame5D20 salva A, riga grezza del font, a5D15; il byteF è a5D14. Non leggere la bitmap né usare zero globale.', 50104: 'Ultimo writer naturale: MrsJones95,tick1472/Tue08:31,carattereo diTO prima del nomeYOU,frame5D20. Salva l’ottava riga grezza: o=0,q=6,underscore=255. La cuoca legge5D15 al1519/Tue09:18.', 42796: 'Il token nome-oggetto imposta modo1 e usaA034. Nel TELL con destinatario proprio, il primo spazio scarica TO a frame5D20; non è ancora il glifo del destinatario.', 42833: 'Non possedere il medesimo frame per destinatari con articolo: A7EB aggiunge un proprio chiamante e un proprio delimitatore.', 54338: 'Il sostantivo YOU viene inviato al dizionario. Il suo spazio iniziale stampa la parola precedente TO, non YOU; il sostantivo rimane pendente.', 57842: 'Carica modello6830 dopo due PUSH aggiuntivi. Il suo prefisso richiama6804: TO e il nome destinatario hanno profondità distinte.', 58059: 'Nel percorso DOMAIN invisibile naturale, ingressoSP5D6E,minimo5D4E e zero chiamateC388. Nessuno store5D14–5D16 dopo la confessione fino alla lettura. Non attribuire lo zero aHAIL.', 58123: 'La creazione del contesto conserva l’origineF37A. ABI E2CB controllate:24combinazioni frame66/6E,cab30/33,azione precedente0/31/255,marker00/A5;5D15 invariato. Non è raggiungibilità naturale di tutti i parametri.', 53120: 'Lista di contesti esterni, distinta dal byte di stack5D15. Il fatto che HAIL allochi una nuova riga non autorizza una cancellazione del workspace basso.'}
+lines=['; Dossier offline: istruzioni e dati tipizzati, verificati e riassemblati sul payload.'];count=total=0
+for a,b,kind,label in regions:
+ lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {label}'];at=a
+ while at<b:
+  if kind=='data':n=min(8,b-at);op='DEFB '+','.join(f'${v:02X}'for v in m[at:at+n])
+  else:op,n=disassemble(m,at);count+=1
+  assert at+n<=b,(hex(at),op);assert bytes(asm.assemble(op,at))==m[at:at+n]
+  lines.append(f'    {op:<37} ; ${at:04X} {m[at:at+n].hex(" ")}'+(' | '+notes[at]if at in notes else''));at+=n;total+=n
+root=p/'sherlock-js/results/cab-stack-15';root.mkdir(exist_ok=True);(root/'cab-stack-15.asm').write_text('\n'.join(lines)+'\n');(root/'listing-verification.json').write_text(json.dumps(dict(roundtrip_equal=True,instructions=count,bytes_roundtripped=total,regions=[dict(start=f'{a:04X}',end_exclusive=f'{b:04X}',kind=k,label=l,atlas_priority=160)for a,b,k,l in regions]),indent=2)+'\n');print(count,total)

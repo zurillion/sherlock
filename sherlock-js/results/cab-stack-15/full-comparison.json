@@ -1,0 +1,22 @@
+[
+  {
+    "label": "murder-evidence-brown-full",
+    "passed": true,
+    "checkpoints": 338,
+    "random_draws": 4048,
+    "clock": {
+      "tick": 1657,
+      "due": 1657,
+      "day": 1,
+      "minute": 36,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:36am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

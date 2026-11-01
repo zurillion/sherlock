@@ -1,0 +1,245 @@
+{
+  "protocol": "Controlled E2CB ABI restored from a real hidden Basil HAIL entry. Vary entry frame66/6E, vehicle30/33, prior action0/31/255 and5D15marker0/A5. Synthetic return0008; not natural reachability of all cases. Ordinary allocation, no visible relocation or renderer calls. Scope is hidden DOMAIN HAIL; visible/requested callers remain unowned.",
+  "cases": [
+    {
+      "frame": 23910,
+      "vehicle": 30,
+      "prior": 0,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23910,
+      "vehicle": 30,
+      "prior": 0,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23910,
+      "vehicle": 30,
+      "prior": 31,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23910,
+      "vehicle": 30,
+      "prior": 31,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23910,
+      "vehicle": 30,
+      "prior": 255,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 7593
+    },
+    {
+      "frame": 23910,
+      "vehicle": 30,
+      "prior": 255,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 7593
+    },
+    {
+      "frame": 23910,
+      "vehicle": 33,
+      "prior": 0,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23870,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23910,
+      "vehicle": 33,
+      "prior": 0,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23870,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23910,
+      "vehicle": 33,
+      "prior": 31,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23870,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23910,
+      "vehicle": 33,
+      "prior": 31,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23870,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23910,
+      "vehicle": 33,
+      "prior": 255,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23870,
+      "glyphs": 0,
+      "steps": 17005
+    },
+    {
+      "frame": 23910,
+      "vehicle": 33,
+      "prior": 255,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23870,
+      "glyphs": 0,
+      "steps": 17005
+    },
+    {
+      "frame": 23918,
+      "vehicle": 30,
+      "prior": 0,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23918,
+      "vehicle": 30,
+      "prior": 0,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23918,
+      "vehicle": 30,
+      "prior": 31,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23918,
+      "vehicle": 30,
+      "prior": 31,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "steps": 7592
+    },
+    {
+      "frame": 23918,
+      "vehicle": 30,
+      "prior": 255,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "steps": 7593
+    },
+    {
+      "frame": 23918,
+      "vehicle": 30,
+      "prior": 255,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23886,
+      "glyphs": 0,
+      "steps": 7593
+    },
+    {
+      "frame": 23918,
+      "vehicle": 33,
+      "prior": 0,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23918,
+      "vehicle": 33,
+      "prior": 0,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23918,
+      "vehicle": 33,
+      "prior": 31,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23918,
+      "vehicle": 33,
+      "prior": 31,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 17004
+    },
+    {
+      "frame": 23918,
+      "vehicle": 33,
+      "prior": 255,
+      "marker": 0,
+      "after": 0,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 17005
+    },
+    {
+      "frame": 23918,
+      "vehicle": 33,
+      "prior": 255,
+      "marker": 165,
+      "after": 165,
+      "min_sp": 23878,
+      "glyphs": 0,
+      "steps": 17005
+    }
+  ]
+}
