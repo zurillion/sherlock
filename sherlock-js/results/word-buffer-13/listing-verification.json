@@ -1,0 +1,63 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 316,
+  "bytes_roundtripped": 643,
+  "regions": [
+    {
+      "start": "D51A",
+      "end_exclusive": "D5C9",
+      "kind": "code",
+      "label": "Liste visibili e contenuti ricorsivi: nomi grezzi nel buffer riutilizzato",
+      "atlas_priority": 161
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Formatter D3D5: qualificatori inflettuti e sostantivo non inflettuto",
+      "atlas_priority": 161
+    },
+    {
+      "start": "A7EB",
+      "end_exclusive": "A80E",
+      "kind": "code",
+      "label": "Articolo del nome: due politiche verificate sulle110entit\u00e0",
+      "atlas_priority": 161
+    },
+    {
+      "start": "A24D",
+      "end_exclusive": "A25D",
+      "kind": "data",
+      "label": "Tabelle degli articoli: descrizioni e annunci",
+      "atlas_priority": 161
+    },
+    {
+      "start": "A85C",
+      "end_exclusive": "A880",
+      "kind": "data",
+      "label": "Suffissi grezzi: maiuscole, backspace e terminatori",
+      "atlas_priority": 161
+    },
+    {
+      "start": "A92F",
+      "end_exclusive": "A94D",
+      "kind": "code",
+      "label": "Scrittura del suffisso prima della normalizzazione",
+      "atlas_priority": 161
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Riferimento del dizionario e spazio che scarica il nome precedente",
+      "atlas_priority": 161
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "AA71",
+      "kind": "code",
+      "label": "Buffer di parola: i nomi nelle liste sovrascrivono solo i byte emessi",
+      "atlas_priority": 161
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+[
+  {
+    clock: {
+      tick: 1474,
+      due: 1475,
+      day: 1,
+      minute: 33,
+      hour: 8,
+      period: 'am',
+      label: 'Tue 08:33am'
+    },
+    command: 'SAY WATSON "DROP CLOTHES"',
+    char: 'i',
+    options: { known: true },
+    byte: 105,
+    scene: { text: 'Watson drops some bloodstained clothes.', trace: [Array] }
+  },
+  {
+    clock: {
+      tick: 1512,
+      due: 1579,
+      day: 1,
+      minute: 11,
+      hour: 9,
+      period: 'am',
+      label: 'Tue 09:11am'
+    },
+    command: 'WAIT UNTIL 10:18AM',
+    char: 'd',
+    options: { known: true, hidden: false },
+    byte: 100,
+    scene: null
+  },
+  {
+    clock: {
+      tick: 1539,
+      due: 1579,
+      day: 1,
+      minute: 38,
+      hour: 9,
+      period: 'am',
+      label: 'Tue 09:38am'
+    },
+    command: 'WAIT UNTIL 10:18AM',
+    char: "'",
+    options: { known: true, hidden: true },
+    byte: 39,
+    scene: null
+  },
+  {
+    clock: {
+      tick: 1651,
+      due: 1651,
+      day: 1,
+      minute: 30,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:30am'
+    },
+    command: 'S',
+    char: 'i',
+    options: { known: false },
+    byte: null,
+    scene: {
+      text: 'You are in Tricias Lounge. You can see some bloodstained clothes, a wall safe and Mrs Jones.',
+      trace: [Array]
+    }
+  }
+] null

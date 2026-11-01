@@ -1,0 +1,368 @@
+{
+  "implemented": true,
+  "runtime": "Functional autonomous JS name-buffer events for root scene objects, NPC inventories and recursive container contents. Dictionary articles, qualifiers, stem/suffix/backspace operations; mismatched names remain unknown. No native-state import, CPU interpreter, replay or constant105.",
+  "natural_writer": {
+    "protocol": "Resume complete unmodified original Jones-confession prompt; replay ordinary DROP and cab commands. Observer enabled from command20 (south into Tricias Lounge). Earlier play and full prompt restore are unmodified; no claim for writers outside this observation window. Track every identical or changing A9D7 store; unrelated transitions stay explicit. Research only, no native state is imported into JS.",
+    "read": {
+      "clock": {
+        "tick": 1882,
+        "due": 2341,
+        "minute": 21,
+        "hour": 3,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 03:21pm"
+      },
+      "actor": 9,
+      "value": 105,
+      "last_store": {
+        "pc": "A9D7",
+        "clock": {
+          "tick": 1651,
+          "due": 1651,
+          "minute": 30,
+          "hour": 11,
+          "day": 1,
+          "period": "am",
+          "label": "Tue 11:30am"
+        },
+        "actor": 0,
+        "character": 105,
+        "dictionary_ref": 16649,
+        "visible": 1,
+        "channel": 0,
+        "value": 105,
+        "raw_word": [
+          98,
+          108,
+          111,
+          111,
+          100,
+          115,
+          116,
+          97,
+          105
+        ]
+      },
+      "buffer": [
+        46,
+        116,
+        105,
+        108,
+        0,
+        101,
+        0,
+        46,
+        105,
+        110,
+        101,
+        100,
+        63,
+        1,
+        0,
+        6,
+        0,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "stores": [
+      {
+        "pc": "A9D7",
+        "clock": {
+          "tick": 1651,
+          "due": 1651,
+          "minute": 30,
+          "hour": 11,
+          "day": 1,
+          "period": "am",
+          "label": "Tue 11:30am"
+        },
+        "actor": 0,
+        "character": 105,
+        "dictionary_ref": 16649,
+        "visible": 1,
+        "channel": 0,
+        "value": 105,
+        "raw_word": [
+          98,
+          108,
+          111,
+          111,
+          100,
+          115,
+          116,
+          97,
+          105
+        ]
+      }
+    ],
+    "unclassified_transitions": []
+  },
+  "abi_cases": 220,
+  "tests": {
+    "targeted": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "log": "results/word-buffer-13/targeted-tests.log"
+    },
+    "full": {
+      "total": 1836,
+      "passed": 1836,
+      "failed": 0,
+      "log": "results/word-buffer-13/full-suite.log"
+    }
+  },
+  "positive_prefix": {
+    "protocol": "seed1/all24/free initial LOOK/native graphics off after boot/injected uppercase/immediate MORE; every RNG draw/read, source state, 752 arena bytes, bitmaps, future after each LOAD and every minute of long WAIT.",
+    "checkpoints": 389,
+    "range": [
+      0,
+      388
+    ],
+    "clock": {
+      "tick": 2151,
+      "due": 2341,
+      "minute": 50,
+      "hour": 7,
+      "day": 1,
+      "period": "pm",
+      "label": "Tue 07:50pm"
+    },
+    "compared_draws": 5337,
+    "compared_reads": 11394,
+    "runtime_draws": 5339,
+    "scope": "Completed prefix only; the first failed checkpoint and all subsequent state are excluded. No normalization of the original acceptance comparison."
+  },
+  "next_boundary": {
+    "address": "5D1C",
+    "excluded_checkpoint": 389,
+    "native_checkpoint_clock": {
+      "tick": 2157,
+      "due": 2341,
+      "minute": 56,
+      "hour": 7,
+      "day": 1,
+      "period": "pm",
+      "label": "Tue 07:56pm"
+    },
+    "reads": [
+      {
+        "actor": 8,
+        "address": 23836,
+        "value": 5
+      }
+    ],
+    "prototype_rollback_clock": {
+      "tick": 2156,
+      "due": 2156,
+      "day": 1,
+      "minute": 55,
+      "hour": 7,
+      "period": "pm",
+      "label": "Tue 07:55pm"
+    },
+    "error": "389 Ingresso casuale originale non ancora ricostruito: $5D1C. Il comando non \u00e8 stato applicato."
+  },
+  "baseline_6A33": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 316,
+    "bytes_roundtripped": 643,
+    "regions": [
+      {
+        "start": "D51A",
+        "end_exclusive": "D5C9",
+        "kind": "code",
+        "label": "Liste visibili e contenuti ricorsivi: nomi grezzi nel buffer riutilizzato",
+        "atlas_priority": 161
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Formatter D3D5: qualificatori inflettuti e sostantivo non inflettuto",
+        "atlas_priority": 161
+      },
+      {
+        "start": "A7EB",
+        "end_exclusive": "A80E",
+        "kind": "code",
+        "label": "Articolo del nome: due politiche verificate sulle110entit\u00e0",
+        "atlas_priority": 161
+      },
+      {
+        "start": "A24D",
+        "end_exclusive": "A25D",
+        "kind": "data",
+        "label": "Tabelle degli articoli: descrizioni e annunci",
+        "atlas_priority": 161
+      },
+      {
+        "start": "A85C",
+        "end_exclusive": "A880",
+        "kind": "data",
+        "label": "Suffissi grezzi: maiuscole, backspace e terminatori",
+        "atlas_priority": 161
+      },
+      {
+        "start": "A92F",
+        "end_exclusive": "A94D",
+        "kind": "code",
+        "label": "Scrittura del suffisso prima della normalizzazione",
+        "atlas_priority": 161
+      },
+      {
+        "start": "A887",
+        "end_exclusive": "A8B9",
+        "kind": "code",
+        "label": "Riferimento del dizionario e spazio che scarica il nome precedente",
+        "atlas_priority": 161
+      },
+      {
+        "start": "A9B7",
+        "end_exclusive": "AA71",
+        "kind": "code",
+        "label": "Buffer di parola: i nomi nelle liste sovrascrivono solo i byte emessi",
+        "atlas_priority": 161
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "43047dca45f13d61713f23be4610641e9fd4be3ee555f6265f8bc54f8679480e",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 428,
+      "unknown": 2039,
+      "documented": 39133
+    },
+    "segments": 1118,
+    "sources": 78,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 58552,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "provenance": {
+    "prior_chain": "results/cab-stack-15-verification.json",
+    "prior_chain_sha256": "2578c261a1edcf2ed4b508ffedf3ada0dbe95a55ead478b798c2fe1df9f72b20",
+    "writer_restore": "results/murder-ending/talk-native-prompt.json.gz",
+    "writer_restore_sha256": "3b451a98160f97f482d19f3e6c66ca01952584a9888884793db0e4937db1613a",
+    "evening_restore": "results/murder-ending/brown-native-prompt.json.gz",
+    "evening_restore_sha256": "b141b6d9a42d9615d29897e1e0a395729c54d91dbc7508b487d40bb1cdd703c8",
+    "method": "Complete real original prompt snapshots restored unchanged; no selective world/proof/register/PC patches. New writer trace and original evening continuation; prior full-game prefix and6A33 reference reused with hashes. ABI controlled setups are separate from natural reachability."
+  },
+  "evidence_sha256": {
+    "results/word-buffer-13/baseline-6a33.json": "40ff20401e2cf02c9473a126667ca0cdc6f3647c544f6ec67ad3111d30509ee4",
+    "results/word-buffer-13/evening-native-progress.json": "d68d1f9eececaac9ed409e9f14f64920ffec6792c362b29d4cfc6f8caf576f0a",
+    "results/word-buffer-13/evening-native.json": "24f5770ae4df4eba138984b58bcdc3f429d8fba26042588a0a742fcfe3939aa6",
+    "results/word-buffer-13/evening-reference.json": "51b35cc3b4d374ce2447dde1af29203c76b55b9460390936fdf982b17224b1b7",
+    "results/word-buffer-13/full-comparison.json": "a35be6c7ab8a867c04e6cee9b941ee1762594f44244ae707c8853289da409a5a",
+    "results/word-buffer-13/js-writers.json": "bb8bc99ddb99857d5fd1bcd2f283cac10b132968bdb07bf887e28b86e2e57e78",
+    "results/word-buffer-13/listing-verification.json": "797198a68d3662aabeef3c523470317783ba7f6c7bb5ca62bbe827fe8d3674e1",
+    "results/word-buffer-13/lookahead-save.json": "7e26a5a1c201267f46b08b632a0f04dc54789669b0777c08e06f23bc60866e8c",
+    "results/word-buffer-13/name-abi.json": "436b5c9d82eaab1053807418672e31c6500c66b89b7630abc2252a8a58c32d1d",
+    "results/word-buffer-13/natural-writer.json": "60dbde9c133de73d9da2041060cc49e85164571849826a06e0b3157285bf7b42",
+    "results/word-buffer-13/oracle-prefix-check.json": "6bbce60a8d07f243175e426747f52864dc073d6a5f30d51030dca5ed52441a34",
+    "results/word-buffer-13/research-last.json": "eb37f4826af8bb0159c63e5ca676fc4249d2ea6f6f11fe2c5f85a1b0fbe7031a",
+    "results/word-buffer-13/through-brown-save.json": "75452735a0220aadc9ca6aa4ec37db3a3133d56db649fdfd45b9686825b8879b"
+  },
+  "runtime_sha256": {
+    "src/advanced-npcs.mjs": "c9ad13596ba6312f7ca28824f549e2f28298bd0b7e3e930eaa3e0b2eed0c96a3",
+    "src/app.mjs": "85233f105c3b900a35c3433adbf0d429f7ca9cb9b105fa8c741b572fe33d9e41",
+    "src/argument-checks.mjs": "212f9212e2815e8919c37353f0e8860f596b69a6df04dda783371b5969aae320",
+    "src/cab-economy.mjs": "d3a430280fcf529ab8194a5c6e8173992ab57c686c7f289e7b9ce7827f4ce1ab",
+    "src/cab.mjs": "b1cf576f3997d3f056aab5e23bb7e421710e10a324ba493696c7f3eb62df4b3b",
+    "src/characters.mjs": "c04d06ddf628ea3e1e9ee296163a398949416423a28a33575d52ed5f2ceaa7b5",
+    "src/command-history.mjs": "5eeac2d1e6083bea122e50788a2ae9f494dbcb2a9b5e4d5873741cc4774657b1",
+    "src/conversation.mjs": "b5ae73f7d69b67a191a489886df82fec6ea97c4d3c5215e9d83e83633072d142",
+    "src/description-search.mjs": "afe8f9b9e61672023011cd2541d376b758c9f329cc2f1cb1587c942eb05d7870",
+    "src/endings.mjs": "32f8269d1e66071ecafe7ac32e4acfa965af2b62d1ba2fc42000caeb70975e7a",
+    "src/game.mjs": "699b1a1a2c4033be6acecaf0a1cc47733ca38544149d6e98a92be2e840bcf334",
+    "src/identity.mjs": "9fd32e6ed257092f70b42c2deee57b301bafa1e69ba48dd234671430ee32f115",
+    "src/information.mjs": "27ab8df1e19d36df255086a5e4b79440a65512a9c3ec1378710824dd819fbeb0",
+    "src/keyboard-profile.mjs": "bcddf84cef78302c9ff1a77f351a79d53dab385796653bc2249cc2a622ef6a99",
+    "src/lexer.mjs": "806e28cb3dc23f154d96937f0cea75bdd484723db0d2311dbc5257ac242cd56b",
+    "src/location-graph.mjs": "06e2c51849ff8dde2ffc8ac719e68597e1a689d519b69658544f8732d2ff12d1",
+    "src/memory-map.mjs": "39c6b36b385d91072423f3bff7b7788ceb7ae42b911886c1207af41e5149bc94",
+    "src/memory-model.mjs": "f7286e94b66cd1f83503b5980e458d5b65cd1135e372f438bd77ec250b547b41",
+    "src/npc-primitives.mjs": "8a245ab395ecef91ab45e4958d7eec5bc1960e898de9a43feb4e6d9a3d2f9fa9",
+    "src/npc-program.mjs": "ad551cf4225233defb3bdecf1767e6886437c1f04c610ad1c693c300f0fe2668",
+    "src/npc-runtime.mjs": "20d4c1d74bbba70586e30d96fce530bf4da6865e6f8fab69f097c891ca125cf3",
+    "src/objects.mjs": "bb641920a34877ff6ec66747280161e0d818ee0f224c0878a91b179d0348861d",
+    "src/output-capitalization.mjs": "ce4b90cf04051a88ced102d55583628ff99f2b7b57011272cff49a4b81edece0",
+    "src/parser.mjs": "bb09d417a315980d1d2e1e89d6e82dcdff4fe4b60dea19ffc08b9a64c0816608",
+    "src/player-program.mjs": "3db7040f1d7286b261440b997da08da9e7b7cc9a8ca15ff3bdd5863c6566e5e2",
+    "src/random-display.mjs": "a28df380eba93145e17a3c6836c435d32afd334a6e5393b7739837b59c5bd076",
+    "src/random.mjs": "784dfbe72c4b6cbbddda4356f608b02e6d0e975d59dea1a6b368b1e507348060",
+    "src/record-arena.mjs": "13e8b477673da4d9b8e6dc86b21bcc702ffeb91c16c8e304103a5ab16a643123",
+    "src/rule-results.mjs": "87f7382f4e70d5756928a1a47f4f8783ad4cb7b71e167eaafb8b4ef10c61ca5e",
+    "src/runtime-random.mjs": "3a4eac3129a7a7fa210668706de998cc720bb116b7c337e2f527d555296a0270",
+    "src/save.mjs": "67015d24c64f5373fc333b353928b85ca7fefcdbdc51b3ce4a4caeb73f6275e2",
+    "src/scheduler.mjs": "fceb48a98a0ae8d2fc0c8e6df5327f99ba4bf034e075fb12f34cfa9c7c45eec7",
+    "src/session.mjs": "af63fb0f71e55010b8e419d0429011957f27c03123c95b2bfb3d8fd2a1aad756",
+    "src/special-objects.mjs": "7238997794be61d077b200a3f51c6a504574988378996e5ef2b87e519a73d0cc",
+    "src/spectrum.mjs": "88d6de40fbaee93b65856bd3e62d979db784f32a5742b9d22d9d6f037f80661d",
+    "src/tab-session.mjs": "1f0c364b358519529681c26aea4da6e1e2c13aa23c55d12a2aa5e254ffdbc342",
+    "src/text-window.mjs": "1e7f409bd175218040944e8f5be7453a8ff4eee32acfa9bc77b4cbb6650023b2",
+    "src/text.mjs": "8d3cba219c95b69d96a85197e3613de3b35c47c3b893b30a457482f933a5f1cc",
+    "src/transcript.mjs": "4e16c4ac67baeb25e6d2cc3ad71ca184642f44f3e52282e387fc35b7fbf9f200",
+    "src/virtual-printer.mjs": "17fb5ca698c8e3ca72b1bccb9699776310b6e1fc6c47434cf14e3bc5c4a62b0a",
+    "src/wait-until.mjs": "cccd72fcd81108969c1e59e497b392ab68e1a0dd779c0311f79c0df60de4fe1d",
+    "src/watson.mjs": "89ec8565f7e59a65fa658e18535878efd69c10d6e56cb255aeb61ca265c33722",
+    "src/world-source.mjs": "52e0c749b5eef36dc532317ac4dbf6a6cc6a8f3778161ed6e45c70f141de66a9",
+    "src/world.mjs": "e7e6b151eecf089c9d87543c925d07aee9a8177b93728d725840f513131dec5a"
+  },
+  "full_6ABD_ending_certified": false,
+  "remaining": [
+    "Trace actual writer5D1C before gardener evening read",
+    "Natural Brown proof and conclusions delivered to Lestrade",
+    "6ABD/6AF3/6B79/75D2 natural ending certificates and existing backlog"
+  ]
+}

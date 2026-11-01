@@ -1,0 +1,7 @@
+// Instrument normal JS input only; no world, random cursor or proof patches.
+import{readFile,writeFile}from'node:fs/promises';import{ClientSession}from'../src/session.mjs';
+const base=new URL('../',import.meta.url),data=JSON.parse(await readFile(new URL('data/game.json',base))),s=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=s.game,p=g.sourceDisplay,feed=p.bufferFeed.bind(p),scene=p.scene.bind(p),events=[];let activeScene=null,command=null;
+p.scene=(text,trace)=>{const previous=activeScene;activeScene={text,trace};try{return scene(text,trace);}finally{activeScene=previous;}};
+p.bufferFeed=(c,options={})=>{const at=p.state?.wordBuffer.index;feed(c,options);if(at===8&&![' ','\n','\r','"','\b'].includes(c)){events.push({clock:g.world.clock(),command,char:c,options,byte:p.read(0x5C13),scene:activeScene});if(events.length>30)events.shift();}};
+for(command of(await readFile(new URL('results/cab-stack-15/through-brown-history.txt',base),'utf8')).trim().split('\n')){let out=s.request(command.startsWith('WAIT UNTIL')?'start-command':'command',{command});while(out.running)out=s.request('continue-command',{job:out.job});if(out.state.analysis.outcome==='not_translated')throw Error(out.state.prototype_notice);}
+await writeFile(new URL('results/word-buffer-13/js-writers.json',base),JSON.stringify({events,clock:g.world.clock(),value:p.read(0x5C13)},null,2)+'\n');console.log(events.slice(-4),p.read(0x5C13));

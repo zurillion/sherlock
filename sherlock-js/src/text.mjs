@@ -19,6 +19,15 @@ export class Text {
   const noun=this.dictionary.word(e.noun);if(!noun)return null;parts.push(noun.stem);
   return ' '+parts.join(' ');
  }
+ // Scene lists use the same name formatter as D3D5. Record its raw
+ // dictionary operations separately from displayed capitalization/inflection.
+ traceNameBuffer(trace,id,name,start,{indefinite=false}={}){
+  if(!trace)return;const raw=this.rawEntityName(id,{indefinite});if(raw===null)return;
+  let normalized='';for(const c of raw.trimStart()){if(c==='\b')normalized=normalized.slice(0,-1);else normalized+=c;}
+  // Dynamic or shortened names without a matching contract stay unknown.
+  if(normalized.toLowerCase()!==name.toLowerCase())return;
+  trace.push({kind:'raw-text-buffer',start,end:start+name.length,events:Array.from(raw,c=>({c,known:true}))});
+ }
  greeting(actor,context={}){return this.render('6920',{...context,actor});}
  examinePreservesLowScratch(description){
   // DF49/DF5B's ordinary inspection stays above $5D1E at its deepest
@@ -148,7 +157,7 @@ export class Text {
    // object's naming call. AND is a separate dictionary invocation.
    if(parent===null){const previous=text.join(' '),tail=previous.match(/\S+$/);if(trace&&tail&&/^(Visible exits are |To the |Above |Below )/.test(text.at(-1)))trace.push({kind:'room-list-delimits-exits',start:previous.length-tail[0].length,end:previous.length,frame:listFrame(depth)-2});prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
     if(trace)trace.push({kind:'room-list-see',start:start+prefix.length-4,end:start+prefix.length-1,frame:listFrame(depth)+((children[0].noun&32768)?4:2)});
-    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',parent:children[i].id,start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4,spaceAfter:true,spaceClearFrame:listFrame(depth)+8});offset+=item.length;}}
+    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',parent:children[i].id,start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4,spaceAfter:true,spaceClearFrame:listFrame(depth)+8});this.traceNameBuffer(trace,children[i].id,item,start+prefix.length+offset,{indefinite:true});offset+=item.length;}}
    }
    else{const container=w.entity(parent);if(container.person){
     const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
@@ -165,7 +174,7 @@ export class Text {
     // working fields that the verb itself never touches.
     let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');
     if(trace&&conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+name.length+13+conjunction+1,end:start+name.length+13+conjunction+4,frame:listFrame(depth)+2});
-    if(trace)for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',parent:children[i].id,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});offset+=item.length;}
+    if(trace)for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',parent:children[i].id,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});this.traceNameBuffer(trace,children[i].id,item,start+name.length+13+offset,{indefinite:true});offset+=item.length;}
     text.push(name+' is carrying '+joinList(names)+'.');
    }else{const relation=({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In',name=w.name(parent),start=text.join(' ').length+(text.length?1:0);
     prefix=`${relation} ${name} there ${children.length===1?'is':'are'} `;
@@ -174,7 +183,7 @@ export class Text {
      // bytes shallower. A wrapped THERE can reach the low working cells.
      trace.push({kind:'container-there',start:nameEnd+1,end:nameEnd+6,frame:listFrame(depth)});
      trace.push({kind:'container-copula',start:nameEnd+7,end:start+prefix.length-1,frame:listFrame(depth)+2});
-     let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});offset+=item.length;}}
+     let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});this.traceNameBuffer(trace,children[i].id,item,at,{indefinite:true});offset+=item.length;}}
     text.push(prefix+joinList(names)+'.');}}
    if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768)&&list(children[0].id).length)trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});

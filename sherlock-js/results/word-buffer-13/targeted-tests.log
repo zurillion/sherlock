@@ -1,0 +1,15 @@
+✔ Original D3D5 raw names: all110 entities with both article policies (32.375166ms)
+✔ Natural5C13: the room-list qualifier bloodstained leaves i until the cook reads it (1.1205ms)
+✔ Scene raw name buffer in root list (16.393666ms)
+✔ Scene raw name buffer in personal contents (14.214084ms)
+✔ Scene raw name buffer in container contents (13.0105ms)
+✔ Unmatched or shortened display names remain unknown; old SAVE absence is not backfilled (13.576ms)
+✔ Natural longer WAIT crosses former5C13 boundary with exact original state and LOAD future (60463.056833ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60779.872167

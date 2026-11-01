@@ -1144,3 +1144,29 @@ report e log riconciliano i1829test distinti. Il precedente duplicato parziale
 è stato interrotto, non è prova. Baseline6A33 completa ripetuta sulcodicefinale:
 521checkpoint/10345draw/22058read(10347runtimeincl2boot),pausa/freeze verificati.
 Oracolo baseline RIUTILIZZATO conSHA,nessunnuovo finale originale acquisito.
+
+Seguito5C13: leggere NOMI-NELLE-LISTE-E-BUFFER-5C13.md e
+results/word-buffer-13-verification.json. Trace originale da talkprompt INTEGRO,
+comandiDROP/cab/WAIT e ingressoS salotto, osservatore dalcomando20. Ultimostore
+A9D7,tick1651/Tue11:30,Holmes0,DE4109,qualificatorebloodstained,i alposto8.
+Cuoca9 legge105 al1882/Tue15:21. Store identici osservati,0transizioni nonclassificate.
+ImplementazioneText.traceNameBuffer: eventi grezzi da rawEntityName perlisteD526
+root/personal/nonpersonal ricorsive; solo se la derivazione normalizzata coincide
+conilnomeeffettivo. Non rendere noto il testo formattato globale né nomi abbreviati.
+Articoli/qualificatori/suffissi/backspace/stem del sostantivo:220ABI D3D5 sui110id,
+A2AA0/1,canale0. Setupcontrollati noncertificano raggiungibilità. OldSAVE assente
+restaunknown,nessun105retrofit; formatoSAVE invariato,LOADpreserva il buffer.
+Nuova acquisizione serale da brownprompt11:36 INTEGRO:primi24checkpoint identici
+alla precedentecontinuazione15:20;vecchioforced15:22 escluso dasovrapposizione.
+Prefisso positivo0–388,389checkpoint finoTue19:50,5337drawconfrontati/11394read,
+5339runtimeincl2boot,tutti24attori/arena752/bitmap e futuroLOAD perogni minuto.
+Primo checkpoint389 ESCLUSO:originale19:56 legge5D1C=5/giardiniere8;JSfermo19:55.
+Trovarevero writer;non dedurre5dacolonna o daaltroframe giànoto. 6ABD noncertificato.
+Storia mantieneviaggi falliti e confessioniJones,senza patchposizioni oindizi.
+Suitefinale1836/1836PASS,0errori/skip/cancel;nuovifile7/7PASS e atlantePASS.
+Baseline6A33 ripetutasulcodicefinale:521checkpoint/10345draw/22058read,10347runtime
+con2boot,pausa/freeze verificati. Oracolo6A33 RIUTILIZZATO,non nuovaacquisizione.
+Atlante316istruzioni/643byte:approfonditiD51A–D5C8,D3D5–D447,A7EB–A80D,
+A887–A8B8,A92F–A94C,A9B7–AA70;datiA24D–A25C/A85C–A87F separati;campo workspace5C13.
+Zero nuovi byte grigi:39133documentati/428parziali/2039ignoti su41600 invariati.
+Riferire zone e orari all'utente; aggiornare sempre atlante e backlog.

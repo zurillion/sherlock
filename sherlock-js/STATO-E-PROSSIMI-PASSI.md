@@ -1,5 +1,17 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento: [NOMI-NELLE-LISTE-E-BUFFER-5C13.md](NOMI-NELLE-LISTE-E-BUFFER-5C13.md).
+Superato5C13: D526/D3D5 scrive i byte grezzi dei nomi nelle liste a terra,
+inventariNPC e contenitori. Bloodstained/4109 lascia i alposto8,tick1651;
+cuoca9 lolegge al1882/Tue15:21.220ABI nomi,nomi non corrispondenti restanounknown.
+Positivo389checkpoint0–388 finoTue19:50,5337draw/11394read,5339runtimeincl2boot;
+24attori,arena752,bitmap,futuroLOAD. Prossimo5D1C alcheckpoint389/originale19:56,
+giardiniere8/valore5;JSfermo19:55. Trovare writer reale,non inferire daaltriframe.
+1836/1836testPASS; baseline6A33 ripetuta521checkpoint,oracoloRIUTILIZZATO.
+Atlante316istruzioni/643byte;0nuovigrigi,39133/428/2039su41600 invariati.
+6ABD e gli altri finali naturali restanoaperti; gli stati sotto sono storici.
+
+
 Aggiornamento 1 novembre2026: [DESTINATARIO-E-STACK-5D15.md](DESTINATARIO-E-STACK-5D15.md).
 Superato5D15: A grezzo dell'ottava riga del font nel frame5D20, non uno zero.
 MrsJones95 scarica TO prima del destinatarioYOU al1472/Tue08:31; cuoca9 lo

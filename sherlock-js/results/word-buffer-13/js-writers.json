@@ -1,0 +1,3393 @@
+{
+  "events": [
+    {
+      "clock": {
+        "tick": 351,
+        "due": 352,
+        "day": 0,
+        "minute": 50,
+        "hour": 1,
+        "period": "pm",
+        "label": "Mon 01:50pm"
+      },
+      "command": "SAY CABBIE \"GO TO SLATER STREET\"",
+      "char": "i",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": {
+        "text": "You are in a hansom cab with Watson and the cabbie. Watson is carrying the daily chronicle and some bloodstained clothes. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+        "trace": [
+          {
+            "kind": "passenger-name-prefix",
+            "parent": 31,
+            "start": 40,
+            "end": 43,
+            "frame": 23838
+          },
+          {
+            "start": 44,
+            "end": 51,
+            "kind": "list-tail-delimited-by-carrier",
+            "parent": 3,
+            "frame": 23808,
+            "spaceAfter": true
+          },
+          {
+            "start": 52,
+            "end": 58,
+            "kind": "carrying-name",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 59,
+            "end": 61,
+            "kind": "carrying-is",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 62,
+            "end": 70,
+            "kind": "carrying-verb",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23830
+          },
+          {
+            "kind": "contents-list-conjunction",
+            "start": 91,
+            "end": 94,
+            "frame": 23830
+          },
+          {
+            "start": 71,
+            "end": 80,
+            "kind": "carried-object-prefix",
+            "parent": 25,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "start": 95,
+            "end": 112,
+            "kind": "carried-object-prefix",
+            "parent": 67,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "end": 121,
+            "kind": "personal-contents",
+            "depth": 1,
+            "parent": 3,
+            "room": 1,
+            "child": null
+          },
+          {
+            "kind": "description-delimits-inventory",
+            "start": 113,
+            "end": 121,
+            "frame": 23838
+          },
+          {
+            "kind": "raw-text-buffer",
+            "start": 122,
+            "end": 230,
+            "events": [
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "y",
+                "known": false
+              },
+              {
+                "c": "o",
+                "known": false
+              },
+              {
+                "c": "u",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "a",
+                "known": false
+              },
+              {
+                "c": "r",
+                "known": false
+              },
+              {
+                "c": "e",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "v",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "I",
+                "known": true
+              },
+              {
+                "c": "N",
+                "known": true
+              },
+              {
+                "c": "G",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "m",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "b",
+                "known": true
+              },
+              {
+                "c": ",",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "g",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "y",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": ".",
+                "known": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 351,
+        "due": 352,
+        "day": 0,
+        "minute": 50,
+        "hour": 1,
+        "period": "pm",
+        "label": "Mon 01:50pm"
+      },
+      "command": "SAY CABBIE \"GO TO SLATER STREET\"",
+      "char": "N",
+      "options": {
+        "known": true
+      },
+      "byte": 78,
+      "scene": {
+        "text": "You are in a hansom cab with Watson and the cabbie. Watson is carrying the daily chronicle and some bloodstained clothes. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+        "trace": [
+          {
+            "kind": "passenger-name-prefix",
+            "parent": 31,
+            "start": 40,
+            "end": 43,
+            "frame": 23838
+          },
+          {
+            "start": 44,
+            "end": 51,
+            "kind": "list-tail-delimited-by-carrier",
+            "parent": 3,
+            "frame": 23808,
+            "spaceAfter": true
+          },
+          {
+            "start": 52,
+            "end": 58,
+            "kind": "carrying-name",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 59,
+            "end": 61,
+            "kind": "carrying-is",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 62,
+            "end": 70,
+            "kind": "carrying-verb",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23830
+          },
+          {
+            "kind": "contents-list-conjunction",
+            "start": 91,
+            "end": 94,
+            "frame": 23830
+          },
+          {
+            "start": 71,
+            "end": 80,
+            "kind": "carried-object-prefix",
+            "parent": 25,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "start": 95,
+            "end": 112,
+            "kind": "carried-object-prefix",
+            "parent": 67,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "end": 121,
+            "kind": "personal-contents",
+            "depth": 1,
+            "parent": 3,
+            "room": 1,
+            "child": null
+          },
+          {
+            "kind": "description-delimits-inventory",
+            "start": 113,
+            "end": 121,
+            "frame": 23838
+          },
+          {
+            "kind": "raw-text-buffer",
+            "start": 122,
+            "end": 230,
+            "events": [
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "y",
+                "known": false
+              },
+              {
+                "c": "o",
+                "known": false
+              },
+              {
+                "c": "u",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "a",
+                "known": false
+              },
+              {
+                "c": "r",
+                "known": false
+              },
+              {
+                "c": "e",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "v",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "I",
+                "known": true
+              },
+              {
+                "c": "N",
+                "known": true
+              },
+              {
+                "c": "G",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "m",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "b",
+                "known": true
+              },
+              {
+                "c": ",",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "g",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "y",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": ".",
+                "known": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 375,
+        "due": 375,
+        "day": 0,
+        "minute": 14,
+        "hour": 2,
+        "period": "pm",
+        "label": "Mon 02:14pm"
+      },
+      "command": "WEAR CHINA MANS DISGUISE",
+      "char": ".",
+      "options": {
+        "known": true
+      },
+      "byte": 46,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 376,
+        "due": 376,
+        "day": 0,
+        "minute": 15,
+        "hour": 2,
+        "period": "pm",
+        "label": "Mon 02:15pm"
+      },
+      "command": "N",
+      "char": "n",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": {
+        "text": "The china man is in a disgusting opium den. Visible exits are south.",
+        "trace": [
+          {
+            "kind": "alternate-actor-article",
+            "start": 0,
+            "end": 4,
+            "frame": 23834
+          },
+          {
+            "kind": "alternate-actor-name",
+            "start": 4,
+            "end": 10,
+            "frame": 23834
+          },
+          {
+            "kind": "alternate-actor-noun",
+            "start": 10,
+            "end": 14,
+            "frame": 23850
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 378,
+        "due": 378,
+        "day": 0,
+        "minute": 17,
+        "hour": 2,
+        "period": "pm",
+        "label": "Mon 02:17pm"
+      },
+      "command": "TAKE OFF CHINA MANS DISGUISE",
+      "char": ".",
+      "options": {
+        "known": true
+      },
+      "byte": 46,
+      "scene": {
+        "text": "The china man takes off the china mans disguise.",
+        "trace": [
+          {
+            "kind": "action-entity-prefix",
+            "start": 24,
+            "end": 38,
+            "frame": 23852,
+            "flagsKnown": true
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 391,
+        "due": 946,
+        "day": 0,
+        "minute": 30,
+        "hour": 2,
+        "period": "pm",
+        "label": "Mon 02:30pm"
+      },
+      "command": "WAIT UNTIL 11:45PM",
+      "char": ".",
+      "options": {
+        "known": true,
+        "hidden": true
+      },
+      "byte": 46,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 419,
+        "due": 946,
+        "day": 0,
+        "minute": 58,
+        "hour": 2,
+        "period": "pm",
+        "label": "Mon 02:58pm"
+      },
+      "command": "WAIT UNTIL 11:45PM",
+      "char": "d",
+      "options": {
+        "known": true,
+        "hidden": true
+      },
+      "byte": 100,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 948,
+        "due": 949,
+        "day": 0,
+        "minute": 47,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:47pm"
+      },
+      "command": "I",
+      "char": ",",
+      "options": {
+        "known": true,
+        "hidden": true
+      },
+      "byte": 44,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 958,
+        "due": 1381,
+        "day": 0,
+        "minute": 57,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:57pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 958,
+        "due": 1381,
+        "day": 0,
+        "minute": 57,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:57pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 958,
+        "due": 1381,
+        "day": 0,
+        "minute": 57,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:57pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 958,
+        "due": 1381,
+        "day": 0,
+        "minute": 57,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:57pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 958,
+        "due": 1381,
+        "day": 0,
+        "minute": 57,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:57pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 960,
+        "due": 1381,
+        "day": 0,
+        "minute": 59,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:59pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 960,
+        "due": 1381,
+        "day": 0,
+        "minute": 59,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:59pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 960,
+        "due": 1381,
+        "day": 0,
+        "minute": 59,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:59pm"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 961,
+        "due": 1381,
+        "day": 1,
+        "minute": 0,
+        "hour": 12,
+        "period": "am",
+        "label": "Tue 12:00am"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": {
+        "text": "Inspector Lestrade climbs into the hansom cab.",
+        "trace": [
+          {
+            "kind": "action-entity-prefix",
+            "start": 31,
+            "end": 41,
+            "frame": 23852,
+            "flagsKnown": true
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 963,
+        "due": 1381,
+        "day": 1,
+        "minute": 2,
+        "hour": 12,
+        "period": "am",
+        "label": "Tue 12:02am"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "r",
+      "options": {
+        "known": false,
+        "hidden": false
+      },
+      "byte": null,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 963,
+        "due": 1381,
+        "day": 1,
+        "minute": 2,
+        "hour": 12,
+        "period": "am",
+        "label": "Tue 12:02am"
+      },
+      "command": "WAIT UNTIL 7AM",
+      "char": "n",
+      "options": {
+        "known": true,
+        "hidden": false
+      },
+      "byte": 110,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1384,
+        "due": 1385,
+        "day": 1,
+        "minute": 3,
+        "hour": 7,
+        "period": "am",
+        "label": "Tue 07:03am"
+      },
+      "command": "SAY CABBIE \"GO TO PORTMAN STREET\"",
+      "char": "e",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": {
+        "text": "You are in a hansom cab with Watson and the cabbie. Watson is carrying the daily chronicle and some bloodstained clothes. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+        "trace": [
+          {
+            "kind": "passenger-name-prefix",
+            "parent": 31,
+            "start": 40,
+            "end": 43,
+            "frame": 23838
+          },
+          {
+            "start": 44,
+            "end": 51,
+            "kind": "list-tail-delimited-by-carrier",
+            "parent": 3,
+            "frame": 23808,
+            "spaceAfter": true
+          },
+          {
+            "start": 52,
+            "end": 58,
+            "kind": "carrying-name",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 59,
+            "end": 61,
+            "kind": "carrying-is",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 62,
+            "end": 70,
+            "kind": "carrying-verb",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23830
+          },
+          {
+            "kind": "contents-list-conjunction",
+            "start": 91,
+            "end": 94,
+            "frame": 23830
+          },
+          {
+            "start": 71,
+            "end": 80,
+            "kind": "carried-object-prefix",
+            "parent": 25,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "start": 95,
+            "end": 112,
+            "kind": "carried-object-prefix",
+            "parent": 67,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "end": 121,
+            "kind": "personal-contents",
+            "depth": 1,
+            "parent": 3,
+            "room": 1,
+            "child": null
+          },
+          {
+            "kind": "description-delimits-inventory",
+            "start": 113,
+            "end": 121,
+            "frame": 23838
+          },
+          {
+            "kind": "raw-text-buffer",
+            "start": 122,
+            "end": 230,
+            "events": [
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "y",
+                "known": false
+              },
+              {
+                "c": "o",
+                "known": false
+              },
+              {
+                "c": "u",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "a",
+                "known": false
+              },
+              {
+                "c": "r",
+                "known": false
+              },
+              {
+                "c": "e",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "v",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "I",
+                "known": true
+              },
+              {
+                "c": "N",
+                "known": true
+              },
+              {
+                "c": "G",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "m",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "b",
+                "known": true
+              },
+              {
+                "c": ",",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "g",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "y",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": ".",
+                "known": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 1384,
+        "due": 1385,
+        "day": 1,
+        "minute": 3,
+        "hour": 7,
+        "period": "am",
+        "label": "Tue 07:03am"
+      },
+      "command": "SAY CABBIE \"GO TO PORTMAN STREET\"",
+      "char": "i",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": {
+        "text": "You are in a hansom cab with Watson and the cabbie. Watson is carrying the daily chronicle and some bloodstained clothes. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+        "trace": [
+          {
+            "kind": "passenger-name-prefix",
+            "parent": 31,
+            "start": 40,
+            "end": 43,
+            "frame": 23838
+          },
+          {
+            "start": 44,
+            "end": 51,
+            "kind": "list-tail-delimited-by-carrier",
+            "parent": 3,
+            "frame": 23808,
+            "spaceAfter": true
+          },
+          {
+            "start": 52,
+            "end": 58,
+            "kind": "carrying-name",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 59,
+            "end": 61,
+            "kind": "carrying-is",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 62,
+            "end": 70,
+            "kind": "carrying-verb",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23830
+          },
+          {
+            "kind": "contents-list-conjunction",
+            "start": 91,
+            "end": 94,
+            "frame": 23830
+          },
+          {
+            "start": 71,
+            "end": 80,
+            "kind": "carried-object-prefix",
+            "parent": 25,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "start": 95,
+            "end": 112,
+            "kind": "carried-object-prefix",
+            "parent": 67,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "end": 121,
+            "kind": "personal-contents",
+            "depth": 1,
+            "parent": 3,
+            "room": 1,
+            "child": null
+          },
+          {
+            "kind": "description-delimits-inventory",
+            "start": 113,
+            "end": 121,
+            "frame": 23838
+          },
+          {
+            "kind": "raw-text-buffer",
+            "start": 122,
+            "end": 230,
+            "events": [
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "y",
+                "known": false
+              },
+              {
+                "c": "o",
+                "known": false
+              },
+              {
+                "c": "u",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "a",
+                "known": false
+              },
+              {
+                "c": "r",
+                "known": false
+              },
+              {
+                "c": "e",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "v",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "I",
+                "known": true
+              },
+              {
+                "c": "N",
+                "known": true
+              },
+              {
+                "c": "G",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "m",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "b",
+                "known": true
+              },
+              {
+                "c": ",",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "g",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "y",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": ".",
+                "known": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 1384,
+        "due": 1385,
+        "day": 1,
+        "minute": 3,
+        "hour": 7,
+        "period": "am",
+        "label": "Tue 07:03am"
+      },
+      "command": "SAY CABBIE \"GO TO PORTMAN STREET\"",
+      "char": "N",
+      "options": {
+        "known": true
+      },
+      "byte": 78,
+      "scene": {
+        "text": "You are in a hansom cab with Watson and the cabbie. Watson is carrying the daily chronicle and some bloodstained clothes. You are travelling the streets of London in a hansom cab, the sun shines through the windows onto your face.",
+        "trace": [
+          {
+            "kind": "passenger-name-prefix",
+            "parent": 31,
+            "start": 40,
+            "end": 43,
+            "frame": 23838
+          },
+          {
+            "start": 44,
+            "end": 51,
+            "kind": "list-tail-delimited-by-carrier",
+            "parent": 3,
+            "frame": 23808,
+            "spaceAfter": true
+          },
+          {
+            "start": 52,
+            "end": 58,
+            "kind": "carrying-name",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 59,
+            "end": 61,
+            "kind": "carrying-is",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23828
+          },
+          {
+            "start": 62,
+            "end": 70,
+            "kind": "carrying-verb",
+            "parent": 3,
+            "depth": 1,
+            "frame": 23830
+          },
+          {
+            "kind": "contents-list-conjunction",
+            "start": 91,
+            "end": 94,
+            "frame": 23830
+          },
+          {
+            "start": 71,
+            "end": 80,
+            "kind": "carried-object-prefix",
+            "parent": 25,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "start": 95,
+            "end": 112,
+            "kind": "carried-object-prefix",
+            "parent": 67,
+            "frame": 23832,
+            "spaceClearFrame": 23836,
+            "spaceAfter": true
+          },
+          {
+            "end": 121,
+            "kind": "personal-contents",
+            "depth": 1,
+            "parent": 3,
+            "room": 1,
+            "child": null
+          },
+          {
+            "kind": "description-delimits-inventory",
+            "start": 113,
+            "end": 121,
+            "frame": 23838
+          },
+          {
+            "kind": "raw-text-buffer",
+            "start": 122,
+            "end": 230,
+            "events": [
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "y",
+                "known": false
+              },
+              {
+                "c": "o",
+                "known": false
+              },
+              {
+                "c": "u",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": false
+              },
+              {
+                "c": "a",
+                "known": false
+              },
+              {
+                "c": "r",
+                "known": false
+              },
+              {
+                "c": "e",
+                "known": false
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "v",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "I",
+                "known": true
+              },
+              {
+                "c": "N",
+                "known": true
+              },
+              {
+                "c": "G",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "m",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "b",
+                "known": true
+              },
+              {
+                "c": ",",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "g",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "w",
+                "known": true
+              },
+              {
+                "c": "S",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "y",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "u",
+                "known": true
+              },
+              {
+                "c": "r",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "f",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": ".",
+                "known": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 1470,
+        "due": 1471,
+        "day": 1,
+        "minute": 29,
+        "hour": 8,
+        "period": "am",
+        "label": "Tue 08:29am"
+      },
+      "command": "SAY TRICIA \"TELL ME ABOUT CLOTHES\"",
+      "char": "l",
+      "options": {
+        "known": true,
+        "hidden": false
+      },
+      "byte": 108,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1470,
+        "due": 1471,
+        "day": 1,
+        "minute": 29,
+        "hour": 8,
+        "period": "am",
+        "label": "Tue 08:29am"
+      },
+      "command": "SAY TRICIA \"TELL ME ABOUT CLOTHES\"",
+      "char": "g",
+      "options": {
+        "known": true,
+        "hidden": false
+      },
+      "byte": 103,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1472,
+        "due": 1473,
+        "day": 1,
+        "minute": 31,
+        "hour": 8,
+        "period": "am",
+        "label": "Tue 08:31am"
+      },
+      "command": "SAY MRS JONES \"TELL ME ABOUT CLOTHES\"",
+      "char": "l",
+      "options": {
+        "known": true,
+        "hidden": false
+      },
+      "byte": 108,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1472,
+        "due": 1473,
+        "day": 1,
+        "minute": 31,
+        "hour": 8,
+        "period": "am",
+        "label": "Tue 08:31am"
+      },
+      "command": "SAY MRS JONES \"TELL ME ABOUT CLOTHES\"",
+      "char": "g",
+      "options": {
+        "known": true,
+        "hidden": false
+      },
+      "byte": 103,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1474,
+        "due": 1475,
+        "day": 1,
+        "minute": 33,
+        "hour": 8,
+        "period": "am",
+        "label": "Tue 08:33am"
+      },
+      "command": "SAY WATSON \"DROP CLOTHES\"",
+      "char": "i",
+      "options": {
+        "known": true
+      },
+      "byte": 105,
+      "scene": {
+        "text": "Watson drops some bloodstained clothes.",
+        "trace": [
+          {
+            "kind": "raw-text-buffer",
+            "start": 13,
+            "end": 38,
+            "events": [
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "m",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "b",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "a",
+                "known": true
+              },
+              {
+                "c": "i",
+                "known": true
+              },
+              {
+                "c": "n",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "d",
+                "known": true
+              },
+              {
+                "c": " ",
+                "known": true
+              },
+              {
+                "c": "c",
+                "known": true
+              },
+              {
+                "c": "l",
+                "known": true
+              },
+              {
+                "c": "o",
+                "known": true
+              },
+              {
+                "c": "t",
+                "known": true
+              },
+              {
+                "c": "h",
+                "known": true
+              },
+              {
+                "c": "e",
+                "known": true
+              },
+              {
+                "c": "s",
+                "known": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clock": {
+        "tick": 1512,
+        "due": 1579,
+        "day": 1,
+        "minute": 11,
+        "hour": 9,
+        "period": "am",
+        "label": "Tue 09:11am"
+      },
+      "command": "WAIT UNTIL 10:18AM",
+      "char": "d",
+      "options": {
+        "known": true,
+        "hidden": false
+      },
+      "byte": 100,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1539,
+        "due": 1579,
+        "day": 1,
+        "minute": 38,
+        "hour": 9,
+        "period": "am",
+        "label": "Tue 09:38am"
+      },
+      "command": "WAIT UNTIL 10:18AM",
+      "char": "'",
+      "options": {
+        "known": true,
+        "hidden": true
+      },
+      "byte": 39,
+      "scene": null
+    },
+    {
+      "clock": {
+        "tick": 1651,
+        "due": 1651,
+        "day": 1,
+        "minute": 30,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:30am"
+      },
+      "command": "S",
+      "char": "i",
+      "options": {
+        "known": false
+      },
+      "byte": null,
+      "scene": {
+        "text": "You are in Tricias Lounge. You can see some bloodstained clothes, a wall safe and Mrs Jones.",
+        "trace": [
+          {
+            "kind": "room-list-see",
+            "start": 35,
+            "end": 38,
+            "frame": 23842
+          },
+          {
+            "kind": "root-list-conjunction",
+            "start": 78,
+            "end": 81,
+            "frame": 23842
+          },
+          {
+            "kind": "root-object-prefix",
+            "parent": 67,
+            "start": 39,
+            "end": 56,
+            "frame": 23844,
+            "spaceAfter": true,
+            "spaceClearFrame": 23848
+          },
+          {
+            "kind": "root-object-prefix",
+            "parent": 86,
+            "start": 66,
+            "end": 72,
+            "frame": 23844,
+            "spaceAfter": true,
+            "spaceClearFrame": 23848
+          },
+          {
+            "kind": "root-object-prefix",
+            "parent": 95,
+            "start": 82,
+            "end": 85,
+            "frame": 23844,
+            "spaceAfter": true,
+            "spaceClearFrame": 23848
+          }
+        ]
+      }
+    }
+  ],
+  "clock": {
+    "tick": 1657,
+    "due": 1657,
+    "day": 1,
+    "minute": 36,
+    "hour": 11,
+    "period": "am",
+    "label": "Tue 11:36am"
+  },
+  "value": null
+}

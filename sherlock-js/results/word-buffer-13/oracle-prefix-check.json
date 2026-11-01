@@ -1,0 +1,7 @@
+{
+  "equal": true,
+  "matching_steps": 24,
+  "excluded_old_forced_boundary": true,
+  "old": "results/cab-stack-15/lookahead-native.json",
+  "new": "results/word-buffer-13/evening-native.json"
+}
