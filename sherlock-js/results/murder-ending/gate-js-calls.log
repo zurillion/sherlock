@@ -1,0 +1,78 @@
+[
+  {
+    scene: 'You are at Jones Front Gate. Visible exits are south west. You can see a local police man.',
+    trace: [ [Object], [Object], [Object] ]
+  },
+  {
+    char: 'w',
+    frame: '5d16',
+    column: 16,
+    descriptor: '5c0b',
+    count: 5,
+    value09: 56
+  },
+  {
+    char: 'e',
+    frame: '5d16',
+    column: 17,
+    descriptor: '5c0b',
+    count: 4,
+    value09: 56
+  },
+  {
+    char: 's',
+    frame: '5d16',
+    column: 18,
+    descriptor: '5c0b',
+    count: 3,
+    value09: 56
+  },
+  {
+    char: 't',
+    frame: '5d16',
+    column: 19,
+    descriptor: '5c0b',
+    count: 2,
+    value09: 56
+  },
+  {
+    char: '.',
+    frame: '5d16',
+    column: 20,
+    descriptor: '5c0b',
+    count: 1,
+    value09: 56
+  },
+  {
+    char: 's',
+    frame: '5d1a',
+    column: 30,
+    descriptor: '5c0b',
+    count: 3,
+    value09: 56
+  },
+  {
+    char: 'e',
+    frame: '5d1a',
+    column: 31,
+    descriptor: '5c0b',
+    count: 2,
+    value09: 56
+  },
+  {
+    char: 'e',
+    frame: '5d1a',
+    column: 32,
+    descriptor: '5c0b',
+    count: 1,
+    value09: 56
+  },
+  {
+    char: ' ',
+    frame: '5d14',
+    column: 35,
+    descriptor: '5a20',
+    count: undefined,
+    value09: 0
+  }
+]

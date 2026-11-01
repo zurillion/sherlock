@@ -1,0 +1,483 @@
+[
+  {
+    "scene": "You are in a steam train with Watson. Watson is carrying the daily chronicle and some bloodstained clothes. You are riding in a steam train being shunted between platforms.",
+    "trace": [
+      {
+        "kind": "literal-person-name",
+        "parent": 3,
+        "start": 30,
+        "end": 37,
+        "frame": 23804
+      },
+      {
+        "start": 30,
+        "end": 37,
+        "kind": "list-tail-delimited-by-carrier",
+        "parent": 3,
+        "frame": 23804,
+        "spaceAfter": true
+      },
+      {
+        "start": 38,
+        "end": 44,
+        "kind": "carrying-name",
+        "parent": 3,
+        "depth": 1,
+        "frame": 23824
+      },
+      {
+        "start": 45,
+        "end": 47,
+        "kind": "carrying-is",
+        "parent": 3,
+        "depth": 1,
+        "frame": 23824
+      },
+      {
+        "start": 48,
+        "end": 56,
+        "kind": "carrying-verb",
+        "parent": 3,
+        "depth": 1,
+        "frame": 23826
+      },
+      {
+        "start": 57,
+        "end": 66,
+        "kind": "carried-object-prefix",
+        "parent": 25,
+        "frame": 23828,
+        "spaceClearFrame": 23832,
+        "spaceAfter": true
+      },
+      {
+        "start": 81,
+        "end": 98,
+        "kind": "carried-object-prefix",
+        "parent": 67,
+        "frame": 23828,
+        "spaceClearFrame": 23832,
+        "spaceAfter": true
+      },
+      {
+        "end": 107,
+        "kind": "personal-contents",
+        "depth": 1,
+        "parent": 3,
+        "room": 4,
+        "child": null
+      },
+      {
+        "kind": "description-delimits-inventory",
+        "start": 99,
+        "end": 107,
+        "frame": 23834
+      }
+    ]
+  },
+  {
+    "char": " ",
+    "frame": "5d08",
+    "column": 7,
+    "descriptor": "5971",
+    "value06": 26
+  },
+  {
+    "char": "W",
+    "frame": "5d10",
+    "column": 8,
+    "descriptor": "5c0b",
+    "count": 6,
+    "value06": 2
+  },
+  {
+    "char": "a",
+    "frame": "5d10",
+    "column": 9,
+    "descriptor": "5c0b",
+    "count": 5,
+    "value06": 1
+  },
+  {
+    "char": "t",
+    "frame": "5d10",
+    "column": 10,
+    "descriptor": "5c0b",
+    "count": 4,
+    "value06": 0
+  },
+  {
+    "char": "s",
+    "frame": "5d10",
+    "column": 11,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 7
+  },
+  {
+    "char": "o",
+    "frame": "5d10",
+    "column": 12,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 6
+  },
+  {
+    "char": "n",
+    "frame": "5d10",
+    "column": 13,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 5
+  },
+  {
+    "char": "i",
+    "frame": "5d10",
+    "column": 15,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 3
+  },
+  {
+    "char": "s",
+    "frame": "5d10",
+    "column": 16,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 2
+  },
+  {
+    "char": "c",
+    "frame": "5d12",
+    "column": 18,
+    "descriptor": "5c0b",
+    "count": 8,
+    "value06": 0
+  },
+  {
+    "char": "a",
+    "frame": "5d12",
+    "column": 19,
+    "descriptor": "5c0b",
+    "count": 7,
+    "value06": 0
+  },
+  {
+    "char": "r",
+    "frame": "5d12",
+    "column": 20,
+    "descriptor": "5c0b",
+    "count": 6,
+    "value06": 0
+  },
+  {
+    "char": "r",
+    "frame": "5d12",
+    "column": 21,
+    "descriptor": "5c0b",
+    "count": 5,
+    "value06": 0
+  },
+  {
+    "char": "y",
+    "frame": "5d12",
+    "column": 22,
+    "descriptor": "5c0b",
+    "count": 4,
+    "value06": 0
+  },
+  {
+    "char": "i",
+    "frame": "5d12",
+    "column": 23,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 0
+  },
+  {
+    "char": "n",
+    "frame": "5d12",
+    "column": 24,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 0
+  },
+  {
+    "char": "g",
+    "frame": "5d12",
+    "column": 25,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 0
+  },
+  {
+    "char": "t",
+    "frame": "5d14",
+    "column": 27,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 0
+  },
+  {
+    "char": "h",
+    "frame": "5d14",
+    "column": 28,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 0
+  },
+  {
+    "char": "e",
+    "frame": "5d14",
+    "column": 29,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 0
+  },
+  {
+    "char": "d",
+    "frame": "5d14",
+    "column": 31,
+    "descriptor": "5c0b",
+    "count": 5,
+    "value06": 0
+  },
+  {
+    "char": "a",
+    "frame": "5d14",
+    "column": 32,
+    "descriptor": "5c0b",
+    "count": 4,
+    "value06": 0
+  },
+  {
+    "char": "i",
+    "frame": "5d14",
+    "column": 33,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 0
+  },
+  {
+    "char": "l",
+    "frame": "5d14",
+    "column": 34,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 0
+  },
+  {
+    "char": "y",
+    "frame": "5d14",
+    "column": 35,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 0
+  },
+  {
+    "char": " ",
+    "frame": "5d0c",
+    "column": 35,
+    "descriptor": "5a20",
+    "value06": 32
+  },
+  {
+    "char": "s",
+    "frame": "5d14",
+    "column": 14,
+    "descriptor": "5c0b",
+    "count": 4,
+    "value06": 32
+  },
+  {
+    "char": "o",
+    "frame": "5d14",
+    "column": 15,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 32
+  },
+  {
+    "char": "m",
+    "frame": "5d14",
+    "column": 16,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 32
+  },
+  {
+    "char": "e",
+    "frame": "5d14",
+    "column": 17,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 32
+  },
+  {
+    "char": "b",
+    "frame": "5d14",
+    "column": 19,
+    "descriptor": "5c0b",
+    "count": 12,
+    "value06": 32
+  },
+  {
+    "char": "l",
+    "frame": "5d14",
+    "column": 20,
+    "descriptor": "5c0b",
+    "count": 11,
+    "value06": 32
+  },
+  {
+    "char": "o",
+    "frame": "5d14",
+    "column": 21,
+    "descriptor": "5c0b",
+    "count": 10,
+    "value06": 32
+  },
+  {
+    "char": "o",
+    "frame": "5d14",
+    "column": 22,
+    "descriptor": "5c0b",
+    "count": 9,
+    "value06": 32
+  },
+  {
+    "char": "d",
+    "frame": "5d14",
+    "column": 23,
+    "descriptor": "5c0b",
+    "count": 8,
+    "value06": 32
+  },
+  {
+    "char": "s",
+    "frame": "5d14",
+    "column": 24,
+    "descriptor": "5c0b",
+    "count": 7,
+    "value06": 32
+  },
+  {
+    "char": "t",
+    "frame": "5d14",
+    "column": 25,
+    "descriptor": "5c0b",
+    "count": 6,
+    "value06": 32
+  },
+  {
+    "char": "a",
+    "frame": "5d14",
+    "column": 26,
+    "descriptor": "5c0b",
+    "count": 5,
+    "value06": 32
+  },
+  {
+    "char": "i",
+    "frame": "5d14",
+    "column": 27,
+    "descriptor": "5c0b",
+    "count": 4,
+    "value06": 32
+  },
+  {
+    "char": "n",
+    "frame": "5d14",
+    "column": 28,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 32
+  },
+  {
+    "char": "e",
+    "frame": "5d14",
+    "column": 29,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 32
+  },
+  {
+    "char": "d",
+    "frame": "5d14",
+    "column": 30,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 32
+  },
+  {
+    "char": " ",
+    "frame": "5d14",
+    "column": 35,
+    "descriptor": "5a20",
+    "value06": 32
+  },
+  {
+    "char": "c",
+    "frame": "5d1a",
+    "column": 0,
+    "descriptor": "5c0b",
+    "count": 8,
+    "value06": 32
+  },
+  {
+    "char": "l",
+    "frame": "5d1a",
+    "column": 1,
+    "descriptor": "5c0b",
+    "count": 7,
+    "value06": 32
+  },
+  {
+    "char": "o",
+    "frame": "5d1a",
+    "column": 2,
+    "descriptor": "5c0b",
+    "count": 6,
+    "value06": 32
+  },
+  {
+    "char": "t",
+    "frame": "5d1a",
+    "column": 3,
+    "descriptor": "5c0b",
+    "count": 5,
+    "value06": 32
+  },
+  {
+    "char": "h",
+    "frame": "5d1a",
+    "column": 4,
+    "descriptor": "5c0b",
+    "count": 4,
+    "value06": 32
+  },
+  {
+    "char": "e",
+    "frame": "5d1a",
+    "column": 5,
+    "descriptor": "5c0b",
+    "count": 3,
+    "value06": 32
+  },
+  {
+    "char": "s",
+    "frame": "5d1a",
+    "column": 6,
+    "descriptor": "5c0b",
+    "count": 2,
+    "value06": 32
+  },
+  {
+    "char": ".",
+    "frame": "5d1a",
+    "column": 7,
+    "descriptor": "5c0b",
+    "count": 1,
+    "value06": 32
+  }
+]

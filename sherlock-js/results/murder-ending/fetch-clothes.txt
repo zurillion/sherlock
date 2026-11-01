@@ -1,0 +1,17 @@
+S
+S
+E
+S
+S
+W
+S
+W
+SAY WATSON "TAKE CLOTHES"
+E
+N
+E
+N
+N
+W
+N
+N

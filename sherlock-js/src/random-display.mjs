@@ -29,8 +29,10 @@ export class RandomDisplay {
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
    // flushes the previous name word, with DE already naming the next word.
-   if(role&&['carrying-name','literal-person-name','container-name'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(role.kind==='container-name'?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
-   if(i<text.length)this.feed(text[i]);
+   if(role&&['carrying-name','literal-person-name','container-name','root-object-prefix','carried-object-prefix'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(['container-name','root-object-prefix','carried-object-prefix'].includes(role.kind)&&!(entity.noun&32768)?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
+   const rawText=sceneTrace.find(e=>e.kind==='raw-text-buffer'&&e.start<=i&&i<e.end);
+   if(i<text.length)this.feed(text[i],{buffer:!rawText});
+   if(rawText&&i+1===rawText.end)for(const {c,...options}of rawText.events)this.bufferFeed(c,options);
    // A word is flushed by the following delimiter, within the same owner.
    // After a carried-name prefix, A887 emits the separating space from
    // its caller. Filling column 35 clears the next row at that caller depth.
@@ -105,7 +107,7 @@ export class RandomDisplay {
  get state(){return this.world.display;}
  invalidateScratch(from=0x5CEC,to=0x5D30){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
- put(c){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-8,35,0x5A20);this.newline();}}
+ put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-8,35,0x5A20);this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
  // wraps and C142 do not reset it. Only normalized CR and an exact-fit
  // buffered word clear it; a non-suppressed character sets it to1.
@@ -131,7 +133,7 @@ export class RandomDisplay {
   if(![' ','\n','\r','"'].includes(c)){s.lastSpacePrinted=false;s.pending+=c;return;}
   this.flush();this.normalizeSpacing(c);
   if(c==='\n'||c==='\r'){this.newline();s.lastSpacePrinted=false;}
-  else if(c===' '){const printed=s.started;if(printed){if(this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',this.glyphFrame+12,s.cursor,this.glyphSpaceDescriptor);this.put(c);}s.lastSpacePrinted=printed;}
+  else if(c===' '){const printed=s.started;if(printed){const frame=this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined?this.glyphFrame+12:this.glyphFrame;if(frame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',frame,s.cursor,this.glyphSpaceDescriptor);this.put(c,frame);}s.lastSpacePrinted=printed;}
   // AA2A sets A025 before emitting a quote; a raw margin wrap does not
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}

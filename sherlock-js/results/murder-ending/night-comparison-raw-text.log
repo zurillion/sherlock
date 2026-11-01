@@ -1,0 +1,22 @@
+[
+  {
+    "label": "murder-evidence-night-full",
+    "passed": true,
+    "checkpoints": 185,
+    "random_draws": 2257,
+    "clock": {
+      "tick": 946,
+      "due": 946,
+      "day": 0,
+      "minute": 45,
+      "hour": 11,
+      "period": "pm",
+      "label": "Mon 11:45pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

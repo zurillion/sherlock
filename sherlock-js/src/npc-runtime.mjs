@@ -199,7 +199,7 @@ export class NpcRuntime {
   // A failed class-9 lookup with no perceived nominal target searches the
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
-  if([11,23,41].includes(action)&&!retain&&!collective){const group=node.groups[0],candidates=this.game.referenceCandidates(node,action,0);if(group&&!candidates.possible.length&&!candidates.nominal.some(e=>this.w.perceived(e.id)&&!e.person&&e.rooms.length===1&&!this.w.owns(this.w.player,e.id))){this.state.sceneryFailure={action,slot:0,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;}}
+  if([11,23,41].includes(action)&&!retain&&!collective){const group=node.groups[0],candidates=this.game.referenceCandidates(node,action,0);if(group&&!candidates.possible.length&&!candidates.nominal.some(e=>this.game.canTake(e,{semantic:true}))){this.state.sceneryFailure={action,slot:0,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;}}
   this.finishPlayerResolution(!rejected&&!retain&&Boolean(action));
   if(rejected)this.state.parserRejected=current;
   else if(!retain&&!collective){this.popParsed();}
@@ -234,9 +234,10 @@ export class NpcRuntime {
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
  invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;this.state.parserMode=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
- canHail(vehicle){return this.use(({vm})=>vm.state(vehicle+1).contexts.length===0);}
+ // E2BA/CFB9 searches contexts by the VEHICLE id, not its driver.
+ canHail(vehicle){return this.use(({records})=>!records.records('contexts').some(p=>records.arena.byte(p)===vehicle));}
  hail(vehicle,customer){this.use(runtime=>{
-  const s=runtime.vm.state(vehicle+1),origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
+  const s=runtime.vm.state(vehicle+1);if(s.contexts.length)this.game.sourceDisplay.invalidateScratch(0x5D10);const origin=s.pc,prior=customer===this.w.player?31:runtime.vm.saved(customer)[0],frame={origin,saved:[prior,customer,vehicle],request:false,external:true,resume:origin};
   frame.record=runtime.records.prepend('contexts',[vehicle+1,parseInt(origin,16)&255,parseInt(origin,16)>>>8,customer,vehicle,2,prior]);s.contexts.push(frame);s.pc='F2B6';
  });}
  request(request,context,messages,actions){
@@ -527,6 +528,9 @@ export class NpcRuntime {
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
   if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags)this.annotateArgumentPrefix(out,shown);
+   // The ordinary DROP/TAKE OFF announcement formats its resolved argument
+   // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.
+   if(!out.projected&&out.cost&&[16,43].includes(out.action)&&out.args[0]!==undefined){const id=out.args[0],name=w.name(id),raw=this.game.text.rawEntityName(id);if(raw)for(const m of shown){const at=m.text.toLowerCase().lastIndexOf(name.toLowerCase());if(at>=0){let normalized='';for(const c of raw.trimStart()){if(c==='\b')normalized=normalized.slice(0,-1);else normalized+=c;}if(normalized.toLowerCase()===name.toLowerCase())m.scene_trace=[...(m.scene_trace||[]),{kind:'raw-text-buffer',start:at,end:at+name.length,events:[{c:' ',known:true},...Array.from(raw.trimStart(),c=>({c,known:true}))]}];}}}
    messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32||out.objectRule)actions.push({actor,id:out.action,arguments:out.args});
  }

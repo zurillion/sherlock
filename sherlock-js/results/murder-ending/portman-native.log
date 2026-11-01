@@ -1,0 +1,29 @@
+RESUME {'tick': 946, 'due': 946, 'minute': 45, 'hour': 11, 'day': 0, 'period': 'pm', 'label': 'Mon 11:45pm'} 98f34151ed45777d708a76f37f70373f462b7852f0d584e2c4197befeabf7c26
+command I Mon 11:46pm
+command I Mon 11:47pm
+command I Mon 11:48pm
+command I Mon 11:49pm
+command I Mon 11:50pm
+command I Mon 11:51pm
+command I Mon 11:52pm
+command I Mon 11:53pm
+command S Mon 11:55pm
+command WAIT UNTIL 7AM Tue 07:00am
+command HAIL CAB Tue 07:01am
+command CLIMB INTO CAB Tue 07:03am
+command SAY CABBIE "GO TO PORTMAN STREET" Tue 07:04am
+command WAIT Tue 07:09am
+command WAIT Tue 07:14am
+command WAIT Tue 07:19am
+command WAIT Tue 07:24am
+command WAIT Tue 07:29am
+command PAY 10D TO CABBIE Tue 07:30am
+command GET OUT Tue 07:32am
+command WAIT UNTIL 8:15AM Tue 08:15am
+command S Tue 08:15am
+command S Tue 08:15am
+command SAY TRICIA "TELL ME ABOUT CLOTHES" Tue 08:16am
+command I Tue 08:17am
+command SAY MRS JONES "TELL ME ABOUT CLOTHES" Tue 08:17am
+command I Tue 08:18am
+0 murder-evidence-portman 84 Tue 08:18am None

@@ -1,0 +1,796 @@
+{
+  "index": 28,
+  "clock": {
+    "tick": 1519,
+    "due": 1519,
+    "day": 1,
+    "minute": 18,
+    "hour": 9,
+    "period": "am",
+    "label": "Tue 09:18am"
+  },
+  "native_clock": {
+    "tick": 1520,
+    "due": 1579,
+    "minute": 19,
+    "hour": 9,
+    "day": 1,
+    "period": "am",
+    "label": "Tue 09:19am"
+  },
+  "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     actor: 3,\n-     cursor: 22543,\n-     mixOffset: 40172,\n-     next_cursor: 22799,\n-     next_seed: 11,\n-     reads: [\n-       {\n-         address: 22799,\n-         value: 56\n-       },\n-       {\n-         address: 62972,\n-         value: 67\n-       }\n-     ],\n-     result: 88,\n-     seed: 16,\n-     width: 99\n-   },\n-   {\n-     actor: 3,\n-     cursor: 22799,\n-     mixOffset: 40172,\n-     next_cursor: 23055,\n-     next_seed: 216,\n-     reads: [\n-       {\n-         address: 23055,\n-         value: 56\n-       },\n-       {\n-         address: 63228,\n-         value: 155\n-       }\n-     ],\n-     result: 9,\n-     seed: 11,\n-     width: 99\n-   },\n-   {\n-     actor: 8,\n-     cursor: 23055,\n-     mixOffset: 5,\n-     next_cursor: 23311,\n-     next_seed: 87,\n-     reads: [\n-       {\n-         address: 23311,\n-         value: 56\n-       },\n-       {\n-         address: 23317,\n-         value: 71\n-       }\n-     ],\n-     result: 12,\n-     seed: 216,\n-     width: 99\n-   },\n-   {\n-     actor: 9,\n-     cursor: 23311,\n-     mixOffset: 5,\n-     next_cursor: 23567,\n-     next_seed: 224,\n-     reads: [\n-       {\n-         address: 23567,\n-         value: 46\n-       },\n-       {\n-         address: 23573,\n-         value: 101\n-       }\n-     ],\n-     result: 13,\n-     seed: 87,\n-     width: 99\n-   },\n-   {\n-     actor: 9,\n-     cursor: 23567,\n-     mixOffset: 5,\n-     next_cursor: 23823,\n-     next_seed: 48,\n-     reads: [\n-       {\n-         address: 23823,\n-         value: 80\n-       },\n-       {\n-         address: 23829,\n-         value: 0\n-       }\n-     ],\n-     result: 51,\n-     seed: 224,\n-     width: 99\n-   }\n- ]\n",
+  "original_error": "Ingresso casuale originale non ancora ricostruito: $5D15. Il comando non è stato applicato.",
+  "notice": "Ingresso casuale originale non ancora ricostruito: $5D15. Il comando non è stato applicato.",
+  "actual": [],
+  "native": [
+    {
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 16,
+      "cursor": 22543,
+      "reads": [
+        {
+          "address": 22799,
+          "value": 56
+        },
+        {
+          "address": 62972,
+          "value": 67
+        }
+      ],
+      "result": 88,
+      "next_seed": 11,
+      "next_cursor": 22799
+    },
+    {
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 11,
+      "cursor": 22799,
+      "reads": [
+        {
+          "address": 23055,
+          "value": 56
+        },
+        {
+          "address": 63228,
+          "value": 155
+        }
+      ],
+      "result": 9,
+      "next_seed": 216,
+      "next_cursor": 23055
+    },
+    {
+      "actor": 8,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 216,
+      "cursor": 23055,
+      "reads": [
+        {
+          "address": 23311,
+          "value": 56
+        },
+        {
+          "address": 23317,
+          "value": 71
+        }
+      ],
+      "result": 12,
+      "next_seed": 87,
+      "next_cursor": 23311
+    },
+    {
+      "actor": 9,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 87,
+      "cursor": 23311,
+      "reads": [
+        {
+          "address": 23567,
+          "value": 46
+        },
+        {
+          "address": 23573,
+          "value": 101
+        }
+      ],
+      "result": 13,
+      "next_seed": 224,
+      "next_cursor": 23567
+    },
+    {
+      "actor": 9,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 224,
+      "cursor": 23567,
+      "reads": [
+        {
+          "address": 23823,
+          "value": 80
+        },
+        {
+          "address": 23829,
+          "value": 0
+        }
+      ],
+      "result": 51,
+      "next_seed": 48,
+      "next_cursor": 23823
+    }
+  ],
+  "messages": [
+    {
+      "kind": "system",
+      "text": "Ingresso casuale originale non ancora ricostruito: $5D15. Il comando non è stato applicato."
+    }
+  ],
+  "states": {
+    "2": {
+      "pc": "EBC5",
+      "saved": [
+        2,
+        30,
+        2
+      ],
+      "contexts": [
+        {
+          "origin": "E98F",
+          "request": false,
+          "saved": [
+            2,
+            255,
+            255
+          ],
+          "record": 38857
+        },
+        {
+          "origin": "EB74",
+          "request": false,
+          "saved": [
+            34,
+            33,
+            18
+          ],
+          "record": 38847
+        }
+      ],
+      "failures": 1,
+      "requestAvailable": false
+    },
+    "3": {
+      "pc": "E7C5",
+      "saved": [
+        0,
+        0,
+        0
+      ],
+      "contexts": [],
+      "failures": 10,
+      "requestAvailable": false
+    },
+    "4": {
+      "pc": "ECDF",
+      "saved": [
+        16,
+        3,
+        1
+      ],
+      "contexts": [],
+      "failures": 1,
+      "requestAvailable": false
+    },
+    "5": {
+      "pc": "ED2A",
+      "saved": [
+        255,
+        10,
+        255
+      ],
+      "contexts": [
+        {
+          "origin": "F042",
+          "request": false,
+          "saved": [
+            255,
+            5,
+            255
+          ],
+          "record": 38953
+        }
+      ],
+      "failures": 10,
+      "requestAvailable": false
+    },
+    "6": {
+      "pc": "EBC5",
+      "saved": [
+        0,
+        30,
+        2
+      ],
+      "contexts": [
+        {
+          "origin": "EE66",
+          "request": false,
+          "saved": [
+            31,
+            30,
+            32
+          ],
+          "record": 38827
+        }
+      ],
+      "failures": 1,
+      "requestAvailable": false
+    },
+    "7": {
+      "pc": "F100",
+      "saved": [
+        7,
+        30,
+        2
+      ],
+      "contexts": [],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "8": {
+      "pc": "EDE1",
+      "saved": [
+        2,
+        5,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "ED8F",
+          "request": false,
+          "saved": [
+            2,
+            3,
+            40
+          ],
+          "record": 38930
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "9": {
+      "pc": "EDFC",
+      "saved": [
+        2,
+        3,
+        1
+      ],
+      "contexts": [],
+      "failures": 1,
+      "requestAvailable": false
+    },
+    "10": {
+      "pc": "EE28",
+      "saved": [
+        255,
+        10,
+        0
+      ],
+      "contexts": [],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "11": {
+      "pc": "F142",
+      "saved": [
+        26,
+        4,
+        1
+      ],
+      "contexts": [],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "12": {
+      "pc": "F142",
+      "saved": [
+        50,
+        80,
+        1
+      ],
+      "contexts": [],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "31": {
+      "pc": "F3AD",
+      "saved": [
+        255,
+        255,
+        255
+      ],
+      "contexts": [
+        {
+          "origin": "F2B3",
+          "saved": [
+            31,
+            0,
+            30
+          ],
+          "request": false,
+          "external": true,
+          "resume": "F2B3",
+          "record": 38989
+        },
+        {
+          "origin": "F37A",
+          "saved": [
+            0,
+            6,
+            30
+          ],
+          "request": false,
+          "external": true,
+          "resume": "F37A",
+          "record": 38779
+        },
+        {
+          "origin": "F2E0",
+          "request": true,
+          "saved": [
+            0,
+            32,
+            6
+          ],
+          "record": 38804
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "34": {
+      "pc": "F2B3",
+      "saved": [
+        255,
+        255,
+        255
+      ],
+      "contexts": [],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "36": {
+      "pc": "F2B1",
+      "saved": [
+        30,
+        32,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F236",
+          "request": false,
+          "saved": [
+            30,
+            2,
+            4
+          ],
+          "record": 38837
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "37": {
+      "pc": "F2B1",
+      "saved": [
+        31,
+        4,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F229",
+          "request": false,
+          "saved": [
+            31,
+            2,
+            1
+          ],
+          "record": 38877
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "38": {
+      "pc": "F2B1",
+      "saved": [
+        26,
+        4,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F23F",
+          "request": false,
+          "saved": [
+            26,
+            2,
+            5
+          ],
+          "record": 38867
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "39": {
+      "pc": "F2B1",
+      "saved": [
+        21,
+        3,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F260",
+          "request": false,
+          "saved": [
+            21,
+            31,
+            4
+          ],
+          "record": 38817
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "40": {
+      "pc": "F2B1",
+      "saved": [
+        2,
+        5,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F253",
+          "request": false,
+          "saved": [
+            2,
+            17,
+            3
+          ],
+          "record": 38902
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "41": {
+      "pc": "F24B",
+      "saved": [
+        3,
+        40,
+        1
+      ],
+      "contexts": [],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "42": {
+      "pc": "F2B1",
+      "saved": [
+        4,
+        5,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F285",
+          "request": false,
+          "saved": [
+            4,
+            22,
+            10
+          ],
+          "record": 39001
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "43": {
+      "pc": "F2B1",
+      "saved": [
+        26,
+        4,
+        1
+      ],
+      "contexts": [
+        {
+          "origin": "F29A",
+          "request": false,
+          "saved": [
+            26,
+            55,
+            10
+          ],
+          "record": 38979
+        }
+      ],
+      "failures": 0,
+      "requestAvailable": false
+    },
+    "95": {
+      "pc": "F176",
+      "saved": [
+        17,
+        3,
+        1
+      ],
+      "contexts": [],
+      "failures": 1,
+      "requestAvailable": false
+    },
+    "104": {
+      "pc": "EFF6",
+      "saved": [
+        255,
+        255,
+        255
+      ],
+      "contexts": [],
+      "failures": 1,
+      "requestAvailable": false
+    }
+  },
+  "native_actors": [
+    {
+      "id": 0,
+      "pc": "9945",
+      "saved": [
+        49,
+        255,
+        255
+      ],
+      "due": 1579
+    },
+    {
+      "id": 2,
+      "pc": "EBC5",
+      "saved": [
+        2,
+        30,
+        2
+      ],
+      "due": 1520
+    },
+    {
+      "id": 3,
+      "pc": "E7C5",
+      "saved": [
+        0,
+        0,
+        0
+      ],
+      "due": 1520
+    },
+    {
+      "id": 4,
+      "pc": "ECDF",
+      "saved": [
+        16,
+        3,
+        1
+      ],
+      "due": 1520
+    },
+    {
+      "id": 5,
+      "pc": "ED2A",
+      "saved": [
+        255,
+        10,
+        255
+      ],
+      "due": 1520
+    },
+    {
+      "id": 6,
+      "pc": "EBC5",
+      "saved": [
+        0,
+        30,
+        2
+      ],
+      "due": 1520
+    },
+    {
+      "id": 104,
+      "pc": "EFF6",
+      "saved": [
+        255,
+        255,
+        255
+      ],
+      "due": 1519
+    },
+    {
+      "id": 7,
+      "pc": "F100",
+      "saved": [
+        7,
+        30,
+        2
+      ],
+      "due": 1520
+    },
+    {
+      "id": 8,
+      "pc": "EDE1",
+      "saved": [
+        2,
+        1,
+        1
+      ],
+      "due": 1521
+    },
+    {
+      "id": 9,
+      "pc": "EDE1",
+      "saved": [
+        2,
+        3,
+        1
+      ],
+      "due": 1521
+    },
+    {
+      "id": 10,
+      "pc": "EE28",
+      "saved": [
+        255,
+        10,
+        0
+      ],
+      "due": 1520
+    },
+    {
+      "id": 11,
+      "pc": "F142",
+      "saved": [
+        26,
+        4,
+        1
+      ],
+      "due": 1520
+    },
+    {
+      "id": 12,
+      "pc": "F142",
+      "saved": [
+        50,
+        80,
+        1
+      ],
+      "due": 1520
+    },
+    {
+      "id": 95,
+      "pc": "F176",
+      "saved": [
+        17,
+        3,
+        1
+      ],
+      "due": 1520
+    },
+    {
+      "id": 31,
+      "pc": "F3AD",
+      "saved": [
+        255,
+        255,
+        255
+      ],
+      "due": 1534
+    },
+    {
+      "id": 34,
+      "pc": "F2B3",
+      "saved": [
+        255,
+        255,
+        255
+      ],
+      "due": 1520
+    },
+    {
+      "id": 36,
+      "pc": "F23B",
+      "saved": [
+        31,
+        4,
+        1
+      ],
+      "due": 1520
+    },
+    {
+      "id": 37,
+      "pc": "F232",
+      "saved": [
+        3,
+        40,
+        1
+      ],
+      "due": 1521
+    },
+    {
+      "id": 38,
+      "pc": "F2B1",
+      "saved": [
+        22,
+        10,
+        1
+      ],
+      "due": 1522
+    },
+    {
+      "id": 39,
+      "pc": "F2B1",
+      "saved": [
+        32,
+        6,
+        2
+      ],
+      "due": 1520
+    },
+    {
+      "id": 40,
+      "pc": "F2B1",
+      "saved": [
+        3,
+        40,
+        1
+      ],
+      "due": 1520
+    },
+    {
+      "id": 41,
+      "pc": "F2B1",
+      "saved": [
+        3,
+        40,
+        1
+      ],
+      "due": 1522
+    },
+    {
+      "id": 42,
+      "pc": "F2B1",
+      "saved": [
+        4,
+        5,
+        1
+      ],
+      "due": 1524
+    },
+    {
+      "id": 43,
+      "pc": "F2B1",
+      "saved": [
+        26,
+        4,
+        1
+      ],
+      "due": 1524
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "murder-evidence-bounded-308",
+    "passed": true,
+    "checkpoints": 308,
+    "random_draws": 3659,
+    "clock": {
+      "tick": 1513,
+      "due": 1579,
+      "day": 1,
+      "minute": 12,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:12am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

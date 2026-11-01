@@ -1,0 +1,9 @@
+RESUME {'tick': 1459, 'due': 1459, 'minute': 18, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:18am'} 3886ec8ad0cf024bb3e398d07eda8f1586549d1b4efa1fefe8cde57b961c649a
+command OPEN FRONT DOOR Tue 08:19am
+command S Tue 08:21am
+command S Tue 08:21am
+command SAY TRICIA "TELL ME ABOUT CLOTHES" Tue 08:21am
+command I Tue 08:22am
+command SAY MRS JONES "TELL ME ABOUT CLOTHES" Tue 08:22am
+command I Tue 08:23am
+0 murder-evidence-confession 7 Tue 08:23am None

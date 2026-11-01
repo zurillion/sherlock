@@ -1085,3 +1085,29 @@ nonclassificati30/31;cuoca9 legge26 al4365/Thu08:44. Laststore precedente
 NON osservato daquesta finestra. Prova2A RIUTILIZZATA mostraC388frame32,
 tick964/Holmes0/char116(t)diParliament;CP0D derivailrelativoF26. Non chiamare
 questa associazione una nuova traccia diretta dell’ultimostore30 integrale.
+
+1 novembre2026, seguito: leggere DEDUZIONI-E-NOMI-NEL-BUFFER.md e
+results/murder-evidence-verification.json. Storia naturale6ABD finoTue09:12:
+308checkpoint/3659drawruntime(incluse2boot),24attori/arena752/bitmap/LOAD.
+Confessioni Tricia→MrsJones e MrsJones suCLOTHES realmente acquisite. Nessun
+teletrasporto o patch. Originale proseguito da prompt interi conSHA/parent,
+mai importati nelJS. Graficaoriginaleoff, uppercaseiniettato, MOREimmediato,
+LOOKinizialegratuito,seed1. Esperimenti di viaggio falliti non sono certificati.
+RawTEXT conserva travellING a5C14; rawnameDROP conserva bloodstained/e a5C15.
+Non rendere noti tutti i byte del testo formattato: nomi da dizionario o unknown.
+110ABI nomi,16articoli,36colonne spazio. ContenutiAND ha profondità propria.
+TAKE peso è filtro hard prima della ricerca descrizione; proprietà altrui soft.
+HAIL E2BA/CFB9 cerca vehicle30/33 nei contesti, non driver31/34. Basil può
+richiamare un cab con contesto del conducente attivo. Nuova diagnosi perminuto
+passa finoTue09:18, scope distinto dal certificato308. Primo nuovo limite5D15
+cuoca9 alturno09:19: originale0, vecchioJS115; non installare né inferire.
+HAIL annidato revoca upper scratch non proiettato. Trovare il writer reale.
+6ABD restaaperto; poi6AF3/6B79/75D2. Atlante540istruzioni/1147byte,+138grigi:
+39087documentati/428parziali/2085ignoti su41600. Riferirelezone all'utente.
+
+Verifica finale del seguito6ABD:1816/1816testPASS,zeroerrori/skip/cancel;
+6A33 regressione completa ripetuta sulcodicefinale:521checkpoint/10345draw/
+22058read (10347runtimecon2boot). Oracolo521 RIUTILIZZATO, non nuovo finale
+originale. HAIL traccia naturale E2BA→CFB9(A30)→E2C3 osservata tick1513,
+prima dell'incremento a1514; presente contesto31 e assente30. NuovoHAIL
+sospendeF37A anziché rifiutare. Ilpositivo308 non si estende alnuovolimite5D15.

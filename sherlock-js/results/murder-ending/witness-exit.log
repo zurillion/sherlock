@@ -1,0 +1,184 @@
+{
+  "commands": [
+    "I",
+    "I",
+    "I",
+    "I",
+    "I",
+    "I",
+    "I",
+    "I",
+    "S",
+    "WAIT UNTIL 7AM"
+  ],
+  "rows": [
+    {
+      "clock": {
+        "tick": 947,
+        "due": 947,
+        "day": 0,
+        "minute": 46,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:46pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 948,
+        "due": 948,
+        "day": 0,
+        "minute": 47,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:47pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 949,
+        "due": 949,
+        "day": 0,
+        "minute": 48,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:48pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 950,
+        "due": 950,
+        "day": 0,
+        "minute": 49,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:49pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 951,
+        "due": 951,
+        "day": 0,
+        "minute": 50,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:50pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money.",
+        "Major Percival Ffoulkes enters."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 952,
+        "due": 952,
+        "day": 0,
+        "minute": 51,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:51pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 953,
+        "due": 953,
+        "day": 0,
+        "minute": 52,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:52pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 954,
+        "due": 954,
+        "day": 0,
+        "minute": 53,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:53pm"
+      },
+      "text": [
+        "You are carrying a china mans disguise and your money.",
+        "Major Percival Ffoulkes remarks to you \" Well Holmes you have found out my shameful secret, I am addicted to this vile opium and I confess, this is where I was last night. \"."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 956,
+        "due": 956,
+        "day": 0,
+        "minute": 55,
+        "hour": 11,
+        "period": "pm",
+        "label": "Mon 11:55pm"
+      },
+      "text": [
+        "You go south.",
+        "You are on Slater Street. It is too dark to see much else.",
+        "Watson says to you \" Good evening \"."
+      ],
+      "outcome": "ok"
+    },
+    {
+      "clock": {
+        "tick": 1381,
+        "due": 1381,
+        "day": 1,
+        "minute": 0,
+        "hour": 7,
+        "period": "am",
+        "label": "Tue 07:00am"
+      },
+      "text": [
+        "",
+        "Major Percival Ffoulkes enters.",
+        "Inspector Lestrade enters.",
+        "Inspector Lestrade says to you \" Hello \".",
+        "Inspector Lestrade says \"",
+        "Very good Holmes, I shall return to Leather head tomorrow to have another look around.",
+        "Inspector Lestrade says to Watson \" Good evening \".",
+        "Watson says to Inspector Lestrade \" Hello \".",
+        "Inspector Lestrade remarks to Major Percival Ffoulkes \" You are free to go. \".",
+        "Inspector Lestrade hails the hansom cab.",
+        "Major Percival Ffoulkes goes north.",
+        "The cabbie says to Inspector Lestrade \" Hello guv'nor. \".",
+        "Inspector Lestrade climbs into the hansom cab.",
+        "Inspector Lestrade says to the cabbie \" Go to Parliament Street. \"."
+      ],
+      "outcome": "ok"
+    }
+  ],
+  "ending": null
+}

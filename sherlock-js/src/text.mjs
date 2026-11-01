@@ -10,6 +10,15 @@ export class Text {
  setQualifierMode(value){if(this.world.npcs)this.world.npcs.nameQualifierMode=value;}
  roomName(id,{reset=true}={}){if(reset)this.setQualifierMode(0);const mode=this.world.npcs?.nameQualifierMode;if(!reset&&this.world.npcs&&mode==null)throw new UnsupportedFeature('modo dei qualificatori del nome locazione');return this.world.roomName(id,{short:mode!=null&&mode!==0});}
  rememberDictionaryReference(value){if(this.world.npcs)this.world.npcs.dictionaryReference=value;}
+ // D3D5/D3E8 names: qualifier descriptors use context4 (inflected),
+ // noun context5 uses the stem. The raw suffix bytes precede AA14 case conversion.
+ rawEntityName(id,{indefinite=false}={}){
+  const e=this.world.entity(id),parts=[];
+  if(!(e.noun&32768))parts.push((indefinite?['the','a','an','some']:['the','the','the','some'])[(e.noun>>>12)&3]);
+  for(const [i,ref]of e.qualifiers.entries())if(ref&&!(ref&32768)&&!(i===0&&(e.status&32))){const word=this.dictionary.word(ref);if(!word)return null;parts.push(word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''));}
+  const noun=this.dictionary.word(e.noun);if(!noun)return null;parts.push(noun.stem);
+  return ' '+parts.join(' ');
+ }
  greeting(actor,context={}){return this.render('6920',{...context,actor});}
  examinePreservesLowScratch(description){
   // DF49/DF5B's ordinary inspection stays above $5D1E at its deepest
@@ -28,7 +37,7 @@ export class Text {
   const properCapital=(proper=true)=>{if(w.display&&(context.bufferSink||context.sink))w.display.capitalizationFlag=nameCapital(w.display.capitalizationFlag,proper);};
   const dictionaryCapital=()=>{if(w.display&&context.bufferVisible!==false&&context.sink)w.display.capitalizationFlag=1;};
   let nameBuffer=false;
-  const feed=(text,{raw=text,dict=false,buffer=true}={})=>{if(buffer&&context.bufferSink&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))context.bufferSink(c,{known:!nameBuffer});for(let c of String(text)){
+  const feed=(text,{raw=text,dict=false,buffer=true}={})=>{if(buffer&&(context.bufferSink||context.captureBuffer)&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))(context.bufferSink||context.captureBuffer)(c,{known:!nameBuffer});for(let c of String(text)){
    if(c==='\b'){result=result.slice(0,-1);pending=pending.slice(0,-1);context.sink?.(c);continue;}
    if([' ','\n','\r','"'].includes(c))pending='';
    else{if(!pending)pendingCap=capitalize;pending+=c;}
@@ -139,7 +148,7 @@ export class Text {
    // object's naming call. AND is a separate dictionary invocation.
    if(parent===null){const previous=text.join(' '),tail=previous.match(/\S+$/);if(trace&&tail&&/^(Visible exits are |To the |Above |Below )/.test(text.at(-1)))trace.push({kind:'room-list-delimits-exits',start:previous.length-tail[0].length,end:previous.length,frame:listFrame(depth)-2});prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
     if(trace)trace.push({kind:'room-list-see',start:start+prefix.length-4,end:start+prefix.length-1,frame:listFrame(depth)+((children[0].noun&32768)?4:2)});
-    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const item of names){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4});offset+=item.length;}}
+    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',parent:children[i].id,start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4,spaceAfter:true,spaceClearFrame:listFrame(depth)+8});offset+=item.length;}}
    }
    else{const container=w.entity(parent);if(container.person){
     const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
@@ -154,8 +163,9 @@ export class Text {
     // D526 names the carried objects after the carrying verb. Their article
     // and qualifiers flush through D3E8/A815; a wrapped article can reach
     // working fields that the verb itself never touches.
-    let offset=0;const inventory=joinList(names);
-    if(trace)for(const item of names){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8});offset+=item.length;}
+    let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');
+    if(trace&&conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+name.length+13+conjunction+1,end:start+name.length+13+conjunction+4,frame:listFrame(depth)+2});
+    if(trace)for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',parent:children[i].id,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});offset+=item.length;}
     text.push(name+' is carrying '+joinList(names)+'.');
    }else{const relation=({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In',name=w.name(parent),start=text.join(' ').length+(text.length?1:0);
     prefix=`${relation} ${name} there ${children.length===1?'is':'are'} `;
@@ -164,7 +174,7 @@ export class Text {
      // bytes shallower. A wrapped THERE can reach the low working cells.
      trace.push({kind:'container-there',start:nameEnd+1,end:nameEnd+6,frame:listFrame(depth)});
      trace.push({kind:'container-copula',start:nameEnd+7,end:start+prefix.length-1,frame:listFrame(depth)+2});
-     let offset=0;const inventory=joinList(names);for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});offset+=item.length;}}
+     let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});offset+=item.length;}}
     text.push(prefix+joinList(names)+'.');}}
    if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768)&&list(children[0].id).length)trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
@@ -183,7 +193,11 @@ export class Text {
     while(first?.op==='call'&&calls<24){calls++;id=first.text;first=this.data.texts[id]?.[0];}
     if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:0x5D1A+entryOffset-8*calls});}
    }
-   text.push(this.render(r.description));
+   // Capture the TEXT-domain buffer effects without executing them while
+   // building the scene. Raw suffix capitals/backspaces differ from pixels.
+   const events=[],prose=this.render(r.description,{captureBuffer:(c,options)=>events.push({c,...options})}),start=text.join(' ').length+(text.length?1:0);
+   if(trace&&prose.length)trace.push({kind:'raw-text-buffer',start,end:start+prose.length,events});
+   text.push(prose);
   };
   if(parent!==null){
    this.setQualifierMode(0); // actor-is in the container introduction.

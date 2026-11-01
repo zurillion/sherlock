@@ -1,5 +1,18 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 1 novembre 2026: [DEDUZIONI-E-NOMI-NEL-BUFFER.md](DEDUZIONI-E-NOMI-NEL-BUFFER.md).
+Percorso naturale6ABD ancora aperto; acquisizione delle due confessioni di Mrs Jones
+verificata senza patch. Certificato nuovo308checkpoint finoTue09:12,3659draw runtime,
+tutti24attori/arena752/bitmap/futuroLOAD. Diagnosi separata per minuto fino09:18.
+Superati buffer5C14/5C15, separatori/AND, articoli plurali e filtro pesoTAKE.
+HAIL cercava erroneamente i contesti del cocchiere: l'originale cerca il veicolo.
+Primo nuovo limite5D15 al turnoTue09:19,cuoca9: leggere lo scrittore reale,
+non installare0 osservato né conservare115 precedente. Il nuovo percorso HAIL
+revoca i campi superiori non verificati. Finale6ABD NON certificato.
+Atlante+138byte documentati:39087/428/2085 su41600,540istruzioni/1147byte.
+Le sezioni seguenti conservano gli stati precedenti.
+
+
 Aggiornamento corrente: [FLAG-DEL-CHIAMANTE-5D30.md](FLAG-DEL-CHIAMANTE-5D30.md).
 Superato5D30: sei ruoli del byte di stack in base al frameC388; CP0D del
 chiamante superiore produce flag variabili,q26/n10,clear84; non un26 catturato.

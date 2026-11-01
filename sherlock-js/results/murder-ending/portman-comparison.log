@@ -1,0 +1,22 @@
+[
+  {
+    "label": "murder-evidence-portman-full",
+    "passed": true,
+    "checkpoints": 269,
+    "random_draws": 3512,
+    "clock": {
+      "tick": 1459,
+      "due": 1459,
+      "day": 1,
+      "minute": 18,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:18am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

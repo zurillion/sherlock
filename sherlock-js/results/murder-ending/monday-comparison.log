@@ -1,0 +1,18 @@
+[
+  {
+    "label": "murder-evidence-monday",
+    "passed": false,
+    "completed_checkpoints": 50,
+    "last_complete_clock": {
+      "tick": 158,
+      "due": 158,
+      "day": 0,
+      "minute": 37,
+      "hour": 10,
+      "period": "am",
+      "label": "Mon 10:37am"
+    },
+    "error": "murder-evidence-monday #50 owned field 5D09\n\n0 !== 56\n",
+    "stack": "AssertionError [ERR_ASSERTION]: murder-evidence-monday #50 owned field 5D09\n\n0 !== 56\n\n    at assertOriginalState (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/original-state.mjs:15:110)\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:12:438)\n    at async file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/verify-murder-ending.mjs:4:70"
+  }
+]

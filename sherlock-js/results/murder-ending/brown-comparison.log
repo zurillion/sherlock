@@ -1,0 +1,18 @@
+[
+  {
+    "label": "murder-evidence-brown-full",
+    "passed": false,
+    "completed_checkpoints": 308,
+    "last_complete_clock": {
+      "tick": 1513,
+      "due": 1579,
+      "day": 1,
+      "minute": 12,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:12am"
+    },
+    "error": "308 Ingresso casuale originale non ancora ricostruito: $5C15. Il comando non è stato applicato.",
+    "stack": "AssertionError [ERR_ASSERTION]: 308 Ingresso casuale originale non ancora ricostruito: $5C15. Il comando non è stato applicato.\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)\n    at async file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/verify-murder-ending.mjs:4:70"
+  }
+]

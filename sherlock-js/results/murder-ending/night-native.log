@@ -1,0 +1,41 @@
+RESUME {'tick': 204, 'due': 204, 'minute': 23, 'hour': 11, 'day': 0, 'period': 'am', 'label': 'Mon 11:23am'} c3a07e8e9da0d9f899f7336f48297bb7d6a7df3d00f465a1ab5bd55157cceb81
+command S Mon 11:25am
+command S Mon 11:27am
+command E Mon 11:29am
+command S Mon 11:31am
+command S Mon 11:33am
+command W Mon 11:35am
+command S Mon 11:37am
+command W Mon 11:39am
+command SAY WATSON "TAKE CLOTHES" Mon 11:40am
+command E Mon 11:42am
+command N Mon 11:44am
+command E Mon 11:46am
+command N Mon 11:48am
+command N Mon 11:50am
+command W Mon 11:52am
+command N Mon 11:54am
+command N Mon 11:56am
+command WAIT UNTIL 12:05PM Mon 12:05pm
+command CLIMB INTO TRAIN Mon 12:07pm
+command WAIT UNTIL 1:35PM Mon 01:35pm
+command GET OUT Mon 01:37pm
+command SW Mon 01:39pm
+command SW Mon 01:41pm
+command SW Mon 01:43pm
+command SW Mon 01:45pm
+command SW Mon 01:47pm
+command HAIL CAB Mon 01:48pm
+command CLIMB INTO CAB Mon 01:50pm
+command SAY CABBIE "GO TO SLATER STREET" Mon 01:51pm
+command WAIT Mon 01:56pm
+command WAIT Mon 02:01pm
+command WAIT Mon 02:06pm
+command WAIT Mon 02:11pm
+command PAY 10D TO CABBIE Mon 02:12pm
+command GET OUT Mon 02:14pm
+command WEAR CHINA MANS DISGUISE Mon 02:15pm
+command N Mon 02:17pm
+command TAKE OFF CHINA MANS DISGUISE Mon 02:18pm
+command WAIT UNTIL 11:45PM Mon 11:45pm
+0 murder-evidence-night 114 Mon 11:45pm None

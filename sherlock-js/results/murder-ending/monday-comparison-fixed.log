@@ -1,0 +1,18 @@
+[
+  {
+    "label": "murder-evidence-monday",
+    "passed": false,
+    "completed_checkpoints": 61,
+    "last_complete_clock": {
+      "tick": 183,
+      "due": 183,
+      "day": 0,
+      "minute": 2,
+      "hour": 11,
+      "period": "am",
+      "label": "Mon 11:02am"
+    },
+    "error": "murder-evidence-monday #61 upper bitmap\n+ actual - expected\n\n+ 'b54b780c1cc26509a8f3df6d7fe0db78c7ccf736e52e63cb625a10e6a6d2ff95'\n- '07466428384cfd0d99a2cbef2321cb774877a8fc51ec4136ccce1cd9a863325c'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: murder-evidence-monday #61 upper bitmap\n+ actual - expected\n\n+ 'b54b780c1cc26509a8f3df6d7fe0db78c7ccf736e52e63cb625a10e6a6d2ff95'\n- '07466428384cfd0d99a2cbef2321cb774877a8fc51ec4136ccce1cd9a863325c'\n\n    at assertOriginalState (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/original-state.mjs:14:299)\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:12:438)\n    at async file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/verify-murder-ending.mjs:4:70"
+  }
+]

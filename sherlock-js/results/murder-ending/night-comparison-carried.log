@@ -1,0 +1,18 @@
+[
+  {
+    "label": "murder-evidence-night-full",
+    "passed": false,
+    "completed_checkpoints": 94,
+    "last_complete_clock": {
+      "tick": 249,
+      "due": 336,
+      "day": 0,
+      "minute": 8,
+      "hour": 12,
+      "period": "pm",
+      "label": "Mon 12:08pm"
+    },
+    "error": "murder-evidence-night-full #94 owned field 5D06\n\n32 !== 0\n",
+    "stack": "AssertionError [ERR_ASSERTION]: murder-evidence-night-full #94 owned field 5D06\n\n32 !== 0\n\n    at assertOriginalState (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/original-state.mjs:15:110)\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:12:438)\n    at async file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/verify-murder-ending.mjs:4:70"
+  }
+]

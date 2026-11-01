@@ -1,0 +1,98 @@
+[
+  {
+    char: 'n',
+    frame: '5d14',
+    column: 28,
+    descriptor: '5c0b',
+    count: 3,
+    value06: 32
+  },
+  {
+    char: 'e',
+    frame: '5d14',
+    column: 29,
+    descriptor: '5c0b',
+    count: 2,
+    value06: 32
+  },
+  {
+    char: 'd',
+    frame: '5d14',
+    column: 30,
+    descriptor: '5c0b',
+    count: 1,
+    value06: 32
+  },
+  {
+    char: ' ',
+    frame: '5d14',
+    column: 35,
+    descriptor: '5a20',
+    count: undefined,
+    value06: 32
+  },
+  {
+    char: 'c',
+    frame: '5d1a',
+    column: 0,
+    descriptor: '5c0b',
+    count: 8,
+    value06: 32
+  },
+  {
+    char: 'l',
+    frame: '5d1a',
+    column: 1,
+    descriptor: '5c0b',
+    count: 7,
+    value06: 32
+  },
+  {
+    char: 'o',
+    frame: '5d1a',
+    column: 2,
+    descriptor: '5c0b',
+    count: 6,
+    value06: 32
+  },
+  {
+    char: 't',
+    frame: '5d1a',
+    column: 3,
+    descriptor: '5c0b',
+    count: 5,
+    value06: 32
+  },
+  {
+    char: 'h',
+    frame: '5d1a',
+    column: 4,
+    descriptor: '5c0b',
+    count: 4,
+    value06: 32
+  },
+  {
+    char: 'e',
+    frame: '5d1a',
+    column: 5,
+    descriptor: '5c0b',
+    count: 3,
+    value06: 32
+  },
+  {
+    char: 's',
+    frame: '5d1a',
+    column: 6,
+    descriptor: '5c0b',
+    count: 2,
+    value06: 32
+  },
+  {
+    char: '.',
+    frame: '5d1a',
+    column: 7,
+    descriptor: '5c0b',
+    count: 1,
+    value06: 32
+  }
+]

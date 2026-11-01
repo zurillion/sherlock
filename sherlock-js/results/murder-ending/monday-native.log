@@ -1,0 +1,72 @@
+command SAY "HELLO" TO WATSON Mon 08:01am
+command OPEN ALL Mon 08:03am
+command N Mon 08:05am
+command GET CHINA MAN Mon 08:05am
+command TAKE CHINA MANS Mon 08:06am
+command S Mon 08:08am
+command WAIT Mon 08:13am
+command WAIT Mon 08:18am
+command SAY WATSON "FOLLOW ME" Mon 08:19am
+command W Mon 08:21am
+command D Mon 08:23am
+command OPEN DOOR Mon 08:24am
+command S Mon 08:26am
+command HAIL CAB Mon 08:27am
+command CLIMB INTO CAB Mon 08:29am
+command SAY TO CABBIE "GO TO KINGS CROSS ROAD" Mon 08:30am
+command WAIT Mon 08:35am
+command WAIT Mon 08:40am
+command WAIT Mon 08:45am
+command PAY 6D TO CABBIE Mon 08:46am
+command GET OUT Mon 08:48am
+command NE Mon 08:50am
+command NE Mon 08:52am
+command NE Mon 08:54am
+command NE Mon 08:56am
+command SAY LESTRADE "MAJOR VISIT OPIUM DEN AND MAJOR IS INNOCENT" Mon 08:57am
+command WAIT Mon 09:02am
+command WAIT Mon 09:07am
+command WAIT Mon 09:12am
+command WAIT Mon 09:17am
+command CLIMB INTO TRAIN Mon 09:19am
+command WAIT Mon 09:24am
+command WAIT Mon 09:29am
+command WAIT Mon 09:34am
+command WAIT Mon 09:39am
+command WAIT Mon 09:44am
+command WAIT Mon 09:49am
+command WAIT Mon 09:54am
+command WAIT Mon 09:59am
+command WAIT Mon 10:04am
+command WAIT Mon 10:09am
+command WAIT Mon 10:14am
+command WAIT Mon 10:19am
+command WAIT Mon 10:24am
+command WAIT Mon 10:29am
+command GET OUT Mon 10:31am
+command I Mon 10:32am
+command S Mon 10:34am
+command SAY "HELLO" TO STRAKER Mon 10:35am
+command S Mon 10:37am
+command E Mon 10:39am
+command S Mon 10:41am
+command OPEN FRONT DOOR Mon 10:41am
+command S Mon 10:43am
+command OPEN SITTINGROOM DOOR Mon 10:44am
+command W Mon 10:46am
+command OPEN SOLID DOOR Mon 10:47am
+command S Mon 10:49am
+command CLOSELY EXAMINE BODY Mon 10:54am
+command CLOSELY EXAMINE BOOKCASE Mon 11:00am
+command W Mon 11:02am
+command CLOSELY EXAMINE CLOTHES Mon 11:07am
+command TAKE CLOTHES Mon 11:07am
+command E Mon 11:09am
+command N Mon 11:11am
+command E Mon 11:13am
+command N Mon 11:15am
+command N Mon 11:17am
+command W Mon 11:19am
+command N Mon 11:21am
+command N Mon 11:23am
+0 murder-evidence-monday 71 Mon 11:23am None

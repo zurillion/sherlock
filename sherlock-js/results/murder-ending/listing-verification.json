@@ -1,0 +1,147 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 540,
+  "bytes_roundtripped": 1147,
+  "regions": [
+    {
+      "start": "E298",
+      "end_exclusive": "E2C6",
+      "kind": "code",
+      "label": "HAIL: cerca contesti del cab, non del conducente",
+      "atlas_priority": 159
+    },
+    {
+      "start": "E2C6",
+      "end_exclusive": "E2CB",
+      "kind": "data",
+      "label": "Scratch del servizio cab: identit\u00e0 del conducente",
+      "atlas_priority": 159
+    },
+    {
+      "start": "E2CB",
+      "end_exclusive": "E2EE",
+      "kind": "code",
+      "label": "HAIL: trasferisce il cab e sospende il programma del cocchiere",
+      "atlas_priority": 159
+    },
+    {
+      "start": "CFB6",
+      "end_exclusive": "CFCF",
+      "kind": "code",
+      "label": "Ricerca dei contesti per identit\u00e0 esatta del chiamante",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A24D",
+      "end_exclusive": "A255",
+      "kind": "data",
+      "label": "Articoli descrittivi: THE, A, AN, SOME",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A255",
+      "end_exclusive": "A25D",
+      "kind": "data",
+      "label": "Articoli nelle azioni e negli errori: THE, THE, THE, SOME",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A2AA",
+      "end_exclusive": "A2AB",
+      "kind": "data",
+      "label": "Selettore temporaneo degli articoli: distinto da canale e maiuscole",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A85C",
+      "end_exclusive": "A880",
+      "kind": "data",
+      "label": "Nove suffissi grezzi maiuscoli: quattro byte, con backspace e zero",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A92F",
+      "end_exclusive": "A94D",
+      "kind": "code",
+      "label": "Copia dei suffissi: il buffer conserva ING prima della formattazione",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A7EB",
+      "end_exclusive": "A80E",
+      "kind": "code",
+      "label": "Selezione dell\u2019articolo: classe nominale e due tabelle",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Separatore del dizionario: scarica la parola dal suo chiamante",
+      "atlas_priority": 159
+    },
+    {
+      "start": "A9B7",
+      "end_exclusive": "AA71",
+      "kind": "code",
+      "label": "Buffer di parola e spazi grezzi: percorsi diversi del ritorno a capo",
+      "atlas_priority": 159
+    },
+    {
+      "start": "B6DA",
+      "end_exclusive": "B710",
+      "kind": "code",
+      "label": "Riferente escluso dal trasporto: ricerca nella descrizione e messaggi distinti",
+      "atlas_priority": 159
+    },
+    {
+      "start": "C2BA",
+      "end_exclusive": "C306",
+      "kind": "code",
+      "label": "Canale superiore: uno spazio all\u2019ultima colonna usa il proprio frame",
+      "atlas_priority": 159
+    },
+    {
+      "start": "C316",
+      "end_exclusive": "C37D",
+      "kind": "code",
+      "label": "Scorrimento e pulizia: CALLC374 conserva la profondit\u00e0 del chiamante",
+      "atlas_priority": 159
+    },
+    {
+      "start": "C7A6",
+      "end_exclusive": "C821",
+      "kind": "code",
+      "label": "Classe9: peso e capacit\u00e0 sono filtri gi\u00e0 nella risoluzione",
+      "atlas_priority": 159
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome di entit\u00e0: qualificatori, articolo e sostantivo ancora nel buffer",
+      "atlas_priority": 159
+    },
+    {
+      "start": "D51A",
+      "end_exclusive": "D5C9",
+      "kind": "code",
+      "label": "Lista degli oggetti e ricorsione dei contenuti: profondit\u00e0 distinte",
+      "atlas_priority": 159
+    },
+    {
+      "start": "9973",
+      "end_exclusive": "9981",
+      "kind": "data",
+      "label": "Prova del suicidio di Mrs Brown: esami e roccia osservata",
+      "atlas_priority": 159
+    },
+    {
+      "start": "9981",
+      "end_exclusive": "9997",
+      "kind": "data",
+      "label": "Prova dell\u2019omicidio di Tricia: corpo, libreria, abiti e colloqui",
+      "atlas_priority": 159
+    }
+  ]
+}

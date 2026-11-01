@@ -1,0 +1,3250 @@
+[
+  {
+    "input": "SAY WATSON \"DROP CLOTHES\"",
+    "clock": {
+      "tick": 1475,
+      "due": 1475,
+      "day": 1,
+      "minute": 34,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:34am"
+    },
+    "room": 47,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You talk to Watson.",
+      "Watson drops some bloodstained clothes."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 47
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "N",
+    "clock": {
+      "tick": 1477,
+      "due": 1477,
+      "day": 1,
+      "minute": 36,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:36am"
+    },
+    "room": 46,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You go north.",
+      "You are in Tricias Entrance Hall.",
+      "Watson enters."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 46
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "N",
+    "clock": {
+      "tick": 1479,
+      "due": 1479,
+      "day": 1,
+      "minute": 38,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:38am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You go north.",
+      "You are in Portman Street.",
+      "Watson enters."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "HAIL CAB",
+    "clock": {
+      "tick": 1480,
+      "due": 1480,
+      "day": 1,
+      "minute": 39,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:39am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You hail the hansom cab.",
+      "The cabbie remarks to you \" Hello guv'nor. \"."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "CLIMB INTO CAB",
+    "clock": {
+      "tick": 1482,
+      "due": 1482,
+      "day": 1,
+      "minute": 41,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:41am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You climb into the hansom cab.",
+      "Watson climbs into the hansom cab."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "SAY CABBIE \"GO TO KINGS CROSS ROAD\"",
+    "clock": {
+      "tick": 1483,
+      "due": 1483,
+      "day": 1,
+      "minute": 42,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:42am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You talk to the cabbie."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT",
+    "clock": {
+      "tick": 1488,
+      "due": 1488,
+      "day": 1,
+      "minute": 47,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:47am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You wait.",
+      "The cabbie remarks to you \" Well are we goin' anywhere guv'nor? \"."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT",
+    "clock": {
+      "tick": 1493,
+      "due": 1493,
+      "day": 1,
+      "minute": 52,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:52am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You wait."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT",
+    "clock": {
+      "tick": 1498,
+      "due": 1498,
+      "day": 1,
+      "minute": 57,
+      "hour": 8,
+      "period": "am",
+      "label": "Tue 08:57am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You wait.",
+      "The cabbie remarks to you \" Well are we goin' anywhere guv'nor? \"."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 3
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT",
+    "clock": {
+      "tick": 1503,
+      "due": 1503,
+      "day": 1,
+      "minute": 2,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:02am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You wait.",
+      "The cabbie remarks to you \" Well are we goin' anywhere guv'nor? \"."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 22
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "PAY 9D TO CABBIE",
+    "clock": {
+      "tick": 1504,
+      "due": 1504,
+      "day": 1,
+      "minute": 3,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:03am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You pay 9d. To the cabbie."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 22
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "GET OUT",
+    "clock": {
+      "tick": 1506,
+      "due": 1506,
+      "day": 1,
+      "minute": 5,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:05am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You get out of the hansom cab.",
+      "Watson climbs out of the hansom cab."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 21
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "NE",
+    "clock": {
+      "tick": 1506,
+      "due": 1506,
+      "day": 1,
+      "minute": 5,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:05am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO NORTHEAST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 21
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "NE",
+    "clock": {
+      "tick": 1506,
+      "due": 1506,
+      "day": 1,
+      "minute": 5,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:05am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO NORTHEAST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 21
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "NE",
+    "clock": {
+      "tick": 1507,
+      "due": 1507,
+      "day": 1,
+      "minute": 6,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:06am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO NORTHEAST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 20
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "NE",
+    "clock": {
+      "tick": 1507,
+      "due": 1507,
+      "day": 1,
+      "minute": 6,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:06am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO NORTHEAST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 20
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT UNTIL 10:18AM",
+    "clock": {
+      "tick": 1579,
+      "due": 1579,
+      "day": 1,
+      "minute": 18,
+      "hour": 10,
+      "period": "am",
+      "label": "Tue 10:18am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "The cabbie says to you \" Well are we goin' anywhere guv'nor? \".",
+      "With a practised flick of the reins, the cabbie moves on down the street in search of other fares."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "CLIMB INTO TRAIN",
+    "clock": {
+      "tick": 1579,
+      "due": 1579,
+      "day": 1,
+      "minute": 18,
+      "hour": 10,
+      "period": "am",
+      "label": "Tue 10:18am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "I SEE NO TRAIN THAT YOU CAN CLIMB INTO"
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT UNTIL 11:28AM",
+    "clock": {
+      "tick": 1649,
+      "due": 1649,
+      "day": 1,
+      "minute": 28,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:28am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "GET OUT",
+    "clock": {
+      "tick": 1649,
+      "due": 1649,
+      "day": 1,
+      "minute": 28,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:28am"
+    },
+    "room": 45,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "I SEE NOTHING THAT YOU CAN GET OUT OF"
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 45
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "S",
+    "clock": {
+      "tick": 1651,
+      "due": 1651,
+      "day": 1,
+      "minute": 30,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:30am"
+    },
+    "room": 46,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You go south.",
+      "You are in Tricias Entrance Hall.",
+      "Watson enters."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 46
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "S",
+    "clock": {
+      "tick": 1653,
+      "due": 1653,
+      "day": 1,
+      "minute": 32,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:32am"
+    },
+    "room": 47,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You go south.",
+      "You are in Tricias Lounge. You can see some bloodstained clothes, a wall safe and Mrs Jones.",
+      "Watson enters."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 47
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "W",
+    "clock": {
+      "tick": 1653,
+      "due": 1653,
+      "day": 1,
+      "minute": 32,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:32am"
+    },
+    "room": 47,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO WEST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 47
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "S",
+    "clock": {
+      "tick": 1653,
+      "due": 1653,
+      "day": 1,
+      "minute": 32,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:32am"
+    },
+    "room": 47,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO SOUTH."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 47
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "SW",
+    "clock": {
+      "tick": 1654,
+      "due": 1654,
+      "day": 1,
+      "minute": 33,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:33am"
+    },
+    "room": 47,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO SOUTHWEST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 47
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "S",
+    "clock": {
+      "tick": 1656,
+      "due": 1656,
+      "day": 1,
+      "minute": 35,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:35am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "You go south.",
+      "You are in Tricias Kitchen. To the north there is a plain door.",
+      "Watson enters."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "SW",
+    "clock": {
+      "tick": 1656,
+      "due": 1656,
+      "day": 1,
+      "minute": 35,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:35am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO SOUTHWEST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "E",
+    "clock": {
+      "tick": 1656,
+      "due": 1656,
+      "day": 1,
+      "minute": 35,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:35am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "YOU CANNOT GO EAST."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "CLOSELY EXAMINE CORPSE",
+    "clock": {
+      "tick": 1657,
+      "due": 1657,
+      "day": 1,
+      "minute": 36,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:36am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "I SEE NO CORPSE THAT YOU CAN EXAMINE"
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "CLOSELY EXAMINE BRIDGE",
+    "clock": {
+      "tick": 1657,
+      "due": 1657,
+      "day": 1,
+      "minute": 36,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:36am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "I SEE NO BRIDGE THAT YOU CAN EXAMINE"
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "CLOSELY EXAMINE STREAM",
+    "clock": {
+      "tick": 1657,
+      "due": 1657,
+      "day": 1,
+      "minute": 36,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:36am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "I SEE NO STREAM THAT YOU CAN EXAMINE"
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "EXAMINE ROCK",
+    "clock": {
+      "tick": 1658,
+      "due": 1658,
+      "day": 1,
+      "minute": 37,
+      "hour": 11,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [
+      "I SEE NO ROCK THAT YOU CAN EXAMINE"
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 33
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 47
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  }
+]

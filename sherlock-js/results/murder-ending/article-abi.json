@@ -1,0 +1,137 @@
+{
+  "protocol": "Controlled original A7EB selector: four article classes, both channels and A2AA0/1. Input DE explicitly set; no natural reachability claim. Article reference observed before A809 calls A887.",
+  "table_base": 41549,
+  "table_bytes": [
+    157,
+    8,
+    1,
+    0,
+    90,
+    0,
+    10,
+    8,
+    157,
+    8,
+    157,
+    8,
+    157,
+    8,
+    10,
+    8
+  ],
+  "table_sha256": "ad1ed5f9f1a3f166873fb05712ab01e083fe2039ff06ac24b833f93e9a7f3293",
+  "cases": [
+    {
+      "channel": 0,
+      "forced": 0,
+      "noun_class": 0,
+      "table": 41550,
+      "article": 2205
+    },
+    {
+      "channel": 0,
+      "forced": 0,
+      "noun_class": 1,
+      "table": 41552,
+      "article": 1
+    },
+    {
+      "channel": 0,
+      "forced": 0,
+      "noun_class": 2,
+      "table": 41554,
+      "article": 90
+    },
+    {
+      "channel": 0,
+      "forced": 0,
+      "noun_class": 3,
+      "table": 41556,
+      "article": 2058
+    },
+    {
+      "channel": 0,
+      "forced": 1,
+      "noun_class": 0,
+      "table": 41558,
+      "article": 2205
+    },
+    {
+      "channel": 0,
+      "forced": 1,
+      "noun_class": 1,
+      "table": 41560,
+      "article": 2205
+    },
+    {
+      "channel": 0,
+      "forced": 1,
+      "noun_class": 2,
+      "table": 41562,
+      "article": 2205
+    },
+    {
+      "channel": 0,
+      "forced": 1,
+      "noun_class": 3,
+      "table": 41564,
+      "article": 2058
+    },
+    {
+      "channel": 1,
+      "forced": 0,
+      "noun_class": 0,
+      "table": 41558,
+      "article": 2205
+    },
+    {
+      "channel": 1,
+      "forced": 0,
+      "noun_class": 1,
+      "table": 41560,
+      "article": 2205
+    },
+    {
+      "channel": 1,
+      "forced": 0,
+      "noun_class": 2,
+      "table": 41562,
+      "article": 2205
+    },
+    {
+      "channel": 1,
+      "forced": 0,
+      "noun_class": 3,
+      "table": 41564,
+      "article": 2058
+    },
+    {
+      "channel": 1,
+      "forced": 1,
+      "noun_class": 0,
+      "table": 41558,
+      "article": 2205
+    },
+    {
+      "channel": 1,
+      "forced": 1,
+      "noun_class": 1,
+      "table": 41560,
+      "article": 2205
+    },
+    {
+      "channel": 1,
+      "forced": 1,
+      "noun_class": 2,
+      "table": 41562,
+      "article": 2205
+    },
+    {
+      "channel": 1,
+      "forced": 1,
+      "noun_class": 3,
+      "table": 41564,
+      "article": 2058
+    }
+  ]
+}

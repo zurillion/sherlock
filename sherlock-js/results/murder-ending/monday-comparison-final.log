@@ -1,0 +1,22 @@
+[
+  {
+    "label": "murder-evidence-monday",
+    "passed": true,
+    "checkpoints": 71,
+    "random_draws": 506,
+    "clock": {
+      "tick": 204,
+      "due": 204,
+      "day": 0,
+      "minute": 23,
+      "hour": 11,
+      "period": "am",
+      "label": "Mon 11:23am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

@@ -1,0 +1,437 @@
+{
+  "implemented": true,
+  "full_6ABD_ending_certified": false,
+  "profile": "seed1/all24/free initial LOOK/native graphics off after boot/injected uppercase/immediate MORE",
+  "runtime": "Autonomous functional JavaScript; no native state import, CPU interpreter or trace replay.",
+  "positive": {
+    "label": "murder-evidence-bounded-308",
+    "passed": true,
+    "checkpoints": 308,
+    "random_draws": 3659,
+    "clock": {
+      "tick": 1513,
+      "due": 1579,
+      "day": 1,
+      "minute": 12,
+      "hour": 9,
+      "period": "am",
+      "label": "Tue 09:12am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  },
+  "dense_diagnostic": {
+    "through": "Tue09:18",
+    "from_save": "results/murder-ending/jones-confession-save.json",
+    "scope": "Every random draw/read and full source state each minute; no browser-packet or repeated-LOAD future certificate for this diagnostic.",
+    "first_unknown": "$5D15",
+    "actor": 9,
+    "attempted_clock": "Tue09:19",
+    "observed_original": 0,
+    "old_stale_js": 115,
+    "no_fallback": true
+  },
+  "tests": {
+    "total": 1816,
+    "passed": 1816,
+    "failed": 0,
+    "log": "results/murder-ending/final-full-suite-hail.log"
+  },
+  "abi_cases": {
+    "entity_names": 110,
+    "articles": 16,
+    "raw_space_columns": 36
+  },
+  "original_chain": [
+    {
+      "path": "results/murder-ending/monday-native-prompt.json.gz",
+      "sha256": "fc33a7e9b9833967c12e1e2322d67156ccd85094add36a4d3d0e2d2edb73a03d",
+      "history": "results/murder-ending/jones-monday-corrected.txt",
+      "history_sha256": "c3a07e8e9da0d9f899f7336f48297bb7d6a7df3d00f465a1ab5bd55157cceb81",
+      "parent": null,
+      "parent_sha256": null,
+      "clock": {
+        "tick": 204,
+        "due": 204,
+        "minute": 23,
+        "hour": 11,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 11:23am"
+      }
+    },
+    {
+      "path": "results/murder-ending/night-native-prompt.json.gz",
+      "sha256": "b56f2faf9b7d1bad76a6ad41a951493816f3b153a364a80f6e244876d22c8612",
+      "history": "results/murder-ending/continuation-to-night.txt",
+      "history_sha256": "98f34151ed45777d708a76f37f70373f462b7852f0d584e2c4197befeabf7c26",
+      "parent": "results/murder-ending/monday-native-prompt.json.gz",
+      "parent_sha256": "fc33a7e9b9833967c12e1e2322d67156ccd85094add36a4d3d0e2d2edb73a03d",
+      "clock": {
+        "tick": 946,
+        "due": 946,
+        "minute": 45,
+        "hour": 11,
+        "day": 0,
+        "period": "pm",
+        "label": "Mon 11:45pm"
+      }
+    },
+    {
+      "path": "results/murder-ending/portman-native-prompt.json.gz",
+      "sha256": "1c78b49bcc5c64e31b07bf9c436ab471d6b37edc625576730442139bbd140d6a",
+      "history": "results/murder-ending/witness-and-portman.txt",
+      "history_sha256": "3886ec8ad0cf024bb3e398d07eda8f1586549d1b4efa1fefe8cde57b961c649a",
+      "parent": "results/murder-ending/night-native-prompt.json.gz",
+      "parent_sha256": "b56f2faf9b7d1bad76a6ad41a951493816f3b153a364a80f6e244876d22c8612",
+      "clock": {
+        "tick": 1459,
+        "due": 1459,
+        "minute": 18,
+        "hour": 8,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 08:18am"
+      }
+    },
+    {
+      "path": "results/murder-ending/confession-native-prompt.json.gz",
+      "sha256": "19a38e26fbe9cf3b6f7624d647a048f24986fa2d918e0cd81c592a6b6334cf16",
+      "history": "results/murder-ending/open-and-talk.txt",
+      "history_sha256": "07661b3b7104f7bdd0007166705a19f6f1c1e1c8b83aed47237682c657300316",
+      "parent": "results/murder-ending/portman-native-prompt.json.gz",
+      "parent_sha256": "1c78b49bcc5c64e31b07bf9c436ab471d6b37edc625576730442139bbd140d6a",
+      "clock": {
+        "tick": 1464,
+        "due": 1464,
+        "minute": 23,
+        "hour": 8,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 08:23am"
+      }
+    },
+    {
+      "path": "results/murder-ending/reveal-native-prompt.json.gz",
+      "sha256": "467b6bb95aafd2a6ea40ea384e3c455163a1fe27a9cbac87ae99fb9100bf0589",
+      "history": "results/murder-ending/reveal-jones.txt",
+      "history_sha256": "c9123da75310f0460d8694c898e5847c8c1b2613576f2aff5d4029854f3f3af1",
+      "parent": "results/murder-ending/confession-native-prompt.json.gz",
+      "parent_sha256": "19a38e26fbe9cf3b6f7624d647a048f24986fa2d918e0cd81c592a6b6334cf16",
+      "clock": {
+        "tick": 1467,
+        "due": 1467,
+        "minute": 26,
+        "hour": 8,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 08:26am"
+      }
+    },
+    {
+      "path": "results/murder-ending/talk-native-prompt.json.gz",
+      "sha256": "3b451a98160f97f482d19f3e6c66ca01952584a9888884793db0e4937db1613a",
+      "history": "results/murder-ending/talk-jones.txt",
+      "history_sha256": "b4cd9447eb3ac97e4e87fbc1f11d979d22e1b6cd2f535a322b57767caa2c38c9",
+      "parent": "results/murder-ending/reveal-native-prompt.json.gz",
+      "parent_sha256": "467b6bb95aafd2a6ea40ea384e3c455163a1fe27a9cbac87ae99fb9100bf0589",
+      "clock": {
+        "tick": 1474,
+        "due": 1474,
+        "minute": 33,
+        "hour": 8,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 08:33am"
+      }
+    },
+    {
+      "path": "results/murder-ending/brown-native-prompt.json.gz",
+      "sha256": "b141b6d9a42d9615d29897e1e0a395729c54d91dbc7508b487d40bb1cdd703c8",
+      "history": "results/murder-ending/to-brown-clues.txt",
+      "history_sha256": "b9a64651342a3fd7d2c0feff0af9b88026c4a34800f6da77eb59b9939efc8b97",
+      "parent": "results/murder-ending/talk-native-prompt.json.gz",
+      "parent_sha256": "3b451a98160f97f482d19f3e6c66ca01952584a9888884793db0e4937db1613a",
+      "clock": {
+        "tick": 1657,
+        "due": 1657,
+        "minute": 36,
+        "hour": 11,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 11:36am"
+      }
+    }
+  ],
+  "inputs_sha256": {
+    "results/murder-ending/article-abi.json": "d8ba16d5b5d080f07ecf4c0edd85e061adf116088b91d512ee778c2ca402d4fc",
+    "results/murder-ending/brown-dense-native.json": "ccdb4d599e9020366149f6554bedf221913f5da281459f16ebd412408e76472c",
+    "results/murder-ending/brown-native.json": "f820d7a8dfe97875dd31b19eed8d1de054802f0e4597c7127e6c571f5409339d",
+    "results/murder-ending/confession-native.json": "dafb47c6b51207a00dc9fd6a3a2bd16932a7e39446971c8a9b3c017aabb16afb",
+    "results/murder-ending/entity-name-abi.json": "e8846a291a4ad2379e5b2d2f99344b95d345e88c2c71caac7869b2eed87f5742",
+    "results/murder-ending/hail-vehicle-native.json": "00c4d6d093f3b83c76ec7ff228a85af194e84c9279442334f96b00dbd1177722",
+    "results/murder-ending/monday-native.json": "f2cdfef437f9aa96f568a3d25d9dd4025b92fdd49ed58f4562b118a7ec2497b2",
+    "results/murder-ending/name-byte-native.json": "6cf3b381296af4762713d87f6fcee3ddb35d150136caf7940f34922fba8a9cd0",
+    "results/murder-ending/native-bounded-308.json": "38f7325564af61a270b1ba19e2a38538f158c227f3c25953267deb67704dee82",
+    "results/murder-ending/native-brown-full.json": "6455af47ec5d2b678511d8a79b2ad5dff17150e13c8ee4eb9a9f6b7fa828c5d4",
+    "results/murder-ending/night-native.json": "5acbd9b691417bacc98e86973b4c04d218f6e6c0ecbb430f85b20c18cd40dfec",
+    "results/murder-ending/portman-native.json": "3b1123e5e52f61a274110c6ac12e90c5565234900df67636541853abef9b664a",
+    "results/murder-ending/reveal-native.json": "87b3f2a0a3a253ccb06c6d692b0df0febd467e5c55be046ac6ce3c899730b9b7",
+    "results/murder-ending/root-space-abi.json": "1975833f2978602340105119d0c79f87f7c9fad3088bc15d95a2cb0898e9d7fb",
+    "results/murder-ending/talk-native.json": "2973f739deb644f34e2d34c5f0f5ccc084b07cc0211a90a6b361f121df381b8a",
+    "results/murder-ending/train-prefix-native.json.gz": "b152315ff71252459729dc5547fa00fbf1aee90905fb72153a7de51511a56f80",
+    "results/murder-ending/tricia-native.json": "b40092606a0970849046dc1aca3252ad39e2faa779c62224ae60b4404fad7e75",
+    "results/murder-ending/word-byte-native.json": "20ca50d44fa85d040651ad21ea6d552fbafcf91d798f50a43d2e1edfd93ce796"
+  },
+  "runtime_sha256": {
+    "src/advanced-npcs.mjs": "c9ad13596ba6312f7ca28824f549e2f28298bd0b7e3e930eaa3e0b2eed0c96a3",
+    "src/app.mjs": "85233f105c3b900a35c3433adbf0d429f7ca9cb9b105fa8c741b572fe33d9e41",
+    "src/argument-checks.mjs": "212f9212e2815e8919c37353f0e8860f596b69a6df04dda783371b5969aae320",
+    "src/cab-economy.mjs": "d3a430280fcf529ab8194a5c6e8173992ab57c686c7f289e7b9ce7827f4ce1ab",
+    "src/cab.mjs": "0cb330be2e73b2bd6c179a62df0425cd9500f74931783d3e3c877ea49212b2b1",
+    "src/characters.mjs": "c04d06ddf628ea3e1e9ee296163a398949416423a28a33575d52ed5f2ceaa7b5",
+    "src/command-history.mjs": "5eeac2d1e6083bea122e50788a2ae9f494dbcb2a9b5e4d5873741cc4774657b1",
+    "src/conversation.mjs": "b5ae73f7d69b67a191a489886df82fec6ea97c4d3c5215e9d83e83633072d142",
+    "src/description-search.mjs": "afe8f9b9e61672023011cd2541d376b758c9f329cc2f1cb1587c942eb05d7870",
+    "src/endings.mjs": "32f8269d1e66071ecafe7ac32e4acfa965af2b62d1ba2fc42000caeb70975e7a",
+    "src/game.mjs": "699b1a1a2c4033be6acecaf0a1cc47733ca38544149d6e98a92be2e840bcf334",
+    "src/identity.mjs": "9fd32e6ed257092f70b42c2deee57b301bafa1e69ba48dd234671430ee32f115",
+    "src/information.mjs": "27ab8df1e19d36df255086a5e4b79440a65512a9c3ec1378710824dd819fbeb0",
+    "src/keyboard-profile.mjs": "bcddf84cef78302c9ff1a77f351a79d53dab385796653bc2249cc2a622ef6a99",
+    "src/lexer.mjs": "806e28cb3dc23f154d96937f0cea75bdd484723db0d2311dbc5257ac242cd56b",
+    "src/location-graph.mjs": "06e2c51849ff8dde2ffc8ac719e68597e1a689d519b69658544f8732d2ff12d1",
+    "src/memory-map.mjs": "39c6b36b385d91072423f3bff7b7788ceb7ae42b911886c1207af41e5149bc94",
+    "src/memory-model.mjs": "f7286e94b66cd1f83503b5980e458d5b65cd1135e372f438bd77ec250b547b41",
+    "src/npc-primitives.mjs": "8a245ab395ecef91ab45e4958d7eec5bc1960e898de9a43feb4e6d9a3d2f9fa9",
+    "src/npc-program.mjs": "ad551cf4225233defb3bdecf1767e6886437c1f04c610ad1c693c300f0fe2668",
+    "src/npc-runtime.mjs": "1770dc07b000153cebbf21d2f942814a0ec71d9debb69db4aed288b89f819279",
+    "src/objects.mjs": "bb641920a34877ff6ec66747280161e0d818ee0f224c0878a91b179d0348861d",
+    "src/output-capitalization.mjs": "ce4b90cf04051a88ced102d55583628ff99f2b7b57011272cff49a4b81edece0",
+    "src/parser.mjs": "bb09d417a315980d1d2e1e89d6e82dcdff4fe4b60dea19ffc08b9a64c0816608",
+    "src/player-program.mjs": "3db7040f1d7286b261440b997da08da9e7b7cc9a8ca15ff3bdd5863c6566e5e2",
+    "src/random-display.mjs": "a28df380eba93145e17a3c6836c435d32afd334a6e5393b7739837b59c5bd076",
+    "src/random.mjs": "784dfbe72c4b6cbbddda4356f608b02e6d0e975d59dea1a6b368b1e507348060",
+    "src/record-arena.mjs": "13e8b477673da4d9b8e6dc86b21bcc702ffeb91c16c8e304103a5ab16a643123",
+    "src/rule-results.mjs": "87f7382f4e70d5756928a1a47f4f8783ad4cb7b71e167eaafb8b4ef10c61ca5e",
+    "src/runtime-random.mjs": "3a4eac3129a7a7fa210668706de998cc720bb116b7c337e2f527d555296a0270",
+    "src/save.mjs": "67015d24c64f5373fc333b353928b85ca7fefcdbdc51b3ce4a4caeb73f6275e2",
+    "src/scheduler.mjs": "fceb48a98a0ae8d2fc0c8e6df5327f99ba4bf034e075fb12f34cfa9c7c45eec7",
+    "src/session.mjs": "af63fb0f71e55010b8e419d0429011957f27c03123c95b2bfb3d8fd2a1aad756",
+    "src/special-objects.mjs": "7238997794be61d077b200a3f51c6a504574988378996e5ef2b87e519a73d0cc",
+    "src/spectrum.mjs": "88d6de40fbaee93b65856bd3e62d979db784f32a5742b9d22d9d6f037f80661d",
+    "src/tab-session.mjs": "1f0c364b358519529681c26aea4da6e1e2c13aa23c55d12a2aa5e254ffdbc342",
+    "src/text-window.mjs": "1e7f409bd175218040944e8f5be7453a8ff4eee32acfa9bc77b4cbb6650023b2",
+    "src/text.mjs": "e9f93031224fdb13dcb6682b1a18088631b8b3fc7e70f433f469615b3c902a36",
+    "src/transcript.mjs": "4e16c4ac67baeb25e6d2cc3ad71ca184642f44f3e52282e387fc35b7fbf9f200",
+    "src/virtual-printer.mjs": "17fb5ca698c8e3ca72b1bccb9699776310b6e1fc6c47434cf14e3bc5c4a62b0a",
+    "src/wait-until.mjs": "cccd72fcd81108969c1e59e497b392ab68e1a0dd779c0311f79c0df60de4fe1d",
+    "src/watson.mjs": "89ec8565f7e59a65fa658e18535878efd69c10d6e56cb255aeb61ca265c33722",
+    "src/world-source.mjs": "52e0c749b5eef36dc532317ac4dbf6a6cc6a8f3778161ed6e45c70f141de66a9",
+    "src/world.mjs": "e7e6b151eecf089c9d87543c925d07aee9a8177b93728d725840f513131dec5a"
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 540,
+    "bytes_roundtripped": 1147,
+    "regions": [
+      {
+        "start": "E298",
+        "end_exclusive": "E2C6",
+        "kind": "code",
+        "label": "HAIL: cerca contesti del cab, non del conducente",
+        "atlas_priority": 159
+      },
+      {
+        "start": "E2C6",
+        "end_exclusive": "E2CB",
+        "kind": "data",
+        "label": "Scratch del servizio cab: identit\u00e0 del conducente",
+        "atlas_priority": 159
+      },
+      {
+        "start": "E2CB",
+        "end_exclusive": "E2EE",
+        "kind": "code",
+        "label": "HAIL: trasferisce il cab e sospende il programma del cocchiere",
+        "atlas_priority": 159
+      },
+      {
+        "start": "CFB6",
+        "end_exclusive": "CFCF",
+        "kind": "code",
+        "label": "Ricerca dei contesti per identit\u00e0 esatta del chiamante",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A24D",
+        "end_exclusive": "A255",
+        "kind": "data",
+        "label": "Articoli descrittivi: THE, A, AN, SOME",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A255",
+        "end_exclusive": "A25D",
+        "kind": "data",
+        "label": "Articoli nelle azioni e negli errori: THE, THE, THE, SOME",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A2AA",
+        "end_exclusive": "A2AB",
+        "kind": "data",
+        "label": "Selettore temporaneo degli articoli: distinto da canale e maiuscole",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A85C",
+        "end_exclusive": "A880",
+        "kind": "data",
+        "label": "Nove suffissi grezzi maiuscoli: quattro byte, con backspace e zero",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A92F",
+        "end_exclusive": "A94D",
+        "kind": "code",
+        "label": "Copia dei suffissi: il buffer conserva ING prima della formattazione",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A7EB",
+        "end_exclusive": "A80E",
+        "kind": "code",
+        "label": "Selezione dell\u2019articolo: classe nominale e due tabelle",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A887",
+        "end_exclusive": "A8B9",
+        "kind": "code",
+        "label": "Separatore del dizionario: scarica la parola dal suo chiamante",
+        "atlas_priority": 159
+      },
+      {
+        "start": "A9B7",
+        "end_exclusive": "AA71",
+        "kind": "code",
+        "label": "Buffer di parola e spazi grezzi: percorsi diversi del ritorno a capo",
+        "atlas_priority": 159
+      },
+      {
+        "start": "B6DA",
+        "end_exclusive": "B710",
+        "kind": "code",
+        "label": "Riferente escluso dal trasporto: ricerca nella descrizione e messaggi distinti",
+        "atlas_priority": 159
+      },
+      {
+        "start": "C2BA",
+        "end_exclusive": "C306",
+        "kind": "code",
+        "label": "Canale superiore: uno spazio all\u2019ultima colonna usa il proprio frame",
+        "atlas_priority": 159
+      },
+      {
+        "start": "C316",
+        "end_exclusive": "C37D",
+        "kind": "code",
+        "label": "Scorrimento e pulizia: CALLC374 conserva la profondit\u00e0 del chiamante",
+        "atlas_priority": 159
+      },
+      {
+        "start": "C7A6",
+        "end_exclusive": "C821",
+        "kind": "code",
+        "label": "Classe9: peso e capacit\u00e0 sono filtri gi\u00e0 nella risoluzione",
+        "atlas_priority": 159
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nome di entit\u00e0: qualificatori, articolo e sostantivo ancora nel buffer",
+        "atlas_priority": 159
+      },
+      {
+        "start": "D51A",
+        "end_exclusive": "D5C9",
+        "kind": "code",
+        "label": "Lista degli oggetti e ricorsione dei contenuti: profondit\u00e0 distinte",
+        "atlas_priority": 159
+      },
+      {
+        "start": "9973",
+        "end_exclusive": "9981",
+        "kind": "data",
+        "label": "Prova del suicidio di Mrs Brown: esami e roccia osservata",
+        "atlas_priority": 159
+      },
+      {
+        "start": "9981",
+        "end_exclusive": "9997",
+        "kind": "data",
+        "label": "Prova dell\u2019omicidio di Tricia: corpo, libreria, abiti e colloqui",
+        "atlas_priority": 159
+      }
+    ]
+  },
+  "atlas": {
+    "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "atlas_sha256": "9b3773347caa05f6e52f711f172acdea3eeed8471b5da7267e628b080c63032d",
+    "payload_bytes": 41600,
+    "unique_counts": {
+      "partial": 428,
+      "unknown": 2085,
+      "documented": 39087
+    },
+    "segments": 1118,
+    "sources": 76,
+    "all_listing_bytes_match": true,
+    "all_listing_operations_reassemble": true,
+    "checked_bytes_with_duplicates": 57325,
+    "partition_has_no_gaps_or_overlaps": true,
+    "video_and_rom_excluded": true,
+    "not_gameplay_equivalence": true
+  },
+  "baseline_6A33": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true
+  },
+  "remaining": [
+    "Identify real5D15 writer on nested cab service",
+    "Natural Brown suicide proof and delivery of both murder conclusions to Lestrade",
+    "Full6ABD ending",
+    "Other natural endings6AF3/6B79/75D2",
+    "Other backlog limits remain"
+  ]
+}

@@ -47,7 +47,9 @@ export class World {
   if(e.person&&proper&&(e.noun&32768)&&(e.noun&4095)!==0x09EE)name=name.replace(/\b\w/g,c=>c.toUpperCase());
   if(e.noun&32768)return name;
   const article=({0:'the ',4096:'a ',8192:'an ',12288:'some '})[e.noun&12288];
-  return (indefinite?article:'the ')+name;
+  // A7EB uses A24D for indefinite names and A255 for action names.
+  // Both tables select SOME for class3; definite plural is not THE.
+  return (indefinite||(e.noun&12288)===12288?article:'the ')+name;
  }
  roomName(id,{indefinite=true,short=false}={}){
   const room=this.rooms[id],word=value=>this.data.dictionary.find(w=>w.id===(value&4095)),name=[...(short?[]:room.nameWords.slice(1).filter(Boolean).map(v=>word(v).form)),word(room.nameWords[0])?.stem].filter(Boolean).join(' ');

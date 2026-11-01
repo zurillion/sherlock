@@ -1,0 +1,34 @@
+RESUME {'tick': 1474, 'due': 1474, 'minute': 33, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:33am'} b4cd9447eb3ac97e4e87fbc1f11d979d22e1b6cd2f535a322b57767caa2c38c9
+command SAY WATSON "DROP CLOTHES" Tue 08:34am
+command N Tue 08:36am
+command N Tue 08:38am
+command HAIL CAB Tue 08:39am
+command CLIMB INTO CAB Tue 08:41am
+command SAY CABBIE "GO TO KINGS CROSS ROAD" Tue 08:42am
+command WAIT Tue 08:47am
+command WAIT Tue 08:52am
+command WAIT Tue 08:57am
+command WAIT Tue 09:02am
+command PAY 9D TO CABBIE Tue 09:03am
+command GET OUT Tue 09:05am
+command NE Tue 09:05am
+command NE Tue 09:05am
+command NE Tue 09:06am
+command NE Tue 09:06am
+command WAIT UNTIL 10:18AM Tue 10:18am
+command CLIMB INTO TRAIN Tue 10:18am
+command WAIT UNTIL 11:28AM Tue 11:28am
+command GET OUT Tue 11:28am
+command S Tue 11:30am
+command S Tue 11:32am
+command W Tue 11:32am
+command S Tue 11:34am
+command SW Tue 11:34am
+command S Tue 11:34am
+command SW Tue 11:35am
+command E Tue 11:35am
+command CLOSELY EXAMINE CORPSE Tue 11:35am
+command CLOSELY EXAMINE BRIDGE Tue 11:36am
+command CLOSELY EXAMINE STREAM Tue 11:36am
+command EXAMINE ROCK Tue 11:36am
+0 murder-evidence-brown 50 Tue 11:36am None
