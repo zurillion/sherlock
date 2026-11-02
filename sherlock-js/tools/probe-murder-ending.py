@@ -6,7 +6,7 @@ from explorer import Game
 from extract_locations import extract
 from native_snapshot import snapshot
 from native_world import word
-ap=argparse.ArgumentParser();ap.add_argument('--every-minute',action='store_true');ap.add_argument('--save-native');ap.add_argument('--resume-native');ap.add_argument('--through-tick',type=int);ap.add_argument('--checkpoint-file');ap.add_argument('--start',type=int,default=0);ap.add_argument('--manifest',default='results/other-endings/manifest.json');ap.add_argument('--output',default='test/fixtures/other-endings-reference.json');args=ap.parse_args();base=p/'sherlock-js';scenarios=json.loads((base/args.manifest).read_text());target=base/args.output;cases=json.loads(target.read_text())['cases'][:args.start]if args.start else [];catalog=extract(p)
+ap=argparse.ArgumentParser();ap.add_argument('--every-minute',action='store_true');ap.add_argument('--checkpoint-tick',action='append',type=int,default=[]);ap.add_argument('--save-native');ap.add_argument('--resume-native');ap.add_argument('--through-tick',type=int);ap.add_argument('--checkpoint-file');ap.add_argument('--start',type=int,default=0);ap.add_argument('--manifest',default='results/other-endings/manifest.json');ap.add_argument('--output',default='test/fixtures/other-endings-reference.json');args=ap.parse_args();base=p/'sherlock-js';scenarios=json.loads((base/args.manifest).read_text());target=base/args.output;cases=json.loads(target.read_text())['cases'][:args.start]if args.start else [];catalog=extract(p)
 for index,scenario in enumerate(scenarios):
  if index<args.start:continue
  commands=[x for x in (base/scenario['history']).read_text().splitlines()if x and not x.startswith('#')];g=Game(p,catalog,seed=1,active_npcs=None);w=g.world;m=w.m;m[0xa011]=0;draws=[];pending=None;pause=None;events=[];steps=[];seen_terminal=False;bounded=False
@@ -35,7 +35,7 @@ for index,scenario in enumerate(scenarios):
    while True:
     messages.extend(out['messages'])
     bounded=args.through_tick is not None and w.clock()['tick']>=args.through_tick
-    if args.every_minute or first or not out['running']or bounded or w.clock()['minute']%10==0 or any(m.get('text')for m in out['messages']):record(command if first else None,out,messages);messages.clear();first=False
+    if args.every_minute or first or not out['running']or bounded or w.clock()['tick']in args.checkpoint_tick or w.clock()['minute']%10==0 or any(m.get('text')for m in out['messages']):record(command if first else None,out,messages);messages.clear();first=False
     if not out['running']or bounded:break
     out=g.continue_command(out['job']);frames+=1
     if frames>3000:raise RuntimeError('Research wait guard')

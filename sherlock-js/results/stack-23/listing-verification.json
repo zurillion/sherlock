@@ -1,0 +1,49 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 287,
+  "bytes_roundtripped": 501,
+  "regions": [
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: B del chiamante e ruoli distinti dei registri salvati",
+      "atlas_priority": 165
+    },
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA14",
+      "kind": "code",
+      "label": "Flush della parola: B \u00e8 il numero di caratteri rimanenti",
+      "atlas_priority": 165
+    },
+    {
+      "start": "C316",
+      "end_exclusive": "C388",
+      "kind": "code",
+      "label": "Scrolling: registri del chiamante salvati prima della pulizia C374",
+      "atlas_priority": 165
+    },
+    {
+      "start": "D60B",
+      "end_exclusive": "D671",
+      "kind": "code",
+      "label": "Passaggi: prefisso del nome nel frame C388 a 5D26",
+      "atlas_priority": 165
+    },
+    {
+      "start": "CBC2",
+      "end_exclusive": "CC0B",
+      "kind": "code",
+      "label": "Arrivi ordinari con nome proprio semplice: conservazione di 5D23",
+      "atlas_priority": 165
+    },
+    {
+      "start": "C1FD",
+      "end_exclusive": "C240",
+      "kind": "code",
+      "label": "Canale inferiore: rifiuti semplici che conservano 5D23",
+      "atlas_priority": 165
+    }
+  ]
+}

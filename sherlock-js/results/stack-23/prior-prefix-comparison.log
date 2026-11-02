@@ -1,0 +1,22 @@
+[
+  {
+    "label": "dictionary-reference22-natural-morning",
+    "passed": true,
+    "checkpoints": 469,
+    "random_draws": 7054,
+    "clock": {
+      "tick": 2928,
+      "due": 3001,
+      "day": 2,
+      "minute": 47,
+      "hour": 8,
+      "period": "am",
+      "label": "Wed 08:47am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

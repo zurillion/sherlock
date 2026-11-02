@@ -1,5 +1,37 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 2 novembre 2026: [CONTEGGIO-DELLA-PAROLA-E-5D23.md](CONTEGGIO-DELLA-PAROLA-E-5D23.md).
+Superato **$5D23** nel percorso Brown: `$C389/PUSH BC` salva B del chiamante
+nel frame C388 a $5D26. Writer naturale: Holmes 0, `n` di `plain`, tick 1653,
+martedì 11:32; lettura giardiniere 8 al tick 2926, mercoledì 08:45.
+554 scritture su 22/23 (277 per byte), nessuna transizione non classificata. `$A9F5/AA01`
+produce il conteggio rimanente 5→1: nessun valore 1 o 80 di ripiego.
+1.296 ABI del glifo riutilizzate con hash; 720 configurazioni D60B, con 290
+valori dichiarati noti e coincidenti; 1.512 arrivi / 720 eleggibili e 138
+rifiuti completi / 129 eleggibili. C316 può sovrascrivere 23 coi registri
+esterni: pulizie non proiettate, wrap finale e nomi successivi revocano.
+SAVE/LOAD conserva i campi derivati; le assenze nei vecchi SAVE restano ignote.
+Nuovo certificato: **480 checkpoint 0–479 fino a mercoledì 10:10**,
+7.282 draw / 15.532 read confrontati, 7.284 draw runtime incluse le due iniziali;
+24 attori, arena 752 byte, bitmap ai checkpoint e futuro dopo LOAD. Tutti i
+469 checkpoint precedenti identici; continuazione originale di 143 checkpoint
+da Brown 11:36, con campione aggiuntivo al tick 2928. Il SAVE breve del test
+è generato dal JS e uguagliato all'intero mondo del replay finale, non RAM importata.
+**Prossimo $5D1E**: il JS si ferma mercoledì 10:11, tick 3012. Primo checkpoint
+escluso 480: originale mercoledì 10:13, lettura 50 del giardiniere 8. Non attribuire
+alla lettura un orario nativo più preciso del campione né inferire il writer dal
+vicino $5D1F: occorre la traccia naturale delle scritture. $6ABD e gli altri
+finali pendenti restano aperti; la storia conserva viaggi falliti e prova Brown mancante.
+Suite finale **1.868/1.868 PASS**; baseline $6A33 ripetuta: 521 checkpoint fino
+a giovedì 10:00, 10.345 draw / 22.058 read, 10.347 runtime incluse le due iniziali,
+pausa e congelamento terminali. Oracolo terminale riutilizzato con hash.
+Mappa: approfonditi **$A9DF–$AA13, $C316–$C387, $C388–$C3E3, $D60B–$D670,
+$CBC2–$CC0A, $C1FD–$C23F** e workspace $5D23. 287 istruzioni / 501 byte
+riassemblati; **nessun nuovo byte grigio**. Restano 39.364 documentati, 428 parziali,
+1.808 ignoti su 41.600. Report: `results/stack-23-verification.json`.
+Le sezioni sotto conservano lo storico.
+
+
 Aggiornamento 2 novembre 2026: [ARGOMENTI-DEGLI-ERRORI-E-A022.md](ARGOMENTI-DEGLI-ERRORI-E-A022.md).
 Superato **A022**: A88C salva anche un parametro vuoto del template6894.
 Ultimo writer naturale:EXAMINE ROCK,Holmes0,tick1657/Tue11:36,DE0;

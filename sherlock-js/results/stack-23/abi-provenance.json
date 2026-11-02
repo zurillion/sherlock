@@ -1,0 +1,15 @@
+{
+  "protocol": "Existing original C388 ABI data reused,not newly acquired. Select frame24 from count ABI and26/28/2A/2C/2E from high-address ABI. New whole-D60B,arrival and error probes extend observed cells through23.",
+  "reused": [
+    {
+      "path": "test/fixtures/glyph-count-abi.json",
+      "sha256": "a3b2eac6243a884dfa745e7d93cf54553ae246332ecb62dc7cb64a4224618101",
+      "selected_cases": 216
+    },
+    {
+      "path": "test/fixtures/glyph-address-high-abi.json",
+      "sha256": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28",
+      "selected_cases": 1080
+    }
+  ]
+}

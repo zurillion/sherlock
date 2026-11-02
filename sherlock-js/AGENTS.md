@@ -1243,3 +1243,32 @@ Atlante147istruzioni/733byte;158nuovigrigiB62F–B65E,B678–B6D5,B83C–B84B;
 approfonditiA022/23,A59F–A5C3,A621–A639,A66C–A678,A887–A8B8,6894–68A1,8259–840A.
 39364/428/1808su41600;comunicare sempre nuovezone e orari. Le prove ABI sono locali,
 non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequivalenti.
+
+
+- Read CONTEGGIO-DELLA-PAROLA-E-5D23.md and results/stack-23-verification.json.
+  In the current Brown continuation, 5D23 is saved caller B, not video H or
+  the inner font scan count: C389, C388/SP5D26, Holmes0, n of plain, tick1653.
+  A9F5/AA01 supplies remaining word length; the natural sequence is 5,4,3,2,1.
+  Gardener8 reads it at2926. 554 writes across22/23 (277 each), zero unclassified transitions.
+  Reused1296 glyph ABI with SHA,720 whole passage cases;290 owned values agree.
+  C316 outer PUSH HL/DE can overwrite23 above the glyph frame; unknown clears,
+  final pending-word wraps and later unprojected names revoke the new contract.
+  Preserve23 independently only for proved ordinary proper-person arrivals
+  (720 eligible of1512) and simple player rejections (129 of138). LOOK, remote,
+  containers, qualified arrivals, queued/isolated/relocate and other errors do
+  not inherit this ownership. Missing old SAVE fields remain unknown.
+  Current positive certificate:480 checkpoints0–479 through Wed10:10,
+  7282 draws/15532 reads,7284 including boot; all24 actors,752 arena bytes,
+  native bitmaps at checkpoints and every-minute future after LOAD. All469 old
+  checkpoints identical;143 native continuation checkpoints from Brown11:36.
+  The optional checkpoint-tick2928 only samples the unchanged native execution.
+  Next boundary5D1E: JS tick3012/Wed10:11; first excluded checkpoint480 ends
+  natively Wed10:13 and reads50 for gardener8. Last writer still untraced:
+  do not infer it from5D1F or a matching value. Natural6ABD and other pending
+  endings remain open; this history retains failed journeys/missing Brown proof.
+  Final suite1868/1868;6A33 baseline521 checkpoints throughThu10:00 repeated,
+  10345draw/22058read,10347 with boot. Existing terminal oracle reused with SHA.
+  Atlas refinesA9DF–AA13,C316–C387,C388–C3E3,D60B–D670,CBC2–CC0A,C1FD–C23F,
+  plus workspace23;287 instructions/501 bytes roundtripped. No new gray bytes;
+  39364 documented/428 partial/1808 unknown of41600. Report zones and clock
+  explicitly in chat; source coverage is not complete gameplay equivalence.

@@ -3,7 +3,17 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [FLAG-DEL-CHIAMANTE-5D30.md](FLAG-DEL-CHIAMANTE-5D30.md).
+Aggiornamento corrente: [CONTEGGIO-DELLA-PAROLA-E-5D23.md](CONTEGGIO-DELLA-PAROLA-E-5D23.md).
+Il punto di ripresa attuale è **$5D1E nella continuazione Brown**: 480 checkpoint
+certificati fino a mercoledì 10:10; JS fermo al tick 3012 / 10:11, primo checkpoint
+escluso 480 nell'originale alle 10:13, lettura 50 del giardiniere 8. Cercare il
+vero writer naturale: non dedurre il byte basso dal vicino alto. `$5D23` è ora
+ricostruito come B del chiamante nel prefisso del passaggio, non come un 1 fisso.
+La baseline del finale $6A33 resta verificata attraverso giovedì 10:00; non
+estendere questo certificato alla continuazione Brown o agli altri finali.
+Lo stato dettagliato e i limiti successivi sono in STATO-E-PROSSIMI-PASSI.md e
+results/stack-23-verification.json. L'elenco seguente conserva gli obiettivi e
+le precedenti tappe, senza sostituire il punto di ripresa corrente.
 
 1. **Prima storia del ramo witness verificata fino al finale6A33.**
    521 checkpoint0–520 da lunedì08:00 a giovedì10:00; tutti24 i posti attore,
