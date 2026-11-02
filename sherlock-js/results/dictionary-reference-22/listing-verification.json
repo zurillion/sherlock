@@ -1,0 +1,77 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 147,
+  "bytes_roundtripped": 733,
+  "regions": [
+    {
+      "start": "A022",
+      "end_exclusive": "A024",
+      "kind": "data",
+      "label": "Ultimo descrittore lessicale: anche un argomento vuoto viene conservato",
+      "atlas_priority": 164
+    },
+    {
+      "start": "8259",
+      "end_exclusive": "840B",
+      "kind": "data",
+      "label": "54modelli:verbo,preposizioni,modificatore e flag negli alti nibble; terminatore",
+      "atlas_priority": 164
+    },
+    {
+      "start": "6894",
+      "end_exclusive": "68A2",
+      "kind": "data",
+      "label": "Messaggio6894:quattro argomenti prima di THAT YOU CAN,poi verbo e due parole opzionali",
+      "atlas_priority": 164
+    },
+    {
+      "start": "B62F",
+      "end_exclusive": "B65F",
+      "kind": "code",
+      "label": "Selezione B633/B62F delle due parole finali del modello,secondo lo slot fallito",
+      "atlas_priority": 164
+    },
+    {
+      "start": "B678",
+      "end_exclusive": "B6D6",
+      "kind": "code",
+      "label": "Preparazione del rifiuto:termine nominale,verbo e parametri per6894",
+      "atlas_priority": 164
+    },
+    {
+      "start": "B83C",
+      "end_exclusive": "B84C",
+      "kind": "code",
+      "label": "Riordina qualificatori e sostantivo sullo stack degli argomenti del testo",
+      "atlas_priority": 164
+    },
+    {
+      "start": "A59F",
+      "end_exclusive": "A5C4",
+      "kind": "code",
+      "label": "Ingresso al testo parametrico e cursore degli argomenti A59D",
+      "atlas_priority": 164
+    },
+    {
+      "start": "A621",
+      "end_exclusive": "A63A",
+      "kind": "code",
+      "label": "Dispatch dei token:wordArgument ritorna al normale ingresso lessicale",
+      "atlas_priority": 164
+    },
+    {
+      "start": "A66C",
+      "end_exclusive": "A679",
+      "kind": "code",
+      "label": "Consuma una word argomento,compresozero,e prosegue con flagNZ",
+      "atlas_priority": 164
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "A887 salva il descrittore prima del controllo offsetzero; gating visibilit\u00e0",
+      "atlas_priority": 164
+    }
+  ]
+}

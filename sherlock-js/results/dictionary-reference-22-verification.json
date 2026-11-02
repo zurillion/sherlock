@@ -1,0 +1,323 @@
+{
+  "implemented": true,
+  "runtime": "Autonomous model-word selection for6894 missing-reference errors. Two logical predicates replace the original self-modified branches. Full selected16bit fields retained,including zero-offset metadata. No CPU, original state import, trace replay, constant-zero fallback or old-save repair.",
+  "natural_writer": {
+    "protocol": "Complete original Jones conversation prompt restored unchanged; ordinary history, all24actors, output profile unchanged. Observer from tick1649/Tue11:28; A88C/A8B5 stores including equal values and all other value transitions. No RAM/register/PC/actor/proof patches. Earlier writers outside window unclaimed. Offline only.",
+    "read": {
+      "address": "A022",
+      "value": 0,
+      "clock": {
+        "tick": 2857,
+        "due": 3001,
+        "minute": 36,
+        "hour": 7,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 07:36am"
+      },
+      "actor": 9,
+      "last_store": {
+        "pc": "A88C",
+        "de": 0,
+        "hl": 23920,
+        "bc": 3,
+        "actor": 0,
+        "clock": {
+          "tick": 1657,
+          "due": 1657,
+          "minute": 36,
+          "hour": 11,
+          "day": 1,
+          "period": "am",
+          "label": "Tue 11:36am"
+        },
+        "command": "EXAMINE ROCK",
+        "sp": 23890,
+        "stack": [
+          "A5ED",
+          "A5CA",
+          "A5B9",
+          "0110",
+          "B698",
+          "0000",
+          "0003",
+          "B6AD",
+          "05B3",
+          "0000",
+          "0000",
+          "0743",
+          "02CA",
+          "0000",
+          "0000",
+          "CB71",
+          "9860",
+          "C993",
+          "D7FA",
+          "CE65",
+          "A0B3",
+          "006A",
+          "9860"
+        ],
+        "value": 0
+      }
+    },
+    "observed_stores": 243,
+    "unclassified_transitions": 0
+  },
+  "controlled_original_abi": {
+    "model_word_cases": 216,
+    "models": 54,
+    "nominal_slots": 2,
+    "visibility_gates": 2,
+    "visible_nonzero_final_cases": 14,
+    "complete_commands": 36,
+    "actual_6894_invocations": 27,
+    "runtime_owned_control_commands": 20,
+    "not_full_command_equivalence": true,
+    "not_natural_reachability_of_all_cases": true
+  },
+  "extraction": {
+    "source_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+    "parent_commit": "006787023f9ee63881776125e2f3ed79382737d8",
+    "previous_asset_sha256": "a27b3efd780a79b5f53abb0f62b51492877d1af9ba4b0f1800171aa31bb7c0ed",
+    "new_asset_sha256": "6b8e4ff18a360099a727a0e78fee30a491fb1eefff5737c277dce7e37fd79de8",
+    "models": 54,
+    "new_field": "wordReferences:four raw16bit data words per model",
+    "all_existing_data_values_equal": true
+  },
+  "natural_certificate": {
+    "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+    "checkpoints": 468,
+    "certified_checkpoint_range": [
+      0,
+      467
+    ],
+    "clock": {
+      "tick": 2921,
+      "due": 3001,
+      "minute": 40,
+      "hour": 8,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 08:40am"
+    },
+    "compared_random_draws": 7030,
+    "compared_random_reads": 14970,
+    "runtime_draws_including_two_boot": 7032,
+    "all_actors": 24,
+    "arena_bytes": 752,
+    "bitmaps_compared": true,
+    "load_future_compared": true,
+    "prior_identical_native_checkpoints": 461,
+    "initial_338_native_checkpoints_reused": true,
+    "new_native_continuation_checkpoints": 131,
+    "full_ending_certified": false
+  },
+  "next_limit": {
+    "address": "5D23",
+    "js_stopped": {
+      "tick": 2926,
+      "due": 2926,
+      "day": 2,
+      "minute": 45,
+      "hour": 8,
+      "period": "am",
+      "label": "Wed 08:45am"
+    },
+    "first_excluded_checkpoint": 468,
+    "native_checkpoint": {
+      "tick": 2928,
+      "due": 3001,
+      "minute": 47,
+      "hour": 8,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 08:47am"
+    },
+    "native_reads": [
+      {
+        "actor": 8,
+        "read": {
+          "address": 23843,
+          "value": 1
+        },
+        "checkpoint_clock": {
+          "tick": 2928,
+          "due": 3001,
+          "minute": 47,
+          "hour": 8,
+          "day": 2,
+          "period": "am",
+          "label": "Wed 08:47am"
+        }
+      }
+    ],
+    "last_natural_writer_unknown": true,
+    "do_not_infer_from_other_frame": true
+  },
+  "baseline_6a33": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true,
+    "oracle_reused": true,
+    "oracle_sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82"
+  },
+  "tests": {
+    "tests": 1860,
+    "pass": 1860,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 147,
+    "bytes_roundtripped": 733,
+    "regions": [
+      {
+        "start": "A022",
+        "end_exclusive": "A024",
+        "kind": "data",
+        "label": "Ultimo descrittore lessicale: anche un argomento vuoto viene conservato",
+        "atlas_priority": 164
+      },
+      {
+        "start": "8259",
+        "end_exclusive": "840B",
+        "kind": "data",
+        "label": "54modelli:verbo,preposizioni,modificatore e flag negli alti nibble; terminatore",
+        "atlas_priority": 164
+      },
+      {
+        "start": "6894",
+        "end_exclusive": "68A2",
+        "kind": "data",
+        "label": "Messaggio6894:quattro argomenti prima di THAT YOU CAN,poi verbo e due parole opzionali",
+        "atlas_priority": 164
+      },
+      {
+        "start": "B62F",
+        "end_exclusive": "B65F",
+        "kind": "code",
+        "label": "Selezione B633/B62F delle due parole finali del modello,secondo lo slot fallito",
+        "atlas_priority": 164
+      },
+      {
+        "start": "B678",
+        "end_exclusive": "B6D6",
+        "kind": "code",
+        "label": "Preparazione del rifiuto:termine nominale,verbo e parametri per6894",
+        "atlas_priority": 164
+      },
+      {
+        "start": "B83C",
+        "end_exclusive": "B84C",
+        "kind": "code",
+        "label": "Riordina qualificatori e sostantivo sullo stack degli argomenti del testo",
+        "atlas_priority": 164
+      },
+      {
+        "start": "A59F",
+        "end_exclusive": "A5C4",
+        "kind": "code",
+        "label": "Ingresso al testo parametrico e cursore degli argomenti A59D",
+        "atlas_priority": 164
+      },
+      {
+        "start": "A621",
+        "end_exclusive": "A63A",
+        "kind": "code",
+        "label": "Dispatch dei token:wordArgument ritorna al normale ingresso lessicale",
+        "atlas_priority": 164
+      },
+      {
+        "start": "A66C",
+        "end_exclusive": "A679",
+        "kind": "code",
+        "label": "Consuma una word argomento,compresozero,e prosegue con flagNZ",
+        "atlas_priority": 164
+      },
+      {
+        "start": "A887",
+        "end_exclusive": "A8B9",
+        "kind": "code",
+        "label": "A887 salva il descrittore prima del controllo offsetzero; gating visibilit\u00e0",
+        "atlas_priority": 164
+      }
+    ]
+  },
+  "atlas": {
+    "new_documented_from_gray": 158,
+    "ranges": [
+      {
+        "start": "B62F",
+        "end_exclusive": "B65F"
+      },
+      {
+        "start": "B678",
+        "end_exclusive": "B6D6"
+      },
+      {
+        "start": "B83C",
+        "end_exclusive": "B84C"
+      }
+    ],
+    "old_counts": {
+      "partial": 428,
+      "unknown": 1966,
+      "documented": 39206
+    },
+    "new_counts": {
+      "partial": 428,
+      "unknown": 1808,
+      "documented": 39364
+    }
+  },
+  "open_scope": [
+    "Natural6ABD and other pending endings remain uncertified. This history retains failed cab journeys and missing Brown proof.",
+    "Only player missing-reference scenery failures get new ownership. Found terms,other templates,lexical/syntax errors,clarifications,NPC callers and unprojected prose remain unknown.",
+    "Selector opcode bytes are not newly projected as random inputs; missing old dictionary-reference fields remain unknown until a modeled operation."
+  ],
+  "sha256": {
+    "results/dictionary-reference-22/natural-stores.json": "a7fe71e99a3b36d65d28def4d1efa153b847e9b108aca7aff9a921bdb982d796",
+    "results/dictionary-reference-22/model-word-abi.json": "45bb724235d0d508be22c788371044b5b1a4dc8408ce33b98b0982ae5deb4f75",
+    "results/dictionary-reference-22/command-abi.json": "acc9d13e537279b84022e7a143f8f8880feaccda5da623f2945202f21a956c55",
+    "results/dictionary-reference-22/applied-scope.json": "2098cfb0d90024a3b982b63f150e9e5d8bc9a8a59024458286e5c2b7b66d52af",
+    "results/dictionary-reference-22/extended-native.json": "fbf5149e3a862107c7cf48586b6675f825d4f4378cc998e7a64ad9232e7bf60e",
+    "results/dictionary-reference-22/extended-reference.json": "7a67d79e247f6f2ea0a9d014854d279975945309f2a8cc14c8e7f7f57a7457f6",
+    "results/dictionary-reference-22/full-comparison.json": "7af7ed94dae83d93136c7f6a9067a58c0cc1e735956b13999ed842002c3eed96",
+    "results/dictionary-reference-22/baseline-6a33.json": "40ff20401e2cf02c9473a126667ca0cdc6f3647c544f6ec67ad3111d30509ee4",
+    "results/dictionary-reference-22/full-tests.log": "8472fac83206d91c3cbe022a2454d81e7ba6b260dae1d3b395eef260df7cc3e8",
+    "results/final-solution/witness-native-reference.json.gz": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "data/game.json": "6b8e4ff18a360099a727a0e78fee30a491fb1eefff5737c277dce7e37fd79de8",
+    "tools/build-data.mjs": "3f683ef71942ddff610878791ae3256966f549a5f05687e2322f5f94ae22c9df",
+    "src/text.mjs": "9f9940c5c33df651d8fac4d2563ffc66c5a7de0b368782f7586f0e6e89b30842",
+    "src/random-display.mjs": "0450ce5138ac5f4253e0adf059bfea37ef4b471ce2a449cf63444ff6d92d1777",
+    "src/game.mjs": "8a29587fd7a3e3734e7a58fe4814781960e8e57b0af7e6cc4667cc4ca1f995ea"
+  }
+}

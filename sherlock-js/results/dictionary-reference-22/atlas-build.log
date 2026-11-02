@@ -1,0 +1,11 @@
+{
+  "segments": 1111,
+  "payload_bytes": 41600,
+  "unique_bytes": {
+    "partial": 428,
+    "unknown": 1808,
+    "documented": 39364
+  },
+  "sources": 81,
+  "checked_listing_bytes": 60183
+}

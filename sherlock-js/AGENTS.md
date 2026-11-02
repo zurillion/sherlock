@@ -1216,3 +1216,30 @@ Suitefinale1852/1852PASS;baseline6A33 ripetuta521checkpoint/10345draw/22058read,
 Mappa approfonditaC388–C3E3,D60B–D670,D3D5–D447,CBC2–CC0A,C1FD–C23F,
 workspace5D1F.240istruzioni/449byte,0nuovigrigi:39206/428/1966su41600.
 6ABD e altri finali naturali ancoraaperti;nonconfondere oraJS e checkpoint certificato.
+
+SeguitoA022:leggere ARGOMENTI-DEGLI-ERRORI-E-A022.md e results/dictionary-reference-22-verification.json.
+WriterA88C/DE0 dawordArgument neltemplate6894,dopoEXAMINE ROCK,tick1657/Tue11:36,
+Holmes0,returnA5ED/B6AD. Cuoca9 leggeA022 al2857/Wed07:36.243storeassoluti
+inclusiidentici,0altretransizioni dal1649;nessun0iniziale/retrofit. Offsetzero viene
+salvato PRIMA diRET Z.4wordgrezze per54modelli:aggiuntawordReferences inasset/builder,
+tutti altri dati immutati verificati. B633 seleziona opzionali conbit5(word1alto) e
+bit7(word3alto);B62F invertecondizioni. JSfunzionalepuro,nessun selfmod/CPU.
+216ABI(54*2slot*2gate),14finali visibili nonzero,anche metadata-only1000/4000/8000/C000/D000;
+36comandi completi/27invocazioni6894. Nuova metadataapplicata a20formereali delcontrollo,
+inclusoGIVE MONEY TO STREAM=1000. EsempiOF nelhelper non certificanotutte le forme
+CLIMB OUT nelmotore:vari rifiuti fallback nonricevonoancora proprietà. Foundtrue,
+altritemplate,chiarimenti,lessico/sintassi eNPCcaller restanoignoti. Ordine messaggi
+corretto;0esplicito distinto damissing;oldSAVE assente restaunknown finoaoperazioneprovata.
+Non proiettati daquestolavoro i byte opcode mutabili B649/B658:selettorealgoritmico
+compreso non equivale a proprietà diogni suo campoRNG. Guardunknown restaattivo.
+Prefisso462checkpoint finoWed07:38 passa;riacquisita continuazione131 da brownprompt11:36,
+461sovrapposti identici. Certificato468checkpoint0–467 finoWed08:40,7030draw/14970read,
+7032runtimeincl2boot,24attori/arena752/bitmap/futuroLOAD. Primo checkpoint468 ESCLUSO:
+originale08:47 legge5D23=1,giardiniere8;JSfermo08:45. Trovareverowriter naturale5D23,
+noninferire H dall'altroframe5D2A néBcostante1.6ABD/altri finali restanoaperti,
+storia conserva viaggi falliti e provaBrown non recuperata. Suite1860/1860PASS;
+baseline6A33 ripetuta521/10345draw/22058read(10347incl2boot),pausa/freeze,oracoloRIUTILIZZATO.
+Atlante147istruzioni/733byte;158nuovigrigiB62F–B65E,B678–B6D5,B83C–B84B;
+approfonditiA022/23,A59F–A5C3,A621–A639,A66C–A678,A887–A8B8,6894–68A1,8259–840A.
+39364/428/1808su41600;comunicare sempre nuovezone e orari. Le prove ABI sono locali,
+non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequivalenti.

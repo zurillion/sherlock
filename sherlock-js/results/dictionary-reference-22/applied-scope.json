@@ -1,0 +1,279 @@
+{
+  "protocol": "Normal JS SAVE restored per control command, same 36 inputs as native control matrix. Metadata ownership only; not whole-command equivalence.",
+  "cases": [
+    {
+      "command": "EXAMINE STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "CLOSELY EXAMINE STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "TAKE STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "GET STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "DROP STREAM",
+      "metadata": [],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "OPEN STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "CLOSE STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "LOCK STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "UNLOCK STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "CLIMB INTO STREAM",
+      "metadata": [],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "CLIMB OUT OF STREAM",
+      "metadata": [],
+      "source": [
+        1516
+      ]
+    },
+    {
+      "command": "GET INTO STREAM",
+      "metadata": [],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "GET OUT OF STREAM",
+      "metadata": [],
+      "source": [
+        1516
+      ]
+    },
+    {
+      "command": "SIT IN STREAM",
+      "metadata": [],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "LOOK THROUGH STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "GO THROUGH STREAM",
+      "metadata": [],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "TAKE OFF STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "TALK TO STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "GIVE STREAM TO WATSON",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "GIVE MONEY TO STREAM",
+      "metadata": [
+        4096
+      ],
+      "source": [
+        4096
+      ]
+    },
+    {
+      "command": "PUT STREAM IN LAMP",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "PUT LAMP IN STREAM",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "SHOW STREAM TO WATSON",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "SHOW MONEY TO STREAM",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "TELL STREAM ABOUT WATSON",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "TELL WATSON ABOUT STREAM",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "EXAMINE LARGE STREAM",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "CLOSELY EXAMINE YOUR ROCK",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "EXAMINE CORPSE",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "EXAMINE BRIDGE",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "EXAMINE ROCK",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "N",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "S",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "D",
+      "metadata": [],
+      "source": []
+    },
+    {
+      "command": "OPEN DOOR",
+      "metadata": [
+        0
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "command": "SAY WATSON \"EXAMINE STREAM\"",
+      "metadata": [],
+      "source": []
+    }
+  ]
+}

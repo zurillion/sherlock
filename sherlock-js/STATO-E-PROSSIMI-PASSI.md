@@ -1,5 +1,30 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 2 novembre 2026: [ARGOMENTI-DEGLI-ERRORI-E-A022.md](ARGOMENTI-DEGLI-ERRORI-E-A022.md).
+Superato **A022**: A88C salva anche un parametro vuoto del template6894.
+Ultimo writer naturale:EXAMINE ROCK,Holmes0,tick1657/Tue11:36,DE0;
+cuoca9 legge al2857/Wed07:36.243store osservati,0transizioni nonclassificate.
+B633/B62F selezionano due parole opzionali dei modelli concondizioni complementari:
+ilJS usa4wordgrezze perognuno dei54modelli,nonl'ultima parola visibile o uno0fisso.
+216ABI(slot0/1,visibilità0/1),14finali visibili nonzero;36comandi originali,
+27invocazioni6894.20forme delcontrollo ricevono effettivamente nuova proprietà
+nelmotore,inclusoGIVE MONEY TO STREAM condescrittore1000. Altri percorsi restanoignoti.
+Nuovo certificato: **468checkpoint0–467 finoWed08:40**,7030draw/14970read,
+7032runtimeincl2boot;24attori,arena752,bitmap e futuroLOAD.461checkpoint nativi
+sovrapposti identici;nuova continuazione131checkpoint da brownprompt11:36.
+Checkpoint468 ESCLUSO:originale08:47 legge5D23=1/giardiniere8;JSfermo08:45.
+Prossimo5D23:ricostruire ilvero writer naturale,non inferireH dalvecchio frame5D2A
+néB1 dalvalore osservato. Lo stato mostra viaggi falliti e mancata provaBrown;
+finale6ABD ealtri finali naturali ancoraaperti. OldSAVE refassente restasconosciuto.
+Suitefinale1860/1860PASS;baseline6A33 ripetuta521checkpoint finoThu10:00,
+10345draw/22058read,10347runtimeincl2boot;oracolo finaleRIUTILIZZATO conSHA.
+Mappa:158nuovibytegrigi documentati **B62F–B65E,B678–B6D5,B83C–B84B**;
+approfonditiA022/23,A59F–A5C3,A621–A639,A66C–A678,A887–A8B8,
+dati6894–68A1 e8259–840A.147istruzioni/733byte riassemblati;
+39364documentati/428parziali/1808ignoti su41600. Report:results/dictionary-reference-22-verification.json.
+Le sezioni sotto conservano lo storico.
+
+
 Aggiornamento 2 novembre 2026: [VIDEO-E-STACK-5D1F.md](VIDEO-E-STACK-5D1F.md).
 Superato `$5D1F`: ultimo writer C398/PUSH HL,Holmes0,n di plain,colonna21,
 frameC3885D26,HL5032,tick1653/Tue11:32. Cuoca9 legge H=80 al2566/Wed02:45.

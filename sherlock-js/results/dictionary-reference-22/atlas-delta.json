@@ -1,0 +1,27 @@
+{
+  "new_documented_from_gray": 158,
+  "ranges": [
+    {
+      "start": "B62F",
+      "end_exclusive": "B65F"
+    },
+    {
+      "start": "B678",
+      "end_exclusive": "B6D6"
+    },
+    {
+      "start": "B83C",
+      "end_exclusive": "B84C"
+    }
+  ],
+  "old_counts": {
+    "partial": 428,
+    "unknown": 1966,
+    "documented": 39206
+  },
+  "new_counts": {
+    "partial": 428,
+    "unknown": 1808,
+    "documented": 39364
+  }
+}

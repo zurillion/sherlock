@@ -10,6 +10,16 @@ export class Text {
  setQualifierMode(value){if(this.world.npcs)this.world.npcs.nameQualifierMode=value;}
  roomName(id,{reset=true}={}){if(reset)this.setQualifierMode(0);const mode=this.world.npcs?.nameQualifierMode;if(!reset&&this.world.npcs&&mode==null)throw new UnsupportedFeature('modo dei qualificatori del nome locazione');return this.world.roomName(id,{short:mode!=null&&mode!==0});}
  rememberDictionaryReference(value){if(this.world.npcs)this.world.npcs.dictionaryReference=value;}
+ // B633/B62F select the two trailing model words of the6894 rejection.
+ // Missing slots are real zero descriptors: A887 stores them before testing
+ // the offset. Preserve the raw mode/metadata bits of selected model words.
+ rejectionDictionaryWords(action,slot=0){
+  const model=this.data.actions.find(a=>a.id===action),refs=model?.wordReferences;
+  if(!refs||refs.length!==4||![0,1].includes(slot))return null;
+  const invert=slot===1;
+  return [Boolean(refs[1]&0x2000)!==invert?refs[1]:0,Boolean(refs[3]&0x8000)!==invert?refs[2]:0];
+ }
+
  // D3D5/D3E8 names: qualifier descriptors use context4 (inflected),
  // noun context5 uses the stem. The raw suffix bytes precede AA14 case conversion.
  rawEntityName(id,{indefinite=false}={}){

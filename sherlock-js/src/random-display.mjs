@@ -160,7 +160,10 @@ export class RandomDisplay {
  error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras({preserveLow:messages.length>0&&messages.every(m=>m.preserve_renderer_low===true),preserve1F:messages.length>0&&messages.every(m=>m.preserve_renderer_1f===true)});if(this.world.npcs)this.world.npcs.dictionaryReference=null;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
   // including the dictionary's initial space; CR scrolls before the prompt.
-  for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));
+  // Proven flat6894 errors publish the selected model descriptor after
+  // formatting. Zero is an emitted empty argument, not a missing value.
+  // Unprojected messages still revoke it, in their actual output order.
+  for(const[i,message]of messages.entries()){this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));if(this.world.npcs)this.world.npcs.dictionaryReference=Number.isInteger(message.dictionary_reference)&&message.dictionary_reference>=0&&message.dictionary_reference<=65535?message.dictionary_reference:null;}
   this.setChannel(0); // D710/D7CA/CB74 write zero, rather than restoring the incoming channel.
  }
  lexed(tokens){const s=this.state;if(!s)return;s.counter=0;this.wideWindow();s.pending='';if(!s.tokens)return; // D719/C142 reset the formatter and word-buffer pointer.

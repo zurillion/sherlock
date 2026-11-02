@@ -1,0 +1,16 @@
+✔ Natural A022 writer is the empty final word argument of EXAMINE ROCK, not an initialized zero (37.404416ms)
+✔ Original model-word ABI: all54models, two nominal slots, both output gates, raw tags retained (18.310667ms)
+✔ Complete original commands confirm the selected trailing words in actual6894 invocations (14.100292ms)
+✔ Applied player error metadata agrees with actual source descriptor; uncovered command shapes remain unowned (906.421625ms)
+✔ Dictionary-reference projection follows message order and explicit zero, never a truthiness fallback (13.276958ms)
+✔ Scenery-found errors, NPC callers and missing model data acquire no new reference (54.684542ms)
+✔ SAVE retains both descriptor bytes; older missing fields stay unknown until a new real error path (31.661875ms)
+✔ Full original history crosses former A022 boundary: all draws/state/bitmaps and future after LOAD (138911.367625ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 140299.183917

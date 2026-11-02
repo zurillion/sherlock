@@ -1,0 +1,34 @@
+✔ Natural A022 writer is the empty final word argument of EXAMINE ROCK, not an initialized zero (82.80825ms)
+✖ Original model-word ABI: all54models, two nominal slots, both output gates, raw tags retained (123.083542ms)
+✔ Complete original commands confirm the selected trailing words in actual6894 invocations (52.052916ms)
+✔ Applied player error metadata agrees with actual source descriptor; uncovered command shapes remain unowned (1920.568375ms)
+✔ Dictionary-reference projection follows message order and explicit zero, never a truthiness fallback (76.02ms)
+✔ Scenery-found errors, NPC callers and missing model data acquire no new reference (152.505709ms)
+✔ SAVE retains both descriptor bytes; older missing fields stay unknown until a new real error path (62.513709ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3617.460292
+
+✖ failing tests:
+
+test at test/rejection-dictionary-reference.test.mjs:4:1
+✖ Original model-word ABI: all54models, two nominal slots, both output gates, raw tags retained (123.083542ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(nonzero>30)
+
+      at TestContext.<anonymous> (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/rejection-dictionary-reference.test.mjs:4:595)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,36 @@
+{'command': 'SAY WATSON "DROP CLOTHES"', 'clock': {'tick': 1475, 'due': 1475, 'minute': 34, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:34am'}, 'reference': 20933, 'stores': 0}
+{'command': 'N', 'clock': {'tick': 1477, 'due': 1477, 'minute': 36, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:36am'}, 'reference': 17048, 'stores': 0}
+{'command': 'N', 'clock': {'tick': 1479, 'due': 1479, 'minute': 38, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:38am'}, 'reference': 17048, 'stores': 0}
+{'command': 'HAIL CAB', 'clock': {'tick': 1480, 'due': 1480, 'minute': 39, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:39am'}, 'reference': 951, 'stores': 0}
+{'command': 'CLIMB INTO CAB', 'clock': {'tick': 1482, 'due': 1482, 'minute': 41, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:41am'}, 'reference': 20836, 'stores': 0}
+{'command': 'SAY CABBIE "GO TO KINGS CROSS ROAD"', 'clock': {'tick': 1483, 'due': 1483, 'minute': 42, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:42am'}, 'reference': 20840, 'stores': 0}
+{'command': 'WAIT', 'clock': {'tick': 1488, 'due': 1488, 'minute': 47, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:47am'}, 'reference': 951, 'stores': 0}
+{'command': 'WAIT', 'clock': {'tick': 1493, 'due': 1493, 'minute': 52, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:52am'}, 'reference': 2398, 'stores': 0}
+{'command': 'WAIT', 'clock': {'tick': 1498, 'due': 1498, 'minute': 57, 'hour': 8, 'day': 1, 'period': 'am', 'label': 'Tue 08:57am'}, 'reference': 951, 'stores': 0}
+{'command': 'WAIT', 'clock': {'tick': 1503, 'due': 1503, 'minute': 2, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:02am'}, 'reference': 951, 'stores': 0}
+{'command': 'PAY 9D TO CABBIE', 'clock': {'tick': 1504, 'due': 1504, 'minute': 3, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:03am'}, 'reference': 20840, 'stores': 0}
+{'command': 'GET OUT', 'clock': {'tick': 1506, 'due': 1506, 'minute': 5, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:05am'}, 'reference': 20836, 'stores': 0}
+{'command': 'NE', 'clock': {'tick': 1506, 'due': 1506, 'minute': 5, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:05am'}, 'reference': 1479, 'stores': 0}
+{'command': 'NE', 'clock': {'tick': 1506, 'due': 1506, 'minute': 5, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:05am'}, 'reference': 1479, 'stores': 0}
+{'command': 'NE', 'clock': {'tick': 1507, 'due': 1507, 'minute': 6, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:06am'}, 'reference': 1479, 'stores': 0}
+{'command': 'NE', 'clock': {'tick': 1507, 'due': 1507, 'minute': 6, 'hour': 9, 'day': 1, 'period': 'am', 'label': 'Tue 09:06am'}, 'reference': 1479, 'stores': 0}
+{'command': 'WAIT UNTIL 10:18AM', 'clock': {'tick': 1579, 'due': 1579, 'minute': 18, 'hour': 10, 'day': 1, 'period': 'am', 'label': 'Tue 10:18am'}, 'reference': 17140, 'stores': 0}
+{'command': 'CLIMB INTO TRAIN', 'clock': {'tick': 1579, 'due': 1579, 'minute': 18, 'hour': 10, 'day': 1, 'period': 'am', 'label': 'Tue 10:18am'}, 'reference': 0, 'stores': 0}
+{'command': 'WAIT UNTIL 11:28AM', 'clock': {'tick': 1649, 'due': 1649, 'minute': 28, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:28am'}, 'reference': 0, 'stores': 0}
+{'command': 'GET OUT', 'clock': {'tick': 1649, 'due': 1649, 'minute': 28, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:28am'}, 'reference': 1516, 'stores': 21}
+{'command': 'S', 'clock': {'tick': 1651, 'due': 1651, 'minute': 30, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:30am'}, 'reference': 17048, 'stores': 43}
+{'command': 'S', 'clock': {'tick': 1653, 'due': 1653, 'minute': 32, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:32am'}, 'reference': 17048, 'stores': 87}
+{'command': 'W', 'clock': {'tick': 1653, 'due': 1653, 'minute': 32, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:32am'}, 'reference': 2450, 'stores': 95}
+{'command': 'S', 'clock': {'tick': 1655, 'due': 1655, 'minute': 34, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:34am'}, 'reference': 17048, 'stores': 131}
+{'command': 'SW', 'clock': {'tick': 1655, 'due': 1655, 'minute': 34, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:34am'}, 'reference': 2087, 'stores': 139}
+{'command': 'S', 'clock': {'tick': 1655, 'due': 1655, 'minute': 34, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:34am'}, 'reference': 2074, 'stores': 147}
+{'command': 'SW', 'clock': {'tick': 1656, 'due': 1656, 'minute': 35, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:35am'}, 'reference': 2087, 'stores': 155}
+{'command': 'E', 'clock': {'tick': 1656, 'due': 1656, 'minute': 35, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:35am'}, 'reference': 644, 'stores': 163}
+{'command': 'CLOSELY EXAMINE CORPSE', 'clock': {'tick': 1656, 'due': 1656, 'minute': 35, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:35am'}, 'reference': 0, 'stores': 183}
+{'command': 'CLOSELY EXAMINE BRIDGE', 'clock': {'tick': 1657, 'due': 1657, 'minute': 36, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:36am'}, 'reference': 0, 'stores': 203}
+{'command': 'CLOSELY EXAMINE STREAM', 'clock': {'tick': 1657, 'due': 1657, 'minute': 36, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:36am'}, 'reference': 0, 'stores': 223}
+{'command': 'EXAMINE ROCK', 'clock': {'tick': 1657, 'due': 1657, 'minute': 36, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:36am'}, 'reference': 0, 'stores': 243}
+{'command': 'WAIT UNTIL 11PM', 'clock': {'tick': 2341, 'due': 2341, 'minute': 0, 'hour': 11, 'day': 1, 'period': 'pm', 'label': 'Tue 11:00pm'}, 'reference': 0, 'stores': 243}
+{'command': 'WAIT UNTIL 10AM', 'clock': {'tick': 2858, 'due': 3001, 'minute': 37, 'hour': 7, 'day': 2, 'period': 'am', 'label': 'Wed 07:37am'}, 'reference': 0, 'stores': 243}
+READS [{'address': 'A022', 'value': 0, 'clock': {'tick': 2857, 'due': 3001, 'minute': 36, 'hour': 7, 'day': 2, 'period': 'am', 'label': 'Wed 07:36am'}, 'actor': 9, 'last_store': {'pc': 'A88C', 'de': 0, 'hl': 23920, 'bc': 3, 'actor': 0, 'clock': {'tick': 1657, 'due': 1657, 'minute': 36, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:36am'}, 'command': 'EXAMINE ROCK', 'sp': 23890, 'stack': ['A5ED', 'A5CA', 'A5B9', '0110', 'B698', '0000', '0003', 'B6AD', '05B3', '0000', '0000', '0743', '02CA', '0000', '0000', 'CB71', '9860', 'C993', 'D7FA', 'CE65', 'A0B3', '006A', '9860'], 'value': 0}}]
+STORES 243 unclassified 0
