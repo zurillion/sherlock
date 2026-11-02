@@ -1,0 +1,8 @@
+/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/tools/probe-list-stack-1c.py:38: SyntaxWarning: invalid decimal literal
+  while out.get('running')and not any(x['address']=='5D1C' and x['clock']['tick']>=2156for x in reads):
+/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/tools/probe-list-stack-1c.py:40: SyntaxWarning: invalid decimal literal
+  if any(x['address']=='5D1C' and x['clock']['tick']>=2156for x in reads):break
+/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/tools/probe-list-stack-1c.py:41: SyntaxWarning: invalid decimal literal
+  assert any(x['address']=='5D1C' and x['clock']['tick']>=2156for x in reads)
+[{'address': '5D1C', 'value': 5, 'clock': {'tick': 2156, 'due': 2341, 'minute': 55, 'hour': 7, 'day': 1, 'period': 'pm', 'label': 'Tue 07:55pm'}, 'actor': 8, 'last_store': {'pc': 'C3B7', 'opcode': [197, 245, 62], 'sp': '5D1E', 'af': 0, 'bc': 261, 'de': 16247, 'hl': 22322, 'glyph': {'frame': 23846, 'char': 110, 'descriptor': 23563, 'screen_address': 20530, 'shift': 5, 'caller_count': 1, 'word': 'plainen.ined?\x01'}, 'actor': 0, 'clock': {'tick': 1653, 'due': 1653, 'minute': 32, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:32am'}, 'stack': ['5032', '5C0B', '0105', '6E0A', 'C2F1', '6E0A', '0103', '5C0F', 'AA00', '0003', '1312', '526E', 'A250', '2028', 'A89F', '526E', '0003', 'A250', '90CC', 'A824', 'D445', '0007', '0044', 'D3E4', '05C3', '90CC', 'D65B', '879C', '8793', '8CBA', '0001', '3000'], 'address': '5D1C', 'value': 5}}]
+stores 1578 unclassified 0

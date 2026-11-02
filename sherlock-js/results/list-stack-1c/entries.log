@@ -1,0 +1,1 @@
+[{'mode': 'arrival', 'sp': 23902, 'clock': {'tick': 1653, 'due': 1653, 'minute': 32, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:32am'}}, {'mode': 'look', 'sp': 23906, 'clock': {'tick': 1655, 'due': 1655, 'minute': 34, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:34am'}}]

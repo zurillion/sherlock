@@ -190,7 +190,14 @@ export class Text {
    for(const e of children){w.lastListed.push(e.id);if(mark)e.status|=128;}
    for(const e of children)renderChildren(e.id,depth+1);
   };
-  const describePassages=()=>{for(const edge of r.exits){if(!edge.gate||!(w.entity(edge.gate).attributes&128))continue;const d=DIRECTION_NAMES[edge.direction_id];text.push(`${edge.direction_id===9?'Above':edge.direction_id===10?'Below':'To the '+d} there is ${w.name(edge.gate,{indefinite:true})}.`);}};
+  const describePassages=()=>{for(const edge of r.exits){if(!edge.gate||!(w.entity(edge.gate).attributes&128))continue;const d=DIRECTION_NAMES[edge.direction_id],name=w.name(edge.gate,{indefinite:true}),intro=`${edge.direction_id===9?'Above':edge.direction_id===10?'Below':'To the '+d} there is `,start=text.join(' ').length+(text.length?1:0)+intro.length;
+   text.push(intro+name+'.');if(trace){const before=trace.length;this.traceNameBuffer(trace,edge.gate,name,start,{indefinite:true});const prefix=name.lastIndexOf(' ');
+    // D658 calls D3D5 for the passage. Article/qualifier words flush
+    // before the noun at frame26 (arrival), frame2A (LOOK). Container and
+    // remote callers keep their separate, unowned stack contracts.
+    if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,spaceAfter:true,spaceClearFrame:frame+4});}
+   }
+  }};
   const describe=()=>{
    const previous=text.join(' ');
    if(trace?.some(e=>e.kind==='personal-contents'&&e.end===previous.length)){

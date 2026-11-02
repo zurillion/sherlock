@@ -29,7 +29,7 @@ export class RandomDisplay {
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
    // flushes the previous name word, with DE already naming the next word.
-   if(role&&['carrying-name','literal-person-name','container-name','root-object-prefix','carried-object-prefix'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(['container-name','root-object-prefix','carried-object-prefix'].includes(role.kind)&&!(entity.noun&32768)?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
+   if(role&&['carrying-name','literal-person-name','container-name','root-object-prefix','carried-object-prefix','passage-name-prefix'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(['container-name','root-object-prefix','carried-object-prefix','passage-name-prefix'].includes(role.kind)&&!(entity.noun&32768)?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
    const rawText=sceneTrace.find(e=>e.kind==='raw-text-buffer'&&e.start<=i&&i<e.end);
    if(i<text.length)this.feed(text[i],{buffer:!rawText});
    if(rawText&&i+1===rawText.end)for(const {c,...options}of rawText.events)this.bufferFeed(c,options);
@@ -103,7 +103,7 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserveFlags=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:0x5D1A,0x5D30);}
+ invalidateGlyphExtras({preserveFlags=false,preserveLow=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D30);}
  get state(){return this.world.display;}
  invalidateScratch(from=0x5CEC,to=0x5D30){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
@@ -138,7 +138,7 @@ export class RandomDisplay {
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
- write(text,{leading=false,sceneTrace=null,moneyEnds=[]}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras();if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras({preserveLow});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
  repeat(){this.setChannel(0);const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
@@ -153,7 +153,9 @@ export class RandomDisplay {
   s.lowerCursor=2;
   for(let i=0;i<Math.min(129,normalized.length);i++){s.input[i]=normalized.charCodeAt(i)===163?96:normalized.charCodeAt(i);s.inputKnown[i]=true;}if(normalized.length<129){s.input[normalized.length]=13;s.inputKnown[normalized.length]=true;}
  }
- error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras();if(this.world.npcs)this.world.npcs.dictionaryReference=null;
+ // Lower-channel rejection preserves low stack only for callers separately proved
+ // by the complete original pipeline. Clarifications and other errors revoke it.
+ error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras({preserveLow:messages.length>0&&messages.every(m=>m.preserve_renderer_low===true)});if(this.world.npcs)this.world.npcs.dictionaryReference=null;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
   // including the dictionary's initial space; CR scrolls before the prompt.
   for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));

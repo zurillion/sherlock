@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/tools/probe-arrival-low-abi.py", line 20, in <module>
+    w.observer=observe;out=w.call(0xcbc2);cells=m[0x5d1a:0x5d1e];assert cells==[165]*4,(ident,kind,column,minimum,cells)
+                                                                        ^^^^^^^^^^^^^^
+AssertionError: (1, None, 27, 23832, [7, 1, 62, 80])

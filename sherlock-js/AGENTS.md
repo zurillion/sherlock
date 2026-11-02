@@ -1170,3 +1170,25 @@ Atlante316istruzioni/643byte:approfonditiD51A–D5C8,D3D5–D447,A7EB–A80D,
 A887–A8B8,A92F–A94C,A9B7–AA70;datiA24D–A25C/A85C–A87F separati;campo workspace5C13.
 Zero nuovi byte grigi:39133documentati/428parziali/2039ignoti su41600 invariati.
 Riferire zone e orari all'utente; aggiornare sempre atlante e backlog.
+
+Seguito5D1C: leggere PASSAGGI-E-STACK-5D1C.md e results/list-stack-1c-verification.json.
+Writer veroC3B7/PUSH BC,frameC388/SP5D26,Holmes0,n di plain,colonna21,tick1653/Tue11:32;
+returnD65B daD658/D3D5 nella descrizione del passaggioD60B.1578store/0transizioni
+nonclassificate dal1649;giardiniere8 legge5 al2156. Derivare shift,noncostante5.
+720ABI passaggi:36colonne,2spazi/capitalizzazione coerenti,5classi,siaarrivo siaLOOK;
+container/remote restano separati.1512ABI CBC2,720eleggibili:solo ordinaryAction,
+persona propria senzaqualificatori attivi preserva1A–1D. Nomi composti hanno veri
+controesempi;queued/isolated/relocate non ricevonocontratto nuovo.129rifiuti originali
+completi su138setup preservano1A–1D:direzioni semplici,EXAMINE assente semplice
+rootplayer,stanza senza prosa/nonbuio. Altrierrori/chiarimenti revocano. OldSAVE
+assente restaunknown,fino a writer;preservareunknown non lo rende noto.
+Nuova acquisizione completa da brownprompt11:36,tutti attori;389checkpoint sovrapposti
+identici. Certificato432checkpoint0–431 finoWed02:40,6079draw/12928read,6081runtime
+con2boot;24attori,arena752,bitmap e futuroLOAD. Primo checkpoint432 ESCLUSO:
+originale02:47 legge5D1F=80/cuoca9,JSfermo02:45. Trovarewriter reale5D1F,non
+inferireHvideo dalvalore o dalvicino5D1E.6ABD ealtri finali naturali ancoraaperti.
+Suitefinale1844/1844PASS,baseline6A33 ripetuta521checkpoint/10345draw/22058read,
+10347runtimeincl2boot,pausa/freeze;oracolo finaleRIUTILIZZATO conSHA.
+Atlante240istruzioni/449byte;nuovi73bytegrigiCBC2–CC0A documentati. Approfondimenti
+D60B–D670,D3D5–D447,C388–C3E3,C1FD–C23F,workspace5D1C.39206/428/1966su41600.
+Riferire zone/orari;non confondere limite raggiuntoJS conultimo checkpoint positivo.

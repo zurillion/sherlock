@@ -1,0 +1,10 @@
+✔ Original complete simple rejections preserve the marked low fields in129 proven cases (1.929833ms)
+✔ Simple rejection ownership excludes prose searches, qualified names, NPC requests and clarification (61.645417ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 237.28

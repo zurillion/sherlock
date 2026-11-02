@@ -1,5 +1,26 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 2 novembre 2026: [PASSAGGI-E-STACK-5D1C.md](PASSAGGI-E-STACK-5D1C.md).
+Superato `$5D1C`: D60B/D658 stampa il qualificatore della porta; la n di plain,
+colonna21,frame5D26,lascia C=5 con PUSH BC aC3B7,tick1653/Tue11:32.
+Giardiniere8 lo legge al2156/Tue19:55.1578store,0transizioni nonclassificate.
+720ABI passaggi;1512ABI arrivi,720 eleggibili;138comandi di rifiuto,129eleggibili.
+Conservazione limitata ad arrivi ordinaryAction con nome proprio semplice e
+rifiuti semplici provati;altri chiamanti revocano. OldSAVE assente restaunknown.
+Nuovo prefisso positivo:432checkpoint0–431 fino **Wed02:40**,6079draw/12928read,
+6081runtime incluse2boot;24attori,arena752,bitmap e futuroLOAD.389checkpoint
+nativi identici all'acquisizione precedente. Il checkpoint432 è ESCLUSO:
+originale02:47 legge5D1F=80/cuoca9;JSfermo02:45. Prossimo lavoro:vero writer
+5D1F,non installare80 né inferirlo dal vicino5D1E. Storia conserva viaggi falliti
+e mancata provaBrown;finale6ABD e altri finali naturali restano da certificare.
+Suitefinale1844/1844PASS;baseline6A33 ripetuta521checkpoint finoThu10:00,
+10345draw/22058read,10347incl2boot;oracolo del finale RIUTILIZZATO.
+Atlante:nuovi73byte prima grigi **CBC2–CC0A** (arrivo attore/visibilità).
+ApprofonditiD60B–D670,D3D5–D447,C388–C3E3,C1FD–C23F eworkspace5D1C.
+240istruzioni/449byte riassemblati;39206documentati/428parziali/1966ignoti su41600.
+Report completo:results/list-stack-1c-verification.json. Le sezioni sotto sono storiche.
+
+
 Aggiornamento: [NOMI-NELLE-LISTE-E-BUFFER-5C13.md](NOMI-NELLE-LISTE-E-BUFFER-5C13.md).
 Superato5C13: D526/D3D5 scrive i byte grezzi dei nomi nelle liste a terra,
 inventariNPC e contenitori. Bloodstained/4109 lascia i alposto8,tick1651;

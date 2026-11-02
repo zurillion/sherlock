@@ -1,0 +1,19 @@
+{
+  "new_documented_from_gray": 73,
+  "ranges": [
+    {
+      "start": "CBC2",
+      "end_exclusive": "CC0B"
+    }
+  ],
+  "old_counts": {
+    "partial": 428,
+    "unknown": 2039,
+    "documented": 39133
+  },
+  "new_counts": {
+    "partial": 428,
+    "unknown": 1966,
+    "documented": 39206
+  }
+}

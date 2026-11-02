@@ -1,0 +1,99 @@
+[
+  {
+    op: 'glyph',
+    clock: {
+      tick: 1653,
+      due: 1653,
+      day: 1,
+      minute: 32,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:32am'
+    },
+    command: 'S',
+    before: null,
+    after: 3,
+    operation: { name: 'scene', args: [Array] }
+  },
+  {
+    op: 'glyph',
+    clock: {
+      tick: 1653,
+      due: 1653,
+      day: 1,
+      minute: 32,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:32am'
+    },
+    command: 'S',
+    before: 3,
+    after: 1,
+    operation: { name: 'scene', args: [Array] }
+  },
+  {
+    op: 'glyph',
+    clock: {
+      tick: 1653,
+      due: 1653,
+      day: 1,
+      minute: 32,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:32am'
+    },
+    command: 'S',
+    before: 1,
+    after: 0,
+    operation: { name: 'scene', args: [Array] }
+  },
+  {
+    op: 'glyph',
+    clock: {
+      tick: 1653,
+      due: 1653,
+      day: 1,
+      minute: 32,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:32am'
+    },
+    command: 'S',
+    before: 0,
+    after: 7,
+    operation: { name: 'scene', args: [Array] }
+  },
+  {
+    op: 'glyph',
+    clock: {
+      tick: 1653,
+      due: 1653,
+      day: 1,
+      minute: 32,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:32am'
+    },
+    command: 'S',
+    before: 7,
+    after: 6,
+    operation: { name: 'scene', args: [Array] }
+  },
+  {
+    op: 'glyph',
+    clock: {
+      tick: 1653,
+      due: 1653,
+      day: 1,
+      minute: 32,
+      hour: 11,
+      period: 'am',
+      label: 'Tue 11:32am'
+    },
+    command: 'S',
+    before: 6,
+    after: 5,
+    operation: { name: 'scene', args: [Array] }
+  }
+]
+final 5

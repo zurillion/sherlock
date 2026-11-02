@@ -1,0 +1,608 @@
+{
+  "events": [
+    {
+      "op": "glyph",
+      "command": "S",
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "day": 1,
+        "minute": 32,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "args": [
+        "a",
+        23846,
+        15,
+        23563,
+        1
+      ],
+      "before": null,
+      "after": 3,
+      "operation": {
+        "name": "scene",
+        "args": [
+          "You are in Tricias Kitchen. To the north there is a plain door.",
+          [
+            {
+              "kind": "raw-text-buffer",
+              "start": 50,
+              "end": 62,
+              "events": [
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "p",
+                  "known": true
+                },
+                {
+                  "c": "l",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": "i",
+                  "known": true
+                },
+                {
+                  "c": "n",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "d",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "r",
+                  "known": true
+                }
+              ]
+            },
+            {
+              "kind": "passage-name-prefix",
+              "parent": 50,
+              "start": 50,
+              "end": 57,
+              "frame": 23846,
+              "flagsKnown": true,
+              "spaceAfter": true,
+              "spaceClearFrame": 23850
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "op": "glyph",
+      "command": "S",
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "day": 1,
+        "minute": 32,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "args": [
+        "p",
+        23846,
+        17,
+        23563,
+        5
+      ],
+      "before": 3,
+      "after": 1,
+      "operation": {
+        "name": "scene",
+        "args": [
+          "You are in Tricias Kitchen. To the north there is a plain door.",
+          [
+            {
+              "kind": "raw-text-buffer",
+              "start": 50,
+              "end": 62,
+              "events": [
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "p",
+                  "known": true
+                },
+                {
+                  "c": "l",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": "i",
+                  "known": true
+                },
+                {
+                  "c": "n",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "d",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "r",
+                  "known": true
+                }
+              ]
+            },
+            {
+              "kind": "passage-name-prefix",
+              "parent": 50,
+              "start": 50,
+              "end": 57,
+              "frame": 23846,
+              "flagsKnown": true,
+              "spaceAfter": true,
+              "spaceClearFrame": 23850
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "op": "glyph",
+      "command": "S",
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "day": 1,
+        "minute": 32,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "args": [
+        "l",
+        23846,
+        18,
+        23563,
+        4
+      ],
+      "before": 1,
+      "after": 0,
+      "operation": {
+        "name": "scene",
+        "args": [
+          "You are in Tricias Kitchen. To the north there is a plain door.",
+          [
+            {
+              "kind": "raw-text-buffer",
+              "start": 50,
+              "end": 62,
+              "events": [
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "p",
+                  "known": true
+                },
+                {
+                  "c": "l",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": "i",
+                  "known": true
+                },
+                {
+                  "c": "n",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "d",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "r",
+                  "known": true
+                }
+              ]
+            },
+            {
+              "kind": "passage-name-prefix",
+              "parent": 50,
+              "start": 50,
+              "end": 57,
+              "frame": 23846,
+              "flagsKnown": true,
+              "spaceAfter": true,
+              "spaceClearFrame": 23850
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "op": "glyph",
+      "command": "S",
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "day": 1,
+        "minute": 32,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "args": [
+        "a",
+        23846,
+        19,
+        23563,
+        3
+      ],
+      "before": 0,
+      "after": 7,
+      "operation": {
+        "name": "scene",
+        "args": [
+          "You are in Tricias Kitchen. To the north there is a plain door.",
+          [
+            {
+              "kind": "raw-text-buffer",
+              "start": 50,
+              "end": 62,
+              "events": [
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "p",
+                  "known": true
+                },
+                {
+                  "c": "l",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": "i",
+                  "known": true
+                },
+                {
+                  "c": "n",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "d",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "r",
+                  "known": true
+                }
+              ]
+            },
+            {
+              "kind": "passage-name-prefix",
+              "parent": 50,
+              "start": 50,
+              "end": 57,
+              "frame": 23846,
+              "flagsKnown": true,
+              "spaceAfter": true,
+              "spaceClearFrame": 23850
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "op": "glyph",
+      "command": "S",
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "day": 1,
+        "minute": 32,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "args": [
+        "i",
+        23846,
+        20,
+        23563,
+        2
+      ],
+      "before": 7,
+      "after": 6,
+      "operation": {
+        "name": "scene",
+        "args": [
+          "You are in Tricias Kitchen. To the north there is a plain door.",
+          [
+            {
+              "kind": "raw-text-buffer",
+              "start": 50,
+              "end": 62,
+              "events": [
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "p",
+                  "known": true
+                },
+                {
+                  "c": "l",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": "i",
+                  "known": true
+                },
+                {
+                  "c": "n",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "d",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "r",
+                  "known": true
+                }
+              ]
+            },
+            {
+              "kind": "passage-name-prefix",
+              "parent": 50,
+              "start": 50,
+              "end": 57,
+              "frame": 23846,
+              "flagsKnown": true,
+              "spaceAfter": true,
+              "spaceClearFrame": 23850
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "op": "glyph",
+      "command": "S",
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "day": 1,
+        "minute": 32,
+        "hour": 11,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "args": [
+        "n",
+        23846,
+        21,
+        23563,
+        1
+      ],
+      "before": 6,
+      "after": 5,
+      "operation": {
+        "name": "scene",
+        "args": [
+          "You are in Tricias Kitchen. To the north there is a plain door.",
+          [
+            {
+              "kind": "raw-text-buffer",
+              "start": 50,
+              "end": 62,
+              "events": [
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "p",
+                  "known": true
+                },
+                {
+                  "c": "l",
+                  "known": true
+                },
+                {
+                  "c": "a",
+                  "known": true
+                },
+                {
+                  "c": "i",
+                  "known": true
+                },
+                {
+                  "c": "n",
+                  "known": true
+                },
+                {
+                  "c": " ",
+                  "known": true
+                },
+                {
+                  "c": "d",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "o",
+                  "known": true
+                },
+                {
+                  "c": "r",
+                  "known": true
+                }
+              ]
+            },
+            {
+              "kind": "passage-name-prefix",
+              "parent": 50,
+              "start": 50,
+              "end": 57,
+              "frame": 23846,
+              "flagsKnown": true,
+              "spaceAfter": true,
+              "spaceClearFrame": 23850
+            }
+          ]
+        ]
+      }
+    }
+  ],
+  "clock": {
+    "tick": 1657,
+    "due": 1657,
+    "day": 1,
+    "minute": 36,
+    "hour": 11,
+    "period": "am",
+    "label": "Tue 11:36am"
+  },
+  "value": 5
+}

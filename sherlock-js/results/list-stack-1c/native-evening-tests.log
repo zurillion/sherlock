@@ -1,0 +1,14 @@
+✔ Original passage geometry: movement/LOOK,36columns,two spacing states,five noun classes (108.584917ms)
+✔ Natural5D1C last writer is scan C of n in plain before door, not a fixed5 (5.310917ms)
+✔ Original CBC2: single proper names preserve1A–1D; compound names include counterexamples (2.111166ms)
+✔ Arrival preservation requires both the ordinary action caller and an unqualified proper name (33.874958ms)
+✔ 5D1C is variable and persistent; an absent old SAVE stays unknown until a real writer (20.172917ms)
+✔ Full natural history crosses evening5D1C with every draw/state/bitmap and future after LOAD (57053.887ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57419.133917

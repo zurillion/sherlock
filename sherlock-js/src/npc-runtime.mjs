@@ -530,7 +530,12 @@ export class NpcRuntime {
   // entity is reused in distant buildings, which must not leak messages.
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
-  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags)this.annotateArgumentPrefix(out,shown);
+  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown);
+    // CBC2 in the ordinary action caller keeps1A–1D for an unqualified
+    // proper person name. Qualified names can wrap at a deeper frame;
+    // queued/isolated callers deliberately lack this action-frame contract.
+    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)m.preserve_renderer_low=true;
+   }
    // The ordinary DROP/TAKE OFF announcement formats its resolved argument
    // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.
    if(!out.projected&&out.cost&&[16,43].includes(out.action)&&out.args[0]!==undefined){const id=out.args[0],name=w.name(id),raw=this.game.text.rawEntityName(id);if(raw)for(const m of shown){const at=m.text.toLowerCase().lastIndexOf(name.toLowerCase());if(at>=0){let normalized='';for(const c of raw.trimStart()){if(c==='\b')normalized=normalized.slice(0,-1);else normalized+=c;}if(normalized.toLowerCase()===name.toLowerCase())m.scene_trace=[...(m.scene_trace||[]),{kind:'raw-text-buffer',start:at,end:at+name.length,events:[{c:' ',known:true},...Array.from(raw.trimStart(),c=>({c,known:true}))]}];}}}
