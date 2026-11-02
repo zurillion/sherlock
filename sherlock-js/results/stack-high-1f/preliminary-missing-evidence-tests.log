@@ -1,0 +1,21 @@
+✔ Natural1F provenance includes identical stores and identifies the actual writer (11.197125ms)
+✖ Passage1F ownership matches original across720 movement/LOOK and spacing geometries (3.624833ms)
+✔ Original arrival ABI preserves all six marked bytes only within its proved proper-name scope (4.022125ms)
+✔ Original complete simple rejections preserve1F independently of lower ownership (1.083458ms)
+✔ 1F proper-arrival preservation requires the ordinary action caller;1E remains separately unowned (112.526375ms)
+✔ 1F scopes distinguish video H from raw font A, preserve SAVE, and never fill a missing old field (35.546042ms)
+✔ 1F error preservation excludes prose searches, qualified references, requests and clarification (84.894541ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1315.561792
+
+✖ failing tests:
+
+test at test/stack-high-1f.test.mjs:4:1
+✖ Passage1F ownership matches original across720 movement/LOOK and spacing geometries (3.624833ms)
+  [Error: ENOENT: no such file or directory, open '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/stack-high-1f/passage-abi.json'] { errno: -2, code: 'ENOENT', syscall: 'open', path: '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/stack-high-1f/passage-abi.json' }

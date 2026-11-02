@@ -532,9 +532,10 @@ export class NpcRuntime {
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
   if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown);
     // CBC2 in the ordinary action caller keeps1A–1D for an unqualified
-    // proper person name. Qualified names can wrap at a deeper frame;
+    // proper person name, and the independent1F contract is also verified.
+    // Qualified names can wrap at a deeper frame;
     // queued/isolated callers deliberately lack this action-frame contract.
-    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)m.preserve_renderer_low=true;
+    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true});
    }
    // The ordinary DROP/TAKE OFF announcement formats its resolved argument
    // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.

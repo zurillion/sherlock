@@ -1,0 +1,19 @@
+"""Typed source dossier: independent video high byte5D1F and proven preservation."""
+import sys,json
+from pathlib import Path
+sys.dont_write_bytecode=True
+p=Path(__file__).resolve().parents[2];sys.path.insert(0,str(p/'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+m=bytes(0x5d80)+(p/'sherlock-analisi/block-10.bin').read_bytes();asm=Assembler()
+regions=[(54795, 54897, 'code', 'Descrizione dei passaggi: cornice del qualificatore prima del nome della porta'), (54229, 54344, 'code', 'Nome qualificato: il sostantivo finale scarica il prefisso'), (50056, 50148, 'code', 'Glifo e residuo BC: shift orizzontale e scansione salvati sullo stack'), (52162, 52235, 'code', 'Arrivo di un attore: nomi propri semplici contro nomi composti'), (49661, 49728, 'code', 'Canale inferiore: percorso ordinario degli errori e a capo')]
+notes={54870: 'Conserva IY prima del formatter D3D5: ingresso C388 a5D26 nella descrizione dopo movimento, a5D2A dopo LOOK.720 ABI originali:36colonne,2stati di spazio,5classi del sostantivo.', 54872: 'Il prefisso qualificato del passaggio chiama D3D5 con frameC3885D26 dopo movimento.720ABI passaggi estesi a1F;LOOK/container/remote non ricevono il nuovo contratto.', 54875: 'Return link osservato sulla pila del vero writer5D1C. La presenza di una porta senza qualificatore non basta a derivare gli stessi registri.', 50103: 'Writer naturale5D1C: C dello shift=(2+7*colonna)&7, con C388/SP5D26. Ultimo n di plain:5; a5D1D il B salvato1.1578store osservati,0transizioni nonclassificate. Il giardiniere8 legge5D1C al2156/Tue19:55.', 50130: 'Otto righe del font; PUSH BC salva B prima diDJNZ,non il contatore dopo. Nessun5 o1 globale,il ruolo dipende dal frame.', 52197: 'Il soggetto effettivo risale i contenitori. Preservazione verificata solo nel chiamante ordinaryAction e con persona propria senza qualificatori visibili:720setup eleggibili su1512ABI. Altri nomi hanno controesempi reali e devono revocare.', 52198: '1512ABI originali,720eleggibili: ordinaryAction,persona propria senzaqualificatori attivi preserva anche1F.128controesempi con nomi non eleggibili. Richieste accodate/isolated/relocate restano esclusi.', 49691: '129rifiuti completi eleggibili su138setup originali preservano anche1F:direzione semplice oppureEXAMINE assente rootplayer in stanza senza prosa. Qualificatori,ricerca descrizioni,chiarimenti e richieste restano prudenziali.', 50059: 'Con ingresso C388/SP5D26 salva HL a5D1E/1F. H è indirizzo video alto; il byte vicino1E conserva L con proprietà indipendente. Non estendere al frameLOOK5D2A, dove1F ha un altro ruolo.', 50072: 'Ultimo writer naturale5D1F: PUSH HL dopo aver ripristinato il cursore. Holmes0,n di plain,colonna21,HL5032,tick1653/Tue11:32,returnD65B. Cuoca9 legge80 al2566/Wed02:45.974store,0transizioni nonclassificate dal1649. CalcolareH dalla geometria,non un80 globale.'}
+lines=['; Dossier offline: istruzioni e dati tipizzati, verificati e riassemblati sul payload.'];count=total=0
+for a,b,kind,label in regions:
+ lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {label}'];at=a
+ while at<b:
+  if kind=='data':n=min(8,b-at);op='DEFB '+','.join(f'${v:02X}'for v in m[at:at+n])
+  else:op,n=disassemble(m,at);count+=1
+  assert at+n<=b,(hex(at),op);assert bytes(asm.assemble(op,at))==m[at:at+n]
+  lines.append(f'    {op:<37} ; ${at:04X} {m[at:at+n].hex(" ")}'+(' | '+notes[at]if at in notes else''));at+=n;total+=n
+root=p/'sherlock-js/results/stack-high-1f';root.mkdir(exist_ok=True);(root/'stack-high-1f.asm').write_text('\n'.join(lines)+'\n');(root/'listing-verification.json').write_text(json.dumps(dict(roundtrip_equal=True,instructions=count,bytes_roundtripped=total,regions=[dict(start=f'{a:04X}',end_exclusive=f'{b:04X}',kind=k,label=l,atlas_priority=163)for a,b,k,l in regions]),indent=2)+'\n');print(count,total)

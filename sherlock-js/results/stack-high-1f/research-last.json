@@ -1,0 +1,202 @@
+[
+  {
+    "input": "WAIT UNTIL 11PM",
+    "clock": {
+      "tick": 2341,
+      "due": 2341,
+      "day": 1,
+      "minute": 0,
+      "hour": 11,
+      "period": "pm",
+      "label": "Tue 11:00pm"
+    },
+    "room": 48,
+    "outcome": "ok",
+    "notice": null,
+    "text": [],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 35
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 0
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  },
+  {
+    "input": "WAIT UNTIL 10AM",
+    "clock": {
+      "tick": 2857,
+      "due": 2857,
+      "day": 2,
+      "minute": 36,
+      "hour": 7,
+      "period": "am",
+      "label": "Wed 07:36am"
+    },
+    "room": 48,
+    "outcome": "not_translated",
+    "notice": "Ingresso casuale originale non ancora ricostruito: $A022. Il comando non è stato applicato.",
+    "text": [
+      "Ingresso casuale originale non ancora ricostruito: $A022. Il comando non è stato applicato."
+    ],
+    "actors": [
+      {
+        "id": 2,
+        "room": 2
+      },
+      {
+        "id": 3,
+        "room": 48
+      },
+      {
+        "id": 6,
+        "room": 35
+      },
+      {
+        "id": 13,
+        "room": 0
+      },
+      {
+        "id": 95,
+        "room": 0
+      }
+    ],
+    "facts": [
+      {
+        "start": "9965",
+        "flags": 166,
+        "terms": [
+          1543,
+          36451,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9973",
+        "flags": 164,
+        "terms": [
+          46,
+          16441,
+          93,
+          2141
+        ]
+      },
+      {
+        "start": "9981",
+        "flags": 164,
+        "terms": [
+          72,
+          16450,
+          67,
+          16451,
+          0,
+          512,
+          0,
+          2560
+        ]
+      },
+      {
+        "start": "9997",
+        "flags": 164,
+        "terms": [
+          87,
+          16472,
+          90,
+          16467,
+          81,
+          18513
+        ]
+      },
+      {
+        "start": "99a9",
+        "flags": 164,
+        "terms": [
+          0,
+          0,
+          85,
+          16469,
+          0,
+          2560
+        ]
+      }
+    ],
+    "ending": null
+  }
+]

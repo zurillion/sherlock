@@ -1,0 +1,286 @@
+{
+  "implemented": true,
+  "runtime": "Autonomous video-H derivation for the proved passage prefix. Independent1F preservation for structurally verified arrivals/rejections. No CPU, original snapshot import, trace replay, constant80 or missing-save retrofit.",
+  "natural_writer": {
+    "protocol": "Restore complete original Jones-confession prompt unchanged; ordinary DROP/cab history and WAIT UNTIL11PM/10AM. Observe instructions from tick1649 (11:28), before the scene print, including identical stack writes. No RAM/register/PC/proof patches; no native state imported into JS. Observation window does not claim earlier last writers.",
+    "read": {
+      "address": "5D1F",
+      "value": 80,
+      "clock": {
+        "tick": 2566,
+        "due": 3001,
+        "minute": 45,
+        "hour": 2,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 02:45am"
+      },
+      "actor": 9,
+      "last_store": {
+        "pc": "C398",
+        "opcode": [
+          229,
+          6,
+          8
+        ],
+        "sp": "5D20",
+        "af": 28200,
+        "bc": 261,
+        "de": 16240,
+        "hl": 20530,
+        "glyph": {
+          "frame": 23846,
+          "char": 110,
+          "descriptor": 23563,
+          "screen_address": 20530,
+          "shift": 5,
+          "caller_count": 1,
+          "word": "plainen.ined?\u0001"
+        },
+        "actor": 0,
+        "clock": {
+          "tick": 1653,
+          "due": 1653,
+          "minute": 32,
+          "hour": 11,
+          "day": 1,
+          "period": "am",
+          "label": "Tue 11:32am"
+        },
+        "stack": [
+          "5C0B",
+          "0105",
+          "6E0A",
+          "C2F1",
+          "6E0A",
+          "0103",
+          "5C0F",
+          "AA00",
+          "0003",
+          "1312",
+          "526E",
+          "A250",
+          "2028",
+          "A89F",
+          "526E",
+          "0003",
+          "A250",
+          "90CC",
+          "A824",
+          "D445",
+          "0007",
+          "0044",
+          "D3E4",
+          "05C3",
+          "90CC",
+          "D65B",
+          "879C",
+          "8793",
+          "8CBA",
+          "0001",
+          "3000",
+          "D178"
+        ],
+        "address": "5D1F",
+        "value": 80
+      }
+    },
+    "observed_stores": 974,
+    "unclassified_transitions": 0
+  },
+  "controlled_original_abi": {
+    "passage_cases": 720,
+    "passage_comparison": "Every newly owned1F checked; unproved scene frames remain unknown, including LOOK.",
+    "arrival_cases": 1512,
+    "arrival_eligible": 720,
+    "arrival_nonelegible_counterexamples": 128,
+    "complete_rejection_cases": 138,
+    "rejection_eligible": 129,
+    "not_natural_reachability": true
+  },
+  "natural_certificate": {
+    "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+    "checkpoints": 461,
+    "certified_checkpoint_range": [
+      0,
+      460
+    ],
+    "clock": {
+      "tick": 2851,
+      "due": 3001,
+      "minute": 30,
+      "hour": 7,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 07:30am"
+    },
+    "compared_random_draws": 6858,
+    "compared_random_reads": 14610,
+    "runtime_draws_including_two_boot": 6860,
+    "all_actors": 24,
+    "arena_bytes": 752,
+    "bitmaps_compared": true,
+    "load_future_compared": true,
+    "prior_identical_native_checkpoints": 432,
+    "initial_338_native_checkpoints_reused": true,
+    "new_native_continuation_checkpoints": 124,
+    "full_ending_certified": false
+  },
+  "next_limit": {
+    "address": "A022",
+    "js_stopped": {
+      "tick": 2857,
+      "due": 2857,
+      "day": 2,
+      "minute": 36,
+      "hour": 7,
+      "period": "am",
+      "label": "Wed 07:36am"
+    },
+    "first_excluded_checkpoint": 461,
+    "native_checkpoint": {
+      "tick": 2859,
+      "due": 3001,
+      "minute": 38,
+      "hour": 7,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 07:38am"
+    },
+    "native_reads": [
+      {
+        "actor": 9,
+        "read": {
+          "address": 40994,
+          "value": 0
+        },
+        "checkpoint_clock": {
+          "tick": 2859,
+          "due": 3001,
+          "minute": 38,
+          "hour": 7,
+          "day": 2,
+          "period": "am",
+          "label": "Wed 07:38am"
+        }
+      }
+    ],
+    "last_natural_writer_unknown": true,
+    "do_not_infer_or_retrofit": true
+  },
+  "baseline_6a33": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true,
+    "oracle_reused": true,
+    "oracle_sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82"
+  },
+  "tests": {
+    "tests": 1852,
+    "pass": 1852,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 240,
+    "bytes_roundtripped": 449,
+    "regions": [
+      {
+        "start": "D60B",
+        "end_exclusive": "D671",
+        "kind": "code",
+        "label": "Descrizione dei passaggi: cornice del qualificatore prima del nome della porta",
+        "atlas_priority": 163
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nome qualificato: il sostantivo finale scarica il prefisso",
+        "atlas_priority": 163
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo e residuo BC: shift orizzontale e scansione salvati sullo stack",
+        "atlas_priority": 163
+      },
+      {
+        "start": "CBC2",
+        "end_exclusive": "CC0B",
+        "kind": "code",
+        "label": "Arrivo di un attore: nomi propri semplici contro nomi composti",
+        "atlas_priority": 163
+      },
+      {
+        "start": "C1FD",
+        "end_exclusive": "C240",
+        "kind": "code",
+        "label": "Canale inferiore: percorso ordinario degli errori e a capo",
+        "atlas_priority": 163
+      }
+    ]
+  },
+  "atlas": {
+    "new_documented_from_gray": 0,
+    "old_counts": {
+      "partial": 428,
+      "unknown": 1966,
+      "documented": 39206
+    },
+    "new_counts": {
+      "partial": 428,
+      "unknown": 1966,
+      "documented": 39206
+    }
+  },
+  "open_scope": [
+    "Natural6ABD and other pending endings remain uncertified. Failed cab ride and missing Brown proof in this history remain unpatched.",
+    "Qualified/remote/container/LOOK passage frames, other arrivals and errors have no new1F ownership.1E stays independent.",
+    "Legacy saves lacking1F remain unknown until an actual modeled writer."
+  ],
+  "sha256": {
+    "results/stack-high-1f/natural-stores.json": "b43d06a2f814f9ff7ef5c7d17b36b644f29ee6d54fbdf7d275cf2ecb86964ddf",
+    "results/stack-high-1f/passage-abi.json": "1c4e183afb39444f72fef10c82efadbeb62b17b3d657a34ae3c348671b47e3a5",
+    "results/stack-high-1f/arrival-low-abi.json": "81113b3e4cc86498a07065a5232845530bb493ba16f4fca8bc1b2cf4001d6e94",
+    "results/stack-high-1f/simple-error-abi.json": "dc20b260dcfee828ffb1acaf6b79c2bd3ece2c85b05efec070d110ecfa1b3c25",
+    "results/stack-high-1f/morning-native.json": "5235f23fc08ceb363be57ff191fcd797c60d1d9eda7d97a894e04887a9b074f6",
+    "results/stack-high-1f/morning-reference.json": "2eaba788ca6e120ef7d8d40d8c859ca3a148929557ca0786a8916e61cbfb4dcf",
+    "results/stack-high-1f/full-comparison.json": "6ec23c5e746f3b9e93d53beccf13aa62681358db42add55e8745fc070ce7c348",
+    "results/stack-high-1f/baseline-6a33.json": "40ff20401e2cf02c9473a126667ca0cdc6f3647c544f6ec67ad3111d30509ee4",
+    "results/stack-high-1f/full-tests.log": "a070dc6dea5fad54153ec82085cd9486ad515c41adc32c116530ce488a10f191",
+    "results/final-solution/witness-native-reference.json.gz": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "src/text.mjs": "012347d406bc95226d0d78df436b8e4d0861dfd15039b97c8cfb1f384142835a",
+    "src/random-display.mjs": "6bacb2f1d8ba2b4f6e8b857712a11f8c38bc6a0951f36b4b5b5593fa9df8f8ff",
+    "src/game.mjs": "987dd0a83017c42c29cf25390ca956b517ebcd50ab58bddf9cb0e5f6df1f64a2",
+    "src/npc-runtime.mjs": "3711e019485d09d2a5f5cd2af1d9674fb27a45b6a3c7a10daa83f9685f35654e"
+  }
+}

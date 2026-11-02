@@ -1,5 +1,27 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 2 novembre 2026: [VIDEO-E-STACK-5D1F.md](VIDEO-E-STACK-5D1F.md).
+Superato `$5D1F`: ultimo writer C398/PUSH HL,Holmes0,n di plain,colonna21,
+frameC3885D26,HL5032,tick1653/Tue11:32. Cuoca9 legge H=80 al2566/Wed02:45.
+974store osservati dal1649,0transizioni nonclassificate;nessun80 di ripiego.
+720ABI passaggi;1512ABI arrivi/720eleggibili;138rifiuti completi/129eleggibili.
+Proprietà1F indipendente da1E;LOOK/remote/container,nomi composti,altri errori e
+chiamanti accodati/isolati/relocate restano prudenziali. OldSAVE assente restaunknown.
+Nuovo prefisso positivo: **461checkpoint0–460 finoWed07:30**,6858draw/14610read,
+6860runtimeincl2boot;24attori,arena752,bitmap e futuroLOAD.432checkpoint originali
+sovrapposti identici. Nuova continuazione nativa124checkpoint dal brownprompt11:36.
+Primo checkpoint461 ESCLUSO:originale07:38 leggeA022=0/cuoca9;JSfermo07:36.
+Prossimo limite **A022**:ultimo riferimento al dizionario,già esposto inNpcRuntime.read;
+identificare il vero ultimo writer naturale (A88C/A8B5 sono ingressi noti),noninstallare0.
+La storia conserva viaggi falliti e mancata provaBrown;6ABD e altri finali ancoraaperti.
+Suitefinale1852/1852PASS;baseline6A33 ripetuta521checkpoint finoThu10:00,
+10345draw/22058read,10347runtimeincl2boot;oracolo finale RIUTILIZZATO conSHA.
+Mappa:approfonditiC388–C3E3,D60B–D670,D3D5–D447,CBC2–CC0A,C1FD–C23F e
+workspace5D1F.240istruzioni/449byte riassemblati,0nuovibytegrigi;
+39206documentati/428parziali/1966ignoti su41600. Report:results/stack-high-1f-verification.json.
+Le sezioni seguenti conservano lo storico.
+
+
 Aggiornamento 2 novembre 2026: [PASSAGGI-E-STACK-5D1C.md](PASSAGGI-E-STACK-5D1C.md).
 Superato `$5D1C`: D60B/D658 stampa il qualificatore della porta; la n di plain,
 colonna21,frame5D26,lascia C=5 con PUSH BC aC3B7,tick1653/Tue11:32.

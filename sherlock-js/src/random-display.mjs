@@ -18,13 +18,13 @@ export class RandomDisplay {
   this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');if(!deferPrompt)this.prompt();}
  wideWindow(){const s=this.state;if(!s)return;const next=textWindowControl(false,s.counter);s.windowMode=next.mode;s.cursor=next.cursor;s.remaining=next.remaining;s.started=false;}
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
- scene(text,sceneTrace=[]){this.invalidateGlyphExtras();const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
+ scene(text,sceneTrace=[]){this.invalidateGlyphExtras();const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
    // D5C4 renders the last word of the carrying person's name and the
    // copula via the actor-is text argument. Its glyph frame differs from
    // the literal name in the preceding contents list. A wrapped word also
    // clears a row (C316/C374), publishing the final space's scan state.
    const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
-   this.glyphFrame=role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;
+   this.glyphFrame=role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.glyphVideoHighKnown=role?.videoHighKnown===true;
    this.glyphSpaceDescriptor=null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
@@ -37,7 +37,7 @@ export class RandomDisplay {
    // After a carried-name prefix, A887 emits the separating space from
    // its caller. Filling column 35 clears the next row at that caller depth.
    if(role&&i+1===role.end){this.flush();if(role.spaceClearFrame&&this.state.cursor===35)this.glyphResidue(' ',role.spaceClearFrame,35,0x5A20);if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter))this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphFrame=null;}
-  }}finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.upperGlyphKnown=previousUpper;this.glyphFlagsKnown=previousFlags;}}
+  }}finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphFlagsKnown=previousFlags;}}
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
@@ -48,9 +48,11 @@ export class RandomDisplay {
   // C38B retains the screen address at frame-8. In the cab-name path
   // frame=5D1A, so its high byte owns 5D13 until another known writer.
   // C388 ABI tests distinguish eight frames and both caller counts. The extra 5D1F byte is owned only
-  // in a verified caller scope; scene frames retain their old low-byte
-  // contract and unprojected EXAMINE/statement output revokes ownership.
-  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if(((at>=0x5D20&&at<=0x5D2A)||at===0x5D30)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D2A||at===0x5D30))s[at]=v;};
+  // in a verified caller scope. The passage qualifier independently owns
+  // video H; other scene and unprojected statement callers remain unowned.
+  // D658 passage prefix, C388/SP5D26: C38B/C398 save video H at1F.
+  // Other scene roles do not gain ownership of1F or neighbouring1E.
+  const put=(at,v)=>{if((at>=0x5D1A&&at<=0x5D1D)&&this.glyphFlagsKnown!==true){delete s[at];return;}if(((at>=0x5D20&&at<=0x5D2A)||at===0x5D30)&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1E&&this.upperGlyphKnown!==true){delete s[at];return;}if(at===0x5D1F&&this.upperGlyphKnown===false&&!(this.glyphVideoHighKnown===true&&frame===0x5D26)){delete s[at];return;}if(at>=0x5CEC&&(at<=0x5D2A||at===0x5D30))s[at]=v;};
   // C389 retains caller C at frame-4 (5D26 for frame5D2A).
   // This is supplied by the pixel-column calculation, not a global shift2.
   // The later proper room prefix uses frame5D32: saved scan F supersedes
@@ -103,9 +105,9 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserveFlags=false,preserveLow=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D30);}
+ invalidateGlyphExtras({preserveFlags=false,preserveLow=false,preserve1F=false}={}){this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D30,preserve1F?0x5D1F:null);}
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D30){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to)delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D30,except=null){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&Number(at)!==except)delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-8,35,0x5A20);this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
@@ -138,7 +140,7 @@ export class RandomDisplay {
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
- write(text,{leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras({preserveLow});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false,preserve1F=false}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras({preserveLow,preserve1F});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
  repeat(){this.setChannel(0);const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
@@ -155,7 +157,7 @@ export class RandomDisplay {
  }
  // Lower-channel rejection preserves low stack only for callers separately proved
  // by the complete original pipeline. Clarifications and other errors revoke it.
- error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras({preserveLow:messages.length>0&&messages.every(m=>m.preserve_renderer_low===true)});if(this.world.npcs)this.world.npcs.dictionaryReference=null;
+ error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras({preserveLow:messages.length>0&&messages.every(m=>m.preserve_renderer_low===true),preserve1F:messages.length>0&&messages.every(m=>m.preserve_renderer_1f===true)});if(this.world.npcs)this.world.npcs.dictionaryReference=null;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
   // including the dictionary's initial space; CR scrolls before the prompt.
   for(const[i,message]of messages.entries())this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));

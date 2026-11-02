@@ -1,0 +1,42 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 240,
+  "bytes_roundtripped": 449,
+  "regions": [
+    {
+      "start": "D60B",
+      "end_exclusive": "D671",
+      "kind": "code",
+      "label": "Descrizione dei passaggi: cornice del qualificatore prima del nome della porta",
+      "atlas_priority": 163
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome qualificato: il sostantivo finale scarica il prefisso",
+      "atlas_priority": 163
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo e residuo BC: shift orizzontale e scansione salvati sullo stack",
+      "atlas_priority": 163
+    },
+    {
+      "start": "CBC2",
+      "end_exclusive": "CC0B",
+      "kind": "code",
+      "label": "Arrivo di un attore: nomi propri semplici contro nomi composti",
+      "atlas_priority": 163
+    },
+    {
+      "start": "C1FD",
+      "end_exclusive": "C240",
+      "kind": "code",
+      "label": "Canale inferiore: percorso ordinario degli errori e a capo",
+      "atlas_priority": 163
+    }
+  ]
+}

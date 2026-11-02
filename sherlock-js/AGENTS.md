@@ -1192,3 +1192,27 @@ Suitefinale1844/1844PASS,baseline6A33 ripetuta521checkpoint/10345draw/22058read,
 Atlante240istruzioni/449byte;nuovi73bytegrigiCBC2–CC0A documentati. Approfondimenti
 D60B–D670,D3D5–D447,C388–C3E3,C1FD–C23F,workspace5D1C.39206/428/1966su41600.
 Riferire zone/orari;non confondere limite raggiuntoJS conultimo checkpoint positivo.
+
+Seguito5D1F:leggere VIDEO-E-STACK-5D1F.md e results/stack-high-1f-verification.json.
+Traccia naturale completa da talkprompt,osservatore dal1649/Tue11:28:974store su1E/1F,
+0transizioni nonclassificate. Ultimo1F=C398/PUSH HL,SP5D20,ingressoC3885D26,
+Holmes0,n di plain,colonna21,HL5032,tick1653/Tue11:32,returnD65B. Cuoca9 legge80
+al2566/Wed02:45. DerivareH dalla geometria,nonretrofit80 né dedurlo da1E.
+Proiezione1F solo nel prefisso qualificatoD658 dopo movimento;LOOK5D2A haaltro ruolo
+(Afont),remote/container restano ignoti.720ABI passaggi,ogni1F reso noto confrontato.
+1512ABI CBC2:720eleggibili propri semplici preservano1A–1F,128controesempi non eleggibili.
+129rifiuti completi eleggibili su138preservano1F. Solo ordinaryAction e rifiuti semplici
+provati ricevono metadata1F;queued/isolated/relocate,nomi composti,chiarimenti,prosa e
+altri errori no.1E rimane indipendente;preservareunknown nonrende noto. SAVE invariato,
+vecchi1F assenti restanounknown fino a vero writer. NessunCPU/snapshot/replay nelmotore.
+433checkpoint originali finoWed02:47 passano anche nelnuovo test;estensione naturale
+riacquisita dal brownprompt11:36,124checkpoint.432sovrapposti identici. Nuovo certificato
+461checkpoint0–460 finoWed07:30,6858draw/14610read,6860runtimeincl2boot;24attori,
+arena752,bitmap e futuroLOAD. Checkpoint461 ESCLUSO:originale07:38 leggeA022=0/cuoca9;
+JSfermo07:36. ProssimoA022:dictionaryReference già mappato daNpcRuntime.read;
+A88C/A8B5 scrivono ilcampo,ma ultimo writer naturale ancoraignoto. Noninstallare0.
+Suitefinale1852/1852PASS;baseline6A33 ripetuta521checkpoint/10345draw/22058read,
+10347runtimeincl2boot,pausa/freeze;oracolo finale RIUTILIZZATO conSHA.
+Mappa approfonditaC388–C3E3,D60B–D670,D3D5–D447,CBC2–CC0A,C1FD–C23F,
+workspace5D1F.240istruzioni/449byte,0nuovigrigi:39206/428/1966su41600.
+6ABD e altri finali naturali ancoraaperti;nonconfondere oraJS e checkpoint certificato.
