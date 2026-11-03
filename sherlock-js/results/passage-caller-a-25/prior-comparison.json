@@ -1,0 +1,22 @@
+[
+  {
+    "label": "brown-video-low-and-flags",
+    "passed": true,
+    "checkpoints": 491,
+    "random_draws": 7535,
+    "clock": {
+      "tick": 3104,
+      "due": 3781,
+      "day": 2,
+      "minute": 43,
+      "hour": 11,
+      "period": "am",
+      "label": "Wed 11:43am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 295,
+  "bytes_roundtripped": 524,
+  "regions": [
+    {
+      "start": "C2BA",
+      "end_exclusive": "C306",
+      "kind": "code",
+      "label": "Canale superiore: A conservato prima del renderer",
+      "atlas_priority": 175
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: carattere A del chiamante e altri ruoli di 5D25",
+      "atlas_priority": 175
+    },
+    {
+      "start": "C316",
+      "end_exclusive": "C388",
+      "kind": "code",
+      "label": "Scroll: salvataggi esterni e revoca dei chiamanti non ricostruiti",
+      "atlas_priority": 175
+    },
+    {
+      "start": "D60B",
+      "end_exclusive": "D671",
+      "kind": "code",
+      "label": "Passaggi: codice del carattere conservato a 5D25",
+      "atlas_priority": 175
+    },
+    {
+      "start": "CBC2",
+      "end_exclusive": "CC0B",
+      "kind": "code",
+      "label": "Arrivi propri semplici: conservazione provata fino a 5D25",
+      "atlas_priority": 175
+    },
+    {
+      "start": "C1FD",
+      "end_exclusive": "C240",
+      "kind": "code",
+      "label": "Rifiuti semplici: conservazione indipendente di 5D25",
+      "atlas_priority": 175
+    }
+  ]
+}

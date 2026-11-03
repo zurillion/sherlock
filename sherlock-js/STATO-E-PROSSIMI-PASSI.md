@@ -1,5 +1,39 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 3 novembre 2026: [CARATTERE-SALVATO-E-5D25.md](CARATTERE-SALVATO-E-5D25.md).
+Superato **$5D25**: nel frame C388/SP5D26 il PUSH AF aC388 conserva A,
+il codice del carattere emesso. Writer naturale Holmes0,n di plain,AF6E0A,
+tick1653/martedì11:32;giardiniere8 legge110 al3102/mercoledì11:41.
+Traccia estesa fino alla lettura successiva:904store su24/25(452 per byte),
+zero transizioni non classificate;sequenza identica alla precedente fermata
+al3012,nessun ulteriore store fra i due read. Nessun110 fisso o inferito daF24.
+Riutilizzate con hash1296ABI originali dei sei ruoli e720geometrie D60B:
+290 valori noti coincidenti,430 ignoti. Test del modello per96codici supportati,
+non nuova acquisizione nativa96glifi. Riutilizzati1512arrivi/720eleggibili e
+138pipeline/129eleggibili che preservano25;792arrivi non eleggibili e5dei9altri
+errori cambiano il marker. LOOK/remote/container,qualified ecallerqueued/isolated/
+relocate restano fuori. Clear profondi,wrap finale e nomi successivi nonproiettati
+revocano;assenze dei vecchi SAVE restano ignote anche conF24 noto.
+Nuovo certificato: **500checkpoint0–499 fino a mercoledì13:10**,
+7755draw/16512read,7757runtime incluse2boot;24attori,arena752,bitmap ai
+checkpoint e futuro LOAD anche a ogni minuto delle attese. Tutti491checkpoint
+originali precedenti identici e interamente positivi;nuova continuazione163 da
+Brown11:36,con campioni2928/3014/3104 conservati. SAVE breve JS verificato
+contro l'intero mondo del replay finale,nessuna RAM originale importata.
+**Prossimo $5D20**: JS fermo tick3195/mercoledì13:14. Primo checkpoint escluso500,
+originale13:16,lettura11 per cuoca9. Writer naturale ancora ignoto: non dedurlo
+come E del buffer dal frame vicino,dal valore11 o dal precedente writer di25.
+Suitefinale **1883/1883PASS**;baseline6A33 ripetuta521checkpoint finoThu10:00,
+10345draw/22058read,10347runtime incluse2boot,pausa efreeze terminali.
+Oracolo terminale riutilizzato con hash.6ABD e altri finali naturali aperti;
+questa storia mantiene viaggi falliti e prova Brown non recuperata.
+Mappa: approfonditi **C2BA–C305,C316–C387,C388–C3E3,D60B–D670,CBC2–CC0A,
+C1FD–C23F** eworkspace25;mantenuti i commenti precedenti sui salvataggi video.
+295istruzioni/524byte riassemblati,zero cambi di classificazione,nessun nuovo
+bytegrigio:39364documentati/428parziali/1808ignoti su41600.
+Report: `results/passage-caller-a-25-verification.json`. Le sezioni sotto sono storico.
+
+
 Aggiornamento 3 novembre 2026: [VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md](VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md).
 Superati **$5D1E e $5D24**, due ingressi della stessa estrazione del giardiniere8
 al tick3012 / mercoledì10:11. I writer naturali sono C398/PUSH HL (L video)

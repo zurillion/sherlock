@@ -205,7 +205,7 @@ export class Text {
     // D658 calls D3D5 for the passage. Article/qualifier words flush
     // before the noun at frame26 (arrival), frame2A (LOOK). Container and
     // remote callers keep their separate, unowned stack contracts.
-    if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,videoHighKnown:frame===0x5D26,videoLowKnown:frame===0x5D26,callerBKnown:frame===0x5D26,callerFlagsKnown:frame===0x5D26,spaceAfter:true,spaceClearFrame:frame+4});}
+    if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,videoHighKnown:frame===0x5D26,videoLowKnown:frame===0x5D26,callerBKnown:frame===0x5D26,callerFlagsKnown:frame===0x5D26,callerAKnown:frame===0x5D26,spaceAfter:true,spaceClearFrame:frame+4});}
    }
   }};
   const describe=()=>{

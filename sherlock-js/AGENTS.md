@@ -1305,3 +1305,34 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   CBC2–CC0A,C1FD–C23F and workspace1E/24. No newly gray bytes or classification
   changes;39364 documented/428 partial/1808 unknown of41600. Report zones and
   clocks explicitly; source classification is not full gameplay equivalence.
+
+
+- Read CARATTERE-SALVATO-E-5D25.md and results/passage-caller-a-25-verification.json.
+  Brown25 now comes from caller A,C388/PUSH AF at frame5D26. Natural writer:
+  Holmes0,n of plain,AF6E0A,tick1653/Tue11:32;gardener8 reads110 at3102/Wed11:41.
+  Extended original24/25 observation has904 stores(452 per byte),zero unclassified
+  transitions,identical full store sequence to the earlier trace ending3012:
+  no new writes before the later read. Derive emitted-character code,not110
+  and not an inverse of F24. A and F have independent ownership;old SAVE missing
+  25 stays unknown even with24 known. Reused1296 original glyph ABI,720 passage
+  geometries(290 owned matches),1512 arrivals/720 eligible,138 errors/129 eligible.
+  All792 noneligible arrivals and5 of9 other errors change marker25. The96-code
+  runtime character test is NOT a new original96-glyph acquisition. LOOK/remote/
+  container,qualified arrivals,queued/isolated/relocate and other errors remain
+  outside the new contract. Outer clear saves,final pending-word wraps and later
+  unprojected names revoke25. Keep the other six physical roles and real C374
+  returnC377 distinct;source video annotations were retained in the atlas.
+  Current positive certificate500 checkpoints0–499 throughWed13:10,7755draw/
+  16512read,7757 including boot;all24 actors,752 arena bytes,original bitmaps at
+  checkpoints and every-minute LOAD future. All491 old native checkpoints are
+  identical and pass;163 continuation rows from Brown11:36,extra samples2928/
+  3014/3104 only. Next boundary5D20:JS3195/Wed13:14;first excluded checkpoint500
+  natively13:16 reads11 for cook9. Its last writer is untraced:do not infer it
+  from11,a neighbouring frame or the previous25 writer. Natural6ABD and other
+  pending endings remain open;this history retains failed journeys/missing
+  Brown proof. Suite1883/1883;6A33 baseline521 throughThu10:00 repeated,
+  10345draw/22058read,10347 including boot;terminal oracle reused with SHA.
+  Atlas295 instructions/524 bytes:refineC2BA–C305,C316–C387,C388–C3E3,D60B–D670,
+  CBC2–CC0A,C1FD–C23F and workspace25;no gray or classification changes,
+  39364 documented/428 partial/1808 unknown of41600. Report zones and clocks
+  explicitly;source byte classification is not full gameplay equivalence.

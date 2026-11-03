@@ -1,0 +1,19 @@
+{
+  "protocol": "Unmodified full original Brown prompt resumed offline. Extra samples2928/3014/3104 retain all491 old native checkpoints exactly. No actor,PC,RAM,proof or position patch.",
+  "initial_prefix_checkpoints": 338,
+  "new_continuation_checkpoints": 163,
+  "total_checkpoints": 501,
+  "identical_old_checkpoints": 491,
+  "extra_checkpoint_ticks": [
+    2928,
+    3014,
+    3104
+  ],
+  "through_tick": 3197,
+  "sha256": {
+    "results/murder-ending/native-brown-full.json": "6455af47ec5d2b678511d8a79b2ad5dff17150e13c8ee4eb9a9f6b7fa828c5d4",
+    "results/stack-low-1e/extended-reference.json": "341f63347107ec2fc3cf2ef8d1bd69e22aefff0d76b258143e780c28b4eae093",
+    "results/passage-caller-a-25/extended-native.json": "09e92d0d3566eb273599f4211faeae73f4238246c0ad704946d06a5a074bfdd5",
+    "results/cab-stack-15/lookahead-manifest.json": "fad8477120b66f57b3d25c3f04ece6742ed28bd82a88ba052e26c1104f0b79ee"
+  }
+}

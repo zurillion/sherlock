@@ -1,0 +1,25 @@
+{
+  "protocol": "Existing original ABI evidence reused unchanged with SHA256. C388 frames26/28/2A/2C/2E/30 distinguish six roles of25. Whole passage,arrival and error captures already include25; this turn inspects its ownership independently rather than inheriting24.",
+  "sources": [
+    {
+      "path": "test/fixtures/glyph-address-high-abi.json",
+      "sha256": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28",
+      "selected_cases": 1296
+    },
+    {
+      "path": "results/stack-low-1e/flags-24/passage-abi.json",
+      "sha256": "e88bd603dc1080d1f4ab8dc981cbb4339d5dab56ceb4050dec41093aac9f0452",
+      "selected_cases": 720
+    },
+    {
+      "path": "results/stack-low-1e/flags-24/arrival-low-abi.json",
+      "sha256": "db388223f340cb530ead144918ed410fdfd9d6c8e62141d66d3c993b6e567381",
+      "selected_cases": 1512
+    },
+    {
+      "path": "results/stack-low-1e/flags-24/simple-error-abi.json",
+      "sha256": "839cfb504eaaca21a943d5b253c9141de8dff7d40336a8bad4083f5e1803e184",
+      "selected_cases": 138
+    }
+  ]
+}
