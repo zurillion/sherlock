@@ -1,5 +1,39 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 3 novembre 2026: [VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md](VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md).
+Superati **$5D1E e $5D24**, due ingressi della stessa estrazione del giardiniere8
+al tick3012 / mercoledì10:11. I writer naturali sono C398/PUSH HL (L video)
+e C388/PUSH AF (F chiamante), Holmes0, n di plain, frameC3885D26,
+tick1653 / martedì11:32. 974 scritture su1E/1F (487 per byte),904 su24/25
+(452 per byte),nessuna transizione non classificata. L segue la colonna del
+glifo; F deriva dal CP0D diC2C6/C2EE: n10,q26. Nessun50/10 fisso.
+Riutilizzate con hash1296 ABI per indirizzo e il vettore CP originale256;
+confrontati tutti96 glifi supportati. Nuove720 geometrie D60B:290 valori noti
+coincidenti per campo,19 valori distinti diL. Nuovi1512 arrivi/720 eleggibili
+e138 pipeline errore/129 eleggibili preservano i due campi. Marker nativi fino25
+non implicano proprietà runtime di25. LOOK/remote/container,nomi composti,
+caller queued/isolated/relocate e altri errori restano fuori. Pulizie e nomi
+successivi non proiettati revocano; proprietà indipendenti e vecchi SAVE ignoti.
+Nuovo certificato: **490 checkpoint0–489 fino a mercoledì11:40**,
+7525 draw/16046 read,7527 runtime incluse2 iniziali;24 attori,arena752,
+bitmap ai checkpoint e futuro LOAD anche a ogni minuto delle attese.
+481 checkpoint originali precedenti identici e ora interamente positivi;
+nuova continuazione153 da Brown11:36,con campioni2928 e3014 conservati.
+**Prossimo $5D25**: JS fermo tick3102 / mercoledì11:41; primo checkpoint escluso490
+nell’originale11:43 legge110 per il giardiniere8. La traccia su24/25 termina
+alla lettura precedente3012: non prova l’ultimo writer alla nuova lettura3102;
+non inferirlo dal vicino24 né dal valore110. Occorre estendere la provenienza.
+Suitefinale **1876/1876 PASS**; baseline6A33 ripetuta521 checkpoint fino a
+giovedì10:00,10345 draw/22058 read,10347 runtime incluse2 boot,pausa e freeze.
+Oracolo terminale riutilizzato con hash.6ABD e altri finali naturali ancora
+aperti; la storia mantiene viaggi falliti e prova Brown non recuperata.
+Mappa: approfonditi **C2BA–C305,C316–C387,C388–C3E3,D60B–D670,CBC2–CC0A,
+C1FD–C23F** e workspace1E/24;295 istruzioni/524 byte riassemblati. Zero byte
+cambiati di classificazione e nessun nuovo grigio:39364 documentati,428 parziali,
+1808 ignoti su41600. Report: `results/stack-low-1e-verification.json`.
+Le sezioni sotto conservano lo storico.
+
+
 Aggiornamento 2 novembre 2026: [CONTEGGIO-DELLA-PAROLA-E-5D23.md](CONTEGGIO-DELLA-PAROLA-E-5D23.md).
 Superato **$5D23** nel percorso Brown: `$C389/PUSH BC` salva B del chiamante
 nel frame C388 a $5D26. Writer naturale: Holmes 0, `n` di `plain`, tick 1653,

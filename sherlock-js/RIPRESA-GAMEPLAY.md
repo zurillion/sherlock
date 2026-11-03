@@ -3,17 +3,18 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [CONTEGGIO-DELLA-PAROLA-E-5D23.md](CONTEGGIO-DELLA-PAROLA-E-5D23.md).
-Il punto di ripresa attuale è **$5D1E nella continuazione Brown**: 480 checkpoint
-certificati fino a mercoledì 10:10; JS fermo al tick 3012 / 10:11, primo checkpoint
-escluso 480 nell'originale alle 10:13, lettura 50 del giardiniere 8. Cercare il
-vero writer naturale: non dedurre il byte basso dal vicino alto. `$5D23` è ora
-ricostruito come B del chiamante nel prefisso del passaggio, non come un 1 fisso.
-La baseline del finale $6A33 resta verificata attraverso giovedì 10:00; non
-estendere questo certificato alla continuazione Brown o agli altri finali.
-Lo stato dettagliato e i limiti successivi sono in STATO-E-PROSSIMI-PASSI.md e
-results/stack-23-verification.json. L'elenco seguente conserva gli obiettivi e
-le precedenti tappe, senza sostituire il punto di ripresa corrente.
+Aggiornamento corrente: [VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md](VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md).
+Il punto di ripresa attuale è **$5D25 nella continuazione Brown**:490 checkpoint
+certificati fino a mercoledì11:40. JS fermo al tick3102 / 11:41; primo checkpoint
+escluso490,nativamente11:43,lettura110 del giardiniere8. Estendere la traccia
+naturale fino a quella lettura: le nuove scritture24/25 sono state osservate
+solo fino al precedente read3012. Non inferire il writer dal vicino o dal valore.
+Superati1E e24 nello stesso draw precedente: videoL calcolato dalla colonna e
+F del CP0D variabile col carattere,n10/q26. Marker nativi fino25 non equivalgono
+alla sua proprietà nel motore. La baseline6A33 resta verificata finoThu10:00;
+non estendere questo certificato al ramo Brown o agli altri finali. Vedi stato
+dettagliato e results/stack-low-1e-verification.json. L’elenco seguente conserva
+obiettivi e tappe precedenti,senza sostituire il punto di ripresa corrente.
 
 1. **Prima storia del ramo witness verificata fino al finale6A33.**
    521 checkpoint0–520 da lunedì08:00 a giovedì10:00; tutti24 i posti attore,

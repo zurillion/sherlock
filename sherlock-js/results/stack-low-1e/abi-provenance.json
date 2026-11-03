@@ -1,0 +1,80 @@
+{
+  "protocol": "Existing offline original ABI evidence reused unchanged with SHA256; no new ABI acquisition. Glyph frames20/22 from count ABI,24/26/28/2A from high-address ABI. Each selected original cell1E is inspected independently of its neighbour1F.",
+  "sources": [
+    {
+      "path": "test/fixtures/glyph-count-abi.json",
+      "sha256": "a3b2eac6243a884dfa745e7d93cf54553ae246332ecb62dc7cb64a4224618101",
+      "selected_cases": 432
+    },
+    {
+      "path": "test/fixtures/glyph-address-high-abi.json",
+      "sha256": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28",
+      "selected_cases": 864
+    },
+    {
+      "path": "results/stack-23/passage-abi.json",
+      "sha256": "839efc80867be6c021cfbfe5f8919c24200e28c55197ab1ada429d790ca178f8",
+      "selected_cases": 720
+    },
+    {
+      "path": "results/stack-23/arrival-low-abi.json",
+      "sha256": "d33b50d0968b7ccff2e08ba053867a83cf11c0bf364a8109dbeef6ef43d73037",
+      "selected_cases": 1512
+    },
+    {
+      "path": "results/stack-23/simple-error-abi.json",
+      "sha256": "c93447a7c7fbf89f5240ea334439b498e5851cc11e177e71248be84abdda4840",
+      "selected_cases": 138
+    }
+  ],
+  "additional_reused": [
+    {
+      "path": "results/glyph-caller-flags-30/glyph-abi.json",
+      "sha256": "9ec8a20c533cf57e76820c0f0f26639e233620ad456a1230b1a19dd543fed637",
+      "cp_flag_values": 256
+    }
+  ],
+  "glyph_selection_by_address": {
+    "5D1E": {
+      "count_abi_frames": [
+        "5D20",
+        "5D22"
+      ],
+      "high_address_abi_frames": [
+        "5D24",
+        "5D26",
+        "5D28",
+        "5D2A"
+      ],
+      "cases": 1296
+    },
+    "5D24": {
+      "high_address_abi_frames": [
+        "5D26",
+        "5D28",
+        "5D2A",
+        "5D2C",
+        "5D2E",
+        "5D30"
+      ],
+      "cases": 1296
+    }
+  },
+  "new_abi": [
+    {
+      "path": "results/stack-low-1e/flags-24/passage-abi.json",
+      "sha256": "e88bd603dc1080d1f4ab8dc981cbb4339d5dab56ceb4050dec41093aac9f0452",
+      "cases": 720
+    },
+    {
+      "path": "results/stack-low-1e/flags-24/arrival-low-abi.json",
+      "sha256": "db388223f340cb530ead144918ed410fdfd9d6c8e62141d66d3c993b6e567381",
+      "cases": 1512
+    },
+    {
+      "path": "results/stack-low-1e/flags-24/simple-error-abi.json",
+      "sha256": "839cfb504eaaca21a943d5b253c9141de8dff7d40336a8bad4083f5e1803e184",
+      "cases": 138
+    }
+  ]
+}

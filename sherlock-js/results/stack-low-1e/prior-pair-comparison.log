@@ -1,0 +1,22 @@
+[
+  {
+    "label": "brown-stack23-extended",
+    "passed": true,
+    "checkpoints": 481,
+    "random_draws": 7293,
+    "clock": {
+      "tick": 3014,
+      "due": 3781,
+      "day": 2,
+      "minute": 13,
+      "hour": 10,
+      "period": "am",
+      "label": "Wed 10:13am"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]

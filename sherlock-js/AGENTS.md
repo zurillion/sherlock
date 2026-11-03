@@ -1272,3 +1272,36 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   plus workspace23;287 instructions/501 bytes roundtripped. No new gray bytes;
   39364 documented/428 partial/1808 unknown of41600. Report zones and clock
   explicitly in chat; source coverage is not complete gameplay equivalence.
+
+
+- Read VIDEO-FLAG-E-ESTRAZIONE-DEL-GIARDINIERE.md and results/stack-low-1e-verification.json.
+  Current Brown continuation resolves both operands of gardener8's draw at3012:
+  5D1E is video L,C398/PUSH HL;5D24 is caller F,C388/PUSH AF. Both last writers
+  are Holmes0,n of plain,C388/SP5D26,tick1653/Tue11:32. Observe974 writes across
+  1E/1F (487 each),904 across24/25 (452 each),zero unclassified transitions.
+  L follows(5020+floor((2+7*column)/8))&255; F comes from CP0D atC2C6 before
+  C2EE. n10/q26,not fixed50/10. Reused1296 glyph ABI per address plus256 original
+  CP values; all96 supported glyphs compared. New720 passage geometries,290
+  owned matches per field,19 distinct L;1512 arrivals/720 eligible and138 error
+  pipelines/129 eligible preserve1E and24 independently. Do not grant25 because
+  new native markers extend through25. LOOK/remote/container,qualified arrivals,
+  queued/isolated/relocate and unprojected callers remain outside the contract.
+  C316 outer saves,final pending-word wraps and later unprojected names revoke
+  these fields. Old missing SAVE fields stay unknown; high-byte knowledge does
+  not synthesize its low byte. Two older tests now reflect the newly proved1E
+  preservation rather than demanding it remain unknown in every arrival.
+  Current positive certificate490 checkpoints0–489 throughWed11:40,7525draw/
+  16046read,7527 including boot;all24 actors,752 arena bytes,native bitmaps at
+  checkpoints and every-minute LOAD future. All481 old native checkpoints
+  identical and now positive;153 continuation rows from Brown11:36,extra
+  samples2928/3014 only. Next boundary5D25:JS3102/Wed11:41; first excluded
+  checkpoint490 natively11:43 reads110 for gardener8. Its last writer at THIS
+  later read is not traced:24/25 observation ended at3012. Extend the trace,
+  never infer from neighbour24,earlier writer or matching110. Natural6ABD and
+  other pending endings remain open; this history retains failed journeys and
+  missing Brown proof. Suite1876/1876;6A33 baseline521 throughThu10:00 repeated,
+  10345draw/22058read,10347 including boot;existing terminal oracle reused.
+  Atlas295 instructions/524 bytes:refineC2BA–C305,C316–C387,C388–C3E3,D60B–D670,
+  CBC2–CC0A,C1FD–C23F and workspace1E/24. No newly gray bytes or classification
+  changes;39364 documented/428 partial/1808 unknown of41600. Report zones and
+  clocks explicitly; source classification is not full gameplay equivalence.

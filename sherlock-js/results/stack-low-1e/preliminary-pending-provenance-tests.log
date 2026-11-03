@@ -1,0 +1,22 @@
+✖ Natural passage writers independently identify video L and caller F at the same gardener draw (32.741125ms)
+✔ Original glyph ABI distinguishes six physical roles for each low-byte input (113.917084ms)
+✔ Every owned passage L/F agrees across720 original geometries, while LOOK remains unowned (341.740042ms)
+✔ Caller F follows original CP0D for every supported glyph, including n10 and q26 (34.322667ms)
+✔ Original ordinary arrivals and simple error controls preserve1E and24 independently (203.037625ms)
+✔ Low video, high video, caller flags and old SAVE missing fields have separate ownership (61.993916ms)
+✔ Later unprojected names and the final pending-word wrap revoke both new contracts (34.798916ms)
+✔ Short ordinary JS history reconstructs both writers and preserves them through SAVE/LOAD (631.958042ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2378.524334
+
+✖ failing tests:
+
+test at test/passage-low-and-flags.test.mjs:9:1
+✖ Natural passage writers independently identify video L and caller F at the same gardener draw (32.741125ms)
+  [Error: ENOENT: no such file or directory, open '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/stack-low-1e/flags-24/natural-stores.json'] { errno: -2, code: 'ENOENT', syscall: 'open', path: '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/stack-low-1e/flags-24/natural-stores.json' }
