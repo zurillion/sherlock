@@ -1,5 +1,31 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 11 novembre 2026: [DESCRITTORE-ALTO-E-FONT-5D21-5D27.md](DESCRITTORE-ALTO-E-FONT-5D21-5D27.md).
+Superati **$5D21 e $5D27**, operandi del giardiniere8 a3288/mercoledì14:47.
+21 è D del descrittore effettivo salvato daC38A/frame26;27 è A,byte del font
+prima delle rotazioni,salvato daC3B8/frame32 durante lo spazio. Writer Holmes0,
+1653/martedì11:32.3020store identici alla traccia precedente,zero non classificati;
+nessuna nuova scrittura finoalla lettura3288. Calcolare descriptor>>>8 e glyph[7],
+non costanti92/0 e non inferenze dai vicini20/26. Proprietà indipendenti;
+oldSAVE assente resta ignoto. Arrivi27 solo conriga fresca/budgetcounter prima
+MORE;20dei720arrivi propri controllati lo sovrascrivono facendo wrap.
+ABI originali riutilizzate conSHA,1296glifi perbyte,144varianti descrittore,
+720passaggi/290match posseduti perbyte,1512arrivi,300riga fresca,138errori/129semplici.
+Certificato: **520checkpoint0–519 fino a mercoledì16:10**,
+8221draw/17516read,8223runtime incluse2boot;24attori,arena752,bitmap e futuroLOAD
+anche ogni minuto.511vecchi checkpoint originali identici;continuazione183righe.
+**Prossimo $5D22**: JS fermo3377/mercoledì16:16;checkpoint520 escluso,
+originale16:18,cuoca9 legge5. Traccia writer termina3288:estenderla,
+non attribuire la lettura a un precedente store di22 o alvalore osservato.
+Baseline6A33 ripetuta521checkpoint finoThu10:00,10345draw/22058read,10347incl.boot;
+6ABD ealtri finali ancoraaperti,viaggi falliti eprova Brown mancante conservati.
+Mappa:approfonditiC388–C3E3,C316–C387,C2BA–C305,D60B–D670,CBC2–CC0A,
+C1FD–C23F,A815–A82E,A887–A8B8,D3D5–D447 eworkspace21/27.
+395istruzioni/715byte riassemblati;zero nuovi byte sottratti algrigio,
+39364documentati/428parziali/1808ignoti su41600. Le sezioni sotto sono storico.
+Test definitivi:1891preesistenti più8nuovi,**1899/1899PASS**,zero errori o skip.
+Report:results/passage-descriptor-high-21-verification.json.
+
 Aggiornamento 11 novembre 2026: [DESCRITTORE-E-SPAZIO-5D20-5D26.md](DESCRITTORE-E-SPAZIO-5D20-5D26.md).
 Superati **$5D20 e $5D26**, due operandi della cuoca9 al tick3195/mercoledì13:14.
 Writer20:C38A/PUSH DE,n di plain,frame5D26,DE5C0B;writer26:C3B8/PUSH AF,

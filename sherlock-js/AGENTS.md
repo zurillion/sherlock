@@ -1368,3 +1368,30 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   C2BA–C305,C316–C387,C388–C3E3,D60B–D670,CBC2–CC0A,C1FD–C23F and workspace20/26.
   No newly gray bytes or classification changes;39364/428/1808 of41600.
   Report zones and clocks;static source classification is not gameplay parity.
+
+
+- Read DESCRITTORE-ALTO-E-FONT-5D21-5D27.md and results/passage-descriptor-high-21-verification.json.
+  Gardener8 reads21/27 at3288/Wed14:47.21 is D of the actual descriptor5C0B,
+  C38A/PUSHDE during n ofplain atframe26;27 is rawglyph[7],A before rotations,
+  C3B8/PUSHAF during the following space atframe32. Both writersHolmes0,
+  1653/Tue11:32.3020store sequence identical to previous20trace;no new store
+  until3288,zero unclassified. Contiguous RAM slice equality optimization
+  still independently records same-value PUSH/CALL. No fixed5C/0 or coupling
+  to20/26. Preserve independent high/low and scan/font ownership;missing old
+  SAVE staysunknown. Reused originalABIs withSHA:1296roles/byte,144descriptor
+  variants,720passage/290owned matches,1512arrival/720eligible,20wrapped arrivals
+  overwrite27,300freshrow preserve27,129simple errors preserve both. Runtime27
+  retains cursor0,remaining36,pendingempty,spacing0,namefits,counter+2<15;
+  newWatson counter test accepts13/15. Laternames,deepclears,wraps,pendingMORE,
+  nonordinary callers revoke unsupported ownership. No nativeRAM import.
+  Certificate520checkpoints0–519 throughWed16:10,8221draw/17516read,8223incl.boot,
+  all24actors,arena752,bitmaps and every-minuteLOADfuture.511old native rows
+  identical andpass;newcontinuation183,extra3290 plusolder4samplers. Next5D22:
+  JS3377/Wed16:16;nativefirstexcluded520 at16:18,cook9 reads5. Writertrace ends
+  3288;extend before attributing the later22writer,never use oldstore/value.
+  Baseline6A33 repeated521 throughThu10:00,10345draw/22058read,10347incl.boot;
+  natural6ABD and other pending endings open,failedjourneys/missingBrownproof
+  retained. Atlas395instructions/715bytes,same9codezones andworkspace21/27;
+  no newgray/classchange,39364/428/1808 of41600. Existing1891tests and new8module
+  run separately on finalruntime;report checks both logs,aggregate1899.
+  Preliminary missing-provenance-file invocation is retained,not a positive.

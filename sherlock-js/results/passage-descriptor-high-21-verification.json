@@ -1,0 +1,595 @@
+{
+  "implemented": true,
+  "runtime": "Independent high descriptor D at frame5D26 and raw font byte A before rotation at frame5D32. Derived by autonomous JS; no CPU, native RAM import, fixed5C/0, recorded sequence or old-SAVE repair.",
+  "natural_writers": {
+    "protocol": "Restore complete original Jones-confession prompt unchanged; ordinary DROP/cab history and WAIT UNTIL11PM/10AM/11PM. Observe instructions from tick1649 (11:28), before the scene print, including identical stack writes. No RAM/register/PC/proof patches; no native state imported into JS. Observation window does not claim earlier last writers.",
+    "observed_writes": 3020,
+    "stores_per_address": {
+      "5D26": 584,
+      "5D27": 584,
+      "5D24": 452,
+      "5D25": 452,
+      "5D22": 277,
+      "5D23": 277,
+      "5D20": 197,
+      "5D21": 197
+    },
+    "identical_to_previous_store_sequence": true,
+    "unclassified_transitions": 0,
+    "reads": [
+      {
+        "address": "5D21",
+        "value": 92,
+        "clock": {
+          "tick": 3288,
+          "due": 3781,
+          "minute": 47,
+          "hour": 2,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 02:47pm"
+        },
+        "actor": 8,
+        "last_store": {
+          "pc": "C38A",
+          "opcode": [
+            213,
+            229,
+            111
+          ],
+          "sp": "5D22",
+          "af": 28170,
+          "bc": 261,
+          "de": 23563,
+          "hl": 20530,
+          "glyph": {
+            "frame": 23846,
+            "char": 110,
+            "descriptor": 23563,
+            "screen_address": 20530,
+            "shift": 5,
+            "caller_count": 1,
+            "word": "plainen.ined?\u0001"
+          },
+          "actor": 0,
+          "clock": {
+            "tick": 1653,
+            "due": 1653,
+            "minute": 32,
+            "hour": 11,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 11:32am"
+          },
+          "stack": [
+            "0105",
+            "6E0A",
+            "C2F1",
+            "6E0A",
+            "0103",
+            "5C0F",
+            "AA00",
+            "0003",
+            "1312",
+            "526E",
+            "A250",
+            "2028",
+            "A89F",
+            "526E",
+            "0003",
+            "A250",
+            "90CC",
+            "A824",
+            "D445",
+            "0007",
+            "0044",
+            "D3E4",
+            "05C3",
+            "90CC",
+            "D65B",
+            "879C",
+            "8793",
+            "8CBA",
+            "0001",
+            "3000",
+            "D178",
+            "D10D"
+          ],
+          "address": "5D21",
+          "value": 92
+        }
+      },
+      {
+        "address": "5D27",
+        "value": 0,
+        "clock": {
+          "tick": 3288,
+          "due": 3781,
+          "minute": 47,
+          "hour": 2,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 02:47pm"
+        },
+        "actor": 8,
+        "last_store": {
+          "pc": "C3B8",
+          "opcode": [
+            245,
+            62,
+            8
+          ],
+          "sp": "5D28",
+          "af": 0,
+          "bc": 260,
+          "de": 15623,
+          "hl": 22323,
+          "glyph": {
+            "frame": 23858,
+            "char": 32,
+            "descriptor": 21102,
+            "screen_address": 20531,
+            "shift": 4,
+            "caller_count": 0,
+            "word": "plainen.ined?\u0001"
+          },
+          "actor": 0,
+          "clock": {
+            "tick": 1653,
+            "due": 1653,
+            "minute": 32,
+            "hour": 11,
+            "day": 1,
+            "period": "am",
+            "label": "Tue 11:32am"
+          },
+          "stack": [
+            "0104",
+            "5033",
+            "526E",
+            "0004",
+            "201A",
+            "C2F1",
+            "2093",
+            "0003",
+            "A250",
+            "A89F",
+            "526E",
+            "0003",
+            "A250",
+            "90CC",
+            "A824",
+            "D445",
+            "0007",
+            "0044",
+            "D3E4",
+            "05C3",
+            "90CC",
+            "D65B",
+            "879C",
+            "8793",
+            "8CBA",
+            "0001",
+            "3000",
+            "D178",
+            "D10D",
+            "3000",
+            "8CBA",
+            "8793"
+          ],
+          "address": "5D27",
+          "value": 0
+        }
+      }
+    ]
+  },
+  "controlled_original_abi": {
+    "provenance": {
+      "protocol": "Existing original ABI reused unchanged with SHA256; inspect21 and27 independently of previous20/26 knowledge. No new ABI acquisition in this step.",
+      "reused": [
+        {
+          "path": "test/fixtures/glyph-count-abi.json",
+          "sha256": "a3b2eac6243a884dfa745e7d93cf54553ae246332ecb62dc7cb64a4224618101"
+        },
+        {
+          "path": "test/fixtures/glyph-address-high-abi.json",
+          "sha256": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28"
+        },
+        {
+          "path": "results/glyph-descriptor-low/descriptor-abi.json",
+          "sha256": "0c89f3a8f24831bd5a978ce03ba046f53aa9a2fdeffce4c02114697b2fb85a50"
+        },
+        {
+          "path": "results/passage-descriptor-20/wide-abi/passage-abi.json",
+          "sha256": "f04237e9527436d84fd94c10f25a152037c015d5bdb5e0d1c243d647a3214cea"
+        },
+        {
+          "path": "results/passage-descriptor-20/wide-abi/arrival-low-abi.json",
+          "sha256": "cdfa88f8e11786fe88371f80d9c75f93139aae6e527f2e6b0517cba9651a4289"
+        },
+        {
+          "path": "results/passage-descriptor-20/wide-abi/simple-error-abi.json",
+          "sha256": "d35c5002c50210ef06b8cf248f00df961277686d8fe26e121c98ae6120d0b598"
+        },
+        {
+          "path": "results/passage-descriptor-20/wide-abi/arrival-fresh-row-abi.json",
+          "sha256": "778bbd12121d7daf19971b2a1e7aa920277a3195d23c858a3768b935376ea5ed"
+        }
+      ]
+    },
+    "new_abi_acquisitions": 0,
+    "reused_glyph_cases_per_address": 1296,
+    "reused_descriptor_variants": 144,
+    "whole_passage_cases": 720,
+    "owned_matches_per_address": 290,
+    "arrival_cases": 1512,
+    "eligible_preserve21": 720,
+    "eligible_overwrite27": 20,
+    "fresh_row_cases": 300,
+    "fresh_row_counter_range": [
+      0,
+      14
+    ],
+    "runtime_Watson_counter_test_accepted": 13,
+    "runtime_Watson_counter_test_total": 15,
+    "runtime_guard": "counter+2<15;cursor0;remaining36;pending empty;spacing0;name fits",
+    "eligible_errors_preserve_both": 129,
+    "not_natural_reachability_of_all_setups": true
+  },
+  "regression_entry": {
+    "reference": "results/passage-descriptor-high-21/extended-reference.json",
+    "checkpoint": 325,
+    "full_world_equal": true,
+    "save_sha256": "61dd92ec522ec96987639a93f556a10d3810442de037eeeab72aee1e1b7f3956"
+  },
+  "natural_certificate": {
+    "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+    "checkpoints": 520,
+    "certified_checkpoint_range": [
+      0,
+      519
+    ],
+    "clock": {
+      "tick": 3371,
+      "due": 3781,
+      "minute": 10,
+      "hour": 4,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 04:10pm"
+    },
+    "compared_random_draws": 8221,
+    "compared_random_reads": 17516,
+    "runtime_draws_including_two_boot": 8223,
+    "all_actors": 24,
+    "arena_bytes": 752,
+    "bitmaps_compared": true,
+    "load_future_compared": true,
+    "prior_identical_native_checkpoints": 511,
+    "new_native_continuation_checkpoints": 183,
+    "extra_sampler_checkpoint_ticks": [
+      2928,
+      3014,
+      3104,
+      3197,
+      3290
+    ],
+    "full_ending_certified": false
+  },
+  "next_limit": {
+    "address": "5D22",
+    "js_stopped": {
+      "tick": 3377,
+      "due": 3377,
+      "day": 2,
+      "minute": 16,
+      "hour": 4,
+      "period": "pm",
+      "label": "Wed 04:16pm"
+    },
+    "first_excluded_checkpoint": 520,
+    "native_checkpoint": {
+      "tick": 3379,
+      "due": 3781,
+      "minute": 18,
+      "hour": 4,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 04:18pm"
+    },
+    "native_reads": [
+      {
+        "actor": 9,
+        "read": {
+          "address": 23842,
+          "value": 5
+        },
+        "checkpoint_clock": {
+          "tick": 3379,
+          "due": 3781,
+          "minute": 18,
+          "hour": 4,
+          "day": 2,
+          "period": "pm",
+          "label": "Wed 04:18pm"
+        }
+      }
+    ],
+    "last_writer_at_this_later_read_untraced": true,
+    "do_not_infer_from_old_22_store_or_value": true
+  },
+  "baseline_6a33": {
+    "protocol": "Natural seed1, all24 actors, free initial LOOK, native graphics off after boot, injected uppercase keys, immediate MORE. Every random draw/read, full original state, 752 arena bytes, bitmaps and future after LOAD. No patched world or captured-byte fallback.",
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "full_ending_certified": true,
+    "oracle_reused": true,
+    "oracle_sha256": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82"
+  },
+  "tests": {
+    "aggregate_tests": 1899,
+    "aggregate_pass": 1899,
+    "runs": [
+      {
+        "file": "full-tests.log",
+        "tests": 1891,
+        "pass": 1891,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      {
+        "file": "focused-tests.log",
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      }
+    ],
+    "protocol": {
+      "protocol": "All existing tests run now; the new 8-test module runs separately after its independent original provenance artifact is complete. Both invocations use the same final runtime code. CI runs the complete combined suite.",
+      "existing_files": [
+        "test/advanced-npcs.test.mjs",
+        "test/advanced-programs.test.mjs",
+        "test/advanced-wait.test.mjs",
+        "test/all.test.mjs",
+        "test/allocation-link-natural.test.mjs",
+        "test/allocation-link.test.mjs",
+        "test/architecture.test.mjs",
+        "test/argument-check-abi.test.mjs",
+        "test/argument-check-state.test.mjs",
+        "test/basil-user-history.test.mjs",
+        "test/cab-stack-15.test.mjs",
+        "test/cabbie-hello.test.mjs",
+        "test/calendar-waits.test.mjs",
+        "test/clarification-offset.test.mjs",
+        "test/clarification-structure.test.mjs",
+        "test/command-history.test.mjs",
+        "test/command-limits.test.mjs",
+        "test/conversation-topic-table.test.mjs",
+        "test/conversation.test.mjs",
+        "test/dictionary-reference.test.mjs",
+        "test/endings.test.mjs",
+        "test/error-recovery.test.mjs",
+        "test/fact-boundary.test.mjs",
+        "test/feedback.test.mjs",
+        "test/final-solution.test.mjs",
+        "test/follow-cab.test.mjs",
+        "test/gardener-argument-lifetime.test.mjs",
+        "test/glyph-address-high.test.mjs",
+        "test/glyph-address.test.mjs",
+        "test/glyph-byte.test.mjs",
+        "test/glyph-caller-flags-30.test.mjs",
+        "test/glyph-count.test.mjs",
+        "test/glyph-descriptor-low.test.mjs",
+        "test/glyph-flags.test.mjs",
+        "test/glyph-high-role-25.test.mjs",
+        "test/glyph-last-row.test.mjs",
+        "test/glyph-scan-count.test.mjs",
+        "test/glyph-scan-flags.test.mjs",
+        "test/glyph-scan-shift.test.mjs",
+        "test/glyph-shift.test.mjs",
+        "test/glyph-video-low-2a.test.mjs",
+        "test/hosting.test.mjs",
+        "test/information.test.mjs",
+        "test/internal-premises.test.mjs",
+        "test/jones-dialogue.test.mjs",
+        "test/keyboard-profile.test.mjs",
+        "test/language-numbers.test.mjs",
+        "test/language.test.mjs",
+        "test/lestrade.test.mjs",
+        "test/lexical-workspace.test.mjs",
+        "test/list-stack-1c.test.mjs",
+        "test/location-graph.test.mjs",
+        "test/memory-map.test.mjs",
+        "test/model-flags.test.mjs",
+        "test/murder-evidence.test.mjs",
+        "test/name-qualifier-mode.test.mjs",
+        "test/name-qualifier-witness.test.mjs",
+        "test/natural-loss.test.mjs",
+        "test/npc-foundations.test.mjs",
+        "test/npc-handover.test.mjs",
+        "test/objects.test.mjs",
+        "test/other-endings.test.mjs",
+        "test/output-capitalization.test.mjs",
+        "test/output-channel-boundaries.test.mjs",
+        "test/output-channel-witness.test.mjs",
+        "test/output-channel.test.mjs",
+        "test/output-spacing.test.mjs",
+        "test/parser-all-structure.test.mjs",
+        "test/parser-all.test.mjs",
+        "test/parser-counter.test.mjs",
+        "test/parser-mode.test.mjs",
+        "test/parser-token-start.test.mjs",
+        "test/parser.test.mjs",
+        "test/passage-caller-a-25.test.mjs",
+        "test/passage-caller-b-23.test.mjs",
+        "test/passage-descriptor-and-space.test.mjs",
+        "test/passage-low-and-flags.test.mjs",
+        "test/pay-omitted-to.test.mjs",
+        "test/police-transport.test.mjs",
+        "test/proof-working-state.test.mjs",
+        "test/random.test.mjs",
+        "test/record-arena.test.mjs",
+        "test/rejection-dictionary-reference.test.mjs",
+        "test/resolution-mode.test.mjs",
+        "test/room-name-stack.test.mjs",
+        "test/rule-result-lifetime.test.mjs",
+        "test/rule-results.test.mjs",
+        "test/runtime-watson.test.mjs",
+        "test/scheduler.test.mjs",
+        "test/session.test.mjs",
+        "test/shared-door.test.mjs",
+        "test/special-objects.test.mjs",
+        "test/stack-high-1f.test.mjs",
+        "test/tab-session.test.mjs",
+        "test/temporary-cost.test.mjs",
+        "test/text-context.test.mjs",
+        "test/text-window-mode.test.mjs",
+        "test/train-map.test.mjs",
+        "test/transcript.test.mjs",
+        "test/transient-inputs.test.mjs",
+        "test/transport.test.mjs",
+        "test/upper-stack.test.mjs",
+        "test/wait-until.test.mjs",
+        "test/watson.test.mjs",
+        "test/witness-parser.test.mjs",
+        "test/word-buffer-13.test.mjs",
+        "test/world-npc.test.mjs",
+        "test/world.test.mjs"
+      ],
+      "new_module": "test/passage-descriptor-high-and-font.test.mjs",
+      "node": "v26.13.0"
+    },
+    "preliminary_attempt": "preliminary-provenance-pending.log records an invocation before its required evidence file existed; not counted as a positive test run."
+  },
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 395,
+    "bytes_roundtripped": 715,
+    "regions": [
+      {
+        "start": "C2BA",
+        "end_exclusive": "C306",
+        "kind": "code",
+        "label": "Canale superiore: A conservato prima del renderer",
+        "atlas_priority": 185
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: descrittore alto D e byte grezzo del font dello spazio",
+        "atlas_priority": 185
+      },
+      {
+        "start": "C316",
+        "end_exclusive": "C388",
+        "kind": "code",
+        "label": "Scroll: salvataggi esterni e revoca dei chiamanti non ricostruiti",
+        "atlas_priority": 185
+      },
+      {
+        "start": "D60B",
+        "end_exclusive": "D671",
+        "kind": "code",
+        "label": "Passaggi: frame distinti del qualificatore e del separatore",
+        "atlas_priority": 185
+      },
+      {
+        "start": "CBC2",
+        "end_exclusive": "CC0B",
+        "kind": "code",
+        "label": "Arrivi propri semplici: conservazione provata fino a 5D25",
+        "atlas_priority": 185
+      },
+      {
+        "start": "C1FD",
+        "end_exclusive": "C240",
+        "kind": "code",
+        "label": "Rifiuti semplici: conservazione indipendente di 5D21 e 5D27",
+        "atlas_priority": 185
+      },
+      {
+        "start": "A815",
+        "end_exclusive": "A82F",
+        "kind": "code",
+        "label": "Riferimenti nominali: ingresso del sostantivo nel decoder",
+        "atlas_priority": 185
+      },
+      {
+        "start": "A887",
+        "end_exclusive": "A8B9",
+        "kind": "code",
+        "label": "Decoder: spazio che scarica il qualificatore prima del sostantivo",
+        "atlas_priority": 185
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nomi: qualificatori, sostantivo e loro descrittori distinti",
+        "atlas_priority": 185
+      }
+    ]
+  },
+  "atlas": {
+    "new_documented_from_gray": 0,
+    "status_changed_byte_count": 0,
+    "old_counts": {
+      "partial": 428,
+      "unknown": 1808,
+      "documented": 39364
+    },
+    "new_counts": {
+      "partial": 428,
+      "unknown": 1808,
+      "documented": 39364
+    }
+  },
+  "open_scope": [
+    "Natural6ABD and other pending endings remain uncertified; failed journeys and missing Brown proof retained.",
+    "21 and27 have independent ownership; missing old SAVE fields remain unknown until modeled writes.",
+    "Wrapped arrivals, nonordinary callers, later names, deep clears and pending MORE do not inherit a broad27 preservation contract.",
+    "Natural writer trace ends3288; extend to3377 before assigning a writer to next5D22."
+  ],
+  "sha256": {
+    "src/random-display.mjs": "65d3ffc8bddbd5555f12fb7564ed769822725037f8e98e2f2f728c7ee0684171",
+    "src/text.mjs": "1caac4bb4b487febc4d8dc03cbe966afdef1c1561f6ddf65954c8ebab68b1746",
+    "src/game.mjs": "90ea9ebdc7c19704d0f0a3221f5f1a94e4e051cdcc597bc1b062bd4ff67dffe3",
+    "src/npc-runtime.mjs": "09d8adaa50f109bf36428a7ccf202805d46f4e39c37d2eaad829cf3ca67ea058",
+    "data/game.json": "6b8e4ff18a360099a727a0e78fee30a491fb1eefff5737c277dce7e37fd79de8",
+    "results/passage-descriptor-high-21/natural-stores.json": "c6fb1b79e3a5bc3fce5694253912c09b4c889508096ed86bb0c5d36179e2d885",
+    "results/passage-descriptor-high-21/extended-reference.json": "28b7ed292903f4fa03254742d2e93108ab8116c4c7f6e42335a410cdf6fc60fa",
+    "results/passage-descriptor-high-21/full-comparison.json": "501fbe51e7b8b4c297fae12bd8d60a19e6dd7aca36ff6513e2157f051ff024fb",
+    "results/passage-descriptor-high-21/baseline-6a33.json": "40ff20401e2cf02c9473a126667ca0cdc6f3647c544f6ec67ad3111d30509ee4",
+    "results/passage-descriptor-high-21/full-tests.log": "3dfa55ef8d75618e5e19f15766f852221946875e40ce557310eade985ffdcab7",
+    "results/passage-descriptor-high-21/focused-tests.log": "e4f5ad3d2c9850f57defff43798bf3bacb8a3b13bdb1775f097a34371e4fc266",
+    "results/passage-descriptor-high-21/entry-js-save.json": "61dd92ec522ec96987639a93f556a10d3810442de037eeeab72aee1e1b7f3956"
+  }
+}

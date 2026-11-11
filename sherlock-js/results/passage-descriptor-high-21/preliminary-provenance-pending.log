@@ -1,0 +1,22 @@
+✖ Natural21/27 provenance reaches the actual later gardener read and retains the prior store prefix (3.977792ms)
+✔ Original six-role ABIs and variable descriptor high bytes exclude a fixed5C and fixed font0 (74.370583ms)
+✔ All owned21/27 match720 original whole-passage geometries; LOOK remains unowned (214.849917ms)
+✔ Original caller controls prove high-byte preservation with the stricter fresh-row policy for27 (267.166834ms)
+✔ Errors, qualified arrivals and nonordinary callers do not borrow the new preservation contracts (111.085084ms)
+✔ High descriptor and raw font byte require independent knowledge and preserve missing old-SAVE fields (31.866541ms)
+✔ Unknown clears, subsequent names, final wraps and page boundaries revoke high-byte ownership (21.937875ms)
+✔ Normal JS commands reconstruct21/27 from a prewriter SAVE and keep the LOAD future (934.902583ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2016.605125
+
+✖ failing tests:
+
+test at test/passage-descriptor-high-and-font.test.mjs:3:1
+✖ Natural21/27 provenance reaches the actual later gardener read and retains the prior store prefix (3.977792ms)
+  [Error: ENOENT: no such file or directory, open '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/passage-descriptor-high-21/natural-stores.json'] { errno: -2, code: 'ENOENT', syscall: 'open', path: '/Users/giovanni/Documents/Development/Sherlock rebuild/sherlock-js/results/passage-descriptor-high-21/natural-stores.json' }

@@ -1,0 +1,1578 @@
+[
+  {
+    "label": "brown-descriptor-high-and-font",
+    "passed": false,
+    "completed_checkpoints": 520,
+    "last_complete_clock": {
+      "tick": 3371,
+      "due": 3781,
+      "day": 2,
+      "minute": 10,
+      "hour": 4,
+      "period": "pm",
+      "label": "Wed 04:10pm"
+    },
+    "error": "520 Ingresso casuale originale non ancora ricostruito: $5D22. Il comando non è stato applicato.",
+    "stack": "AssertionError [ERR_ASSERTION]: 520 Ingresso casuale originale non ancora ricostruito: $5D22. Il comando non è stato applicato.\n    at compareNaturalHistory (file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/test/helpers/compare-natural-history.mjs:11:273)\n    at async file:///Users/giovanni/Documents/Development/Sherlock%20rebuild/sherlock-js/tools/verify-passage-descriptor-high-21-natural.mjs:4:83",
+    "debug_random": [
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 190,
+        "cursor": 7714,
+        "reads": [
+          {
+            "address": 7970,
+            "value": 201
+          },
+          {
+            "address": 48143,
+            "value": 194
+          }
+        ],
+        "result": 30,
+        "next_seed": 69,
+        "next_cursor": 7970
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 69,
+        "cursor": 7970,
+        "reads": [
+          {
+            "address": 8226,
+            "value": 215
+          },
+          {
+            "address": 8232,
+            "value": 205
+          }
+        ],
+        "result": 5,
+        "next_seed": 209,
+        "next_cursor": 8226
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 209,
+        "cursor": 8226,
+        "reads": [
+          {
+            "address": 8482,
+            "value": 48
+          },
+          {
+            "address": 8488,
+            "value": 119
+          }
+        ],
+        "result": 19,
+        "next_seed": 118,
+        "next_cursor": 8482
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 118,
+        "cursor": 8482,
+        "reads": [
+          {
+            "address": 8738,
+            "value": 32
+          },
+          {
+            "address": 48911,
+            "value": 245
+          }
+        ],
+        "result": 0,
+        "next_seed": 99,
+        "next_cursor": 8738
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 99,
+        "cursor": 8738,
+        "reads": [
+          {
+            "address": 8994,
+            "value": 44
+          },
+          {
+            "address": 9000,
+            "value": 130
+          }
+        ],
+        "result": 86,
+        "next_seed": 13,
+        "next_cursor": 8994
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 13,
+        "cursor": 8994,
+        "reads": [
+          {
+            "address": 9250,
+            "value": 60
+          },
+          {
+            "address": 49423,
+            "value": 62
+          }
+        ],
+        "result": 20,
+        "next_seed": 119,
+        "next_cursor": 9250
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 119,
+        "cursor": 9250,
+        "reads": [
+          {
+            "address": 9506,
+            "value": 231
+          },
+          {
+            "address": 9512,
+            "value": 121
+          }
+        ],
+        "result": 60,
+        "next_seed": 39,
+        "next_cursor": 9506
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 39,
+        "cursor": 9506,
+        "reads": [
+          {
+            "address": 9762,
+            "value": 214
+          },
+          {
+            "address": 49935,
+            "value": 203
+          }
+        ],
+        "result": 45,
+        "next_seed": 54,
+        "next_cursor": 9762
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 54,
+        "cursor": 9762,
+        "reads": [
+          {
+            "address": 10018,
+            "value": 240
+          },
+          {
+            "address": 10024,
+            "value": 39
+          }
+        ],
+        "result": 98,
+        "next_seed": 1,
+        "next_cursor": 10018
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 1,
+        "cursor": 10018,
+        "reads": [
+          {
+            "address": 10274,
+            "value": 185
+          },
+          {
+            "address": 50447,
+            "value": 65
+          }
+        ],
+        "result": 26,
+        "next_seed": 251,
+        "next_cursor": 10274
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 251,
+        "cursor": 10274,
+        "reads": [
+          {
+            "address": 10530,
+            "value": 6
+          },
+          {
+            "address": 10536,
+            "value": 21
+          }
+        ],
+        "result": 79,
+        "next_seed": 20,
+        "next_cursor": 10530
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 20,
+        "cursor": 10530,
+        "reads": [
+          {
+            "address": 10786,
+            "value": 231
+          },
+          {
+            "address": 10792,
+            "value": 244
+          }
+        ],
+        "result": 84,
+        "next_seed": 15,
+        "next_cursor": 10786
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 15,
+        "cursor": 10786,
+        "reads": [
+          {
+            "address": 11042,
+            "value": 56
+          },
+          {
+            "address": 51215,
+            "value": 205
+          }
+        ],
+        "result": 39,
+        "next_seed": 138,
+        "next_cursor": 11042
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 138,
+        "cursor": 11042,
+        "reads": [
+          {
+            "address": 11298,
+            "value": 0
+          },
+          {
+            "address": 11304,
+            "value": 113
+          }
+        ],
+        "result": 26,
+        "next_seed": 251,
+        "next_cursor": 11298
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 251,
+        "cursor": 11298,
+        "reads": [
+          {
+            "address": 11554,
+            "value": 205
+          },
+          {
+            "address": 11560,
+            "value": 79
+          }
+        ],
+        "result": 36,
+        "next_seed": 135,
+        "next_cursor": 11554
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 135,
+        "cursor": 11554,
+        "reads": [
+          {
+            "address": 11810,
+            "value": 24
+          },
+          {
+            "address": 51983,
+            "value": 54
+          }
+        ],
+        "result": 70,
+        "next_seed": 169,
+        "next_cursor": 11810
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 169,
+        "cursor": 11810,
+        "reads": [
+          {
+            "address": 12066,
+            "value": 63
+          },
+          {
+            "address": 52239,
+            "value": 197
+          }
+        ],
+        "result": 54,
+        "next_seed": 45,
+        "next_cursor": 12066
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 45,
+        "cursor": 12066,
+        "reads": [
+          {
+            "address": 12322,
+            "value": 126
+          },
+          {
+            "address": 52495,
+            "value": 207
+          }
+        ],
+        "result": 1,
+        "next_seed": 100,
+        "next_cursor": 12322
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 100,
+        "cursor": 12322,
+        "reads": [
+          {
+            "address": 12578,
+            "value": 28
+          },
+          {
+            "address": 12584,
+            "value": 203
+          }
+        ],
+        "result": 24,
+        "next_seed": 75,
+        "next_cursor": 12578
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 75,
+        "cursor": 12578,
+        "reads": [
+          {
+            "address": 12834,
+            "value": 145
+          },
+          {
+            "address": 53007,
+            "value": 40
+          }
+        ],
+        "result": 23,
+        "next_seed": 244,
+        "next_cursor": 12834
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 244,
+        "cursor": 12834,
+        "reads": [
+          {
+            "address": 13090,
+            "value": 55
+          },
+          {
+            "address": 53263,
+            "value": 182
+          }
+        ],
+        "result": 58,
+        "next_seed": 157,
+        "next_cursor": 13090
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 157,
+        "cursor": 13090,
+        "reads": [
+          {
+            "address": 13346,
+            "value": 217
+          },
+          {
+            "address": 53519,
+            "value": 225
+          }
+        ],
+        "result": 52,
+        "next_seed": 151,
+        "next_cursor": 13346
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 151,
+        "cursor": 13346,
+        "reads": [
+          {
+            "address": 13602,
+            "value": 24
+          },
+          {
+            "address": 13608,
+            "value": 235
+          }
+        ],
+        "result": 31,
+        "next_seed": 68,
+        "next_cursor": 13602
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 68,
+        "cursor": 13602,
+        "reads": [
+          {
+            "address": 13858,
+            "value": 247
+          },
+          {
+            "address": 13864,
+            "value": 81
+          }
+        ],
+        "result": 7,
+        "next_seed": 106,
+        "next_cursor": 13858
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 106,
+        "cursor": 13858,
+        "reads": [
+          {
+            "address": 14114,
+            "value": 205
+          },
+          {
+            "address": 14120,
+            "value": 0
+          }
+        ],
+        "result": 44,
+        "next_seed": 55,
+        "next_cursor": 14114
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 55,
+        "cursor": 14114,
+        "reads": [
+          {
+            "address": 14370,
+            "value": 115
+          },
+          {
+            "address": 54543,
+            "value": 229
+          }
+        ],
+        "result": 20,
+        "next_seed": 79,
+        "next_cursor": 14370
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 79,
+        "cursor": 14370,
+        "reads": [
+          {
+            "address": 14626,
+            "value": 255
+          },
+          {
+            "address": 54799,
+            "value": 221
+          }
+        ],
+        "result": 48,
+        "next_seed": 147,
+        "next_cursor": 14626
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 147,
+        "cursor": 14626,
+        "reads": [
+          {
+            "address": 14882,
+            "value": 255
+          },
+          {
+            "address": 14888,
+            "value": 255
+          }
+        ],
+        "result": 10,
+        "next_seed": 109,
+        "next_cursor": 14882
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 109,
+        "cursor": 14882,
+        "reads": [
+          {
+            "address": 15138,
+            "value": 255
+          },
+          {
+            "address": 15144,
+            "value": 255
+          }
+        ],
+        "result": 48,
+        "next_seed": 147,
+        "next_cursor": 15138
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 147,
+        "cursor": 15138,
+        "reads": [
+          {
+            "address": 15394,
+            "value": 255
+          },
+          {
+            "address": 15400,
+            "value": 255
+          }
+        ],
+        "result": 10,
+        "next_seed": 109,
+        "next_cursor": 15394
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 109,
+        "cursor": 15394,
+        "reads": [
+          {
+            "address": 15650,
+            "value": 62
+          },
+          {
+            "address": 55823,
+            "value": 209
+          }
+        ],
+        "result": 23,
+        "next_seed": 122,
+        "next_cursor": 15650
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 122,
+        "cursor": 15650,
+        "reads": [
+          {
+            "address": 15906,
+            "value": 68
+          },
+          {
+            "address": 56079,
+            "value": 205
+          }
+        ],
+        "result": 16,
+        "next_seed": 115,
+        "next_cursor": 15906
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 115,
+        "cursor": 15906,
+        "reads": [
+          {
+            "address": 16162,
+            "value": 4
+          },
+          {
+            "address": 16168,
+            "value": 0
+          }
+        ],
+        "result": 20,
+        "next_seed": 119,
+        "next_cursor": 16162
+      },
+      {
+        "actor": 9,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 119,
+        "cursor": 16162,
+        "reads": [
+          {
+            "address": 16418,
+            "value": 0
+          },
+          {
+            "address": 16424,
+            "value": 0
+          },
+          {
+            "address": 16674,
+            "value": 0
+          },
+          {
+            "address": 16680,
+            "value": 0
+          },
+          {
+            "address": 16930,
+            "value": 0
+          },
+          {
+            "address": 16936,
+            "value": 0
+          },
+          {
+            "address": 17186,
+            "value": 0
+          },
+          {
+            "address": 17192,
+            "value": 0
+          },
+          {
+            "address": 17442,
+            "value": 0
+          },
+          {
+            "address": 17448,
+            "value": 0
+          },
+          {
+            "address": 17698,
+            "value": 0
+          },
+          {
+            "address": 17704,
+            "value": 0
+          },
+          {
+            "address": 17954,
+            "value": 0
+          },
+          {
+            "address": 17960,
+            "value": 0
+          },
+          {
+            "address": 18210,
+            "value": 0
+          },
+          {
+            "address": 18216,
+            "value": 0
+          },
+          {
+            "address": 18466,
+            "value": 0
+          },
+          {
+            "address": 18472,
+            "value": 0
+          },
+          {
+            "address": 18722,
+            "value": 0
+          },
+          {
+            "address": 18728,
+            "value": 16
+          }
+        ],
+        "result": 4,
+        "next_seed": 103,
+        "next_cursor": 18722
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 103,
+        "cursor": 18722,
+        "reads": [
+          {
+            "address": 18978,
+            "value": 56
+          },
+          {
+            "address": 59151,
+            "value": 0
+          }
+        ],
+        "result": 60,
+        "next_seed": 159,
+        "next_cursor": 18978
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 159,
+        "cursor": 18978,
+        "reads": [
+          {
+            "address": 19234,
+            "value": 68
+          },
+          {
+            "address": 59407,
+            "value": 19
+          }
+        ],
+        "result": 21,
+        "next_seed": 240,
+        "next_cursor": 19234
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 240,
+        "cursor": 19234,
+        "reads": [
+          {
+            "address": 19490,
+            "value": 120
+          },
+          {
+            "address": 59663,
+            "value": 7
+          }
+        ],
+        "result": 12,
+        "next_seed": 111,
+        "next_cursor": 19490
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 111,
+        "cursor": 19490,
+        "reads": [
+          {
+            "address": 19746,
+            "value": 64
+          },
+          {
+            "address": 19752,
+            "value": 17
+          }
+        ],
+        "result": 91,
+        "next_seed": 190,
+        "next_cursor": 19746
+      },
+      {
+        "actor": 3,
+        "purpose": "watson-information",
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 190,
+        "cursor": 19746,
+        "reads": [
+          {
+            "address": 20002,
+            "value": 60
+          },
+          {
+            "address": 60175,
+            "value": 1
+          }
+        ],
+        "result": 26,
+        "next_seed": 251,
+        "next_cursor": 20002
+      },
+      {
+        "actor": 8,
+        "purpose": "probability-predicate",
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 251,
+        "cursor": 20002,
+        "reads": [
+          {
+            "address": 20258,
+            "value": 0
+          },
+          {
+            "address": 20264,
+            "value": 0
+          },
+          {
+            "address": 20514,
+            "value": 0
+          },
+          {
+            "address": 20520,
+            "value": 0
+          },
+          {
+            "address": 20770,
+            "value": 0
+          },
+          {
+            "address": 20776,
+            "value": 0
+          },
+          {
+            "address": 21026,
+            "value": 0
+          },
+          {
+            "address": 21032,
+            "value": 0
+          },
+          {
+            "address": 21282,
+            "value": 0
+          },
+          {
+            "address": 21288,
+            "value": 0
+          },
+          {
+            "address": 21538,
+            "value": 0
+          },
+          {
+            "address": 21544,
+            "value": 0
+          },
+          {
+            "address": 21794,
+            "value": 0
+          },
+          {
+            "address": 21800,
+            "value": 0
+          },
+          {
+            "address": 22050,
+            "value": 0
+          },
+          {
+            "address": 22056,
+            "value": 0
+          },
+          {
+            "address": 22306,
+            "value": 0
+          },
+          {
+            "address": 22312,
+            "value": 0
+          },
+          {
+            "address": 22562,
+            "value": 56
+          },
+          {
+            "address": 22568,
+            "value": 56
+          }
+        ],
+        "result": 88,
+        "next_seed": 11,
+        "next_cursor": 22562
+      }
+    ],
+    "native_random": [
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 79,
+        "cursor": 14370,
+        "reads": [
+          {
+            "address": 14626,
+            "value": 255
+          },
+          {
+            "address": 54799,
+            "value": 221
+          }
+        ],
+        "result": 48,
+        "next_seed": 147,
+        "next_cursor": 14626
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 147,
+        "cursor": 14626,
+        "reads": [
+          {
+            "address": 14882,
+            "value": 255
+          },
+          {
+            "address": 14888,
+            "value": 255
+          }
+        ],
+        "result": 10,
+        "next_seed": 109,
+        "next_cursor": 14882
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 109,
+        "cursor": 14882,
+        "reads": [
+          {
+            "address": 15138,
+            "value": 255
+          },
+          {
+            "address": 15144,
+            "value": 255
+          }
+        ],
+        "result": 48,
+        "next_seed": 147,
+        "next_cursor": 15138
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 147,
+        "cursor": 15138,
+        "reads": [
+          {
+            "address": 15394,
+            "value": 255
+          },
+          {
+            "address": 15400,
+            "value": 255
+          }
+        ],
+        "result": 10,
+        "next_seed": 109,
+        "next_cursor": 15394
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 109,
+        "cursor": 15394,
+        "reads": [
+          {
+            "address": 15650,
+            "value": 62
+          },
+          {
+            "address": 55823,
+            "value": 209
+          }
+        ],
+        "result": 23,
+        "next_seed": 122,
+        "next_cursor": 15650
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 122,
+        "cursor": 15650,
+        "reads": [
+          {
+            "address": 15906,
+            "value": 68
+          },
+          {
+            "address": 56079,
+            "value": 205
+          }
+        ],
+        "result": 16,
+        "next_seed": 115,
+        "next_cursor": 15906
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 115,
+        "cursor": 15906,
+        "reads": [
+          {
+            "address": 16162,
+            "value": 4
+          },
+          {
+            "address": 16168,
+            "value": 0
+          }
+        ],
+        "result": 20,
+        "next_seed": 119,
+        "next_cursor": 16162
+      },
+      {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 119,
+        "cursor": 16162,
+        "reads": [
+          {
+            "address": 16418,
+            "value": 0
+          },
+          {
+            "address": 16424,
+            "value": 0
+          },
+          {
+            "address": 16674,
+            "value": 0
+          },
+          {
+            "address": 16680,
+            "value": 0
+          },
+          {
+            "address": 16930,
+            "value": 0
+          },
+          {
+            "address": 16936,
+            "value": 0
+          },
+          {
+            "address": 17186,
+            "value": 0
+          },
+          {
+            "address": 17192,
+            "value": 0
+          },
+          {
+            "address": 17442,
+            "value": 0
+          },
+          {
+            "address": 17448,
+            "value": 0
+          },
+          {
+            "address": 17698,
+            "value": 0
+          },
+          {
+            "address": 17704,
+            "value": 0
+          },
+          {
+            "address": 17954,
+            "value": 0
+          },
+          {
+            "address": 17960,
+            "value": 0
+          },
+          {
+            "address": 18210,
+            "value": 0
+          },
+          {
+            "address": 18216,
+            "value": 0
+          },
+          {
+            "address": 18466,
+            "value": 0
+          },
+          {
+            "address": 18472,
+            "value": 0
+          },
+          {
+            "address": 18722,
+            "value": 0
+          },
+          {
+            "address": 18728,
+            "value": 16
+          }
+        ],
+        "result": 4,
+        "next_seed": 103,
+        "next_cursor": 18722
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 103,
+        "cursor": 18722,
+        "reads": [
+          {
+            "address": 18978,
+            "value": 56
+          },
+          {
+            "address": 59151,
+            "value": 0
+          }
+        ],
+        "result": 60,
+        "next_seed": 159,
+        "next_cursor": 18978
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 159,
+        "cursor": 18978,
+        "reads": [
+          {
+            "address": 19234,
+            "value": 68
+          },
+          {
+            "address": 59407,
+            "value": 19
+          }
+        ],
+        "result": 21,
+        "next_seed": 240,
+        "next_cursor": 19234
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 240,
+        "cursor": 19234,
+        "reads": [
+          {
+            "address": 19490,
+            "value": 120
+          },
+          {
+            "address": 59663,
+            "value": 7
+          }
+        ],
+        "result": 12,
+        "next_seed": 111,
+        "next_cursor": 19490
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 111,
+        "cursor": 19490,
+        "reads": [
+          {
+            "address": 19746,
+            "value": 64
+          },
+          {
+            "address": 19752,
+            "value": 17
+          }
+        ],
+        "result": 91,
+        "next_seed": 190,
+        "next_cursor": 19746
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 190,
+        "cursor": 19746,
+        "reads": [
+          {
+            "address": 20002,
+            "value": 60
+          },
+          {
+            "address": 60175,
+            "value": 1
+          }
+        ],
+        "result": 26,
+        "next_seed": 251,
+        "next_cursor": 20002
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 251,
+        "cursor": 20002,
+        "reads": [
+          {
+            "address": 20258,
+            "value": 0
+          },
+          {
+            "address": 20264,
+            "value": 0
+          },
+          {
+            "address": 20514,
+            "value": 0
+          },
+          {
+            "address": 20520,
+            "value": 0
+          },
+          {
+            "address": 20770,
+            "value": 0
+          },
+          {
+            "address": 20776,
+            "value": 0
+          },
+          {
+            "address": 21026,
+            "value": 0
+          },
+          {
+            "address": 21032,
+            "value": 0
+          },
+          {
+            "address": 21282,
+            "value": 0
+          },
+          {
+            "address": 21288,
+            "value": 0
+          },
+          {
+            "address": 21538,
+            "value": 0
+          },
+          {
+            "address": 21544,
+            "value": 0
+          },
+          {
+            "address": 21794,
+            "value": 0
+          },
+          {
+            "address": 21800,
+            "value": 0
+          },
+          {
+            "address": 22050,
+            "value": 0
+          },
+          {
+            "address": 22056,
+            "value": 0
+          },
+          {
+            "address": 22306,
+            "value": 0
+          },
+          {
+            "address": 22312,
+            "value": 0
+          },
+          {
+            "address": 22562,
+            "value": 56
+          },
+          {
+            "address": 22568,
+            "value": 56
+          }
+        ],
+        "result": 88,
+        "next_seed": 11,
+        "next_cursor": 22562
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 11,
+        "cursor": 22562,
+        "reads": [
+          {
+            "address": 22818,
+            "value": 56
+          },
+          {
+            "address": 62991,
+            "value": 74
+          }
+        ],
+        "result": 90,
+        "next_seed": 9,
+        "next_cursor": 22818
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 9,
+        "cursor": 22818,
+        "reads": [
+          {
+            "address": 23074,
+            "value": 56
+          },
+          {
+            "address": 63247,
+            "value": 199
+          }
+        ],
+        "result": 35,
+        "next_seed": 134,
+        "next_cursor": 23074
+      },
+      {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 134,
+        "cursor": 23074,
+        "reads": [
+          {
+            "address": 23330,
+            "value": 46
+          },
+          {
+            "address": 23336,
+            "value": 77
+          }
+        ],
+        "result": 25,
+        "next_seed": 249,
+        "next_cursor": 23330
+      },
+      {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 249,
+        "cursor": 23330,
+        "reads": [
+          {
+            "address": 23586,
+            "value": 0
+          },
+          {
+            "address": 23592,
+            "value": 0
+          },
+          {
+            "address": 23842,
+            "value": 5
+          },
+          {
+            "address": 23848,
+            "value": 4
+          }
+        ],
+        "result": 26,
+        "next_seed": 250,
+        "next_cursor": 23842
+      },
+      {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 250,
+        "cursor": 23842,
+        "reads": [
+          {
+            "address": 24098,
+            "value": 16
+          },
+          {
+            "address": 24104,
+            "value": 220
+          }
+        ],
+        "result": 8,
+        "next_seed": 214,
+        "next_cursor": 24098
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 214,
+        "cursor": 24098,
+        "reads": [
+          {
+            "address": 24354,
+            "value": 200
+          },
+          {
+            "address": 64527,
+            "value": 55
+          }
+        ],
+        "result": 70,
+        "next_seed": 169,
+        "next_cursor": 24354
+      },
+      {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 169,
+        "cursor": 24354,
+        "reads": [
+          {
+            "address": 24610,
+            "value": 223
+          },
+          {
+            "address": 64783,
+            "value": 85
+          }
+        ],
+        "result": 11,
+        "next_seed": 221,
+        "next_cursor": 24610
+      }
+    ]
+  }
+]

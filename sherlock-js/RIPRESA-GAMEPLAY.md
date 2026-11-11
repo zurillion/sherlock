@@ -3,16 +3,16 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [DESCRITTORE-E-SPAZIO-5D20-5D26.md](DESCRITTORE-E-SPAZIO-5D20-5D26.md).
-Ripresa attuale: **$5D21 nella continuazione Brown**.510checkpoint certificati
-fino a mercoledì14:40;JS fermo3288/14:47,primo escluso510 nell’originale14:49,
-lettura92 del giardiniere8. La traccia20–27 arriva al3195:estenderla fino alnuovo
-read,senza dedurreD da20/92. Superati20(E parametro nelglifo n,frame26) e26
-(F scansione dello spazio,frame32) della precedente estrazione cuoca9.
-26preservato solo concontratto riga fresca e budgetcounter prima diMORE;
-non estendergli la conservazione ampia di20.21/27 ancora indipendenti.
-Baseline6A33 confermataThu10:00;altri finali e la soluzioneBrown ancoraaperti.
-Vedi STATO-E-PROSSIMI-PASSI.md e results/passage-descriptor-20-verification.json.
+Aggiornamento corrente: [DESCRITTORE-ALTO-E-FONT-5D21-5D27.md](DESCRITTORE-ALTO-E-FONT-5D21-5D27.md).
+Ripresa: **$5D22 nella continuazione Brown**.520checkpoint fino mercoledì16:10;
+JS fermo3377/16:16,primo escluso520 nell'originale16:18,cuoca9 legge5.
+Estendere la traccia writer20–27 da3288 alla nuova lettura3377:non basta il
+precedente store di22. Superati21(D descrittore,n/frame26) e27(A font,spazio/frame32),
+letti dalgiardiniere8 a3288/14:47;writerHolmes1653/Tue11:32,3020store invariati.
+Proprietà indipendenti;27preservato solo concontratto fresh-row/budgetMORE,
+non eredita la conservazione ampia di21. OldSAVE assente restaunknown.
+Baseline6A33 confermataThu10:00;altri finali e soluzioneBrown ancoraaperti.
+Vedi STATO-E-PROSSIMI-PASSI.md e results/passage-descriptor-high-21-verification.json.
 Le tappe sotto conservano lo storico e non sostituiscono questo punto corrente.
 
 1. **Prima storia del ramo witness verificata fino al finale6A33.**

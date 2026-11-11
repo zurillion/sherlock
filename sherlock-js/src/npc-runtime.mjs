@@ -535,7 +535,7 @@ export class NpcRuntime {
     // proper person name, and the independent1F contract is also verified.
     // Qualified names can wrap at a deeper frame;
     // queued/isolated callers deliberately lack this action-frame contract.
-    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true}:{})});
+    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true}:{})});
    }
    // The ordinary DROP/TAKE OFF announcement formats its resolved argument
    // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.

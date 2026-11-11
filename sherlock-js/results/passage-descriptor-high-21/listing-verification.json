@@ -1,0 +1,70 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 395,
+  "bytes_roundtripped": 715,
+  "regions": [
+    {
+      "start": "C2BA",
+      "end_exclusive": "C306",
+      "kind": "code",
+      "label": "Canale superiore: A conservato prima del renderer",
+      "atlas_priority": 185
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: descrittore alto D e byte grezzo del font dello spazio",
+      "atlas_priority": 185
+    },
+    {
+      "start": "C316",
+      "end_exclusive": "C388",
+      "kind": "code",
+      "label": "Scroll: salvataggi esterni e revoca dei chiamanti non ricostruiti",
+      "atlas_priority": 185
+    },
+    {
+      "start": "D60B",
+      "end_exclusive": "D671",
+      "kind": "code",
+      "label": "Passaggi: frame distinti del qualificatore e del separatore",
+      "atlas_priority": 185
+    },
+    {
+      "start": "CBC2",
+      "end_exclusive": "CC0B",
+      "kind": "code",
+      "label": "Arrivi propri semplici: conservazione provata fino a 5D25",
+      "atlas_priority": 185
+    },
+    {
+      "start": "C1FD",
+      "end_exclusive": "C240",
+      "kind": "code",
+      "label": "Rifiuti semplici: conservazione indipendente di 5D21 e 5D27",
+      "atlas_priority": 185
+    },
+    {
+      "start": "A815",
+      "end_exclusive": "A82F",
+      "kind": "code",
+      "label": "Riferimenti nominali: ingresso del sostantivo nel decoder",
+      "atlas_priority": 185
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Decoder: spazio che scarica il qualificatore prima del sostantivo",
+      "atlas_priority": 185
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nomi: qualificatori, sostantivo e loro descrittori distinti",
+      "atlas_priority": 185
+    }
+  ]
+}
