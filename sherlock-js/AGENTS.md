@@ -1336,3 +1336,35 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   CBC2–CC0A,C1FD–C23F and workspace25;no gray or classification changes,
   39364 documented/428 partial/1808 unknown of41600. Report zones and clocks
   explicitly;source byte classification is not full gameplay equivalence.
+
+
+- Read DESCRITTORE-E-SPAZIO-5D20-5D26.md and results/passage-descriptor-20-verification.json.
+  Brown20/26 are the cook9 draw at3195/Wed13:14:20 is E ofDE5C0B,C38A,n of
+  plain/frame26;26 is scanF,C3B8,following space/frame32,column22,descriptor526E,
+  AF0000. Both writers Holmes0,tick1653/Tue11:32. Observe3020 writes across20–27,
+  zero unclassified transitions;counts197/197/277/277/452/452/584/584. Derive E
+  from actual descriptor,scan F fromINC H/shift,not fixed0B/0. Reused1296 glyph
+  ABI per address and144 descriptor variants. New720 passage cases,290 owned
+  matches per field;1512 arrivals/720 proper eligible preserve20 but20 of those
+  overwrite26 on wrapped partial rows. New300 fresh-row controls,counter0..14,
+  preserve26;runtime accepts260 setups:cursor0,remaining36,empty pending,
+  spacing0,name fits,counter+2<15. This is conservative ownership before MORE,
+  not a change to original pagination. Simple129 errors of138 preserve both.
+  Queued/isolated/relocate,LOOK/remote/container,unprojected names,final wraps,
+  deep clears and pending MORE do not inherit26. The actual separator must be
+  a space atframe32;unknown normal frame26 return revokes old26 before the
+  proved later scan writer.21/27 remain independent;old missing SAVE stays
+  unknown until modeled write. No native RAM imported into JS.
+  Current certificate510 checkpoints0–509 throughWed14:40,7985draw/17010read,
+  7987 incl.boot;all24 actors,752 arena bytes,bitmaps at checkpoints and every-
+  minute LOAD future. All501 old native checkpoints identical and pass;173
+  native continuation rows from Brown11:36,extra2928/3014/3104/3197 only.
+  Next5D21:JS3288/Wed14:47;first excluded510 natively14:49 reads92 for gardener8.
+  Trace20–27 ends3195,not the later read;extend it,never infer writer from20,
+  value92 or the earlier snapshot. Natural6ABD and other endings still open;
+  failed journeys and missing Brown proof retained. Suite1891/1891;baseline6A33
+  repeated521 throughThu10:00,10345draw/22058read,10347 incl.boot;oracle reusedSHA.
+  Atlas395 instructions/715 bytes refinesA815–A82E,A887–A8B8,D3D5–D447 plus
+  C2BA–C305,C316–C387,C388–C3E3,D60B–D670,CBC2–CC0A,C1FD–C23F and workspace20/26.
+  No newly gray bytes or classification changes;39364/428/1808 of41600.
+  Report zones and clocks;static source classification is not gameplay parity.

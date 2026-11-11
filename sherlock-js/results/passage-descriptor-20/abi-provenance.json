@@ -1,0 +1,35 @@
+{
+  "protocol": "Original generic glyph and descriptor ABI reused with hashes; new whole-caller controls extend native markers through27. Fresh-row arrivals vary source counter0..14; runtime guard reserves two lines before MORE.",
+  "reused": [
+    {
+      "path": "test/fixtures/glyph-count-abi.json",
+      "sha256": "a3b2eac6243a884dfa745e7d93cf54553ae246332ecb62dc7cb64a4224618101"
+    },
+    {
+      "path": "test/fixtures/glyph-address-high-abi.json",
+      "sha256": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28"
+    },
+    {
+      "path": "results/glyph-descriptor-low/descriptor-abi.json",
+      "sha256": "0c89f3a8f24831bd5a978ce03ba046f53aa9a2fdeffce4c02114697b2fb85a50"
+    }
+  ],
+  "new": [
+    {
+      "path": "results/passage-descriptor-20/wide-abi/passage-abi.json",
+      "sha256": "f04237e9527436d84fd94c10f25a152037c015d5bdb5e0d1c243d647a3214cea"
+    },
+    {
+      "path": "results/passage-descriptor-20/wide-abi/arrival-low-abi.json",
+      "sha256": "cdfa88f8e11786fe88371f80d9c75f93139aae6e527f2e6b0517cba9651a4289"
+    },
+    {
+      "path": "results/passage-descriptor-20/wide-abi/simple-error-abi.json",
+      "sha256": "d35c5002c50210ef06b8cf248f00df961277686d8fe26e121c98ae6120d0b598"
+    },
+    {
+      "path": "results/passage-descriptor-20/wide-abi/arrival-fresh-row-abi.json",
+      "sha256": "778bbd12121d7daf19971b2a1e7aa920277a3195d23c858a3768b935376ea5ed"
+    }
+  ]
+}

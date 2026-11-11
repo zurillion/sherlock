@@ -1,5 +1,38 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 11 novembre 2026: [DESCRITTORE-E-SPAZIO-5D20-5D26.md](DESCRITTORE-E-SPAZIO-5D20-5D26.md).
+Superati **$5D20 e $5D26**, due operandi della cuoca9 al tick3195/mercoledì13:14.
+Writer20:C38A/PUSH DE,n di plain,frame5D26,DE5C0B;writer26:C3B8/PUSH AF,
+spazio successivo,frame5D32,colonna22,descriptor526E,AF0000. EntrambiHolmes0,
+tick1653/martedì11:32. Traccia3020store su20–27,zero transizioni non classificate:
+197per20/21,277per22/23,452per24/25,584per26/27. CalcolareE dal parametro eF
+scan daINC H/shift,non assegnare0B/0.1296ABI riutilizzate per ciascun indirizzo
+più144varianti originali del descrittore. Nuove720geometrie:290match posseduti
+per campo. Nuovi1512arrivi/720propri eleggibili:20tutti preservati,26alterato
+in20casi di wrap.300nuovi controlli riga fresca,counter0..14,preservano26;
+nelruntime solo260setup counter+2<15,riga nuova,buffer vuoto,spazio normalizzato0,
+nome cheentra. Restrizione di proprietà prima diMORE,non cambio di gameplay.
+Nuove138pipeline/129rifiuti semplici preservano entrambi. LOOK/remote/container,
+callerqueued/isolated/relocate,nomi successivi eclear non proiettati restanoignoti.
+21 e27 indipendenti;oldSAVE assente restaunknown finoanuova scrittura provata.
+Certificato: **510checkpoint0–509 fino a mercoledì14:40**,
+7985draw/17010read,7987runtime incluse2boot;24attori,arena752,bitmap ai
+checkpoint e futuroLOAD anche a ogni minuto.501checkpoint originali precedenti
+identici e interamente positivi;nuova continuazione173 da Brown11:36,con
+campioni2928/3014/3104/3197 conservati. Nessuno stato originale importato nelJS.
+**Prossimo $5D21**: JS fermo tick3288/mercoledì14:47;checkpoint510 escluso,
+originale14:49,legge92 per giardiniere8. La traccia20–27 termina3195:
+non prova il writer della nuova lettura3288,non inferireD dal vicino20/valore92.
+Suitefinale **1891/1891PASS**. Baseline6A33 ripetuta521checkpoint finoThu10:00,
+10345draw/22058read,10347runtime incluse2boot,pausa efreeze terminali;oracolo
+finale riutilizzato conSHA.6ABD ealtri finali aperti;storia conserva viaggi
+falliti eprova Brown non recuperata. Report:results/passage-descriptor-20-verification.json.
+Mappa approfondita **A815–A82E,A887–A8B8,D3D5–D447**,oltreC2BA–C305,
+C316–C387,C388–C3E3,D60B–D670,CBC2–CC0A,C1FD–C23F eworkspace20/26.
+395istruzioni/715byte riassemblati. Zero byte grigi nuovi o cambi classificazione:
+39364documentati/428parziali/1808ignoti su41600. Le sezioni sotto sono storico.
+
+
 Aggiornamento 3 novembre 2026: [CARATTERE-SALVATO-E-5D25.md](CARATTERE-SALVATO-E-5D25.md).
 Superato **$5D25**: nel frame C388/SP5D26 il PUSH AF aC388 conserva A,
 il codice del carattere emesso. Writer naturale Holmes0,n di plain,AF6E0A,

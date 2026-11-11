@@ -1,0 +1,77 @@
+{
+  "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+  "checkpoints": 510,
+  "certified_checkpoint_range": [
+    0,
+    509
+  ],
+  "clock": {
+    "tick": 3281,
+    "due": 3781,
+    "minute": 40,
+    "hour": 2,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 02:40pm"
+  },
+  "compared_random_draws": 7985,
+  "compared_random_reads": 17010,
+  "runtime_draws_including_two_boot": 7987,
+  "all_actors": 24,
+  "arena_bytes": 752,
+  "bitmaps_compared": true,
+  "load_future_compared": true,
+  "prior_identical_native_checkpoints": 501,
+  "initial_338_native_checkpoints_reused": true,
+  "new_native_continuation_checkpoints": 173,
+  "extra_sampler_checkpoint_ticks": [
+    2928,
+    3014,
+    3104,
+    3197
+  ],
+  "prior_501_checkpoints_now_all_pass": true,
+  "full_ending_certified": false
+}
+{
+  "address": "5D21",
+  "js_stopped": {
+    "tick": 3288,
+    "due": 3288,
+    "day": 2,
+    "minute": 47,
+    "hour": 2,
+    "period": "pm",
+    "label": "Wed 02:47pm"
+  },
+  "first_excluded_checkpoint": 510,
+  "native_checkpoint": {
+    "tick": 3290,
+    "due": 3781,
+    "minute": 49,
+    "hour": 2,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 02:49pm"
+  },
+  "native_reads": [
+    {
+      "actor": 8,
+      "read": {
+        "address": 23841,
+        "value": 92
+      },
+      "checkpoint_clock": {
+        "tick": 3290,
+        "due": 3781,
+        "minute": 49,
+        "hour": 2,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 02:49pm"
+      }
+    }
+  ],
+  "last_natural_writer_at_this_later_read_untraced": true,
+  "do_not_infer_from20_or_previous_snapshot": true
+}

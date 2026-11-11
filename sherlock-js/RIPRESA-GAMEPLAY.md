@@ -3,17 +3,17 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [CARATTERE-SALVATO-E-5D25.md](CARATTERE-SALVATO-E-5D25.md).
-Il punto di ripresa attuale è **$5D20 nella continuazione Brown**:500checkpoint
-certificati fino a mercoledì13:10;JS fermo tick3195/13:14,primo checkpoint
-escluso500 nell’originale13:16,lettura11 della cuoca9. Trovare il vero writer
-naturale,senza dedurlo dal valore11 o dai byte vicini.25 è ora il carattere A
-nel prefisso del passaggio(frame26):C388,Holmes0,n di plain,tick1653,letto3102.
-La traccia24/25 estesa conserva esattamente904store e prova la persistenza
-fino alla nuova lettura;non un110 globale. La baseline6A33 resta certificata
-finoThu10:00,con i limiti dichiarati degli altri finali. Vedi STATO-E-PROSSIMI-PASSI.md
-e results/passage-caller-a-25-verification.json. L’elenco seguente conserva le
-tappe precedenti e gli obiettivi,senza sostituire il punto di ripresa corrente.
+Aggiornamento corrente: [DESCRITTORE-E-SPAZIO-5D20-5D26.md](DESCRITTORE-E-SPAZIO-5D20-5D26.md).
+Ripresa attuale: **$5D21 nella continuazione Brown**.510checkpoint certificati
+fino a mercoledì14:40;JS fermo3288/14:47,primo escluso510 nell’originale14:49,
+lettura92 del giardiniere8. La traccia20–27 arriva al3195:estenderla fino alnuovo
+read,senza dedurreD da20/92. Superati20(E parametro nelglifo n,frame26) e26
+(F scansione dello spazio,frame32) della precedente estrazione cuoca9.
+26preservato solo concontratto riga fresca e budgetcounter prima diMORE;
+non estendergli la conservazione ampia di20.21/27 ancora indipendenti.
+Baseline6A33 confermataThu10:00;altri finali e la soluzioneBrown ancoraaperti.
+Vedi STATO-E-PROSSIMI-PASSI.md e results/passage-descriptor-20-verification.json.
+Le tappe sotto conservano lo storico e non sostituiscono questo punto corrente.
 
 1. **Prima storia del ramo witness verificata fino al finale6A33.**
    521 checkpoint0–520 da lunedì08:00 a giovedì10:00; tutti24 i posti attore,

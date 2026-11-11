@@ -1,0 +1,22 @@
+[
+  {
+    "label": "brown-passage-caller-a25",
+    "passed": true,
+    "checkpoints": 501,
+    "random_draws": 7772,
+    "clock": {
+      "tick": 3197,
+      "due": 3781,
+      "day": 2,
+      "minute": 16,
+      "hour": 1,
+      "period": "pm",
+      "label": "Wed 01:16pm"
+    },
+    "terminal": null,
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true
+  }
+]
