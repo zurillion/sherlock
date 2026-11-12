@@ -3,16 +3,19 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente: [DESCRITTORE-ALTO-E-FONT-5D21-5D27.md](DESCRITTORE-ALTO-E-FONT-5D21-5D27.md).
-Ripresa: **$5D22 nella continuazione Brown**.520checkpoint fino mercoledì16:10;
-JS fermo3377/16:16,primo escluso520 nell'originale16:18,cuoca9 legge5.
-Estendere la traccia writer20–27 da3288 alla nuova lettura3377:non basta il
-precedente store di22. Superati21(D descrittore,n/frame26) e27(A font,spazio/frame32),
-letti dalgiardiniere8 a3288/14:47;writerHolmes1653/Tue11:32,3020store invariati.
-Proprietà indipendenti;27preservato solo concontratto fresh-row/budgetMORE,
-non eredita la conservazione ampia di21. OldSAVE assente restaunknown.
-Baseline6A33 confermataThu10:00;altri finali e soluzioneBrown ancoraaperti.
-Vedi STATO-E-PROSSIMI-PASSI.md e results/passage-descriptor-high-21-verification.json.
+Aggiornamento corrente.
+[Offset del glifo in $5D22 e $5D28](OFFSET-GLIFO-5D22-5D28.md).
+
+Ripresa da **$5D29** nella continuazione Brown. Verificati 530 checkpoint
+fino a mercoledì 17:40. Il modello si ferma al tick 3469 (17:48). Il
+checkpoint originale 530 delle 17:50 mostra la lettura di 1 da parte
+del giardiniere. La traccia degli indirizzi 20–29 arriva al tick 3377.
+Estenderla fino alla nuova lettura per individuare l'ultima scrittura.
+La cuoca leggeva 22 e 28 alle 16:16. Il modello li ricostruisce come C del
+qualificatore e C della scansione del separatore, con conservazione
+distinta durante gli arrivi e gli errori. La baseline 6A33 è confermata
+fino a giovedì 10:00. 6ABD e gli altri finali aperti restano in coda.
+
 Le tappe sotto conservano lo storico e non sostituiscono questo punto corrente.
 
 1. **Prima storia del ramo witness verificata fino al finale6A33.**

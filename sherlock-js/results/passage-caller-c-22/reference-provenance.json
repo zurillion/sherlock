@@ -1,0 +1,19 @@
+{
+  "identical_original_checkpoints": 521,
+  "prefix_before_Brown_prompt": 338,
+  "new_continuation_checkpoints": 224,
+  "checkpoint_ticks": [
+    2928,
+    3014,
+    3104,
+    3197,
+    3290,
+    3379
+  ],
+  "final_original_tick": 3781,
+  "sha256": {
+    "results/passage-descriptor-high-21/extended-reference.json": "28b7ed292903f4fa03254742d2e93108ab8116c4c7f6e42335a410cdf6fc60fa",
+    "results/passage-caller-c-22/extended-native.json": "b7f2d832f87f246c88fc4324b2c569b8bed0c836c62f42ee60d2f6c4aebc8f2d",
+    "results/cab-stack-15/lookahead-manifest.json": "fad8477120b66f57b3d25c3f04ece6742ed28bd82a88ba052e26c1104f0b79ee"
+  }
+}

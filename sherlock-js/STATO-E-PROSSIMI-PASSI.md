@@ -1,5 +1,41 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 12 novembre 2026.
+[Offset del glifo in $5D22 e $5D28](OFFSET-GLIFO-5D22-5D28.md).
+
+Superati **$5D22 e $5D28**, letti dalla cuoca mercoledì alle 16:16 (tick 3377).
+Entrambi derivano da `(2 + 7 * colonna) & 7`. Holmes li scrive martedì alle
+11:32 (tick 1653). C389 salva C del chiamante mentre stampa la n di plain,
+frame 5D26, colonna 21, valore 5. C3B7 salva C della scansione dello spazio,
+frame 5D32, colonna 22, valore 4. C39C copre anche l'offset zero.
+La traccia ha 3960 scritture classificate. I 3020 eventi su 20–27
+coincidono con il dossier precedente. Le proprietà dei due campi sono
+indipendenti. Arrivi propri eleggibili preservano 22, mentre 110 su 720
+sovrascrivono 28. Per 28 si conserva solo con riga fresca e margine
+prima del MORE. I 129 rifiuti eleggibili preservano entrambi.
+
+**530 checkpoint verificati, fino a mercoledì 17:40**. Il confronto copre
+8456 estrazioni, 18036 letture, tutti i 24 attori, 752 byte dell'arena,
+bitmap e futuro dopo LOAD. Il riferimento originale include 562
+checkpoint fino a mercoledì 23:00 e i primi 521 coincidono con quelli già
+acquisiti. Baseline 6A33 ripetuta con 521 checkpoint fino a giovedì
+10:00, inclusi pausa e blocco terminali.
+
+**Prossimo limite $5D29**, tick 3469 alle 17:48 nel modello. Primo
+checkpoint originale escluso 530 alle 17:50, lettura del valore 1
+da parte del giardiniere. Estendere la traccia da 3377 alla lettura.
+6ABD e altri finali ancora aperti. La sequenza conserva i viaggi
+falliti e la prova Brown mancante.
+
+Superati 1904 test distinti. Vedi
+[report di verifica](results/passage-caller-c-22-verification.json).
+
+Atlante aggiornato per il glifo C388–C3E3, lo scroll C316–C387, il
+passaggio D60B–D670, gli arrivi CBC2–CC0A, i rifiuti C1FD–C23F e i due
+indirizzi del workspace. Riassemblati 395 istruzioni e 715 byte.
+Classificazione invariata con 39364 documentati, 428 parziali e 1808
+ignoti su 41600. Le sezioni seguenti conservano lo storico.
+
 Aggiornamento 11 novembre 2026: [DESCRITTORE-ALTO-E-FONT-5D21-5D27.md](DESCRITTORE-ALTO-E-FONT-5D21-5D27.md).
 Superati **$5D21 e $5D27**, operandi del giardiniere8 a3288/mercoledì14:47.
 21 è D del descrittore effettivo salvato daC38A/frame26;27 è A,byte del font

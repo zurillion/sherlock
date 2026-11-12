@@ -1395,3 +1395,32 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   no newgray/classchange,39364/428/1808 of41600. Existing1891tests and new8module
   run separately on finalruntime;report checks both logs,aggregate1899.
   Preliminary missing-provenance-file invocation is retained,not a positive.
+
+
+- Read OFFSET-GLIFO-5D22-5D28.md and results/passage-caller-c-22-verification.json.
+  Cook 9 reads both offsets at tick 3377, Wed 16:16. Holmes writes them at
+  1653, Tue 11:32. C389 saves C for the n in plain at frame 5D26, column 21.
+  C3B7 saves scan C for the separator at frame 5D32, column 22. C39C also
+  handles the zero-offset branch. Both values come from (2 + 7 * column) & 7.
+  Keep caller C, scan C, caller B, scan AF and scan B independent. Missing
+  fields in older saves stay unknown until modeled writes. The paired trace
+  has 3960 stores, including the exact earlier 3020 events on 20–27, plus
+  470 each on 28/29. All observed transitions are classified.
+  The six-frame 22 ABI has 1296 cases. The new original acquisitions cover
+  720 passage geometries, 1512 arrivals, 300 fresh rows and 138 lower errors.
+  Both fields match in 290 owned passage geometries. All 720 eligible proper
+  arrivals preserve 22, and 110 overwrite 28 when wrapping. The model retains
+  28 only with a fresh row, a fitting unqualified proper name, an empty
+  buffer, spacing zero and counter + 2 < 15. The 129 simple errors preserve
+  both. Revocation on unprojected frames includes later names and scrolling.
+  The natural certificate covers 530 checkpoints through Wed 17:40,
+  8456 draws and 18036 reads. Next 5D29 is at model tick 3469, Wed 17:48.
+  The excluded original checkpoint 530 at 17:50 shows gardener 8 reading 1.
+  Extend the natural writer trace past 3377 before attributing that later
+  read. The original extension has 562 checkpoints through Wed 23:00,
+  with the first 521 identical. Baseline 6A33 repeats 521 through Thu 10:00.
+  Natural 6ABD and the other open endings still require verification.
+  Atlas refinements cover C388–C3E3, C316–C387, D60B–D670, CBC2–CC0A,
+  C1FD–C23F and the 22/28 workspace. Coverage remains 39364 documented,
+  428 partial and 1808 unknown bytes. The listing verifies 395 instructions
+  and 715 bytes against the original payload.

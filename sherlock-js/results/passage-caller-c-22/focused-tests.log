@@ -1,0 +1,13 @@
+✔ Original glyph frames assign six roles to 5D22, including all eight caller C offsets (207.015958ms)
+✔ Both saved offsets match original passage geometry, including wrap revocation (325.3175ms)
+✔ Original arrivals preserve caller C but can overwrite scan C on a wrapped row (129.729958ms)
+✔ Passage scan C comes from the actual separator and does not establish the adjacent scan count (31.5215ms)
+✔ Ordinary commands derive both offsets from a prewriter SAVE, and LOAD keeps the derived values (2026.977875ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3763.198875

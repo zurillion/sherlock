@@ -1,0 +1,25 @@
+{
+  "stoppedAt": "5D29",
+  "error": "530 Ingresso casuale originale non ancora ricostruito: $5D29. Il comando non è stato applicato.",
+  "checkpoints": 530,
+  "certified_checkpoint_range": [
+    0,
+    529
+  ],
+  "clock": {
+    "tick": 3461,
+    "due": 3781,
+    "day": 2,
+    "minute": 40,
+    "hour": 5,
+    "period": "pm",
+    "label": "Wed 05:40pm"
+  },
+  "compared_random_draws": 8456,
+  "compared_random_reads": 18036,
+  "all_actors": 24,
+  "arena_bytes_per_checkpoint": 752,
+  "bitmaps_compared": true,
+  "load_future_compared": true,
+  "full_ending_certified": false
+}
