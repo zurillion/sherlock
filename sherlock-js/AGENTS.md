@@ -1424,3 +1424,28 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   C1FD–C23F and the 22/28 workspace. Coverage remains 39364 documented,
   428 partial and 1808 unknown bytes. The listing verifies 395 instructions
   and 715 bytes against the original payload.
+
+
+- Read SCANSIONE-GLIFO-5D29.md and results/passage-scan-count-29-verification.json.
+  The original gardener reads 5D29 at 3469, Wed 17:48. Holmes saves BC=0104
+  at C3B7 in the separator glyph after plain, frame 5D32, at tick 1653.
+  C399 starts B at 8 and C3D2 decrements it after each scan. C39C saves B
+  for aligned glyphs too. The final saved count is 1. Keep scan B ownership
+  independent from C and AF. A real row-clear return at frame 5D28 can
+  overwrite 5D29 with C3. Unknown later output and missing old SAVE fields
+  retain the established guard behavior.
+  The observation replays from the unchanged original Brown prompt. Its
+  handover is A074 at tick 3378, with all ten bytes checked against the
+  prior 3960 stores and the prior trace hashed. Zero subsequent stores or
+  unclassified transitions through the actual read. Reused original ABIs:
+  1296 glyph cases in six frames, 290 owned matches in 720 passage
+  geometries. 110 of 720 proper arrivals overwrite the field. Preserve it
+  in the proved fresh-row and pre-MORE scope or the 129 simple rejections.
+  The comparison verifies 539 checkpoints through Wed 19:10, 8685 draws,
+  18524 reads, 24 actors, 752 arena bytes, bitmaps and future after LOAD.
+  Next 5D2A is at model tick 3560, Wed 19:19. The excluded original
+  checkpoint 539 at 19:20 shows cook 9 reading 51. Trace this address
+  explicitly since the previous tracked range ended at 5D29. Reused
+  original reference has 562 rows through Wed 23:00. Baseline 6A33 again
+  verifies 521 rows through Thu 10:00. Natural 6ABD and other open endings
+  remain to verify. Atlas refinements preserve the byte classifications.

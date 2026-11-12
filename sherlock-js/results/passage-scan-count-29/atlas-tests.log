@@ -1,0 +1,13 @@
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (8.782458ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (0.975166ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (49.709708ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (8.446708ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (0.814292ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 727.012708

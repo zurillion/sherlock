@@ -4,17 +4,17 @@ Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digress
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
 Aggiornamento corrente.
-[Offset del glifo in $5D22 e $5D28](OFFSET-GLIFO-5D22-5D28.md).
+[Il contatore di scansione del glifo in $5D29](SCANSIONE-GLIFO-5D29.md).
 
-Ripresa da **$5D29** nella continuazione Brown. Verificati 530 checkpoint
-fino a mercoledì 17:40. Il modello si ferma al tick 3469 (17:48). Il
-checkpoint originale 530 delle 17:50 mostra la lettura di 1 da parte
-del giardiniere. La traccia degli indirizzi 20–29 arriva al tick 3377.
-Estenderla fino alla nuova lettura per individuare l'ultima scrittura.
-La cuoca leggeva 22 e 28 alle 16:16. Il modello li ricostruisce come C del
-qualificatore e C della scansione del separatore, con conservazione
-distinta durante gli arrivi e gli errori. La baseline 6A33 è confermata
-fino a giovedì 10:00. 6ABD e gli altri finali aperti restano in coda.
+Ripresa da **$5D2A** nella continuazione Brown. Verificati 539
+checkpoint fino a mercoledì 19:10. Il modello si ferma al tick 3560
+(19:19). Il checkpoint 539 originale delle 19:20 mostra una lettura
+di 51 da parte della cuoca. Il tracciamento precedente copriva
+5D20–5D29. Includere le scritture di 2A da prima dell'evento che
+potrebbe scriverlo. 5D29 deriva dall'ultimo B della scansione dello
+spazio dopo plain. La traccia conferma il salvataggio C3B7 fino
+alla lettura del giardiniere al tick 3469. La baseline 6A33 è
+confermata fino a giovedì 10:00. Gli altri finali aperti restano in coda.
 
 Le tappe sotto conservano lo storico e non sostituiscono questo punto corrente.
 

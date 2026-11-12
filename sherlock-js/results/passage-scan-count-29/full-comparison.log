@@ -1,0 +1,27 @@
+checkpoint 100 Mon 12:30pm
+checkpoint 200 Tue 12:03am
+checkpoint 300 Tue 09:05am
+checkpoint 400 Tue 09:40pm
+checkpoint 500 Wed 01:10pm
+{
+  stoppedAt: '5D2A',
+  error: '539 Ingresso casuale originale non ancora ricostruito: $5D2A. Il comando non è stato applicato.',
+  checkpoints: 539,
+  certified_checkpoint_range: [ 0, 538 ],
+  clock: {
+    tick: 3551,
+    due: 3781,
+    day: 2,
+    minute: 10,
+    hour: 7,
+    period: 'pm',
+    label: 'Wed 07:10pm'
+  },
+  compared_random_draws: 8685,
+  compared_random_reads: 18524,
+  all_actors: 24,
+  arena_bytes_per_checkpoint: 752,
+  bitmaps_compared: true,
+  load_future_compared: true,
+  full_ending_certified: false
+}

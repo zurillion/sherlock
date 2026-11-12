@@ -1,6 +1,44 @@
 # Stato del gameplay e ordine di completamento
 
 Aggiornamento 12 novembre 2026.
+[Il contatore di scansione del glifo in $5D29](SCANSIONE-GLIFO-5D29.md).
+
+Superato **$5D29**. Il giardiniere legge 1 mercoledì alle 17:48
+(tick 3469). Holmes ha scritto il byte martedì alle 11:32 (tick 1653),
+quando C3B7 ha salvato BC=$0104 per lo spazio dopo plain, frame 5D32.
+B parte da 8 e l'ultimo PUSH precede DJNZ con B=1. Il ramo allineato
+salva B in C39C. L'offset C del byte adiacente resta indipendente.
+Raccordo a A074/tick 3378 con hash della traccia precedente e verifica
+dei dieci byte. Zero nuove scritture o transizioni non classificate
+su 5D20–5D29 fino alla lettura.
+
+Riutilizzate le ABI originali. Nei 720 casi del passaggio coincidono
+tutti i 290 valori noti. 110 arrivi propri su 720 sovrascrivono 29
+durante lo scorrimento. I 300 controlli su riga fresca e i 129
+rifiuti semplici lo preservano. Il motore richiede riga fresca, nome
+che entra, buffer vuoto, spacing zero e margine prima del MORE.
+
+**539 checkpoint verificati fino a mercoledì 19:10**, con 8685
+estrazioni, 18524 letture, 24 attori, arena di 752 byte, bitmap
+e futuro dopo LOAD. Il riferimento originale di 562 checkpoint è
+riutilizzato. La baseline 6A33 resta confermata fino a giovedì
+10:00, inclusi pausa e blocco terminale. 6ABD e gli altri finali
+aperti restano da verificare.
+
+**Prossimo limite $5D2A**, tick 3560 alle 19:19 nel modello.
+Il checkpoint 539 originale, alle 19:20, mostra la cuoca che legge
+51. La traccia 20–29 esclude questo indirizzo. Ampliare la finestra
+di indirizzi per osservare le scritture di 2A.
+
+Tutti i 1905 test della suite sono passati.
+[Report di verifica](results/passage-scan-count-29-verification.json).
+
+Aggiornati il workspace 5D29, il glifo C388–C3E3, lo scroll
+C316–C387, il passaggio D60B–D670, gli arrivi CBC2–CC0A e i
+rifiuti C1FD–C23F. Verificate 395 istruzioni e 715 byte.
+Restano 39364 documentati, 428 parziali e 1808 ignoti su 41600.
+
+Aggiornamento 12 novembre 2026.
 [Offset del glifo in $5D22 e $5D28](OFFSET-GLIFO-5D22-5D28.md).
 
 Superati **$5D22 e $5D28**, letti dalla cuoca mercoledì alle 16:16 (tick 3377).

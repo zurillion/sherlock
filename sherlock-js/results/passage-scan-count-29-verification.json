@@ -1,0 +1,341 @@
+{
+  "natural_writer": {
+    "address": "5D29",
+    "value": 1,
+    "clock": {
+      "tick": 3469,
+      "due": 3781,
+      "minute": 48,
+      "hour": 5,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 05:48pm"
+    },
+    "actor": 8,
+    "last_store": {
+      "pc": "C3B7",
+      "opcode": [
+        197,
+        245,
+        62
+      ],
+      "sp": "5D2A",
+      "af": 0,
+      "bc": 260,
+      "de": 15623,
+      "hl": 22323,
+      "glyph": {
+        "frame": 23858,
+        "char": 32,
+        "descriptor": 21102,
+        "screen_address": 20531,
+        "shift": 4,
+        "caller_count": 0,
+        "word": "plainen.ined?\u0001"
+      },
+      "actor": 0,
+      "clock": {
+        "tick": 1653,
+        "due": 1653,
+        "minute": 32,
+        "hour": 11,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 11:32am"
+      },
+      "stack": [
+        "5033",
+        "526E",
+        "0004",
+        "201A",
+        "C2F1",
+        "2093",
+        "0003",
+        "A250",
+        "A89F",
+        "526E",
+        "0003",
+        "A250",
+        "90CC",
+        "A824",
+        "D445",
+        "0007",
+        "0044",
+        "D3E4",
+        "05C3",
+        "90CC",
+        "D65B",
+        "879C",
+        "8793",
+        "8CBA",
+        "0001",
+        "3000",
+        "D178",
+        "D10D",
+        "3000",
+        "8CBA",
+        "8793",
+        "CA99"
+      ],
+      "address": "5D29",
+      "value": 1
+    }
+  },
+  "trace_handover": {
+    "pc": "A074",
+    "bytes": [
+      11,
+      92,
+      5,
+      1,
+      10,
+      110,
+      0,
+      0,
+      4,
+      1
+    ],
+    "prior_sha256": "a369e13b829db5e73e2779e1804df9256e493278d984fcca797f6a9f48606ee2"
+  },
+  "additional_stack_stores": 0,
+  "unclassified_transitions": 0,
+  "original_abi": {
+    "glyph_frames": 6,
+    "glyph_cases": 1296,
+    "passages": 720,
+    "owned_passage_matches": 290,
+    "arrivals": 1512,
+    "eligible_arrivals_overwriting_29": 110,
+    "fresh_rows_preserving_29": 300,
+    "eligible_errors_preserving_29": 129
+  },
+  "natural_certificate": {
+    "protocol": "Natural seed-1 histories from free initial LOOK; all 24 actor slots active; native graphics off after boot; uppercase injected keys; immediate MORE/terminal acknowledgement; no idle timeout, teleport, actor-PC or proof patch. Original executes offline only.",
+    "stoppedAt": "5D2A",
+    "error": "539 Ingresso casuale originale non ancora ricostruito: $5D2A. Il comando non \u00e8 stato applicato.",
+    "checkpoints": 539,
+    "certified_checkpoint_range": [
+      0,
+      538
+    ],
+    "clock": {
+      "tick": 3551,
+      "due": 3781,
+      "day": 2,
+      "minute": 10,
+      "hour": 7,
+      "period": "pm",
+      "label": "Wed 07:10pm"
+    },
+    "compared_random_draws": 8685,
+    "compared_random_reads": 18524,
+    "all_actors": 24,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "load_future_compared": true,
+    "full_ending_certified": false
+  },
+  "next_limit": {
+    "address": "5D2A",
+    "model_clock": {
+      "tick": 3560,
+      "due": 3560,
+      "day": 2,
+      "minute": 19,
+      "hour": 7,
+      "period": "pm",
+      "label": "Wed 07:19pm"
+    },
+    "first_excluded_checkpoint": 539,
+    "original_clock": {
+      "tick": 3561,
+      "due": 3781,
+      "minute": 20,
+      "hour": 7,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 07:20pm"
+    },
+    "original_draw": {
+      "actor": 9,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 56,
+      "cursor": 23332,
+      "reads": [
+        {
+          "address": 23588,
+          "value": 0
+        },
+        {
+          "address": 23594,
+          "value": 0
+        },
+        {
+          "address": 23844,
+          "value": 10
+        },
+        {
+          "address": 23850,
+          "value": 51
+        }
+      ],
+      "result": 14,
+      "next_seed": 113,
+      "next_cursor": 23844
+    },
+    "natural_writer_untraced": true
+  },
+  "baseline_6a33": {
+    "checkpoints": 521,
+    "random_draws": 10347,
+    "clock": {
+      "tick": 4441,
+      "due": 4501,
+      "day": 3,
+      "minute": 0,
+      "hour": 10,
+      "period": "am",
+      "label": "Thu 10:00am"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "6A33"
+    },
+    "all_actors": 24,
+    "load_future_compared": true,
+    "arena_bytes_per_checkpoint": 752,
+    "bitmaps_compared": true,
+    "certified_checkpoint_range": [
+      0,
+      520
+    ],
+    "compared_random_draws": 10345,
+    "compared_random_reads": 22058,
+    "full_ending_certified": true
+  },
+  "test_runs": [
+    {
+      "file": "full-tests.log",
+      "tests": 1905,
+      "pass": 1905,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "file": "focused-tests.log",
+      "tests": 46,
+      "pass": 46,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "file": "atlas-tests.log",
+      "tests": 5,
+      "pass": 5,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  ],
+  "listing": {
+    "roundtrip_equal": true,
+    "instructions": 395,
+    "bytes_roundtripped": 715,
+    "regions": [
+      {
+        "start": "C2BA",
+        "end_exclusive": "C306",
+        "kind": "code",
+        "label": "Canale superiore: A conservato prima del renderer",
+        "atlas_priority": 187
+      },
+      {
+        "start": "C388",
+        "end_exclusive": "C3E4",
+        "kind": "code",
+        "label": "Glifo: conteggio B e offset C della scansione",
+        "atlas_priority": 187
+      },
+      {
+        "start": "C316",
+        "end_exclusive": "C388",
+        "kind": "code",
+        "label": "Scroll: salvataggi esterni e revoca dei chiamanti non ricostruiti",
+        "atlas_priority": 187
+      },
+      {
+        "start": "D60B",
+        "end_exclusive": "D671",
+        "kind": "code",
+        "label": "Passaggi: scansione del glifo dello spazio separatore",
+        "atlas_priority": 187
+      },
+      {
+        "start": "CBC2",
+        "end_exclusive": "CC0B",
+        "kind": "code",
+        "label": "Arrivi propri: conservazione del conteggio B su riga fresca",
+        "atlas_priority": 187
+      },
+      {
+        "start": "C1FD",
+        "end_exclusive": "C240",
+        "kind": "code",
+        "label": "Rifiuti semplici: conservazione di BC della scansione",
+        "atlas_priority": 187
+      },
+      {
+        "start": "A815",
+        "end_exclusive": "A82F",
+        "kind": "code",
+        "label": "Riferimenti nominali: ingresso del sostantivo nel decoder",
+        "atlas_priority": 187
+      },
+      {
+        "start": "A887",
+        "end_exclusive": "A8B9",
+        "kind": "code",
+        "label": "Decoder: spazio che scarica il qualificatore prima del sostantivo",
+        "atlas_priority": 187
+      },
+      {
+        "start": "D3D5",
+        "end_exclusive": "D448",
+        "kind": "code",
+        "label": "Nomi: qualificatori, sostantivo e loro descrittori distinti",
+        "atlas_priority": 187
+      }
+    ]
+  },
+  "atlas": {
+    "counts": {
+      "partial": 428,
+      "unknown": 1808,
+      "documented": 39364
+    },
+    "changed_classifications": 0
+  },
+  "sha256": {
+    "results/passage-caller-c-22/wide-abi/passage-abi.json": "79401ba53eeb1d086fa86311a74aa42ea83effe0345f784af04a568923353d76",
+    "results/passage-caller-c-22/wide-abi/arrival-low-abi.json": "5ba2b2136f7bf1778262d69a70647dc76f801e506ee70ca70ae93b609351d934",
+    "results/passage-caller-c-22/wide-abi/arrival-fresh-row-abi.json": "aa46141f0da9dfbd8dee70696c1d9ff0fc32c9e7b8cac9e85026c5635ae8436b",
+    "results/passage-caller-c-22/wide-abi/simple-error-abi.json": "c49726d069cc0688b67a05ce3c8d0f1369fa9451a8325da47df43c9ca667b0ed",
+    "results/passage-caller-c-22/natural-stores.json": "a369e13b829db5e73e2779e1804df9256e493278d984fcca797f6a9f48606ee2",
+    "results/passage-caller-c-22/extended-reference.json": "794a2ad7e651e042622d577a6f3dc0368295aeba269cd56052ae76f1826bf701",
+    "results/passage-scan-count-29/natural-stores.json": "45878ad808eee7e2a0b39501bc408ce6382a435c09864ef1792f55491ccc35a9",
+    "results/passage-scan-count-29/full-comparison.json": "c73b2de935f5ddaf54feef4cbdcfec6131bdd3b99daf67aefd969f9285295c54",
+    "results/passage-scan-count-29/baseline-6a33.json": "71027fe821ff58f227eb092e699912402bc02c494522717ae2e6b22e0928d7ee",
+    "results/passage-scan-count-29/full-tests.log": "84443c3594c36fde49acaa8e11c6c6000d2ce3444ad5d2f8f1ad637fec5e4126",
+    "test/fixtures/glyph-address-high-abi.json": "36d30b1ec0b3481b446761ef4180a951ba68ccbc153a767f166e62dda40e3c28",
+    "results/glyph-scan-shift/deeper-frame-abi.json": "49f70d945f7563ff455a90ef04333087aafdfd8fb39532ffc2785bca002fd5ed",
+    "results/final-solution/witness-native-reference.json.gz": "68c0a4cf430ee93c86146f6d22dcb37cbb49eb82c2568997c7f08416dabaaf82",
+    "src/random-display.mjs": "9835abfe59b93a41d111c32b07ec32f0b1a9327332ec04351b548df4cbb29d6d",
+    "src/game.mjs": "66843bad630409e4a580974d185cb3ff31137767e91ab5bb1d2016eff6f40f75",
+    "src/text.mjs": "f40df68f8b37749a9e9b311c5b917d3eaf5ee4f83b05602e0136739cf4996e82",
+    "src/npc-runtime.mjs": "c4156ed4d89e3142e1f7d8f24ee9708d0befe9d059695b0a77a7e1c91b67c489"
+  }
+}
