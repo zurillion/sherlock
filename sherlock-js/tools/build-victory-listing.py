@@ -1,0 +1,79 @@
+"""Build source annotations for the original evidence and pursuit gates."""
+import json
+from pathlib import Path
+import sys
+
+sys.dont_write_bytecode = True
+project = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(project / 'skoolkit-10.1'))
+from skoolkit.traceutils import disassemble
+from skoolkit.z80 import Assembler
+
+memory = bytes(0x5D80) + (project / 'sherlock-analisi/block-10.bin').read_bytes()
+assembler = Assembler()
+instructions = json.loads((project / 'sherlock-js/data/game.json').read_text())['npcPrograms']['instructions']
+regions = [
+    (0x9965, 0x9973, 'data', 'Prova dell’innocenza del maggiore'),
+    (0x9973, 0x9981, 'data', 'Prove del suicidio di Mrs Brown'),
+    (0x9981, 0x9997, 'data', 'Prove dell’omicidio di Tricia'),
+    (0x9997, 0x99A9, 'data', 'Prove che Basil possiede i piani'),
+    (0x99A9, 0x99BB, 'data', 'Prove del luogo della vendita'),
+    (0x9A13, 0x9A3D, 'code', 'Accettazione dei piani subordinata ai due omicidi'),
+    (0x9E4A, 0x9E6A, 'code', 'Finale di Victoria: presenza di Watson e Lestrade'),
+    (0xD078, 0xD0DC, 'code', 'Controllo di luce e lampada percepibile'),
+    (0xEA25, 0xEA5F, 'domain', 'Lestrade attende le due deduzioni prima di partire'),
+    (0xEAF6, 0xEAF8, 'data', 'Intestazione della regola del cab di polizia'),
+    (0xEAF8, 0xEB11, 'code', 'Cab di polizia e conducente collocati in Main Street'),
+    (0xEB11, 0xEB13, 'data', 'Intestazione del predicato sul luogo della vendita'),
+    (0xEB13, 0xEB19, 'code', 'Controlla la deduzione sul luogo della vendita'),
+    (0xEB19, 0xEB1B, 'data', 'Intestazione del predicato sui piani'),
+    (0xEB1B, 0xEB28, 'code', 'Controlla la deduzione sul possesso dei piani'),
+    (0xEF7A, 0xEF8C, 'domain', 'Basil a Victoria: incontro con Holmes e finale'),
+]
+notes = {
+    0x9965: 'La conclusione dipende dalla visita del maggiore alla fumeria. La confessione aggiorna la premessa; Lestrade accetta la deduzione quando può parlarne con Holmes.',
+    0x9973: 'Richiede cadavere e ponte esaminati, poi la pietra osservata. La nota sul cadavere è un indizio distinto.',
+    0x9981: 'Richiede corpo, libreria e abiti esaminati, più le premesse modificate dalla confessione di Mrs Jones.',
+    0x9997: 'Richiede esame di nota incompiuta, cartella, lettere e delle due note cifrate.',
+    0x99A9: 'Richiede il presupposto impostato da 9A27, l’esame della nota recuperata dal fuoco e che il conto alla rovescia non l’abbia fatta bruciare.',
+    0x9A13: 'Prova entrambe le conclusioni su Mrs Brown e Tricia. Se una manca, il ramo 9A2F ritira l’ipotesi corrente.',
+    0x9A27: 'Abilita la premessa della deduzione successiva sul luogo della vendita.',
+    0x9E4A: 'Prepara il testo 6B79. Con Watson (3) e Lestrade (2) nella stanza di Holmes seleziona 6AF3.',
+    0xD09E: 'Scorre le entità dopo il controllo di fascia oraria e cerca una sorgente di luce percepibile.',
+    0xEA2C: 'EB19 prova il flag della conclusione sui piani. Il ramo di fallimento attende e torna a verificare.',
+    0xEA31: 'EB11 prova il flag sul luogo della vendita. Il successo passa a EA5B, poi il programma segnala a Straker di partire.',
+    0xEAF8: 'Il secondo argomento diventa passeggero del primo. Entrambi ricevono la stanza $32, Main Street.',
+    0xEB13: 'Seleziona il fatto 99A9 e riusa il test comune a EB1F.',
+    0xEB1B: 'Seleziona il fatto 9997. BIT 1 legge il flag della prova confermata, senza modificare il record.',
+    0xEF7A: 'Attiva il percorso verso la locazione $1C, Buckingham Palace Road.',
+    0xEF83: 'Confronta la posizione di Basil con l’identità esplicita 0. Il ramo con Holmes presente chiama il selettore 9E48.',
+}
+output = project / 'sherlock-js/results/victory-route'
+output.mkdir(parents=True, exist_ok=True)
+lines = ['; Dossier verificato sul payload originale.']
+count = total = 0
+for start, end, kind, label in regions:
+    marker = 'BYTECODE' if kind == 'domain' else kind.upper()
+    lines.extend(['', f'    ORG ${start:04X}', f'; {marker}: {label}'])
+    at = start
+    while at < end:
+        if kind == 'code':
+            op, size = disassemble(memory, at)
+            count += 1
+        else:
+            size = instructions[f'{at:04X}']['size'] if kind == 'domain' else end - at
+            op = 'DEFB ' + ','.join(f'${value:02X}' for value in memory[at:at+size])
+        assert at + size <= end, (hex(at), op)
+        assert bytes(assembler.assemble(op, at)) == memory[at:at+size]
+        note = ' | ' + notes[at] if at in notes else ''
+        lines.append(f'    {op:<37} ; ${at:04X} {memory[at:at+size].hex(" ")}{note}')
+        at += size
+        total += size
+(output / 'victory-route.asm').write_text('\n'.join(lines) + '\n')
+(output / 'listing-verification.json').write_text(json.dumps(dict(
+    roundtrip_equal=True, instructions=count, bytes_roundtripped=total, regions=[
+        dict(start=f'{a:04X}', end_exclusive=f'{b:04X}', kind=kind, label=label, atlas_priority=189)
+        for a, b, kind, label in regions
+    ],
+), ensure_ascii=False, indent=2) + '\n')
+print(count, total)

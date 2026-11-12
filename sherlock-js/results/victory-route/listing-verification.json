@@ -1,0 +1,119 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 91,
+  "bytes_roundtripped": 386,
+  "regions": [
+    {
+      "start": "9965",
+      "end_exclusive": "9973",
+      "kind": "data",
+      "label": "Prova dell’innocenza del maggiore",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9973",
+      "end_exclusive": "9981",
+      "kind": "data",
+      "label": "Prove del suicidio di Mrs Brown",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9981",
+      "end_exclusive": "9997",
+      "kind": "data",
+      "label": "Prove dell’omicidio di Tricia",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9997",
+      "end_exclusive": "99A9",
+      "kind": "data",
+      "label": "Prove che Basil possiede i piani",
+      "atlas_priority": 189
+    },
+    {
+      "start": "99A9",
+      "end_exclusive": "99BB",
+      "kind": "data",
+      "label": "Prove del luogo della vendita",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9A13",
+      "end_exclusive": "9A3D",
+      "kind": "code",
+      "label": "Accettazione dei piani subordinata ai due omicidi",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9E4A",
+      "end_exclusive": "9E6A",
+      "kind": "code",
+      "label": "Finale di Victoria: presenza di Watson e Lestrade",
+      "atlas_priority": 189
+    },
+    {
+      "start": "D078",
+      "end_exclusive": "D0DC",
+      "kind": "code",
+      "label": "Controllo di luce e lampada percepibile",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EA25",
+      "end_exclusive": "EA5F",
+      "kind": "domain",
+      "label": "Lestrade attende le due deduzioni prima di partire",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EAF6",
+      "end_exclusive": "EAF8",
+      "kind": "data",
+      "label": "Intestazione della regola del cab di polizia",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EAF8",
+      "end_exclusive": "EB11",
+      "kind": "code",
+      "label": "Cab di polizia e conducente collocati in Main Street",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EB11",
+      "end_exclusive": "EB13",
+      "kind": "data",
+      "label": "Intestazione del predicato sul luogo della vendita",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EB13",
+      "end_exclusive": "EB19",
+      "kind": "code",
+      "label": "Controlla la deduzione sul luogo della vendita",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EB19",
+      "end_exclusive": "EB1B",
+      "kind": "data",
+      "label": "Intestazione del predicato sui piani",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EB1B",
+      "end_exclusive": "EB28",
+      "kind": "code",
+      "label": "Controlla la deduzione sul possesso dei piani",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EF7A",
+      "end_exclusive": "EF8C",
+      "kind": "domain",
+      "label": "Basil a Victoria: incontro con Holmes e finale",
+      "atlas_priority": 189
+    }
+  ]
+}
