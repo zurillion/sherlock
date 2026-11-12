@@ -2,6 +2,11 @@ import {capitalKind,normalizedCapital,moneyClearsCapital} from './output-capital
 import {textWindowControl} from './text-window.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
 import {bootstrapKeyboard,bootstrapWordWorkspace} from './keyboard-profile.mjs';
+
+function incrementFlags(before,carry=0){
+ const after=(before+1)&255;
+ return (after&0xA8)|(after===0?64:0)|((before&15)===15?16:0)|(before===127?4:0)|carry;
+}
 // Canonical text-screen projection for random input, independent of the DOM,
 // display speed and SVG preference. It is rebuilt from output operations; no
 // original screen image or machine snapshot is installed here.
@@ -18,13 +23,13 @@ export class RandomDisplay {
   this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');if(!deferPrompt)this.prompt();}
  wideWindow(){const s=this.state;if(!s)return;const next=textWindowControl(false,s.counter);s.windowMode=next.mode;s.cursor=next.cursor;s.remaining=next.remaining;s.started=false;}
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
- scene(text,sceneTrace=[]){this.invalidateGlyphExtras();const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
+ scene(text,sceneTrace=[]){this.invalidateGlyphExtras();const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
    // D5C4 renders the last word of the carrying person's name and the
    // copula via the actor-is text argument. Its glyph frame differs from
    // the literal name in the preceding contents list. A wrapped word also
    // clears a row (C316/C374), publishing the final space's scan state.
    const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
-   this.glyphFrame=role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;
+   this.glyphFrame=role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
    this.glyphSpaceDescriptor=null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
@@ -33,20 +38,20 @@ export class RandomDisplay {
    const rawText=sceneTrace.find(e=>e.kind==='raw-text-buffer'&&e.start<=i&&i<e.end);
    // A later name/prose caller has its own unprojected register saves.
    // The noun of this same passage shares the raw span with its prefix.
-   if(rawText&&i===rawText.start){if(!this.glyphCallerBKnown)delete this.state.scratch[0x5D23];if(!this.glyphCallerCKnown)delete this.state.scratch[0x5D22];if(!this.glyphVideoLowKnown)delete this.state.scratch[0x5D1E];if(!this.glyphCallerFlagsKnown)delete this.state.scratch[0x5D24];if(!this.glyphCallerAKnown)delete this.state.scratch[0x5D25];if(!this.glyphDescriptorLowKnown)delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];if(!this.glyphDescriptorHighKnown)delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];}
+   if(rawText&&rawText.affectsStack!==false&&i===rawText.start){if(!this.glyphCallerBKnown)delete this.state.scratch[0x5D23];if(!this.glyphCallerCKnown)delete this.state.scratch[0x5D22];if(!this.glyphVideoLowKnown)delete this.state.scratch[0x5D1E];if(!this.glyphCallerFlagsKnown)delete this.state.scratch[0x5D24];if(!this.glyphCallerAKnown)delete this.state.scratch[0x5D25];if(!this.glyphDescriptorLowKnown)delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];if(!this.glyphDescriptorHighKnown)delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    if(i<text.length)this.feed(text[i],{buffer:!rawText});
    if(rawText&&i+1===rawText.end)for(const {c,...options}of rawText.events)this.bufferFeed(c,options);
    // A word is flushed by the following delimiter, within the same owner.
    // After a carried-name prefix, A887 emits the separating space from
    // its caller. Filling column 35 clears the next row at that caller depth.
-   if(role&&i+1===role.end){this.flush();if(role.spaceClearFrame&&this.state.cursor===35)this.glyphResidue(' ',role.spaceClearFrame,35,0x5A20);if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter)){this.glyphSpaceScanKnown=role.spaceScanKnown===true;this.glyphSpaceByteKnown=role.spaceByteKnown===true;this.glyphSpaceShiftKnown=role.spaceShiftKnown===true;this.glyphSpaceCountKnown=role.spaceCountKnown===true;this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;}this.glyphFrame=null;}
+   if(role&&i+1===role.end){this.flush();if(role.spaceClearFrame&&this.state.cursor===35)this.glyphResidue(' ',role.spaceClearFrame,35,0x5A20);if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter)){this.glyphSpaceScanKnown=role.spaceScanKnown===true;this.glyphSpaceByteKnown=role.spaceByteKnown===true;this.glyphSpaceShiftKnown=role.spaceShiftKnown===true;this.glyphSpaceCountKnown=role.spaceCountKnown===true;this.glyphSpaceVideoLowKnown=role.spaceVideoLowKnown===true;this.glyphSpaceVideoHighKnown=role.spaceVideoHighKnown===true;this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;}this.glyphFrame=null;}
   }
    // The last noun can remain buffered until the caller emits CR after
    // scene(). A wrap there is outside the proved passage-prefix frame.
-   if(this.state.pending.length>=this.state.remaining){delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];}
+   if(this.state.pending.length>=this.state.remaining){delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    // Reserve the final CR and action separator below the MORE threshold.
-   if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];}
-  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphFlagsKnown=previousFlags;}}
+   if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
+  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
@@ -77,17 +82,20 @@ export class RandomDisplay {
     at===0x5D26&&this.glyphSpaceScanKnown===true||
     at===0x5D27&&this.glyphSpaceByteKnown===true||
     at===0x5D28&&this.glyphSpaceShiftKnown===true||
-    at===0x5D29&&this.glyphSpaceCountKnown===true
+    at===0x5D29&&this.glyphSpaceCountKnown===true||
+    at===0x5D2A&&this.glyphSpaceVideoLowKnown===true||
+    at===0x5D2B&&this.glyphSpaceVideoHighKnown===true
    );
-   const usesUpperContext=at>=0x5D20&&at<=0x5D2A||at===0x5D30;
-   if((at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true)||
+   const usesUpperContext=at>=0x5D20&&at<=0x5D2B||at===0x5D30;
+   if((at===0x5D2B&&!passageSpace)||
+    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true)||
     (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!(this.glyphVideoLowKnown===true&&frame===0x5D26))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;
    }
-   if(at>=0x5CEC&&(at<=0x5D2A||at===0x5D30))s[at]=value;
+   if(at>=0x5CEC&&(at<=0x5D2B||at===0x5D30))s[at]=value;
   };
   // C389 saves caller C at frame-4: 5D22 for a verified passage prefix.
   // The value is the pixel offset in the current video byte.
@@ -105,7 +113,7 @@ export class RandomDisplay {
   // Other entry frames retain caller F/C, descriptor E, scan C or scan F.
   // 5D25 follows the independently saved high byte for six caller frames:
   // caller A/B, descriptor D, video H, scan B, or raw glyph A.
-  // Unknown caller BC revokes it;5D2B remains deliberately unowned.
+  // Unknown caller BC revokes it.
   // C374's CALL leaves its return link at the glyph-entry stack position.
   // A deep wrap can overwrite previously owned cells with that link.
   // C316 also saves its caller registers above the C374/C388 frame.
@@ -123,14 +131,19 @@ export class RandomDisplay {
    delete s[0x5D28];
    delete s[0x5D29];
   }
+  if(descriptor===0x5A20&&this.upperGlyphKnown!==true&&frame>=0x5D22&&frame<=0x5D2A){
+   delete s[0x5D2A];
+   delete s[0x5D2B];
+  }
   if(descriptor===0x5A20){put(frame,0x77);put(frame+1,0xC3);}
   else if(frame===0x5D22)delete s[0x5D22]; // Unprojected return link.
   else if(frame===0x5D24)delete s[0x5D25]; // An unprojected return link cannot preserve an old high byte.
   if(descriptor!==0x5A20&&frame===0x5D26){delete s[0x5D26];delete s[0x5D27];} // Unknown C2EE return link, superseded only by a proved later writer.
   if(descriptor!==0x5A20&&frame===0x5D28){delete s[0x5D28];delete s[0x5D29];} // Unprojected return link.
+  if(descriptor!==0x5A20&&frame===0x5D2A){delete s[0x5D2A];delete s[0x5D2B];}
   if(descriptor!==0x5A20&&frame===0x5D30)delete s[0x5D30]; // Unknown return link, not an AF save.
   // 5D30 is projected independently: AF/BC/DE/HL/scan fields depend on entry depth.
-  // Cells2B–2F and31 remain unowned.
+  // Cells2C–2F and31 remain unowned.
   // The verified caller owns both bytes of the saved scan AF: F at
   // frame-12 and raw font row A at frame-11 (5D1A/5D1B for frame5D26).
   // With frame5D26, frame-10/-9 retain C and B at5D1C/5D1D. B is the
@@ -139,7 +152,7 @@ export class RandomDisplay {
   // C388 preserves the caller's AF. Upper output reaches it after CP 0D;
   // Z80 CP takes undocumented X/Y from the operand. A row-clear reaches it
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
-  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D2A||at===0x5D30))delete s[at];
+  for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D2B||at===0x5D30))delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
   put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
@@ -153,25 +166,24 @@ export class RandomDisplay {
   // On the last scan, C39D retains flags from INC H at the end of
   // scan seven. A split byte restores them, then DEC/INC C before C3B8.
   // Derive those flags from the row address and shift, not a boot zero.
-  const incFlags=(before,carry)=>{const after=(before+1)&255;return (after&0xA8)|(after===0?64:0)|((before&15)===15?16:0)|(before===127?4:0)|carry;};
-  const lastRowFlags=incFlags(((address>>>8)+6)&255,0);
-  const savedScanFlags=shift?incFlags((shift-1)&255,lastRowFlags&1):lastRowFlags;
+  const lastRowFlags=incrementFlags(((address>>>8)+6)&255,0);
+  const savedScanFlags=shift?incrementFlags((shift-1)&255,lastRowFlags&1):lastRowFlags;
   put(frame-10,shift);put(frame-9,1);put(frame-12,savedScanFlags);put(frame-11,glyph[7]);
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false}={}){const except=[];if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D30,except);}
+ invalidateGlyphExtras({preserve1A=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){const except=[];if(preserve1A)except.push(0x5D1A);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D31,except);}
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D30,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D31,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
- put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-8,35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];}this.newline();}}
+ put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-8,35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
  // wraps and C142 do not reset it. Only normalized CR and an exact-fit
  // buffered word clear it; a non-suppressed character sets it to1.
  normalizeCapital(c){this.state.capitalizationFlag=normalizedCapital(this.state.capitalizationFlag,c);}
  moneyCapital(pence){if(moneyClearsCapital(pence))this.state.capitalizationFlag=0;}
  normalizeSpacing(c){const s=this.state;if(!s)return;this.normalizeCapital(c);if(c==='\n'||c==='\r')s.spacingFlag=0;else if(c!==' '||s.spacingFlag!=null&&s.spacingFlag!==0)s.spacingFlag=1;}
- flush(){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
+ flush(){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(this.glyphFrame)this.glyphResidue(' ',this.glyphFrame-6,35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
  // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
  lexicalWorkspace(copies=[]){const b=this.state?.wordBuffer;if(!b)return;for(const values of copies)for(let i=0;i<values.length&&i<128;i++){
   // DA6D/DA75 write after the first letter, without touching A9B5.
@@ -195,7 +207,9 @@ export class RandomDisplay {
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
- write(text,{leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras({preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
+ // A longer announcement or a pending MORE can reach a deeper clear.
+ write(text,{cabAction=false,leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
  repeat(){this.setChannel(0);const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
@@ -212,13 +226,31 @@ export class RandomDisplay {
  }
  // Lower-channel rejection preserves low stack only for callers separately proved
  // by the complete original pipeline. Clarifications and other errors revoke it.
- error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras({preserveLow:messages.length>0&&messages.every(m=>m.preserve_renderer_low===true),preserve1F:messages.length>0&&messages.every(m=>m.preserve_renderer_1f===true),preserve23:messages.length>0&&messages.every(m=>m.preserve_renderer_23===true),preserve22:messages.length>0&&messages.every(m=>m.preserve_renderer_22===true),preserve1E:messages.length>0&&messages.every(m=>m.preserve_renderer_1e===true),preserve24:messages.length>0&&messages.every(m=>m.preserve_renderer_24===true),preserve25:messages.length>0&&messages.every(m=>m.preserve_renderer_25===true),preserve20:messages.length>0&&messages.every(m=>m.preserve_renderer_20===true),preserve26:messages.length>0&&messages.every(m=>m.preserve_renderer_26===true),preserve21:messages.length>0&&messages.every(m=>m.preserve_renderer_21===true),preserve27:messages.length>0&&messages.every(m=>m.preserve_renderer_27===true),preserve28:messages.length>0&&messages.every(m=>m.preserve_renderer_28===true),preserve29:messages.length>0&&messages.every(m=>m.preserve_renderer_29===true)});if(this.world.npcs)this.world.npcs.dictionaryReference=null;
+ error(messages,{inline=false}={}){this.setChannel(1);const s=this.state;if(!s)return;this.invalidateGlyphExtras({preserveLow:messages.length>0&&messages.every(m=>m.preserve_renderer_low===true),preserve1F:messages.length>0&&messages.every(m=>m.preserve_renderer_1f===true),preserve23:messages.length>0&&messages.every(m=>m.preserve_renderer_23===true),preserve22:messages.length>0&&messages.every(m=>m.preserve_renderer_22===true),preserve1E:messages.length>0&&messages.every(m=>m.preserve_renderer_1e===true),preserve24:messages.length>0&&messages.every(m=>m.preserve_renderer_24===true),preserve25:messages.length>0&&messages.every(m=>m.preserve_renderer_25===true),preserve20:messages.length>0&&messages.every(m=>m.preserve_renderer_20===true),preserve26:messages.length>0&&messages.every(m=>m.preserve_renderer_26===true),preserve21:messages.length>0&&messages.every(m=>m.preserve_renderer_21===true),preserve27:messages.length>0&&messages.every(m=>m.preserve_renderer_27===true),preserve28:messages.length>0&&messages.every(m=>m.preserve_renderer_28===true),preserve29:messages.length>0&&messages.every(m=>m.preserve_renderer_29===true),preserve2A:messages.length>0&&messages.every(m=>m.preserve_renderer_2a===true),preserve2B:messages.length>0&&messages.every(m=>m.preserve_renderer_2b===true),preserveLowerClear:messages.length>0&&messages.every(m=>m.lower_scenery_clear===true)});if(this.world.npcs)this.world.npcs.dictionaryReference=null;
   // A027 selects the unbuffered lower channel. C1FD wraps at 36 characters,
   // including the dictionary's initial space; CR scrolls before the prompt.
   // Proven flat6894 errors publish the selected model descriptor after
   // formatting. Zero is an emitted empty argument, not a missing value.
   // Unprojected messages still revoke it, in their actual output order.
-  for(const[i,message]of messages.entries()){this.lowerText(' '+message.text.toUpperCase()+(inline&&i===messages.length-1?'':'\r'));if(this.world.npcs)this.world.npcs.dictionaryReference=Number.isInteger(message.dictionary_reference)&&message.dictionary_reference>=0&&message.dictionary_reference<=65535?message.dictionary_reference:null;}
+  for(const[i,message]of messages.entries()){
+   const text=' '+message.text.toUpperCase();
+   const column=((s.lowerCursor??2)-2)/7;
+   if(message.lower_scenery_clear&&column===0&&text.length>=36){
+    // C271 clears 36 seven-pixel cells from x=1 on the bottom row.
+    // The last space is rendered at frame 5D38 in this rejection caller.
+    const lastPixel=1+35*7;
+    const address=0x50E0+Math.floor(lastPixel/8);
+    const shift=lastPixel&7;
+    const priorScanHigh=(address>>>8)+6;
+    const blank=this.data.spectrum.glyphs[32-this.data.spectrum.first];
+    s.scratch[0x5D2C]=shift?incrementFlags(shift-1):incrementFlags(priorScanHigh);
+    s.scratch[0x5D2D]=blank[7];
+    s.scratch[0x5D2E]=shift;
+    s.scratch[0x5D2F]=1;
+    s.scratch[0x5D30]=address&255;
+    s.scratch[0x5D31]=address>>>8;
+   }
+   this.lowerText(text+(inline&&i===messages.length-1?'':'\r'));if(this.world.npcs)this.world.npcs.dictionaryReference=Number.isInteger(message.dictionary_reference)&&message.dictionary_reference>=0&&message.dictionary_reference<=65535?message.dictionary_reference:null;}
   this.setChannel(0); // D710/D7CA/CB74 write zero, rather than restoring the incoming channel.
  }
  lexed(tokens){const s=this.state;if(!s)return;s.counter=0;this.wideWindow();s.pending='';if(!s.tokens)return; // D719/C142 reset the formatter and word-buffer pointer.

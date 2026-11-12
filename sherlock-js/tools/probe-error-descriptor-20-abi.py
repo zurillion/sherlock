@@ -4,10 +4,13 @@ from pathlib import Path
 sys.dont_write_bytecode=True;p=Path(__file__).resolve().parents[2];sys.path[:0]=[str(p/'sherlock-analisi/locazioni')]
 from explorer import Game
 from extract_locations import extract
-wide = '--through-5d29' in sys.argv[1:]
-end = 0x5d2a if wide else 0x5d28
+ending = '--through-5d30' in sys.argv[1:]
+wide = ending or '--through-5d29' in sys.argv[1:]
+end = 0x5d31 if ending else 0x5d2a if wide else 0x5d28
 marker = [165] * (end - 0x5d1a)
-root = p / ('sherlock-js/results/passage-caller-c-22/wide-abi' if wide else 'sherlock-js/results/passage-descriptor-20/wide-abi')
+root = p / ('sherlock-js/results/brown-to-ending/wide-abi' if ending else
+            'sherlock-js/results/passage-caller-c-22/wide-abi' if wide else
+            'sherlock-js/results/passage-descriptor-20/wide-abi')
 root.mkdir(parents=True, exist_ok=True)
 marker_label = 'stack' if wide else '1A–27'
 saved=json.loads(gzip.decompress((p/'sherlock-js/results/murder-ending/brown-native-prompt.json.gz').read_bytes()));data=json.loads((p/'sherlock-js/data/game.json').read_text());g=Game(p,extract(p),seed=1,active_npcs=None);w=g.world;m=w.m;r=w.sim.registers;dictionary={x['id']:x for x in data['dictionary']};words=sorted({dictionary[e['noun']&4095]['stem'].upper()for e in data['entities']if e['noun']&4095 in dictionary and dictionary[e['noun']&4095]['stem'].isalpha()});commands=['N','S','E','W','NE','NW','SE','SW','U','D']+[v+' '+word for word in words for v in ['EXAMINE','CLOSELY EXAMINE']];rows=[]

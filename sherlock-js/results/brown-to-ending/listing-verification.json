@@ -1,0 +1,140 @@
+{
+  "roundtrip_equal": true,
+  "instructions": 414,
+  "bytes_roundtripped": 849,
+  "regions": [
+    {
+      "start": "9E74",
+      "end_exclusive": "9E85",
+      "kind": "code",
+      "label": "Stampa, pausa e chiusura del finale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A02D",
+      "end_exclusive": "A02E",
+      "kind": "data",
+      "label": "Classe del token precedente",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A02E",
+      "end_exclusive": "A02F",
+      "kind": "data",
+      "label": "Selettore nominale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A4CD",
+      "end_exclusive": "A536",
+      "kind": "code",
+      "label": "Ricerca e selezione del riferimento nominale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A9D7",
+      "end_exclusive": "A9DF",
+      "kind": "code",
+      "label": "Scrittura della parola grezza nel buffer",
+      "atlas_priority": 188
+    },
+    {
+      "start": "AE7F",
+      "end_exclusive": "AEA9",
+      "kind": "code",
+      "label": "Lettura dei token e salvataggio della classe precedente",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B049",
+      "end_exclusive": "B09A",
+      "kind": "code",
+      "label": "Verbo TALK implicito e delimitatore di citazione",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B3B6",
+      "end_exclusive": "B3FD",
+      "kind": "code",
+      "label": "Inizializzazione della ricerca nominale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B8AA",
+      "end_exclusive": "B904",
+      "kind": "code",
+      "label": "Analisi della citazione e coda delle richieste",
+      "atlas_priority": 188
+    },
+    {
+      "start": "C271",
+      "end_exclusive": "C29C",
+      "kind": "code",
+      "label": "Ultima cella della pulizia della console",
+      "atlas_priority": 188
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Indirizzo video, shift e scansione del glifo",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D008",
+      "end_exclusive": "D045",
+      "kind": "code",
+      "label": "Ripristino e salvataggio del contesto NPC",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Descrittori dei nomi nelle liste",
+      "atlas_priority": 188
+    },
+    {
+      "start": "DFCC",
+      "end_exclusive": "DFE3",
+      "kind": "code",
+      "label": "Finale selezionato dalla presenza di Basil",
+      "atlas_priority": 188
+    },
+    {
+      "start": "E6BE",
+      "end_exclusive": "E6E6",
+      "kind": "code",
+      "label": "Stampa della richiesta di pagamento del cocchiere",
+      "atlas_priority": 188
+    },
+    {
+      "start": "EBC5",
+      "end_exclusive": "EBCB",
+      "kind": "domain",
+      "label": "Lestrade: attesa della posizione del veicolo",
+      "atlas_priority": 188
+    },
+    {
+      "start": "EF90",
+      "end_exclusive": "EF96",
+      "kind": "domain",
+      "label": "Basil fuori scena: attesa e salto all’indietro",
+      "atlas_priority": 188
+    },
+    {
+      "start": "EFC7",
+      "end_exclusive": "EFC9",
+      "kind": "data",
+      "label": "Intestazione della regola di Basil",
+      "atlas_priority": 188
+    },
+    {
+      "start": "EFC9",
+      "end_exclusive": "EFF6",
+      "kind": "code",
+      "label": "Controllo della posizione di Holmes nella casa di Basil",
+      "atlas_priority": 188
+    }
+  ]
+}

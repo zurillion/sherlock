@@ -31,6 +31,10 @@ export class NpcRuntime {
   this.setResolutionMode(player?(this.state.playerResolutionMode??null):requestMode); // D800 / B959
   const action=this.game.action(node);if(!action)return;
   this.modelFlags(action); // B416 before argument ordering and class selection.
+  // B3DA resets the selector. The ordinary WAIT/UNTIL model accepts its
+  // lexical header at A4EB before the numeric argument is resolved.
+  const waitModel=player&&this.state.previousTokenClass===0xB0&&[49,50].includes(action)&&!node.all&&!node.subject&&!node.quote;
+  this.state.nominalModelSelector=waitModel?1:null;
   if(this.state.resolutionMode===0)this.setResolutionMode(node.all?128:0); // B1EC
   if(this.game.data.actions.find(a=>a.id===action)?.singleSelection)this.setResolutionMode(0); // B1FD
  }
@@ -164,7 +168,15 @@ export class NpcRuntime {
   const p=this.active.records.prepend('requests',[recipient,255,command.action,...command.args,0,0,0]);if(request)request.record=p;
  }
  queue(sender,recipient,nodes,mode=nodes[0]?.subject?2:1){
-  this.use(({records})=>{const syntax=nodes.map(n=>this.syntaxRecord(n,records));for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,mode]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax,mode});this.w.scheduler.requests[0].record=p;});
+  this.use(({records})=>{const syntax=nodes.map(n=>{
+   const p=this.syntaxRecord(n,records);
+   if(n.deferredQuotePointer!==undefined){
+    records.append('quotes',[n.deferredQuotePointer&255,n.deferredQuotePointer>>>8]);
+    const opening=n.deferredQuotePointer-0x5B81-3;
+    this.w.display.tokens[opening]=192;this.w.display.tokenKnown[opening]=true;
+   }
+   return p;
+  });for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,mode]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax,mode});this.w.scheduler.requests[0].record=p;});
  }
  // AC24 clears the nominal workspace; AC8F/AC94 and AC84 populate it.
  nominal(group){this.state.parserNominal=[group.relations[0]||0,group.relations[1]||0,group.noun||0,group.qualifiers[0]||0,group.qualifiers[1]||0].flatMap(v=>[v&255,v>>>8]);}
@@ -233,7 +245,7 @@ export class NpcRuntime {
  finishCollective(node,visits){if(visits)this.beginResolution(node,{player:true});this.finishPlayerResolution(false);this.popParsed();}
  addressee(group){if(group)this.state.information.addressee=[group.noun||0,...group.qualifiers,0,0].slice(0,3).flatMap(v=>[v&255,v>>>8&255]);}
  moved(room){this.state.lastRelocationRoom=room;}
- invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;this.state.parserMode=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
+ invalidateParserProjection({preserveDisplay=false}={}){this.state.recordsSourceKnown=false;this.state.parserTokenStart=null;this.state.previousTokenClass=null;this.state.parserMode=null;if(!preserveDisplay)this.game.sourceDisplay.invalidateScratch();}
  // E2BA/CFB9 searches contexts by the VEHICLE id, not its driver.
  canHail(vehicle){return this.use(({records})=>!records.records('contexts').some(p=>records.arena.byte(p)===vehicle));}
  hail(vehicle,customer,{domainAction=false}={}){this.use(runtime=>{
@@ -288,7 +300,7 @@ export class NpcRuntime {
    if(node&&![21,22,29,30,45].includes(action)){
     const out=this.game.executeAs(node,actor,{requestRestriction:context.restriction});if(out.requestRefused){this.game.sourceDisplay.setChannel(0);this.print('681A',actor,{object:job.sender},messages);this.game.sourceDisplay.invalidateScratch(0x5D06);cancel(true);return {handled:true,cost:0};}
     // B969 jumps to B9B4 before storing the search iterator on refusal.
-    if(action===26&&out.semanticFailed){cancel(true);return {handled:true,cost:0};}
+    if((action===26&&out.semanticFailed)||(action===46&&node.deferredQuotePointer!==undefined&&!out.cost)){cancel(true);return {handled:true,cost:0};}
     objectSemantic=Boolean(out.objectRule);this.showAction(out,actor,messages,actions);result=out.objectRule?this.rule(out.objectRule,[out.args[0]??255,out.args[1]??255],{...ctx,saved:[action,...out.args,255].slice(0,3),isolated:true},messages,actions):{...yes(out.cost,{args:out.args}),success:out.cost>0||action===32};
    }else{
     // B191's failed semantic resolution returns to B9B4/B9AC: an NPC
@@ -531,11 +543,12 @@ export class NpcRuntime {
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
   if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown);
+    if(actor===3&&out.cost&&[13,25].includes(out.action)&&[30,33].includes(out.args[0]))for(const m of shown)m.cab_action=true;
     // CBC2 in the ordinary action caller keeps1A–1D for an unqualified
     // proper person name, and the independent1F contract is also verified.
     // Qualified names can wrap at a deeper frame;
     // queued/isolated callers deliberately lack this action-frame contract.
-    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true}:{})});
+    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true}:{})});
    }
    // The ordinary DROP/TAKE OFF announcement formats its resolved argument
    // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.
@@ -595,12 +608,20 @@ export class NpcRuntime {
   const amount=balance(this.w,owner);if(amount===null)return;
   const g=this.game,visible=this.w.perceived(actor),c=visible?g.npcTextContext(actor):{};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
   if(visible)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=0x5D1A;g.sourceDisplay.upperGlyphKnown=false;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};
+  // In the request for a fare, the recipient name call flushes the
+  // preceding word "to" at the C388 entry used by the second argument.
+  if(visible&&recipient===this.w.player)c.objectNameEntry=write=>{
+   const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown,flags=p.glyphFlagsKnown;
+   if(p.state?.pending!=='to'){write();return;}
+   p.glyphFrame=0x5D24;p.upperGlyphKnown=false;p.glyphFlagsKnown=true;
+   try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;p.glyphFlagsKnown=flags;}
+  };
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner}),pence=(-amount)&16383,money=' '+formatMoney(pence),tail=' "\n',suffix=money+tail;
   const append=text=>{for(const ch of text){g.sourceDisplay.bufferFeed(ch.replace('d','D'),{hidden:!visible});c.sink?.(ch);}};append(money);g.sourceDisplay.moneyCapital(pence);append(tail);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }
  sayPayment(actor,recipient,pence,messages){this.game.text.setQualifierMode(0);this.game.sourceDisplay.setChannel(0);this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
-  const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.'))this.game.sourceDisplay.bufferFeed(ch,{hidden:true});this.game.sourceDisplay.moneyCapital(pence);for(const ch of '.\n')this.game.sourceDisplay.bufferFeed(ch,{hidden:true});return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1),money_ends:[{end:text.indexOf(amount)+amount.length,pence}]};messages.push(message);this.game.projectMessages([message]);}}
+  const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.'))this.game.sourceDisplay.bufferFeed(ch,{hidden:true});this.game.sourceDisplay.moneyCapital(pence);for(const ch of '.\n')this.game.sourceDisplay.bufferFeed(ch,{hidden:true});return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1),cab_action:[31,34].includes(actor)&&recipient===w.player,money_ends:[{end:text.indexOf(amount)+amount.length,pence}]};messages.push(message);this.game.projectMessages([message]);}}
  callback(actor,oldDue,messages){
   const id=actor.id,w=this.w;
   if(id===6){const e=w.entity(85);if(e.attributes&128&&this.state.burningNoteTicks!==255){this.state.burningNoteTicks=(this.state.burningNoteTicks-1)&255;if(!this.state.burningNoteTicks){e.qualifiers[0]=0x15B;e.name='burnt note';e.description=null;const fact=this.state.facts.find(f=>f.start===0x99A9);fact.terms[5]&=~0x0200;}}return;}
@@ -657,6 +678,8 @@ export class NpcRuntime {
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
   if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
   if(address===0xA029||address===0xA02A){const value=this.state.parserTokenStart;return Number.isInteger(value)?address===0xA029?value&255:value>>>8:null;}
+  if(address===0xA02D)return this.state.previousTokenClass??null;
+  if(address===0xA02E)return this.state.nominalModelSelector??null;
   if(address===0xA024)return this.state.parserMode??null;
   if(address===0xA025||address===0xA026)return this.game.sourceDisplay.read(address);
   if(address===0xA028)return this.state.nameQualifierMode??null;
@@ -714,6 +737,8 @@ export class NpcRuntime {
   if(s.parserTokenStart!=null&&(!Number.isInteger(s.parserTokenStart)||s.parserTokenStart<0||s.parserTokenStart>65535))throw Error('Puntatore iniziale del token non valido');
   if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');
   if(s.parserAll!==undefined&&s.parserAll!==null&&![0,1,2].includes(s.parserAll))throw Error('Stato ALL/BUT non valido');
+  if(s.nominalModelSelector!=null&&![0,1].includes(s.nominalModelSelector))throw Error('Selettore nominale non valido');
+  if(s.previousTokenClass!=null&&!byte(s.previousTokenClass))throw Error('Classe precedente del token non valida');
   if(s.parserCount!==undefined&&s.parserCount!==null&&!byte(s.parserCount))throw Error('Contatore parser non valido');
   if(s.lexicalMatch!==undefined&&(!Array.isArray(s.lexicalMatch)||s.lexicalMatch.length!==2||s.lexicalMatch.some(v=>v!==null&&!byte(v))))throw Error('Stato confronto lessicale non valido');
   if(s.information?.verification){const v=s.information.verification;if([v.recognized,v.unproven].some(n=>n!==null&&!byte(n))||v.lastFact!==null&&(!Number.isInteger(v.lastFact)||v.lastFact<0||v.lastFact>65535))throw Error('Stato verifica ipotesi non valido');}

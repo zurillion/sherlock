@@ -1,0 +1,40 @@
+{
+  "checkpoints": 465,
+  "random_draws": 6529,
+  "clock": {
+    "tick": 2768,
+    "due": 2770,
+    "day": 2,
+    "minute": 7,
+    "hour": 6,
+    "period": "am",
+    "label": "Wed 06:07am"
+  },
+  "terminal": {
+    "entry": "9E74",
+    "reason": "story",
+    "text_pointer": "75D2"
+  },
+  "all_actors": 24,
+  "load_future_compared": true,
+  "arena_bytes_per_checkpoint": 752,
+  "bitmaps_compared": true,
+  "originalCheckpoints": 465,
+  "lastClock": {
+    "tick": 2768,
+    "due": 2770,
+    "day": 2,
+    "minute": 7,
+    "hour": 6,
+    "period": "am",
+    "label": "Wed 06:07am"
+  },
+  "comparedDraws": 6527,
+  "comparedReads": 13890,
+  "originalEnding": {
+    "entry": "9E74",
+    "reason": "story",
+    "text_pointer": "75D2"
+  },
+  "verifiedEnding": "75D2"
+}

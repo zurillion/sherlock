@@ -1,0 +1,14 @@
+RESUME {'tick': 1657, 'due': 1657, 'minute': 36, 'hour': 11, 'day': 1, 'period': 'am', 'label': 'Tue 11:36am'} b9a64651342a3fd7d2c0feff0af9b88026c4a34800f6da77eb59b9939efc8b97
+command WAIT UNTIL 11PM Tue 11:00pm
+command WAIT UNTIL 10AM Wed 10:00am
+command WAIT UNTIL 11PM Wed 11:00pm
+command WAIT UNTIL 10AM Thu 10:00am
+command WAIT UNTIL 11PM Thu 11:00pm
+command WAIT UNTIL 10AM Fri 10:00am
+command WAIT UNTIL 11PM Fri 11:00pm
+command WAIT UNTIL 10AM Sat 10:00am
+command WAIT UNTIL 11PM Sat 11:00pm
+command WAIT UNTIL 10AM Sun 10:00am
+command WAIT UNTIL 11PM Sun 11:00pm
+command WAIT UNTIL 10AM Mon 10:00am
+0 brown-unresolved-case 885 Mon 10:00am None

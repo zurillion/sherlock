@@ -1,0 +1,1150 @@
+[
+  {
+    "input": "WAIT UNTIL 10AM",
+    "clock": {
+      "tick": 1658,
+      "due": 3001,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23431,
+        "current_type": 240,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 240,
+        "pointer": 23434,
+        "current_type": 176,
+        "stack": [
+          "AC8B",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23434,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": true
+  },
+  {
+    "input": "WAIT UNTIL 11PM",
+    "clock": {
+      "tick": 1658,
+      "due": 2341,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23431,
+        "current_type": 240,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 240,
+        "pointer": 23434,
+        "current_type": 176,
+        "stack": [
+          "AC8B",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23434,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": true
+  },
+  {
+    "input": "WAIT UNTIL 9:00",
+    "clock": {
+      "tick": 1658,
+      "due": 2221,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23431,
+        "current_type": 240,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 240,
+        "pointer": 23434,
+        "current_type": 176,
+        "stack": [
+          "AC8B",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23434,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": true
+  },
+  {
+    "input": "WAIT",
+    "clock": {
+      "tick": 1658,
+      "due": 1662,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 176,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23428,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": true
+  },
+  {
+    "input": "LOOK",
+    "clock": {
+      "tick": 1658,
+      "due": 1658,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 176,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23428,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": true
+  },
+  {
+    "input": "EXAMINE ROCK",
+    "clock": {
+      "tick": 1657,
+      "due": 1657,
+      "minute": 36,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:36am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 80,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 80,
+        "pointer": 23428,
+        "current_type": 80,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 80,
+        "pointer": 23431,
+        "current_type": 176,
+        "stack": [
+          "AC8B",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23431,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": false
+  },
+  {
+    "input": "SAY WATSON \"HELLO\"",
+    "clock": {
+      "tick": 1658,
+      "due": 1658,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 80,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 80,
+        "pointer": 23428,
+        "current_type": 80,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 80,
+        "pointer": 23431,
+        "current_type": 144,
+        "stack": [
+          "AC8B",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 144,
+        "pointer": 23431,
+        "current_type": 144,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 144,
+        "pointer": 23434,
+        "current_type": 48,
+        "stack": [
+          "B088",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E",
+          "CE65"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23437,
+        "current_type": 176,
+        "stack": [
+          "B088",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E",
+          "CE65"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23438,
+        "current_type": 144,
+        "stack": [
+          "B088",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E",
+          "CE65"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 144,
+        "pointer": 23441,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23434,
+        "current_type": 48,
+        "stack": [
+          "AC33",
+          "AAE2",
+          "5B8A",
+          "C0FF",
+          "B8C1",
+          "0000",
+          "B892",
+          "013B",
+          "DDB1",
+          "CB37"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23434,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "B8C1",
+          "0000",
+          "B892",
+          "013B",
+          "DDB1",
+          "CB37",
+          "CA67",
+          "C99C"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23437,
+        "current_type": 176,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "B8C1",
+          "0000",
+          "B892",
+          "013B",
+          "DDB1",
+          "CB37",
+          "CA67",
+          "C99C"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 176,
+        "pointer": 23437,
+        "current_type": 176,
+        "stack": [
+          "AC33",
+          "AB55",
+          "B8C1",
+          "0000",
+          "B892",
+          "013B",
+          "DDB1",
+          "CB37",
+          "CA67",
+          "C99C"
+        ]
+      }
+    ],
+    "current": 176,
+    "running": true
+  },
+  {
+    "input": "WAIT UNTIL 10AM AND LOOK",
+    "clock": {
+      "tick": 1658,
+      "due": 3001,
+      "minute": 37,
+      "hour": 11,
+      "day": 1,
+      "period": "am",
+      "label": "Tue 11:37am"
+    },
+    "writes": [
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 192,
+        "pointer": 23425,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23428,
+        "current_type": 112,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 112,
+        "pointer": 23431,
+        "current_type": 240,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 240,
+        "pointer": 23434,
+        "current_type": 160,
+        "stack": [
+          "AC8B",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 160,
+        "pointer": 23434,
+        "current_type": 160,
+        "stack": [
+          "AC33",
+          "AB55",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 160,
+        "pointer": 23435,
+        "current_type": 48,
+        "stack": [
+          "ACD2",
+          "A0B5",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 160,
+        "pointer": 23435,
+        "current_type": 48,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      },
+      {
+        "tick": 1657,
+        "actor": 0,
+        "pc": "AE86",
+        "value": 48,
+        "pointer": 23438,
+        "current_type": 176,
+        "stack": [
+          "AB9F",
+          "AB19",
+          "D791",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D77E"
+        ]
+      }
+    ],
+    "current": 48,
+    "running": true
+  }
+]

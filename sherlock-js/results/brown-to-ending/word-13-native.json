@@ -1,0 +1,198 @@
+{
+  "protocol": "Resume the original Brown prompt and replay the ordinary dawn route with a buffer observer. Earlier play and full prompt restore are unmodified; no claim for writers outside this observation window. Track every identical or changing A9D7 store; unrelated transitions stay explicit. Research only, no native state is imported into JS.",
+  "read": {
+    "clock": {
+      "tick": 1870,
+      "due": 2766,
+      "minute": 9,
+      "hour": 3,
+      "day": 1,
+      "period": "pm",
+      "label": "Tue 03:09pm"
+    },
+    "actor": 8,
+    "value": 116,
+    "last_store": {
+      "pc": "A9D7",
+      "clock": {
+        "tick": 1816,
+        "due": 1821,
+        "minute": 15,
+        "hour": 2,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 02:15pm"
+      },
+      "actor": 0,
+      "character": 116,
+      "dictionary_ref": 1479,
+      "visible": 1,
+      "channel": 0,
+      "value": 116,
+      "raw_word": [
+        110,
+        111,
+        114,
+        116,
+        104,
+        101,
+        97,
+        115,
+        116
+      ]
+    },
+    "buffer": [
+      46,
+      116,
+      105,
+      108,
+      0,
+      109,
+      46,
+      115,
+      116,
+      71,
+      101,
+      100,
+      63,
+      1,
+      0,
+      6,
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "stores": [
+    {
+      "pc": "A9D7",
+      "clock": {
+        "tick": 1657,
+        "due": 1657,
+        "minute": 36,
+        "hour": 11,
+        "day": 1,
+        "period": "am",
+        "label": "Tue 11:36am"
+      },
+      "actor": 0,
+      "character": 105,
+      "dictionary_ref": 16649,
+      "visible": 1,
+      "channel": 0,
+      "value": 105,
+      "raw_word": [
+        98,
+        108,
+        111,
+        111,
+        100,
+        115,
+        116,
+        97,
+        105
+      ]
+    },
+    {
+      "pc": "A9D7",
+      "clock": {
+        "tick": 1810,
+        "due": 1811,
+        "minute": 9,
+        "hour": 2,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 02:09pm"
+      },
+      "actor": 0,
+      "character": 101,
+      "dictionary_ref": 20907,
+      "visible": 1,
+      "channel": 0,
+      "value": 101,
+      "raw_word": [
+        99,
+        104,
+        114,
+        111,
+        110,
+        105,
+        99,
+        108,
+        101
+      ]
+    },
+    {
+      "pc": "A9D7",
+      "clock": {
+        "tick": 1810,
+        "due": 1811,
+        "minute": 9,
+        "hour": 2,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 02:09pm"
+      },
+      "actor": 0,
+      "character": 78,
+      "dictionary_ref": 18676,
+      "visible": 1,
+      "channel": 0,
+      "value": 78,
+      "raw_word": [
+        116,
+        114,
+        97,
+        118,
+        101,
+        108,
+        108,
+        73,
+        78
+      ]
+    },
+    {
+      "pc": "A9D7",
+      "clock": {
+        "tick": 1816,
+        "due": 1821,
+        "minute": 15,
+        "hour": 2,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 02:15pm"
+      },
+      "actor": 0,
+      "character": 116,
+      "dictionary_ref": 1479,
+      "visible": 1,
+      "channel": 0,
+      "value": 116,
+      "raw_word": [
+        110,
+        111,
+        114,
+        116,
+        104,
+        101,
+        97,
+        115,
+        116
+      ]
+    }
+  ],
+  "unclassified_transitions": []
+}

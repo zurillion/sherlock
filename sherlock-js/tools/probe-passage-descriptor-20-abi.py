@@ -4,10 +4,13 @@ from pathlib import Path
 sys.dont_write_bytecode=True;p=Path(__file__).resolve().parents[2];sys.path[:0]=[str(p/'sherlock-analisi/locazioni')]
 from explorer import Game
 from extract_locations import extract
-wide = '--through-5d29' in sys.argv[1:]
-end = 0x5d2a if wide else 0x5d28
+ending = '--through-5d30' in sys.argv[1:]
+wide = ending or '--through-5d29' in sys.argv[1:]
+end = 0x5d31 if ending else 0x5d2a if wide else 0x5d28
 marker = [165] * (end - 0x5d1a)
-root = p / ('sherlock-js/results/passage-caller-c-22/wide-abi' if wide else 'sherlock-js/results/passage-descriptor-20/wide-abi')
+root = p / ('sherlock-js/results/brown-to-ending/wide-abi' if ending else
+            'sherlock-js/results/passage-caller-c-22/wide-abi' if wide else
+            'sherlock-js/results/passage-descriptor-20/wide-abi')
 root.mkdir(parents=True, exist_ok=True)
 g=Game(p,extract(p),seed=1,active_npcs=None);w=g.world;m=w.m;r=w.sim.registers;R=w.R;cases=[]
 for mode in ['arrival','look']:

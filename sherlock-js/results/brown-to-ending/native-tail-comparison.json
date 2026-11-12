@@ -1,0 +1,27 @@
+{
+  "stoppedAt": "CB29",
+  "nextOriginalClock": {
+    "tick": 4181,
+    "due": 4441,
+    "minute": 40,
+    "hour": 5,
+    "day": 3,
+    "period": "am",
+    "label": "Thu 05:40am"
+  },
+  "originalCheckpoints": 1223,
+  "checkpoints": 603,
+  "lastClock": {
+    "tick": 4171,
+    "due": 4441,
+    "day": 3,
+    "minute": 30,
+    "hour": 5,
+    "period": "am",
+    "label": "Thu 05:30am"
+  },
+  "comparedDraws": 10013,
+  "comparedReads": 21350,
+  "originalEnding": null,
+  "verifiedEnding": null
+}

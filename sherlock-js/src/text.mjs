@@ -32,7 +32,10 @@ export class Text {
  // Scene lists use the same name formatter as D3D5. Record its raw
  // dictionary operations separately from displayed capitalization/inflection.
  traceNameBuffer(trace,id,name,start,{indefinite=false}={}){
-  if(!trace)return;const raw=this.rawEntityName(id,{indefinite});if(raw===null)return;
+  if(trace)this.traceRawName(trace,this.rawEntityName(id,{indefinite}),name,start);
+ }
+ traceRawName(trace,raw,name,start){
+  if(raw===null)return;
   let normalized='';for(const c of raw.trimStart()){if(c==='\b')normalized=normalized.slice(0,-1);else normalized+=c;}
   // Dynamic or shortened names without a matching contract stay unknown.
   if(normalized.toLowerCase()!==name.toLowerCase())return;
@@ -167,7 +170,7 @@ export class Text {
    // object's naming call. AND is a separate dictionary invocation.
    if(parent===null){const previous=text.join(' '),tail=previous.match(/\S+$/);if(trace&&tail&&/^(Visible exits are |To the |Above |Below )/.test(text.at(-1)))trace.push({kind:'room-list-delimits-exits',start:previous.length-tail[0].length,end:previous.length,frame:listFrame(depth)-2});prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
     if(trace)trace.push({kind:'room-list-see',start:start+prefix.length-4,end:start+prefix.length-1,frame:listFrame(depth)+((children[0].noun&32768)?4:2)});
-    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',parent:children[i].id,start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4,spaceAfter:true,spaceClearFrame:listFrame(depth)+8});this.traceNameBuffer(trace,children[i].id,item,start+prefix.length+offset,{indefinite:true});offset+=item.length;}}
+    if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+((children.at(-1).noun&0x8000)?4:2)});for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',parent:children[i].id,start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4,spaceAfter:true,spaceClearFrame:listFrame(depth)+8});this.traceNameBuffer(trace,children[i].id,item,start+prefix.length+offset,{indefinite:true});offset+=item.length;}}
    }
    else{const container=w.entity(parent);if(container.person){
     const start=text.join(' ').length+(text.length?1:0),name=w.name(parent);
@@ -201,11 +204,21 @@ export class Text {
    for(const e of children)renderChildren(e.id,depth+1);
   };
   const describePassages=()=>{for(const edge of r.exits){if(!edge.gate||!(w.entity(edge.gate).attributes&128))continue;const d=DIRECTION_NAMES[edge.direction_id],name=w.name(edge.gate,{indefinite:true}),intro=`${edge.direction_id===9?'Above':edge.direction_id===10?'Below':'To the '+d} there is `,start=text.join(' ').length+(text.length?1:0)+intro.length;
-   text.push(intro+name+'.');if(trace){const before=trace.length;this.traceNameBuffer(trace,edge.gate,name,start,{indefinite:true});const prefix=name.lastIndexOf(' ');
+   text.push(intro+name+'.');if(trace){
+    if(edge.direction_id>=1&&edge.direction_id<=8){
+     const reference=this.dictionary.lookup(d)?.value;
+     const raw=this.dictionary.word(reference)?.stem;
+     if(raw===d){
+      const at=start-intro.length+7;
+      trace.push({kind:'raw-text-buffer',start:at,end:at+d.length,affectsStack:false,
+                  events:Array.from(raw,c=>({c,known:true}))});
+     }
+    }
+    const before=trace.length;this.traceNameBuffer(trace,edge.gate,name,start,{indefinite:true});const prefix=name.lastIndexOf(' ');
     // D658 calls D3D5 for the passage. Article/qualifier words flush
     // before the noun at frame26 (arrival), frame2A (LOOK). Container and
     // remote callers keep their separate, unowned stack contracts.
-    if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,videoHighKnown:frame===0x5D26,videoLowKnown:frame===0x5D26,callerBKnown:frame===0x5D26,callerCKnown:frame===0x5D26,callerFlagsKnown:frame===0x5D26,callerAKnown:frame===0x5D26,descriptorLowKnown:frame===0x5D26,descriptorHighKnown:frame===0x5D26,spaceByteKnown:frame===0x5D26,spaceShiftKnown:frame===0x5D26,spaceCountKnown:frame===0x5D26,spaceScanKnown:frame===0x5D26,spaceAfter:true,spaceClearFrame:frame+4});}
+    if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,videoHighKnown:frame===0x5D26,videoLowKnown:frame===0x5D26,callerBKnown:frame===0x5D26,callerCKnown:frame===0x5D26,callerFlagsKnown:frame===0x5D26,callerAKnown:frame===0x5D26,descriptorLowKnown:frame===0x5D26,descriptorHighKnown:frame===0x5D26,spaceByteKnown:frame===0x5D26,spaceShiftKnown:frame===0x5D26,spaceCountKnown:frame===0x5D26,spaceVideoLowKnown:frame===0x5D26,spaceVideoHighKnown:frame===0x5D26,spaceScanKnown:frame===0x5D26,spaceAfter:true,spaceClearFrame:frame+4});}
    }
   }};
   const describe=()=>{
@@ -245,7 +258,20 @@ export class Text {
    return text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   }
   if(full&&r.description)describe();
-  else text.push(remote?`${actorName} can see ${this.roomName(room)}.`:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} ${this.roomName(room)}.`);
+  else {
+   const name=this.roomName(room);
+   const intro=remote?`${actorName} can see `:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} `;
+   if(trace&&source==='arrival'&&!remote&&(r.nameWords[0]&0x8000)){
+    // D1BE/A815 emit the room's descriptors before case conversion.
+    const qualifiers=r.nameWords.slice(1).filter(Boolean).map(ref=>this.dictionary.word(ref));
+    const noun=this.dictionary.word(r.nameWords[0]);
+    if(noun&&qualifiers.every(Boolean)){
+     const raw=qualifiers.map(word=>word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''));
+     this.traceRawName(trace,' '+[...raw,noun.stem].join(' '),name,intro.length);
+    }
+   }
+   text.push(intro+name+'.');
+  }
   if(briefDark)text.push(this.render('68C1'));
   if(full)describePassages();
   const exits=briefDark?[]:r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);

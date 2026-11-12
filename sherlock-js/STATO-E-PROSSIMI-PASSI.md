@@ -1,6 +1,21 @@
 # Stato del gameplay e ordine di completamento
 
 Aggiornamento 12 novembre 2026.
+
+Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì
+alle 06:07, nella camera di Basil. Il percorso parte dal seed 1 con
+tutti gli attori e passa per Camden Street. La diramazione passiva
+dello stesso ramo è verificata fino a giovedì 05:30. Si ferma al
+residuo di ritorno $CB29, letto nel campione originale delle 05:40.
+Nell’originale la diramazione passiva non termina entro lunedì
+successivo alle 10:00. Restano aperti il ramo $759C e gli altri finali
+senza un confronto naturale completo.
+
+[Dossier, comandi e nuovi blocchi](BROWN-FINALE-BASIL.md).
+
+## Storico precedente
+
+Aggiornamento 12 novembre 2026.
 [Il contatore di scansione del glifo in $5D29](SCANSIONE-GLIFO-5D29.md).
 
 Superato **$5D29**. Il giardiniere legge 1 mercoledì alle 17:48

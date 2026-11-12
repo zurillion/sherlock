@@ -3,18 +3,15 @@
 Il lavoro sul gameplay non è concluso. L’atlante della memoria è una digressione
 richiesta dall’utente; non sostituisce questi obiettivi e non ne certifica la copertura.
 
-Aggiornamento corrente.
-[Il contatore di scansione del glifo in $5D29](SCANSIONE-GLIFO-5D29.md).
+## Ripresa corrente
 
-Ripresa da **$5D2A** nella continuazione Brown. Verificati 539
-checkpoint fino a mercoledì 19:10. Il modello si ferma al tick 3560
-(19:19). Il checkpoint 539 originale delle 19:20 mostra una lettura
-di 51 da parte della cuoca. Il tracciamento precedente copriva
-5D20–5D29. Includere le scritture di 2A da prima dell'evento che
-potrebbe scriverlo. 5D29 deriva dall'ultimo B della scansione dello
-spazio dopo plain. La traccia conferma il salvataggio C3B7 fino
-alla lettura del giardiniere al tick 3469. La baseline 6A33 è
-confermata fino a giovedì 10:00. Gli altri finali aperti restano in coda.
+Il ramo Brown fino al finale di Basil **$75D2** è riproducibile con
+seed 1. Il dossier include la sequenza completa, i contratti del
+parser e del renderer, e la distinzione rispetto alla variante
+passiva. In quest’ultima il prossimo ingresso aperto è **$CB29**.
+Restano da certificare i percorsi verso gli altri finali aperti.
+
+[Da Brown al finale con Basil](BROWN-FINALE-BASIL.md).
 
 Le tappe sotto conservano lo storico e non sostituiscono questo punto corrente.
 

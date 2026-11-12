@@ -18,7 +18,8 @@ export class Parser {
   }
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
- unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null,onTokenStart=null,onMode=null,tokenBase=0x5B81}={}){
+ unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null,onTokenStart=null,onPreviousClass=null,onMode=null,tokenBase=0x5B81}={}){
+  onPreviousClass?.(null);
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
   // AE19 commits omitted verbs only after successful parsing. Failed
   // records must retain their pre-inheritance payload.
@@ -61,10 +62,30 @@ export class Parser {
    return hasVerb;
   };
   const finish=(increment=true)=>{if(!current.verb&&!current.exclusion&&!pending&&!nodes.length)fail();nodes.push(current);if(increment){count=(count+1)&255;publishCount();}};
-  if(workingMode===0){const saved=index,g=nominal();if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;setMode(2);}else{index=saved;relations=0;setMode(1);}}
+  if(workingMode===0){
+   const saved=index,opening=tokens[index]?.type===144&&tokens[index].value===0;
+   if(opening)index++;
+   // Only probe past an opening delimiter for a complete nominal phrase.
+   // Other forms still need the delimiter in their own parser path.
+   const nominalEnd=opening?tokens.findIndex((t,i)=>i>saved&&![80,96,128].includes(t.type)):-1;
+   const bare=!opening||tokens[nominalEnd]?.type===176&&tokens[nominalEnd+1]?.type===192;
+   const g=bare?nominal():null;
+   const last=tokens[index]?.type===192||tokens[index]?.type===176&&tokens[index+1]?.type===192;
+   if(g?.noun&&!g.relations.length&&last){
+    // A noun phrase alone in speech is an implicit TALK argument. A
+    // predicate following it still uses statement mode.
+    current.verb=this.dictionary.lookup('TALK').value;current.groups.push(g);setMode(1);
+    if(opening)current.deferredQuotePointer=tokenBase+offsets[saved+1];
+   }else if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;setMode(2);}
+   else{index=saved;relations=0;setMode(1);}
+  }
   if(workingMode===2&&!verb())fail();
   while(true){
-   if(peek().type===176||peek().type===192){if(current.groups.length)onNominal?.(emptyGroup());if(!nodes.length&&!current.verb&&!current.groups.length&&!pending)return {nodes:[],next:index+(peek().type===176?1:0),mode:workingMode,outcome:'empty'};finish();if(peek().type===176)take();break;}
+   if(peek().type===176||peek().type===192){if(current.groups.length)onNominal?.(emptyGroup());if(!nodes.length&&!current.verb&&!current.groups.length&&!pending)return {nodes:[],next:index+(peek().type===176?1:0),mode:workingMode,outcome:'empty'};finish();if(peek().type===176){
+     // AB9F reads the separator, then AC33 rereads it in a simple WAIT.
+     const separator=take();
+     if(mode===1&&!pending&&start===0&&nodes.length===1&&meaning({value:current.verb})==='wait'&&tokens[index]?.type===192)onPreviousClass?.(separator.type);
+    }break;}
    if(peek().type===144&&peek().value!==0){
     const t=take(),word=meaning(t);
     if(['quit','save','load','pause','print','noprint'].includes(word)){if(current.verb||current.groups.length||nodes.length)fail();if(pending&&!['quit','load'].includes(word)){count=(count+1)&255;publishCount();}return {nodes:[],next:index,mode:workingMode,outcome:'control',control:word};}
