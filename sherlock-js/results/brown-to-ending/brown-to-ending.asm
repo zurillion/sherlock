@@ -411,6 +411,53 @@
     POP AF                                ; $D446 f1
     RET                                   ; $D447 c9
 
+    ORG $D60B
+; CODE: Direzione del passaggio, articolo e nome
+    PUSH BC                               ; $D60B c5
+    PUSH DE                               ; $D60C d5
+    PUSH IY                               ; $D60D fd e5
+    PUSH IX                               ; $D60F dd e5
+    CALL $D5EF                            ; $D611 cd ef d5
+    PUSH IX                               ; $D614 dd e5
+    POP IY                                ; $D616 fd e1
+    JR $D660                              ; $D618 18 46
+    LD A,(IY+$01)                         ; $D61A fd 7e 01
+    AND A                                 ; $D61D a7
+    JR Z,$D660                            ; $D61E 28 40
+    LD A,(IY+$00)                         ; $D620 fd 7e 00
+    CP $0B                                ; $D623 fe 0b
+    JR NC,$D660                           ; $D625 30 39
+    LD A,(IY+$01)                         ; $D627 fd 7e 01
+    CALL $D237                            ; $D62A cd 37 d2
+    BIT 7,(IX+$05)                        ; $D62D dd cb 05 7e
+    JR Z,$D660                            ; $D631 28 2d
+    LD A,(IY+$00)                         ; $D633 fd 7e 00
+    CALL $D5FB                            ; $D636 cd fb d5
+    CP $09                                ; $D639 fe 09
+    JR C,$D647                            ; $D63B 38 0a
+    LD DE,$000A                           ; $D63D 11 0a 00
+    JR Z,$D64D                            ; $D640 28 0b
+    LD DE,$00E7                           ; $D642 11 e7 00
+    JR $D64D                              ; $D645 18 06
+    LD HL,$68BC                           ; $D647 21 bc 68
+    CALL $A59F                            ; $D64A cd 9f a5
+    CALL $A887                            ; $D64D cd 87 a8 | La parola della direzione resta in attesa fino alla stampa di there is. Se va a capo, C374 pulisce la riga nel frame 5D22 e salva AF a 5D16/17.
+    LD HL,$68E9                           ; $D650 21 e9 68
+    CALL $A59F                            ; $D653 cd 9f a5
+    PUSH IY                               ; $D656 fd e5
+    CALL $D3D5                            ; $D658 cd d5 d3 | L’articolo del nome comune scarica is nel frame 5D24, dopo il ritorno a capo della direzione. C3B8 salva un nuovo AF a 5D18/19.
+    CALL $A414                            ; $D65B cd 14 a4
+    POP IY                                ; $D65E fd e1
+    ADD IY,BC                             ; $D660 fd 09
+    LD A,$FF                              ; $D662 3e ff
+    CP (IY+$00)                           ; $D664 fd be 00
+    JP NZ,$D61A                           ; $D667 c2 1a d6
+    POP IX                                ; $D66A dd e1
+    POP IY                                ; $D66C fd e1
+    POP DE                                ; $D66E d1
+    POP BC                                ; $D66F c1
+    RET                                   ; $D670 c9
+
     ORG $DFCC
 ; CODE: Finale selezionato dalla presenza di Basil
     LD HL,$759C                           ; $DFCC 21 9c 75

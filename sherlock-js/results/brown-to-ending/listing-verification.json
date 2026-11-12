@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 414,
-  "bytes_roundtripped": 849,
+  "instructions": 458,
+  "bytes_roundtripped": 951,
   "regions": [
     {
       "start": "9E74",
@@ -92,6 +92,13 @@
       "end_exclusive": "D448",
       "kind": "code",
       "label": "Descrittori dei nomi nelle liste",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D60B",
+      "end_exclusive": "D671",
+      "kind": "code",
+      "label": "Direzione del passaggio, articolo e nome",
       "atlas_priority": 188
     },
     {

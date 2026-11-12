@@ -212,6 +212,14 @@ export class Text {
       const at=start-intro.length+7;
       trace.push({kind:'raw-text-buffer',start:at,end:at+d.length,affectsStack:false,
                   events:Array.from(raw,c=>({c,known:true}))});
+      // D64D/D653 emit the direction in the passage introduction. If
+      // its word wraps, C374 clears the row at a different depth.
+      if(parent===null&&!remote&&source==='arrival'&&full){
+       trace.push({kind:'passage-direction',start:at,end:at+d.length,frame:0x5D22});
+       // D3E8/A7D0 emits the article, which flushes the pending IS.
+       if(/^(?:a|an|the|some) /.test(name))
+        trace.push({kind:'passage-article-delimits-verb',start:start-3,end:start-1,frame:0x5D24});
+      }
      }
     }
     const before=trace.length;this.traceNameBuffer(trace,edge.gate,name,start,{indefinite:true});const prefix=name.lastIndexOf(' ');

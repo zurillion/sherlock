@@ -209,6 +209,7 @@ brown_fields = {
   ['5C13','Nono carattere grezzo','A9D7 scrive la t di northeast nella direzione di un passaggio.'],
  ],
  0x5CEC: [
+  ['5D16 / 5D17','AF durante il ritorno a capo della direzione','Il frame 5D22 di C374 salva AF della scansione quando north non entra nel resto della riga. La successiva stampa di is nel frame 5D24 aggiorna invece 5D18/19.'],
   ['5D17','H del video durante la pulizia','Nel salotto di Tricia C398 conserva H dopo wall. La congiunzione prima del nome proprio scorre su un frame differente.'],
   ['5D19 / 5D1A','A grezzo del font e C dello shift','C3B8/C3B7 con frame 5D24 durante la richiesta di pagamento 6BB7. La o di to viene scaricata mentre comincia il nome del destinatario.'],
   ['5D2B','H della posizione video nel frame 5D32','C38B/C398 salva il byte alto di 5020+floor((2+7*colonna)/8) per lo spazio dopo il qualificatore del passaggio.'],

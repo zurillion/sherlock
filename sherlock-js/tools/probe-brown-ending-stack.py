@@ -6,7 +6,8 @@ from explorer import Game
 from extract_locations import extract
 late='--late' in sys.argv[1:]
 dawn='--dawn' in sys.argv[1:]
-low,end=(0x5d10,0x5d37) if dawn else (0x5d20,0x5d31)
+passage_wrap='--passage-wrap' in sys.argv[1:]
+low,end=(0x5d16,0x5d1a) if passage_wrap else (0x5d10,0x5d37) if dawn else (0x5d20,0x5d31)
 g=Game(p,extract(p),seed=1,active_npcs=None);w=g.world;m=w.m;root=p/'sherlock-js/results/murder-ending';restore=json.loads(gzip.decompress((root/('brown-native-prompt.json.gz' if late or dawn else 'talk-native-prompt.json.gz')).read_bytes()));assert restore['payload_sha256']==hashlib.sha256((p/'sherlock-analisi/block-10.bin').read_bytes()).hexdigest();m[:]=restore['memory'];w.sim.registers[:]=restore['registers'];w.input_registers=restore['input_registers'];w.input_stack=restore['input_stack'];g.explored=set(restore['explored']);g.last_listed=restore['last_listed'];g.last_analysis=restore['last_analysis'];g.opening_pending=False;g.cached_state=None
 from native_world import word
 targets=range(low,end);pending=None;glyph=None;writers={};stores=[];reads=[];unclassified=[];previous=None;observed=m[low:end];enabled=False;start=None;hail_scopes=[];hail_scope=None
@@ -19,7 +20,7 @@ if late:
  for row in prior['stores']:
   writers[int(row['address'],16)]=row
 def at_end():
- target,minimum=('5D1A',2682) if dawn else ('5D30',4160) if late else ('5D2A',3560)
+ target,minimum=('5D16',2156) if passage_wrap else ('5D1A',2682) if dawn else ('5D30',4160) if late else ('5D2A',3560)
  return any(r['address']==target and r['clock']['tick']>=minimum for r in reads)
 def observe(m,r,R):
  global pending,glyph,previous,observed
@@ -64,6 +65,7 @@ for c in commands:
 assert at_end()
 root = p / 'sherlock-js/results/brown-to-ending'
 protocol = (
+ 'Original Jones-confession prompt through the two passage-printing reads.' if passage_wrap else
  'Original Brown prompt and dawn route, through the read of 5D1A.' if dawn else
  'Original Brown route, starting at A074 tick 3561 after matching the tracked cells to the previous trace.' if late else
  'Original Jones-confession prompt and normal input, observed from tick 1649. The trace does not claim earlier writers.'
@@ -71,7 +73,11 @@ protocol = (
 report = dict(protocol=protocol, start=start, reads=reads, stores=stores,
               unclassified_transitions=unclassified)
 content = (json.dumps(report, separators=(',', ':')) + '\n').encode()
-if dawn:
+if passage_wrap:
+ report.pop('stores')
+ report['classified_store_count'] = len(stores)
+ (root / 'passage-wrap-reads.json').write_text(json.dumps(report, indent=2) + '\n')
+elif dawn:
  (root / 'dawn-stack-stores.json.gz').write_bytes(gzip.compress(content, mtime=0))
 else:
  (root / ('late-stack-stores.json' if late else 'first-stack-stores.json')).write_bytes(content)
