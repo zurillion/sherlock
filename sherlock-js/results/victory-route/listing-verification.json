@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 127,
-  "bytes_roundtripped": 561,
+  "instructions": 162,
+  "bytes_roundtripped": 641,
   "regions": [
     {
       "start": "9965",
@@ -57,6 +57,13 @@
       "end_exclusive": "B09A",
       "kind": "code",
       "label": "Accodamento e ricerca del delimitatore della citazione",
+      "atlas_priority": 189
+    },
+    {
+      "start": "B8BE",
+      "end_exclusive": "B90E",
+      "kind": "code",
+      "label": "Analisi della citazione per TALK e creazione della richiesta",
       "atlas_priority": 189
     },
     {

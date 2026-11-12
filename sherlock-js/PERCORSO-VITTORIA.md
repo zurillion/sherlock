@@ -79,3 +79,24 @@ e diverge ancora nell’immagine. L’itinerario con l’esame del cadavere
 sostituisce il ritorno ridondante agli abiti.
 
 [Traccia della citazione](results/victory-route/trial-replayed-quote.json)
+
+## Due ordini identici al cocchiere
+
+L’itinerario con il corpo esaminato prosegue dal binario di Kings Cross al
+cab. Alle 13:50 il primo `SAY CABBIE "GO TO SLATER STREET"` stampa solo che
+Holmes ha parlato. Il puntatore residuo `$5B87` coincide con la virgoletta
+di apertura appena riscritta. `$B04D` prepara un TALK implicito, `$B05E`
+accoda `$5B8A` e `$B095` converte temporaneamente l’apertura in `C0`.
+Il token di movimento è incompatibile con il gruppo nominale atteso.
+`$B904` libera il record sintattico. All’input successivo il puntatore
+rimasto in testa cade sul verbo. `$B8D1` ripristina la chiusura e
+`$B8D3` crea la richiesta. Il cab parte alle 13:52.
+
+Il motore JavaScript riproduce il ramo in cui il puntatore residuo cade
+sull’apertura e il token successivo è di movimento. Il confronto da avvio
+con seed 1 comprende 114 checkpoint, tutti gli attori, l’arena, i token,
+le bitmap, le estrazioni casuali e il futuro di ogni salvataggio. Il
+ramo precedente in cui la ricerca scrive nella bitmap resta aperto.
+
+[Comandi del confronto](results/victory-route/monday-corpse-to-cab.txt) ·
+[Traccia dei due ordini](results/victory-route/cab-retry-trace.txt)

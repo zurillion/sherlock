@@ -170,11 +170,7 @@ export class NpcRuntime {
  queue(sender,recipient,nodes,mode=nodes[0]?.subject?2:1){
   this.use(({records})=>{const syntax=nodes.map(n=>{
    const p=this.syntaxRecord(n,records);
-   if(n.deferredQuotePointer!==undefined){
-    records.append('quotes',[n.deferredQuotePointer&255,n.deferredQuotePointer>>>8]);
-    const opening=n.deferredQuotePointer-0x5B81-3;
-    this.w.display.tokens[opening]=192;this.w.display.tokenKnown[opening]=true;
-   }
+   this.recordDeferredQuote(n,records);
    return p;
   });for(let i=0;i<syntax.length;i++)records.arena.putWord(syntax[i]-2,syntax[i+1]||0);const p=records.prepend('requests',[recipient,0,0,0,0,syntax[0]&255,syntax[0]>>>8,mode]);this.w.scheduler.sendRequest(sender,recipient,{nodes,syntax,mode});this.w.scheduler.requests[0].record=p;});
  }
@@ -218,14 +214,24 @@ export class NpcRuntime {
  });}
 
  recordQuotes(node,records){for(const quote of(node.quotes||[node.quote]).filter(Boolean)){records.append('quotes',[quote.tokenPointer&255,quote.tokenPointer>>>8]);this.game.sourceDisplay.quoted(quote);}}
+ recordDeferredQuote(node,records,{restoreOpening=false}={}){
+  const pointer=node.deferredQuotePointer;
+  if(pointer===undefined)return;
+  records.append('quotes',[pointer&255,pointer>>>8]);
+  const opening=pointer-0x5B81-3;
+  this.w.display.tokens[opening]=restoreOpening?144:192;this.w.display.tokenKnown[opening]=true;
+ }
  consumeQuote(){return this.use(({records})=>{
   const p=records.heads.quotes;if(!p)return null;
   const pointer=records.arena.word(p);records.remove('quotes',p);
   const bytes=this.w.display.tokens,tokens=[];let at=pointer-0x5B81;
+  // When the retained pointer lands on the new opening mark, the failed
+  // implicit TALK restores that mark. The outer closing mark stays C0.
+  const retainedMovement=bytes[at]===144&&!bytes[at+1]&&!bytes[at+2]&&bytes[at+3]===64;
   for(let guard=0;guard<128&&at<bytes.length;guard++){
    const start=at,type=bytes[at++],size=[128,160,176,192].includes(type)?1:3,value=size===1?0:(bytes[at++]<<8)|bytes[at++],word=this.game.dictionary.word(value)?.stem??null;
    tokens.push({type,value,word,start,end:at,source:word??''});
-   if(type===192){if(0x5B81+start===this.game.currentInputEnd)throw new UnsupportedFeature('citazione residua che ripristina il terminatore della riga: scansione originale oltre i buffer');bytes[start]=144;break;}
+   if(type===192){if(0x5B81+start===this.game.currentInputEnd)throw new UnsupportedFeature('citazione residua che ripristina il terminatore della riga: scansione originale oltre i buffer');if(!retainedMovement)bytes[start]=144;break;}
   }
   if(tokens.at(-1)?.type!==192)tokens.push({type:192,value:0,word:null});
   return {tokens,tokenPointer:pointer};
@@ -239,7 +245,7 @@ export class NpcRuntime {
   for(const list of ['syntax','parsed'])while(records.heads[list])records.remove(list,records.heads[list]);
   this.state.parserPending=null;
  });}
- failedQuote(nodes){this.use(({records})=>{const temporary=[];for(const node of nodes){const p=this.syntaxRecord(node,records);if(temporary.length)records.arena.putWord(temporary.at(-1)-2,p);temporary.push(p);}for(const p of temporary)records.arena.release(p);});}
+ failedQuote(nodes){this.use(({records})=>{const temporary=[];for(const node of nodes){const p=this.syntaxRecord(node,records);if(temporary.length)records.arena.putWord(temporary.at(-1)-2,p);temporary.push(p);this.recordDeferredQuote(node,records,{restoreOpening:true});}for(const p of temporary)records.arena.release(p);});}
  // D835 preserves the current node while ALL's search has more references.
  // The final unsuccessful search (D86A) releases it, after the last paid turn.
  finishCollective(node,visits){if(visits)this.beginResolution(node,{player:true});this.finishPlayerResolution(false);this.popParsed();}

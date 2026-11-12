@@ -67,6 +67,16 @@ export class Parser {
    if(opening)index++;
    // Only probe past an opening delimiter for a complete nominal phrase.
    // Other forms still need the delimiter in their own parser path.
+   if(opening&&tokens[index]?.type===64){
+    // A retained quotation may point to the opening mark of the new input.
+    // B04D starts an implicit TALK, and B095 closes it at that same mark.
+    // The direction/GO token is then invalid in the unfinished nominal slot.
+    current.verb=this.dictionary.lookup('TALK').value&0xff00;
+    current.deferredQuotePointer=tokenBase+offsets[saved+1];
+    onTokenStart?.(current.deferredQuotePointer);
+    setMode(1);
+    fail();
+   }
    const nominalEnd=opening?tokens.findIndex((t,i)=>i>saved&&![80,96,128].includes(t.type)):-1;
    const bare=!opening||tokens[nominalEnd]?.type===176&&tokens[nominalEnd+1]?.type===192;
    const g=bare?nominal():null;

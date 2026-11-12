@@ -93,6 +93,44 @@
     LD (HL),$C0                           ; $B095 36 c0 | Il byte del delimitatore trovato diventa C0. Nel controllo con puntatore residuo il lettore ha raggiunto 4D15 nella bitmap superiore.
     JP $AB52                              ; $B097 c3 52 ab
 
+    ORG $B8BE
+; CODE: Analisi della citazione per TALK e creazione della richiesta
+    CALL $AAB2                            ; $B8BE cd b2 aa | Analizza il testo a partire dal puntatore estratto dalla coda delle citazioni.
+    JR Z,$B8C7                            ; $B8C1 28 04
+    CP $02                                ; $B8C3 fe 02
+    JR NZ,$B904                           ; $B8C5 20 3d
+    LD HL,($A02B)                         ; $B8C7 2a 2b a0
+    LD A,(HL)                             ; $B8CA 7e
+    AND $F0                               ; $B8CB e6 f0
+    CP $C0                                ; $B8CD fe c0
+    JR NZ,$B8BE                           ; $B8CF 20 ed
+    LD (HL),$90                           ; $B8D1 36 90 | Dopo un’analisi valida ripristina il delimitatore, poi alloca la richiesta da otto byte.
+    LD A,$08                              ; $B8D3 3e 08
+    CALL $A11C                            ; $B8D5 cd 1c a1
+    LD HL,($9FEE)                         ; $B8D8 2a ee 9f
+    LD ($9FEE),IX                         ; $B8DB dd 22 ee 9f
+    LD (IX-$02),L                         ; $B8DF dd 75 fe
+    LD (IX-$01),H                         ; $B8E2 dd 74 ff
+    LD HL,($9FF0)                         ; $B8E5 2a f0 9f
+    LD (IX+$05),L                         ; $B8E8 dd 75 05
+    LD (IX+$06),H                         ; $B8EB dd 74 06
+    POP HL                                ; $B8EE e1
+    LD ($9FF0),HL                         ; $B8EF 22 f0 9f
+    XOR A                                 ; $B8F2 af
+    LD (IX+$01),A                         ; $B8F3 dd 77 01
+    LD A,($A034)                          ; $B8F6 3a 34 a0
+    LD (IX+$00),A                         ; $B8F9 dd 77 00
+    LD A,($A024)                          ; $B8FC 3a 24 a0
+    LD (IX+$07),A                         ; $B8FF dd 77 07
+    XOR A                                 ; $B902 af
+    RET                                   ; $B903 c9
+    PUSH AF                               ; $B904 f5 | Il ramo di errore libera la sintassi. La nuova citazione eventualmente accodata da B05E rimane disponibile.
+    CALL $D87D                            ; $B905 cd 7d d8
+    POP AF                                ; $B908 f1
+    POP HL                                ; $B909 e1
+    LD ($9FF0),HL                         ; $B90A 22 f0 9f
+    RET                                   ; $B90D c9
+
     ORG $D078
 ; CODE: Controllo di luce e lampada percepibile
     PUSH IX                               ; $D078 dd e5
