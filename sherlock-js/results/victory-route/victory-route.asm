@@ -54,6 +54,45 @@
     CP (IX+$0F)                           ; $9E66 dd be 0f
     RET                                   ; $9E69 c9
 
+    ORG $B049
+; CODE: Accodamento e ricerca del delimitatore della citazione
+    BIT 1,E                               ; $B049 cb 4b
+    JR Z,$B058                            ; $B04B 28 0b
+    LD HL,$088B                           ; $B04D 21 8b 08
+    LD (IY+$00),L                         ; $B050 fd 75 00
+    LD (IY+$01),H                         ; $B053 fd 74 01
+    RES 1,E                               ; $B056 cb 8b
+    PUSH HL                               ; $B058 e5
+    PUSH DE                               ; $B059 d5
+    PUSH IY                               ; $B05A fd e5
+    PUSH IX                               ; $B05C dd e5
+    LD IY,$9FEC                           ; $B05E fd 21 ec 9f | Accoda il puntatore prima di trovare il delimitatore. Nel controllo TAKE CLOTHES il nodo sintattico si libera ma la citazione resta in coda.
+    LD DE,$0000                           ; $B062 11 00 00
+    CALL $A104                            ; $B065 cd 04 a1
+    LD A,$02                              ; $B068 3e 02
+    CALL $A11C                            ; $B06A cd 1c a1
+    LD HL,($A02B)                         ; $B06D 2a 2b a0
+    LD (IX+$00),L                         ; $B070 dd 75 00
+    LD (IX+$01),H                         ; $B073 dd 74 01
+    PUSH IX                               ; $B076 dd e5
+    POP HL                                ; $B078 e1
+    LD (IY-$02),L                         ; $B079 fd 75 fe
+    LD (IY-$01),H                         ; $B07C fd 74 ff
+    POP IX                                ; $B07F dd e1
+    POP IY                                ; $B081 fd e1
+    POP DE                                ; $B083 d1
+    POP HL                                ; $B084 e1
+    CALL $AE7F                            ; $B085 cd 7f ae
+    CP $90                                ; $B088 fe 90
+    JR NZ,$B085                           ; $B08A 20 f9
+    LD A,B                                ; $B08C 78
+    AND $0F                               ; $B08D e6 0f
+    OR C                                  ; $B08F b1
+    JR NZ,$B085                           ; $B090 20 f3
+    LD HL,($A029)                         ; $B092 2a 29 a0
+    LD (HL),$C0                           ; $B095 36 c0 | Il byte del delimitatore trovato diventa C0. Nel controllo con puntatore residuo il lettore ha raggiunto 4D15 nella bitmap superiore.
+    JP $AB52                              ; $B097 c3 52 ab
+
     ORG $D078
 ; CODE: Controllo di luce e lampada percepibile
     PUSH IX                               ; $D078 dd e5
@@ -104,6 +143,39 @@
     LD (HL),E                             ; $D0D9 73
     POP DE                                ; $D0DA d1
     RET                                   ; $D0DB c9
+
+    ORG $E0A0
+; DATA: Intestazione dell’esame approfondito del ruscello
+    DEFB $88,$00                          ; $E0A0 88 00
+
+    ORG $E0A2
+; BYTECODE: Ritrovamento ed esame del ruscello
+    DEFB $07,$AD,$E0,$02,$5D              ; $E0A2 07 ad e0 02 5d | Il ritrovamento richiede la sponda est e il martedì. La selezione dell’argomento 2 deve ammettere Lestrade.
+    DEFB $07,$35,$E1,$FD,$FF              ; $E0A7 07 35 e1 fd ff
+    DEFB $0B                              ; $E0AC 0b
+
+    ORG $E955
+; BYTECODE: Lestrade attende l’incontro o l’una di notte
+    DEFB $82,$81,$00,$07,$61,$E9          ; $E955 82 81 00 07 61 e9 | Verifica se Holmes e il maggiore sono insieme. In mancanza dell’incontro, E95B attende l’una del mattino.
+    DEFB $12,$88,$01,$FF,$55,$E9          ; $E95B 12 88 01 ff 55 e9
+    DEFB $02,$80,$FB,$0C                  ; $E961 02 80 fb 0c
+    DEFB $52,$81,$FB,$07,$65,$E9          ; $E965 52 81 fb 07 65 e9
+    DEFB $03,$85,$9E                      ; $E96B 03 85 9e | Il selettore controlla se l’innocenza è stata riconosciuta. In questa storia può esserlo anche dopo mezzanotte.
+
+    ORG $E9A7
+; BYTECODE: Lestrade alterna le sponde durante l’ispezione
+    DEFB $57,$98,$F1,$0A,$FF,$B5,$E9      ; $E9A7 57 98 f1 0a ff b5 e9 | Alterna il ruscello e i due attraversamenti. La storia osservata trova Lestrade a est alle 09:31.
+    DEFB $42,$13,$39,$FF                  ; $E9AE 42 13 39 ff
+    DEFB $0E,$9A,$E9                      ; $E9B2 0e 9a e9
+    DEFB $57,$98,$F1,$0A,$FF,$C3,$E9      ; $E9B5 57 98 f1 0a ff c3 e9
+    DEFB $42,$13,$3B,$FF                  ; $E9BC 42 13 3b ff
+    DEFB $0E,$9A,$E9                      ; $E9C0 0e 9a e9
+    DEFB $57,$98,$F1,$0A,$FF,$CF,$E9      ; $E9C3 57 98 f1 0a ff cf e9
+    DEFB $41,$04                          ; $E9CA 41 04
+    DEFB $0E,$9A,$E9                      ; $E9CC 0e 9a e9
+    DEFB $57,$98,$F1,$0A,$FF,$9A,$E9      ; $E9CF 57 98 f1 0a ff 9a e9
+    DEFB $41,$03                          ; $E9D6 41 03
+    DEFB $0E,$9A,$E9                      ; $E9D8 0e 9a e9
 
     ORG $EA25
 ; BYTECODE: Lestrade attende le due deduzioni prima di partire
@@ -165,3 +237,7 @@
     DEFB $01,$03                          ; $EF81 01 03
     DEFB $12,$81,$FB,$00,$8C,$EF          ; $EF83 12 81 fb 00 8c ef | Confronta la posizione di Basil con l’identità esplicita 0. Il ramo con Holmes presente chiama il selettore 9E48.
     DEFB $03,$48,$9E                      ; $EF89 03 48 9e
+
+    ORG $F14C
+; BYTECODE: Il poliziotto prende il cadavere dei Brown
+    DEFB $42,$29,$2E,$FF                  ; $F14C 42 29 2e ff | Azione 41 sul cadavere 46. Quando la raccolta avviene, il cadavere segue l’attore 12 e non resta sulla sponda.

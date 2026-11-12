@@ -39,3 +39,43 @@ La lampada può essere raccolta nella stanza iniziale. L’ordine verificato
 Il controllo d’illuminazione si trova a `$D078–$D0DB`.
 
 [Listato riassemblato](results/victory-route/victory-route.asm)
+
+## Lampada, lettere e ritrovamento nel ruscello
+
+Sul percorso con la lampada, il maggiore arriva più tardi nella fumeria.
+Restando dentro fino alle 00:03, Holmes ascolta la confessione e dà tempo
+a Lestrade di registrare la compresenza in `$E955`. Alle 00:04, sulla strada,
+Lestrade accetta la conclusione. Alle 00:12 il flag vale 1 e Lestrade ha
+liberato il maggiore. Il controllo `$E95B` attende l’una di notte quando
+Holmes e il maggiore rimangono separati. Mezzanotte è quindi un riferimento
+di quella cronologia, mentre il ramo del codice controlla incontro e ora.
+
+La lampada permette di raggiungere il binario 3 di Kings Cross alle 00:52
+e di salire sul treno delle 01:45. Holmes e Watson scendono a Leatherhead
+alle 03:03. A Cobden Lane l’apertura della cassaforte termina alle 03:37 e
+Holmes esamina le lettere di Tricia alle 03:38.
+
+La sponda est è la locazione 88. Nel controllo di martedì alle 09:31, con
+Lestrade nella stessa locazione, `CLOSELY EXAMINE STREAM` attiva
+`$E0A2` e rivela la pietra e la pistola. Lestrade riparte con la pietra.
+Il cadavere è già fuori scena perché l’attore 12 lo ha raccolto, come
+prevede `$F14C`. Per chiudere la deduzione bisogna esaminare la salma
+prima della rimozione. È stato verificato l’esame sulla sponda est
+lunedì alle 11:41, in una diramazione che visita il giardino prima
+di tornare a Londra.
+
+[Comandi del controllo della lampada](results/victory-route/trial-monday-lamp.txt) ·
+[Comandi della tratta notturna](results/victory-route/trial-overnight-train.txt) ·
+[Stato originale dei punti osservati](results/victory-route/trial-night-and-river-state.json)
+
+## Citazione residua del percorso esplorativo
+
+Un ordine ripetuto a Watson per prendere gli abiti già raccolti ha esposto
+un limite distinto della ricostruzione. Nel controllo originale `$B05E`
+alloca un ulteriore record e `$B095` riscrive il delimitatore in `$4D15`,
+dentro la bitmap. Il valore deriva dalla ricerca che oltrepassa il buffer
+dei token. La prova che riproduce la sola allocazione coincide con l’arena
+e diverge ancora nell’immagine. L’itinerario con l’esame del cadavere
+sostituisce il ritorno ridondante agli abiti.
+
+[Traccia della citazione](results/victory-route/trial-replayed-quote.json)

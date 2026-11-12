@@ -1,0 +1,651 @@
+{
+  "trace": [
+    {
+      "pc": "A11C",
+      "actor": 0,
+      "ret": "AE72",
+      "flags": 66,
+      "a": 30,
+      "hl": "5B81",
+      "p": "5B1B",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "B049",
+      "actor": 0,
+      "ret": "D791",
+      "flags": 66,
+      "a": 0,
+      "hl": "B049",
+      "p": "5B87",
+      "quotes": "9836",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B05E",
+      "actor": 0,
+      "ret": "97D5",
+      "flags": 124,
+      "a": 0,
+      "hl": "B049",
+      "p": "5B87",
+      "quotes": "9836",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "A11C",
+      "actor": 0,
+      "ret": "B06D",
+      "flags": 66,
+      "a": 2,
+      "hl": "0000",
+      "p": "5B87",
+      "quotes": "9836",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B092",
+      "actor": 0,
+      "ret": "D791",
+      "flags": 68,
+      "a": 0,
+      "hl": "5B94",
+      "p": "5B91",
+      "quotes": "9836",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B095",
+      "actor": 0,
+      "ret": "D791",
+      "flags": 68,
+      "a": 0,
+      "hl": "5B91",
+      "p": "5B91",
+      "quotes": "9836",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "A2A8",
+      "flags": 163,
+      "a": 13,
+      "hl": "83C1",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 28,
+      "a": 89,
+      "hl": "5C0B",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 10,
+      "a": 111,
+      "hl": "5C0C",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 117,
+      "hl": "5C0D",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "A89F",
+      "flags": 147,
+      "a": 32,
+      "hl": "83C3",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 116,
+      "hl": "5C0B",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 97,
+      "hl": "5C0C",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 10,
+      "a": 108,
+      "hl": "5C0D",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 10,
+      "a": 107,
+      "hl": "5C0E",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "A89F",
+      "flags": 147,
+      "a": 32,
+      "hl": "83C5",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 116,
+      "hl": "5C0B",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 10,
+      "a": 111,
+      "hl": "5C0C",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "A89F",
+      "flags": 147,
+      "a": 32,
+      "hl": "09EE",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 16,
+      "a": 87,
+      "hl": "5C0B",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 97,
+      "hl": "5C0C",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 116,
+      "hl": "5C0D",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 26,
+      "a": 115,
+      "hl": "5C0E",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 10,
+      "a": 111,
+      "hl": "5C0F",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 10,
+      "a": 110,
+      "hl": "5C10",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "AA00",
+      "flags": 131,
+      "a": 46,
+      "hl": "5C11",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 0,
+      "ret": "A2A8",
+      "flags": 131,
+      "a": 13,
+      "hl": "83C5",
+      "p": "5B94",
+      "quotes": "9836",
+      "syntax": "0000"
+    },
+    {
+      "pc": "B8AA",
+      "actor": 0,
+      "ret": "B892",
+      "flags": 16,
+      "a": 1,
+      "hl": "980A",
+      "p": "5B94",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "B8BE",
+      "actor": 0,
+      "ret": "0000",
+      "flags": 68,
+      "a": 0,
+      "hl": "0000",
+      "p": "5B94",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 0,
+      "ret": "AE72",
+      "flags": 66,
+      "a": 30,
+      "hl": "0000",
+      "p": "5B94",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "B049",
+      "actor": 0,
+      "ret": "B8C1",
+      "flags": 66,
+      "a": 0,
+      "hl": "B049",
+      "p": "5B87",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B04D",
+      "actor": 0,
+      "ret": "B8C1",
+      "flags": 56,
+      "a": 0,
+      "hl": "B049",
+      "p": "5B87",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B05E",
+      "actor": 0,
+      "ret": "97D5",
+      "flags": 56,
+      "a": 0,
+      "hl": "088B",
+      "p": "5B87",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "A11C",
+      "actor": 0,
+      "ret": "B06D",
+      "flags": 66,
+      "a": 2,
+      "hl": "0000",
+      "p": "5B87",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B092",
+      "actor": 0,
+      "ret": "B8C1",
+      "flags": 68,
+      "a": 0,
+      "hl": "4D18",
+      "p": "4D15",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B095",
+      "actor": 0,
+      "ret": "B8C1",
+      "flags": 68,
+      "a": 0,
+      "hl": "4D15",
+      "p": "4D15",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B8C1",
+      "actor": 0,
+      "ret": "0000",
+      "flags": 16,
+      "a": 1,
+      "hl": "4D18",
+      "p": "4D18",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "B904",
+      "actor": 0,
+      "ret": "0000",
+      "flags": 147,
+      "a": 1,
+      "hl": "4D18",
+      "p": "4D18",
+      "quotes": "980A",
+      "syntax": "97D5"
+    },
+    {
+      "pc": "A1AF",
+      "actor": 0,
+      "ret": "B908",
+      "flags": 147,
+      "a": 1,
+      "hl": "0000",
+      "p": "4D18",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 2,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "EB93",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 2,
+      "ret": "E536",
+      "flags": 68,
+      "a": 2,
+      "hl": "E531",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 2,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "E460",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 2,
+      "ret": "AA00",
+      "flags": 34,
+      "a": 46,
+      "hl": "5C0B",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 2,
+      "ret": "A2A8",
+      "flags": 131,
+      "a": 13,
+      "hl": "8263",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 3,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "E7BE",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 3,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "E7BE",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 3,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "E7BE",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 3,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "E7BE",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 3,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "E7BE",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 37,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "F221",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 37,
+      "ret": "AA00",
+      "flags": 34,
+      "a": 46,
+      "hl": "5C0B",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "AA6E",
+      "actor": 37,
+      "ret": "A2A8",
+      "flags": 131,
+      "a": 13,
+      "hl": "67B8",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    },
+    {
+      "pc": "A11C",
+      "actor": 41,
+      "ret": "CF87",
+      "flags": 129,
+      "a": 7,
+      "hl": "F26D",
+      "p": "5B91",
+      "quotes": "980A",
+      "syntax": "0000"
+    }
+  ],
+  "messages": [
+    {
+      "kind": "narrative",
+      "text": "",
+      "screen_events": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        },
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        }
+      ]
+    },
+    {
+      "kind": "narrative",
+      "text": "You talk to Watson.",
+      "screen_events": [
+        {
+          "op": "word",
+          "text": "",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "you",
+          "delimiter": " ",
+          "capitalize": true,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "talk",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "to",
+          "delimiter": " ",
+          "capitalize": false,
+          "force": false
+        },
+        {
+          "op": "word",
+          "text": "watson.",
+          "delimiter": "\r",
+          "capitalize": true,
+          "force": false
+        }
+      ]
+    }
+  ]
+}

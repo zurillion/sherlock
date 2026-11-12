@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 91,
-  "bytes_roundtripped": 386,
+  "instructions": 127,
+  "bytes_roundtripped": 561,
   "regions": [
     {
       "start": "9965",
@@ -53,10 +53,45 @@
       "atlas_priority": 189
     },
     {
+      "start": "B049",
+      "end_exclusive": "B09A",
+      "kind": "code",
+      "label": "Accodamento e ricerca del delimitatore della citazione",
+      "atlas_priority": 189
+    },
+    {
       "start": "D078",
       "end_exclusive": "D0DC",
       "kind": "code",
       "label": "Controllo di luce e lampada percepibile",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E0A0",
+      "end_exclusive": "E0A2",
+      "kind": "data",
+      "label": "Intestazione dell’esame approfondito del ruscello",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E0A2",
+      "end_exclusive": "E0AD",
+      "kind": "domain",
+      "label": "Ritrovamento ed esame del ruscello",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E955",
+      "end_exclusive": "E96E",
+      "kind": "domain",
+      "label": "Lestrade attende l’incontro o l’una di notte",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E9A7",
+      "end_exclusive": "E9DB",
+      "kind": "domain",
+      "label": "Lestrade alterna le sponde durante l’ispezione",
       "atlas_priority": 189
     },
     {
@@ -113,6 +148,13 @@
       "end_exclusive": "EF8C",
       "kind": "domain",
       "label": "Basil a Victoria: incontro con Holmes e finale",
+      "atlas_priority": 189
+    },
+    {
+      "start": "F14C",
+      "end_exclusive": "F150",
+      "kind": "domain",
+      "label": "Il poliziotto prende il cadavere dei Brown",
       "atlas_priority": 189
     }
   ]
