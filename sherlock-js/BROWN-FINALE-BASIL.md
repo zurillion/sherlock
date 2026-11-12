@@ -32,6 +32,6 @@ Le prove separano il caso naturale dalle configurazioni controllate. La traccia 
 
 Restando nella cucina di Tricia con attese ripetute, l’originale continua fino a **lunedì successivo alle 10:00** senza un epilogo. Basil raggiunge mercoledì alle 15:20 l’attesa in `$EF90` e il salto indietro di `$EF93`. Lestrade rimane a `$EBC5`, in attesa di una condizione sul proprio veicolo. Questi stati valgono per questo percorso e per il seed 1.
 
-Il motore autonomo è stato confrontato su 603 checkpoint di questa variante fino a giovedì alle 05:30. Il successivo campione originale, alle 05:40, legge `$CB29`. Il relativo residuo del ritorno di regola è ancora da ricostruire. Il finale alternativo `$759C` resta da verificare con una partita naturale.
+Il motore autonomo è stato confrontato su 603 checkpoint di questa variante fino a giovedì alle 05:30. Il successivo campione originale, alle 05:40, legge `$CB29`. Il relativo residuo del ritorno di regola è ancora da ricostruire. Il testo alternativo `$759C` è già verificato per l’apertura della cassaforte. Rimane da confrontare il percorso in cui il controllo `$EFC7` lo seleziona da solo.
 
-[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json)
+[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)

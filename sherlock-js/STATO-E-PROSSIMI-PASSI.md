@@ -8,8 +8,9 @@ tutti gli attori e passa per Camden Street. La diramazione passiva
 dello stesso ramo è verificata fino a giovedì 05:30. Si ferma al
 residuo di ritorno $CB29, letto nel campione originale delle 05:40.
 Nell’originale la diramazione passiva non termina entro lunedì
-successivo alle 10:00. Restano aperti il ramo $759C e gli altri finali
-senza un confronto naturale completo.
+successivo alle 10:00. Il finale $759C è già verificato per la
+cassaforte. Rimangono da confrontare la variante $759C da $EFC7
+e gli altri finali senza una verifica naturale completa.
 
 [Dossier, comandi e nuovi blocchi](BROWN-FINALE-BASIL.md).
 

@@ -2,6 +2,8 @@
 
 27 ottobre 2026. Motore JavaScript autonomo `world-v5`.
 
+Da novembre 2026 il testo $75D2 è verificato anche su una storia naturale che entra dalla finestra. [Da Brown al finale con Basil](BROWN-FINALE-BASIL.md).
+
 Questo passaggio aggiunge due storie naturali confrontate con l'originale,
 126 comandi, 870 estrazioni casuali e 1.840 letture dei loro ingressi.
 Entrambe raggiungono il testo terminale **759C**, oltre ai due testi di
