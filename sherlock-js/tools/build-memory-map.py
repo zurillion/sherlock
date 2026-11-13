@@ -207,6 +207,8 @@ brown_fields = {
  0x5C0B: [
   ['5C12','Ottavo carattere grezzo','A9D7 scrive la e di entrance nei nomi di locazione stampati all’ingresso.'],
   ['5C13','Nono carattere grezzo','A9D7 scrive la t di northeast nella direzione di un passaggio.'],
+  ['5C12–5C14','Coda di una direzione stampata','D6A6 e A414 stampano southeast. sulla sponda est. Il successivo svuotamento del buffer conserva s, t e il punto, letti dal generatore durante l’attesa del martedì.'],
+  ['5C0E','Quarto carattere di una direzione annunciata','Il movimento del giardiniere lascia la t di west in A9D7. Un output successivo più corto non la cancella.'],
  ],
  0x5CEC: [
   ['5D16 / 5D17','AF durante il ritorno a capo della direzione','Il frame 5D22 di C374 salva AF della scansione quando north non entra nel resto della riga. La successiva stampa di is nel frame 5D24 aggiorna invece 5D18/19.'],

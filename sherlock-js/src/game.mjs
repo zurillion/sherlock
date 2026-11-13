@@ -262,8 +262,11 @@ export class Game {
    if(actor!==w.player){this.text.setQualifierMode(0);const visibleAfter=w.perceived(actor),messages=[];
     // CA3A/CA76 announces the action before relocation; CAAF/CBC2 adds an
     // arrival only when the actor becomes perceptible from elsewhere.
-    if(visibleBefore)messages.push(action===28?`${w.name(actor)} goes through ${w.name(gate.id)}.`:`${w.name(actor)} goes ${DIRECTION_NAMES[direction]}.`);
-    if(!visibleBefore&&visibleAfter)messages.push({kind:'narrative',text:`${w.name(actor)} enters.`,arrival_entity:actor});
+    if(visibleBefore){
+     if(action===28)messages.push(`${subject} goes through ${w.name(gate.id)}.`);
+     else messages.push(this.text.directionalMovement(subject,direction));
+    }
+    if(!visibleBefore&&visibleAfter)messages.push({kind:'narrative',text:`${subject} enters.`,arrival_entity:actor});
     return {...ok(messages,2,action===28?[gate.id]:[]),visibilityResolved:true};
    }
    w.rooms[room].flags|=64;w.explored.add(room);

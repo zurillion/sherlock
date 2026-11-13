@@ -121,8 +121,9 @@ percepibile al turno successivo.
 Sullo Spectrum, con il corpo e il ponte già esaminati, il ritrovamento
 della pietra alle 09:23 consente a Lestrade di accettare il suicidio di
 Mrs Brown alle 10:52 sul treno di ritorno. Per il confronto JavaScript
-successivo a Leatherhead, il primo punto aperto è una lettura casuale
-di `$5C12`, durante l’attesa sulla sponda est alle 05:55.
+successivo a Leatherhead, il primo ostacolo emerso è stato una lettura
+casuale di `$5C12` durante l’attesa sulla sponda est alle 05:55. La
+correzione è descritta sotto.
 
 In una diramazione originale separata, il travestimento da cinese
 permette di entrare dalla finestra di Camden martedì sera. La porta di
@@ -136,3 +137,22 @@ e fallisce. Restare nella camera durante l’accensione può invece
 raggiungere il finale `$75D2`.
 
 [Comandi del confronto notturno](results/victory-route/through-leatherhead-night.txt)
+
+### Caratteri residui delle direzioni e nota salvata
+
+Dopo l’arrivo sulla sponda est, `$D6A6` e `$A414` lasciano
+`southeast.` nel buffer della parola. `$A9D7` scrive gli ultimi
+tre caratteri in `$5C12–$5C14`. Il generatore casuale li legge
+durante l’attesa. Più tardi il movimento visibile del giardiniere
+lascia la `t` di `west` in `$5C0E`. Il motore usa le direzioni
+effettivamente stampate per derivare entrambi i residui. Con questa
+correzione il confronto di stato passa 314 checkpoint, fino al
+binario 2 di Leatherhead martedì alle 09:41. La prossima differenza
+è una lettura di `$5D15` alle 09:54, durante l’attesa del treno.
+
+Nella diramazione di Camden il testo della nota recuperata è stato
+letto mercoledì alle 10:17 con `EXAMINE NOTE` dalla strada, lasciando
+le altre due note nel cortile per risolvere l’ambiguità. L’originale
+la mostra come nota bruciacchiata e registra il bit di esame
+sull’oggetto 85. Il ramo `$DF8D` disattiva il conto alla rovescia
+e aggiorna il qualificatore.

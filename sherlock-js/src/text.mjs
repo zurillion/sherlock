@@ -41,6 +41,14 @@ export class Text {
   if(normalized.toLowerCase()!==name.toLowerCase())return;
   trace.push({kind:'raw-text-buffer',start,end:start+name.length,events:Array.from(raw,c=>({c,known:true}))});
  }
+ directionalMovement(name,direction){
+  const word=DIRECTION_NAMES[direction],prefix=name[0].toUpperCase()+name.slice(1)+' goes ';
+  const text=prefix+word+'.';
+  // CA76/A323 buffers the dictionary direction before printing the period.
+  const scene_trace=[{kind:'raw-text-buffer',start:prefix.length,end:text.length,affectsStack:false,
+   events:Array.from(' '+word+'.',c=>({c,known:true}))}];
+  return {kind:'narrative',text,scene_trace};
+ }
  greeting(actor,context={}){return this.render('6920',{...context,actor});}
  examinePreservesLowScratch(description){
   // DF49/DF5B's ordinary inspection stays above $5D1E at its deepest
@@ -234,6 +242,16 @@ export class Text {
     if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,videoHighKnown:frame===0x5D26,videoLowKnown:frame===0x5D26,callerBKnown:frame===0x5D26,callerCKnown:frame===0x5D26,callerFlagsKnown:frame===0x5D26,callerAKnown:frame===0x5D26,descriptorLowKnown:frame===0x5D26,descriptorHighKnown:frame===0x5D26,spaceByteKnown:frame===0x5D26,spaceShiftKnown:frame===0x5D26,spaceCountKnown:frame===0x5D26,spaceVideoLowKnown:frame===0x5D26,spaceVideoHighKnown:frame===0x5D26,spaceScanKnown:frame===0x5D26,spaceAfter:true,spaceClearFrame:frame+4});}
    }
   }};
+  const describeExits=()=>{
+   const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
+   if(!exits.length)return;
+   const directions=exits.join(' '),start=text.join(' ').length+1+'Visible exits are '.length;
+   // D6A6 emits the dictionary directions and A414 supplies the period.
+   // A9D7 retains the raw last word after the line is flushed.
+   if(trace)trace.push({kind:'raw-text-buffer',start,end:start+directions.length+1,affectsStack:false,
+    events:Array.from(' '+directions+'.',c=>({c,known:true}))});
+   text.push('Visible exits are '+directions+'.');
+  };
   const describe=()=>{
    const previous=text.join(' ');
    if(trace?.some(e=>e.kind==='personal-contents'&&e.end===previous.length)){
@@ -268,7 +286,7 @@ export class Text {
    else{const start=text.length?text.join(' ').length+1:0,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+this.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
    if(briefDark)return text.join(' ')+' '+this.render('68C1');
    if(full)describePassages();
-   const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
+   describeExits();
    return text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   }
   if(full&&r.description)describe();
@@ -288,8 +306,7 @@ export class Text {
   }
   if(briefDark)text.push(this.render('68C1'));
   if(full)describePassages();
-  const exits=briefDark?[]:r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
-  if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');
+  if(!briefDark)describeExits();
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:(at===0&&full&&!r.description?0x5D1A:0x5D14)+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:(at===0&&full&&!r.description?0x5D1A:0x5D16)+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}

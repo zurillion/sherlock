@@ -229,6 +229,29 @@
     CALL $A59F                            ; $D1C2 cd 9f a5
     RET                                   ; $D1C5 c9
 
+    ORG $D68C
+; CODE: Uscite generiche e caratteri residui delle direzioni
+    PUSH IX                               ; $D68C dd e5
+    PUSH IY                               ; $D68E fd e5
+    PUSH DE                               ; $D690 d5
+    PUSH BC                               ; $D691 c5
+    CALL $D5EF                            ; $D692 cd ef d5
+    CALL $D671                            ; $D695 cd 71 d6
+    JR Z,$D6B1                            ; $D698 28 17
+    LD HL,$68F1                           ; $D69A 21 f1 68
+    CALL $A59F                            ; $D69D cd 9f a5
+    LD A,(IX+$00)                         ; $D6A0 dd 7e 00
+    CALL $D5FB                            ; $D6A3 cd fb d5
+    CALL $A887                            ; $D6A6 cd 87 a8 | Stampa ogni direzione come parola del dizionario. A414 appende il punto e il buffer trattiene i byte grezzi dopo lo svuotamento.
+    CALL $D671                            ; $D6A9 cd 71 d6
+    JR NZ,$D6A0                           ; $D6AC 20 f2
+    CALL $A414                            ; $D6AE cd 14 a4
+    POP BC                                ; $D6B1 c1
+    POP DE                                ; $D6B2 d1
+    POP IY                                ; $D6B3 fd e1
+    POP IX                                ; $D6B5 dd e1
+    RET                                   ; $D6B7 c9
+
     ORG $E0A0
 ; DATA: Intestazione dell’esame approfondito del ruscello
     DEFB $88,$00                          ; $E0A0 88 00

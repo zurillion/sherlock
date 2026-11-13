@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 196,
-  "bytes_roundtripped": 751,
+  "instructions": 216,
+  "bytes_roundtripped": 795,
   "regions": [
     {
       "start": "9965",
@@ -99,6 +99,13 @@
       "end_exclusive": "D1C6",
       "kind": "code",
       "label": "Descrizione breve e controllo della luce dopo lo spostamento",
+      "atlas_priority": 189
+    },
+    {
+      "start": "D68C",
+      "end_exclusive": "D6B8",
+      "kind": "code",
+      "label": "Uscite generiche e caratteri residui delle direzioni",
       "atlas_priority": 189
     },
     {

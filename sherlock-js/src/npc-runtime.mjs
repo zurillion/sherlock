@@ -3,7 +3,7 @@ import {WorldSource} from './world-source.mjs';
 import {NpcProgram} from './npc-program.mjs';
 import {RecordLists,RECORD_HEADS} from './record-arena.mjs';
 import {NpcPrimitives} from './npc-primitives.mjs';
-import {UnsupportedFeature,DIRECTION_NAMES} from './world.mjs';
+import {UnsupportedFeature} from './world.mjs';
 import {CabRoutes,account,balance,transferMoney,formatMoney,encodeMoney,wrapMoney} from './cab-economy.mjs';
 import {nodeWords} from './parser.mjs';
 import {searchDescription} from './description-search.mjs';
@@ -567,7 +567,7 @@ export class NpcRuntime {
   // E4B0 selects the FIRST exit of the old room for a walking entity. CA76
   // announces that action before E49B moves it, even when Holmes is in a train.
   if(directional){g.text.setQualifierMode(0);g.sourceDisplay.setChannel(0);this.modelFlags(notification.direction);} // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
-  if(directional&&visible){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
+  if(directional&&visible){const message=g.text.directionalMovement(w.name(id),notification.direction);messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
    const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full,source:notification.sceneSource??'arrival',perceptionRoom:before}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
