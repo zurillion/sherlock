@@ -20,6 +20,10 @@
 ; DATA: Prove del luogo della vendita
     DEFB $6A,$04,$69,$A4,$FC,$99,$00,$00,$00,$00,$55,$00,$55,$40,$00,$00,$00,$0A ; $99A9 6a 04 69 a4 fc 99 00 00 00 00 55 00 55 40 00 00 00 0a | Richiede il presupposto impostato da 9A27, l’esame della nota recuperata dal fuoco e che il conto alla rovescia non l’abbia fatta bruciare.
 
+    ORG $7DE1
+; DATA: Descrizione del cab in viaggio: lampioni oppure sole
+    DEFB $10,$C8,$F4,$60,$C8,$61,$65,$F5,$1B,$68,$62,$83,$CE,$D1,$64,$2C,$17,$02,$CF,$FF,$60,$88,$72,$20,$45,$9A,$12,$E2,$CC,$88,$CE,$60,$C9,$BB,$86,$07,$89,$F2,$82,$DD,$2E,$1F ; $7DE1 10 c8 f4 60 c8 61 65 f5 1b 68 62 83 ce d1 64 2c 17 02 cf ff 60 88 72 20 45 9a 12 e2 cc 88 ce 60 c9 bb 86 07 89 f2 82 dd 2e 1f | Il token 17 a 7DF1 condiziona il salto 02 a 7DF2. Di notte termina il frammento corrente a favore del testo dei lampioni a 7DC1.
+
     ORG $9A13
 ; CODE: Accettazione dei piani subordinata ai due omicidi
     LD A,($9976)                          ; $9A13 3a 76 99 | Prova entrambe le conclusioni su Mrs Brown e Tricia. Se una manca, il ramo 9A2F ritira l’ipotesi corrente.
@@ -53,6 +57,37 @@
     LD A,($A009)                          ; $9E63 3a 09 a0
     CP (IX+$0F)                           ; $9E66 dd be 0f
     RET                                   ; $9E69 c9
+
+    ORG $A679
+; CODE: Salto relativo terminale del decoder
+    LD E,(IX+$01)                         ; $A679 dd 5e 01 | Sposta il cursore del decoder nel frammento di destinazione e restituisce zero al passo corrente. Il testo del chiamante non riprende dopo il salto.
+    LD D,(IX+$02)                         ; $A67C dd 56 02
+    DEC DE                                ; $A67F 1b
+    ADD IX,DE                             ; $A680 dd 19
+    XOR A                                 ; $A682 af
+    RET                                   ; $A683 c9
+
+    ORG $A6AC
+; CODE: Condizione notturna e scansione del token saltato
+    CALL $C00C                            ; $A6AC cd 0c c0 | Con classe 1 prosegue nel token successivo. Con le altre classi A6B2 scavalca il salto e rimane nel testo del sole.
+    CP $01                                ; $A6AF fe 01
+    RET Z                                 ; $A6B1 c8
+    INC IX                                ; $A6B2 dd 23
+    CALL $A6BB                            ; $A6B4 cd bb a6
+    DEC IX                                ; $A6B7 dd 2b
+    XOR A                                 ; $A6B9 af
+    RET                                   ; $A6BA c9
+    LD A,(IX+$00)                         ; $A6BB dd 7e 00
+    BIT 7,A                               ; $A6BE cb 7f
+    JR NZ,$A6CC                           ; $A6C0 20 0a
+    CP $02                                ; $A6C2 fe 02
+    JR Z,$A6CA                            ; $A6C4 28 04
+    CP $0B                                ; $A6C6 fe 0b
+    JR NZ,$A6CE                           ; $A6C8 20 04
+    INC IX                                ; $A6CA dd 23
+    INC IX                                ; $A6CC dd 23
+    INC IX                                ; $A6CE dd 23
+    RET                                   ; $A6D0 c9
 
     ORG $B049
 ; CODE: Accodamento e ricerca del delimitatore della citazione
@@ -181,6 +216,18 @@
     LD (HL),E                             ; $D0D9 73
     POP DE                                ; $D0DA d1
     RET                                   ; $D0DB c9
+
+    ORG $D1B2
+; CODE: Descrizione breve e controllo della luce dopo lo spostamento
+    LD B,A                                ; $D1B2 47 | Ingresso breve di CA9E: chiama D187 direttamente e non ripete l’introduzione del contenitore di D113.
+    CALL $D0DD                            ; $D1B3 cd dd d0
+    EX DE,HL                              ; $D1B6 eb
+    CALL $D187                            ; $D1B7 cd 87 d1
+    CALL $D078                            ; $D1BA cd 78 d0 | Nella notifica di arrivo il controllo di percezione C821 usa ancora A00A della partenza mentre il record della lampada è già nella stanza di arrivo.
+    JR NC,$D178                           ; $D1BD 30 b9
+    LD HL,$68C1                           ; $D1BF 21 c1 68
+    CALL $A59F                            ; $D1C2 cd 9f a5
+    RET                                   ; $D1C5 c9
 
     ORG $E0A0
 ; DATA: Intestazione dell’esame approfondito del ruscello

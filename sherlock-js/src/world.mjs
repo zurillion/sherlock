@@ -15,15 +15,15 @@ export class World {
  roomOf(id=this.player){return this.entity(id).rooms[0];}
  owns(owner,id){const seen=new Set();for(let p=this.entity(id).parent;p!==null;p=this.entity(p).parent){if(p===owner)return true;if(seen.has(p))throw Error('Containment cycle');seen.add(p);}return false;}
  barrier(id){const seen=new Set();let object=this.entity(id);while(object.parent!==null){const p=object.parent;if(seen.has(p))throw Error('Containment cycle');seen.add(p);object=this.entity(p);if(!(object.attributes&128)||!(object.attributes&40))return p;}return null;}
- perceived(id,actor=this.player){
+ perceived(id,actor=this.player,room=this.roomOf(actor)){
   const a=this.barrier(actor);if(a===id)return true;const e=this.entity(id);if(!(e.attributes&128))return false;
-  const b=this.barrier(id);if(b===actor)return true;if(b!==a)return false;if(b!==null)return true;return e.rooms.includes(this.roomOf(actor));
+  const b=this.barrier(id);if(b===actor)return true;if(b!==a)return false;if(b!==null)return true;return e.rooms.includes(room);
  }
  timeClass(){const hour=Math.floor(this.minutes/60)%24;if(hour>=20||hour<6)return 1;if(hour===19)return 2;if(hour===12)return 4;if(hour>=13)return 3;if(hour===6)return 5;return 4;}
- dark(actor=this.player){
+ dark(actor=this.player,perceptionRoom=this.roomOf(actor)){
   const a=this.entity(actor);if(!(a.properties&128))return false;
   if(this.barrier(actor)===null&&((this.rooms[this.roomOf(actor)].flags&128)||this.timeClass()!==1))return false;
-  return !this.entities.some(e=>e.rooms.length===1&&((e.attributes^183)&92)===0&&(e.properties&128)&&this.perceived(e.id,actor));
+  return !this.entities.some(e=>e.rooms.length===1&&((e.attributes^183)&92)===0&&(e.properties&128)&&this.perceived(e.id,actor,perceptionRoom));
  }
  move(id,room,parent=null){
   if(parent===id||(parent!==null&&this.owns(id,parent)))throw Error('Containment cycle');

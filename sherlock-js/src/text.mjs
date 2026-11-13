@@ -84,7 +84,12 @@ export class Text {
    switch(t.op){
     case 'word':{mixOffset=t.randomContext??null;remember(t.randomContext??null);if(t.id){feed(' ',{dict:true});if(t.capitalized){capitalize=true;dictionaryCapital();}const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
-    case 'call':case 'jump':mixOffset=t.relativeOffset===undefined?null:(t.relativeOffset-(t.op==='jump'?1:0))&65535;walk(t.text);break;
+    case 'call':case 'jump':{
+     const jump=t.op==='jump';
+     mixOffset=t.relativeOffset===undefined?null:(t.relativeOffset-Number(jump))&65535;
+     walk(t.text);
+     return jump;
+    }
     case 'choice':{
      if(typeof this.chooseIndex!=='function')throw new UnsupportedFeature('selezione casuale del testo: sorgente originale e stato globale non ancora ricostruiti');
      // A6D1/A6D2 are shared scratch fields. Nested selections overwrite the
@@ -93,7 +98,7 @@ export class Text {
      if(mixOffset===null)throw new UnsupportedFeature('contesto originale della selezione del testo');
      const index=this.chooseIndex(t.options.length,{actor,object,other,mixOffset,fragment:fragments.at(-1),token:t,context});
      if(!Number.isInteger(index)||index<0||index>=t.options.length)throw Error('Invalid original text choice');
-     inChoice=true;emit(t.options[index]);inChoice=false;break;
+     inChoice=true;const jump=emit(t.options[index]);inChoice=false;return jump;
     }
     case 'nameArgument':{const id=context.nameArguments?.[argumentsUsed++];if(!Number.isInteger(id))throw new UnsupportedFeature('nome nella memoria delle informazioni');if(t.nameMode==='full')this.setQualifierMode(0);feedName(id);break;}
     case 'argumentIs':{const id=context.nameArguments?.[argumentsUsed++];if(!Number.isInteger(id))throw new UnsupportedFeature('nome con copula nell’argomento di testo');this.setQualifierMode(1);feedName(id,true);mixOffset=id===0?0x007A:0x0485;remember(mixOffset);break;}
@@ -124,7 +129,7 @@ export class Text {
      if(action===47||action===48){feed(' tell',{dict:true});if(args[0]===actor)feed(' me',{dict:true});else argument(args[0],0);if(action===48)feed(' about',{dict:true});argument(args[1],1);feed('.');break;}
      feed(' ',{dict:true});feed(model.words[0],{dict:true});if(model.words[3]){feed(' ',{dict:true});feed(model.words[3],{dict:true});}if(model.words[1]){feed(' ',{dict:true});feed(model.words[1],{dict:true});}argument(args[0],0);if(model.words[2]){feed(' ',{dict:true});feed(model.words[2],{dict:true});}argument(args[1],1);feed('.');break;
     }
-    case 'time':if(w.timeClass()===t.value)emit(t.token);break;
+    case 'time':return w.timeClass()===t.value&&emit(t.token);
     case 'actorName':this.setQualifierMode(0);feedName(actor,false,true);break;
     case 'objectName':this.setQualifierMode(1);if(context.objectNameEntry)context.objectNameEntry(()=>feedName(object));else feedName(object);break;
     case 'otherName':this.setQualifierMode(1);feedName(other);break;
@@ -147,12 +152,12 @@ export class Text {
     default:throw new UnsupportedFeature('operazione di testo '+t.op);
    }
   };
-  const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);fragments.push(key);for(const t of tokens)emit(t);fragments.pop();depth--;};
+  const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);fragments.push(key);for(const t of tokens)if(emit(t))break;fragments.pop();depth--;};
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
- scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look'}={}){
+ scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look',perceptionRoom}={}){
   const w=this.world,r=w.rooms[room],text=[],actorName=remote&&w.entity(w.player).parent!==null?w.name(w.entity(w.player).parent).replace(/^./,c=>c.toUpperCase()):w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
-  const briefDark=!full&&!remote&&w.dark();
+  const briefDark=!full&&!remote&&w.dark(w.player,perceptionRoom);
   const parent=remote?null:w.entity(w.player).parent;
   // D526's recursive list frame adds six bytes per level. A LOOK enters
   // D102 four bytes shallower than CA9E's movement notification; describing
@@ -250,16 +255,17 @@ export class Text {
    this.setQualifierMode(0); // actor-is in the container introduction.
    const expand=full&&Boolean(r.description);
    const container=w.entity(parent),peers=w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&w.perceived(e.id)),names=peers.map(e=>w.name(e.id,{indefinite:true}));
-   text.push(actorIs+' in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
+   // D1B2 enters at the room phrase, past D113's container introduction.
+   if(source!=='cab-arrival'||full)text.push(actorIs+' in '+w.name(parent,{indefinite:true})+(expand&&names.length?' with '+joinList(names):'')+'.');
    // D144/D147 flush the final container noun through A414. When D182
    // then has no room prose, D197 temporarily makes that container the
    // subject; its name prefix flushes inside the actor-is text argument.
-   if(trace&&!expand){const first=text.join(' '),tail=first.match(/\S+$/);if(tail)trace.push({kind:'container-introduction-tail',start:first.length-tail[0].length,end:first.length,frame:0x5D14+entryOffset});}
+   if(trace&&!expand&&text.length){const first=text.join(' '),tail=first.match(/\S+$/);if(tail)trace.push({kind:'container-introduction-tail',start:first.length-tail[0].length,end:first.length,frame:0x5D14+entryOffset});}
 
    if(trace&&expand&&names.length){const inventory=joinList(names),base=text.join(' ').length-inventory.length-1;let offset=0;for(const [i,e]of peers.entries()){const name=names[i],prefix=name.lastIndexOf(' ');offset=inventory.indexOf(name,offset);if(prefix>0&&!(e.noun&32768))trace.push({kind:'passenger-name-prefix',parent:e.id,start:base+offset,end:base+offset+prefix,frame:listFrame(0)+4});offset+=name.length;}}
    if(trace&&expand&&peers.length===1&&peers[0].person&&(peers[0].noun&32768))trace.push({kind:'literal-person-name',parent:peers[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(0)-26});
    if(expand){for(const e of peers){w.lastListed.push(e.id);if(mark)e.status|=128;renderChildren(e.id,1);}describe();}
-   else{const start=text.join(' ').length+1,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+this.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
+   else{const start=text.length?text.join(' ').length+1:0,name=w.name(parent),prefix=name.lastIndexOf(' ');text.push((name[0].toUpperCase()+name.slice(1))+' is '+({2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in')+' '+this.roomName(room)+'.');if(trace&&prefix>0)trace.push({kind:'container-as-subject-prefix',start,end:start+prefix,frame:0x5D16+entryOffset});}
    if(briefDark)return text.join(' ')+' '+this.render('68C1');
    if(full)describePassages();
    const exits=r.exits.filter(e=>!e.gate).map(e=>DIRECTION_NAMES[e.direction_id]);if(exits.length)text.push('Visible exits are '+exits.join(' ')+'.');

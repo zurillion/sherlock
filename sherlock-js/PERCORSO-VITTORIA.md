@@ -100,3 +100,39 @@ ramo precedente in cui la ricerca scrive nella bitmap resta aperto.
 
 [Comandi del confronto](results/victory-route/monday-corpse-to-cab.txt) ·
 [Traccia dei due ordini](results/victory-route/cab-retry-trace.txt)
+
+## Confronto fino a Leatherhead e prove di martedì
+
+Il percorso ripetibile con seed 1 ora coincide tra Spectrum e JavaScript
+per 235 checkpoint, dall’avvio fino all’arrivo a Leatherhead alle 03:03
+di martedì. Il confronto include i salvataggi, i byte letti a ogni
+estrazione casuale e i pacchetti di testo elaborati dalla pagina.
+
+Nella descrizione del cab in viaggio, la classe notturna esegue il salto
+relativo `$A679–$A683` dal token di `$7DF2` al frammento dei lampioni.
+Il salto sostituisce il resto della descrizione. In altre fasce la
+routine `$A6AC–$A6D0` scavalca il token e resta sul testo del sole.
+A Kings Cross, già visitata, `$D1B2–$D1C5` entra direttamente nella
+descrizione breve. Durante quel controllo `$A00A` contiene ancora la
+stanza di partenza, mentre la lampada risulta già a destinazione.
+La schermata di arrivo dice quindi che è troppo buio. La lampada torna
+percepibile al turno successivo.
+
+Sullo Spectrum, con il corpo e il ponte già esaminati, il ritrovamento
+della pietra alle 09:23 consente a Lestrade di accettare il suicidio di
+Mrs Brown alle 10:52 sul treno di ritorno. Per il confronto JavaScript
+successivo a Leatherhead, il primo punto aperto è una lettura casuale
+di `$5C12`, durante l’attesa sulla sponda est alle 05:55.
+
+In una diramazione originale separata, il travestimento da cinese
+permette di entrare dalla finestra di Camden martedì sera. La porta di
+quercia conduce all’ingresso. La nota strappata viene raccolta in
+biblioteca alle 22:17 e quella lacerata nel cortile alle 22:31. Dopo
+l’arrivo del messaggero mercoledì, aspettare in cortile fino alle 10:06
+lascia uscire Basil dalla camera. Holmes entra dalla finestra e può
+salvare dal fuoco la nota con `TAKE NOTE` alle 10:09. `TAKE BURNING NOTE`
+in quella stessa situazione interpreta il qualificatore come `BURNT`
+e fallisce. Restare nella camera durante l’accensione può invece
+raggiungere il finale `$75D2`.
+
+[Comandi del confronto notturno](results/victory-route/through-leatherhead-night.txt)

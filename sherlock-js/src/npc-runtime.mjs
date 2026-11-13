@@ -570,7 +570,7 @@ export class NpcRuntime {
   if(directional&&visible){const message={kind:'narrative',text:w.name(id)+' goes '+DIRECTION_NAMES[notification.direction]+'.'};messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
-   const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full,source:notification.sceneSource??'arrival'}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
+   const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full,source:notification.sceneSource??'arrival',perceptionRoom:before}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
    // D187's introduction tail and compound-subject prefix are projected by
    // the scene trace, including C374's return link on a wrapped word. Keep
    // those derived glyph fields for the ordinary hansom cab. The police
