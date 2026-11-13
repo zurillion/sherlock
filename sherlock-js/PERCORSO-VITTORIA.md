@@ -225,3 +225,40 @@ dopo il treno di ritorno e l’accettazione della deduzione su Mrs Brown.
 L’intera tratta è una prova sullo Spectrum.
 
 [Comandi da Parliament Street alla seconda deduzione](results/victory-route/from-brown-to-jones.txt)
+
+## Vittoria a Victoria nell’originale
+
+Una partita con seed 1 e tutti gli attori attivi raggiunge il testo
+`$6AF3` **mercoledì alle 20:12**, al binario 1 di Victoria.
+I comandi sono stati giocati sullo Spectrum senza teletrasporti o
+modifiche alla partita. Il motore JavaScript ha un confronto separato.
+
+- Dopo le due deduzioni sugli omicidi, Holmes esamina a Camden
+  le due note cifrate martedì sera. Mercoledì salva dal fuoco la
+  terza nota alle 10:09 e la esamina alle 10:17. La nota incompiuta
+  e la cartella erano già state esaminate nella cassaforte di Tricia.
+- A Scotland Yard `SAY LESTRADE "BASIL HAS PLANS"` completa
+  `$9997` alle 10:43. `$9A27` abilita la premessa successiva.
+  `SAY LESTRADE "SALE LOCATION IS OLD MILL ROAD"` completa
+  `$99A9` alle 10:45. Lestrade parte e il programma invia a
+  Straker il segnale di `$EA5D`.
+- Alle 13:29 Holmes è sul treno appena arrivato al binario 1 di
+  Leatherhead. `GET OUT`, `S`, `S`, `CLIMB INTO POLICE CAB`
+  lo portano a bordo con Watson e Lestrade. Un solo `LOOK` aggiunto
+  prima di salire può lasciare Holmes a terra. La squadra raggiunge
+  Old Mill Road, Basil fugge e la vettura torna a Main Street.
+- Alle 18:15 il treno del binario 2 di Leatherhead ha a bordo
+  Basil e l’agente. Salendo con `CLIMB INTO TRAIN`, Holmes porta
+  con sé Watson e Lestrade. Il treno raggiunge Kings Cross alle 19:29.
+- Il percorso usa due cab distinti nella tratta finale. Holmes
+  sale nel suo prima che Basil chiami l’altro. Alle 19:50 ordina
+  `FURIOUSLY GO TO BUCKINGHAM PALACE ROAD`. Alle 20:05 scende e
+  va a est nell’atrio di Victoria. Aspetta due minuti con `I`, `I`
+  e solo allora va a est al binario. `$EF83` trova Holmes e
+  `$9E4A–$9E69` trova anche i due accompagnatori.
+
+Entrando al binario subito e aspettando lì, Lestrade segue il
+proprio programma e passa a ovest prima della visita di Basil.
+Questa diramazione raggiunge `$6B79` allo stesso minuto.
+
+[Sequenza completa dei comandi](results/victory-route/victoria-full-route.txt)
