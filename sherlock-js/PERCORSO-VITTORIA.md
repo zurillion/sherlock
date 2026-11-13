@@ -205,3 +205,23 @@ le altre due note nel cortile per risolvere l’ambiguità. L’originale
 la mostra come nota bruciacchiata e registra il bit di esame
 sull’oggetto 85. Il ramo `$DF8D` disattiva il conto alla rovescia
 e aggiorna il qualificatore.
+
+## Entrambe le deduzioni sugli omicidi
+
+Nello Spectrum, nel salotto di Tricia martedì alle 13:19,
+`SAY TRICIA "TELL ME ABOUT CLOTHES"` fa confessare Mrs Jones.
+Il cambio d’identità scrive il bit 1 a `$9992` tramite `$E1CF`.
+Alle 13:21 `SAY JONES "TELL ME ABOUT CLOTHES"` fa ripetere la
+testimonianza e `$E19D` scrive il bit 1 a `$9996`. In questa
+sequenza la forma con il solo cognome allinea l’inizio della nuova
+citazione al puntatore residuo `$5B8A`. La forma con `MRS JONES`
+aggiunge un token e sposta l’inizio della citazione.
+
+Lestrade accetta `SAY LESTRADE "MRS JONES KILLED TRICIA"` a Scotland
+Yard alle 13:53. `$9984` passa da `$A4` a `$A6`; `$9976` mantiene
+`$A6` per Mrs Brown. Mrs Jones viene rimossa dalla scena.
+Il salvataggio di partenza è quello originale di Parliament Street
+dopo il treno di ritorno e l’accettazione della deduzione su Mrs Brown.
+L’intera tratta è una prova sullo Spectrum.
+
+[Comandi da Parliament Street alla seconda deduzione](results/victory-route/from-brown-to-jones.txt)
