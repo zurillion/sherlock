@@ -190,6 +190,13 @@ La riproduzione JavaScript del caso di rilettura del terminatore
 rimane aperta. La scansione originale dipende anche da byte esterni
 al buffer dei token.
 
+Eliminando soltanto la battuta delle 09:23 dalla sequenza e presentando
+la deduzione appena saliti a bordo, Lestrade la accetta alle 10:48 in
+entrambi i motori con seed 1. I due inventari successivi arrivano alle
+10:50. Questo controllo conferma l’esito della deduzione in partita.
+Il confronto integrale dell’immagine e dello stato di questa variante
+è ancora da completare.
+
 Nella diramazione di Camden il testo della nota recuperata è stato
 letto mercoledì alle 10:17 con `EXAMINE NOTE` dalla strada, lasciando
 le altre due note nel cortile per risolvere l’ambiguità. L’originale
