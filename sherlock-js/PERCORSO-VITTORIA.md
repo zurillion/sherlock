@@ -163,6 +163,33 @@ Il confronto prosegue fino alla salita sul treno alle 10:47.
 Il successivo `TALK TO LESTRADE` riprende una citazione residua
 e resta il primo scarto.
 
+### Una citazione residua sul treno
+
+La battuta delle 09:23 sulla morte di Mrs Brown fallisce perché
+Lestrade è già uscito. Il puntatore alla citazione sopravvive nella
+lista con testa a `$9FEC`. Nei primi due `TALK TO LESTRADE` a bordo
+il puntatore vale `$5B8A`, dove il nuovo input ha il punto sintetico.
+`$AAB2` restituisce 2 per l’unità vuota. `$B8D1` converte il
+terminatore di riga `$5B8B` da `$C0` a `$90` e `$B8D3` accoda la
+richiesta. Il turno avanza di un minuto e la richiesta viene rimossa.
+
+Il parser esterno riparte da `$5B8B`. Legge `$90,0,0` come apertura di
+una nuova citazione, crea un nodo `TALK` implicito con `$B04D` e
+accoda `$5B8E` tramite `$B05E–$B07C`. La ricerca di chiusura a
+`$B085` attraversa gli indirizzi dello Spectrum e, in questo
+salvataggio, torna a `$5B8B`. `$B095` ripristina `$C0`. La successiva
+lettura a `$5B8E` porta al rifiuto sintattico `$AF67` e a `WHAT ?`
+nel riquadro inferiore. La frase «You talk to Inspector Lestrade.»
+e il minuto trascorso restano.
+
+I due `TALK` seguenti consumano i puntatori a `$5B8E`. Stavolta il
+rifiuto avviene nel parser della citazione. `$B904` libera il suo
+nodo temporaneo e l’azione si conclude con la sola frase di dialogo.
+Alle 10:52 l’originale accetta `SAY LESTRADE "MRS BROWN KILLED HERSELF"`.
+La riproduzione JavaScript del caso di rilettura del terminatore
+rimane aperta. La scansione originale dipende anche da byte esterni
+al buffer dei token.
+
 Nella diramazione di Camden il testo della nota recuperata è stato
 letto mercoledì alle 10:17 con `EXAMINE NOTE` dalla strada, lasciando
 le altre due note nel cortile per risolvere l’ambiguità. L’originale
