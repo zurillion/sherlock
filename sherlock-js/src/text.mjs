@@ -54,7 +54,7 @@ export class Text {
   // DF49/DF5B's ordinary inspection stays above $5D1E at its deepest
   // announcement glyph. Flat description text is shallower; each nested
   // text invocation adds at most six bytes. Up to two such levels still
-  // cannot touch the owned low renderer cells ($5CEE..$5D0F).
+  // stay above the low renderer cells through $5D15.
   // Unknown token contracts or deeper invocations remain conservative.
   const flat=new Set(['word','literal','end','endLine','endSentence','newline','backspace','toggleUpper','noop']);
   const visit=(id,depth,seen)=>{if(depth>2||seen.has(id)||!this.data.texts[id])return false;const next=new Set([...seen,id]);return this.data.texts[id].every(t=>flat.has(t.op)||['call','jump'].includes(t.op)&&visit(t.text,depth+1,next));};

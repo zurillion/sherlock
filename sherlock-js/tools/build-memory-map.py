@@ -211,6 +211,7 @@ brown_fields = {
   ['5C0E','Quarto carattere di una direzione annunciata','Il movimento del giardiniere lascia la t di west in A9D7. Un output successivo più corto non la cancella.'],
  ],
  0x5CEC: [
+  ['5D15','Ultima riga del glifo durante la pulizia','Nel percorso di vittoria, A89F chiama il renderer mentre stampa wall safe. C374 cancella la nuova riga con SP 5D20. C3B8 salva l’ultima riga dello spazio. La lettura casuale delle 09:54 conserva il byte scritto alle 03:19.'],
   ['5D16 / 5D17','AF durante il ritorno a capo della direzione','Il frame 5D22 di C374 salva AF della scansione quando north non entra nel resto della riga. La successiva stampa di is nel frame 5D24 aggiorna invece 5D18/19.'],
   ['5D17','H del video durante la pulizia','Nel salotto di Tricia C398 conserva H dopo wall. La congiunzione prima del nome proprio scorre su un frame differente.'],
   ['5D19 / 5D1A','A grezzo del font e C dello shift','C3B8/C3B7 con frame 5D24 durante la richiesta di pagamento 6BB7. La o di to viene scaricata mentre comincia il nome del destinatario.'],

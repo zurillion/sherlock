@@ -123,7 +123,7 @@ export class NpcRuntime {
  }
  inspect(id,actor,messages){
   const start=messages.length,g=this.game,e=this.w.entity(id);e.status|=64;
-  if(!g.text.examinePreservesLowScratch(e.description))g.sourceDisplay.invalidateScratch();else g.sourceDisplay.invalidateScratch(0x5D12);
+  if(!g.text.examinePreservesLowScratch(e.description))g.sourceDisplay.invalidateScratch();else g.sourceDisplay.invalidateScratch(0x5D16);
   const c=g.npcTextContext(actor);let text;
   if(e.description)text=g.text.render(e.description,{...c,actor,object:id});
   else{text='You see '+this.w.name(id,{indefinite:true})+'.';if(c.sink)for(const ch of text)c.sink(ch);}

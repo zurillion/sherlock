@@ -146,9 +146,22 @@ tre caratteri in `$5C12–$5C14`. Il generatore casuale li legge
 durante l’attesa. Più tardi il movimento visibile del giardiniere
 lascia la `t` di `west` in `$5C0E`. Il motore usa le direzioni
 effettivamente stampate per derivare entrambi i residui. Con questa
-correzione il confronto di stato passa 314 checkpoint, fino al
-binario 2 di Leatherhead martedì alle 09:50. La prossima differenza
-è una lettura di `$5D15` alle 09:54, durante l’attesa del treno.
+correzione il confronto di stato ha raggiunto il binario 2 di
+Leatherhead martedì alle 09:50.
+
+### Dalla biblioteca al treno
+
+La lettura di `$5D15` delle 09:54 deriva da una stampa delle 03:19.
+Nella biblioteca di Basil, la descrizione va a capo dopo `wall`.
+La cancellazione della nuova riga entra in `$C388` con SP a
+`$5D20` e il glifo dello spazio. `$C3B8` salva l’ultima riga
+del glifo a `$5D15`. Il motore JavaScript già proiettava il glifo.
+La cancellazione prudenziale durante `EXAMINE LETTERS` perdeva
+quel residuo. L’esame ordinario di testo piatto ora lo conserva.
+
+Il confronto prosegue fino alla salita sul treno alle 10:47.
+Il successivo `TALK TO LESTRADE` riprende una citazione residua
+e resta il primo scarto.
 
 Nella diramazione di Camden il testo della nota recuperata è stato
 letto mercoledì alle 10:17 con `EXAMINE NOTE` dalla strada, lasciando

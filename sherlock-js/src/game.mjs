@@ -296,7 +296,7 @@ export class Game {
    e.attributes=action===36?e.attributes|32:e.attributes&~32;return ok([say(action===36?'open':'close',' '+w.name(e.id)+'.')],1,[e.id]);
   }
   if(action===19&&e.person)return {...reject(`YOU CANNOT EXAMINE ${e.id===actor?'ME':w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};
-  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs){if(!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();else this.sourceDisplay.invalidateScratch(0x5D12);}e.status|=64;
+  if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs){if(!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();else this.sourceDisplay.invalidateScratch(0x5D16);}e.status|=64;
    const characters=[],description=e.description?this.text.render(e.description,{object:e.id,sink:c=>{if(c==='\b')characters.pop();else characters.push(c);}}):`${subject} see ${w.name(e.id,{indefinite:true})}.`,announcement=say('examine',' '+w.name(e.id)+'.')+'\n';
    return ok([{kind:'narrative',text:announcement+description,raw_text:announcement+(e.description?characters.join(''):description)+'\n'}],1,[e.id]);}
   if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');const pence=e.pence&16383,text=`You count ${w.name(e.id)}.\nIt totals ${formatMoney(pence)}`;return ok([{kind:'narrative',text,money_ends:[{end:text.length,pence}]}],1,[e.id]);}
