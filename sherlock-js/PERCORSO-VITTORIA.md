@@ -147,7 +147,7 @@ durante l’attesa. Più tardi il movimento visibile del giardiniere
 lascia la `t` di `west` in `$5C0E`. Il motore usa le direzioni
 effettivamente stampate per derivare entrambi i residui. Con questa
 correzione il confronto di stato passa 314 checkpoint, fino al
-binario 2 di Leatherhead martedì alle 09:41. La prossima differenza
+binario 2 di Leatherhead martedì alle 09:50. La prossima differenza
 è una lettura di `$5D15` alle 09:54, durante l’attesa del treno.
 
 Nella diramazione di Camden il testo della nota recuperata è stato
