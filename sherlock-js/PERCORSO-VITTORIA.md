@@ -386,3 +386,33 @@ e sei pence di resto.
 
 La successiva lettura da ricostruire è $5D1F, sul treno
 verso Leatherhead alle 12:41.
+
+
+### Il ritorno a Leatherhead
+
+Il tracciato JavaScript arriva a **666 checkpoint**, fino a
+mercoledì alle 18:19. Sul treno delle 12:41 le due letture
+$5D1F e $5D25 provengono dalla scansione del glifo durante
+la stampa di «English» e dal ritorno a capo che lo precede.
+La capacità del cab di polizia si verifica con $E3F5 e $DEE4:
+Watson e Lestrade salgono, Straker rimane a terra. La stampa
+dell’ordine di Lestrade antepone «Furiously» al verbo.
+La descrizione del cab ha due chiamanti distinti, all’avvio
+della corsa e con LOOK. I loro frame lasciano residui diversi.
+
+Al binario, $CB22 sceglie $68ED. Durante l’arrivo di Lestrade
+il qualificatore «Inspector» passa dal frame $5D2C.
+$C39C e $C389 lasciano a $5D22 e $5D28 lo shift del glifo,
+calcolato dalla colonna. L’annuncio di Watson e quello della
+partenza del treno conservano quei byte nella geometria osservata.
+
+Alle 17:32, durante WAIT UNTIL, la cuoca legge $CB28. Il corpo
+$DD07 ha lasciato entrambi gli indici sul record di chi si è
+mosso: il giardiniere, record $8D42. $CB37 pubblica il primo
+puntatore: la cuoca legge il byte basso $42. Il modello deriva
+il puntatore dal record dell’attore. Anche il tentativo di salire
+sul treno assente attraversa il rifiuto del resolver e libera
+il nodo nel momento previsto dal gioco.
+
+Il confronto si ferma al LOOK delle 18:20, che esegue anche
+un rifiuto di Lestrade mentre Holmes è a bordo.

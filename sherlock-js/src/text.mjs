@@ -135,7 +135,7 @@ export class Text {
      // A3A9/A3EF puts TELL ABOUT's relation between its two arguments;
      // A3C8/A3CE prints "me" when the first argument is the speaker.
      if(action===47||action===48){feed(' tell',{dict:true});if(args[0]===actor)feed(' me',{dict:true});else argument(args[0],0);if(action===48)feed(' about',{dict:true});argument(args[1],1);feed('.');break;}
-     feed(' ',{dict:true});feed(model.words[0],{dict:true});if(model.words[3]){feed(' ',{dict:true});feed(model.words[3],{dict:true});}if(model.words[1]){feed(' ',{dict:true});feed(model.words[1],{dict:true});}argument(args[0],0);if(model.words[2]){feed(' ',{dict:true});feed(model.words[2],{dict:true});}argument(args[1],1);feed('.');break;
+     if(model.words[3]){feed(' ',{dict:true});feed(model.words[3],{dict:true});}feed(' ',{dict:true});feed(model.words[0],{dict:true});if(model.words[1]){feed(' ',{dict:true});feed(model.words[1],{dict:true});}argument(args[0],0);if(model.words[2]){feed(' ',{dict:true});feed(model.words[2],{dict:true});}argument(args[1],1);feed('.');break;
     }
     case 'time':return w.timeClass()===t.value&&emit(t.token);
     case 'actorName':this.setQualifierMode(0);feedName(actor,false,true);break;
@@ -167,6 +167,7 @@ export class Text {
   const w=this.world,r=w.rooms[room],text=[],actorName=remote&&w.entity(w.player).parent!==null?w.name(w.entity(w.player).parent).replace(/^./,c=>c.toUpperCase()):w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
   const briefDark=!full&&!remote&&w.dark(w.player,perceptionRoom);
   const parent=remote?null:w.entity(w.player).parent;
+  if(trace&&source==='look'&&parent!==null&&this.data.pictures[room]&&w.entity(parent).name.includes('train'))trace.push({kind:'train-platform-look'});
   // D526's recursive list frame adds six bytes per level. A LOOK enters
   // D102 four bytes shallower than CA9E's movement notification; describing
   // fellow passengers in D113 adds two bytes relative to the room list.
@@ -265,12 +266,31 @@ export class Text {
     // can leave different working fields before different descriptions.
     let id=r.description,calls=0,first=this.data.texts[id]?.[0];
     while(first?.op==='call'&&calls<24){calls++;id=first.text;first=this.data.texts[id]?.[0];}
-    if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:0x5D1A+entryOffset-8*calls});}
+    if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:source==='look'&&r.description==='7E0B'&&parent===109?0x5D22:0x5D1A+entryOffset-8*calls,vehicleScanKnown:source==='look'&&r.description==='7E0B'&&parent===109});}
    }
    // Capture the TEXT-domain buffer effects without executing them while
    // building the scene. Raw suffix capitals/backspaces differ from pixels.
    const events=[],prose=this.render(r.description,{captureBuffer:(c,options)=>events.push({c,...options})}),start=text.join(' ').length+(text.length?1:0);
-   if(trace&&prose.length)trace.push({kind:'raw-text-buffer',start,end:start+prose.length,events});
+   if(trace&&prose.length)trace.push({kind:'raw-text-buffer',start,end:start+prose.length,events,affectsStack:r.description!=='7E0B'||parent!==109||source!=='look'});
+   // In the countryside fragment, “English” is emitted in the
+   // room-description frame. Its word wrap uses C374 six bytes deeper.
+   if(trace&&r.description==='7E45'&&parent!==null&&source==='arrival'){
+    const at=prose.indexOf(' English ');
+    if(at>=0)trace.push({kind:'train-description-english',start:start+at+1,end:start+at+8,
+                        frame:0x5D2E,trainScanKnown:true});
+   }
+   if(trace&&r.description==='7E0B'&&parent===109){
+    const isLooking=source==='look',copula=prose.indexOf(' are ');
+    if(isLooking)trace.push({kind:'police-cab-look'});
+    // The remainder of this flat fragment cannot reach the deep copula wrap.
+    trace.push({kind:'police-cab-prose',start,end:start+prose.length,frame:isLooking?0x5D36:0x5D32,vehicleScanKnown:true});
+    if(copula>=0)trace.push({kind:'police-cab-copula',start:start+copula+1,end:start+copula+4,
+                           frame:isLooking?0x5D36:0x5D32,vehicleScanKnown:true});
+    const at=prose.indexOf(' country ');
+    if(at>=0)trace.push({kind:'police-cab-country',start:start+at+1,end:start+at+8,
+                        frame:source==='look'?0x5D36:0x5D32,vehicleScanKnown:true});
+
+   }
    text.push(prose);
   };
   if(parent!==null){

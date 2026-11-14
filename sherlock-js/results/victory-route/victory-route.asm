@@ -493,6 +493,104 @@
     DEFB $07,$35,$E1,$FD,$FF              ; $E0A7 07 35 e1 fd ff
     DEFB $0B                              ; $E0AC 0b
 
+    ORG $CB12
+; CODE: Annuncio di arrivo del personaggio
+    LD A,($C492)                          ; $CB12 3a 92 c4
+    LD HL,$A009                           ; $CB15 21 09 a0
+    CP (HL)                               ; $CB18 be
+    RET Z                                 ; $CB19 c8
+    LD A,($A034)                          ; $CB1A 3a 34 a0
+    LD HL,$A036                           ; $CB1D 21 36 a0
+    CP (HL)                               ; $CB20 be
+    RET Z                                 ; $CB21 c8
+    LD DE,$68ED                           ; $CB22 11 ed 68 | Il frammento 68ED stampa «enters». Il qualificatore Inspector usa il frame 5D2C; C39C e C389 lasciano lo shift a 5D22 e 5D28.
+    JP $CBC2                              ; $CB25 c3 c2 cb
+
+    ORG $DD07
+; CODE: Movimento direzionale: restituzione del record dell’attore
+    LD A,(IX+$02)                         ; $DD07 dd 7e 02
+    LD B,A                                ; $DD0A 47
+    LD A,($A036)                          ; $DD0B 3a 36 a0
+    PUSH AF                               ; $DD0E f5
+    LD HL,$A036                           ; $DD0F 21 36 a0
+    CP (HL)                               ; $DD12 be
+    LD A,B                                ; $DD13 78
+    JR NZ,$DD19                           ; $DD14 20 03
+    LD ($A00A),A                          ; $DD16 32 0a a0
+    CP $FF                                ; $DD19 fe ff
+    JR NZ,$DD1E                           ; $DD1B 20 01
+    XOR A                                 ; $DD1D af
+    LD ($DD01),A                          ; $DD1E 32 01 dd
+    CALL $D224                            ; $DD21 cd 24 d2
+    LD ($DCFF),IX                         ; $DD24 dd 22 ff dc
+    POP AF                                ; $DD28 f1
+    CALL $D237                            ; $DD29 cd 37 d2 | D237 seleziona il record dell’attore in IX. D249 conserva IX e IY, che il controllo DCE0 aveva già puntato all’attore. CB37/CB3B pubblicano i risultati.
+    LD (IX+$0F),B                         ; $DD2C dd 70 0f
+    CALL $D249                            ; $DD2F cd 49 d2
+    OR $01                                ; $DD32 f6 01
+    RET                                   ; $DD34 c9
+
+    ORG $DEE4
+; CODE: Verifica della capacità residua del contenitore
+    LD B,A                                ; $DEE4 47
+    LD A,(IY+$04)                         ; $DEE5 fd 7e 04
+    AND $07                               ; $DEE8 e6 07
+    JP Z,$DC15                            ; $DEEA ca 15 dc
+    LD A,(IY+$02)                         ; $DEED fd 7e 02
+    SUB (IX+$02)                          ; $DEF0 dd 96 02
+    JR C,$DF00                            ; $DEF3 38 0b
+    PUSH AF                               ; $DEF5 f5
+    LD A,B                                ; $DEF6 78
+    CALL $D2ED                            ; $DEF7 cd ed d2 | D2ED somma il carico già presente. Sottrae carico e dimensione del candidato dalla capacità; anche un residuo esattamente zero non dà successo.
+    LD B,A                                ; $DEFA 47
+    POP AF                                ; $DEFB f1
+    SUB B                                 ; $DEFC 90
+    JR C,$DF00                            ; $DEFD 38 01
+    RET NZ                                ; $DEFF c0
+    XOR A                                 ; $DF00 af
+    RET                                   ; $DF01 c9
+
+    ORG $E3B8
+; CODE: Salita sul veicolo: capienza e stato del conducente
+    CALL $E3F5                            ; $E3B8 cd f5 e3 | Il primo controllo include la capacità del contenitore; se fallisce non si consulta il contesto del conducente.
+    RET Z                                 ; $E3BB c8
+    LD A,($A036)                          ; $E3BC 3a 36 a0
+    PUSH AF                               ; $E3BF f5
+    LD A,($A034)                          ; $E3C0 3a 34 a0
+    INC A                                 ; $E3C3 3c
+    LD ($A036),A                          ; $E3C4 32 36 a0
+    CALL $CFB6                            ; $E3C7 cd b6 cf
+    EX AF,AF'                             ; $E3CA 08
+    POP AF                                ; $E3CB f1
+    LD ($A036),A                          ; $E3CC 32 36 a0
+    EX AF,AF'                             ; $E3CF 08
+    JR Z,$E3E7                            ; $E3D0 28 15
+    LD A,(IX+$03)                         ; $E3D2 dd 7e 03
+    CALL $D237                            ; $E3D5 cd 37 d2
+    LD IY,($A017)                         ; $E3D8 fd 2a 17 a0
+    LD A,(IX+$04)                         ; $E3DC dd 7e 04
+    AND (IY+$04)                          ; $E3DF fd a6 04
+    AND $70                               ; $E3E2 e6 70
+    JP Z,$DC15                            ; $E3E4 ca 15 dc
+    OR $01                                ; $E3E7 f6 01
+    RET                                   ; $E3E9 c9
+
+    ORG $E3F5
+; CODE: Argomenti della salita e delega alla verifica di capacità
+    CALL $CBA7                            ; $E3F5 cd a7 cb
+    CALL $DCA7                            ; $E3F8 cd a7 dc
+    RET Z                                 ; $E3FB c8
+    LD IX,($A017)                         ; $E3FC dd 2a 17 a0
+    LD IY,($A013)                         ; $E400 fd 2a 13 a0
+    LD A,($A034)                          ; $E404 3a 34 a0
+    JP $DEE4                              ; $E407 c3 e4 de | Delega la salita alla stessa verifica di capacità usata dagli altri contenitori, anche per il cab della polizia.
+
+    ORG $EAC6
+; BYTECODE: Lestrade: passi vincolati durante l’inseguimento
+    DEFB $41,$01                          ; $EAC6 41 01
+    DEFB $41,$01                          ; $EAC8 41 01
+    DEFB $41,$01                          ; $EACA 41 01
+
     ORG $E6BE
 ; CODE: Richiesta di pagamento del cabbie
     LD A,($A035)                          ; $E6BE 3a 35 a0

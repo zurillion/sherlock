@@ -7,8 +7,9 @@ sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
 binario due minuti prima si ottiene **$6B79** allo stesso orario.
 Il motore JavaScript riproduce il recupero della nota dal fuoco,
 le deduzioni sui piani e sul luogo della vendita e la partenza
-di Lestrade. Il confronto arriva a mercoledì alle 12:40,
-sul treno verso Leatherhead. La successiva lettura è $5D1F.
+di Lestrade. Il confronto arriva a mercoledì alle 18:19 a bordo
+del treno di ritorno (666 checkpoint). Il prossimo punto è
+il LOOK delle 18:20, con il rifiuto di Lestrade.
 
 [Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
 

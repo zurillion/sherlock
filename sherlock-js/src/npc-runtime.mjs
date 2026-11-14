@@ -121,7 +121,8 @@ export class NpcRuntime {
   // saved scan registers, including its wraps before a MORE pause.
   const screen=g.sourceDisplay.state;
   const preserveScan=text==='6BF6'&&screen?.cursor===0&&!screen.pending&&screen.counter+4<15;
-  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  const preserveArrivalName=context.preserveArrivalName===true&&screen?.cursor===0&&!screen.pending&&screen.counter+3<15;
+  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan,preserveArrivalName}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
@@ -207,7 +208,7 @@ export class NpcRuntime {
   if(retain){records.heads.syntax=current;this.state.parserPending=current;records.heads.parsed=records.arena.word(current-2);records.arena.putWord(current-2,0);}
   node=this.game.semanticNode(node);
   const action=this.game.action(node);let rejected=(!!node.implicitMissing||this.game.action(node)===52)&&!retain&&!collective;this.state.sceneryFailure=null;
-  if([14,17,18,19,20,21,22,26,27,29,30,35,36,38,39,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
+  if([12,13,14,17,18,19,20,21,22,24,25,26,27,29,30,35,36,38,39,40,42,43,44,45,46,47,48,51,53,54].includes(action)&&!retain&&!collective){for(let slot=0;slot<node.groups.length;slot++){const group=node.groups[slot];if(group.noun&32768||!group.noun&&!group.qualifiers.length)break;const candidates=this.game.referenceCandidates(node,action,slot);if(!candidates.possible.length){this.state.sceneryFailure={action,slot,found:searchDescription(this.game.data,this.w,records,group,this.w.player)};rejected=true;break;}if(candidates.possible.length>1)break;}}
   // A failed class-9 lookup with no perceived nominal target searches the
   // room description, just like other absent references. A visible object
   // rejected by the TAKE predicate retains its separate execution refusal.
@@ -293,8 +294,16 @@ export class NpcRuntime {
     // clears the syntax pointer through B9D4 before freeing the request.
     this.game.sourceDisplay.setChannel(0);
     this.print('681A',actor,{object:job.sender},messages);
+    const follow=[21,22].includes(action)&&context.operation.source==='EAC6';
+    if(follow){
+     // FOLLOW runs the same predicate in both the candidate scan and
+     // the ordinary action fallback when the DOMAIN operation forbids it.
+     this.print('681A',actor,{object:job.sender},messages);
+    }
     this.game.sourceDisplay.invalidateScratch(0x5D06);
-    cancel(true);return {handled:true,cost:0};
+    cancel(true);
+    if(follow)this.active.vm.state(actor).pc=context.operation.next;
+    return {handled:true,cost:0};
    }
    if(job.mode===2||job.mode===undefined&&node?.subject){
     const nodes=job.nodes.slice(job.index),firstMessage=messages.length;if(actor===3)this.information.watson(nodes,messages);else if(actor===2){this.information.lestrade(nodes,messages);
@@ -464,7 +473,7 @@ export class NpcRuntime {
    case 'location.exitDirection':{const edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.target===first);if(!edge||edge.direction_id>10)return no();context.saved[1]=edge.direction_id;result=yes();break;}
    case 'unimplemented.E4C9':{
     const travel=[2,3,4].includes(first);
-    if(travel)this.print('7611',actor,{},messages); // Announce before hiding the train.
+    if(travel)this.print('7611',actor,{preserveArrivalName:true},messages); // Announce before hiding the train.
     w.entity(actor).attributes=travel?w.entity(actor).attributes&127:w.entity(actor).attributes|128;
     // E4F6 clears the destination's seen flag before CA7F/CA9E prints the
     // passenger's scene. That display sets it again; later visits are brief.
@@ -584,7 +593,12 @@ export class NpcRuntime {
     // proper person name, and the independent1F contract is also verified.
     // Qualified names can wrap at a deeper frame;
     // queued/isolated callers deliberately lack this action-frame contract.
-    const e=w.entity(actor);if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true}:{})});
+    const e=w.entity(actor);
+    const name=w.name(actor),prefixEnd=name.indexOf(' ');
+    if(e.person&&(e.noun&32768)&&e.qualifiers.filter(q=>q&&!(q&32768)).length===1&&prefixEnd>0)for(const m of shown)if(m.arrival_entity===actor){
+     m.scene_trace=[{kind:'arrival-person-prefix',start:0,end:prefixEnd,frame:0x5D2C}];
+    }
+    if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true}:{})});
    }
    // The ordinary DROP/TAKE OFF announcement formats its resolved argument
    // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.

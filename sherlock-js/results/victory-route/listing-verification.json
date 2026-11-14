@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 452,
-  "bytes_roundtripped": 1322,
+  "instructions": 529,
+  "bytes_roundtripped": 1497,
   "regions": [
     {
       "start": "9965",
@@ -190,6 +190,48 @@
       "end_exclusive": "E0AD",
       "kind": "domain",
       "label": "Ritrovamento ed esame del ruscello",
+      "atlas_priority": 189
+    },
+    {
+      "start": "CB12",
+      "end_exclusive": "CB28",
+      "kind": "code",
+      "label": "Annuncio di arrivo del personaggio",
+      "atlas_priority": 189
+    },
+    {
+      "start": "DD07",
+      "end_exclusive": "DD35",
+      "kind": "code",
+      "label": "Movimento direzionale: restituzione del record dell’attore",
+      "atlas_priority": 189
+    },
+    {
+      "start": "DEE4",
+      "end_exclusive": "DF02",
+      "kind": "code",
+      "label": "Verifica della capacità residua del contenitore",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E3B8",
+      "end_exclusive": "E3EA",
+      "kind": "code",
+      "label": "Salita sul veicolo: capienza e stato del conducente",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E3F5",
+      "end_exclusive": "E40A",
+      "kind": "code",
+      "label": "Argomenti della salita e delega alla verifica di capacità",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EAC6",
+      "end_exclusive": "EACC",
+      "kind": "domain",
+      "label": "Lestrade: passi vincolati durante l’inseguimento",
       "atlas_priority": 189
     },
     {

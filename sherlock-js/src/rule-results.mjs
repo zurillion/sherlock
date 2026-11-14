@@ -9,6 +9,13 @@ export class RuleResults {
  write(first,second){this.state.ruleResultPointers=[first??null,second??null];}
  read(address){const n=this.values[Math.floor((address-0xCB28)/2)];return word(n)?(address&1?n>>>8:n&255):null;}
  ordinaryAction(out,previous){
+  if(out.cost>0&&(out.action>=1&&out.action<=10||out.action===28)){
+   // DD29 leaves IX on the moving actor; D249 preserves both indexes.
+   // DCE0 had already selected the same actor for the gate check in IY.
+   const address=this.host.worldSource.layout.entities.find(e=>e.id===this.host.game.actor)?.start;
+   this.write(address,address);
+   return;
+  }
   if(out.cost>0&&[14,36].includes(out.action)){const id=out.args[0],source=this.host.game.data.argumentChecks?.entities[id]?.[out.action];
    if(source==='DE9D'||source==='DEAF')this.write(this.host.worldSource.layout.entities.find(e=>e.id===id)?.start,previous[1]);
   }
