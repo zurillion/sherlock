@@ -285,7 +285,12 @@ export class NpcRuntime {
    if(job.nodes){if(!node){delete state.pending[actor];return {handled:true,cost:0};}action=this.game.action(node);}
    if(node&&!(job.mode===2||job.mode===undefined&&node.subject))this.beginResolution(node,{requestMode:job.record?this.active.records.arena.byte(job.record+2):null});
    if(!job.prefab&&context.restriction&&[12,13,21,22,24,25,40,49,50].includes(action)){
-    this.print('681A',actor,{object:job.sender},messages);cancel();return {handled:true,cost:0};
+    // CBA7 rejects the restricted order during preflight. B9AC still
+    // clears the syntax pointer through B9D4 before freeing the request.
+    this.game.sourceDisplay.setChannel(0);
+    this.print('681A',actor,{object:job.sender},messages);
+    this.game.sourceDisplay.invalidateScratch(0x5D06);
+    cancel(true);return {handled:true,cost:0};
    }
    if(job.mode===2||job.mode===undefined&&node?.subject){
     const nodes=job.nodes.slice(job.index),firstMessage=messages.length;if(actor===3)this.information.watson(nodes,messages);else if(actor===2){this.information.lestrade(nodes,messages);
@@ -325,10 +330,12 @@ export class NpcRuntime {
     result=this.action(action,args,ctx,messages,actions);
    }
    if(node&&job.record&&(collectiveNode||node.groups.length||[21,22,29,30].includes(action)||objectSemantic)){
-    // B973/B976 preserve the exhausted first-argument search iterator.
-    // Entity searches end at the index terminator; location searches keep
-    // the room ordinal in the high byte (D39B/D3CD), with initial low byte 0.
-    const iterator=collectiveNode?0x8B6F+3*job.collectiveCursor:[29,30].includes(action)?this.w.rooms.length<<8:0x8B6F+3*this.w.entities.length;
+    // B973/B976 preserve the first-argument iterator. The B190 flag
+    // stops a single-selection search at its first successful entity.
+    // Other entity searches end at the terminator. A room search keeps
+    // its ordinal in the high byte (D39B/D3CD).
+    const selected=collectiveNode?job.collectiveCursor:forcedSingle?result.args?.[0]:undefined;
+    const iterator=[29,30].includes(action)?this.w.rooms.length<<8:0x8B6F+3*(selected??this.w.entities.length);
     if(collectiveNode)this.active.records.arena.putByte(job.record+2,128);
     this.active.records.arena.putWord(job.record+3,iterator);
    }

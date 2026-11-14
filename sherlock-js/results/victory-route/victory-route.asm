@@ -176,6 +176,33 @@
     LD (HL),$C0                           ; $B095 36 c0 | Il byte del delimitatore trovato diventa C0. Nel controllo con puntatore residuo il lettore ha raggiunto 4D15 nella bitmap superiore.
     JP $AB52                              ; $B097 c3 52 ab
 
+    ORG $B224
+; CODE: Risoluzione con arresto sul primo candidato valido
+    CALL $B4C1                            ; $B224 cd c1 b4
+    JR Z,$B244                            ; $B227 28 1b
+    CALL $C929                            ; $B229 cd 29 c9
+    JR Z,$B224                            ; $B22C 28 f6
+    LD A,($A034)                          ; $B22E 3a 34 a0
+    LD ($B184),A                          ; $B231 32 84 b1
+    LD HL,$B170                           ; $B234 21 70 b1
+    INC (HL)                              ; $B237 34
+    LD A,($B190)                          ; $B238 3a 90 b1 | B190 non zero termina l’enumerazione al primo candidato valido. CLIMB INTO CAB conserva 8BC9, la riga del cab 30.
+    AND A                                 ; $B23B a7
+    JR NZ,$B244                           ; $B23C 20 06
+    LD A,($A01C)                          ; $B23E 3a 1c a0
+    AND A                                 ; $B241 a7
+    JR Z,$B224                            ; $B242 28 e0
+    LD A,($B184)                          ; $B244 3a 84 b1
+    LD ($A034),A                          ; $B247 32 34 a0
+    LD A,($B170)                          ; $B24A 3a 70 b1
+    AND A                                 ; $B24D a7
+    JR Z,$B259                            ; $B24E 28 09
+    CP $01                                ; $B250 fe 01
+    JR Z,$B20B                            ; $B252 28 b7
+    LD HL,$B5E2                           ; $B254 21 e2 b5
+    XOR A                                 ; $B257 af
+    RET                                   ; $B258 c9
+
     ORG $B8BE
 ; CODE: Analisi della citazione per TALK e creazione della richiesta
     CALL $AAB2                            ; $B8BE cd b2 aa | Analizza il testo a partire dal puntatore estratto dalla coda delle citazioni.
@@ -214,6 +241,52 @@
     LD ($9FF0),HL                         ; $B90A 22 f0 9f
     RET                                   ; $B90D c9
 
+    ORG $B96B
+; CODE: Copia del cursore del resolver nella richiesta
+    LD IX,($B866)                         ; $B96B dd 2a 66 b8
+    LD BC,($B17E)                         ; $B96F ed 4b 7e b1
+    LD (IX+$03),C                         ; $B973 dd 71 03 | Copia la posizione raggiunta dall’enumeratore. Per CLIMB INTO non è il terminatore dell’indice.
+    LD (IX+$04),B                         ; $B976 dd 70 04
+    LD A,($A01C)                          ; $B979 3a 1c a0
+    LD (IX+$02),A                         ; $B97C dd 77 02
+
+    ORG $B9AC
+; CODE: Richiesta rifiutata: avanzo e rilascio dei nodi
+    CALL $B9CA                            ; $B9AC cd ca b9
+    JR NZ,$B9AC                           ; $B9AF 20 fb
+    XOR A                                 ; $B9B1 af
+    JR $B985                              ; $B9B2 18 d1
+    LD A,($A01C)                          ; $B9B4 3a 1c a0
+    AND A                                 ; $B9B7 a7
+    JR Z,$B9AC                            ; $B9B8 28 f2
+    LD IX,($B866)                         ; $B9BA dd 2a 66 b8
+    LD (IX+$02),$00                       ; $B9BE dd 36 02 00
+    CALL $B9CA                            ; $B9C2 cd ca b9
+    JR Z,$B9B1                            ; $B9C5 28 ea
+    JP $B93E                              ; $B9C7 c3 3e b9
+    LD IX,($B866)                         ; $B9CA dd 2a 66 b8
+    LD L,(IY-$02)                         ; $B9CE fd 6e fe
+    LD H,(IY-$01)                         ; $B9D1 fd 66 ff
+    LD (IX+$05),L                         ; $B9D4 dd 75 05 | Sovrascrive il puntatore al nodo prima di liberarlo. L’ultimo nodo scrive una word zero, visibile nel payload liberato.
+    LD (IX+$06),H                         ; $B9D7 dd 74 06
+    PUSH IX                               ; $B9DA dd e5
+    PUSH IY                               ; $B9DC fd e5
+    POP IX                                ; $B9DE dd e1
+    CALL $A1C7                            ; $B9E0 cd c7 a1
+    POP IX                                ; $B9E3 dd e1
+    LD A,L                                ; $B9E5 7d
+    OR H                                  ; $B9E6 b4
+    JR Z,$B9F5                            ; $B9E7 28 0c
+    PUSH HL                               ; $B9E9 e5
+    POP IY                                ; $B9EA fd e1
+    BIT 6,(IY+$01)                        ; $B9EC fd cb 01 76
+    JR NZ,$B9CE                           ; $B9F0 20 dc
+    OR $01                                ; $B9F2 f6 01
+    RET                                   ; $B9F4 c9
+    CALL $B9FA                            ; $B9F5 cd fa b9
+    XOR A                                 ; $B9F8 af
+    RET                                   ; $B9F9 c9
+
     ORG $BA20
 ; CODE: Inoltro delle affermazioni ai soli Watson e Lestrade
     LD A,($A036)                          ; $BA20 3a 36 a0 | La richiesta in modo 2 è interpretata da Lestrade o Watson. Con Mrs Jones si torna al turno ordinario lasciandola in lista.
@@ -231,6 +304,18 @@
     AND A                                 ; $BA3B a7
     SCF                                   ; $BA3C 37
     RET                                   ; $BA3D c9
+
+    ORG $CBA7
+; CODE: Rifiuto di un ordine durante un’attività vincolata
+    LD A,($B934)                          ; $CBA7 3a 34 b9
+    BIT 6,A                               ; $CBAA cb 77
+    RET Z                                 ; $CBAC c8
+    POP HL                                ; $CBAD e1
+    XOR A                                 ; $CBAE af
+    LD ($A027),A                          ; $CBAF 32 27 a0 | Il rifiuto stampa il frammento 681A nel canale superiore. Il renderer può raggiungere il workspace 5D06.
+    LD HL,$681A                           ; $CBB2 21 1a 68
+    CALL $A59F                            ; $CBB5 cd 9f a5
+    JP $DC15                              ; $CBB8 c3 15 dc
 
     ORG $D026
 ; CODE: Ripristino degli argomenti dopo la chiamata DOMAIN

@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 303,
-  "bytes_roundtripped": 982,
+  "instructions": 376,
+  "bytes_roundtripped": 1153,
   "regions": [
     {
       "start": "9965",
@@ -88,6 +88,13 @@
       "atlas_priority": 189
     },
     {
+      "start": "B224",
+      "end_exclusive": "B259",
+      "kind": "code",
+      "label": "Risoluzione con arresto sul primo candidato valido",
+      "atlas_priority": 189
+    },
+    {
       "start": "B8BE",
       "end_exclusive": "B90E",
       "kind": "code",
@@ -95,10 +102,31 @@
       "atlas_priority": 189
     },
     {
+      "start": "B96B",
+      "end_exclusive": "B97F",
+      "kind": "code",
+      "label": "Copia del cursore del resolver nella richiesta",
+      "atlas_priority": 189
+    },
+    {
+      "start": "B9AC",
+      "end_exclusive": "B9FA",
+      "kind": "code",
+      "label": "Richiesta rifiutata: avanzo e rilascio dei nodi",
+      "atlas_priority": 189
+    },
+    {
       "start": "BA20",
       "end_exclusive": "BA3E",
       "kind": "code",
       "label": "Inoltro delle affermazioni ai soli Watson e Lestrade",
+      "atlas_priority": 189
+    },
+    {
+      "start": "CBA7",
+      "end_exclusive": "CBBB",
+      "kind": "code",
+      "label": "Rifiuto di un ordine durante un’attività vincolata",
       "atlas_priority": 189
     },
     {

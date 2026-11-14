@@ -301,3 +301,17 @@ salvataggio e caricamento.
   e continua il suo turno.
 
 [Disassemblato e byte verificati](results/victory-route/victory-route.asm)
+
+Il rifiuto di un nuovo `FOLLOW ME` alle 13:27 percorre `$CBA7`
+per stampare nel canale superiore. Il parser ritorna a `$B969`
+senza copiare il cursore dell’argomento nel record. `$B9D4`
+copia comunque zero nel puntatore sintattico prima di liberare
+l’ultima richiesta. La precedente richiesta in modo 2 rimane.
+
+Alle 13:34 Mrs Jones sale sul cab. `CLIMB INTO` ferma la ricerca
+al primo oggetto valido tramite `$B238`. `$B973–$B976` conserva
+`$8BC9`, l’indice del cab 30, nel record rilasciato. Quell’arena
+è uguale nei due motori anche dopo la successiva deduzione su
+Tricia. Lestrade l’accetta alle 13:53. Il confronto arriva a
+**394 checkpoint**, fino al secondo ordine per Camden Street
+alle 14:00.
