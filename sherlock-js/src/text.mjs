@@ -303,7 +303,15 @@ export class Text {
     const noun=this.dictionary.word(r.nameWords[0]);
     if(noun&&qualifiers.every(Boolean)){
      const raw=qualifiers.map(word=>word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''));
+     const before=trace.length;
      this.traceRawName(trace,' '+[...raw,noun.stem].join(' '),name,intro.length);
+     if(w.player!==0&&!full){
+      for(const event of trace.slice(before))event.affectsStack=false;
+      // D1C6's proper room name reaches a shallower clear than the
+      // preceding D187 qualifier. Track the final component and period.
+      trace.push({kind:'brief-arrival-room-tail',start:intro.length+name.lastIndexOf(' ')+1,
+                  end:intro.length+name.length+1,frame:0x5D36});
+     }
     }
    }
    text.push(intro+name+'.');
@@ -316,7 +324,7 @@ export class Text {
   // The initial alternate-identity phrase goes through D187/68DD,
   // including the brief description with no prose. Its qualifier is
   // six bytes below the frame used for the final noun.
-  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:(at===0&&full&&!r.description?0x5D1A:0x5D14)+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:(at===0&&!r.description?0x5D1A:0x5D16)+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
+  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:(at===0&&full&&!r.description?0x5D1A:0x5D14)+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:(at===0&&!r.description?0x5D1A:0x5D16)+entryOffset,briefIdentityKnown:at===0&&!r.description&&!full&&source==='arrival',actor:w.player});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
   return output;
  }
 }

@@ -356,8 +356,21 @@ del personaggio travestito passa da $D187 e $68DD. L’ultima
 conserva l’ultima scansione del font a $5D17. Watson legge
 quel byte al tick 2316, uscendo dalla cucina di Basil.
 
-Il confronto dello stato e delle estrazioni arriva a **512
-checkpoint**, fino a mercoledì alle 05:20. Holmes ha raccolto
-e letto entrambe le note cifrate. La successiva lettura di
-$5D1A da parte del giardiniere avviene alle 05:24, durante
-l’attesa davanti alla casa di Basil.
+Nella descrizione breve del cortile anteriore, l’ultima
+«a» di «china» a $5D22 lascia l’indirizzo video a $5D1A–$5D1B,
+il descrittore a $5D1C–$5D1D e AF a $5D20–$5D21. Lo spazio
+che precede il sostantivo ha frame $5D2E e lascia la scansione
+a $5D23. La stampa del nome proprio della stanza, incluso il
+ritorno a capo di «Yard.», passa da un frame più alto. Questi
+byte spiegano le letture del giardiniere e di Watson all’alba.
+
+Holmes salva la nota dal fuoco alle 10:09 e la esamina alle
+10:17. Lestrade conferma la deduzione sui piani alle 10:43
+e il luogo della vendita alle 10:45. L’annuncio della sua
+partenza a ovest comincia con un delimitatore: separa il
+nome dalla parola che chiude «catch them.».
+
+Il confronto dello stato, delle estrazioni e della bitmap
+arriva a **575 checkpoint**. La lettura casuale di $5D1E
+durante il viaggio in cab verso Kings Cross è il limite
+successivo.

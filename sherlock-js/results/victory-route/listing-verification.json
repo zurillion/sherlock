@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 427,
-  "bytes_roundtripped": 1262,
+  "instructions": 436,
+  "bytes_roundtripped": 1282,
   "regions": [
     {
       "start": "9965",
@@ -148,6 +148,13 @@
       "end_exclusive": "D1B2",
       "kind": "code",
       "label": "Arrivo completo: nome generico del veicolo e della stanza",
+      "atlas_priority": 189
+    },
+    {
+      "start": "D1C6",
+      "end_exclusive": "D1DA",
+      "kind": "code",
+      "label": "Nome proprio della stanza dopo il qualificatore del personaggio",
       "atlas_priority": 189
     },
     {

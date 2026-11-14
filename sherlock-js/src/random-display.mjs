@@ -29,12 +29,14 @@ export class RandomDisplay {
    // the literal name in the preceding contents list. A wrapped word also
    // clears a row (C316/C374), publishing the final space's scan state.
    const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
-   this.glyphFrame=role?.kind==='passage-direction'?null:role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
+   this.glyphFrame=role?.kind==='passage-direction'?null:role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.briefIdentityKnown=role?.briefIdentityKnown===true;this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
    this.glyphSpaceDescriptor=null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
    // flushes the previous name word, with DE already naming the next word.
    if(role&&['carrying-name','literal-person-name','container-name','root-object-prefix','carried-object-prefix','passage-name-prefix'].includes(role.kind)&&text[i]===' '){const entity=this.world.entity(role.parent),words=[...entity.qualifiers.filter(v=>v&&!(v&32768)),entity.noun],index=text.slice(role.start,i).trim().split(/\s+/).length-(['container-name','root-object-prefix','carried-object-prefix','passage-name-prefix'].includes(role.kind)&&!(entity.noun&32768)?1:0);if(words[index])this.glyphSpaceDescriptor=(index===words.length-1?0x5000:0x4000)|(words[index]&4095);}
+   if(role?.briefIdentityKnown&&text[i]===' ')
+    this.glyphSpaceDescriptor=0x5000|(this.world.entity(role.actor).noun&4095);
    const rawText=sceneTrace.find(e=>e.kind==='raw-text-buffer'&&e.start<=i&&i<e.end);
    // A later name/prose caller has its own unprojected register saves.
    // The noun of this same passage shares the raw span with its prefix.
@@ -53,7 +55,7 @@ export class RandomDisplay {
    if(this.state.pending.length>=this.state.remaining){delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    // Reserve the final CR and action separator below the MORE threshold.
    if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
-  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
+  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
@@ -88,10 +90,14 @@ export class RandomDisplay {
     at===0x5D2A&&this.glyphSpaceVideoLowKnown===true||
     at===0x5D2B&&this.glyphSpaceVideoHighKnown===true
    );
+   const briefIdentity=this.briefIdentityKnown===true&&(
+    frame===0x5D22&&at>=0x5D1A&&at<=0x5D21||
+    frame===0x5D2E&&descriptor!==0x5A20&&at===0x5D23
+   );
    const usesUpperContext=at>=0x5D20&&at<=0x5D2B||at===0x5D30;
    if((at===0x5D2B&&!passageSpace)||
-    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace)||
+    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity)||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!(this.glyphVideoLowKnown===true&&frame===0x5D26))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];

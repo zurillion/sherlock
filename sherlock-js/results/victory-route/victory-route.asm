@@ -414,6 +414,18 @@
     LD A,$2E                              ; $D1AD 3e 2e
     JP $A9B7                              ; $D1AF c3 b7 a9
 
+    ORG $D1C6
+; CODE: Nome proprio della stanza dopo il qualificatore del personaggio
+    LD DE,$0001                           ; $D1C6 11 01 00 | Il nome della stanza usa un frame più alto del qualificatore emesso da 68DD. Il ritorno a capo di Yard. lascia intatti i byte osservati all’alba.
+    PUSH IY                               ; $D1C9 fd e5
+    PUSH IX                               ; $D1CB dd e5
+    POP IY                                ; $D1CD fd e1
+    ADD IY,DE                             ; $D1CF fd 19
+    XOR A                                 ; $D1D1 af
+    LD ($A028),A                          ; $D1D2 32 28 a0
+    CALL $D405                            ; $D1D5 cd 05 d4
+    POP IY                                ; $D1D8 fd e1
+
     ORG $D1B2
 ; CODE: Descrizione breve e controllo della luce dopo lo spostamento
     LD B,A                                ; $D1B2 47 | Ingresso breve di CA9E: chiama D187 direttamente e non ripete l’introduzione del contenitore di D113.

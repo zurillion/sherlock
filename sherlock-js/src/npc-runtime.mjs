@@ -589,6 +589,13 @@ export class NpcRuntime {
    // The ordinary DROP/TAKE OFF announcement formats its resolved argument
    // with D3D5. Replay semantic dictionary bytes, never the capitalized prose.
    if(!out.projected&&out.cost&&[16,43].includes(out.action)&&out.args[0]!==undefined){const id=out.args[0],name=w.name(id),raw=this.game.text.rawEntityName(id);if(raw)for(const m of shown){const at=m.text.toLowerCase().lastIndexOf(name.toLowerCase());if(at>=0){let normalized='';for(const c of raw.trimStart()){if(c==='\b')normalized=normalized.slice(0,-1);else normalized+=c;}if(normalized.toLowerCase()===name.toLowerCase())m.scene_trace=[...(m.scene_trace||[]),{kind:'raw-text-buffer',start:at,end:at+name.length,events:[{c:' ',known:true},...Array.from(raw.trimStart(),c=>({c,known:true}))]}];}}}
+   // CA76 begins a directional announcement with a dictionary
+   // delimiter. It flushes any trailing word of the preceding speech.
+   if(!out.projected&&shown.length&&out.action>=1&&out.action<=10&&this.game.sourceDisplay.state?.pending){
+    this.game.sourceDisplay.feed(' ');
+    const previous=messages.at(-1);
+    if(previous?.raw_text!==undefined)previous.raw_text+=' ';
+   }
    messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
   if(out.cost||out.action===32||out.objectRule)actions.push({actor,id:out.action,arguments:out.args});
  }
