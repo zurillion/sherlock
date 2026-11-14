@@ -89,6 +89,54 @@
     INC IX                                ; $A6CE dd 23
     RET                                   ; $A6D0 c9
 
+    ORG $AAEA
+; CODE: Soggetto nominale e accettazione di un’unità vuota
+    LD A,$02                              ; $AAEA 3e 02 | Scrive il modo 2 dopo aver riconosciuto ME come soggetto. Nel caso residuo il punto segue immediatamente il soggetto.
+    LD ($A024),A                          ; $AAEC 32 24 a0
+    POP HL                                ; $AAEF e1
+    PUSH IY                               ; $AAF0 fd e5
+    POP HL                                ; $AAF2 e1
+    LD DE,$0018                           ; $AAF3 11 18 00
+    ADD HL,DE                             ; $AAF6 19
+    LD DE,$AAAC                           ; $AAF7 11 ac aa
+    EX DE,HL                              ; $AAFA eb
+    LD BC,$0006                           ; $AAFB 01 06 00
+    LDIR                                  ; $AAFE ed b0
+    LD HL,($A029)                         ; $AB00 2a 29 a0
+    LD ($A02B),HL                         ; $AB03 22 2b a0
+    JR $AB11                              ; $AB06 18 09
+    LD A,$01                              ; $AB08 3e 01
+    LD ($A024),A                          ; $AB0A 32 24 a0
+    POP HL                                ; $AB0D e1
+    LD ($A02B),HL                         ; $AB0E 22 2b a0
+    POP DE                                ; $AB11 d1
+    XOR A                                 ; $AB12 af
+    LD ($AAA7),A                          ; $AB13 32 a7 aa
+    CALL $AB91                            ; $AB16 cd 91 ab
+    JR C,$AB8E                            ; $AB19 38 73
+    JR Z,$AB47                            ; $AB1B 28 2a
+    CP $90                                ; $AB1D fe 90
+    JP Z,$AFB3                            ; $AB1F ca b3 af
+    CP $A0                                ; $AB22 fe a0
+    JP Z,$ACCC                            ; $AB24 ca cc ac
+    BIT 3,E                               ; $AB27 cb 5b
+    JR Z,$AB4C                            ; $AB29 28 21
+    LD A,($A012)                          ; $AB2B 3a 12 a0
+    AND A                                 ; $AB2E a7
+    JR NZ,$AB8E                           ; $AB2F 20 5d
+    LD A,($A01B)                          ; $AB31 3a 1b a0
+    AND A                                 ; $AB34 a7
+    JR NZ,$AB4C                           ; $AB35 20 15
+    LD A,($A02D)                          ; $AB37 3a 2d a0
+    CP $C0                                ; $AB3A fe c0
+    JR NZ,$AB8E                           ; $AB3C 20 50
+    LD A,$B0                              ; $AB3E 3e b0
+    CP D                                  ; $AB40 ba
+    JR NZ,$AB8E                           ; $AB41 20 4b
+    LD A,$02                              ; $AB43 3e 02 | Stato 2 per l’unità vuota. Il nodo allocato conserva la word del soggetto allo slot 24.
+    AND A                                 ; $AB45 a7
+    RET                                   ; $AB46 c9
+
     ORG $B049
 ; CODE: Accodamento e ricerca del delimitatore della citazione
     BIT 1,E                               ; $B049 cb 4b
@@ -165,6 +213,35 @@
     POP HL                                ; $B909 e1
     LD ($9FF0),HL                         ; $B90A 22 f0 9f
     RET                                   ; $B90D c9
+
+    ORG $BA20
+; CODE: Inoltro delle affermazioni ai soli Watson e Lestrade
+    LD A,($A036)                          ; $BA20 3a 36 a0 | La richiesta in modo 2 è interpretata da Lestrade o Watson. Con Mrs Jones si torna al turno ordinario lasciandola in lista.
+    LD HL,$BA67                           ; $BA23 21 67 ba
+    CP $03                                ; $BA26 fe 03
+    JR Z,$BA31                            ; $BA28 28 07
+    LD HL,$BB67                           ; $BA2A 21 67 bb
+    CP $02                                ; $BA2D fe 02
+    JR NZ,$BA34                           ; $BA2F 20 03
+    CALL $BA3E                            ; $BA31 cd 3e ba
+    LD A,$01                              ; $BA34 3e 01
+    POP HL                                ; $BA36 e1
+    POP IY                                ; $BA37 fd e1
+    POP IX                                ; $BA39 dd e1
+    AND A                                 ; $BA3B a7
+    SCF                                   ; $BA3C 37
+    RET                                   ; $BA3D c9
+
+    ORG $D026
+; CODE: Ripristino degli argomenti dopo la chiamata DOMAIN
+    LD HL,($9FD7)                         ; $D026 2a d7 9f
+    CALL $CFB6                            ; $D029 cd b6 cf
+    LD A,($9FD6)                          ; $D02C 3a d6 9f
+    JR Z,$D03B                            ; $D02F 28 0a
+    LD (IX+$03),L                         ; $D031 dd 75 03 | Il passaggio comune ripristina il cliente già selezionato. La scrittura temporanea di E6F0 non modifica il record finale del contesto.
+    LD (IX+$04),H                         ; $D034 dd 74 04
+    LD (IX+$06),A                         ; $D037 dd 77 06
+    RET                                   ; $D03A c9
 
     ORG $D078
 ; CODE: Controllo di luce e lampada percepibile
@@ -261,6 +338,31 @@
     DEFB $07,$AD,$E0,$02,$5D              ; $E0A2 07 ad e0 02 5d | Il ritrovamento richiede la sponda est e il martedì. La selezione dell’argomento 2 deve ammettere Lestrade.
     DEFB $07,$35,$E1,$FD,$FF              ; $E0A7 07 35 e1 fd ff
     DEFB $0B                              ; $E0AC 0b
+
+    ORG $E6EA
+; CODE: Cab: controllo del passeggero e scrittura temporanea
+    CALL $CFB6                            ; $E6EA cd b6 cf
+    LD A,($A034)                          ; $E6ED 3a 34 a0
+    LD (IX+$03),A                         ; $E6F0 dd 77 03 | L’enumerazione scrive Holmes, ID 0. Nella traccia delle 12:31 D031 ripristina l’ID 2 di Lestrade.
+    OR $01                                ; $E6F3 f6 01
+    RET                                   ; $E6F5 c9
+
+    ORG $E710
+; CODE: Cab: avvertimento per il debito
+    LD A,($5C3C)                          ; $E710 3a 3c 5c
+    PUSH AF                               ; $E713 f5
+    CALL $CFB6                            ; $E714 cd b6 cf
+    LD A,(IX+$03)                         ; $E717 dd 7e 03
+    AND A                                 ; $E71A a7
+    LD HL,$6C54                           ; $E71B 21 54 6c
+    JR NZ,$E725                           ; $E71E 20 05
+    LD A,$01                              ; $E720 3e 01
+    LD ($5C3C),A                          ; $E722 32 3c 5c
+    CALL $A59F                            ; $E725 cd 9f a5 | Stampa l’avvertimento con AF in più sullo stack. A Portman Street la scansione del glifo scrive fino a 5D0E.
+    POP AF                                ; $E728 f1
+    LD ($5C3C),A                          ; $E729 32 3c 5c
+    OR $01                                ; $E72C f6 01
+    RET                                   ; $E72E c9
 
     ORG $E955
 ; BYTECODE: Lestrade attende l’incontro o l’una di notte

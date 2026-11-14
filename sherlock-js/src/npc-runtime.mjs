@@ -221,20 +221,20 @@ export class NpcRuntime {
   const opening=pointer-0x5B81-3;
   this.w.display.tokens[opening]=restoreOpening?144:192;this.w.display.tokenKnown[opening]=true;
  }
- consumeQuote(){return this.use(({records})=>{
+ consumeQuote(currentQuotes=[]){return this.use(({records})=>{
   const p=records.heads.quotes;if(!p)return null;
   const pointer=records.arena.word(p);records.remove('quotes',p);
   const bytes=this.w.display.tokens,tokens=[];let at=pointer-0x5B81;
   // When the retained pointer lands on the new opening mark, the failed
   // implicit TALK restores that mark. The outer closing mark stays C0.
-  const retainedMovement=bytes[at]===144&&!bytes[at+1]&&!bytes[at+2]&&bytes[at+3]===64;
+  const retainedOpening=bytes[at]===144&&!bytes[at+1]&&!bytes[at+2]&&[48,64].includes(bytes[at+3]);
   for(let guard=0;guard<128&&at<bytes.length;guard++){
    const start=at,type=bytes[at++],size=[128,160,176,192].includes(type)?1:3,value=size===1?0:(bytes[at++]<<8)|bytes[at++],word=this.game.dictionary.word(value)?.stem??null;
    tokens.push({type,value,word,start,end:at,source:word??''});
-   if(type===192){if(0x5B81+start===this.game.currentInputEnd)throw new UnsupportedFeature('citazione residua che ripristina il terminatore della riga: scansione originale oltre i buffer');if(!retainedMovement)bytes[start]=144;break;}
+   if(type===192){if(0x5B81+start===this.game.currentInputEnd)throw new UnsupportedFeature('citazione residua che ripristina il terminatore della riga: scansione originale oltre i buffer');if(!retainedOpening)bytes[start]=144;break;}
   }
   if(tokens.at(-1)?.type!==192)tokens.push({type:192,value:0,word:null});
-  return {tokens,tokenPointer:pointer};
+  return {tokens,tokenPointer:pointer,residual:!currentQuotes.some(quote=>quote.tokenPointer===pointer)};
  });}
  consumeQuotes(){return this.consumeQuote();}
 
@@ -263,6 +263,16 @@ export class NpcRuntime {
  });}
  request(request,context,messages,actions){
   const state=this.state,actor=context.actor;
+  // BA20 only dispatches statements to Watson and Lestrade. Other actors
+  // leave that request linked while continuing their ordinary turn.
+  if(request.command.mode===2&&actor!==2&&actor!==3&&!state.pending[actor]){
+   const queue=this.w.scheduler.requests;
+   const order=this.active.records.records('requests');
+   const position=order.indexOf(request.record);
+   const next=queue.findIndex(item=>order.indexOf(item.record)>position);
+   queue.splice(next<0?queue.length:next,0,request);
+   return {handled:false,cost:0};
+  }
   let job=state.pending[actor];
   if(!job){job={sender:request.sender,record:request.record,nodes:request.command.nodes||null,mode:request.command.mode,syntax:request.command.syntax||[],action:request.command.action??null,args:request.command.args??null,index:0,prefab:request.command.kind==='prefabricated'};state.pending[actor]=job;}
   const release=()=>{if(job.record&&this.active.records.records('requests').includes(job.record))this.active.records.remove('requests',job.record);job.record=null;};
@@ -458,8 +468,17 @@ export class NpcRuntime {
    case 'unimplemented.F203':w.entity(first).attributes&=~1;result=yes();break;
    case 'unimplemented.F210':w.entity(first).attributes|=1;result=yes();break;
    case 'cab.arrive':{const vehicle=w.entity(actor).parent;w.entity(vehicle).attributes|=128;result=yes(0,{observerScopeLost:this.relocate(vehicle,first,messages,{actor,sceneSource:'cab-arrival'})});}break;
-   case 'cab.customerPresent':if(w.entity(first).parent!==actor-1||first===actor)return no();{const frame=this.active.vm.state(actor).contexts.at(-1);if(frame){frame.saved[1]=first;records.arena.putByte(frame.record+3,first);}result=yes();break;}
-   case 'cab.warnDebtor':{const frame=this.active.vm.state(actor).contexts.at(-1);this.print('6C54',actor,{},messages,{force:frame?.saved[1]===0});result=yes();break;}
+   // E6F0 writes the enumerated passenger temporarily. D031 commits the
+   // working arguments and restores an already bound service customer.
+   case 'cab.customerPresent':if(w.entity(first).parent!==actor-1||first===actor)return no();result=yes();break;
+   case 'cab.warnDebtor':{
+    const frame=this.active.vm.state(actor).contexts.at(-1);
+    const force=frame?.saved[1]===0;
+    // E725 prints this warning under an extra saved AF. The original's
+    // formatter can reach below the ordinary narrative glyph workspace.
+    if(force||w.perceived(actor))g.sourceDisplay.invalidateScratch(0x5D0E,0x5D11);
+    this.print('6C54',actor,{},messages,{force});result=yes();break;
+   }
    case 'cab.demandPayment':this.demand(actor,first,second,messages);result=yes();break;
    case 'money.balanceAsLiteral':this.state.literal=encodeMoney(balance(w,first))|128;context.saved[1]=254;result=yes();break;
    case 'money.pay':{const amount=this.state.literal&32767,pence=(amount&127)+(amount>>>8)*128;if(!transferMoney(w,actor,second,pence))return no();this.sayPayment(actor,second,pence,messages);result=yes(1);break;}

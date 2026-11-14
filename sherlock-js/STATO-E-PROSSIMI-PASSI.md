@@ -1,5 +1,18 @@
 # Stato del gameplay e ordine di completamento
 
+Aggiornamento 14 novembre 2026.
+
+Il percorso naturale con seed 1 raggiunge la vittoria **$6AF3**
+sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
+binario due minuti prima si ottiene **$6B79** allo stesso orario.
+Il motore JavaScript coincide fino a martedì alle 13:26, dopo la
+testimonianza di Mrs Jones. Il successivo ordine FOLLOW ME richiede
+di completare la gestione del rilascio dei record della richiesta.
+
+[Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
+
+## Finale nella camera di Basil
+
 Aggiornamento 12 novembre 2026.
 
 Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì

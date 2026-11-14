@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 216,
-  "bytes_roundtripped": 795,
+  "instructions": 303,
+  "bytes_roundtripped": 982,
   "regions": [
     {
       "start": "9965",
@@ -74,6 +74,13 @@
       "atlas_priority": 189
     },
     {
+      "start": "AAEA",
+      "end_exclusive": "AB47",
+      "kind": "code",
+      "label": "Soggetto nominale e accettazione di un’unità vuota",
+      "atlas_priority": 189
+    },
+    {
       "start": "B049",
       "end_exclusive": "B09A",
       "kind": "code",
@@ -85,6 +92,20 @@
       "end_exclusive": "B90E",
       "kind": "code",
       "label": "Analisi della citazione per TALK e creazione della richiesta",
+      "atlas_priority": 189
+    },
+    {
+      "start": "BA20",
+      "end_exclusive": "BA3E",
+      "kind": "code",
+      "label": "Inoltro delle affermazioni ai soli Watson e Lestrade",
+      "atlas_priority": 189
+    },
+    {
+      "start": "D026",
+      "end_exclusive": "D03B",
+      "kind": "code",
+      "label": "Ripristino degli argomenti dopo la chiamata DOMAIN",
       "atlas_priority": 189
     },
     {
@@ -120,6 +141,20 @@
       "end_exclusive": "E0AD",
       "kind": "domain",
       "label": "Ritrovamento ed esame del ruscello",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E6EA",
+      "end_exclusive": "E6F6",
+      "kind": "code",
+      "label": "Cab: controllo del passeggero e scrittura temporanea",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E710",
+      "end_exclusive": "E72F",
+      "kind": "code",
+      "label": "Cab: avvertimento per il debito",
       "atlas_priority": 189
     },
     {

@@ -18,7 +18,7 @@ export class Parser {
   }
   return {...lexical,units,outcome:units.every(u=>u.outcome==='empty')?'empty':'ok'};
  }
- unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null,onTokenStart=null,onPreviousClass=null,onMode=null,tokenBase=0x5B81}={}){
+ unit(tokens,start=0,{pending=null,mode=1,onNominal=null,onCount=null,onAll=null,onTokenStart=null,onPreviousClass=null,onMode=null,tokenBase=0x5B81,quoteResidual=false}={}){
   onPreviousClass?.(null);
   let index=start,nodes=[],current=node(),relations=0,workingMode=mode,afterAnd=false,lookahead=null,discarded=[];
   // AE19 commits omitted verbs only after successful parsing. Failed
@@ -67,11 +67,12 @@ export class Parser {
    if(opening)index++;
    // Only probe past an opening delimiter for a complete nominal phrase.
    // Other forms still need the delimiter in their own parser path.
-   if(opening&&tokens[index]?.type===64){
+   if(opening&&[48,64].includes(tokens[index]?.type)){
     // A retained quotation may point to the opening mark of the new input.
     // B04D starts an implicit TALK, and B095 closes it at that same mark.
-    // The direction/GO token is then invalid in the unfinished nominal slot.
-    current.verb=this.dictionary.lookup('TALK').value&0xff00;
+    // A following verb is invalid in the unfinished nominal slot.
+    const talk=this.dictionary.lookup('TALK').value;
+    current.verb=tokens[index].type===64?talk&0xff00:talk;
     current.deferredQuotePointer=tokenBase+offsets[saved+1];
     onTokenStart?.(current.deferredQuotePointer);
     setMode(1);
@@ -81,12 +82,20 @@ export class Parser {
    const bare=!opening||tokens[nominalEnd]?.type===176&&tokens[nominalEnd+1]?.type===192;
    const g=bare?nominal():null;
    const last=tokens[index]?.type===192||tokens[index]?.type===176&&tokens[index+1]?.type===192;
+   // A stale pointer can land on a subject just before the closing quote.
+   // AAB2 keeps that subject in an otherwise empty statement (AB43).
+   if(quoteResidual&&!opening&&g&&(g.noun||g.qualifiers.length)&&!g.relations.length&&tokens[index]?.type===176&&tokens[index+1]?.type===192){
+    current.subject=g;setMode(2);peek();
+    return {nodes:[current],next:index+1,mode:workingMode,outcome:'ok'};
+   }
    if(g?.noun&&!g.relations.length&&last){
     // A noun phrase alone in speech is an implicit TALK argument. A
     // predicate following it still uses statement mode.
     current.verb=this.dictionary.lookup('TALK').value;current.groups.push(g);setMode(1);
     if(opening)current.deferredQuotePointer=tokenBase+offsets[saved+1];
-   }else if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){current.subject=g;setMode(2);}
+   }else if(g&&(g.noun||g.qualifiers.length)&&!g.relations.length){
+    current.subject=g;setMode(2);
+   }
    else{index=saved;relations=0;setMode(1);}
   }
   if(workingMode===2&&!verb())fail();
@@ -149,7 +158,7 @@ export class Parser {
 
   return {nodes,next:index,mode:workingMode,outcome:'ok',...(lookahead?{lookahead}:{}),...(discarded.length?{discarded}:{}),...(continuationAnswer?{continuationAnswer}: {})};
  }
- quoted(quote,{onNominal=null,onCount=null,onAll=null,onTokenStart=null,onMode=null}={}){const units=[];let index=0,mode=0;onMode?.(0);try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount,onAll,onTokenStart,onMode,tokenBase:quote.tokenPointer});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
+ quoted(quote,{onNominal=null,onCount=null,onAll=null,onTokenStart=null,onMode=null}={}){const units=[];let index=0,mode=0;onMode?.(0);try{do{const out=this.unit(quote.tokens,index,{mode,onNominal,onCount,onAll,onTokenStart,onMode,tokenBase:quote.tokenPointer,quoteResidual:quote.residual===true});if(out.next<=index&&out.outcome!=='empty')fail();units.push(...(out.outcome==='empty'?[node()]:out.nodes));index=out.next;mode=out.mode;}while(index<quote.tokens.length&&quote.tokens[index].type!==192);}catch(error){if(error instanceof InputError)error.detail.partialNodes=[...units,...(error.detail.partialNodes||[])];throw error;}return {nodes:units,mode};}
 }
 
 export function nodeWords(n){

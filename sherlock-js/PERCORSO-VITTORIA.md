@@ -261,4 +261,43 @@ Entrando al binario subito e aspettando lì, Lestrade segue il
 proprio programma e passa a ovest prima della visita di Basil.
 Questa diramazione raggiunge `$6B79` allo stesso minuto.
 
-[Sequenza completa dei comandi](results/victory-route/victoria-full-route.txt)
+[Sequenza completa dei comandi](results/victory-route/victoria-full-route.txt) ·
+[Risultato della riproduzione originale](results/victory-route/victoria-native-verification.json)
+
+Per rifare la verifica offline dalla cartella del motore:
+
+```sh
+python3 tools/probe-murder-ending.py \
+  --manifest results/victory-route/victoria-manifest.json \
+  --output /tmp/sherlock-victoria-native.json
+```
+
+## Riproduzione JavaScript fino a Mrs Jones
+
+Il confronto dal primo comando arriva a **374 checkpoint**, fino
+a martedì alle 13:26. Comprende lo stato degli attori, tutti i 752
+byte dell’arena, gli ingressi e i risultati della casualità, la
+bitmap, i pacchetti di stampa della pagina e la prosecuzione dopo
+salvataggio e caricamento.
+
+- Alle 12:31 il test del passeggero a $E6F0 scrive l’ID 0 di Holmes.
+  La continuazione a $D031 ripristina l’ID 2 di Lestrade prima che
+  il cabbie annunci al cliente l’arrivo. Il messaggio è rivolto a
+  Lestrade anche quando Holmes è a bordo.
+- Alle 12:47 l’avvertimento sul debito, a $E725, usa un frame più
+  profondo. La stampa sovrascrive un indirizzo video residuo a
+  $5D0E. Nel modello il vecchio valore cessa di essere disponibile
+  dopo quella stampa.
+- Alle 13:22 «SAY TO JONES» lascia il puntatore precedente sopra
+  la nuova virgoletta di apertura. $B04D avvia un TALK implicito
+  e $B095 tratta la stessa virgoletta come fine della citazione.
+  Il verbo TELL nel posto di un argomento provoca il rifiuto
+  interno. L’azione esterna TALK consuma il minuto.
+- Nel successivo `SAY JONES "FOLLOW ME"` il puntatore rimasto
+  raggiunge il solo ME. $AAEA seleziona il modo 2 e $AB43 accetta
+  l’unità vuota tenendo il soggetto nello slot 24 del nodo.
+  $B8D1 ripristina il delimitatore. $BA20 consegna le affermazioni
+  a Watson e Lestrade; Mrs Jones lascia la richiesta nella lista
+  e continua il suo turno.
+
+[Disassemblato e byte verificati](results/victory-route/victory-route.asm)

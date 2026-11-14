@@ -211,7 +211,7 @@ export class Game {
    if(w.npcs)this.npcRuntime.addressee(node.groups[0]);
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
-   const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote():node.quote;
+   const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote((node.quotes||[node.quote]).filter(Boolean)):node.quote;
    if(quote){if(w.npcs)w.npcs.previousTokenClass=null;try{const parsed=this.parser.quoted(quote,{onMode:w.npcs?value=>{w.npcs.parserMode=value;}:null,onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null,onAll:w.npcs?value=>{w.npcs.parserAll=value;}:null,onTokenStart:w.npcs?value=>{w.npcs.parserTokenStart=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
     if(!(error instanceof InputError))throw error;
     if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
