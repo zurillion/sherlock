@@ -124,6 +124,12 @@ export class NpcRuntime {
   const preserveArrivalName=context.preserveArrivalName===true&&screen?.cursor===0&&!screen.pending&&screen.counter+3<15;
   const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan,preserveArrivalName}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
+  if(visible&&text==='681A'&&this.w.entity(actor).parent!==null)c.refusalWord=write=>{
+   // 67D6 / 67EE flush «cannot» and «that» at the same depth.
+   const display=g.sourceDisplay,{glyphFrame,refusalScanKnown}=display;
+   display.glyphFrame=0x5D34;display.refusalScanKnown=true;
+   try{write();}finally{Object.assign(display,{glyphFrame,refusalScanKnown});}
+  };
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
  inspect(id,actor,messages){
@@ -300,7 +306,8 @@ export class NpcRuntime {
      // the ordinary action fallback when the DOMAIN operation forbids it.
      this.print('681A',actor,{object:job.sender},messages);
     }
-    this.game.sourceDisplay.invalidateScratch(0x5D06);
+    const inVehicle=this.w.perceived(actor)&&this.w.entity(actor).parent!==null;
+    this.game.sourceDisplay.invalidateScratch(0x5D06,0x5D31,inVehicle?[0x5D23,0x5D29]:[]);
     cancel(true);
     if(follow)this.active.vm.state(actor).pc=context.operation.next;
     return {handled:true,cost:0};
@@ -595,7 +602,8 @@ export class NpcRuntime {
     // queued/isolated callers deliberately lack this action-frame contract.
     const e=w.entity(actor);
     const name=w.name(actor),prefixEnd=name.indexOf(' ');
-    if(e.person&&(e.noun&32768)&&e.qualifiers.filter(q=>q&&!(q&32768)).length===1&&prefixEnd>0)for(const m of shown)if(m.arrival_entity===actor){
+    // The qualified arrival frame is verified for Inspector Lestrade.
+    if(e.person&&(e.noun&32768)&&name.slice(0,prefixEnd)==='Inspector')for(const m of shown)if(m.arrival_entity===actor){
      m.scene_trace=[{kind:'arrival-person-prefix',start:0,end:prefixEnd,frame:0x5D2C}];
     }
     if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true}:{})});
@@ -648,7 +656,7 @@ export class NpcRuntime {
   const w=this.w,vehicle=actor-1,route=this.routes.find(w.roomOf(vehicle),target,{furiously});if(!route){this.print('6C34',actor,{},messages);return yes();}
   const customer=this.active.vm.saved(actor)[1],playerBefore=w.roomOf();this.temporaryCost(route.cost);
   const money=account(w,actor);if(money)money.pence=wrapMoney(money.pence-route.fare);
-  w.entity(vehicle).attributes&=127;w.rooms[1].flags&=~64;this.relocate(vehicle,1,messages,{sceneSource:'cab-departure'});
+  w.entity(vehicle).attributes&=127;w.rooms[1].flags&=~64;this.relocate(vehicle,1,messages,{sceneSource:furiously?'cab-departure-urgent':'cab-departure'});
   // 9B44 explicitly reloads the service customer into argument 2. CBEA has
   // an early return which leaves the current actor set to Holmes when a
   // notification cannot perceive its subject. Deferred contexts then belong

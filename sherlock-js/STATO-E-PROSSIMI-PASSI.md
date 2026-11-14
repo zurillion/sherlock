@@ -7,11 +7,30 @@ sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
 binario due minuti prima si ottiene **$6B79** allo stesso orario.
 Il motore JavaScript riproduce il recupero della nota dal fuoco,
 le deduzioni sui piani e sul luogo della vendita e la partenza
-di Lestrade. Il confronto arriva a mercoledì alle 18:19 a bordo
-del treno di ritorno (666 checkpoint). Il prossimo punto è
-il LOOK delle 18:20, con il rifiuto di Lestrade.
-
+di Lestrade. Il confronto del percorso principale arriva fino
+alla vittoria a Victoria (700 checkpoint, 8.784 estrazioni).
+Anche la diramazione $6B79 coincide da un salvataggio nell’atrio.
 [Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
+
+## Lavoro ancora aperto
+
+1. **Finale $6ABD.** Riprodurre la vendita tardiva dopo che Lestrade ha
+   accettato entrambe le deduzioni sugli omicidi. Acquisire la partita
+   dal primo comando sullo Spectrum e confrontarla fino al finale con
+   il motore JavaScript. $6A33 ha già il proprio percorso di riferimento.
+2. **Diramazione passiva di Brown e seconda origine di $759C.**
+   Riprendere il confronto alla lettura $CB29 di giovedì mattina,
+   identificando la word di cui è il byte alto. Verificare anche
+   l’innesco $EFC7 di $759C oltre alla cassaforte già verificata.
+3. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
+   seed e sequenze di comandi plausibili. Confrontare l’origine della
+   prima estrazione diversa, la sequenza degli eventi e il futuro dopo
+   SAVE/LOAD. Estendere i test a NEW/LOAD e alla grafica originale nei
+   casi in cui la presentazione influisce sulle letture casuali.
+
+La mappa riporta 39.613 byte documentati, 426 parziali e 1.561
+ancora sconosciuti, su 41.600 byte di memoria del gioco.
+
 
 ## Finale nella camera di Basil
 

@@ -99,13 +99,16 @@ Verifica inoltre i pacchetti realmente usati dalla pagina, il testo visibile
 **prima** del tasto finale, il futuro dopo Salva/Carica e il congelamento dopo
 la fine partita.
 
-I nove selettori terminali hanno già prove controllate in
-[CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md). Le storie naturali ora
-certificano tre testi distinti: 693A, 6A26 e 759C. Rimangono da certificare
-naturalmente **69BF, 6A33, 6ABD, 6AF3, 6B79 e 75D2**, inclusa una soluzione
-completa con acquisizione reale degli indizi. In particolare la correzione
-delle premesse rende utilizzabile il passaggio che evita l'arresto erroneo,
-ma non certifica automaticamente tutti i successivi rami della soluzione.
+I nove selettori terminali hanno prove controllate in
+[CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md). Le partite naturali
+documentate raggiungono 693A, 69BF, 6A26, 6A33 e 759C. Si aggiungono
+75D2 nella camera di Basil e i due esiti di Victoria, 6AF3 e 6B79.
+Il confronto naturale di 6ABD e la variante di 759C innescata da EFC7
+sono ancora aperti.
+
+[Vittoria e diramazione di Victoria](PERCORSO-VITTORIA.md) ·
+[Finale nella camera di Basil](BROWN-FINALE-BASIL.md) ·
+[Verifiche da completare](STATO-E-PROSSIMI-PASSI.md)
 
 Dati e strumenti:
 

@@ -226,12 +226,13 @@ L’intera tratta è una prova sullo Spectrum.
 
 [Comandi da Parliament Street alla seconda deduzione](results/victory-route/from-brown-to-jones.txt)
 
-## Vittoria a Victoria nell’originale
+## Vittoria a Victoria
 
 Una partita con seed 1 e tutti gli attori attivi raggiunge il testo
 `$6AF3` **mercoledì alle 20:12**, al binario 1 di Victoria.
 I comandi sono stati giocati sullo Spectrum senza teletrasporti o
-modifiche alla partita. Il motore JavaScript ha un confronto separato.
+modifiche alla partita. Il motore autonomo JavaScript raggiunge lo stesso finale, con gli
+stessi comandi e lo stesso seed.
 
 - Dopo le due deduzioni sugli omicidi, Holmes esamina a Camden
   le due note cifrate martedì sera. Mercoledì salva dal fuoco la
@@ -259,7 +260,10 @@ modifiche alla partita. Il motore JavaScript ha un confronto separato.
 
 Entrando al binario subito e aspettando lì, Lestrade segue il
 proprio programma e passa a ovest prima della visita di Basil.
-Questa diramazione raggiunge `$6B79` allo stesso minuto.
+Questa diramazione raggiunge `$6B79` allo stesso minuto. Il test
+parte dal salvataggio JavaScript nell’atrio e confronta anche i
+[tre comandi della variante](results/victory-route/victoria-early-platform.txt)
+con il ramo corrispondente dello Spectrum.
 
 [Sequenza completa dei comandi](results/victory-route/victoria-full-route.txt) ·
 [Risultato della riproduzione originale](results/victory-route/victoria-native-verification.json)
@@ -414,5 +418,35 @@ il puntatore dal record dell’attore. Anche il tentativo di salire
 sul treno assente attraversa il rifiuto del resolver e libera
 il nodo nel momento previsto dal gioco.
 
-Il confronto si ferma al LOOK delle 18:20, che esegue anche
+Il limite di questa tappa era il LOOK delle 18:20, che esegue
 un rifiuto di Lestrade mentre Holmes è a bordo.
+
+
+### Dal treno di ritorno alla vittoria
+
+Durante il LOOK a bordo, la stampa dell’elenco dei passeggeri
+attraversa una pulizia profonda della riga. Il rifiuto di Lestrade
+scinde poi «cannot» e «that» nei frame $5D2E e $5D34; $C39D
+lascia l’ottava riga dello spazio e del glifo a $5D23 e $5D29.
+Alle 18:47, durante il viaggio, Lestrade legge $A023: la coda
+letterale di «countryside» conserva il descrittore di «count»
+($51F7), che precede il suffisso. L’agente che emerge alla vista
+sulla via per l’uscita di Kings Cross è annunciato con l’articolo
+indefinito.
+
+Nell’ultimo cab, il ritorno a capo dal frammento $7DE1 usa
+$C374 con frame $5D2C. $C38B conserva il byte basso
+dell’indirizzo video dell’ultima cella pulita a $5D24; la
+stampa del possessivo «your» lascia $5D2A con lo stesso
+meccanismo, nel frame $5D32. L’estrazione li legge alle 19:52.
+
+Il test del motore autonomo confronta i 350 comandi della
+partita sui 700 punti del riferimento originale: 8.784 estrazioni,
+18.748 letture, attori, oggetti, orologio, registri del mondo,
+bitmap di testo e pacchetti per la pagina web. Controlla inoltre
+il proseguimento dopo SAVE/LOAD e il blocco del mondo dopo
+l’unica conferma del finale. Il riferimento originale resta
+nei test; il motore non lo carica né interpreta istruzioni Z80.
+
+Il confronto completo copre il seed 1. Le altre diramazioni
+e gli altri seed sono nel piano delle verifiche successive.

@@ -32,7 +32,10 @@ class SpectrumBuffer {
  *verbatim(character){
   if(!this.started&&character===' '){this.lastSpacePrinted=false;return;}
   if(character==='\r')this.started=false;else this.started=true;
-  const full=this.remaining===1;yield* this.raw(character);this.lastSpacePrinted=character===' ';if(full)this.started=false;
+  const full=this.remaining===1;yield* this.raw(character);this.lastSpacePrinted=character===' ';
+  // A quote leaves the line active even when it was printed at the margin:
+  // AA2A sets the spacing flag after C2C6 returns from the scroll.
+  if(full&&character!=='"')this.started=false;
  }
  *packet(event){
   const write=event.formatted?c=>this.verbatim(c):c=>this.formatted(c,event.force);

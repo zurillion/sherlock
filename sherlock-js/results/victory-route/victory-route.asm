@@ -20,9 +20,29 @@
 ; DATA: Prove del luogo della vendita
     DEFB $6A,$04,$69,$A4,$FC,$99,$00,$00,$00,$00,$55,$00,$55,$40,$00,$00,$00,$0A ; $99A9 6a 04 69 a4 fc 99 00 00 00 00 55 00 55 40 00 00 00 0a | Richiede il presupposto impostato da 9A27, l’esame della nota recuperata dal fuoco e che il conto alla rovescia non l’abbia fatta bruciare.
 
+    ORG $67B8
+; DATA: Selezione del possessivo nella descrizione del cab
+    DEFB $08,$DB,$08,$01                  ; $67B8 08 db 08 01 | Il sottodecoder del possessivo riprende qui: «your» lascia L del glifo a 5D2A durante la partenza in cab.
+
+    ORG $67D4
+; DATA: Token del rifiuto intorno a do
+    DEFB $03,$63,$02,$86,$09,$4B,$09      ; $67D4 03 63 02 86 09 4b 09 | Il riferimento do chiude la parola cannot. Il ritorno a capo usa il frame 5D2E e conserva l’ottava riga dello spazio a 5D23.
+
+    ORG $67EC
+; DATA: Chiusura del rifiuto di un ordine
+    DEFB $03,$E0,$05,$C0,$00,$96,$09,$14,$04,$94,$05 ; $67EC 03 e0 05 c0 00 96 09 14 04 94 05 | Il delimitatore che precede now scarica that nel frame 5D34. L’ottava riga del glifo resta a 5D29.
+
+    ORG $681A
+; DATA: Risposta a un ordine incompatibile
+    DEFB $0B,$E5,$FF,$88,$12,$2C,$F4,$2D,$81,$7F,$6F,$66,$7B,$2E,$22,$1D ; $681A 0b e5 ff 88 12 2c f4 2d 81 7f 6f 66 7b 2e 22 1d | La formula passa da 67FF per soggetto e verbo e continua con Sorry, I cannot do that now.
+
     ORG $7DE1
 ; DATA: Descrizione del cab in viaggio: lampioni oppure sole
     DEFB $10,$C8,$F4,$60,$C8,$61,$65,$F5,$1B,$68,$62,$83,$CE,$D1,$64,$2C,$17,$02,$CF,$FF,$60,$88,$72,$20,$45,$9A,$12,$E2,$CC,$88,$CE,$60,$C9,$BB,$86,$07,$89,$F2,$82,$DD,$2E,$1F ; $7DE1 10 c8 f4 60 c8 61 65 f5 1b 68 62 83 ce d1 64 2c 17 02 cf ff 60 88 72 20 45 9a 12 e2 cc 88 ce 60 c9 bb 86 07 89 f2 82 dd 2e 1f | Il token 17 a 7DF1 condiziona il salto 02 a 7DF2. Di notte termina il frammento corrente a favore del testo dei lampioni a 7DC1.
+
+    ORG $7E45
+; DATA: Descrizione del viaggio in treno: campagna inglese
+    DEFB $10,$C7,$2E,$68,$62,$88,$4C,$88,$EB,$88,$CE,$60,$20,$4A,$82,$47,$4A,$C8,$B3,$8D,$4A,$F2,$8D,$D1,$F7,$45,$96,$66,$92,$14,$2E,$1F ; $7E45 10 c7 2e 68 62 88 4c 88 eb 88 ce 60 20 4a 82 47 4a c8 b3 8d 4a f2 8d d1 f7 45 96 66 92 14 2e 1f | Il descrittore 51F7 di count rimane l’ultimo riferimento lessicale mentre si stampa la coda letterale di countryside.
 
     ORG $9A13
 ; CODE: Accettazione dei piani subordinata ai due omicidi

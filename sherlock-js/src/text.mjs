@@ -90,7 +90,7 @@ export class Text {
   };
   const emit=t=>{
    switch(t.op){
-    case 'word':{mixOffset=t.randomContext??null;remember(t.randomContext??null);if(t.id){feed(' ',{dict:true});if(t.capitalized){capitalize=true;dictionaryCapital();}const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
+    case 'word':{mixOffset=t.randomContext??null;remember(t.randomContext??null);if(t.id){const delimiter=()=>feed(' ',{dict:true});if(context.refusalWord&&[611,1504].includes(t.id))context.refusalWord(delimiter);else delimiter();if(t.capitalized){capitalize=true;dictionaryCapital();}const word=this.dictionary.word(t.id);if(!word)throw Error('Invalid text word');const inflected=t.form==='inflected'||(t.form==='actor'&&actor!==0)||(t.form==='object'&&object!==0);feed(inflected?word.form:word.stem,{dict:true,raw:word.stem+(inflected?(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''):'')});}if(t.end==='sentence')feed('.\n');if(t.end==='line')feed('\n');break;}
     case 'literal':feed(t.text);break;
     case 'call':case 'jump':{
      const jump=t.op==='jump';
@@ -172,7 +172,7 @@ export class Text {
   // D102 four bytes shallower than CA9E's movement notification; describing
   // fellow passengers in D113 adds two bytes relative to the room list.
   // D1B2's brief scene skips D102's three pushes and D113's call (8 bytes).
-  const entryOffset=['look','cab-departure'].includes(source)?4:full?0:8;
+  const entryOffset=['look','cab-departure','cab-departure-urgent'].includes(source)?4:full?0:8;
   const listFrame=depth=>0x5D18+entryOffset-(parent!==null?2:0)-6*depth;
   const list=parent=>w.entities.filter(e=>e.parent===parent&&e.id!==w.player&&e.rooms.length<2&&!w.owns(w.player,e.id)&&w.perceived(e.id));
   const renderChildren=(parent,depth=0)=>{
@@ -275,9 +275,18 @@ export class Text {
    // In the countryside fragment, “English” is emitted in the
    // room-description frame. Its word wrap uses C374 six bytes deeper.
    if(trace&&r.description==='7E45'&&parent!==null&&source==='arrival'){
+    // D17C does not emit an exits list for the moving train. The last
+    // compressed dictionary token remains selected through the literal tail.
+    trace.push({kind:'final-dictionary-reference',value:this.data.texts[r.description].findLast(t=>t.op==='word').randomContext});
     const at=prose.indexOf(' English ');
     if(at>=0)trace.push({kind:'train-description-english',start:start+at+1,end:start+at+8,
                         frame:0x5D2E,trainScanKnown:true});
+   }
+   if(trace&&r.description==='7DE1'&&parent!==null&&source==='cab-departure-urgent'){
+    const at=prose.lastIndexOf(' your ');
+    if(at>=0)trace.push({kind:'cab-possessive',start:start+at+1,end:start+at+5,frame:0x5D32});
+    const through=prose.lastIndexOf(' through ');
+    if(through>=0)trace.push({kind:'cab-city',start:start+through+1,end:start+through+8,frame:0x5D32});
    }
    if(trace&&r.description==='7E0B'&&parent===109){
     const isLooking=source==='look',copula=prose.indexOf(' are ');

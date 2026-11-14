@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
   "instructions": 529,
-  "bytes_roundtripped": 1497,
+  "bytes_roundtripped": 1567,
   "regions": [
     {
       "start": "9965",
@@ -39,10 +39,45 @@
       "atlas_priority": 189
     },
     {
+      "start": "67B8",
+      "end_exclusive": "67BC",
+      "kind": "data",
+      "label": "Selezione del possessivo nella descrizione del cab",
+      "atlas_priority": 189
+    },
+    {
+      "start": "67D4",
+      "end_exclusive": "67DB",
+      "kind": "data",
+      "label": "Token del rifiuto intorno a do",
+      "atlas_priority": 189
+    },
+    {
+      "start": "67EC",
+      "end_exclusive": "67F7",
+      "kind": "data",
+      "label": "Chiusura del rifiuto di un ordine",
+      "atlas_priority": 189
+    },
+    {
+      "start": "681A",
+      "end_exclusive": "682A",
+      "kind": "data",
+      "label": "Risposta a un ordine incompatibile",
+      "atlas_priority": 189
+    },
+    {
       "start": "7DE1",
       "end_exclusive": "7E0B",
       "kind": "data",
       "label": "Descrizione del cab in viaggio: lampioni oppure sole",
+      "atlas_priority": 189
+    },
+    {
+      "start": "7E45",
+      "end_exclusive": "7E65",
+      "kind": "data",
+      "label": "Descrizione del viaggio in treno: campagna inglese",
       "atlas_priority": 189
     },
     {

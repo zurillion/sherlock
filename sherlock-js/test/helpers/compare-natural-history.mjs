@@ -1,9 +1,13 @@
 import{createHash}from'node:crypto';import assert from'node:assert/strict';import{ClientSession}from'../../src/session.mjs';import{assertOriginalState}from'./original-state.mjs';import{SpectrumBuffer}from'../../src/spectrum.mjs';
-export async function compareNaturalHistory(data,c,{onSession,onCheckpoint}={}){
- const session=new ClientSession(data,{npc_profile:'world-v5',seed:1}),g=session.game,screen=new SpectrumBuffer();onSession?.(session);
+export async function compareNaturalHistory(data,c,{onSession,onCheckpoint,initialSave=null}={}){
+ const session=new ClientSession(data,{npc_profile:'world-v5',seed:1}),screen=new SpectrumBuffer();
+ if(initialSave)await session.request('load',{save:initialSave});
+ const g=session.game;onSession?.(session);
+ if(initialSave){const d=g.world.display;Object.assign(screen,{lines:d.upper.slice(),counter:d.counter,cursor:d.cursor,remaining:d.remaining,started:d.started,lastSpacePrinted:d.lastSpacePrinted});}
+
  const stats=()=>({checkpoints:c.steps.length,random_draws:g.world.random.draws,clock:g.world.clock(),terminal:g.ended,all_actors:24,load_future_compared:true,arena_bytes_per_checkpoint:752,bitmaps_compared:true});
  let acknowledgements=0;const upperHash=()=>createHash('sha256').update(Uint8Array.from(Array.from({length:144*32},(_,i)=>g.sourceDisplay.rowByte(screen.lines[Math.floor(i/256)],Math.floor(i/32)%8,(i%32)*8)))).digest('hex');
- const deliver=(events,pause)=>{for(const e of events||[]){if(e.op==='counter')screen.counter=e.value;else if(e.op==='wide')screen.setColumns(36);else if(e.op==='acknowledge'){acknowledgements++;assert.equal(e.reason,'ending');assert(pause);assert.equal(screen.counter,pause.mutable.A019);assert.equal(upperHash(),pause.upper_sha256,'Terminal text before acknowledgement');}else if(e.op==='word')for(const op of screen.packet(e))if(op==='line')while(!screen.newline())screen.more();}};deliver(session.state().opening_screen);let out,n=g.world.random.draws,loaded=null,mirror=null,mirrorOut=null;
+ const deliver=(events,pause)=>{for(const e of events||[]){if(e.op==='counter')screen.counter=e.value;else if(e.op==='wide')screen.setColumns(36);else if(e.op==='acknowledge'){acknowledgements++;assert.equal(e.reason,'ending');assert(pause);assert.equal(screen.counter,pause.mutable.A019);assert.equal(upperHash(),pause.upper_sha256,'Terminal text before acknowledgement');}else if(e.op==='word')for(const op of screen.packet(e))if(op==='line')while(!screen.newline())screen.more();}};if(!initialSave)deliver(session.state().opening_screen);let out,n=g.world.random.draws,loaded=null,mirror=null,mirrorOut=null;
  for(const[index,row]of c.steps.entries()){
   let guard=0;const budget=((row.after.clock.tick-g.world.tick)&65535)+1;
   if(row.input?.startsWith('WAIT UNTIL')&&loaded){mirror=loaded;mirrorOut=mirror.request('start-command',{command:row.input});}
