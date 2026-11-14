@@ -493,6 +493,25 @@
     DEFB $07,$35,$E1,$FD,$FF              ; $E0A7 07 35 e1 fd ff
     DEFB $0B                              ; $E0AC 0b
 
+    ORG $E6BE
+; CODE: Richiesta di pagamento del cabbie
+    LD A,($A035)                          ; $E6BE 3a 35 a0
+    CALL $E619                            ; $E6C1 cd 19 e6
+    JR Z,$E6E3                            ; $E6C4 28 1d
+    LD E,(IX+$09)                         ; $E6C6 dd 5e 09
+    LD D,(IX+$0A)                         ; $E6C9 dd 56 0a
+    LD HL,$6BB7                           ; $E6CC 21 b7 6b
+    CALL $A59F                            ; $E6CF cd 9f a5 | Il frammento 6BB7 stampa la richiesta prima della cifra. TO scarica il buffer al frame 5D24. Il ritorno a capo di guv’nor pulisce la riga al frame 5D30.
+    LD HL,$0000                           ; $E6D2 21 00 00
+    AND A                                 ; $E6D5 a7
+    SBC HL,DE                             ; $E6D6 ed 52
+    CALL $A419                            ; $E6D8 cd 19 a4
+    LD A,$22                              ; $E6DB 3e 22
+    CALL $A9B7                            ; $E6DD cd b7 a9
+    CALL $A2A2                            ; $E6E0 cd a2 a2
+    OR $01                                ; $E6E3 f6 01
+    RET                                   ; $E6E5 c9
+
     ORG $E6EA
 ; CODE: Cab: controllo del passeggero e scrittura temporanea
     CALL $CFB6                            ; $E6EA cd b6 cf

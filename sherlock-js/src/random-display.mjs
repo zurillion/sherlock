@@ -56,7 +56,7 @@ export class RandomDisplay {
    // Reserve the final CR and action separator below the MORE threshold.
    if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
   }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
- glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null){
+ glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null,{fareRowClear=false}={}){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
   // C38B/C398 retain the screen address at frame-8. The verified
@@ -95,10 +95,11 @@ export class RandomDisplay {
     frame===0x5D2E&&descriptor!==0x5A20&&at===0x5D23
    );
    const usesUpperContext=at>=0x5D20&&at<=0x5D2B||at===0x5D30;
+   const cabClear=fareRowClear&&at===0x5D24;
    if((at===0x5D2B&&!passageSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity)||
-    (at===0x5D1E&&this.upperGlyphKnown!==true&&!(this.glyphVideoLowKnown===true&&frame===0x5D26))||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear)||
+    (at===0x5D1E&&this.upperGlyphKnown!==true&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;

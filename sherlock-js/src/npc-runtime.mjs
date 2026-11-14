@@ -660,9 +660,21 @@ export class NpcRuntime {
   if(visible&&recipient===this.w.player)c.objectNameEntry=write=>{
    const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown,flags=p.glyphFlagsKnown;
    if(p.state?.pending!=='to'){write();return;}
-   p.glyphFrame=0x5D24;p.upperGlyphKnown=false;p.glyphFlagsKnown=true;
-   try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;p.glyphFlagsKnown=flags;}
+   const videoLow=p.glyphVideoLowKnown;
+   p.glyphFrame=0x5D24;p.upperGlyphKnown=false;p.glyphFlagsKnown=true;p.glyphVideoLowKnown=true;
+   try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;p.glyphFlagsKnown=flags;p.glyphVideoLowKnown=videoLow;}
   };
+  // The article in the fare formula flushes the buffered guv'nor.
+  // When that word wraps, C374 saves the last space scan in frame 5D30.
+  if(visible){
+   const sink=c.sink,p=g.sourceDisplay;
+   c.sink=ch=>{
+    const pending=p.state.pending;
+    if(ch===' '&&pending.toLowerCase()==="guv'nor"&&p.state.remaining<pending.length)
+     p.glyphResidue(' ',0x5D30,35,0x5A20,null,{fareRowClear:true});
+    sink(ch);
+   };
+  }
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner}),pence=(-amount)&16383,money=' '+formatMoney(pence),tail=' "\n',suffix=money+tail;
   const append=text=>{for(const ch of text){g.sourceDisplay.bufferFeed(ch.replace('d','D'),{hidden:!visible});c.sink?.(ch);}};append(money);g.sourceDisplay.moneyCapital(pence);append(tail);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));

@@ -7,8 +7,8 @@ sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
 binario due minuti prima si ottiene **$6B79** allo stesso orario.
 Il motore JavaScript riproduce il recupero della nota dal fuoco,
 le deduzioni sui piani e sul luogo della vendita e la partenza
-di Lestrade. Il successivo limite è la lettura di $5D1E alle
-11:10 di mercoledì, sul tragitto verso Kings Cross.
+di Lestrade. Il confronto arriva a mercoledì alle 12:40,
+sul treno verso Leatherhead. La successiva lettura è $5D1F.
 
 [Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
 

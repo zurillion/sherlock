@@ -371,6 +371,18 @@ partenza a ovest comincia con un delimitatore: separa il
 nome dalla parola che chiude «catch them.».
 
 Il confronto dello stato, delle estrazioni e della bitmap
-arriva a **575 checkpoint**. La lettura casuale di $5D1E
-durante il viaggio in cab verso Kings Cross è il limite
-successivo.
+arriva a **600 checkpoint**, fino a mercoledì alle 12:40,
+sul treno con Lestrade e Watson.
+
+Durante la richiesta di pagamento a Kings Cross, la parola
+«to» viene scaricata mentre il decoder apre il nome del
+destinatario. Il glifo usa il frame $5D24 e $C398 conserva
+il byte basso del descrittore a $5D1E. Il ritorno a capo
+di «guv’nor» passa da $C374 con frame $5D30. Il salvataggio
+dell’ultima scansione dello spazio a $C3B8 produce $5D24.
+La cuoca legge entrambe le celle durante il suo turno
+delle 11:13. Holmes paga due scellini e riceve uno scellino
+e sei pence di resto.
+
+La successiva lettura da ricostruire è $5D1F, sul treno
+verso Leatherhead alle 12:41.

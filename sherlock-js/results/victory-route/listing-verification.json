@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 436,
-  "bytes_roundtripped": 1282,
+  "instructions": 452,
+  "bytes_roundtripped": 1322,
   "regions": [
     {
       "start": "9965",
@@ -190,6 +190,13 @@
       "end_exclusive": "E0AD",
       "kind": "domain",
       "label": "Ritrovamento ed esame del ruscello",
+      "atlas_priority": 189
+    },
+    {
+      "start": "E6BE",
+      "end_exclusive": "E6E6",
+      "kind": "code",
+      "label": "Richiesta di pagamento del cabbie",
       "atlas_priority": 189
     },
     {
