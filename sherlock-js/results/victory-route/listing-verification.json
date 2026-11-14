@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 376,
-  "bytes_roundtripped": 1153,
+  "instructions": 427,
+  "bytes_roundtripped": 1262,
   "regions": [
     {
       "start": "9965",
@@ -144,10 +144,24 @@
       "atlas_priority": 189
     },
     {
+      "start": "D16B",
+      "end_exclusive": "D1B2",
+      "kind": "code",
+      "label": "Arrivo completo: nome generico del veicolo e della stanza",
+      "atlas_priority": 189
+    },
+    {
       "start": "D1B2",
       "end_exclusive": "D1C6",
       "kind": "code",
       "label": "Descrizione breve e controllo della luce dopo lo spostamento",
+      "atlas_priority": 189
+    },
+    {
+      "start": "D53C",
+      "end_exclusive": "D562",
+      "kind": "code",
+      "label": "Elenco dei contenitori durante LOOK",
       "atlas_priority": 189
     },
     {

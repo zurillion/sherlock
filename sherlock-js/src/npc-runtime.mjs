@@ -117,7 +117,11 @@ export class NpcRuntime {
   // CC37/C821 select the output by perception; successful NPC speech is
   // still printed in darkness (A2E4 only rejects dark failure output).
   const g=this.game,visible=force||this.w.perceived(actor);
-  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  // F2C6's departure speech at a fresh upper row stays above the
+  // saved scan registers, including its wraps before a MORE pause.
+  const screen=g.sourceDisplay.state;
+  const preserveScan=text==='6BF6'&&screen?.cursor===0&&!screen.pending&&screen.counter+4<15;
+  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
@@ -596,12 +600,16 @@ export class NpcRuntime {
   if(directional&&visible){const message=g.text.directionalMovement(w.name(id),notification.direction);messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
-   const room=w.rooms[w.roomOf()],full=!(room.flags&64),message={...g.sceneMessage({full,source:notification.sceneSource??'arrival',perceptionRoom:before}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
+   const room=w.rooms[w.roomOf()],full=!(room.flags&64);
+   const parent=w.entity(w.player).parent;
+   const message={...g.sceneMessage({full,source:notification.sceneSource??'arrival',perceptionRoom:before}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
    // D187's introduction tail and compound-subject prefix are projected by
    // the scene trace, including C374's return link on a wrapped word. Keep
    // those derived glyph fields for the ordinary hansom cab. The police
    // vehicle's extra caller still has unprojected AF/BC owners.
-   const parent=w.entity(w.player).parent;
+   // In D187 the common-name prefix can wrap with C374/SP=5D1A.
+   // The deeper clear replaces the scan and video fields below 5D12.
+   if(notification.sceneSource==='cab-arrival'&&full&&!room.description&&[30,33].includes(parent))g.sourceDisplay.invalidateScratch(0x5D0E,0x5D11);
    if(notification.sceneSource==='cab-arrival'&&!room.description&&parent===109)g.sourceDisplay.invalidateScratch(0x5D08,0x5D0F);
   }else if(old!==room&&id!==w.player&&[30,33].includes(id)&&notification.sceneSource!=='cab-arrival'&&w.perceived(id)){
    const message={kind:'narrative',text:w.name(id)+' is in '+g.text.roomName(room)+'.'};message.text=message.text[0].toUpperCase()+message.text.slice(1);messages.push(message);g.projectMessages([message]);

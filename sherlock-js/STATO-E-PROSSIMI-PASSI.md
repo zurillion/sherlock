@@ -5,10 +5,10 @@ Aggiornamento 14 novembre 2026.
 Il percorso naturale con seed 1 raggiunge la vittoria **$6AF3**
 sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
 binario due minuti prima si ottiene **$6B79** allo stesso orario.
-Il motore JavaScript coincide fino a martedì alle 14:00.
-Lestrade ha confermato entrambe le deduzioni sugli omicidi.
-Il successivo limite riguarda la stampa del cabbie durante
-il viaggio verso Camden Street.
+Il motore JavaScript supera l’attesa a Camden Street e arriva
+a entrambe le note cifrate, dopo le due deduzioni sugli omicidi.
+Il confronto arriva a mercoledì alle 05:20. Il successivo
+limite è la lettura di $5D1A alle 05:24 da parte del giardiniere.
 
 [Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
 

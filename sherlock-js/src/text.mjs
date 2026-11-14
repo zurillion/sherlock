@@ -181,7 +181,7 @@ export class Text {
    // A414 leaves the final exit/passage noun buffered. The room-list
    // introduction provides its delimiter, then SEE flushes in the first
    // object's naming call. AND is a separate dictionary invocation.
-   if(parent===null){const previous=text.join(' '),tail=previous.match(/\S+$/);if(trace&&tail&&/^(Visible exits are |To the |Above |Below )/.test(text.at(-1)))trace.push({kind:'room-list-delimits-exits',start:previous.length-tail[0].length,end:previous.length,frame:listFrame(depth)-2});prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
+   if(parent===null){const previous=text.join(' '),tail=previous.match(/\S+$/);if(trace&&tail&&/^(Visible exits are |To the |Above |Below )/.test(text.at(-1)))trace.push({kind:'room-list-delimits-exits',start:previous.length-tail[0].length,end:previous.length,frame:listFrame(depth)-(w.player!==0&&source==='arrival'&&full?4:2)});prefix=actorName+' can see ';const start=text.join(' ').length+(text.length?1:0);text.push(prefix+joinList(names)+'.');
     if(trace)trace.push({kind:'room-list-see',start:start+prefix.length-4,end:start+prefix.length-1,frame:listFrame(depth)+((children[0].noun&32768)?4:2)});
     if(trace){let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'root-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+((children.at(-1).noun&0x8000)?4:2)});for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' ');if(length>0)trace.push({kind:'root-object-prefix',parent:children[i].id,start:start+prefix.length+offset,end:start+prefix.length+offset+length,frame:listFrame(depth)+4,spaceAfter:true,spaceClearFrame:listFrame(depth)+8});this.traceNameBuffer(trace,children[i].id,item,start+prefix.length+offset,{indefinite:true});offset+=item.length;}}
    }
@@ -209,7 +209,7 @@ export class Text {
      // bytes shallower. A wrapped THERE can reach the low working cells.
      trace.push({kind:'container-there',start:nameEnd+1,end:nameEnd+6,frame:listFrame(depth)});
      trace.push({kind:'container-copula',start:nameEnd+7,end:start+prefix.length-1,frame:listFrame(depth)+2});
-     let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});this.traceNameBuffer(trace,children[i].id,item,at,{indefinite:true});offset+=item.length;}}
+     let offset=0;const inventory=joinList(names),conjunction=inventory.lastIndexOf(' and ');if(conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+prefix.length+conjunction+1,end:start+prefix.length+conjunction+4,frame:listFrame(depth)+2});for(const [i,item]of names.entries()){offset=inventory.indexOf(item,offset);const length=item.lastIndexOf(' '),at=start+prefix.length+offset;if(length>0)trace.push({kind:'carried-object-prefix',parent:children[i].id,start:at,end:at+length,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true,spaceScanAfKnown:source==='look'&&depth===1&&[30,33].includes(parent)});if(i)trace.push({kind:'following-object-delimiter',parent:children[i].id,start:at-1,end:at,frame:listFrame(depth)+2,spaceAfter:true});this.traceNameBuffer(trace,children[i].id,item,at,{indefinite:true});offset+=item.length;}}
     text.push(prefix+joinList(names)+'.');}}
    if(trace&&prefix&&children.length===1&&children[0].person&&(children[0].noun&32768)&&list(children[0].id).length)trace.push({kind:'literal-person-name',parent:children[0].id,start:text.join(' ').length-names[0].length-1,end:text.join(' ').length,frame:listFrame(depth)-26});
    if(trace&&parent!==null)trace.push({end:text.join(' ').length,kind:w.entity(parent).person?'personal-contents':'container-contents',depth,parent,room,child:children.length===1?children[0].id:null});
@@ -250,6 +250,10 @@ export class Text {
    // A9D7 retains the raw last word after the line is flushed.
    if(trace)trace.push({kind:'raw-text-buffer',start,end:start+directions.length+1,affectsStack:false,
     events:Array.from(' '+directions+'.',c=>({c,known:true}))});
+   // The A59F expansion of 68FE flushes “exits” while the D16B
+   // full arrival description is active. C388 enters at 5D24.
+   if(trace&&source==='cab-arrival'&&parent!==null&&full&&!r.description)
+    trace.push({kind:'cab-arrival-exits',start:start-'exits are '.length,end:start-' are '.length,frame:0x5D24});
    text.push('Visible exits are '+directions+'.');
   };
   const describe=()=>{
@@ -309,7 +313,10 @@ export class Text {
   if(!briefDark)describeExits();
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
-  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:(at===0&&full&&!r.description?0x5D1A:0x5D14)+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:(at===0&&full&&!r.description?0x5D1A:0x5D16)+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
+  // The initial alternate-identity phrase goes through D187/68DD,
+  // including the brief description with no prose. Its qualifier is
+  // six bytes below the frame used for the final noun.
+  if(trace&&w.player!==0)for(let at=output.indexOf(actorName);at!==-1;at=output.indexOf(actorName,at+actorName.length)){const article=actorName.indexOf(' ')+1,noun=actorName.lastIndexOf(' ')+1;trace.push({kind:'alternate-actor-article',start:at,end:at+article,frame:(at===0&&full&&!r.description?0x5D1A:0x5D14)+entryOffset});trace.push({kind:'alternate-actor-name',start:at+article,end:at+noun,frame:(at===0&&!r.description?0x5D1A:0x5D16)+entryOffset});trace.push({kind:'alternate-actor-noun',start:at+noun,end:at+actorName.length+1,frame:0x5D2A+entryOffset});}
   return output;
  }
 }

@@ -315,3 +315,49 @@ al primo oggetto valido tramite `$B238`. `$B973–$B976` conserva
 Tricia. Lestrade l’accetta alle 13:53. Il confronto arriva a
 **394 checkpoint**, fino al secondo ordine per Camden Street
 alle 14:00.
+
+### Arrivo in cab a Camden Street
+
+Il secondo ordine per Camden è ricevuto quando il cab è già
+in viaggio. L’originale stampa il rifiuto $6C34 attraverso
+$9B79, poi arriva comunque a Camden per effetto del primo
+ordine. La traccia originale del tick 1803 separa i due eventi.
+
+La descrizione completa entra a $D187 perché la strada ha
+puntatore alla prosa zero. L’andata a capo del nome del veicolo
+passa per $C374 con frame $5D1A e sostituisce i residui
+video a partire da $5D0E. Più avanti $D68C stampa le uscite.
+L’ultima s di «exits» entra in $C388 con frame $5D24,
+indirizzo video $502A e shift 6. $C3B8 lascia i flag
+di scansione a $5D18. La cuoca legge quel byte al tick 1812
+e il generatore prosegue alla seconda coppia di letture.
+Il motore ricava il valore dalla stampa del glifo e conserva
+l’effetto dopo salvataggio e caricamento.
+
+Il LOOK a piedi alle 14:18 lascia un altro AF di scansione
+nello stack. Il delimitatore di «hansom cab» entra nel renderer
+a $5D26 e salva le flag a $5D1A. La battuta di congedo $6BF6
+su riga nuova raggiunge al massimo il frame $5D30 in questa
+traccia. Conserva quindi i due byte. Alle 17:19 la cuoca
+legge $5D1A e il generatore riproduce la stessa scelta. Alle 20:16 il
+giardiniere legge lo shift 3 a $5D1C, salvato da $C39C/$C3B7
+per lo stesso spazio. Conservare anche BC allinea questa
+seconda estrazione.
+
+Prima dell’elenco del cortile di Basil, il frammento $68E4
+richiama l’articolo del personaggio travestito. Il delimitatore
+scarica la parola «door.» con il glifo a $5D14. Se deve andare
+a capo, $C374 pulisce la riga con il glifo dello spazio a
+$5D0E. $C3B8 scrive quindi le flag a $5D02.
+
+Nelle descrizioni brevi senza prosa, anche il qualificatore
+del personaggio travestito passa da $D187 e $68DD. L’ultima
+«a» di «china» entra nel glifo con frame $5D22. $C3B8
+conserva l’ultima scansione del font a $5D17. Watson legge
+quel byte al tick 2316, uscendo dalla cucina di Basil.
+
+Il confronto dello stato e delle estrazioni arriva a **512
+checkpoint**, fino a mercoledì alle 05:20. Holmes ha raccolto
+e letto entrambe le note cifrate. La successiva lettura di
+$5D1A da parte del giardiniere avviene alle 05:24, durante
+l’attesa davanti alla casa di Basil.

@@ -379,6 +379,41 @@
     POP DE                                ; $D0DA d1
     RET                                   ; $D0DB c9
 
+    ORG $D16B
+; CODE: Arrivo completo: nome generico del veicolo e della stanza
+    LD L,(IX+$07)                         ; $D16B dd 6e 07
+    LD H,(IX+$08)                         ; $D16E dd 66 08
+    CALL $D182                            ; $D171 cd 82 d1 | L’arrivo in una locazione senza descrizione estesa chiama D187. Il nome del cab va a capo nel frame del glifo 5D1A.
+    LD A,B                                ; $D174 78
+    CALL $D60B                            ; $D175 cd 0b d6
+    LD A,B                                ; $D178 78
+    CALL $D68C                            ; $D179 cd 8c d6
+    CALL $D4A7                            ; $D17C cd a7 d4
+    JP $A2A2                              ; $D17F c3 a2 a2
+    LD A,H                                ; $D182 7c
+    OR L                                  ; $D183 b5
+    JP NZ,$A59F                           ; $D184 c2 9f a5
+    EX DE,HL                              ; $D187 eb
+    LD A,($A036)                          ; $D188 3a 36 a0
+    PUSH AF                               ; $D18B f5
+    LD A,($A036)                          ; $D18C 3a 36 a0
+    CALL $C863                            ; $D18F cd 63 c8
+    EX AF,AF'                             ; $D192 08
+    INC A                                 ; $D193 3c
+    JR Z,$D19F                            ; $D194 28 09
+    DEC A                                 ; $D196 3d
+    LD ($A036),A                          ; $D197 32 36 a0
+    LD A,$01                              ; $D19A 3e 01
+    LD ($A2AA),A                          ; $D19C 32 aa a2
+    CALL $A59F                            ; $D19F cd 9f a5
+    POP AF                                ; $D1A2 f1
+    LD ($A036),A                          ; $D1A3 32 36 a0
+    XOR A                                 ; $D1A6 af
+    LD ($A2AA),A                          ; $D1A7 32 aa a2
+    CALL $D1C6                            ; $D1AA cd c6 d1
+    LD A,$2E                              ; $D1AD 3e 2e
+    JP $A9B7                              ; $D1AF c3 b7 a9
+
     ORG $D1B2
 ; CODE: Descrizione breve e controllo della luce dopo lo spostamento
     LD B,A                                ; $D1B2 47 | Ingresso breve di CA9E: chiama D187 direttamente e non ripete l’introduzione del contenitore di D113.
@@ -391,9 +426,31 @@
     CALL $A59F                            ; $D1C2 cd 9f a5
     RET                                   ; $D1C5 c9
 
+    ORG $D53C
+; CODE: Elenco dei contenitori durante LOOK
+    DEC C                                 ; $D53C 0d | D3E4 emette lo spazio fra il qualificatore e il nome del cab. Il glifo entra in C388 a 5D26 e conserva AF a 5D1A–5D1B.
+    LD A,C                                ; $D53D 79
+    AND A                                 ; $D53E a7
+    JR NZ,$D546                           ; $D53F 20 05
+    CALL $A414                            ; $D541 cd 14 a4
+    JR $D557                              ; $D544 18 11
+    CP $01                                ; $D546 fe 01
+    JR Z,$D551                            ; $D548 28 07
+    LD A,$2C                              ; $D54A 3e 2c
+    CALL $A9B7                            ; $D54C cd b7 a9
+    JR $D557                              ; $D54F 18 06
+    LD DE,$005D                           ; $D551 11 5d 00
+    CALL $A887                            ; $D554 cd 87 a8
+    POP AF                                ; $D557 f1
+    JR $D52B                              ; $D558 18 d1
+    POP AF                                ; $D55A f1
+    CALL $D04F                            ; $D55B cd 4f d0
+    PUSH AF                               ; $D55E f5
+    CALL $D57D                            ; $D55F cd 7d d5
+
     ORG $D68C
 ; CODE: Uscite generiche e caratteri residui delle direzioni
-    PUSH IX                               ; $D68C dd e5
+    PUSH IX                               ; $D68C dd e5 | La stampa di Visible exits usa il frammento 68FE. Nell’arrivo a Camden, il glifo s in 5D24 lascia i flag di scansione a 5D18.
     PUSH IY                               ; $D68E fd e5
     PUSH DE                               ; $D690 d5
     PUSH BC                               ; $D691 c5
