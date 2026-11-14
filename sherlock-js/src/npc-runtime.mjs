@@ -120,10 +120,24 @@ export class NpcRuntime {
   // F2C6's departure speech at a fresh upper row stays above the
   // saved scan registers, including its wraps before a MORE pause.
   const screen=g.sourceDisplay.state;
-  const preserveScan=text==='6BF6'&&screen?.cursor===0&&!screen.pending&&screen.counter+4<15;
+  const preserveScan=context.preserveTriciaPrefix===true||text==='6BF6'&&screen?.cursor===0&&!screen.pending&&screen.counter+4<15;
   const preserveArrivalName=context.preserveArrivalName===true&&screen?.cursor===0&&!screen.pending&&screen.counter+3<15;
-  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan,preserveArrivalName}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.actorNameFrame;g.sourceDisplay.upperGlyphKnown=context.actorNameUpper===true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  const arrivalGreeting=text==='6929'&&messages.some(m=>m.rule_arrival_tick===this.w.tick);
+  const extra=arrivalGreeting?Array.from({length:16},(_,i)=>0x5D1C+i):[];
+  const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan,preserveArrivalName,extra}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const display=g.sourceDisplay,{glyphFrame,upperGlyphKnown,glyphFlagsKnown}=display;
+   display.glyphFrame=context.actorNameFrame;display.upperGlyphKnown=context.actorNameUpper===true;
+   if(context.preserveTriciaPrefix)display.glyphFlagsKnown=true;
+   try{write();}finally{Object.assign(display,{glyphFrame,upperGlyphKnown,glyphFlagsKnown});}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
+  if(visible&&arrivalGreeting&&actor===2&&context.object===0){
+   const sink=c.sink;
+   c.sink=ch=>{
+    // The morning token at 6909 flushes «Good». A wrap reaches 5D32.
+    if(ch===' '&&screen.pending.toLowerCase()==='good'&&screen.remaining<screen.pending.length)
+     g.sourceDisplay.glyphResidue(' ',0x5D32,35,0x5A20,null,{encounterRowClear:true});
+    sink(ch);
+   };
+  }
   if(visible&&text==='681A'&&this.w.entity(actor).parent!==null)c.refusalWord=write=>{
    // 67D6 / 67EE flush «cannot» and «that» at the same depth.
    const display=g.sourceDisplay,{glyphFrame,refusalScanKnown}=display;
@@ -313,11 +327,11 @@ export class NpcRuntime {
     return {handled:true,cost:0};
    }
    if(job.mode===2||job.mode===undefined&&node?.subject){
-    const nodes=job.nodes.slice(job.index),firstMessage=messages.length;if(actor===3)this.information.watson(nodes,messages);else if(actor===2){this.information.lestrade(nodes,messages);
-     // BA3E/BB94/BCxx return through additional AF/BC frames. Their
-     // deepest established write is 5D02; lower existing cells survive.
-     // Unprojected higher fields remain unavailable to future draws.
-     this.game.sourceDisplay.invalidateScratch(0x5D02);}
+    const nodes=job.nodes.slice(job.index),firstMessage=messages.length;if(actor===3)this.information.watson(nodes,messages);else if(actor===2){const handler=this.information.lestrade(nodes,messages);
+     // The single 9A59/6FCA reply keeps the earlier scene's low
+     // registers and the ones just written by the 67FF name prefix.
+     // Other BA3E/BB94/BCxx branches can reach as low as 5D02.
+     this.game.sourceDisplay.invalidateScratch(handler===0x9A59?0x5D1E:0x5D02);}
     const parts=messages.splice(firstMessage);if(parts.length)messages.push({kind:'narrative',text:parts.map(m=>m.text).join(' '),raw_text:parts.map(m=>m.raw_text??m.text).join('')});
     cancel();return {handled:true,cost:0};
    }
@@ -626,7 +640,7 @@ export class NpcRuntime {
   // E4B0 selects the FIRST exit of the old room for a walking entity. CA76
   // announces that action before E49B moves it, even when Holmes is in a train.
   if(directional){g.text.setQualifierMode(0);g.sourceDisplay.setChannel(0);this.modelFlags(notification.direction);} // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
-  if(directional&&visible){const message=g.text.directionalMovement(w.name(id),notification.direction);messages.push(message);g.projectMessages([message]);}
+  if(directional&&visible){const message=g.text.directionalMovement(w.name(id),notification.direction,{relocatingActor:id});messages.push(message);g.projectMessages([message]);}
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
    const room=w.rooms[w.roomOf()],full=!(room.flags&64);
@@ -647,6 +661,11 @@ export class NpcRuntime {
    // passengers are described by their own subsequent actions.
    let outer=id;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;
    const name=w.name(outer,{indefinite:true}),message={kind:'narrative',text:name[0].toUpperCase()+name.slice(1)+' enters.'};
+   if(name.startsWith('Inspector ')&&id===outer&&id===notification.actor){
+    // CBEA enters the notification with one extra saved register pair.
+    message.scene_trace=[{kind:'rule-arrival-person-prefix',start:0,end:name.indexOf(' '),frame:0x5D28}];
+    message.rule_arrival_tick=w.tick;
+   }
    messages.push(message);g.projectMessages([message]);
   } // An internal, non-directional departure is silent in CAAF/CBC2.
   if(notification.actor!==undefined&&before===w.roomOf()&&actorOld!==before&&w.roomOf(notification.actor)===before){let outer=notification.actor;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;return !w.perceived(outer);}
@@ -759,6 +778,7 @@ export class NpcRuntime {
   if(address===0xA022||address===0xA023){const value=this.state.dictionaryReference;return Number.isInteger(value)?address===0xA022?value&255:value>>>8:null;}
   if(address===0xA01D||address===0xA01E)return this.state.modelFlags?.[address-0xA01D]??null;
   if(address===0xA029||address===0xA02A){const value=this.state.parserTokenStart;return Number.isInteger(value)?address===0xA029?value&255:value>>>8:null;}
+  if(address===0xA02B||address===0xA02C){const value=this.state.parserNextToken;return Number.isInteger(value)?address===0xA02B?value&255:value>>>8:null;}
   if(address===0xA02D)return this.state.previousTokenClass??null;
   if(address===0xA02E)return this.state.nominalModelSelector??null;
   if(address===0xA024)return this.state.parserMode??null;
@@ -815,6 +835,7 @@ export class NpcRuntime {
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');
   if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
+  if(s.parserNextToken!=null&&(!Number.isInteger(s.parserNextToken)||s.parserNextToken<0||s.parserNextToken>65535))throw Error('Cursore del parser non valido');
   if(s.parserTokenStart!=null&&(!Number.isInteger(s.parserTokenStart)||s.parserTokenStart<0||s.parserTokenStart>65535))throw Error('Puntatore iniziale del token non valido');
   if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');
   if(s.parserAll!==undefined&&s.parserAll!==null&&![0,1,2].includes(s.parserAll))throw Error('Stato ALL/BUT non valido');

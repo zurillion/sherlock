@@ -41,12 +41,23 @@ export class Text {
   if(normalized.toLowerCase()!==name.toLowerCase())return;
   trace.push({kind:'raw-text-buffer',start,end:start+name.length,events:Array.from(raw,c=>({c,known:true}))});
  }
- directionalMovement(name,direction){
+ directionalMovement(name,direction,{relocatingActor=null}={}){
   const word=DIRECTION_NAMES[direction],prefix=name[0].toUpperCase()+name.slice(1)+' goes ';
   const text=prefix+word+'.';
   // CA76/A323 buffers the dictionary direction before printing the period.
   const scene_trace=[{kind:'raw-text-buffer',start:prefix.length,end:text.length,affectsStack:false,
    events:Array.from(' '+word+'.',c=>({c,known:true}))}];
+  // In the relocation announcement, CA76 formats the qualified subject
+  // before the verb. C388's frame for the first word is 5D2A.
+  if(relocatingActor!==null&&name.startsWith('Inspector ')){
+   const split=name.indexOf(' ');
+   scene_trace.push({kind:'relocation-person-prefix',parent:relocatingActor,start:0,end:split,frame:0x5D2A,spaceAfter:true});
+   scene_trace.push({kind:'relocation-person-noun',start:split+1,end:name.length,frame:0x5D38});
+   scene_trace.push({kind:'relocation-person-verb',start:name.length+1,end:name.length+5,frame:0x5D3A});
+   this.traceNameBuffer(scene_trace,relocatingActor,name,0);
+   const raw=scene_trace.find(e=>e.kind==='raw-text-buffer'&&e.start===0);
+   if(raw)raw.affectsStack=false;
+  }
   return {kind:'narrative',text,scene_trace};
  }
  greeting(actor,context={}){return this.render('6920',{...context,actor});}

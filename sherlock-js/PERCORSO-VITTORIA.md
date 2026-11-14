@@ -450,3 +450,61 @@ nei test; il motore non lo carica né interpreta istruzioni Z80.
 
 Il confronto completo copre il seed 1. Le altre diramazioni
 e gli altri seed sono nel piano delle verifiche successive.
+
+
+### Diramazione della vendita tardiva
+
+Dopo l’accettazione della deduzione su Tricia, Holmes rimane a
+Scotland Yard e dà tre volte `WAIT UNTIL 11PM`. Sullo Spectrum
+la terza attesa viene interrotta giovedì alle 10:00 dal testo
+`$6ABD`. L’originale è stato riprodotto dall’avvio con seed 1,
+231 comandi e tutti i 24 attori attivi. I primi 390 punti di
+confronto coincidono con il percorso di Victoria.
+
+Il programma di Lestrade rimuove l’ispettore dalla scena a
+`$EAA9`, aspetta le 10 con `$EAAD` e chiama `$9EA2` da
+`$EAB3`. Il corpo a `$9EA4` legge il bit 1 di `$9976` e
+`$9984`. Con entrambe le deduzioni confermate, `$9EBB`
+seleziona `$6ABD` e passa il testo al gestore comune `$9E74`.
+
+Nella descrizione di Scotland Yard, l’articolo «some» nel denaro
+di Lestrade viene stampato nel frame `$5D16`. L’ultima lettera
+lascia a `$5D12` lo spostamento orizzontale dei pixel e a
+`$5D13` il numero di caratteri rimanenti nel buffer. La risposta
+sulla deduzione su Tricia li conserva. Il prefisso «Inspector»
+in `$67FF` usa invece il frame `$5D20` e aggiorna i relativi
+registri video. Gli attori leggono entrambi i gruppi nel corso
+dell’attesa. Il modello ricava questi registri dal formatter.
+
+Le partenze serali e il ritorno delle 07:00 usano chiamanti
+diversi. Il qualificatore dell’annuncio di partenza usa il
+frame `$5D2A` e il cognome il frame `$5D38`. Al ritorno,
+`$CC07` stampa «enters» da una regola e il prefisso usa
+`$5D28`. Nel primo saluto, «Good» va a capo quando il decoder
+incontra il token di «morning». `$C374` pulisce la riga dal
+frame `$5D32`, lasciando ulteriori registri che il gioco
+rilegge nel pomeriggio.
+
+
+Nell’ultima attesa, `$AEA4` consuma il punto del comando
+e salva in `$A02B` l’indirizzo del token successivo. `$A029`
+resta sul punto. Watson legge il byte basso alle 09:32 di
+giovedì. La riscrittura usa la posizione effettiva del token
+e conserva il cursore nei salvataggi.
+
+Il confronto JavaScript arriva allo stesso finale su 664
+punti, con 10.655 estrazioni e 22.492 letture. Il test avvia
+la diramazione da un salvataggio prodotto durante il replay
+del prefisso comune. Compare lo stesso testo finale e la
+partita si ferma dopo la conferma.
+
+[Sequenza completa](results/final-solution/late-sale-both-murders.txt) ·
+[Rapporto del confronto](results/final-solution/late-sale-verification.json)
+
+Per ricreare l’acquisizione originale dalla cartella del motore:
+
+```sh
+python3 tools/probe-murder-ending.py \
+  --manifest results/final-solution/late-sale-manifest.json \
+  --output /tmp/sherlock-late-sale-native.json
+```

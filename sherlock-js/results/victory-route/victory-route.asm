@@ -44,6 +44,53 @@
 ; DATA: Descrizione del viaggio in treno: campagna inglese
     DEFB $10,$C7,$2E,$68,$62,$88,$4C,$88,$EB,$88,$CE,$60,$20,$4A,$82,$47,$4A,$C8,$B3,$8D,$4A,$F2,$8D,$D1,$F7,$45,$96,$66,$92,$14,$2E,$1F ; $7E45 10 c7 2e 68 62 88 4c 88 eb 88 ce 60 20 4a 82 47 4a c8 b3 8d 4a f2 8d d1 f7 45 96 66 92 14 2e 1f | Il descrittore 51F7 di count rimane l’ultimo riferimento lessicale mentre si stampa la coda letterale di countryside.
 
+    ORG $A02B
+; DATA: Cursore del prossimo token del parser
+    DEFB $00,$00                          ; $A02B 00 00
+
+    ORG $AE7F
+; CODE: Lettura del token e avanzamento del cursore
+    LD HL,($A02B)                         ; $AE7F 2a 2b a0
+    LD ($A029),HL                         ; $AE82 22 29 a0
+    LD A,D                                ; $AE85 7a
+    LD ($A02D),A                          ; $AE86 32 2d a0
+    LD A,(HL)                             ; $AE89 7e
+    LD D,A                                ; $AE8A 57
+    LD BC,$0000                           ; $AE8B 01 00 00
+    INC HL                                ; $AE8E 23
+    CP $E0                                ; $AE8F fe e0
+    JR Z,$AE9F                            ; $AE91 28 0c
+    CP $F0                                ; $AE93 fe f0
+    JR Z,$AE9F                            ; $AE95 28 08
+    CP $90                                ; $AE97 fe 90
+    JR Z,$AE9F                            ; $AE99 28 04
+    CP $80                                ; $AE9B fe 80
+    JR NC,$AEA4                           ; $AE9D 30 05
+    LD A,(HL)                             ; $AE9F 7e
+    LD B,A                                ; $AEA0 47
+    INC HL                                ; $AEA1 23
+    LD C,(HL)                             ; $AEA2 4e
+    INC HL                                ; $AEA3 23
+    LD ($A02B),HL                         ; $AEA4 22 2b a0 | Salva in A02B il prossimo token. Il punto B0 di WAIT UNTIL occupa un byte; A029 resta sul punto.
+    LD A,D                                ; $AEA7 7a
+    RET                                   ; $AEA8 c9
+
+    ORG $D780
+; CODE: Ingresso del parser e restituzione del cursore
+    XOR A                                 ; $D780 af
+    LD ($9FEB),A                          ; $D781 32 eb 9f
+    INC A                                 ; $D784 3c
+    LD ($A024),A                          ; $D785 32 24 a0
+    LD HL,($D6BD)                         ; $D788 2a bd d6
+    LD ($A02B),HL                         ; $D78B 22 2b a0
+    CALL $AAB2                            ; $D78E cd b2 aa
+    PUSH AF                               ; $D791 f5
+    XOR A                                 ; $D792 af
+    LD ($A01B),A                          ; $D793 32 1b a0
+    POP AF                                ; $D796 f1
+    LD HL,($A02B)                         ; $D797 2a 2b a0 | Rilegge A02B dopo la conclusione del parser. Durante WAIT UNTIL questa word resta disponibile alle letture casuali.
+    LD ($D6BD),HL                         ; $D79A 22 bd d6
+
     ORG $9A13
 ; CODE: Accettazione dei piani subordinata ai due omicidi
     LD A,($9976)                          ; $9A13 3a 76 99 | Prova entrambe le conclusioni su Mrs Brown e Tricia. Se una manca, il ramo 9A2F ritira l’ipotesi corrente.
@@ -62,6 +109,18 @@
     LD HL,$7265                           ; $9A37 21 65 72
     JP $A59F                              ; $9A3A c3 9f a5
 
+    ORG $9A59
+; CODE: Deduzione Tricia: allontanamento di Mrs Jones e risposta
+    CALL $9A74                            ; $9A59 cd 74 9a
+    LD A,$5F                              ; $9A5C 3e 5f
+    CALL $D237                            ; $9A5E cd 37 d2
+    LD (IX+$01),$FF                       ; $9A61 dd 36 01 ff
+    LD (IX+$0F),$00                       ; $9A65 dd 36 0f 00
+    LD HL,$9984                           ; $9A69 21 84 99 | Segna la deduzione Tricia come confermata. A59F stampa 6FCA nella risposta di Lestrade.
+    SET 1,(HL)                            ; $9A6C cb ce
+    LD HL,$6FCA                           ; $9A6E 21 ca 6f
+    JP $A59F                              ; $9A71 c3 9f a5
+
     ORG $9E4A
 ; CODE: Finale di Victoria: presenza di Watson e Lestrade
     LD HL,$6B79                           ; $9E4A 21 79 6b | Prepara il testo 6B79. Con Watson (3) e Lestrade (2) nella stanza di Holmes seleziona 6AF3.
@@ -77,6 +136,28 @@
     LD A,($A009)                          ; $9E63 3a 09 a0
     CP (IX+$0F)                           ; $9E66 dd be 0f
     RET                                   ; $9E69 c9
+
+    ORG $9EA2
+; DATA: Intestazione della regola del finale della vendita
+    DEFB $00,$00                          ; $9EA2 00 00
+
+    ORG $9EA4
+; CODE: Vendita dei piani: esito in base alle due deduzioni
+    LD HL,$6A33                           ; $9EA4 21 33 6a | Seleziona 6A33 come esito iniziale. Entrambi i record delle deduzioni devono avere il bit 1 attivo per passare a 6ABD.
+    LD IX,$9973                           ; $9EA7 dd 21 73 99
+    BIT 1,(IX+$03)                        ; $9EAB dd cb 03 4e
+    JR Z,$9E74                            ; $9EAF 28 c3
+    LD IX,$9981                           ; $9EB1 dd 21 81 99
+    BIT 1,(IX+$03)                        ; $9EB5 dd cb 03 4e
+    JR Z,$9E74                            ; $9EB9 28 b9
+    LD HL,$6ABD                           ; $9EBB 21 bd 6a | Sostituisce il testo terminale con 6ABD e torna al gestore comune in 9E74.
+    JR $9E74                              ; $9EBE 18 b4
+
+    ORG $EAA9
+; BYTECODE: Lestrade: attende le 10 e attiva il finale della vendita
+    DEFB $42,$80,$FB,$00                  ; $EAA9 42 80 fb 00 | Rimuove Lestrade dalla scena prima di aspettare le 10. EAB3 invoca la regola del finale della vendita.
+    DEFB $52,$88,$0A,$FF,$AD,$EA          ; $EAAD 52 88 0a ff ad ea
+    DEFB $03,$A2,$9E                      ; $EAB3 03 a2 9e
 
     ORG $A679
 ; CODE: Salto relativo terminale del decoder
@@ -458,6 +539,18 @@
     CALL $A59F                            ; $D1C2 cd 9f a5
     RET                                   ; $D1C5 c9
 
+    ORG $D526
+; CODE: Elenco visibile: marca e stampa il nome di ciascuna entità
+    PUSH IX                               ; $D526 dd e5
+    CALL $D04F                            ; $D528 cd 4f d0
+    PUSH AF                               ; $D52B f5
+    CALL $D57D                            ; $D52C cd 7d d5
+    JR C,$D55A                            ; $D52F 38 29
+    SET 7,(IY+$06)                        ; $D531 fd cb 06 fe
+    SUB A                                 ; $D535 97
+    LD ($A028),A                          ; $D536 32 28 a0
+    CALL $D3D9                            ; $D539 cd d9 d3 | Per l’articolo some del denaro di Lestrade, C389 salva BC del glifo nel frame 5D16. C è lo shift video e B conta i caratteri rimasti.
+
     ORG $D53C
 ; CODE: Elenco dei contenitori durante LOOK
     DEC C                                 ; $D53C 0d | D3E4 emette lo spazio fra il qualificatore e il nome del cab. Il glifo entra in C388 a 5D26 e conserva AF a 5D1A–5D1B.
@@ -513,6 +606,13 @@
     DEFB $07,$35,$E1,$FD,$FF              ; $E0A7 07 35 e1 fd ff
     DEFB $0B                              ; $E0AC 0b
 
+    ORG $CA76
+; CODE: Selezione dell’annuncio ordinario
+    LD A,($A033)                          ; $CA76 3a 33 a0
+    AND $80                               ; $CA79 e6 80
+    CALL Z,$A2E4                          ; $CA7B cc e4 a2 | Il chiamante della ricollocazione direzionale produce Inspector nel frame 5D2A. I due annunci serali lasciano diversi dati del glifo rispetto al saluto del mattino.
+    RET                                   ; $CA7E c9
+
     ORG $CB12
 ; CODE: Annuncio di arrivo del personaggio
     LD A,($C492)                          ; $CB12 3a 92 c4
@@ -525,6 +625,25 @@
     RET Z                                 ; $CB21 c8
     LD DE,$68ED                           ; $CB22 11 ed 68 | Il frammento 68ED stampa «enters». Il qualificatore Inspector usa il frame 5D2C; C39C e C389 lasciano lo shift a 5D22 e 5D28.
     JP $CBC2                              ; $CB25 c3 c2 cb
+
+    ORG $CBEA
+; CODE: Stampa della notifica di arrivo da una regola
+    LD A,($A036)                          ; $CBEA 3a 36 a0
+    PUSH AF                               ; $CBED f5
+    LD A,($9860)                          ; $CBEE 3a 60 98
+    LD ($A036),A                          ; $CBF1 32 36 a0
+    CALL $CC29                            ; $CBF4 cd 29 cc
+    LD A,B                                ; $CBF7 78
+    CALL $C821                            ; $CBF8 cd 21 c8
+    JR NZ,$CC00                           ; $CBFB 20 03
+    POP AF                                ; $CBFD f1
+    POP HL                                ; $CBFE e1
+    RET                                   ; $CBFF c9
+    POP AF                                ; $CC00 f1
+    LD ($A036),A                          ; $CC01 32 36 a0
+    CALL $CC29                            ; $CC04 cd 29 cc
+    CALL $A59F                            ; $CC07 cd 9f a5 | Stampa la notifica 68ED dopo il ripristino dell’attore. Durante EA21, il qualificatore Inspector arriva al glifo con frame 5D28.
+    RET                                   ; $CC0A c9
 
     ORG $DD07
 ; CODE: Movimento direzionale: restituzione del record dell’attore

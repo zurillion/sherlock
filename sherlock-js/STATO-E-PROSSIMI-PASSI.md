@@ -1,6 +1,6 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento 14 novembre 2026.
+Aggiornamento 15 novembre 2026.
 
 Il percorso naturale con seed 1 raggiunge la vittoria **$6AF3**
 sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
@@ -12,23 +12,23 @@ alla vittoria a Victoria (700 checkpoint, 8.784 estrazioni).
 Anche la diramazione $6B79 coincide da un salvataggio nell’atrio.
 [Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
 
+La vendita tardiva $6ABD termina giovedì alle 10:00 in entrambi
+i motori, con le due deduzioni sugli omicidi accettate.
+[Rapporto della vendita tardiva](results/final-solution/late-sale-verification.json).
+
 ## Lavoro ancora aperto
 
-1. **Finale $6ABD.** Riprodurre la vendita tardiva dopo che Lestrade ha
-   accettato entrambe le deduzioni sugli omicidi. Acquisire la partita
-   dal primo comando sullo Spectrum e confrontarla fino al finale con
-   il motore JavaScript. $6A33 ha già il proprio percorso di riferimento.
-2. **Diramazione passiva di Brown e seconda origine di $759C.**
+1. **Diramazione passiva di Brown e seconda origine di $759C.**
    Riprendere il confronto alla lettura $CB29 di giovedì mattina,
    identificando la word di cui è il byte alto. Verificare anche
    l’innesco $EFC7 di $759C oltre alla cassaforte già verificata.
-3. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
+2. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
    seed e sequenze di comandi plausibili. Confrontare l’origine della
    prima estrazione diversa, la sequenza degli eventi e il futuro dopo
    SAVE/LOAD. Estendere i test a NEW/LOAD e alla grafica originale nei
    casi in cui la presentazione influisce sulle letture casuali.
 
-La mappa riporta 39.613 byte documentati, 426 parziali e 1.561
+La mappa riporta 39.615 byte documentati, 424 parziali e 1.561
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 

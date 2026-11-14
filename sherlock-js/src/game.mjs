@@ -37,7 +37,7 @@ export class Game {
  configureRandom(){this.text.chooseIndex=this.world.random?(count,ctx)=>this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+ctx.fragment}):undefined;}
  // Literal speech still traverses the word workspace outside Holmes' view;
  // only the screen sink and dictionary/name writes are suppressed there.
- npcTextContext(actor,{preserveFlags=false,preserveScan=false,preserveArrivalName=false}={}){if(!this.world.display)return {};if(!this.world.perceived(actor))return {bufferVisible:false,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,{...options,hidden:true})};this.sourceDisplay.invalidateGlyphExtras({preserveFlags,preserveScan,preserve22:preserveArrivalName,preserve28:preserveArrivalName});const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame,upper=this.sourceDisplay.upperGlyphKnown;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;this.sourceDisplay.upperGlyphKnown=false;try{write();}finally{this.sourceDisplay.glyphFrame=previous;this.sourceDisplay.upperGlyphKnown=upper;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
+ npcTextContext(actor,{preserveFlags=false,preserveScan=false,preserveArrivalName=false,extra=[]}={}){if(!this.world.display)return {};if(!this.world.perceived(actor))return {bufferVisible:false,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,{...options,hidden:true})};this.sourceDisplay.invalidateGlyphExtras({preserveFlags,preserveScan,preserve22:preserveArrivalName,preserve28:preserveArrivalName,extra});const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame,upper=this.sourceDisplay.upperGlyphKnown;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;this.sourceDisplay.upperGlyphKnown=false;try{write();}finally{this.sourceDisplay.glyphFrame=previous;this.sourceDisplay.upperGlyphKnown=upper;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
  projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative'){this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace,cabAction:m.cab_action===true,moneyEnds:m.money_ends,preserveLow:m.preserve_renderer_low===true,preserve1F:m.preserve_renderer_1f===true,preserve23:m.preserve_renderer_23===true,preserve22:m.preserve_renderer_22===true,preserve1E:m.preserve_renderer_1e===true,preserve24:m.preserve_renderer_24===true,preserve25:m.preserve_renderer_25===true,preserve20:m.preserve_renderer_20===true,preserve26:m.preserve_renderer_26===true,preserve21:m.preserve_renderer_21===true,preserve27:m.preserve_renderer_27===true,preserve28:m.preserve_renderer_28===true,preserve29:m.preserve_renderer_29===true,preserve2A:m.preserve_renderer_2a===true,preserve2B:m.preserve_renderer_2b===true});if(m.scene_trace?.some(e=>e.kind==='train-platform-look'))this.sourceDisplay.invalidateScratch(0x5CF0,0x5D0F);if(m.scene_trace?.some(e=>e.kind==='police-cab-look'))this.sourceDisplay.invalidateScratch(0x5D00,0x5D0F);if(this.world.npcs&&/[A-Za-z]/.test(m.raw_text??m.text))this.world.npcs.dictionaryReference=m.scene_trace?.findLast(e=>e.kind==='final-dictionary-reference')?.value??null;}}
  sceneMessage(options={}){const scene_trace=[];return {kind:'narrative',text:this.text.scene({source:'arrival',...options,trace:scene_trace}),scene_trace};}
@@ -197,7 +197,14 @@ export class Game {
   if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.question(node,0);return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
   if(action===49)return ok([say('wait','.')],5);
   if(action===50){const literal=node.groups[0]?.noun;if(w.npcs&&literal&32768){w.npcs.literal=literal;if(this.actingActor===undefined)this.npcRuntime.checkAction(action,[254],actor);}if(!(literal&32768)||literal&128)return reject(literal&32768?"DON'T BE SILLY.":'WAIT UNTIL WHAT ?');
-   if(w.npcs){w.npcs.literal=literal;if(actor===w.player)w.npcs.playerProgramCounter='9945';}
+   if(w.npcs){
+    w.npcs.literal=literal;
+    if(actor===w.player)w.npcs.playerProgramCounter='9945';
+    // AEA4 has consumed the period after the literal. D797 returns the
+    // cursor one byte past it while A029 still points to the period.
+    if(this.streamWait&&this.actingActor===undefined&&w.npcs.parserTokenStart+1===this.currentInputEnd)
+     w.npcs.parserNextToken=this.currentInputEnd;
+   }
    const cost=waitUntilCost(literal,w.clock());if(w.npcs)this.npcRuntime.temporaryCost(cost);return ok([],cost,[254]);
   }
   if(action===31){
@@ -212,7 +219,7 @@ export class Game {
    const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};
    let commands=[],quoteMode=1;
    const quote=w.npcs&&actor===w.player?this.npcRuntime.consumeQuote((node.quotes||[node.quote]).filter(Boolean)):node.quote;
-   if(quote){if(w.npcs)w.npcs.previousTokenClass=null;try{const parsed=this.parser.quoted(quote,{onMode:w.npcs?value=>{w.npcs.parserMode=value;}:null,onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null,onAll:w.npcs?value=>{w.npcs.parserAll=value;}:null,onTokenStart:w.npcs?value=>{w.npcs.parserTokenStart=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
+   if(quote){if(w.npcs){w.npcs.previousTokenClass=null;w.npcs.parserNextToken=null;}try{const parsed=this.parser.quoted(quote,{onMode:w.npcs?value=>{w.npcs.parserMode=value;}:null,onNominal:w.npcs?group=>this.npcRuntime.nominal(group):null,onCount:w.npcs?value=>{w.npcs.parserCount=value;}:null,onAll:w.npcs?value=>{w.npcs.parserAll=value;}:null,onTokenStart:w.npcs?value=>{w.npcs.parserTokenStart=value;}:null});commands=parsed.nodes;quoteMode=parsed.mode;}catch(error){
     if(!(error instanceof InputError))throw error;
     if(w.npcs&&error.detail.partialNodes)this.npcRuntime.failedQuote(error.detail.partialNodes);
     else throw new InputError('quoted_syntax_error','WHAT ?',error.detail);
@@ -342,7 +349,7 @@ export class Game {
    if(this.world.display){if(repeat)this.sourceDisplay.repeat();else this.sourceDisplay.command(normalizeInput(input));}
    // D6C8 clears the transient @ token-reuse flag after accepted input,
    // before lexical validation or any paid actor visit.
-   if(this.world.npcs)this.world.npcs.editorTokenFlag=0;
+   if(this.world.npcs){this.world.npcs.editorTokenFlag=0;this.world.npcs.parserNextToken=null;}
    if(this.world.npcs)this.npcRuntime.ruleResults.invalidate(); // Native editor/parser rule callbacks precede lexical validation.
    this.lastInput=input;lexed=this.lexer.scan(input,{onTokenStart:this.world.npcs?value=>{this.world.npcs.parserTokenStart=value;}:null});this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};

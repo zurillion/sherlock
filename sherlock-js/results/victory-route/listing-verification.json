@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 529,
-  "bytes_roundtripped": 1567,
+  "instructions": 613,
+  "bytes_roundtripped": 1774,
   "regions": [
     {
       "start": "9965",
@@ -81,6 +81,27 @@
       "atlas_priority": 189
     },
     {
+      "start": "A02B",
+      "end_exclusive": "A02D",
+      "kind": "data",
+      "label": "Cursore del prossimo token del parser",
+      "atlas_priority": 189
+    },
+    {
+      "start": "AE7F",
+      "end_exclusive": "AEA9",
+      "kind": "code",
+      "label": "Lettura del token e avanzamento del cursore",
+      "atlas_priority": 189
+    },
+    {
+      "start": "D780",
+      "end_exclusive": "D79D",
+      "kind": "code",
+      "label": "Ingresso del parser e restituzione del cursore",
+      "atlas_priority": 189
+    },
+    {
       "start": "9A13",
       "end_exclusive": "9A3D",
       "kind": "code",
@@ -88,10 +109,38 @@
       "atlas_priority": 189
     },
     {
+      "start": "9A59",
+      "end_exclusive": "9A74",
+      "kind": "code",
+      "label": "Deduzione Tricia: allontanamento di Mrs Jones e risposta",
+      "atlas_priority": 189
+    },
+    {
       "start": "9E4A",
       "end_exclusive": "9E6A",
       "kind": "code",
       "label": "Finale di Victoria: presenza di Watson e Lestrade",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9EA2",
+      "end_exclusive": "9EA4",
+      "kind": "data",
+      "label": "Intestazione della regola del finale della vendita",
+      "atlas_priority": 189
+    },
+    {
+      "start": "9EA4",
+      "end_exclusive": "9EC0",
+      "kind": "code",
+      "label": "Vendita dei piani: esito in base alle due deduzioni",
+      "atlas_priority": 189
+    },
+    {
+      "start": "EAA9",
+      "end_exclusive": "EAB6",
+      "kind": "domain",
+      "label": "Lestrade: attende le 10 e attiva il finale della vendita",
       "atlas_priority": 189
     },
     {
@@ -200,6 +249,13 @@
       "atlas_priority": 189
     },
     {
+      "start": "D526",
+      "end_exclusive": "D53C",
+      "kind": "code",
+      "label": "Elenco visibile: marca e stampa il nome di ciascuna entità",
+      "atlas_priority": 189
+    },
+    {
       "start": "D53C",
       "end_exclusive": "D562",
       "kind": "code",
@@ -228,10 +284,24 @@
       "atlas_priority": 189
     },
     {
+      "start": "CA76",
+      "end_exclusive": "CA7F",
+      "kind": "code",
+      "label": "Selezione dell’annuncio ordinario",
+      "atlas_priority": 189
+    },
+    {
       "start": "CB12",
       "end_exclusive": "CB28",
       "kind": "code",
       "label": "Annuncio di arrivo del personaggio",
+      "atlas_priority": 189
+    },
+    {
+      "start": "CBEA",
+      "end_exclusive": "CC0B",
+      "kind": "code",
+      "label": "Stampa della notifica di arrivo da una regola",
       "atlas_priority": 189
     },
     {

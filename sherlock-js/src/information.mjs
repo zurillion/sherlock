@@ -76,7 +76,8 @@ export class Information {
  }
  recall(actor,draw,messages){const rows=this.remembered();if(draw===1&&rows.length)this.print('6F80',actor,messages,{fact:rows[0]});}
  accept(fact,actor,messages,count=1){
-  this.print('67FF',actor,messages);if(count!==1)this.print('72D6',actor,messages);
+  const preserveTriciaPrefix=count===1&&fact.handler===0x9A59, textContext=preserveTriciaPrefix?{preserveTriciaPrefix:true}:{};
+  this.print('67FF',actor,messages,preserveTriciaPrefix?{...textContext,actorNameFrame:0x5D20}:{});if(count!==1)this.print('72D6',actor,messages);
   if(fact.flags&16){fact.flags&=~2;this.print('72E1',actor,messages,{fact});if(fact.handler)this.print(fact.handler.toString(16).toUpperCase(),actor,messages,{fact});else{const message={kind:'narrative',text:'".',raw_text:' ".'};messages.push(message);for(const c of message.raw_text)this.host.game.sourceDisplay.feed(c);}return;}
   fact.flags=(fact.flags|2)&254;
   const at=address=>this.state.facts.find(f=>f.start===address);
@@ -87,7 +88,7 @@ export class Information {
    case 0x9A4B:at(0x9973).flags|=2;text='6FAB';break;
    case 0x9A59:{const e=this.world.entity(95);e.parent=null;e.rooms=[0];at(0x9981).flags|=2;text='6FCA';break;}
    default:throw new UnsupportedFeature('deduction handler '+fact.handler.toString(16));
-  }this.print(text,actor,messages,{fact});
+  }this.print(text,actor,messages,{fact,...textContext});
  }
  lestrade(nodes,messages){let found=0,newFact=null;const working=this.verification();working.recognized=0;working.unproven=0;
   for(const node of nodes){let triple;try{triple=this.resolve(node);}catch(error){if(error instanceof UnsupportedFeature&&error.message.includes('internal ambiguous information reference')){this.print('7243',2,messages);return;}throw error;}if(!triple)continue;
@@ -95,6 +96,8 @@ export class Information {
   }
   if(!found){this.print('725F',2,messages);return;}
   if(newFact){const atoms=this.atoms();newFact=atoms.find(a=>a.start===working.lastFact);let i=atoms.findIndex(a=>a.start===newFact.start)+1;while((atoms[i].flags&192)!==128&&!(atoms[i].flags&8))i=this.skip(atoms,i);this.print((atoms[i].flags&192)===128?'7295':'72A6',2,messages,{fact:newFact});return;}
-  const {complete,incomplete}=this.scan();if(complete.length)this.accept(complete[0],2,messages,complete.length);else this.print(incomplete.length?'72BD':'727E',2,messages,{fact:incomplete.at(-1)});
+  const {complete,incomplete}=this.scan();
+  if(complete.length){this.accept(complete[0],2,messages,complete.length);return complete.length===1?complete[0].handler:null;}
+  this.print(incomplete.length?'72BD':'727E',2,messages,{fact:incomplete.at(-1)});
  }
 }

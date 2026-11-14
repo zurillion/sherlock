@@ -23,13 +23,16 @@ export class RandomDisplay {
   this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');if(!deferPrompt)this.prompt();}
  wideWindow(){const s=this.state;if(!s)return;const next=textWindowControl(false,s.counter);s.windowMode=next.mode;s.cursor=next.cursor;s.remaining=next.remaining;s.started=false;}
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
- scene(text,sceneTrace=[]){this.invalidateGlyphExtras();const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
+ scene(text,sceneTrace=[]){const s=this.state;
+  const shallow=sceneTrace.some(r=>r.kind==='relocation-person-prefix');
+  const preserveScan=shallow&&s.cursor===0&&!s.pending&&s.counter+2<15&&text.length<36;
+  this.invalidateGlyphExtras({preserveScan});const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
    // D5C4 renders the last word of the carrying person's name and the
    // copula via the actor-is text argument. Its glyph frame differs from
    // the literal name in the preceding contents list. A wrapped word also
    // clears a row (C316/C374), publishing the final space's scan state.
    const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
-   this.glyphFrame=role?.kind==='passage-direction'?null:role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.briefIdentityKnown=role?.briefIdentityKnown===true;this.trainScanKnown=role?.trainScanKnown===true;this.vehicleScanKnown=role?.vehicleScanKnown===true;this.arrivalNameKnown=role?.kind==='arrival-person-prefix';this.cabWordRole=role?.kind;this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
+   this.glyphFrame=role?.kind==='passage-direction'?null:role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.briefIdentityKnown=role?.briefIdentityKnown===true;this.trainScanKnown=role?.trainScanKnown===true;this.vehicleScanKnown=role?.vehicleScanKnown===true;this.arrivalNameKnown=role?.kind==='arrival-person-prefix';this.cabWordRole=role?.kind;this.relocationPersonPrefix=role?.kind==='relocation-person-prefix';this.arrivalFromRule=role?.kind==='rule-arrival-person-prefix';this.relocationPersonNoun=role?.kind==='relocation-person-noun';this.relocationPersonVerb=role?.kind==='relocation-person-verb';this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
    this.glyphSpaceDescriptor=null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
@@ -55,8 +58,8 @@ export class RandomDisplay {
    if(this.state.pending.length>=this.state.remaining){delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    // Reserve the final CR and action separator below the MORE threshold.
    if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
-  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.trainScanKnown=false;this.vehicleScanKnown=false;this.arrivalNameKnown=false;this.cabWordRole=null;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
- glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null,{fareRowClear=false}={}){
+  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.trainScanKnown=false;this.vehicleScanKnown=false;this.arrivalNameKnown=false;this.cabWordRole=null;this.relocationPersonPrefix=false;this.arrivalFromRule=false;this.relocationPersonNoun=false;this.relocationPersonVerb=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
+ glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null,{fareRowClear=false,encounterRowClear=false}={}){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
   // C38B/C398 retain the screen address at frame-8. The verified
@@ -96,6 +99,7 @@ export class RandomDisplay {
    );
    const usesUpperContext=at>=0x5D20&&at<=0x5D2B||at===0x5D30;
    const cabClear=fareRowClear&&at===0x5D24;
+   const greetingClear=encounterRowClear&&at>=0x5D26&&at<=0x5D2B;
    const policeScan=this.vehicleScanKnown===true&&(
     frame===0x5D22&&at===0x5D21||
     [0x5D2C,0x5D32].includes(frame)&&at===frame-12||
@@ -104,16 +108,20 @@ export class RandomDisplay {
    const cabProse=this.cabWordRole==='cab-possessive'&&frame===0x5D32&&at===0x5D2A||this.cabWordRole==='cab-city'&&frame===0x5D2C&&at===0x5D24;
    const refusalScan=this.refusalScanKnown===true&&at===frame-11&&[0x5D2E,0x5D34].includes(frame);
    const arrivalName=this.arrivalNameKnown===true&&frame===0x5D2C&&[0x5D22,0x5D28].includes(at);
+   const ruleArrival=this.arrivalFromRule===true&&frame===0x5D28&&at>=0x5D1C&&at<=0x5D25;
+   const relocationSpace=this.relocationPersonPrefix===true&&frame===0x5D36&&c===' '&&[0x5D2A,0x5D2B].includes(at);
+   const relocationPrefix=this.relocationPersonPrefix===true&&frame===0x5D2A&&at>=0x5D1E&&at<=0x5D29||relocationSpace;
+   const relocationVerb=this.relocationPersonVerb===true&&frame===0x5D3A&&[0x5D30,0x5D31].includes(at);
    const trainScan=this.trainScanKnown===true&&at===frame-9&&[0x5D28,0x5D2E].includes(frame);
-   if((at===0x5D2B&&!passageSpace)||
-    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse)||
-    (at===0x5D1E&&this.upperGlyphKnown!==true&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
-    (at===0x5D1F&&this.upperGlyphKnown===false&&!trainScan&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
+   if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
+    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb)||
+    (at===0x5D1E&&this.upperGlyphKnown!==true&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
+    (at===0x5D1F&&this.upperGlyphKnown===false&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;
    }
-   if(at>=0x5CEC&&(at<=0x5D2B||at===0x5D30))s[at]=value;
+   if(at>=0x5CEC&&(at<=0x5D2B||at===0x5D30||this.relocationPersonNoun&&frame===0x5D38&&at===0x5D2D||relocationVerb))s[at]=value;
   };
   // C389 saves caller C at frame-4: 5D22 for a verified passage prefix.
   // The value is the pixel offset in the current video byte.
@@ -190,7 +198,7 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){const except=[];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D31,except);}
+ invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D31,except);}
  get state(){return this.world.display;}
  invalidateScratch(from=0x5CEC,to=0x5D31,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
