@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 414,
-  "bytes_roundtripped": 909,
+  "instructions": 436,
+  "bytes_roundtripped": 961,
   "regions": [
     {
       "start": "A021",
@@ -21,6 +21,27 @@
           "Sconosciuto fino a una scrittura reale; nessun fallback di avvio"
         ]
       ]
+    },
+    {
+      "start": "A031",
+      "end_exclusive": "A033",
+      "kind": "data",
+      "label": "Secondo argomento letterale, indipendente dal primo",
+      "atlas_priority": 123
+    },
+    {
+      "start": "B549",
+      "end_exclusive": "B54A",
+      "kind": "data",
+      "label": "Autorizzazione al secondo argomento numerico",
+      "atlas_priority": 123
+    },
+    {
+      "start": "B54A",
+      "end_exclusive": "B57B",
+      "kind": "code",
+      "label": "Risoluzione e scrittura del secondo letterale",
+      "atlas_priority": 94
     },
     {
       "start": "C4D1",

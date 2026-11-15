@@ -53,15 +53,33 @@ servono al generatore casuale. La stampa in linea senza ritorno a capo
 non attiva questo salvataggio. Il puntatore video di `$5D36–$5D37`
 viene riutilizzato da altri chiamanti.
 
-Il confronto dall’avvio coincide su 629 checkpoint, 10.705 estrazioni
-e 22.816 letture fino alle 09:50 di giovedì. Alle 09:55 la cuoca
-legge `$A032`, il byte alto del secondo argomento letterale.
+Il secondo letterale vive in `$A031–$A032`. La word iniziale è zero.
+Il writer `$B562` è dietro il selettore di classe del secondo argomento.
+Nessun modello verbale originale usa la classe numerica 5 in quella
+posizione. La cuoca legge `$A032` giovedì alle 09:55. Il primo letterale
+usato da `WAIT UNTIL` e `PAY` resta indipendente.
+
+Il lexer salva a `$DA32–$DA33` il limite esclusivo del gruppo scelto.
+`$DA54` somma `$5DBF` all’offset del successivo gruppo non vuoto. Il
+limite di `UNTIL` è `$670A`. `11PM` e il punto non lo cambiano. Il
+giardiniere ne legge il byte basso giovedì alle 10:16.
+
+Mercoledì alle 10:17 il cocchiere chiede la tariffa a Portman nella
+locazione 18, mentre Holmes è nella 48. La richiesta non produce testo
+visibile, ma `$A809` chiama comunque il decoder dell’articolo. Il flag
+`$5C3C` spento fa uscire `$A887` prima del renderer. La word di ritorno
+`$A80C` rimane a `$5D36–$5D37` al posto di `$50FE` e si ritrova nello
+stato JavaScript del giovedì alle 10:00.
+
+Il confronto dall’avvio coincide su 658 checkpoint, 11.409 estrazioni
+e 24.324 letture fino alle 14:20 di giovedì. Alle 14:29 il giardiniere
+legge `$A035`, il secondo operando corrente della regola.
 
 Il testo alternativo `$759C` è già verificato per l’apertura della
 cassaforte. Resta da confrontare il percorso in cui il controllo
 `$EFC7` lo seleziona da solo.
 
-[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Letture del ponte](results/brown-to-ending/passive-bridge-reads.json) · [Letture della console](results/brown-to-ending/passive-console-reads.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
+[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Letture del ponte](results/brown-to-ending/passive-bridge-reads.json) · [Letture della console](results/brown-to-ending/passive-console-reads.json) · [Tariffa fuori scena](results/brown-to-ending/passive-fare-article.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
 
 ## Riproduzione
 

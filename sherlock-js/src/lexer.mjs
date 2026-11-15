@@ -62,21 +62,21 @@ export function scanNumeric(text,start=0){
 export function numericLiteral(text){const result=scanNumeric(text+' .\r');if(!result)return null;const {next,...token}=result;return token;}
 
 export class Lexer {
- constructor(dictionary){this.dictionary=dictionary;}
+ constructor(dictionary,groupEnds={}){this.dictionary=dictionary;this.groupEnds=groupEnds;}
  scan(raw,{onTokenStart=null}={}){
-  const normalized=normalizeInput(raw),tokens=[],workspaceCopies=[];if(normalized.length>128)throw new InputError('tool_limit','Sovrapposizione originale fra buffer editor e token non ancora ricostruita: comando non applicato.');let pos=0,lookupState=null;
+  const normalized=normalizeInput(raw),tokens=[],workspaceCopies=[];if(normalized.length>128)throw new InputError('tool_limit','Sovrapposizione originale fra buffer editor e token non ancora ricostruita: comando non applicato.');let pos=0,lookupState=null,groupEnd;
   while(pos<normalized.length){const start=pos,c=normalized[pos];if(c===' '){pos++;continue;}onTokenStart?.(0x5B00+pos);
    const special={'.':176,',':160,'"':144}[c];if(special!==undefined){tokens.push({type:special,value:0,word:null,start,end:++pos,source:c});continue;}
    let result;
    if(/[0-9`]/.test(c)){
-    result=scanNumeric(normalized+'\r',pos);if(result)pos=result.next;else{while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;}
+    result=scanNumeric(normalized+'\r',pos);if(result)pos=result.next;else{groupEnd=null;while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;}
 
    }
-   else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));const word=normalized.slice(start,pos);if(this.dictionary.groups.has(word[0]?.toLowerCase())){workspaceCopies.push([...word.slice(1)].map(c=>c.charCodeAt(0)|32).concat(0));lookupState=/^[A-Y][A-Z]*$/.test(word)?[word.length,result.matched_prefix]:[null,null];}}
-   if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized,lookupState,workspaceCopies});}
+   else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));const word=normalized.slice(start,pos);groupEnd=this.groupEnds[word[0]]??null;if(this.dictionary.groups.has(word[0]?.toLowerCase())){workspaceCopies.push([...word.slice(1)].map(c=>c.charCodeAt(0)|32).concat(0));lookupState=/^[A-Y][A-Z]*$/.test(word)?[word.length,result.matched_prefix]:[null,null];}}
+   if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized,lookupState,workspaceCopies,groupEnd});}
    tokens.push({...result,start,end:pos,source:normalized.slice(start,pos)});
   }
   onTokenStart?.(0x5B00+pos);tokens.push({type:192,value:0,word:null,start:pos,end:pos,source:''});
-  return {normalized,tokens,lookupState,workspaceCopies};
+  return {normalized,tokens,lookupState,workspaceCopies,groupEnd};
  }
 }

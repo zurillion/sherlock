@@ -58,6 +58,8 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.lexicalGroupEnd=g.data.lexer?.initialGroupEnd??null;
+  w.npcs.otherLiteral=g.data.argumentChecks?.initialOtherLiteral??null;
   w.npcs.parserMode=g.data.argumentChecks?.initialParserMode??null;
   w.npcs.parserTokenStart=g.data.argumentChecks?.initialParserTokenStart??null;
   w.npcs.nameQualifierMode=g.data.argumentChecks?.initialNameQualifierMode??null;
@@ -716,6 +718,7 @@ export class NpcRuntime {
     sink(ch);
    };
   }
+  if(!visible&&!(this.w.entity(actor).noun&0x8000))g.sourceDisplay.offstageFareArticle();
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner}),pence=(-amount)&16383,money=' '+formatMoney(pence),tail=' "\n',suffix=money+tail;
   const append=text=>{for(const ch of text){g.sourceDisplay.bufferFeed(ch.replace('d','D'),{hidden:!visible});c.sink?.(ch);}};append(money);g.sourceDisplay.moneyCapital(pence);append(tail);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
@@ -756,6 +759,7 @@ export class NpcRuntime {
   });
  }
  read(address){if(address===0xF60B)return this.state.nativeFillColor??null;const worldValue=this.worldSource.read(address);if(worldValue!==null)return worldValue;
+  if(address===0xDA32||address===0xDA33){const end=this.state.lexicalGroupEnd;return end==null?null:address===0xDA32?end&255:end>>>8;}
   if(address===0xDC13||address===0xDC14)return this.state.lexicalMatch?.[address-0xDC13]??null;
   if(address>=0xBA1C&&address<0xBA20){const v=this.state.information.verification;if(!v)return null;return address===0xBA1C?v.recognized:address===0xBA1D?v.unproven:Number.isInteger(v.lastFact)?address===0xBA1E?v.lastFact&255:v.lastFact>>>8:null;}
   if(address>=0xBA13&&address<0xBA1C){const r=this.state.information.resolution;if(!r)return null;const values=[...r.cursors,r.verb];if(address<0xBA19){const n=values[Math.floor((address-0xBA13)/2)];return Number.isInteger(n)?((address&1)?n&255:n>>>8):null;}return r.triple[address-0xBA19]??null;}
@@ -805,6 +809,7 @@ export class NpcRuntime {
   if(address>=0xDCFF&&address<=0xDD02){const room=this.state.lastRelocationRoom,ptr=room===undefined?0:this.worldSource.layout.rooms.find(r=>r.id===room).start;return [ptr&255,ptr>>>8,room??0,0][address-0xDCFF];}
   if(address>=0x9FDD&&address<=0x9FE2){const c=this.w.clock();return [c.tick&255,c.tick>>>8,c.minute,c.hour,c.day,c.period==='am'?97:112][address-0x9FDD];}
   if(address===0xA02F||address===0xA030)return address===0xA02F?this.state.literal&255:this.state.literal>>>8;
+  if(address===0xA031||address===0xA032){const literal=this.state.otherLiteral;return literal==null?null:address===0xA031?literal&255:literal>>>8;}
   if(address===0xA036)return this.game.runtimeRandom.inFlight?.actor??null;
   if(address===0xA037)return this.w.random.seed;
   if(address===0xA039||address===0xA03A){const cursor=this.game.runtimeRandom.inFlight?.cursor??this.w.random.cursor;return address===0xA039?cursor&255:cursor>>>8;}
@@ -825,6 +830,7 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
+  if(s.otherLiteral!=null&&(!Number.isInteger(s.otherLiteral)||s.otherLiteral<0||s.otherLiteral>65535))throw Error('Secondo letterale non valido');
   if(s.parserMode!=null&&(!Number.isInteger(s.parserMode)||s.parserMode<0||s.parserMode>255))throw Error('Modo sintattico non valido');
   if(s.nameQualifierMode!==undefined&&s.nameQualifierMode!==null&&(!Number.isInteger(s.nameQualifierMode)||s.nameQualifierMode<0||s.nameQualifierMode>255))throw Error('Modo dei qualificatori non valido');
   if(s.outputChannel!==undefined&&s.outputChannel!==null&&![0,1].includes(s.outputChannel))throw Error('Canale di output non valido');
@@ -842,6 +848,7 @@ export class NpcRuntime {
   if(s.nominalModelSelector!=null&&![0,1].includes(s.nominalModelSelector))throw Error('Selettore nominale non valido');
   if(s.previousTokenClass!=null&&!byte(s.previousTokenClass))throw Error('Classe precedente del token non valida');
   if(s.parserCount!==undefined&&s.parserCount!==null&&!byte(s.parserCount))throw Error('Contatore parser non valido');
+  if(s.lexicalGroupEnd!=null&&(!Number.isInteger(s.lexicalGroupEnd)||s.lexicalGroupEnd<0||s.lexicalGroupEnd>65535))throw Error('Limite del gruppo lessicale non valido');
   if(s.lexicalMatch!==undefined&&(!Array.isArray(s.lexicalMatch)||s.lexicalMatch.length!==2||s.lexicalMatch.some(v=>v!==null&&!byte(v))))throw Error('Stato confronto lessicale non valido');
   if(s.information?.verification){const v=s.information.verification;if([v.recognized,v.unproven].some(n=>n!==null&&!byte(n))||v.lastFact!==null&&(!Number.isInteger(v.lastFact)||v.lastFact<0||v.lastFact>65535))throw Error('Stato verifica ipotesi non valido');}
   if(s.information?.resolution){const r=s.information.resolution;if(!Array.isArray(r.cursors)||r.cursors.length!==2||[...r.cursors,r.verb].some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>65535))||!Array.isArray(r.triple)||r.triple.length!==3||r.triple.some(v=>v!==null&&!byte(v)))throw Error('Stato ricerca informazioni non valido');}

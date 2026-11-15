@@ -1,0 +1,86 @@
+[
+  {
+    "pc": "A074",
+    "sp": "5D80",
+    "actor": 41,
+    "room": 2,
+    "player_room": 48,
+    "print_enabled": 0,
+    "operands": [
+      255,
+      2,
+      255
+    ],
+    "bytes": [
+      0,
+      0,
+      6,
+      1,
+      254,
+      80
+    ]
+  },
+  {
+    "pc": "E6CF",
+    "sp": "5D6A",
+    "actor": 31,
+    "room": 18,
+    "player_room": 48,
+    "print_enabled": 0,
+    "operands": [
+      255,
+      6,
+      31
+    ],
+    "bytes": [
+      0,
+      0,
+      6,
+      1,
+      254,
+      80
+    ]
+  },
+  {
+    "pc": "A809",
+    "sp": "5D38",
+    "actor": 31,
+    "room": 18,
+    "player_room": 48,
+    "print_enabled": 0,
+    "operands": [
+      255,
+      6,
+      31
+    ],
+    "bytes": [
+      0,
+      0,
+      6,
+      1,
+      254,
+      80
+    ]
+  },
+  {
+    "pc": "E6D2",
+    "sp": "5D6A",
+    "actor": 31,
+    "room": 18,
+    "player_room": 48,
+    "print_enabled": 0,
+    "operands": [
+      255,
+      6,
+      31
+    ],
+    "bytes": [
+      0,
+      0,
+      6,
+      1,
+      12,
+      168
+    ]
+  }
+]

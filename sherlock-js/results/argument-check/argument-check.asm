@@ -4,6 +4,39 @@
 ; DATA: Residuo dei controlli: scritture selettive, non esito globale
     DEFB $00                              ; $A021 00 | Dato iniziale caricato =0. L’avvio sino al primo prompt non lo scrive nei quattro seed verificati. C655 scrive0; C6BA scrive1. Il successo, il tick, il nuovo comando e il reset del costo non lo azzerano. LOAD deve conservare il byte; un vecchio save senza campo rimane sconosciuto.
 
+    ORG $A031
+; DATA: Secondo argomento letterale, indipendente dal primo
+    DEFB $00,$00                          ; $A031 00 00 | Word little endian, valore caricato 0000. B562 è il writer diretto; i modelli dei verbi originali non scelgono classe5 nel secondo ruolo. La cuoca legge il byte alto a 09:55 nel ramo Brown. LOAD conserva un valore esplicito; un vecchio salvataggio senza campo resta sconosciuto.
+
+    ORG $B549
+; DATA: Autorizzazione al secondo argomento numerico
+    DEFB $00                              ; $B549 00
+
+    ORG $B54A
+; CODE: Risoluzione e scrittura del secondo letterale
+    LD A,($B549)                          ; $B54A 3a 49 b5
+    INC A                                 ; $B54D 3c
+    JR NZ,$B576                           ; $B54E 20 26
+    LD ($B549),A                          ; $B550 32 49 b5
+    LD A,($B179)                          ; $B553 3a 79 b1
+    BIT 7,A                               ; $B556 cb 7f
+    JR Z,$B576                            ; $B558 28 1c
+    LD A,$FE                              ; $B55A 3e fe
+    LD ($A035),A                          ; $B55C 32 35 a0
+    LD HL,($B178)                         ; $B55F 2a 78 b1
+    LD ($A031),HL                         ; $B562 22 31 a0 | Scrive entrambi i byte solo dopo il controllo del flag B549 e del tag del letterale.
+    OR $01                                ; $B565 f6 01
+    RET                                   ; $B567 c9
+    LD A,($A010)                          ; $B568 3a 10 a0 | La classe nominale del secondo argomento deve essere 5 per raggiungere B54A. Nei modelli estratti dal gioco PAY e WAIT UNTIL usano il primo letterale.
+    CP $05                                ; $B56B fe 05
+    JR Z,$B54A                            ; $B56D 28 db
+    LD A,($B179)                          ; $B56F 3a 79 b1
+    BIT 7,A                               ; $B572 cb 7f
+    JR Z,$B57B                            ; $B574 28 05
+    LD A,$FF                              ; $B576 3e ff
+    CP $FF                                ; $B578 fe ff
+    RET                                   ; $B57A c9
+
     ORG $C4D1
 ; CODE: Azioni: enumerazione dei referenti e passaggio da verifica a esecuzione
     LD A,($A033)                          ; $C4D1 3a 33 a0

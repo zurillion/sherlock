@@ -79,6 +79,53 @@
     INC IY                                ; $A533 fd 23
     RET                                   ; $A535 c9
 
+    ORG $A7D0
+; CODE: Articolo di un nome comune e ritorno del decoder
+    XOR A                                 ; $A7D0 af
+    LD ($A7EA),A                          ; $A7D1 32 ea a7
+    BIT 7,D                               ; $A7D4 cb 7a | Un nome comune prosegue verso la selezione dell’articolo. Un nome proprio segue il ramo separato.
+    JR Z,$A7EB                            ; $A7D6 28 13
+    LD A,E                                ; $A7D8 7b
+    LD HL,$09EE                           ; $A7D9 21 ee 09
+    CP L                                  ; $A7DC bd
+    JR NZ,$A7E4                           ; $A7DD 20 05
+    LD A,D                                ; $A7DF 7a
+    AND $0F                               ; $A7E0 e6 0f
+    CP H                                  ; $A7E2 bc
+    RET Z                                 ; $A7E3 c8
+    LD A,$01                              ; $A7E4 3e 01
+    LD ($A7EA),A                          ; $A7E6 32 ea a7
+    RET                                   ; $A7E9 c9
+    NOP                                   ; $A7EA 00
+    LD HL,$A24D                           ; $A7EB 21 4d a2
+    LD A,($A027)                          ; $A7EE 3a 27 a0
+    LD E,A                                ; $A7F1 5f
+    LD A,($A2AA)                          ; $A7F2 3a aa a2
+    OR E                                  ; $A7F5 b3
+    JR Z,$A7FB                            ; $A7F6 28 03
+    LD HL,$A255                           ; $A7F8 21 55 a2
+    LD A,D                                ; $A7FB 7a
+    RRCA                                  ; $A7FC 0f
+    RRCA                                  ; $A7FD 0f
+    RRCA                                  ; $A7FE 0f
+    AND $1E                               ; $A7FF e6 1e
+    PUSH DE                               ; $A801 d5
+    LD E,A                                ; $A802 5f
+    LD D,$00                              ; $A803 16 00
+    ADD HL,DE                             ; $A805 19
+    LD E,(HL)                             ; $A806 5e
+    INC HL                                ; $A807 23
+    LD D,(HL)                             ; $A808 56
+    CALL $A887                            ; $A809 cd 87 a8 | La richiesta 6BB7 del cocchiere non percepibile chiama A887 con SP 5D38. Il ritorno A80C sostituisce HL del precedente scorrimento a 5D36–5D37.
+    POP DE                                ; $A80C d1
+    RET                                   ; $A80D c9
+
+    ORG $A887
+; CODE: Uscita prima della stampa quando l’attore non è percepibile
+    LD A,($5C3C)                          ; $A887 3a 3c 5c | Il flag 5C3C è zero per la richiesta fuori scena: A88B ritorna prima di invocare il renderer.
+    AND A                                 ; $A88A a7
+    RET Z                                 ; $A88B c8
+
     ORG $A9D7
 ; CODE: Scrittura della parola grezza nel buffer
     LD (HL),A                             ; $A9D7 77 | I nomi propri di stanza negli ingressi brevi e le direzioni lessicali dei passaggi scrivono i caratteri grezzi. Entranc(e) lascia il byte a 5C12 e northeas(t) a 5C13.
@@ -476,7 +523,7 @@
     JR Z,$E6E3                            ; $E6C4 28 1d
     LD E,(IX+$09)                         ; $E6C6 dd 5e 09
     LD D,(IX+$0A)                         ; $E6C9 dd 56 0a
-    LD HL,$6BB7                           ; $E6CC 21 b7 6b | 6BB7 stampa la richiesta di pagamento. La chiamata del nome del destinatario scarica il precedente to.
+    LD HL,$6BB7                           ; $E6CC 21 b7 6b | Nella richiesta fuori scena del mercoledì alle 10:17, il renderer resta spento. Il lookup dell’articolo conserva comunque A80C a 5D36–5D37. 6BB7 stampa la richiesta di pagamento. La chiamata del nome del destinatario scarica il precedente to.
     CALL $A59F                            ; $E6CF cd 9f a5
     LD HL,$0000                           ; $E6D2 21 00 00
     AND A                                 ; $E6D5 a7

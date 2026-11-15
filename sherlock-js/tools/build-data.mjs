@@ -15,6 +15,13 @@ const sha=createHash('sha256').update(payload).digest('hex');
 if(sha!=='c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407')throw Error('Unrecognized source data version');
 const byte=p=>payload[p-0x5d80],word=p=>byte(p)|(byte(p+1)<<8);
 const dictionary=(await read('parser/results/dictionary.json')).map(w=>({id:parseInt(w.offset,16),stem:w.stem,form:w.output_inflected,suffix:parseInt(w.suffix_code,16),type:parseInt(w.class,16),alias:w.alias_direct?parseInt(w.alias_direct,16):null}));
+// DA34 scans the alphabetic index for the next nonempty bucket.
+const alphabeticIndex=Array.from({length:32},(_,i)=>word(0x5D80+2*i));
+const lexer={initialGroupEnd:word(0xDA32),groupEnds:Object.fromEntries(Array.from({length:25},(_,i)=>{
+ const index=i+1,end=alphabeticIndex.slice(index+1).find(Boolean);
+ if(!alphabeticIndex[index]||end===undefined)throw Error('Unexpected dictionary bucket');
+ return [String.fromCharCode(65+i),0x5DBF+end];
+}))};
 const catalog=await read('locazioni/results/locations.json');
 const ruleNames={E2C7:'hailCab',E3EA:'enterCab',E40A:'enterContainer',E432:'leaveContainer',DE9D:'openOrdinary',DEAF:'closeOrdinary',DF7E:'takeBurningNote',DFA7:'openSafe'};
 const entities=catalog.entities.map(e=>({id:e.id,name:e.name,noun:parseInt(e.name_words_raw[0],16),qualifiers:[e.money_flag?0:parseInt(e.name_words_raw[1],16),parseInt(e.name_words_raw[2],16)],parent:e.parent_id,rooms:e.locations.map(r=>r.id),size:e.field_02,weight:e.field_03,properties:e.field_04,attributes:parseInt(e.flags_05,16),status:parseInt(e.flags_06,16),person:e.person_flag,money:e.money_flag,pence:e.money_pence,description:e.description_pointer==='0000'?null:e.description_pointer,rules:e.rules.filter(r=>r.action_id).map(r=>({action:r.action_id,rule:ruleNames[r.rule_pointer]||'untranslated:'+r.rule_pointer,headerCost:byte(parseInt(r.rule_pointer,16)+1)>>>4}))}));
@@ -22,7 +29,9 @@ const rooms=catalog.rooms.map(r=>({id:r.id,name:r.name_hint,flags:r.flags,nameWo
 const actions=(await read('locazioni/results/gameplay-action-inventory.json')).models.map(a=>{const at=parseInt(a.address,16),flags=(byte(at+1)>>>4)|(byte(at+3)&240),modes=(byte(at+5)>>>4)|(byte(at+7)&240);return {id:a.id,words:a.words,wordReferences:Array.from({length:4},(_,i)=>word(at+2*i)),rule:a.general_rule,headerCost:a.general_rule?byte(parseInt(a.general_rule,16)+1)>>>4:null,modelFlags:[flags,modes],singleSelection:Boolean(modes&16),classes:[!(flags&8)?0:flags&128?4:(modes&12)===12?5:7,!(flags&4)?0:flags&64?4:(modes&3)===3?5:7]};});
 // Rule headers are data, including masks; expose no instruction bodies.
 function constraintHeader(at){const first=byte(at),second=byte(at+1);let cursor=at+2;if(first&64)cursor+=2;const masks=[];if(first&16){const control=byte(cursor++);for(let slot=0;slot<2;slot++){const modes=(control>>>(slot?0:4))&15;masks.push({argument:slot+1,tests:[{mode:modes>>>2,mask:byte(cursor++)},{mode:modes&3,mask:byte(cursor++)}]});}}return {classes:[first&15,second&15],requiresLight:Boolean(first&32),masks};}
-const argumentChecks={initialCapitalization:byte(0xA026),initialOutputSpacing:byte(0xA025),initialParserMode:byte(0xA024),initialParserTokenStart:word(0xA029),initialNameQualifierMode:byte(0xA028),initialOutputChannel:byte(0xA027),initialValue:byte(0xA021),initialResolutionMode:byte(0xA01C),initialModelFlags:[byte(0xA01D),byte(0xA01E)],headers:{},entities:{}};
+// B568 enables the second numeric writer only for class 5 in the action model.
+const initialOtherLiteral=actions.some(action=>action.classes[1]===5)?null:word(0xA031);
+const argumentChecks={initialOtherLiteral,initialCapitalization:byte(0xA026),initialOutputSpacing:byte(0xA025),initialParserMode:byte(0xA024),initialParserTokenStart:word(0xA029),initialNameQualifierMode:byte(0xA028),initialOutputChannel:byte(0xA027),initialValue:byte(0xA021),initialResolutionMode:byte(0xA01C),initialModelFlags:[byte(0xA01D),byte(0xA01E)],headers:{},entities:{}};
 for(const e of catalog.entities){const rules={};for(const r of e.rules.filter(r=>r.action_id)){rules[r.action_id]=r.rule_pointer;argumentChecks.headers[r.rule_pointer]=constraintHeader(parseInt(r.rule_pointer,16));}argumentChecks.entities[e.id]=rules;}
 for(const a of actions)if(a.rule)argumentChecks.headers[a.rule]=constraintHeader(parseInt(a.rule,16));
 // Decode the *data language* used for compressed prose into a semantic AST.
@@ -63,7 +72,7 @@ randomInputs.worldLayout.tables.push(conversationTable);
 const descriptionSearch=buildDescriptionSearch(payload,rooms);
 if(byte(0x9A7D)!==255)throw Error('Unexpected nonempty Watson exception table');
 const informationRules={predicates:Array.from({length:11},(_,i)=>word(0x994D+2*i)),exceptions:[]};
-const data={argumentChecks,informationRules,randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+const data={argumentChecks,lexer,informationRules,randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');

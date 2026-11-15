@@ -23,7 +23,7 @@ const clone=structuredClone;
 // dispatcher, server-side game logic, or fallback to the reference engine.
 export class Game {
  constructor(data,{start_mode='free',npcs=true,npc_random=true,npc_profile='historical-watson-v4',seed=1}={}){
-  this.data=data;this.dictionary=new Dictionary(data.dictionary);this.lexer=new Lexer(this.dictionary);this.parser=new Parser(this.lexer);this.world=new World(data);this.text=new Text(data,this.dictionary,this.world);
+  this.data=data;this.dictionary=new Dictionary(data.dictionary);this.lexer=new Lexer(this.dictionary,data.lexer?.groupEnds);this.parser=new Parser(this.lexer);this.world=new World(data);this.text=new Text(data,this.dictionary,this.world);
   this.startMode=start_mode;this.pending=null;this.analysis=null;this.lastInput=null;this.ended=null;this.openingPending=true;this.conversation=null;
   if(start_mode==='original'){this.world.tick=2;this.world.minutes++;}
   this.sourceDisplay=new RandomDisplay(data,this.world);this.runtimeRandom=new RuntimeRandom(data,this.world);this.runtimeRandom.display=this.sourceDisplay;this.npcRuntime=new NpcRuntime(this);if(npcs&&npc_random&&npc_profile!=='world-v5')this.runtimeRandom.initialize();this.configureRandom();
@@ -351,7 +351,7 @@ export class Game {
    // before lexical validation or any paid actor visit.
    if(this.world.npcs){this.world.npcs.editorTokenFlag=0;this.world.npcs.parserNextToken=null;}
    if(this.world.npcs)this.npcRuntime.ruleResults.invalidate(); // Native editor/parser rule callbacks precede lexical validation.
-   this.lastInput=input;lexed=this.lexer.scan(input,{onTokenStart:this.world.npcs?value=>{this.world.npcs.parserTokenStart=value;}:null});this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
+   this.lastInput=input;lexed=this.lexer.scan(input,{onTokenStart:this.world.npcs?value=>{this.world.npcs.parserTokenStart=value;}:null});this.sourceDisplay.lexicalWorkspace(lexed.workspaceCopies);if(this.world.npcs&&lexed.lookupState)this.world.npcs.lexicalMatch=lexed.lookupState;if(this.world.npcs&&lexed.groupEnd!==undefined)this.world.npcs.lexicalGroupEnd=lexed.groupEnd;this.currentInputEnd=0x5B81+lexed.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0);if(this.world.display)this.sourceDisplay.lexed(lexed.tokens);
    this.analysis={input,normalised:lexed.normalized,outcome:'ok',units,actions};
    let emptyPending=Boolean(this.pending)&&!ignoredPendingRepeat;while(index<lexed.tokens.length&&(lexed.tokens[index].type!==192||emptyPending)){emptyPending=false;
     if(index&&lastOutcome&&this.world.npcs)this.npcRuntime.playerInputFailures(lastOutcome.collectiveExhausted?['9937','992D']:['992D'],messages,actions);
@@ -405,7 +405,7 @@ export class Game {
    }
   }catch(error){
    if(error instanceof InputError&&error.kind==='tool_limit'){cancel();this.analysis={input,outcome:'not_translated',feature:'editor-boundary',notice:error.message,units:[],actions:[]};messages.length=0;messages.push({kind:'system',text:error.message});}
-   else if(error instanceof InputError){if(error.kind==='lexical_error')this.sourceDisplay.invalidateGlyphExtras();this.sourceDisplay.lexicalWorkspace(error.detail.workspaceCopies);if(this.world.npcs&&error.detail.lookupState)this.world.npcs.lexicalMatch=error.detail.lookupState;if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
+   else if(error instanceof InputError){if(error.kind==='lexical_error')this.sourceDisplay.invalidateGlyphExtras();this.sourceDisplay.lexicalWorkspace(error.detail.workspaceCopies);if(this.world.npcs&&error.detail.lookupState)this.world.npcs.lexicalMatch=error.detail.lookupState;if(this.world.npcs&&error.detail.groupEnd!==undefined)this.world.npcs.lexicalGroupEnd=error.detail.groupEnd;if(this.world.npcs&&['syntax_error','quoted_syntax_error'].includes(error.kind)){if(error.detail.partialNodes)this.npcRuntime.failedParse(error.detail.partialNodes);else this.npcRuntime.invalidateParserProjection();this.pending=null;}this.analysis={input,normalised:lexed?.normalized,outcome:error.kind,units,actions};messages.push({kind:error.kind==='tool_limit'?'system':'error',text:error.message.replaceAll('`','£')});}
    else{cancel();messages.length=0;actions.length=0;
     if(error instanceof UnsupportedFeature||error instanceof RandomInputsUnavailable){this.analysis={input,normalised:lexed?.normalized,outcome:'not_translated',feature:error.feature??'original-random-input',notice:error.message,...(error instanceof RandomInputsUnavailable?{recovery:'requires-engine-update',missing_address:error.address??null}:{}),units,actions};messages.push({kind:'system',text:error.message});}
     else throw error;

@@ -16,3 +16,18 @@ for(const[index,c]of ref.cases.entries())test('Argument check residual: native f
   if(!out.running){mirror=new ClientSession(data);await mirror.request('load',{save:JSON.parse(JSON.stringify((await session.request('save')).save))});mirrorOut=null;}
  }
 });
+
+test('The second numeric operand retains its own boot value and survives SAVE', () => {
+ const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+ assert(data.actions.every(action => action.classes[1] !== 5));
+ game.world.npcs.literal = 0x91A3;
+ assert.equal(game.npcRuntime.read(0xA032), 0);
+ assert.equal(game.npcRuntime.read(0xA031), 0);
+ game.world.npcs.otherLiteral = 0x6284;
+ const saved = JSON.parse(JSON.stringify(game.dump()));
+ const loaded = Game.load(data, saved);
+ assert.equal(loaded.npcRuntime.read(0xA031), 0x84);
+ assert.equal(loaded.npcRuntime.read(0xA032), 0x62);
+ delete saved.world.npcs.otherLiteral;
+ assert.equal(Game.load(data, saved).npcRuntime.read(0xA032), null);
+});

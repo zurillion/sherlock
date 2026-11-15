@@ -4,3 +4,19 @@ const assertWorkspace=(g,bytes,label)=>{for(const[i,value]of bytes.entries()){co
 for(const[index,c]of ref.cases.entries())test('Native lexical workspace '+index+' / '+c.steps[0].input,()=>{const g=new Game(data,{npc_profile:'world-v5',seed:1});assertWorkspace(g,c.boot,'boot');assert.deepEqual(Array.from({length:24},(_,i)=>g.sourceDisplay.read(0x5C1E+i)),c.boot.slice(19,43));let loaded=null;for(const row of c.steps){const before=g.world.random.draws,out=g.submit(row.input),count=g.world.random.draws-before,draws=count?g.world.random.trace.slice(-count):[];assert.equal(out.state.analysis.outcome,row.outcome);assertWorkspace(g,row.workspace,row.input);assert.equal(draws.length,row.random.length);for(const[i,d]of row.random.entries())for(const k of['actor','width','mixOffset','seed','cursor','reads','result','next_seed','next_cursor'])assert.deepEqual(draws[i][k],d[k]);assertOriginalState(g,row.after,row.input);if(loaded){assert.deepEqual(loaded.submit(row.input),out);assert.deepEqual(loaded.dump(),g.dump());}loaded=Game.load(data,JSON.parse(JSON.stringify(g.dump())));}});
 test('Lexical copies match DA7A, including preflight errors; analysis is pure',()=>{for(const c of ref.cases){const g=new Game(data,{npc_profile:'world-v5',seed:1});let previous='';for(const row of c.steps){const input=row.input==='@'?previous:row.input;previous=input;let result;try{result=g.lexer.scan(input);}catch(e){result=e.detail;}assert.ok(row.copies.length>=result.workspaceCopies.length);assert.deepEqual(row.copies.slice(0,result.workspaceCopies.length),result.workspaceCopies);const saved=g.dump();try{g.parser.analyze(input);}catch{}g.canStreamWait(input);assert.deepEqual(g.dump(),saved);}}});
 test('Direct lexical writes preserve the output pointer and old saves receive no boot tail',()=>{const g=new Game(data,{npc_profile:'world-v5',seed:1});g.world.display.wordBuffer.index=3;g.sourceDisplay.lexicalWorkspace([[97,98,0]]);assert.equal(g.world.display.wordBuffer.index,3);assert.deepEqual(g.world.display.wordBuffer.bytes.slice(0,3),[97,98,0]);const save=JSON.parse(JSON.stringify(g.dump()));save.world.display.wordBuffer.bytes[20]=null;const loaded=Game.load(data,save);assert.equal(loaded.sourceDisplay.read(0x5C1F),null);g.sourceDisplay.lexicalWorkspace([Array(80).fill(97).concat(0)]);assert.equal(g.sourceDisplay.read(0x5C41),97);assert.equal(g.sourceDisplay.read(0x5C42),null);});
+
+test('Numeric literals and punctuation preserve the most recent alphabetic bucket end', () => {
+ const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+ const end = g => g.npcRuntime.read(0xDA32) | (g.npcRuntime.read(0xDA33) << 8);
+ assert.equal(end(game), 0);
+ game.submit('WAIT UNTIL 9AM');
+ assert.equal(end(game), 0x670A);
+ assert.equal(game.submit('NONSENSE').state.analysis.outcome, 'lexical_error');
+ assert.equal(end(game), 0x63A7);
+ game.submit('.');
+ assert.equal(end(game), 0x63A7);
+ const saved = JSON.parse(JSON.stringify(game.dump()));
+ assert.equal(end(Game.load(data, saved)), 0x63A7);
+ delete saved.world.npcs.lexicalGroupEnd;
+ assert.equal(Game.load(data, saved).npcRuntime.read(0xDA32), null);
+});

@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 458,
-  "bytes_roundtripped": 951,
+  "instructions": 499,
+  "bytes_roundtripped": 1018,
   "regions": [
     {
       "start": "9E74",
@@ -29,6 +29,20 @@
       "end_exclusive": "A536",
       "kind": "code",
       "label": "Ricerca e selezione del riferimento nominale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A7D0",
+      "end_exclusive": "A80E",
+      "kind": "code",
+      "label": "Articolo di un nome comune e ritorno del decoder",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A88C",
+      "kind": "code",
+      "label": "Uscita prima della stampa quando l’attore non è percepibile",
       "atlas_priority": 188
     },
     {

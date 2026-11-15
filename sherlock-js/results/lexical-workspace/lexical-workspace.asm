@@ -157,7 +157,7 @@
     JR Z,$DA48                            ; $DA4E 28 f8
     LD HL,$5DBF                           ; $DA50 21 bf 5d
     ADD HL,DE                             ; $DA53 19
-    LD ($DA32),HL                         ; $DA54 22 32 da
+    LD ($DA32),HL                         ; $DA54 22 32 da | Somma 5DBF al successivo offset non zero nell’indice alfabetico e salva il limite esclusivo a DA32/33. Per UNTIL l’offset 094B del gruppo V produce 670A.
     POP DE                                ; $DA57 d1
     LD A,D                                ; $DA58 7a
     OR E                                  ; $DA59 b3
