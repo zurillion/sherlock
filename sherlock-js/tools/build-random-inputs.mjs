@@ -30,6 +30,10 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // observes them in the passive trace.
  if([0xA03D,0xA03E,0xA03F].some(address=>written.has(address)))throw Error('The pre-entry data are no longer immutable');
  ranges.push({start:0xA03D,kind:'immutable-pre-entry-data',values:[byte(0xA03D),byte(0xA03E),byte(0xA03F)]});
+ // A7EB selects one of two four-word article tables. Article lookup
+ // never modifies these dictionary references.
+ if(Array.from({length:16},(_,i)=>0xA24D+i).some(address=>written.has(address)))throw Error('The article tables are no longer immutable');
+ ranges.push({start:0xA24D,kind:'immutable-article-references',values:[...payload.subarray(0xA24D-base,0xA25D-base)]});
  const constants=[...code].filter(([at])=>at>=0x9921).sort((a,b)=>a[0]-b[0]);
  const npcBytes=[];for(const op of Object.values(npcPrograms.instructions)){const start=parseInt(op.source,16);for(let i=0;i<op.size;i++)if(!written.has(start+i))npcBytes.push([start+i,byte(start+i)]);}
  const catalog=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/locations.json'),'utf8')),

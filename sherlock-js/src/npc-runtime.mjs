@@ -41,6 +41,7 @@ export class NpcRuntime {
    (group.noun||group.qualifiers.length)&&!(group.noun&0x8000)&&model.classes[slot]&&model.classes[slot]!==5)){
    this.state.nominalVisibility=model.modelFlags[0]&1; // B4DF / B586
   }
+  if(model?.classes[1])this.state.secondNumericAvailable=true; // B36B/B371 resets the second-slot scanner.
   if(model?.singleSelection)this.setResolutionMode(0); // B1FD
  }
  finishPlayerResolution(success){this.state.playerResolutionMode=success?(this.state.resolutionMode??null):0;}
@@ -64,6 +65,7 @@ export class NpcRuntime {
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
   w.npcs.nominalVisibility=0;
+  w.npcs.secondNumericAvailable=false;
   w.npcs.rejectionSlot=0; // B649/B658 are both JR NZ before the first rejection.
   w.npcs.requestOpcodes=[0,0]; // B934/B935 are separate zero-initialized cells.
   w.npcs.lexicalGroupEnd=g.data.lexer?.initialGroupEnd??null;
@@ -630,6 +632,16 @@ export class NpcRuntime {
  showAction(out,actor,messages,actions,{argumentFlags=false}={}){
   this.game.sourceDisplay.setChannel(0); // A306: action announcement mode1; A352 leaves zero, including suppressed output.
   const w=this.w,visible=out.visibilityResolved||w.perceived(actor);
+  if(out.offstageMovement&&argumentFlags){
+   const model=this.game.data.actions.find(action=>action.id===out.action);
+   const gate=out.action===28?w.entity(out.args[0]):null;
+   const references=model?.wordReferences;
+   this.game.sourceDisplay.offstageActionPeriod({
+    doorNoun:gate&&!(gate.noun&0x8000)?gate.noun:null,
+    modelFlags:model?.modelFlags[0],
+    descriptor:references?(references[gate?1:0]&0x0FFF):null,
+   });
+  }
   // CAAF/CAF0: a shared door can be acted on from another room. Announce
   // its change to an observer in either room, replacing the unseen actor
   // with the original anonymous subject ($A036 = FF). CB01/D471 also
@@ -662,6 +674,9 @@ export class NpcRuntime {
     if(previous?.raw_text!==undefined)previous.raw_text+=' ';
    }
    messages.push(...shown);if(!out.projected)this.game.projectMessages(shown);}
+  if(!visible&&!anonymous&&argumentFlags&&door&&!(door.noun&0x8000)){
+   this.game.sourceDisplay.offstageActionPeriod({doorNoun:door.noun,modelFlags:this.state.modelFlags?.[0],descriptor:this.game.data.actions.find(action=>action.id===out.action)?.wordReferences[0]&0x0FFF});
+  }
   if(out.cost||out.action===32||out.objectRule)actions.push({actor,id:out.action,arguments:out.args});
  }
  relocate(id,room,messages,notification={}){
@@ -670,6 +685,10 @@ export class NpcRuntime {
   // announces that action before E49B moves it, even when Holmes is in a train.
   if(directional){g.text.setQualifierMode(0);g.sourceDisplay.setChannel(0);this.modelFlags(notification.direction);} // CA76 -> A323: model lookup also occurs with suppressed off-stage output.
   if(directional&&visible){const message=g.text.directionalMovement(w.name(id),notification.direction,{relocatingActor:id});messages.push(message);g.projectMessages([message]);}
+  if(directional&&!visible){
+   const model=g.data.actions.find(action=>action.id===notification.direction);
+   g.sourceDisplay.offstageActionPeriod({descriptor:model?.wordReferences[0],modelFlags:model?.modelFlags[0]});
+  }
   w.move(id,room);this.moved(room);
   if(before!==w.roomOf()){
    const room=w.rooms[w.roomOf()],full=!(room.flags&64);
@@ -827,6 +846,7 @@ export class NpcRuntime {
   if(address===0xCC0D){const actor=this.w.scheduler.current?.actor,local=this.active?.vm.states[actor]??this.state.program.states[actor];return local?Number(local.requestAvailable):actor===this.w.player?Number(this.w.scheduler.requests.some(r=>r.recipient===actor)):null;}
   if(address===0xCC0B){const actor=this.w.scheduler.current?.actor;if(actor===this.w.player)return this.state.playerFailures;return this.active?.vm.states[actor]?.failures??this.state.program.states[actor]?.failures??null;}
   if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
+  if(address===0xB549){const available=this.state.secondNumericAvailable;return available==null?null:available?255:0;}
   if(address===0xB649||address===0xB658)return this.state.rejectionSlot==null?null:(this.state.rejectionSlot===0?0x20:0x28);
   if(address===0xB934||address===0xB935)return this.state.requestOpcodes?.[address-0xB934]??null;
   if(address===0xD714)return this.state.editorTokenFlag??null;
@@ -843,7 +863,7 @@ export class NpcRuntime {
   if(address===0xA02D)return this.state.previousTokenClass??null;
   if(address===0xA02E)return this.state.nominalModelSelector??null;
   if(address===0xA024)return this.state.parserMode??null;
-  if(address===0xA025||address===0xA026)return this.game.sourceDisplay.read(address);
+  if(address===0xA025||address===0xA026||address===0xA851)return this.game.sourceDisplay.read(address);
   if(address===0xA028)return this.state.nameQualifierMode??null;
   if(address===0xA027)return this.state.outputChannel??null;
   if(address===0xA021)return this.state.argumentCheck??null;
@@ -881,6 +901,10 @@ export class NpcRuntime {
   if(address===0x9CA1)return this.state.burningNoteTicks;
   if(address===0xA11A||address===0xA11B)return this.state.recordsSourceKnown?this.use(({records})=>{const link=records.arena.allocationLink;return link===null?null:address===0xA11A?link&255:link>>>8;}):null;
   const head=Object.entries(RECORD_HEADS).find(([,at])=>address===at||address===at+1);if(head||address===0x9FE3||address===0x9FE4)return this.state.recordsSourceKnown?this.use(({records})=>{const value=head?records.heads[head[0]]:records.arena.freeHead,at=head?head[1]:0x9FE3;return address===at?value&255:value>>>8;}):null;
+  if(address>=0x994D&&address<0x9963){
+   const index=address-0x994D,word=this.game.data.informationRules.predicates[index>>>1];
+   return index&1?word>>>8:word&255;
+  }
   if(address===0x9920)return this.game.data.npcPrograms.actorTerminator??null;
   if(address>=0x9860&&address<0x9920){const index=Math.floor((address-0x9860)/8),a=this.w.scheduler.actors[index],s=index===0?{pc:this.state.playerProgramCounter??'9923',saved:this.state.playerRootSaved}:this.active?.vm.state(a.id)||this.state.program.states[a.id],pc=parseInt(s.pc,16);return [a.id,pc&255,pc>>>8,...s.saved,a.due&255,a.due>>>8][(address-0x9860)%8];}
   const encounterCells={0x9D92:this.state.encounters[2][0],0x9D93:this.state.encounters[2][2],0x9D94:this.state.encounters[2][1]};for(const [id,start]of[[3,0x9D10],[4,0x9D2E],[11,0x9D45],[12,0x9D70]])for(const [i,v]of this.state.encounters[id].entries())encounterCells[start+i]=v;if(address in encounterCells)return encounterCells[address];
@@ -912,6 +936,7 @@ export class NpcRuntime {
   if(s.parserTokenStart!=null&&(!Number.isInteger(s.parserTokenStart)||s.parserTokenStart<0||s.parserTokenStart>65535))throw Error('Puntatore iniziale del token non valido');
   if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');
   if(s.parserAll!==undefined&&s.parserAll!==null&&![0,1,2].includes(s.parserAll))throw Error('Stato ALL/BUT non valido');
+  if(s.secondNumericAvailable!=null&&typeof s.secondNumericAvailable!=='boolean')throw Error('Stato del secondo argomento numerico non valido');
   if(s.rejectionSlot!=null&&![0,1].includes(s.rejectionSlot))throw Error('Argomento rifiutato non valido');
   if(s.nominalVisibility!=null&&![0,1,2].includes(s.nominalVisibility))throw Error('Visibilità della ricerca nominale non valida');
   if(s.nominalModelSelector!=null&&![0,1].includes(s.nominalModelSelector))throw Error('Selettore nominale non valido');

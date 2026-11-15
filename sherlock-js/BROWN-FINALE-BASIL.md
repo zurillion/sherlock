@@ -102,11 +102,34 @@ stato JavaScript del giovedì alle 10:00.
   Due letture di questa striscia, a `$5A40` e `$5242`, cambiano
   la scelta del giardiniere se si usa la geometria approssimata.
 
-Il confronto dall’avvio coincide su 876 checkpoint, 16.171 estrazioni
-e 34.412 letture fino alle 01:40 di sabato. Le verifiche includono la
-ripresa da SAVE/LOAD e i pacchetti della schermata web. Il campione
-successivo legge il ritorno AA00 a 5D49, lasciato da A9FD quando
-l’annuncio del treno scarica il punto senza disegnarlo.
+### Annunci e ricerche di sabato
+
+- Il treno scarica il punto anche quando il dizionario è inibito.
+  In questo frame, `$A9FD` salva il ritorno `$AA00` a `$5D48–$5D49`.
+  Una porta comune può sostituirlo con il ritorno `$A80C` di `$A809`
+  e con l’indice della tabella degli articoli a `$5D4A–$5D4B`.
+- La cuoca apre la porta alle 15:09 e la attraversa alle 15:10.
+  Il comando 28 passa dal modello «go through». `$A398` imposta
+  C a `$28` e l’ultima parola del modello lascia il descrittore
+  `$08CE`. L’AF del punto nel percorso fuori scena resta a
+  `$5D4C–$5D4D` e fornisce la lettura delle 15:11.
+- `$D471` cerca un’uscita per destinazione. `$D231/$D228/$D224`
+  lasciano puntatore alla stanza, predicato e argomenti a
+  `$5D54–$5D59`. `$D344/$D33C` conservano il ritorno e AF a
+  `$5D5A–$5D5D`. Alcuni annunci usano gli stessi slot.
+- `$A851` è il flag persistente delle maiuscole forzate. Il token
+  `$1B` lo inverte con `$A852`. `$AA59` lo consulta insieme a
+  `$A026`, che gestisce invece l’inizio della frase. `$B549`
+  conserva la disponibilità del secondo argomento numerico.
+  `$B649/$B658` riflettono quale argomento ha fallito la verifica.
+
+Il confronto dall’avvio coincide su 977 checkpoint, 18.830 estrazioni
+e 40.090 letture fino alle 18:10 di sabato. Le verifiche includono la
+ripresa da SAVE/LOAD e i pacchetti della schermata web. Il primo
+ingresso ancora scoperto è `$5C54`, letto alle 18:15 nel checkpoint
+delle 18:20.
+
+[Traccia nativa degli annunci e delle scritture del fine settimana](results/brown-to-ending/passive-weekend-stack.json).
 
 Il testo alternativo `$759C` è già verificato per l’apertura della
 cassaforte. Resta da confrontare il percorso in cui il controllo

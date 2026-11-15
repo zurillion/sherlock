@@ -30,11 +30,20 @@ try {
   });
 } catch (error) {
   const missing = error.message.match(/^(\d+) Ingresso casuale originale non ancora ricostruito: \$([\dA-F]{4})\./);
-  if (Number(missing?.[1]) !== completed) throw error;
-  const address = Number.parseInt(missing[2], 16);
-  const row = steps[completed];
-  assert(row.random.some(draw => draw.reads.some(read => read.address === address)), error.message);
-  outcome = { stoppedAt: missing[2], nextOriginalClock: row.after.clock };
+  if (Number(missing?.[1]) === completed) {
+    const address = Number.parseInt(missing[2], 16);
+    const row = steps[completed];
+    assert(row.random.some(draw => draw.reads.some(read => read.address === address)), error.message);
+    outcome = { stoppedAt: missing[2], nextOriginalClock: row.after.clock };
+  } else {
+    const mismatch = error.message.match(/^Checkpoint (\d+) .* draw (\d+) (\w+)/);
+    if (error.code !== 'ERR_ASSERTION' || Number(mismatch?.[1]) !== completed) throw error;
+    outcome = {
+      nextOriginalClock: steps[completed].after.clock,
+      mismatch: { checkpoint: completed, draw: Number(mismatch[2]), field: mismatch[3], actual: error.actual, expected: error.expected },
+    };
+    process.exitCode = 1;
+  }
 }
 const draws = steps.slice(0, completed).flatMap(row => row.random);
 const report = {

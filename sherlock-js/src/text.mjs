@@ -73,7 +73,8 @@ export class Text {
  }
  render(id,context={}){
   const w=this.world,actor=context.actor??w.player,object=context.object??actor,other=context.other??actor;
-  let result='',capitalize=true,force=false,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false,pending='',pendingCap=true;const fragments=[];
+  const sourceCase=(context.bufferSink||context.captureBuffer||context.sink)?w.display:null;
+  let result='',capitalize=true,force=sourceCase?.forceUppercase===1,depth=0,argumentsUsed=0,mixOffset=context.mixOffset??null,inChoice=false,pending='',pendingCap=true;const fragments=[];
   const remember=value=>{if(context.bufferVisible!==false)this.rememberDictionaryReference(value);};
   const properCapital=(proper=true)=>{if(w.display&&(context.bufferSink||context.sink))w.display.capitalizationFlag=nameCapital(w.display.capitalizationFlag,proper);};
   const dictionaryCapital=()=>{if(w.display&&context.bufferVisible!==false&&context.sink)w.display.capitalizationFlag=1;};
@@ -162,6 +163,8 @@ export class Text {
     case 'backspace':feed('\b');break;
     case 'toggleUpper':{
      force=!force;
+     // Token 1B changes a shared latch, even when the output is hidden.
+     if(sourceCase?.forceUppercase!=null)sourceCase.forceUppercase^=1;
      // A9B7 buffers a whole word, including punctuation. AA59 reads the
      // case mode only when its following delimiter flushes that buffer.
      // A toggle before that delimiter therefore also affects this suffix.

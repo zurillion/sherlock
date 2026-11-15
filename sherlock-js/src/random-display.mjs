@@ -12,7 +12,7 @@ function incrementFlags(before,carry=0){
 // original screen image or machine snapshot is installed here.
 export class RandomDisplay {
  constructor(data,world){this.data=data;this.world=world;}
- initialize(opening,{sceneTrace=[],deferPrompt=false}={}){this.world.display={version:1,profile:'historical-text-only',capitalizationFlag:this.data.argumentChecks?.initialCapitalization??null,spacingFlag:this.data.argumentChecks?.initialOutputSpacing??null,wordBuffer:bootstrapWordWorkspace(this.data.randomInputs.bootOptions),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
+ initialize(opening,{sceneTrace=[],deferPrompt=false}={}){this.world.display={version:1,profile:'historical-text-only',capitalizationFlag:this.data.argumentChecks?.initialCapitalization??null,forceUppercase:this.data.argumentChecks?.initialForceUppercase??null,spacingFlag:this.data.argumentChecks?.initialOutputSpacing??null,wordBuffer:bootstrapWordWorkspace(this.data.randomInputs.bootOptions),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
   if(this.data.randomInputs.editorInitial){this.state.input=this.data.randomInputs.editorInitial.slice(0,129);this.state.inputKnown=this.state.input.map(()=>true);this.state.tokens=this.data.randomInputs.editorInitial.slice(129);this.state.tokenKnown=this.state.tokens.map(()=>true);}
   // ROM 0616–062B allocates a LOAD header after the BASIC program, its
   // variable terminator and the five-byte LOAD "" editor line. It fills
@@ -198,7 +198,7 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D4F,except);}
+ invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D5D,except);}
  get state(){return this.world.display;}
  // The offstage fare still calls the article decoder. With output
  // disabled A887 returns immediately, leaving its caller's return word.
@@ -242,7 +242,7 @@ export class RandomDisplay {
   const s=this.state;
   if(!s)return;
   if(s.wordBuffer?.index!==1||s.wordBuffer.bytes[0]!==46||this.world.npcs?.outputChannel!==0){
-   this.invalidateScratch(0x5D46,0x5D4F);return;
+   this.invalidateScratch(0x5D46,0x5D51);return;
   }
   s.scratch[0x5D47]=s.wordBuffer.bytes[0];
   if(s.spacingFlag===0)s.scratch[0x5D46]=0x22; // AA26: CP 20
@@ -256,8 +256,46 @@ export class RandomDisplay {
   if(Number.isInteger(descriptor)){
    s.scratch[0x5D4E]=descriptor&255;s.scratch[0x5D4F]=descriptor>>>8;
   }else this.invalidateScratch(0x5D4E,0x5D4F);
+  // A9C0 saved HL when it buffered the point. Its dispatcher used
+  // the first entry of the token table, moving HL to the second byte.
+  Object.assign(s.scratch,{[0x5D50]:0xB8,[0x5D51]:0x67,
+   [0x5D52]:0x83,[0x5D53]:13,[0x5D54]:0xA8,[0x5D55]:0xA2}); // Closing CR, then its A2A5 return.
  }
- invalidateScratch(from=0x5CEC,to=0x5D4F,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
+ // A323 suppresses the dictionary for an unseen actor but still
+ // emits its period. That caller is shallower than the train.
+ offstageActionPeriod({doorNoun=null,modelFlags=null,descriptor=null}={}){
+  const s=this.state;
+  if(!s)return;
+  if(Number.isInteger(doorNoun)){
+   // A2E4 selects the definite-reference table for this announcement.
+   const article=0xA255+((doorNoun>>>11)&0x1E)+1;
+   Object.assign(s.scratch,{[0x5D48]:0x0C,[0x5D49]:0xA8,[0x5D4A]:article&255,[0x5D4B]:article>>>8});
+  }
+  if(Number.isInteger(modelFlags)){
+   // A398 loads C with the decoded action flags. B is the announcement mode.
+   Object.assign(s.scratch,{[0x5D50]:modelFlags,[0x5D51]:1});
+  }
+  if(s.wordBuffer?.index===0&&this.world.npcs?.outputChannel===0){
+   if(s.spacingFlag===0||s.spacingFlag===1)s.scratch[0x5D4C]=s.spacingFlag===0?0x22:0x83;
+   else delete s.scratch[0x5D4C];
+   Object.assign(s.scratch,{[0x5D4D]:46,[0x5D4E]:0,[0x5D4F]:0xAA});
+  }else this.invalidateScratch(0x5D4C,0x5D4F);
+  if(Number.isInteger(descriptor)&&s.wordBuffer?.index===0){
+   s.scratch[0x5D54]=descriptor&255;s.scratch[0x5D55]=descriptor>>>8;
+  }
+  this.bufferFeed('.',{hidden:true});this.bufferFeed('\n',{hidden:true});
+ }
+ // D471 calls D33C/D224 before walking the exit list. These words
+ // depend on the acting and requested rooms, not on the outcome.
+ exitSearchRegisters(roomPointer,predicate,header,target,extra){
+  if(!this.state)return;
+  const words=[roomPointer,predicate,target|(extra<<8),0xD347,(target<<8)|0x10|((header>>>8)&0x28)];
+  for(const [i,word] of words.entries()){
+   const at=0x5D54+2*i;
+   this.state.scratch[at]=word&255;this.state.scratch[at+1]=word>>>8;
+  }
+ }
+ invalidateScratch(from=0x5CEC,to=0x5D5D,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
@@ -376,6 +414,7 @@ export class RandomDisplay {
   const s=this.state;if(!s)throw new RandomInputsUnavailable('Proiezione video assente nel salvataggio.');
   if(address===0xA025)return s.spacingFlag??null;
   if(address===0xA026)return s.capitalizationFlag??null;
+  if(address===0xA851)return s.forceUppercase??null;
   if(address===0xC128)return s.windowMode??null;
   if(address>=0xC1F4&&address<=0xC1FB){
    // C1F4..FB are the two formatter channels' width, bitmap pointer and
@@ -412,5 +451,5 @@ export class RandomDisplay {
   }
   return result;
  }
- static validate(s){if(s===null||s===undefined)return;if(s.capitalizationFlag!==undefined&&s.capitalizationFlag!==null&&(!Number.isInteger(s.capitalizationFlag)||s.capitalizationFlag<0||s.capitalizationFlag>255))throw Error('Stato delle maiuscole non valido');if(s.wordBuffer?.capitalClasses!==undefined&&(!Array.isArray(s.wordBuffer.capitalClasses)||s.wordBuffer.capitalClasses.length!==128||s.wordBuffer.capitalClasses.some(v=>v!==null&&![-1,0,1].includes(v))))throw Error('Classi del buffer delle maiuscole non valide');if(s.spacingFlag!==undefined&&s.spacingFlag!==null&&(!Number.isInteger(s.spacingFlag)||s.spacingFlag<0||s.spacingFlag>255))throw Error('Stato degli spazi non valido');if(s.windowMode!==undefined&&s.windowMode!==null&&s.windowMode!==0)throw Error('Modo finestra nativo non supportato dal profilo di testo.');if(s.wordBuffer!==undefined&&(!s.wordBuffer||!Number.isInteger(s.wordBuffer.index)||s.wordBuffer.index<0||s.wordBuffer.index>128||!Array.isArray(s.wordBuffer.bytes)||s.wordBuffer.bytes.length!==128||s.wordBuffer.bytes.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Buffer parola non valido');if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
+ static validate(s){if(s===null||s===undefined)return;if(s.forceUppercase!=null&&s.forceUppercase!==0&&s.forceUppercase!==1)throw Error("Modo maiuscole forzate non valido");if(s.capitalizationFlag!==undefined&&s.capitalizationFlag!==null&&(!Number.isInteger(s.capitalizationFlag)||s.capitalizationFlag<0||s.capitalizationFlag>255))throw Error('Stato delle maiuscole non valido');if(s.wordBuffer?.capitalClasses!==undefined&&(!Array.isArray(s.wordBuffer.capitalClasses)||s.wordBuffer.capitalClasses.length!==128||s.wordBuffer.capitalClasses.some(v=>v!==null&&![-1,0,1].includes(v))))throw Error('Classi del buffer delle maiuscole non valide');if(s.spacingFlag!==undefined&&s.spacingFlag!==null&&(!Number.isInteger(s.spacingFlag)||s.spacingFlag<0||s.spacingFlag>255))throw Error('Stato degli spazi non valido');if(s.windowMode!==undefined&&s.windowMode!==null&&s.windowMode!==0)throw Error('Modo finestra nativo non supportato dal profilo di testo.');if(s.wordBuffer!==undefined&&(!s.wordBuffer||!Number.isInteger(s.wordBuffer.index)||s.wordBuffer.index<0||s.wordBuffer.index>128||!Array.isArray(s.wordBuffer.bytes)||s.wordBuffer.bytes.length!==128||s.wordBuffer.bytes.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Buffer parola non valido');if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
 }

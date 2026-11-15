@@ -274,7 +274,7 @@ export class Game {
      else messages.push(this.text.directionalMovement(subject,direction));
     }
     if(!visibleBefore&&visibleAfter){const name=w.name(actor,{indefinite:true});messages.push({kind:'narrative',text:name.replace(/^./,c=>c.toUpperCase())+' enters.',arrival_entity:actor});}
-    return {...ok(messages,2,action===28?[gate.id]:[]),visibilityResolved:true};
+    return {...ok(messages,2,action===28?[gate.id]:[]),visibilityResolved:true,...(!visibleBefore?{offstageMovement:true}:{})};
    }
    w.rooms[room].flags|=64;w.explored.add(room);
    const movement=action===28?say('go',' through '+w.name(gate.id)+'.'):say('go',' '+DIRECTION_NAMES[direction]+'.');

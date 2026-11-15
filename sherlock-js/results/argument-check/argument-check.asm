@@ -8,9 +8,23 @@
 ; DATA: Secondo argomento letterale, indipendente dal primo
     DEFB $00,$00                          ; $A031 00 00 | Word little endian, valore caricato 0000. B562 è il writer diretto; i modelli dei verbi originali non scelgono classe5 nel secondo ruolo. La cuoca legge il byte alto a 09:55 nel ramo Brown. LOAD conserva un valore esplicito; un vecchio salvataggio senza campo resta sconosciuto.
 
+    ORG $B36B
+; CODE: Ripristino dello scanner del secondo argomento
+    XOR A                                 ; $B36B af
+    LD ($B171),A                          ; $B36C 32 71 b1
+    LD A,$FF                              ; $B36F 3e ff
+    LD ($B549),A                          ; $B371 32 49 b5 | Imposta B549 a FF quando si avvia una nuova scansione del secondo argomento. Una semplice attesa con un solo letterale conserva il byte.
+    CALL $D04F                            ; $B374 cd 4f d0
+    LD A,($A010)                          ; $B377 3a 10 a0
+    CP $07                                ; $B37A fe 07
+    JR NC,$B382                           ; $B37C 30 04
+    LD IX,$0000                           ; $B37E dd 21 00 00
+    LD ($B180),IX                         ; $B382 dd 22 80 b1
+    RET                                   ; $B386 c9
+
     ORG $B549
 ; DATA: Autorizzazione al secondo argomento numerico
-    DEFB $00                              ; $B549 00
+    DEFB $00                              ; $B549 00 | Lo scanner del secondo argomento parte da zero nel payload. B371 lo imposta a FF. B550 lo consuma soltanto nel ramo di classe 5; nessun modello verbale originale lo seleziona nel secondo ruolo.
 
     ORG $B54A
 ; CODE: Risoluzione e scrittura del secondo letterale

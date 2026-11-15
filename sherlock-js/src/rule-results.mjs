@@ -29,7 +29,9 @@ export class RuleResults {
    // DD6E publishes that pointer even when its direction rejects the rule.
    const room=this.host.w.rooms[this.host.w.roomOf(actor)],layout=this.host.worldSource.layout.rooms.find(r=>r.id===room.id);
    const found=room.exits.findIndex(e=>e.target===args[0]),index=found<0?room.exits.length:found;
-   this.write(layout.start+9+3*index,parseInt(meta.source,16));
+   const header=parseInt(meta.source,16);
+   this.write(layout.start+9+3*index,header);
+   this.host.game.sourceDisplay.exitSearchRegisters(layout.start,parseInt(meta.predicateSource,16),header,args[0],args[1]);
   }else if(name==='entity.at')this.write(this.state.argumentPointers?.[0],parseInt(meta.source,16));
   else this.invalidate();
  }

@@ -19,9 +19,9 @@ i motori, con le due deduzioni sugli omicidi accettate.
 ## Lavoro ancora aperto
 
 1. **Diramazione passiva di Brown e seconda origine di $759C.**
-   La verifica dall’avvio arriva a sabato alle 01:40 con tutti gli
-   attori e il seed 1. Continuare dai residui dello scarico del punto
-   e delle azioni fuori scena. Verificare anche l’innesco $EFC7 di
+   La verifica dall’avvio arriva a sabato alle 18:10 con tutti gli
+   attori e il seed 1. Continuare da $5C54, nella coda del buffer
+   condiviso con le variabili del BASIC. Verificare anche l’innesco $EFC7 di
    $759C oltre alla cassaforte già verificata.
 2. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
    seed e sequenze di comandi plausibili. Confrontare l’origine della
@@ -40,10 +40,10 @@ Aggiornamento 12 novembre 2026.
 Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì
 alle 06:07, nella camera di Basil. Il percorso parte dal seed 1 con
 tutti gli attori e passa per Camden Street. La diramazione passiva
-dello stesso ramo è verificata fino a sabato alle 01:40, su 876
+dello stesso ramo è verificata fino a sabato alle 18:10, su 977
 checkpoint. Coincidono anche gli attributi e il bitmap della
-striscia dell’orologio, le letture del dizionario e i salvataggi
-del nome usato dal cocchiere fuori scena.
+striscia dell’orologio, le letture del dizionario e i residui
+degli annunci del treno e delle porte fuori scena.
 Nell’originale la diramazione passiva non termina entro lunedì
 successivo alle 10:00. Il finale $759C è già verificato per la
 cassaforte. Rimangono da confrontare la variante $759C da $EFC7

@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 436,
-  "bytes_roundtripped": 961,
+  "instructions": 447,
+  "bytes_roundtripped": 989,
   "regions": [
     {
       "start": "A021",
@@ -28,6 +28,13 @@
       "kind": "data",
       "label": "Secondo argomento letterale, indipendente dal primo",
       "atlas_priority": 123
+    },
+    {
+      "start": "B36B",
+      "end_exclusive": "B387",
+      "kind": "code",
+      "label": "Ripristino dello scanner del secondo argomento",
+      "atlas_priority": 94
     },
     {
       "start": "B549",

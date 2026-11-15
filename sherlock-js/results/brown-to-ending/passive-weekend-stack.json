@@ -1,0 +1,1989 @@
+{
+  "protocol": "Original seed 1, all actors, passive Brown history. Begin at native prompt tick 6661 and observe until tick 10201. The observer tracks PUSH, CALL and EX (SP) stores, including identical-value writes. A missing store denotes no writer captured in this interval. These samples are offline research evidence.",
+  "observed_range": [
+    "5D38",
+    "5D6B"
+  ],
+  "observations": [
+    {
+      "address": "5D42",
+      "value": 238,
+      "tick": 6675,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D43",
+      "value": 9,
+      "tick": 6827,
+      "actor": 8,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D49",
+      "value": 170,
+      "tick": 6827,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9FD",
+        "tick": 6826,
+        "actor": 41,
+        "sp": "5D4A",
+        "word": 43520,
+        "registers": {
+          "AF": "2E02",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "0000",
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D44",
+      "value": 12,
+      "tick": 6901,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D45",
+      "value": 168,
+      "tick": 6977,
+      "actor": 8,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D4B",
+      "value": 0,
+      "tick": 6977,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9F4",
+        "tick": 6976,
+        "actor": 41,
+        "sp": "5D4C",
+        "word": 0,
+        "registers": {
+          "AF": "2402",
+          "BC": "0000",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D46",
+      "value": 34,
+      "tick": 7066,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 7065,
+        "actor": 36,
+        "sp": "5D48",
+        "word": 11810,
+        "registers": {
+          "AF": "2E22",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "AA00",
+          "0000",
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4C",
+      "value": 2,
+      "tick": 7066,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "A9EC",
+        "tick": 7065,
+        "actor": 36,
+        "sp": "5D4E",
+        "word": 9218,
+        "registers": {
+          "AF": "2402",
+          "BC": "0000",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D47",
+      "value": 46,
+      "tick": 7164,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 7162,
+        "actor": 41,
+        "sp": "5D48",
+        "word": 11810,
+        "registers": {
+          "AF": "2E22",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "AA00",
+          "0000",
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4D",
+      "value": 46,
+      "tick": 7164,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 7164,
+        "actor": 8,
+        "sp": "5D4E",
+        "word": 11810,
+        "registers": {
+          "AF": "2E22",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "AA00",
+          "0100",
+          "2402",
+          "081A",
+          "8263",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D48",
+      "value": 0,
+      "tick": 7256,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9FD",
+        "tick": 7255,
+        "actor": 37,
+        "sp": "5D4A",
+        "word": 43520,
+        "registers": {
+          "AF": "2E02",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "0000",
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4E",
+      "value": 62,
+      "tick": 7256,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9DF",
+        "tick": 7255,
+        "actor": 37,
+        "sp": "5D50",
+        "word": 14398,
+        "registers": {
+          "AF": "0D4A",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "5C0C"
+        },
+        "callers": [
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "90CC"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D49",
+      "value": 168,
+      "tick": 7348,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A809",
+        "tick": 7347,
+        "actor": 9,
+        "sp": "5D4A",
+        "word": 43020,
+        "registers": {
+          "AF": "0220",
+          "BC": "0108",
+          "DE": "089D",
+          "HL": "A258"
+        },
+        "callers": [
+          "1200",
+          "D3F3",
+          "01B7",
+          "3200",
+          "A7CD",
+          "DEAF",
+          "A758",
+          "A036",
+          "A3E1"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4F",
+      "value": 170,
+      "tick": 7348,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9FD",
+        "tick": 7347,
+        "actor": 9,
+        "sp": "5D50",
+        "word": 43520,
+        "registers": {
+          "AF": "2E02",
+          "BC": "0108",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "0108",
+          "2402",
+          "01B7",
+          "82C3",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E",
+          "0005"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4A",
+      "value": 88,
+      "tick": 7442,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "A827",
+        "tick": 7441,
+        "actor": 9,
+        "sp": "5D4C",
+        "word": 41560,
+        "registers": {
+          "AF": "0054",
+          "BC": "0108",
+          "DE": "526E",
+          "HL": "A258"
+        },
+        "callers": [
+          "D445",
+          "01B7",
+          "3200",
+          "A7CD",
+          "DEAF",
+          "A758",
+          "A036",
+          "A3E1",
+          "82C3"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D50",
+      "value": 8,
+      "tick": 7442,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "A9F4",
+        "tick": 7441,
+        "actor": 9,
+        "sp": "5D52",
+        "word": 264,
+        "registers": {
+          "AF": "2402",
+          "BC": "0108",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "2402",
+          "01B7",
+          "82C3",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E",
+          "0005",
+          "DEB6"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4B",
+      "value": 0,
+      "tick": 7540,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9F4",
+        "tick": 7539,
+        "actor": 43,
+        "sp": "5D4C",
+        "word": 0,
+        "registers": {
+          "AF": "2402",
+          "BC": "0000",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D51",
+      "value": 103,
+      "tick": 7540,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9C0",
+        "tick": 7539,
+        "actor": 43,
+        "sp": "5D52",
+        "word": 26552,
+        "registers": {
+          "AF": "0D38",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "67B8"
+        },
+        "callers": [
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0442",
+          "8513",
+          "0005"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D38",
+      "value": 78,
+      "tick": 7577,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D4C",
+      "value": 34,
+      "tick": 7632,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 7631,
+        "actor": 8,
+        "sp": "5D4E",
+        "word": 11810,
+        "registers": {
+          "AF": "2E22",
+          "BC": "0128",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "AA00",
+          "0128",
+          "2402",
+          "08CE",
+          "8335",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D39",
+      "value": 162,
+      "tick": 7671,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D4D",
+      "value": 36,
+      "tick": 7727,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9EC",
+        "tick": 7726,
+        "actor": 41,
+        "sp": "5D4E",
+        "word": 9218,
+        "registers": {
+          "AF": "2402",
+          "BC": "0000",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D53",
+      "value": 13,
+      "tick": 7727,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 7726,
+        "actor": 41,
+        "sp": "5D54",
+        "word": 3459,
+        "registers": {
+          "AF": "0D83",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "67B8"
+        },
+        "callers": [
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "84FF",
+          "0005",
+          "0000"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4E",
+      "value": 0,
+      "tick": 7816,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "A9FD",
+        "tick": 7816,
+        "actor": 8,
+        "sp": "5D50",
+        "word": 43520,
+        "registers": {
+          "AF": "2E02",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "0100",
+          "2402",
+          "081A",
+          "8263",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E",
+          "0005"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D54",
+      "value": 26,
+      "tick": 7816,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "A9DF",
+        "tick": 7816,
+        "actor": 8,
+        "sp": "5D56",
+        "word": 2074,
+        "registers": {
+          "AF": "0D4A",
+          "BC": "0100",
+          "DE": "081A",
+          "HL": "5C0C"
+        },
+        "callers": [
+          "8263",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E",
+          "0005",
+          "DD07",
+          "8CDC",
+          "4A00"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D3B",
+      "value": 212,
+      "tick": 7855,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D4F",
+      "value": 56,
+      "tick": 7906,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "A9DF",
+        "tick": 7905,
+        "actor": 36,
+        "sp": "5D50",
+        "word": 14398,
+        "registers": {
+          "AF": "0D4A",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "5C0C"
+        },
+        "callers": [
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "8D53"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D55",
+      "value": 135,
+      "tick": 7906,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D231",
+        "tick": 7906,
+        "actor": 3,
+        "sp": "5D56",
+        "word": 34707,
+        "registers": {
+          "AF": "3000",
+          "BC": "3003",
+          "DE": "8793",
+          "HL": "846C"
+        },
+        "callers": [
+          "DD6E",
+          "FF30",
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D3C",
+      "value": 243,
+      "tick": 7944,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D50",
+      "value": 184,
+      "tick": 8019,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9C0",
+        "tick": 8018,
+        "actor": 36,
+        "sp": "5D52",
+        "word": 26552,
+        "registers": {
+          "AF": "0D38",
+          "BC": "3503",
+          "DE": "383E",
+          "HL": "67B8"
+        },
+        "callers": [
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "8CDC",
+          "0005"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D3D",
+      "value": 255,
+      "tick": 8090,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D51",
+      "value": 103,
+      "tick": 8209,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9C0",
+        "tick": 8208,
+        "actor": 37,
+        "sp": "5D52",
+        "word": 26552,
+        "registers": {
+          "AF": "0D38",
+          "BC": "3503",
+          "DE": "383E",
+          "HL": "67B8"
+        },
+        "callers": [
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "8CDC",
+          "0005"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D52",
+      "value": 131,
+      "tick": 8345,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 8344,
+        "actor": 39,
+        "sp": "5D54",
+        "word": 3459,
+        "registers": {
+          "AF": "0D83",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "67B8"
+        },
+        "callers": [
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "8513",
+          "0005",
+          "0000"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D3F",
+      "value": 31,
+      "tick": 8391,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D53",
+      "value": 13,
+      "tick": 8457,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 8455,
+        "actor": 37,
+        "sp": "5D54",
+        "word": 3459,
+        "registers": {
+          "AF": "0D83",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "67B8"
+        },
+        "callers": [
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "8D42",
+          "0005",
+          "0000"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D54",
+      "value": 147,
+      "tick": 8554,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D231",
+        "tick": 8554,
+        "actor": 3,
+        "sp": "5D56",
+        "word": 34707,
+        "registers": {
+          "AF": "3000",
+          "BC": "3003",
+          "DE": "8793",
+          "HL": "846C"
+        },
+        "callers": [
+          "DD6E",
+          "FF30",
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5A",
+      "value": 71,
+      "tick": 8554,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D344",
+        "tick": 8554,
+        "actor": 3,
+        "sp": "5D5C",
+        "word": 54087,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D41",
+      "value": 166,
+      "tick": 8594,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D55",
+      "value": 135,
+      "tick": 8644,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "D231",
+        "tick": 8644,
+        "actor": 3,
+        "sp": "5D56",
+        "word": 34707,
+        "registers": {
+          "AF": "3000",
+          "BC": "3003",
+          "DE": "8793",
+          "HL": "846C"
+        },
+        "callers": [
+          "DD6E",
+          "FF30",
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D42",
+      "value": 238,
+      "tick": 8685,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D56",
+      "value": 110,
+      "tick": 8736,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D228",
+        "tick": 8736,
+        "actor": 3,
+        "sp": "5D58",
+        "word": 56686,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "840B",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "FF30",
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5C",
+      "value": 24,
+      "tick": 8736,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D33C",
+        "tick": 8736,
+        "actor": 3,
+        "sp": "5D5E",
+        "word": 12312,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61",
+          "C99C"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D43",
+      "value": 9,
+      "tick": 8771,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D57",
+      "value": 221,
+      "tick": 8820,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D228",
+        "tick": 8820,
+        "actor": 3,
+        "sp": "5D58",
+        "word": 56686,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "840B",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "FF30",
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5D",
+      "value": 48,
+      "tick": 8820,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D33C",
+        "tick": 8820,
+        "actor": 3,
+        "sp": "5D5E",
+        "word": 12312,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61",
+          "C99C"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D44",
+      "value": 12,
+      "tick": 8858,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D58",
+      "value": 48,
+      "tick": 8911,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D224",
+        "tick": 8911,
+        "actor": 3,
+        "sp": "5D5A",
+        "word": 65328,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5E",
+      "value": 126,
+      "tick": 8911,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D363",
+        "tick": 8911,
+        "actor": 5,
+        "sp": "5D60",
+        "word": 35710,
+        "registers": {
+          "AF": "0542",
+          "BC": "0521",
+          "DE": "0003",
+          "HL": "8B7E"
+        },
+        "callers": [
+          "D23E",
+          "C868",
+          "8D0F",
+          "C83D",
+          "3505",
+          "9F98",
+          "C801",
+          "C68F",
+          "C9D6"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D45",
+      "value": 168,
+      "tick": 8950,
+      "actor": 3,
+      "last_observed_store": null,
+      "store_matches_read": null
+    },
+    {
+      "address": "5D59",
+      "value": 255,
+      "tick": 9004,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "D224",
+        "tick": 9004,
+        "actor": 3,
+        "sp": "5D5A",
+        "word": 65328,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "D347",
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5A",
+      "value": 71,
+      "tick": 9095,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "D344",
+        "tick": 9095,
+        "actor": 3,
+        "sp": "5D5C",
+        "word": 54087,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5B",
+      "value": 211,
+      "tick": 9187,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "D344",
+        "tick": 9187,
+        "actor": 3,
+        "sp": "5D5C",
+        "word": 54087,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "3018",
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D61",
+      "value": 0,
+      "tick": 9187,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "D2AF",
+        "tick": 9187,
+        "actor": 9,
+        "sp": "5D62",
+        "word": 60,
+        "registers": {
+          "AF": "6344",
+          "BC": "003C",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "8CDC",
+          "D2A7",
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0000",
+          "98A8"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D48",
+      "value": 0,
+      "tick": 9225,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9FD",
+        "tick": 9224,
+        "actor": 38,
+        "sp": "5D4A",
+        "word": 43520,
+        "registers": {
+          "AF": "2E02",
+          "BC": "0100",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "0000",
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5C",
+      "value": 24,
+      "tick": 9283,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "D33C",
+        "tick": 9283,
+        "actor": 3,
+        "sp": "5D5E",
+        "word": 12312,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61",
+          "C99C"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D62",
+      "value": 220,
+      "tick": 9283,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "D2AD",
+        "tick": 9283,
+        "actor": 9,
+        "sp": "5D64",
+        "word": 36060,
+        "registers": {
+          "AF": "6344",
+          "BC": "4A32",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "D2A7",
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A80",
+          "98A8",
+          "C993"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D49",
+      "value": 168,
+      "tick": 9322,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A809",
+        "tick": 9320,
+        "actor": 9,
+        "sp": "5D4A",
+        "word": 43020,
+        "registers": {
+          "AF": "0220",
+          "BC": "0128",
+          "DE": "089D",
+          "HL": "A258"
+        },
+        "callers": [
+          "1200",
+          "D3F3",
+          "08CE",
+          "3200",
+          "A7CD",
+          "DC57",
+          "A758",
+          "A036",
+          "A3E1"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5D",
+      "value": 48,
+      "tick": 9382,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D33C",
+        "tick": 9382,
+        "actor": 3,
+        "sp": "5D5E",
+        "word": 12312,
+        "registers": {
+          "AF": "3018",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "D480",
+          "FF30",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61",
+          "C99C"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D63",
+      "value": 140,
+      "tick": 9382,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D2AD",
+        "tick": 9382,
+        "actor": 8,
+        "sp": "5D64",
+        "word": 36060,
+        "registers": {
+          "AF": "6344",
+          "BC": "4A1E",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "D2A7",
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A80",
+          "98A0",
+          "C993"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4A",
+      "value": 0,
+      "tick": 9420,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9F4",
+        "tick": 9418,
+        "actor": 41,
+        "sp": "5D4C",
+        "word": 0,
+        "registers": {
+          "AF": "2402",
+          "BC": "0000",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5E",
+      "value": 4,
+      "tick": 9523,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "D212",
+        "tick": 9523,
+        "actor": 3,
+        "sp": "5D60",
+        "word": 52740,
+        "registers": {
+          "AF": "2F80",
+          "BC": "0021",
+          "DE": "CE04",
+          "HL": "8B6F"
+        },
+        "callers": [
+          "D489",
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61",
+          "C99C",
+          "0203"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4B",
+      "value": 53,
+      "tick": 9595,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9F4",
+        "tick": 9594,
+        "actor": 36,
+        "sp": "5D4C",
+        "word": 13571,
+        "registers": {
+          "AF": "2402",
+          "BC": "3503",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D5F",
+      "value": 211,
+      "tick": 9696,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D344",
+        "tick": 9696,
+        "actor": 8,
+        "sp": "5D60",
+        "word": 54087,
+        "registers": {
+          "AF": "5318",
+          "BC": "0200",
+          "DE": "8259",
+          "HL": "DCD2"
+        },
+        "callers": [
+          "0218",
+          "D450",
+          "DD03",
+          "4A00",
+          "8259",
+          "DCD8",
+          "CB37",
+          "C9EE",
+          "DD03"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D65",
+      "value": 210,
+      "tick": 9696,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D2A4",
+        "tick": 9696,
+        "actor": 8,
+        "sp": "5D66",
+        "word": 53927,
+        "registers": {
+          "AF": "6344",
+          "BC": "4A28",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A00",
+          "98A0",
+          "C993",
+          "F198"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4C",
+      "value": 2,
+      "tick": 9743,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9EC",
+        "tick": 9742,
+        "actor": 41,
+        "sp": "5D4E",
+        "word": 9218,
+        "registers": {
+          "AF": "2402",
+          "BC": "0000",
+          "DE": "5C0B",
+          "HL": "0001"
+        },
+        "callers": [
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D60",
+      "value": 20,
+      "tick": 9817,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D2AF",
+        "tick": 9817,
+        "actor": 8,
+        "sp": "5D62",
+        "word": 18964,
+        "registers": {
+          "AF": "6344",
+          "BC": "4A14",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "8CDC",
+          "D2A7",
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A80",
+          "98A0"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D66",
+      "value": 162,
+      "tick": 9817,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D29F",
+        "tick": 9817,
+        "actor": 8,
+        "sp": "5D68",
+        "word": 53922,
+        "registers": {
+          "AF": "6344",
+          "BC": "4A14",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A80",
+          "98A0",
+          "C993",
+          "F198",
+          "CE65"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4D",
+      "value": 46,
+      "tick": 9870,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "C1E1",
+        "tick": 9869,
+        "actor": 8,
+        "sp": "5D4E",
+        "word": 11810,
+        "registers": {
+          "AF": "2E22",
+          "BC": "0108",
+          "DE": "5C0B",
+          "HL": "5C0B"
+        },
+        "callers": [
+          "AA00",
+          "0108",
+          "2402",
+          "060B",
+          "8373",
+          "0D6A",
+          "A2A8",
+          "2E6A",
+          "A34E"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D61",
+      "value": 212,
+      "tick": 9940,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "D486",
+        "tick": 9940,
+        "actor": 3,
+        "sp": "5D62",
+        "word": 54409,
+        "registers": {
+          "AF": "2FA3",
+          "BC": "3003",
+          "DE": "FF30",
+          "HL": "DD6E"
+        },
+        "callers": [
+          "DD61",
+          "0203",
+          "DD74",
+          "CB37",
+          "C9EE",
+          "DD61",
+          "C99C",
+          "0203",
+          "9870"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4E",
+      "value": 62,
+      "tick": 9977,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9DF",
+        "tick": 9976,
+        "actor": 41,
+        "sp": "5D50",
+        "word": 14398,
+        "registers": {
+          "AF": "0D4A",
+          "BC": "0000",
+          "DE": "383E",
+          "HL": "5C0C"
+        },
+        "callers": [
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "84FF"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D62",
+      "value": 220,
+      "tick": 10034,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "D2AD",
+        "tick": 10034,
+        "actor": 8,
+        "sp": "5D64",
+        "word": 36060,
+        "registers": {
+          "AF": "6344",
+          "BC": "4A28",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "D2A7",
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A80",
+          "98A0",
+          "C993"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D68",
+      "value": 157,
+      "tick": 10034,
+      "actor": 8,
+      "last_observed_store": {
+        "pc": "F19A",
+        "tick": 10034,
+        "actor": 8,
+        "sp": "5D6A",
+        "word": 61853,
+        "registers": {
+          "AF": "0044",
+          "BC": "4A28",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "CB37",
+          "CA67",
+          "C99C",
+          "4A80",
+          "98A0",
+          "C993",
+          "F198",
+          "CE65",
+          "A0B3"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D4F",
+      "value": 56,
+      "tick": 10071,
+      "actor": 3,
+      "last_observed_store": {
+        "pc": "A9DF",
+        "tick": 10069,
+        "actor": 40,
+        "sp": "5D50",
+        "word": 14398,
+        "registers": {
+          "AF": "0D4A",
+          "BC": "4A80",
+          "DE": "383E",
+          "HL": "5C0C"
+        },
+        "callers": [
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A",
+          "A5CA",
+          "A5B9",
+          "0242",
+          "84EB"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D63",
+      "value": 140,
+      "tick": 10130,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "D2AD",
+        "tick": 10130,
+        "actor": 9,
+        "sp": "5D64",
+        "word": 36060,
+        "registers": {
+          "AF": "6344",
+          "BC": "0032",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "D2A7",
+          "D2A2",
+          "F19D",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0000",
+          "98A8",
+          "C993"
+        ]
+      },
+      "store_matches_read": true
+    },
+    {
+      "address": "5D69",
+      "value": 241,
+      "tick": 10130,
+      "actor": 9,
+      "last_observed_store": {
+        "pc": "F19A",
+        "tick": 10130,
+        "actor": 9,
+        "sp": "5D6A",
+        "word": 61853,
+        "registers": {
+          "AF": "0044",
+          "BC": "0032",
+          "DE": "0005",
+          "HL": "F19A"
+        },
+        "callers": [
+          "CB37",
+          "CA67",
+          "C99C",
+          "0000",
+          "98A8",
+          "C993",
+          "F198",
+          "CE65",
+          "A0B3"
+        ]
+      },
+      "store_matches_read": true
+    }
+  ]
+}
