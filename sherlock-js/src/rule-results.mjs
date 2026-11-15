@@ -30,9 +30,14 @@ export class RuleResults {
    const room=this.host.w.rooms[this.host.w.roomOf(actor)],layout=this.host.worldSource.layout.rooms.find(r=>r.id===room.id);
    const found=room.exits.findIndex(e=>e.target===args[0]),index=found<0?room.exits.length:found;
    const header=parseInt(meta.source,16);
-   this.write(layout.start+9+3*index,header);
-   this.host.game.sourceDisplay.exitSearchRegisters(layout.start,parseInt(meta.predicateSource,16),header,args[0],args[1]);
-  }else if(name==='entity.at')this.write(this.state.argumentPointers?.[0],parseInt(meta.source,16));
+   const exit=layout.start+9+3*index;
+   const gate=this.host.worldSource.read(exit+1),destination=this.host.worldSource.read(exit+2);
+   this.write(exit,header);
+   this.host.game.sourceDisplay.exitSearchRegisters(layout.start,parseInt(meta.predicateSource,16),header,args[0],args[1],[gate,destination]);
+  }else if(name==='entity.at'||name==='entity.samePlace'){
+   // E5E6 leaves the second entity selected even when E5F0 rejects.
+   this.write(this.state.argumentPointers?.[name==='entity.samePlace'?1:0],parseInt(meta.source,16));
+  }
   else this.invalidate();
  }
  begin(name,actor){

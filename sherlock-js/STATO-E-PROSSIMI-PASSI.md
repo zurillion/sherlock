@@ -18,18 +18,20 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Diramazione passiva di Brown.** La verifica con Salva/Carica arriva
-   a domenica alle 05:30 dall’avvio con tutti gli attori e il seed 1.
-   La prosecuzione differenziale supera le tabelle di orologio e
-   locazioni e il puntatore D363. Prossima lettura A35E alle 12:56,
-   argomenti dell’annuncio di un’azione fuori scena.
-2. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
-   seed e sequenze di comandi plausibili. Confrontare l’origine della
-   prima estrazione diversa, la sequenza degli eventi e il futuro dopo
-   SAVE/LOAD. Estendere i test a NEW/LOAD e alla grafica originale nei
+1. **Diramazione passiva di Brown.** Il confronto con Salva/Carica
+   raggiunge domenica alle 16:20 su 1.114 checkpoint.
+   Il confronto da un checkpoint JavaScript arriva alle 23:50
+   e individua il primo scarto successivo a 5D4B. La stampa di
+   una partenza del treno conserva BC anche quando il treno è
+   fuori scena. Resta da verificare la continuazione fino al
+   lunedì successivo.
+2. **Seed e scelte del giocatore.** Aggiunti tre percorsi con seed
+   0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
+   e dei finali con seed diversi e altre interazioni plausibili.
+   Estendere il profilo a NEW/LOAD e alla grafica originale nei
    casi in cui la presentazione influisce sulle letture casuali.
 
-La mappa riporta 39.801 byte documentati, 383 parziali e 1.416
+La mappa riporta 39.840 byte documentati, 353 parziali e 1.407
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 
@@ -41,13 +43,37 @@ Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì
 alle 06:07, nella camera di Basil. Il percorso parte dal seed 1 con
 tutti gli attori e passa per Camden Street. La diramazione passiva
 dello stesso ramo è verificata con Salva/Carica fino a domenica
-alle 05:30, su 1.047 checkpoint. Nell’originale la diramazione
+alle 16:20, su 1.114 checkpoint. Nell’originale la diramazione
 passiva continua almeno fino al lunedì successivo alle 10:00.
 Il finale $759C è verificato anche dal controllo $EFC7. Scatta
 martedì alle 23:41, mentre Holmes è nell’ingresso di Camden
 e Basil è in camera.
 
 [Dossier, comandi e nuovi blocchi](BROWN-FINALE-BASIL.md).
+
+## Seed alternativi e ripresa della partita
+
+Tre partite partono dai saluti a Watson, lo fanno seguire Holmes
+fino a Baker Street e prendono un cab per King’s Cross.
+Arrivano tutte lunedì alle 09:04. La diversa sequenza di
+estrazioni è confrontata per ciascun seed con la propria
+partita originale, anche a ogni minuto dopo Salva/Carica.
+
+| Seed | Checkpoint | Estrazioni dopo l’avvio | Letture |
+| ---: | ---: | ---: | ---: |
+| 0 | 32 | 179 | 376 |
+| 137 | 33 | 175 | 384 |
+| 255 | 33 | 177 | 370 |
+
+Il test riproduce il profilo con tutti i 24 attori, primo LOOK
+gratuito e grafica nativa disattivata dopo il prompt. Include
+arena dei record, bitmap superiore e inferiore, pacchetti
+della pagina e stato dopo la ripresa. Il corpus nativo serve
+solo al confronto offline.
+
+[Comandi](results/seed-and-saves/watson-cab-route.txt) ·
+[Corpus dello Spectrum](results/seed-and-saves/watson-cab-native.json.gz) ·
+[Test](test/natural-seeds.test.mjs)
 
 ## Storico precedente
 

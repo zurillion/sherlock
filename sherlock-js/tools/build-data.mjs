@@ -31,7 +31,7 @@ const actions=(await read('locazioni/results/gameplay-action-inventory.json')).m
 function constraintHeader(at){const first=byte(at),second=byte(at+1);let cursor=at+2;if(first&64)cursor+=2;const masks=[];if(first&16){const control=byte(cursor++);for(let slot=0;slot<2;slot++){const modes=(control>>>(slot?0:4))&15;masks.push({argument:slot+1,tests:[{mode:modes>>>2,mask:byte(cursor++)},{mode:modes&3,mask:byte(cursor++)}]});}}return {classes:[first&15,second&15],requiresLight:Boolean(first&32),masks};}
 // B568 enables the second numeric writer only for class 5 in the action model.
 const initialOtherLiteral=actions.some(action=>action.classes[1]===5)?null:word(0xA031);
-const argumentChecks={initialOtherLiteral,initialCapitalization:byte(0xA026),initialForceUppercase:byte(0xA851),initialOutputSpacing:byte(0xA025),initialParserMode:byte(0xA024),initialParserTokenStart:word(0xA029),initialNameQualifierMode:byte(0xA028),initialOutputChannel:byte(0xA027),initialValue:byte(0xA021),initialResolutionMode:byte(0xA01C),initialModelFlags:[byte(0xA01D),byte(0xA01E)],headers:{},entities:{}};
+const argumentChecks={initialOtherLiteral,initialCapitalization:byte(0xA026),initialForceUppercase:byte(0xA851),initialConsumedQuote:word(0xB868),initialOutputSpacing:byte(0xA025),initialParserMode:byte(0xA024),initialParserTokenStart:word(0xA029),initialNameQualifierMode:byte(0xA028),initialOutputChannel:byte(0xA027),initialValue:byte(0xA021),initialResolutionMode:byte(0xA01C),initialModelFlags:[byte(0xA01D),byte(0xA01E)],headers:{},entities:{}};
 for(const e of catalog.entities){const rules={};for(const r of e.rules.filter(r=>r.action_id)){rules[r.action_id]=r.rule_pointer;argumentChecks.headers[r.rule_pointer]=constraintHeader(parseInt(r.rule_pointer,16));}argumentChecks.entities[e.id]=rules;}
 for(const a of actions)if(a.rule)argumentChecks.headers[a.rule]=constraintHeader(parseInt(a.rule,16));
 // Decode the *data language* used for compressed prose into a semantic AST.
@@ -71,7 +71,10 @@ const randomInputs=await buildRandomInputs(project,payload,npcPrograms);
 randomInputs.worldLayout.tables.push(conversationTable);
 const descriptionSearch=buildDescriptionSearch(payload,rooms);
 if(byte(0x9A7D)!==255)throw Error('Unexpected nonempty Watson exception table');
-const informationRules={predicates:Array.from({length:11},(_,i)=>word(0x994D+2*i)),exceptions:[]};
+const informationRules={
+ predicates:Array.from({length:11},(_,i)=>word(0x994D+2*i)),predicateTerminator:word(0x9963),exceptions:[],
+ initialWatsonSelection:{mode:byte(0xBA60),recording:byte(0xBA61),triple:[byte(0xBA62),byte(0xBA63),byte(0xBA64)],handler:word(0xBA65)},
+};
 const data={argumentChecks,lexer,informationRules,randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}

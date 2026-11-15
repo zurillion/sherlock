@@ -1,0 +1,150 @@
+{
+  "protocol": "Originale seed 1, storia passiva Brown, tutti gli attori. Ultimi writer A2F3/A2F9/CDD0/CDD9/CDE2 prima delle letture casuali.",
+  "reads": [
+    {
+      "address": "A35E",
+      "clock": "Sun 12:56pm",
+      "tick": 8937,
+      "value": 50,
+      "writer": {
+        "pc": "A2F9",
+        "tick": 8937,
+        "actor": 8,
+        "value": 50,
+        "working": [
+          28,
+          50,
+          255
+        ],
+        "stack": [
+          "0005",
+          "DC5B",
+          "90CC",
+          "4A32",
+          "DC57",
+          "CA7E",
+          "CA3D",
+          "DC57",
+          "DC5B",
+          "C99C"
+        ]
+      }
+    },
+    {
+      "address": "A35F",
+      "clock": "Sun 02:27pm",
+      "tick": 9028,
+      "value": 255,
+      "writer": {
+        "pc": "A2F9",
+        "tick": 9028,
+        "actor": 8,
+        "value": 255,
+        "working": [
+          7,
+          255,
+          255
+        ],
+        "stack": [
+          "0005",
+          "DD07",
+          "8D31",
+          "4A00",
+          "DD03",
+          "CA7E",
+          "CA3D",
+          "DD03",
+          "DD07",
+          "C99C"
+        ]
+      }
+    },
+    {
+      "address": "A35D",
+      "clock": "Sun 08:49pm",
+      "tick": 9410,
+      "value": 14,
+      "writer": {
+        "pc": "A2F3",
+        "tick": 9409,
+        "actor": 9,
+        "value": 14,
+        "working": [
+          14,
+          50,
+          255
+        ],
+        "stack": [
+          "0005",
+          "DEB6",
+          "90CC",
+          "00A0",
+          "DEAF",
+          "CA7E",
+          "CA3D",
+          "DEAF",
+          "DEB6",
+          "C99C"
+        ]
+      }
+    },
+    {
+      "address": "A35E",
+      "clock": "Sun 11:33pm",
+      "tick": 9574,
+      "value": 254,
+      "writer": {
+        "pc": "A2F9",
+        "tick": 9541,
+        "actor": 0,
+        "value": 254,
+        "working": [
+          50,
+          254,
+          255
+        ],
+        "stack": [
+          "0005",
+          "DDD4",
+          "8509",
+          "0008",
+          "DDD0",
+          "CA7E",
+          "CA3D",
+          "DDD0",
+          "DDD4",
+          "C99C"
+        ]
+      }
+    },
+    {
+      "address": "A35F",
+      "clock": "Mon 02:07am",
+      "tick": 9728,
+      "value": 255,
+      "writer": {
+        "pc": "A2F9",
+        "tick": 9726,
+        "actor": 8,
+        "value": 255,
+        "working": [
+          14,
+          45,
+          255
+        ],
+        "stack": [
+          "0005",
+          "DEB6",
+          "905E",
+          "00A0",
+          "DEAF",
+          "CA7E",
+          "CA3D",
+          "DEAF",
+          "DEB6",
+          "C99C"
+        ]
+      }
+    }
+  ]
+}

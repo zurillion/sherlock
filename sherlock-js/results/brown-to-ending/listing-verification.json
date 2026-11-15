@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 762,
-  "bytes_roundtripped": 1652,
+  "instructions": 851,
+  "bytes_roundtripped": 1941,
   "regions": [
     {
       "start": "9CF2",
@@ -18,10 +18,80 @@
       "atlas_priority": 188
     },
     {
+      "start": "9EC0",
+      "end_exclusive": "9EC1",
+      "kind": "data",
+      "label": "Daphne · stanza salvata prima del sonno",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9EC1",
+      "end_exclusive": "9ECA",
+      "kind": "code",
+      "label": "Daphne · ingresso del richiamo del sonno",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9ECA",
+      "end_exclusive": "9ECB",
+      "kind": "data",
+      "label": "Giardiniere · stanza salvata prima del sonno",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9ECB",
+      "end_exclusive": "9ED0",
+      "kind": "code",
+      "label": "Giardiniere · ingresso del richiamo del sonno",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9ED0",
+      "end_exclusive": "9ED1",
+      "kind": "data",
+      "label": "Cuoca · stanza salvata prima del sonno",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9ED1",
+      "end_exclusive": "9F1E",
+      "kind": "code",
+      "label": "Cuoca e percorso comune del sonno e risveglio",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D29D",
+      "end_exclusive": "D2B0",
+      "kind": "code",
+      "label": "Calcolo percentuale · ritorni, IX e BC salvati",
+      "atlas_priority": 188
+    },
+    {
       "start": "9E74",
       "end_exclusive": "9E85",
       "kind": "code",
       "label": "Stampa, pausa e chiusura del finale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A2E4",
+      "end_exclusive": "A30C",
+      "kind": "code",
+      "label": "Formatter · salvataggio degli argomenti di azione",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A35D",
+      "end_exclusive": "A360",
+      "kind": "data",
+      "label": "Argomenti di uscita persistenti",
+      "atlas_priority": 188
+    },
+    {
+      "start": "CDCD",
+      "end_exclusive": "CDE5",
+      "kind": "code",
+      "label": "Argomenti degli ordini preformati",
       "atlas_priority": 188
     },
     {
@@ -64,6 +134,20 @@
       "end_exclusive": "A040",
       "kind": "data",
       "label": "Tre byte prima del punto d’ingresso",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A55D",
+      "end_exclusive": "A59D",
+      "kind": "data",
+      "label": "Tabella del dispatcher del formato di testo",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B868",
+      "end_exclusive": "B86A",
+      "kind": "data",
+      "label": "Puntatore dell’ultima citazione consumata",
       "atlas_priority": 188
     },
     {
@@ -169,6 +253,13 @@
       "end_exclusive": "B95C",
       "kind": "code",
       "label": "Consegna degli ordini: selezione e copia dell’opcode",
+      "atlas_priority": 188
+    },
+    {
+      "start": "BA60",
+      "end_exclusive": "BA67",
+      "kind": "data",
+      "label": "Watson · risultato, flag e ultima affermazione accolta",
       "atlas_priority": 188
     },
     {
@@ -284,6 +375,13 @@
       "atlas_priority": 188
     },
     {
+      "start": "E5DF",
+      "end_exclusive": "E5FD",
+      "kind": "code",
+      "label": "Confronto di due stanze · lascia il secondo indice in IX",
+      "atlas_priority": 188
+    },
+    {
       "start": "E6BE",
       "end_exclusive": "E6E6",
       "kind": "code",
@@ -323,6 +421,13 @@
       "end_exclusive": "EFC9",
       "kind": "data",
       "label": "Intestazione della regola di Basil",
+      "atlas_priority": 188
+    },
+    {
+      "start": "F05C",
+      "end_exclusive": "F062",
+      "kind": "domain",
+      "label": "Poliziotto · attesa e salto accanto all’ingresso del segnale",
       "atlas_priority": 188
     },
     {

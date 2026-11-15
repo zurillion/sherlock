@@ -61,6 +61,10 @@ export class Information {
  remembered(){const a=this.records.arena;return this.records.records('facts').map(p=>({subject:a.byte(p),predicate:a.byte(p+1),object:a.byte(p+2),pointer:p}));}
  print(text,actor,messages,context={}){return this.host.print(text,actor,context,messages);}
  watson(nodes,messages){let mode=0,last=null;
+  // BA67 resets only the result and recording flag. The previously
+  // accepted triple remains in BA62 unless BB46 selects another.
+  const working=this.state.information.watsonSelection??(this.state.information.watsonSelection={triple:[null,null,null],handler:null});
+  working.mode=0;working.recording=0;
   for(const node of nodes){let triple;try{triple=this.resolve(node);}catch(error){if(error instanceof UnsupportedFeature&&error.message.includes('internal ambiguous information reference')){this.print('7243',3,messages);return;}throw error;}
    if(!triple)continue;
    const fact=this.atoms().find(f=>this.triplesEqual(f,triple));
@@ -68,7 +72,8 @@ export class Information {
    else if(this.host.game.runtimeRandom.percent({actor:3,mixOffset:2,purpose:'watson-information-acceptance'})<(fact?50:70)){mode=fact?3:4;last=triple;}
    if(last)break; // BA7F reaches the response directly; later nodes are discarded.
   }
-  const duplicate=last?this.remembered().find(t=>this.triplesEqual(t,last)):null;if(last)this.remember(last);
+  const duplicate=last?this.remembered().find(t=>this.triplesEqual(t,last)):null;
+  if(last){working.mode=mode;working.recording=1;working.triple=[last.subject,last.predicate,last.object];this.remember(last);}
   if(mode&&this.host.game.runtimeRandom.percent({actor:3,mixOffset:duplicate?.pointer??0xBA65,purpose:'watson-information-response'})>=25){
    const a=this.remembered().find(t=>(t.subject===last.subject&&t.object!==last.object)||(t.object===last.subject&&t.subject!==last.object)||(t.object===last.object&&t.subject!==last.subject)||(t.subject===last.object&&t.object!==last.subject));
    if(a){const common=[a.subject,a.object].find(id=>id===last.subject||id===last.object),other=[a.subject,a.object].find(id=>id!==common),requested=last.subject===common?last.object:last.subject;this.print('6F62',3,messages,{nameArguments:[other,requested]});return;}

@@ -1,27 +1,27 @@
 {
-  "stoppedAt": "BF59",
+  "stoppedAt": "F060",
   "nextOriginalClock": {
-    "tick": 8501,
-    "due": 8761,
-    "minute": 40,
-    "hour": 5,
+    "tick": 9151,
+    "due": 9541,
+    "minute": 30,
+    "hour": 4,
     "day": 6,
-    "period": "am",
-    "label": "Sun 05:40am"
+    "period": "pm",
+    "label": "Sun 04:30pm"
   },
   "originalCheckpoints": 1223,
-  "checkpoints": 1047,
+  "checkpoints": 1114,
   "lastClock": {
-    "tick": 8491,
-    "due": 8761,
+    "tick": 9141,
+    "due": 9541,
     "day": 6,
-    "minute": 30,
-    "hour": 5,
-    "period": "am",
-    "label": "Sun 05:30am"
+    "minute": 20,
+    "hour": 4,
+    "period": "pm",
+    "label": "Sun 04:20pm"
   },
-  "comparedDraws": 20143,
-  "comparedReads": 42830,
+  "comparedDraws": 21863,
+  "comparedReads": 46500,
   "originalEnding": null,
   "verifiedEnding": null
 }

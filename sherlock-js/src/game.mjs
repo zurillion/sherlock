@@ -195,7 +195,7 @@ export class Game {
   if([21,22].includes(action)){if(!w.npcs)throw new UnsupportedFeature('FOLLOW nel profilo storico');const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};return {...ok([],0,[target.entity.id]),objectRule:'unimplemented.E452',semanticResolved:true};}
   if([29,30,45].includes(action)){const result=this.resolve(node,action);return result.message?{messages:[result.message],cost:0,action,args:[]}:reject('YOU CANNOT '+this.word(node.verb).toUpperCase());}
   if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.question(node,0);return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
-  if(action===49)return ok([say('wait','.')],5);
+  if(action===49){if(w.npcs&&this.actingActor===undefined)this.npcRuntime.captureAnnouncementOperands(action,[]);return ok([say('wait','.')],5);}
   if(action===50){const literal=node.groups[0]?.noun;if(w.npcs&&literal&32768){w.npcs.literal=literal;if(this.actingActor===undefined)this.npcRuntime.checkAction(action,[254],actor);}if(!(literal&32768)||literal&128)return reject(literal&32768?"DON'T BE SILLY.":'WAIT UNTIL WHAT ?');
    if(w.npcs){
     w.npcs.literal=literal;
@@ -205,7 +205,7 @@ export class Game {
     if(this.streamWait&&this.actingActor===undefined&&w.npcs.parserTokenStart+1===this.currentInputEnd)
      w.npcs.parserNextToken=this.currentInputEnd;
    }
-   const cost=waitUntilCost(literal,w.clock());if(w.npcs)this.npcRuntime.temporaryCost(cost);return ok([],cost,[254]);
+   const cost=waitUntilCost(literal,w.clock());if(w.npcs){this.npcRuntime.temporaryCost(cost);if(this.actingActor===undefined)this.npcRuntime.captureAnnouncementOperands(action,[254]);}return ok([],cost,[254]);
   }
   if(action===31){
    const group=node.groups[0]||{noun:0,qualifiers:[]};const missing=!group.noun&&!group.qualifiers.length;

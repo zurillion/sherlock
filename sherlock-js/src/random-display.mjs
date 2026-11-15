@@ -287,20 +287,38 @@ export class RandomDisplay {
  }
  // D471 calls D33C/D224 before walking the exit list. These words
  // depend on the acting and requested rooms, not on the outcome.
- exitSearchRegisters(roomPointer,predicate,header,target,extra){
+ exitSearchRegisters(roomPointer,predicate,header,target,extra,lastExitData){
   if(!this.state)return;
   const words=[roomPointer,predicate,target|(extra<<8),0xD347,(target<<8)|0x10|((header>>>8)&0x28)];
   for(const [i,word] of words.entries()){
    const at=0x5D54+2*i;
    this.state.scratch[at]=word&255;this.state.scratch[at+1]=word>>>8;
   }
+  // D486 calls the iterator, which pushes the two bytes after the
+  // selected direction or the FF terminator before testing that byte.
+  for(const [i,value] of lastExitData.entries()){
+   const at=0x5D5E+i;
+   if(value==null)delete this.state.scratch[at];else this.state.scratch[at]=value;
+  }
+  Object.assign(this.state.scratch,{[0x5D60]:0x89,[0x5D61]:0xD4});
  }
  passagePerceptionIndex(position){
   if(!this.state)return;
   if(position===null)this.invalidateScratch(0x5D5E,0x5D5F);
   else Object.assign(this.state.scratch,{[0x5D5E]:position&255,[0x5D5F]:position>>>8});
  }
- invalidateScratch(from=0x5CEC,to=0x5D5F,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
+ probabilityFrame(threshold,bridgePointer,callerB){
+  if(!this.state)return;
+  const s=this.state.scratch;
+  s[0x5D60]=threshold;
+  if(callerB!=null)s[0x5D61]=callerB;else delete s[0x5D61];
+  if(bridgePointer!=null){s[0x5D62]=bridgePointer&255;s[0x5D63]=bridgePointer>>>8;}
+  else this.invalidateScratch(0x5D62,0x5D63);
+  // D2A4, D29F and F19A are the three nested CALLs of the
+  // percentage operation in this rule's ordinary DOMAIN frame.
+  Object.assign(s,{[0x5D64]:0xA7,[0x5D65]:0xD2,[0x5D66]:0xA2,[0x5D67]:0xD2,[0x5D68]:0x9D,[0x5D69]:0xF1});
+ }
+ invalidateScratch(from=0x5CEC,to=0x5D69,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin

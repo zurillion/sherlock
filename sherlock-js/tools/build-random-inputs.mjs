@@ -41,6 +41,17 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // The back half supplies direction words. Both are immutable.
  if(Array.from({length:30},(_,i)=>0xD05A+i).some(address=>written.has(address)))throw Error('The location vocabulary references are no longer immutable');
  ranges.push({start:0xD05A,kind:'immutable-location-vocabulary',values:[...payload.subarray(0xD05A-base,0xD078-base)]});
+ // The formatter copies up to four bytes per inflection; its suffix table is read-only.
+ if(Array.from({length:36},(_,i)=>0xA85C+i).some(address=>written.has(address)))throw Error('The suffix table is no longer immutable');
+ ranges.push({start:0xA85C,kind:'immutable-text-suffixes',values:[...payload.subarray(0xA85C-base,0xA880-base)]});
+ // Two instructions between the normal F059 jump and the signal entry F062.
+ // Neither has the erase bit. Reading the bytes does not dispatch the branch.
+ if(Array.from({length:6},(_,i)=>0xF05C+i).some(address=>written.has(address)))throw Error('The spare policeman instructions are no longer immutable');
+ ranges.push({start:0xF05C,kind:'immutable-policeman-wait-branch',values:[...payload.subarray(0xF05C-base,0xF062-base)]});
+ // A621 indexes the 32 two-byte formatter handlers. The entries are
+ // read-only even though the interpreted text around them is stateful.
+ if(Array.from({length:64},(_,i)=>0xA55D+i).some(address=>written.has(address)))throw Error('The formatter dispatch table is no longer immutable');
+ ranges.push({start:0xA55D,kind:'immutable-text-dispatch',values:[...payload.subarray(0xA55D-base,0xA59D-base)]});
  const constants=[...code].filter(([at])=>at>=0x9921).sort((a,b)=>a[0]-b[0]);
  const npcBytes=[];for(const op of Object.values(npcPrograms.instructions)){const start=parseInt(op.source,16);for(let i=0;i<op.size;i++)if(!written.has(start+i))npcBytes.push([start+i,byte(start+i)]);}
  const catalog=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/locations.json'),'utf8')),

@@ -34,6 +34,81 @@
     CALL $9CE9                            ; $9D28 cd e9 9c
     JP $E691                              ; $9D2B c3 91 e6
 
+    ORG $9EC0
+; DATA: Daphne · stanza salvata prima del sonno
+    DEFB $00                              ; $9EC0 00
+
+    ORG $9EC1
+; CODE: Daphne · ingresso del richiamo del sonno
+    LD HL,$9EC0                           ; $9EC1 21 c0 9e
+    LD C,$80                              ; $9EC4 0e 80
+    LD B,$4A                              ; $9EC6 06 4a
+    JR $9ED7                              ; $9EC8 18 0d
+
+    ORG $9ECA
+; DATA: Giardiniere · stanza salvata prima del sonno
+    DEFB $00                              ; $9ECA 00
+
+    ORG $9ECB
+; CODE: Giardiniere · ingresso del richiamo del sonno
+    LD HL,$9ECA                           ; $9ECB 21 ca 9e
+    JR $9ED4                              ; $9ECE 18 04
+
+    ORG $9ED0
+; DATA: Cuoca · stanza salvata prima del sonno
+    DEFB $00                              ; $9ED0 00
+
+    ORG $9ED1
+; CODE: Cuoca e percorso comune del sonno e risveglio
+    LD HL,$9ED0                           ; $9ED1 21 d0 9e
+    LD BC,$0000                           ; $9ED4 01 00 00 | Imposta BC a zero per giardiniere e cuoca. Il rientro pomeridiano conserva B e C. Domenica alle 17:06 il B del giardiniere arriva alla prima regola della cuoca.
+    LD A,(HL)                             ; $9ED7 7e
+    AND A                                 ; $9ED8 a7
+    JR Z,$9EF2                            ; $9ED9 28 17
+    LD B,A                                ; $9EDB 47
+    XOR A                                 ; $9EDC af
+    LD DE,$0000                           ; $9EDD 11 00 00
+    CALL $9F1E                            ; $9EE0 cd 1e 9f
+    LD A,($A036)                          ; $9EE3 3a 36 a0
+    LD B,C                                ; $9EE6 41
+    LD DE,$0000                           ; $9EE7 11 00 00
+    CALL $F1C1                            ; $9EEA cd c1 f1
+    SET 6,(IX+$05)                        ; $9EED dd cb 05 f6
+    RET                                   ; $9EF1 c9
+    LD A,($9FE2)                          ; $9EF2 3a e2 9f
+    CP $61                                ; $9EF5 fe 61
+    RET Z                                 ; $9EF7 c8
+    LD A,($9FE0)                          ; $9EF8 3a e0 9f
+    CP $09                                ; $9EFB fe 09
+    RET NZ                                ; $9EFD c0
+    LD DE,$01F8                           ; $9EFE 11 f8 01
+    LD A,$1E                              ; $9F01 3e 1e
+    CALL $D2A4                            ; $9F03 cd a4 d2
+    ADD A,E                               ; $9F06 83
+    LD E,A                                ; $9F07 5f
+    LD A,($A00A)                          ; $9F08 3a 0a a0
+    CALL $9F1E                            ; $9F0B cd 1e 9f
+    LD A,($A036)                          ; $9F0E 3a 36 a0
+    LD B,$10                              ; $9F11 06 10
+    LD DE,$07F0                           ; $9F13 11 f0 07
+    CALL $F1C1                            ; $9F16 cd c1 f1
+    RES 6,(IX+$05)                        ; $9F19 dd cb 05 b6
+    RET                                   ; $9F1D c9
+
+    ORG $D29D
+; CODE: Calcolo percentuale · ritorni, IX e BC salvati
+    LD A,$63                              ; $D29D 3e 63
+    CALL $D2A4                            ; $D29F cd a4 d2
+    INC A                                 ; $D2A2 3c
+    RET                                   ; $D2A3 c9
+    CALL $D2AD                            ; $D2A4 cd ad d2
+    BIT 7,A                               ; $D2A7 cb 7f
+    RET Z                                 ; $D2A9 c8
+    NEG                                   ; $D2AA ed 44
+    RET                                   ; $D2AC c9
+    PUSH IX                               ; $D2AD dd e5 | Conserva IX del ponte CB28. D2AF conserva BC, con C caricato dall’operando in C688 e B ereditato prima della visita.
+    PUSH BC                               ; $D2AF c5
+
     ORG $9E74
 ; CODE: Stampa, pausa e chiusura del finale
     LD A,$01                              ; $9E74 3e 01
@@ -42,6 +117,43 @@
     CALL $C306                            ; $9E7C cd 06 c3 | Pausa dopo il testo terminale. La conferma precede il passaggio alla chiusura B0AC.
     CALL $A296                            ; $9E7F cd 96 a2
     JP $B0AC                              ; $9E82 c3 ac b0
+
+    ORG $A2E4
+; CODE: Formatter · salvataggio degli argomenti di azione
+    LD A,$01                              ; $A2E4 3e 01
+    LD ($A2AA),A                          ; $A2E6 32 aa a2
+    PUSH IY                               ; $A2E9 fd e5
+    PUSH BC                               ; $A2EB c5
+    PUSH IX                               ; $A2EC dd e5
+    PUSH HL                               ; $A2EE e5
+    PUSH DE                               ; $A2EF d5
+    LD A,($A033)                          ; $A2F0 3a 33 a0
+    LD ($A35D),A                          ; $A2F3 32 5d a3
+    LD HL,($A034)                         ; $A2F6 2a 34 a0
+    LD ($A35E),HL                         ; $A2F9 22 5e a3 | Conserva A034 e A035. Il passaggio della cuoca fuori scena lascia 50 a A35E domenica alle 12:56. WAIT UNTIL scrive FE. CDD0/CDD9/CDE2 usano le stesse celle per l’ordine preformato.
+    LD A,($A00C)                          ; $A2FC 3a 0c a0
+    LD B,A                                ; $A2FF 47
+    AND A                                 ; $A300 a7
+    LD A,$01                              ; $A301 3e 01
+    JR Z,$A306                            ; $A303 28 01
+    XOR A                                 ; $A305 af
+    LD ($A027),A                          ; $A306 32 27 a0
+    CALL $D078                            ; $A309 cd 78 d0
+
+    ORG $A35D
+; DATA: Argomenti di uscita persistenti
+    DEFB $00,$00,$00                      ; $A35D 00 00 00
+
+    ORG $CDCD
+; CODE: Argomenti degli ordini preformati
+    LD A,(IX+$02)                         ; $CDCD dd 7e 02
+    LD ($A35D),A                          ; $CDD0 32 5d a3
+    LD A,(IX+$03)                         ; $CDD3 dd 7e 03
+    CALL $CEDE                            ; $CDD6 cd de ce
+    LD ($A35E),A                          ; $CDD9 32 5e a3
+    LD A,(IX+$04)                         ; $CDDC dd 7e 04
+    CALL $CEDE                            ; $CDDF cd de ce
+    LD ($A35F),A                          ; $CDE2 32 5f a3
 
     ORG $A02D
 ; DATA: Classe del token precedente
@@ -124,6 +236,35 @@
     ORG $A03D
 ; DATA: Tre byte prima del punto d’ingresso
     DEFB $04,$40,$58                      ; $A03D 04 40 58 | Tre byte caricati 04 40 58. Il listing non identifica un writer o un lettore funzionale oltre al generatore casuale. La traccia del giardiniere legge 04 venerdì alle 05:44.
+
+    ORG $A55D
+; DATA: Tabella del dispatcher del formato di testo
+    DEFB $5D,$A6,$6C                      ; $A55D 5d a6 6c | Trentadue indirizzi little endian, uno per token di controllo. A621 indicizza la tabella e A633 chiama il formatter scelto.
+    DEFB $A6,$79,$A6                      ; $A560 a6 79 a6
+    DEFB $02,$A7,$09                      ; $A563 02 a7 09
+    DEFB $A7,$11,$A7                      ; $A566 a7 11 a7
+    DEFB $20,$A7,$2C                      ; $A569 20 a7 2c
+    DEFB $A7,$36,$A7                      ; $A56C a7 36 a7
+    DEFB $3B,$A7,$D3                      ; $A56F 3b a7 d3
+    DEFB $A6,$5B,$A7                      ; $A572 a6 5b a7
+    DEFB $80,$A7,$3A                      ; $A575 80 a7 3a
+    DEFB $A6,$8E,$A7                      ; $A578 a6 8e a7
+    DEFB $8C,$A6,$93                      ; $A57B 8c a6 93
+    DEFB $A7,$AC,$A7                      ; $A57E a7 ac a7
+    DEFB $5C,$A6,$B4                      ; $A581 5c a6 b4
+    DEFB $A7,$94,$A6                      ; $A584 a7 94 a6
+    DEFB $9C,$A6,$A4                      ; $A587 9c a6 a4
+    DEFB $A6,$AC,$A6                      ; $A58A a6 ac a6
+    DEFB $60,$A3,$71                      ; $A58D 60 a3 71
+    DEFB $A7,$84,$A6                      ; $A590 a7 84 a6
+    DEFB $52,$A8,$82                      ; $A593 52 a8 82
+    DEFB $A6,$3F,$A6                      ; $A596 a6 3f a6
+    DEFB $43,$A6,$5A                      ; $A599 43 a6 5a
+    DEFB $A6                              ; $A59C a6
+
+    ORG $B868
+; DATA: Puntatore dell’ultima citazione consumata
+    DEFB $00,$00                          ; $B868 00 00 | B87A copia il puntatore letto dal primo record della coda prima di rilasciarlo. Una ricerca senza coda non sovrascrive il valore precedente.
 
     ORG $A536
 ; CODE: Lettura del tasto e ciclo temporizzato
@@ -460,6 +601,12 @@
     LD ($B934),A                          ; $B953 32 34 b9 | Copia l’opcode in B934 solo per la richiesta con un nodo sintattico. L’ordine prefabbricato e l’affermazione biforcano prima.
     LD A,(IX+$02)                         ; $B956 dd 7e 02
     LD ($A01C),A                          ; $B959 32 1c a0
+
+    ORG $BA60
+; DATA: Watson · risultato, flag e ultima affermazione accolta
+    DEFB $00,$00,$00                      ; $BA60 00 00 00 | BA67 azzera risultato e flag all’avvio dell’analisi. BB46 aggiorna entrambi e copia la tripla. BA65 è il puntatore dell’eccezione del modo 1; la tabella 9A7D è vuota.
+    DEFB $00,$00,$00                      ; $BA63 00 00 00
+    DEFB $00                              ; $BA66 00
 
     ORG $BF59
 ; DATA: Abbreviazioni inglesi dei sette giorni
@@ -859,6 +1006,20 @@
     LD HL,$75D2                           ; $DFDD 21 d2 75 | Ramo osservato nella camera di Basil mercoledì alle 06:07 con seed 1. 9E74 stampa e termina la partita.
     JP $9E74                              ; $DFE0 c3 74 9e
 
+    ORG $E5DF
+; CODE: Confronto di due stanze · lascia il secondo indice in IX
+    LD IX,($A013)                         ; $E5DF dd 2a 13 a0
+    LD A,(IX+$0F)                         ; $E5E3 dd 7e 0f
+    LD IX,($A015)                         ; $E5E6 dd 2a 15 a0 | Carica il puntatore del secondo referente. CB37 lo conserva anche se i due attori sono in stanze diverse; la cuoca lo rilegge nello stack della scelta percentuale.
+    CP (IX+$0F)                           ; $E5EA dd be 0f
+    LD A,($A035)                          ; $E5ED 3a 35 a0
+    JP NZ,$DC15                           ; $E5F0 c2 15 dc
+    LD HL,$A034                           ; $E5F3 21 34 a0
+    CP (HL)                               ; $E5F6 be
+    JP Z,$DC15                            ; $E5F7 ca 15 dc
+    OR $01                                ; $E5FA f6 01
+    RET                                   ; $E5FC c9
+
     ORG $E6BE
 ; CODE: Stampa della richiesta di pagamento del cocchiere
     LD A,($A035)                          ; $E6BE 3a 35 a0
@@ -917,6 +1078,11 @@
     ORG $EFC7
 ; DATA: Intestazione della regola di Basil
     DEFB $00,$00                          ; $EFC7 00 00
+
+    ORG $F05C
+; BYTECODE: Poliziotto · attesa e salto accanto all’ingresso del segnale
+    DEFB $03,$A8,$E5                      ; $F05C 03 a8 e5 | Chiama E5A8 per attendere un tick. F05F salta all’inizio F05C. Il salto precedente F059 prosegue altrove. Il generatore può leggere questo blocco anche senza entrarvi.
+    DEFB $0E,$5C,$F0                      ; $F05F 0e 5c f0
 
     ORG $EFC9
 ; CODE: Controllo della posizione di Holmes nella casa di Basil

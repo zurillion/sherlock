@@ -134,13 +134,42 @@ e la riserva dei due header del nastro. L’operazione USR attraversa
 conservano i byte correnti del buffer. Per un valore mancante in
 una vecchia partita il motore lascia la lettura non risolta.
 
-Il confronto con Salva/Carica coincide su 1.047 checkpoint, 20.143
-estrazioni e 42.830 letture fino alle 05:30 di domenica. Quella prova
-si ferma a `$BF59`. Le successive prove sullo stesso percorso
-superano la tabella dei giorni, la tabella delle relazioni e direzioni
-a `$D05A` e il puntatore lasciato da `$D363` a `$5D5E` nel
-controllo di un passaggio. La prima lettura ancora scoperta è
-`$A35E` alle 12:56.
+Il confronto dall’avvio con Salva/Carica coincide su 1.114
+checkpoint, 21.863 estrazioni e 46.500 letture fino alle 16:20
+di domenica.
+Include la tabella dei giorni, i riferimenti di luogo a
+`$D05A` e il puntatore lasciato da `$D363` a `$5D5E` nel
+controllo di un passaggio. La lettura successiva a `$A35E`
+ha portato alla copia dei due operandi dell’annuncio in `$A2F9`.
+Nel passaggio della cuoca fuori scena il primo operando è la
+porta. Per `WAIT UNTIL` è `$FE`, il marcatore del letterale.
+
+Il dizionario del formatter conserva nove suffissi a
+`$A85C–$A87F`. Ogni voce ha quattro byte, inclusi riempimento
+ed eventuale arretramento. Il motore li può leggere durante
+il calcolo casuale. Per le informazioni di Watson, `$BA67`
+azzera soltanto il risultato e il flag di registrazione a
+`$BA60–$BA61`. `$BB46` copia una nuova tripla a
+`$BA62–$BA64` quando un’affermazione viene scelta.
+
+Il ramo supera anche i sei byte di programma del poliziotto
+a `$F05C–$F061`, il dispatcher del testo a `$A55D–$A59C` e
+il salvataggio dei registri della scelta percentuale.
+`$E5E6` lascia in IX il secondo referente del confronto di
+due stanze, anche quando il predicato è falso. `$CB37` lo
+salva e `$D2AD` lo ritrova nello stack della successiva
+estrazione della cuoca. `$9ED4` lascia in B lo zero del
+richiamo del giardiniere al turno successivo della cuoca.
+`$B87A` salva invece il puntatore della citazione consumata.
+
+Dal salvataggio JavaScript precedente alle 10:00, il confronto
+arriva a domenica alle 23:50. Lo scarto successivo riguarda
+`$5D4B` alle 23:54. È il byte alto di BC salvato da `$A9F4`
+durante la partenza di un treno fuori scena.
+
+[Ultimi operandi degli annunci](results/brown-to-ending/passive-announcement-operands.json) ·
+[Richiamo di sonno e scelta percentuale](results/brown-to-ending/passive-sleep-to-probability.json) ·
+[Indice della scelta percentuale](results/brown-to-ending/passive-probability-index.json)
 
 [Scritture del caricatore](results/brown-to-ending/passive-basic-workspace.json) ·
 [Disassemblato della ROM](results/transient-inputs/rom-streams.asm) ·

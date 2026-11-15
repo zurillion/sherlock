@@ -1,0 +1,265 @@
+{
+  "tick": 9187,
+  "protocol": "Originale seed 1, storia passiva Brown. Registri prima dell\u2019istruzione. Selezione delle istruzioni che mostrano B passato tra due visite.",
+  "observations": [
+    {
+      "pc": "C998",
+      "actor": 5,
+      "sp": "5D76",
+      "bc": "3508",
+      "top": "9880"
+    },
+    {
+      "pc": "C688",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3508",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C689",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3505",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C998",
+      "actor": 5,
+      "sp": "5D76",
+      "bc": "3508",
+      "top": "9880"
+    },
+    {
+      "pc": "C688",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3508",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C689",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3505",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C998",
+      "actor": 5,
+      "sp": "5D76",
+      "bc": "3508",
+      "top": "9880"
+    },
+    {
+      "pc": "C688",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3508",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C689",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3505",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C998",
+      "actor": 5,
+      "sp": "5D76",
+      "bc": "3508",
+      "top": "9880"
+    },
+    {
+      "pc": "C688",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3508",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C689",
+      "actor": 5,
+      "sp": "5D70",
+      "bc": "3505",
+      "top": "C9D6"
+    },
+    {
+      "pc": "9EC6",
+      "actor": 5,
+      "sp": "5D7C",
+      "bc": "3580",
+      "top": "A0CF"
+    },
+    {
+      "pc": "9EC8",
+      "actor": 5,
+      "sp": "5D7C",
+      "bc": "4A80",
+      "top": "A0CF"
+    },
+    {
+      "pc": "CC27",
+      "actor": 5,
+      "sp": "5D76",
+      "bc": "4A80",
+      "top": "23E3"
+    },
+    {
+      "pc": "A0B0",
+      "actor": 6,
+      "sp": "5D7C",
+      "bc": "4A80",
+      "top": "0662"
+    },
+    {
+      "pc": "C998",
+      "actor": 6,
+      "sp": "5D72",
+      "bc": "4A80",
+      "top": "9888"
+    },
+    {
+      "pc": "CC27",
+      "actor": 6,
+      "sp": "5D76",
+      "bc": "4A80",
+      "top": "23E3"
+    },
+    {
+      "pc": "A0B0",
+      "actor": 104,
+      "sp": "5D7C",
+      "bc": "4A80",
+      "top": "6862"
+    },
+    {
+      "pc": "C998",
+      "actor": 104,
+      "sp": "5D72",
+      "bc": "4A80",
+      "top": "9890"
+    },
+    {
+      "pc": "CC27",
+      "actor": 104,
+      "sp": "5D76",
+      "bc": "4A80",
+      "top": "23E3"
+    },
+    {
+      "pc": "A0B0",
+      "actor": 7,
+      "sp": "5D7C",
+      "bc": "4A80",
+      "top": "0762"
+    },
+    {
+      "pc": "CC27",
+      "actor": 7,
+      "sp": "5D76",
+      "bc": "4A80",
+      "top": "23E3"
+    },
+    {
+      "pc": "A0B0",
+      "actor": 8,
+      "sp": "5D7C",
+      "bc": "4A80",
+      "top": "0862"
+    },
+    {
+      "pc": "C998",
+      "actor": 8,
+      "sp": "5D72",
+      "bc": "4A80",
+      "top": "98A0"
+    },
+    {
+      "pc": "C688",
+      "actor": 8,
+      "sp": "5D6C",
+      "bc": "4A80",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C689",
+      "actor": 8,
+      "sp": "5D6C",
+      "bc": "4A28",
+      "top": "C9D6"
+    },
+    {
+      "pc": "F19A",
+      "actor": 8,
+      "sp": "5D6A",
+      "bc": "4A28",
+      "top": "CB37"
+    },
+    {
+      "pc": "D2AF",
+      "actor": 8,
+      "sp": "5D62",
+      "bc": "4A28",
+      "top": "8CDC"
+    },
+    {
+      "pc": "9ED7",
+      "actor": 8,
+      "sp": "5D7C",
+      "bc": "0000",
+      "top": "A0CF"
+    },
+    {
+      "pc": "CC27",
+      "actor": 8,
+      "sp": "5D76",
+      "bc": "0000",
+      "top": "23E3"
+    },
+    {
+      "pc": "A0B0",
+      "actor": 9,
+      "sp": "5D7C",
+      "bc": "0000",
+      "top": "0962"
+    },
+    {
+      "pc": "C998",
+      "actor": 9,
+      "sp": "5D72",
+      "bc": "0000",
+      "top": "98A8"
+    },
+    {
+      "pc": "C688",
+      "actor": 9,
+      "sp": "5D6C",
+      "bc": "0000",
+      "top": "C9D6"
+    },
+    {
+      "pc": "C689",
+      "actor": 9,
+      "sp": "5D6C",
+      "bc": "003C",
+      "top": "C9D6"
+    },
+    {
+      "pc": "F19A",
+      "actor": 9,
+      "sp": "5D6A",
+      "bc": "003C",
+      "top": "CB37"
+    },
+    {
+      "pc": "D2AF",
+      "actor": 9,
+      "sp": "5D62",
+      "bc": "003C",
+      "top": "8CDC"
+    }
+  ]
+}

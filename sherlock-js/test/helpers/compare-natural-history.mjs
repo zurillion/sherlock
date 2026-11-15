@@ -1,6 +1,6 @@
 import{createHash}from'node:crypto';import assert from'node:assert/strict';import{ClientSession}from'../../src/session.mjs';import{assertOriginalState}from'./original-state.mjs';import{SpectrumBuffer}from'../../src/spectrum.mjs';
 export async function compareNaturalHistory(data,c,{onSession,onCheckpoint,initialSave=null}={}){
- const session=new ClientSession(data,{npc_profile:'world-v5',seed:1}),screen=new SpectrumBuffer();
+ const session=new ClientSession(data,{npc_profile:'world-v5',seed:c.seed??1}),screen=new SpectrumBuffer();
  if(initialSave)await session.request('load',{save:initialSave});
  const g=session.game;onSession?.(session);
  if(initialSave){const d=g.world.display;Object.assign(screen,{lines:d.upper.slice(),counter:d.counter,cursor:d.cursor,remaining:d.remaining,started:d.started,lastSpacePrinted:d.lastSpacePrinted});}
