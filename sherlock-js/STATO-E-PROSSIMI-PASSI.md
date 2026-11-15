@@ -93,6 +93,26 @@ turno in cui Strachan si siede e la conferma del finale. I riferimenti
 lessicali dei modelli DOMAIN ora restano quelli dell’azione già scelta.
 [Percorso e spiegazione](PERCORSO-VITTORIA.md#la-stessa-sequenza-con-seed-255).
 
+## Prime stanze con la grafica nativa
+
+Due partite dello Spectrum con seed 1 e tutti gli attori sono state
+confrontate dopo ogni comando fino al primo LOOK a Baker Street. Nella
+seconda partita viene azzerato $A011 dopo l’avvio. Aprire la porta e
+andare a ovest conserva la stessa bitmap. Con D, nell’ingresso al
+piano di sotto (006), il profilo originale passa a 18 colonne e
+il contatore di paginazione vale 6 invece di 5. OPEN DOOR riattiva
+le 36 colonne. S e LOOK ridisegnano l’immagine di Baker Street
+(005) e tornano alle 18 colonne. L’hash della bitmap resta
+diverso a partire da D.
+
+In questi sette comandi sono uguali gli indirizzi e i valori letti
+dal generatore, il suo accumulatore e il suo cursore. La prossima
+verifica è prolungare il confronto fino a una lettura sensibile
+ai pixel o ai residui dello stack grafico. La grafica della pagina
+rimane una presentazione del profilo JavaScript già verificato.
+
+[Misure dai due profili dello Spectrum](results/seed-and-saves/native-graphics-first-rooms.json).
+
 ## Storico precedente
 
 Aggiornamento 12 novembre 2026.

@@ -1,0 +1,362 @@
+{
+  "protocol": "Two native runs from free initial LOOK, seed 1, all 24 actors, injected uppercase keys and immediate MORE. The second run clears A011 once after boot. No other memory or actor changes.",
+  "steps": [
+    {
+      "command": "SAY \"HELLO\" TO WATSON",
+      "room": 8,
+      "clock": "Mon 08:01am",
+      "random_reads_compared": 12,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 0,
+        "counter": 3,
+        "bitmap": "fe36ef184f258b9e973458d6ece675e0fc3c462b8a3fd6b9f3dfebb6c5f53ad3",
+        "random_state": {
+          "seed": 234,
+          "cursor": 2048
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            8
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 3,
+        "bitmap": "fe36ef184f258b9e973458d6ece675e0fc3c462b8a3fd6b9f3dfebb6c5f53ad3",
+        "random_state": {
+          "seed": 234,
+          "cursor": 2048
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "command": "OPEN YOUR DOOR",
+      "room": 8,
+      "clock": "Mon 08:02am",
+      "random_reads_compared": 8,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 0,
+        "counter": 2,
+        "bitmap": "40ec0ec8087a317c406d39e8ad3360c461ef8732f245115fdcedfdbfa9f0a60d",
+        "random_state": {
+          "seed": 36,
+          "cursor": 3072
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            8
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 2,
+        "bitmap": "40ec0ec8087a317c406d39e8ad3360c461ef8732f245115fdcedfdbfa9f0a60d",
+        "random_state": {
+          "seed": 36,
+          "cursor": 3072
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "command": "W",
+      "room": 7,
+      "clock": "Mon 08:04am",
+      "random_reads_compared": 12,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 0,
+        "counter": 5,
+        "bitmap": "0636a0ee2c83454a4b2ea24f58722454cea773d481ee8965ef42d4d102477a1e",
+        "random_state": {
+          "seed": 90,
+          "cursor": 4608
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            8
+          ],
+          [
+            "A277",
+            7,
+            7
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 5,
+        "bitmap": "0636a0ee2c83454a4b2ea24f58722454cea773d481ee8965ef42d4d102477a1e",
+        "random_state": {
+          "seed": 90,
+          "cursor": 4608
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            8
+          ],
+          [
+            "A277",
+            7,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "command": "D",
+      "room": 6,
+      "clock": "Mon 08:06am",
+      "random_reads_compared": 8,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 1,
+        "counter": 6,
+        "bitmap": "3909641da6653b18b063561306eeaf98b82dfafaf269ee2068fc57ed14932761",
+        "random_state": {
+          "seed": 4,
+          "cursor": 5632
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            7
+          ],
+          [
+            "A277",
+            6,
+            6
+          ],
+          [
+            "C129",
+            0,
+            6
+          ],
+          [
+            "F3C2",
+            2,
+            6
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 5,
+        "bitmap": "caa150198f51bf71cfd842d1f87f9fed3119870f98b8644037676805e3a266f4",
+        "random_state": {
+          "seed": 4,
+          "cursor": 5632
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            7
+          ],
+          [
+            "A277",
+            6,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "command": "OPEN DOOR",
+      "room": 6,
+      "clock": "Mon 08:07am",
+      "random_reads_compared": 4,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 0,
+        "counter": 2,
+        "bitmap": "d2d4b8d5ece328651fe8808f3e9d34a22684b4336582f55001e39cd4bd1872f6",
+        "random_state": {
+          "seed": 84,
+          "cursor": 6144
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            6
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 2,
+        "bitmap": "c27b7926ac1e0f5a9eca148a5f5ca2a470e5b2e3e5b6441dec90258df3207e35",
+        "random_state": {
+          "seed": 84,
+          "cursor": 6144
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "command": "S",
+      "room": 5,
+      "clock": "Mon 08:09am",
+      "random_reads_compared": 8,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 1,
+        "counter": 4,
+        "bitmap": "22a7b90e6ac57ebedbb472c939abc624e28c8fad3d9f085b1a60ed271c646274",
+        "random_state": {
+          "seed": 161,
+          "cursor": 7168
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            6
+          ],
+          [
+            "A277",
+            5,
+            5
+          ],
+          [
+            "C129",
+            0,
+            5
+          ],
+          [
+            "F3C2",
+            2,
+            5
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 4,
+        "bitmap": "d2a1ba2034d0adfac9bbc412818bc140ea1399b977b61d6796291e93fb3d8af3",
+        "random_state": {
+          "seed": 161,
+          "cursor": 7168
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            6
+          ],
+          [
+            "A277",
+            5,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "command": "LOOK",
+      "room": 5,
+      "clock": "Mon 08:10am",
+      "random_reads_compared": 6,
+      "random_reads_equal": true,
+      "graphics_on": {
+        "native_graphics": 1,
+        "narrow": 1,
+        "counter": 4,
+        "bitmap": "22a7b90e6ac57ebedbb472c939abc624e28c8fad3d9f085b1a60ed271c646274",
+        "random_state": {
+          "seed": 203,
+          "cursor": 7936
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            5
+          ],
+          [
+            "A277",
+            5,
+            5
+          ],
+          [
+            "C129",
+            0,
+            5
+          ],
+          [
+            "F3C2",
+            2,
+            5
+          ]
+        ]
+      },
+      "graphics_off": {
+        "native_graphics": 0,
+        "narrow": 0,
+        "counter": 3,
+        "bitmap": "ab1c369094dd16659092efd2a5428583d30b5c67bbecb53402755217cdac79b2",
+        "random_state": {
+          "seed": 203,
+          "cursor": 7936
+        },
+        "graphics_calls": [
+          [
+            "C142",
+            0,
+            5
+          ],
+          [
+            "A277",
+            5,
+            5
+          ]
+        ]
+      }
+    }
+  ]
+}
