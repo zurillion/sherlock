@@ -461,6 +461,73 @@
     LD A,(IX+$02)                         ; $B956 dd 7e 02
     LD ($A01C),A                          ; $B959 32 1c a0
 
+    ORG $BF59
+; DATA: Abbreviazioni inglesi dei sette giorni
+    DEFB $4D,$6F,$6E                      ; $BF59 4d 6f 6e | Sette record consecutivi di tre caratteri. Il primo byte M è letto dal generatore domenica alle 05:38.
+    DEFB $54,$75,$65                      ; $BF5C 54 75 65
+    DEFB $57,$65,$64                      ; $BF5F 57 65 64
+    DEFB $54,$68,$75                      ; $BF62 54 68 75
+    DEFB $46,$72,$69                      ; $BF65 46 72 69
+    DEFB $53,$61,$74                      ; $BF68 53 61 74
+    DEFB $53,$75,$6E                      ; $BF6B 53 75 6e
+
+    ORG $BF6E
+; DATA: Buffer mutabile della stringa dell’orologio
+    DEFB $4D,$4F,$4E                      ; $BF6E 4d 4f 4e | Buffer di undici caratteri. BF79 lo aggiorna a ogni stampa del tempo; il contenuto su nastro è solo iniziale.
+    DEFB $20,$30,$30                      ; $BF71 20 30 30
+    DEFB $3A,$30,$30                      ; $BF74 3a 30 30
+    DEFB $61,$6D                          ; $BF77 61 6d
+
+    ORG $BF79
+; CODE: Composizione della striscia: giorno, ora, minuto e indicatore am/pm
+    LD IX,$BF6E                           ; $BF79 dd 21 6e bf
+    LD A,($9FE1)                          ; $BF7D 3a e1 9f
+    LD HL,$BF59                           ; $BF80 21 59 bf
+    CALL $BFC6                            ; $BF83 cd c6 bf
+    INC IX                                ; $BF86 dd 23
+    LD A,($9FE0)                          ; $BF88 3a e0 9f
+    CALL $BFB0                            ; $BF8B cd b0 bf
+    INC IX                                ; $BF8E dd 23
+    LD A,($9FDF)                          ; $BF90 3a df 9f
+    CALL $BFB0                            ; $BF93 cd b0 bf
+    LD A,($9FE2)                          ; $BF96 3a e2 9f
+    LD (IX+$00),A                         ; $BF99 dd 77 00
+    LD HL,$BF6E                           ; $BF9C 21 6e bf
+    LD B,$0B                              ; $BF9F 06 0b
+    JP $C1A8                              ; $BFA1 c3 a8 c1
+    CALL $BFAA                            ; $BFA4 cd aa bf
+    LD A,L                                ; $BFA7 7d
+    ADD A,$30                             ; $BFA8 c6 30
+    LD (IX+$00),A                         ; $BFAA dd 77 00
+    INC IX                                ; $BFAD dd 23
+    RET                                   ; $BFAF c9
+    LD L,A                                ; $BFB0 6f
+    LD H,$00                              ; $BFB1 26 00
+    LD DE,$000A                           ; $BFB3 11 0a 00
+    CALL $BFBB                            ; $BFB6 cd bb bf
+    JR $BFA4                              ; $BFB9 18 e9
+    LD C,$2F                              ; $BFBB 0e 2f
+    INC C                                 ; $BFBD 0c
+    AND A                                 ; $BFBE a7
+    SBC HL,DE                             ; $BFBF ed 52
+    JR NC,$BFBD                           ; $BFC1 30 fa
+    ADD HL,DE                             ; $BFC3 19
+    LD A,C                                ; $BFC4 79
+    RET                                   ; $BFC5 c9
+    LD C,A                                ; $BFC6 4f | Triplica l’indice del giorno e copia esattamente tre byte nella stringa da visualizzare.
+    ADD A,A                               ; $BFC7 87
+    ADD A,C                               ; $BFC8 81
+    LD C,A                                ; $BFC9 4f
+    LD B,$00                              ; $BFCA 06 00
+    ADD HL,BC                             ; $BFCC 09
+    LD B,$03                              ; $BFCD 06 03
+    LD A,(HL)                             ; $BFCF 7e
+    LD (IX+$00),A                         ; $BFD0 dd 77 00
+    INC IX                                ; $BFD3 dd 23
+    INC HL                                ; $BFD5 23
+    DJNZ $BFCF                            ; $BFD6 10 f7
+    RET                                   ; $BFD8 c9
+
     ORG $C182
 ; CODE: Attributi della striscia dell’orologio: 32 celle con BRIGHT
     LD HL,$5A40                           ; $C182 21 40 5a
@@ -643,6 +710,19 @@
     LD (IY+$05),H                         ; $D041 fd 74 05
     RET                                   ; $D044 c9
 
+    ORG $D05A
+; DATA: Riferimenti al dizionario per relazioni e direzioni
+    DEFB $24,$06,$66                      ; $D05A 24 06 66 | Voci little endian. D0F2 usa i bit della stanza come offset. Il generatore legge il byte alto della prima voce domenica alle 08:50.
+    DEFB $04,$50,$04                      ; $D05D 04 50 04
+    DEFB $FF,$05,$9A                      ; $D060 ff 05 9a
+    DEFB $00,$C3,$05                      ; $D063 00 c3 05
+    DEFB $1A,$08,$84                      ; $D066 1a 08 84
+    DEFB $02,$92,$09                      ; $D069 02 92 09
+    DEFB $C7,$05,$D0                      ; $D06C c7 05 d0
+    DEFB $05,$1E,$08                      ; $D06F 05 1e 08
+    DEFB $27,$08,$3C                      ; $D072 27 08 3c
+    DEFB $09,$72,$02                      ; $D075 09 72 02
+
     ORG $D2CB
 ; CODE: Dopo le letture casuali: salvataggio dell’indice della scelta
     ADC A,(IX+$00)                        ; $D2CB dd 8e 00
@@ -775,7 +855,7 @@
     CALL $D237                            ; $DFD1 cd 37 d2
     LD A,($A009)                          ; $DFD4 3a 09 a0
     CP (IX+$0F)                           ; $DFD7 dd be 0f | Confronta la stanza di Holmes con quella di Basil. Se coincidono seleziona il testo 75D2, altrimenti 759C.
-    JP NZ,$9E74                           ; $DFDA c2 74 9e
+    JP NZ,$9E74                           ; $DFDA c2 74 9e | Ramo naturale di martedì alle 23:41. EEC3 entra da EFC7 mentre Holmes è nella stanza 33 e Basil nella 35.
     LD HL,$75D2                           ; $DFDD 21 d2 75 | Ramo osservato nella camera di Basil mercoledì alle 06:07 con seed 1. 9E74 stampa e termina la partita.
     JP $9E74                              ; $DFE0 c3 74 9e
 
@@ -819,6 +899,15 @@
 ; BYTECODE: Lestrade: attesa della posizione del veicolo
     DEFB $52,$83,$FB                      ; $EBC5 52 83 fb | Lestrade aspetta che il proprio veicolo soddisfi la condizione di posizione. Nel ramo passivo osservato resta in questo punto.
     DEFB $FC,$C5,$EB                      ; $EBC8 fc c5 eb
+
+    ORG $EEB6
+; BYTECODE: Basil · fine dell’attesa e chiamata di EFC7
+    DEFB $83,$7A,$E5                      ; $EEB6 83 7a e5
+    DEFB $AF,$EE,$03                      ; $EEB9 af ee 03
+    DEFB $B3,$EF,$47                      ; $EEBC b3 ef 47
+    DEFB $BE,$DD,$28                      ; $EEBF be dd 28
+    DEFB $FF,$03,$C7                      ; $EEC2 ff 03 c7
+    DEFB $EF                              ; $EEC5 ef
 
     ORG $EF90
 ; BYTECODE: Basil fuori scena: attesa e salto all’indietro

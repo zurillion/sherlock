@@ -18,18 +18,18 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Diramazione passiva di Brown e seconda origine di $759C.**
-   La verifica dall’avvio arriva a sabato alle 18:10 con tutti gli
-   attori e il seed 1. Continuare da $5C54, nella coda del buffer
-   condiviso con le variabili del BASIC. Verificare anche l’innesco $EFC7 di
-   $759C oltre alla cassaforte già verificata.
+1. **Diramazione passiva di Brown.** La verifica con Salva/Carica arriva
+   a domenica alle 05:30 dall’avvio con tutti gli attori e il seed 1.
+   La prosecuzione differenziale supera le tabelle di orologio e
+   locazioni e il puntatore D363. Prossima lettura A35E alle 12:56,
+   argomenti dell’annuncio di un’azione fuori scena.
 2. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
    seed e sequenze di comandi plausibili. Confrontare l’origine della
    prima estrazione diversa, la sequenza degli eventi e il futuro dopo
    SAVE/LOAD. Estendere i test a NEW/LOAD e alla grafica originale nei
    casi in cui la presentazione influisce sulle letture casuali.
 
-La mappa riporta 39.673 byte documentati, 383 parziali e 1.544
+La mappa riporta 39.801 byte documentati, 383 parziali e 1.416
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 
@@ -40,14 +40,12 @@ Aggiornamento 12 novembre 2026.
 Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì
 alle 06:07, nella camera di Basil. Il percorso parte dal seed 1 con
 tutti gli attori e passa per Camden Street. La diramazione passiva
-dello stesso ramo è verificata fino a sabato alle 18:10, su 977
-checkpoint. Coincidono anche gli attributi e il bitmap della
-striscia dell’orologio, le letture del dizionario e i residui
-degli annunci del treno e delle porte fuori scena.
-Nell’originale la diramazione passiva non termina entro lunedì
-successivo alle 10:00. Il finale $759C è già verificato per la
-cassaforte. Rimangono da confrontare la variante $759C da $EFC7
-e gli altri finali senza una verifica naturale completa.
+dello stesso ramo è verificata con Salva/Carica fino a domenica
+alle 05:30, su 1.047 checkpoint. Nell’originale la diramazione
+passiva continua almeno fino al lunedì successivo alle 10:00.
+Il finale $759C è verificato anche dal controllo $EFC7. Scatta
+martedì alle 23:41, mentre Holmes è nell’ingresso di Camden
+e Basil è in camera.
 
 [Dossier, comandi e nuovi blocchi](BROWN-FINALE-BASIL.md).
 

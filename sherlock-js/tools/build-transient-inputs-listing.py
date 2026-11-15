@@ -22,7 +22,23 @@ root=p/'sherlock-js/results/transient-inputs';root.mkdir(exist_ok=True)
 
 # This ROM evidence does not become a coloured ROM region in the atlas.
 rom=(p/'skoolkit-10.1/skoolkit/resources/48.rom').read_bytes();lines=['; ROM: copia di dati di inizializzazione; nessuna esecuzione nel motore JS.'];count=0
-for a,b,kind,note in [(0x127C,0x1287,'code','Copia 14 byte da 15C6 a 5C10 prima del gioco'),(0x15C6,0x15D4,'data','Mappa iniziale degli stream, successivamente riutilizzata dal buffer di parola')]:
+rom_regions=[
+ (0x0616,0x0622,'code','Riserva lo spazio per uno o due header del nastro'),
+ (0x0873,0x0890,'code','Salva il puntatore al primo header e riserva spazio per il programma'),
+ (0x1235,0x1252,'code','Carica i canali iniziali, DATADD, PROG e VARS'),
+ (0x127C,0x1287,'code','Copia 14 byte da 15C6 a 5C10 prima del gioco'),
+ (0x15AF,0x15C4,'data','Canali iniziali e terminatore, sorgente di PROG'),
+ (0x15C6,0x15D4,'data','Mappa iniziale degli stream, successivamente riutilizzata dal buffer di parola'),
+ (0x1664,0x1683,'code','Rialloca i puntatori BASIC oltre la posizione di inserimento'),
+ (0x169E,0x16AD,'code','Riserva spazio e ripristina WORKSP'),
+ (0x16B0,0x16D2,'code','Inizializza l’editor e riallinea la pila di calcolo'),
+ (0x1BCA,0x1BD8,'code','Calcola NXTLIN dalla lunghezza della riga BASIC'),
+ (0x26B5,0x26C9,'code','Dopo il numero in BASIC salva la nuova posizione CH-ADD'),
+ (0x26ED,0x2701,'code','Converte il token BASIC USR in un identificatore del calcolatore'),
+ (0x2752,0x2757,'code','Maschera il codice dell’operazione e invoca RST 28'),
+ (0x335E,0x3362,'code','Conserva il codice dell’operazione in BREG'),
+]
+for a,b,kind,note in rom_regions:
  lines+=['',f'    ORG ${a:04X}',f'; {kind.upper()}: {note}'];at=a
  while at<b:
   if kind=='data':n=min(8,b-at);op='DEFB '+','.join(f'${v:02X}'for v in rom[at:at+n])
@@ -30,4 +46,4 @@ for a,b,kind,note in [(0x127C,0x1287,'code','Copia 14 byte da 15C6 a 5C10 prima 
   assert at+n<=b;assert bytes(asm.assemble(op,at))==rom[at:at+n]
   lines.append(f'    {op:<37} ; ${at:04X} {rom[at:at+n].hex(" ")}');at+=n
 (root/'rom-streams.asm').write_text('\n'.join(lines)+'\n')
-(root/'rom-streams-verification.json').write_text(json.dumps(dict(instructions=count,bytes_roundtripped=25,rom_not_part_of_map=True,source='ROM 127C–1285 / 15C6–15D3',initial_streams=list(rom[0x15C6:0x15D4])),indent=2)+'\n')
+(root/'rom-streams-verification.json').write_text(json.dumps(dict(instructions=count,bytes_roundtripped=sum(b-a for a,b,*_ in rom_regions),rom_not_part_of_map=True,source='ROM 48K: sequenze di caricamento BASIC, stream e puntatori',initial_streams=list(rom[0x15C6:0x15D4])),indent=2)+'\n')

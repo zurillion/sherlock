@@ -123,17 +123,43 @@ stato JavaScript del giovedì alle 10:00.
   conserva la disponibilità del secondo argomento numerico.
   `$B649/$B658` riflettono quale argomento ha fallito la verifica.
 
-Il confronto dall’avvio coincide su 977 checkpoint, 18.830 estrazioni
-e 40.090 letture fino alle 18:10 di sabato. Le verifiche includono la
-ripresa da SAVE/LOAD e i pacchetti della schermata web. Il primo
-ingresso ancora scoperto è `$5C54`, letto alle 18:15 nel checkpoint
-delle 18:20.
+### Caricatore BASIC e tabelle della domenica
 
-[Traccia nativa degli annunci e delle scritture del fine settimana](results/brown-to-ending/passive-weekend-stack.json).
+Il buffer di uscita riusa `$5C53–$5C69`. Il caricatore conserva
+PROG, NXTLIN, DATADD, i tre cursori e la memoria del calcolatore.
+Il programma BASIC contiene una sola riga di 23 byte. Il calcolo
+parte dai canali iniziali della ROM, segue l’inserimento della riga
+e la riserva dei due header del nastro. L’operazione USR attraversa
+`$26ED/$26FE/$2753` e lascia BREG `$2D`. I salvataggi
+conservano i byte correnti del buffer. Per un valore mancante in
+una vecchia partita il motore lascia la lettura non risolta.
 
-Il testo alternativo `$759C` è già verificato per l’apertura della
-cassaforte. Resta da confrontare il percorso in cui il controllo
-`$EFC7` lo seleziona da solo.
+Il confronto con Salva/Carica coincide su 1.047 checkpoint, 20.143
+estrazioni e 42.830 letture fino alle 05:30 di domenica. Quella prova
+si ferma a `$BF59`. Le successive prove sullo stesso percorso
+superano la tabella dei giorni, la tabella delle relazioni e direzioni
+a `$D05A` e il puntatore lasciato da `$D363` a `$5D5E` nel
+controllo di un passaggio. La prima lettura ancora scoperta è
+`$A35E` alle 12:56.
+
+[Scritture del caricatore](results/brown-to-ending/passive-basic-workspace.json) ·
+[Disassemblato della ROM](results/transient-inputs/rom-streams.asm) ·
+[Scritture sullo stack del fine settimana](results/brown-to-ending/passive-weekend-stack.json)
+
+### Finale $759C dall’ingresso di Camden
+
+Nella partita con seed 1, Holmes entra dalla finestra sotto
+travestimento, attraversa la camera e si toglie il travestimento
+nell’ingresso (33). Durante l’attesa, Basil è in camera (35).
+Alle 23:41 di martedì, `$EEC3` chiama `$EFC7`. Il selettore
+`$DFCC` riconosce le due stanze diverse e passa a `$9E74` con
+il testo `$759C`. Il confronto dall’avvio copre 466 checkpoint
+e 5.740 estrazioni dopo il prompt iniziale. Verifica Salva/Carica,
+il testo prima della conferma e il congelamento della partita.
+
+[Comandi](results/brown-to-ending/camden-efc7-route.txt) ·
+[Risultato del confronto](results/brown-to-ending/camden-efc7-comparison.json) ·
+[Disassemblato](results/brown-to-ending/brown-to-ending.asm)
 
 [Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Letture del ponte](results/brown-to-ending/passive-bridge-reads.json) · [Letture della console](results/brown-to-ending/passive-console-reads.json) · [Tariffa fuori scena](results/brown-to-ending/passive-fare-name-words.json) · [Operandi](results/brown-to-ending/passive-domain-operands.json) · [Opcode degli ordini](results/brown-to-ending/passive-request-opcodes.json) · [Flag ROM](results/brown-to-ending/passive-rom-loader-flags.json) · [Candidati lessicali](results/brown-to-ending/passive-lexical-candidates.json) · [Bitmap dell’orologio](results/brown-to-ending/passive-status-clock.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
 
@@ -145,6 +171,7 @@ di Camden e quello della variante passiva.
 ```sh
 node tools/verify-brown-ending.mjs dawn-native
 node tools/verify-brown-ending.mjs native-tail
+node tools/verify-brown-ending.mjs camden-efc7
 ```
 
 Per ripetere la traccia mirata dei glifi nell’originale usare

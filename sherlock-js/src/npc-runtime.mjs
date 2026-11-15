@@ -579,11 +579,21 @@ export class NpcRuntime {
  // previous pointer rather than clearing it. Unknown semantic searches
  // revoke ownership until a reconstructed C929/C989 call publishes it.
  projectArguments(args){const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++){const id=args[i];if(!Number.isInteger(id)||id>=254)continue;const kind=this.state.argumentClasses?.[i],table=kind===null||kind===undefined?null:kind<5?this.worldSource.layout.rooms:this.worldSource.layout.entities;pointers[i]=table?.find(e=>e.id===id)?.start??null;}}
- checkAction(action,args,actor,{phase=1}={}){
+ checkAction(action,args,actor,{phase=1,ordinaryDomain=false}={}){
   const catalog=this.game.data.argumentChecks;if(!catalog)return null;
   const actorRule=[47,48].includes(action)?catalog.entities[actor]?.[action]:null;
   const pointer=actorRule||catalog.entities[args[0]]?.[action]||this.game.data.actions.find(a=>a.id===action)?.rule;
-  const meta=catalog.headers[pointer];return meta?this.checks.rule(meta,[args[0]??255,args[1]??255],{actor,phase}):null;
+  const meta=catalog.headers[pointer];
+  if(ordinaryDomain&&action===28&&meta?.classes[0]===11){
+   // The global GO THROUGH preflight checks perception at C7FE. C863's
+   // ordinary DOMAIN frame leaves the last D363 index entry at 5D5E.
+   const acting=this.w.entities[actor],target=this.w.entities[args[0]];
+   const table=this.worldSource.layout.tables.find(row=>row.start===0x8B6F);
+   const searched=target&&(target.attributes&128)?target:acting;
+   const at=table?.values.findIndex((id,index)=>index%3===0&&id===searched?.id);
+   this.game.sourceDisplay.passagePerceptionIndex(target&&acting?.parent===null&&target.parent===null&&at>=0?table.start+at:null);
+  }
+  return meta?this.checks.rule(meta,[args[0]??255,args[1]??255],{actor,phase}):null;
  }
  setActionClasses(action){this.modelFlags(action);const model=this.game.data.actions.find(a=>a.id===action);if(model?.classes){this.state.argumentClasses=[...model.classes];const pointers=this.state.argumentPointers??(this.state.argumentPointers=[null,null]);for(let i=0;i<2;i++)if(model.classes[i]!==0&&![5,6].includes(model.classes[i]))pointers[i]=null;}}
  action(action,input,context,messages,actions){
@@ -605,7 +615,7 @@ export class NpcRuntime {
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
   this.ruleResults.invalidate(); // Selected ordinary callbacks remain unknown until projected.
   if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor,{domainAction:!context.request});const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
-  if(input[0]===255||classByAction[action]===undefined)preflightRejected=this.checkAction(action,args,actor)===false;
+  if(input[0]===255||classByAction[action]===undefined)preflightRejected=this.checkAction(action,args,actor,{ordinaryDomain:!context.request&&!context.isolated})===false;
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
   const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}

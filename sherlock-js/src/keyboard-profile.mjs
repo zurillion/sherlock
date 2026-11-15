@@ -15,7 +15,7 @@ export function bootstrapKeyboard({rawKey=13,decodedKey=13,releaseScans=2,releas
 // those source-derived bytes survive until the game writes over them.
 // Cold-start ROM 11DA–11EF clears tested RAM; streams 4..15 (5C1E–5C35)
 // stay zero because this loader never opens another stream. Boot only.
-export function bootstrapWordWorkspace({initialStreams=[]}={}){
+export function bootstrapWordWorkspace({initialStreams=[],basicChannels=null}={}){
  const bytes=Array(128).fill(null);
  const store=(address,values)=>values.forEach((value,i)=>{bytes[address-0x5C0B+i]=value;});
  for(let at=0x5C1E;at<0x5C36;at++)bytes[at-0x5C0B]=0;
@@ -35,8 +35,32 @@ export function bootstrapWordWorkspace({initialStreams=[]}={}){
  // selected channel at CHANS plus the one-based stream offset minus one.
  if(initialStreams.length>=12){
   const streamOffset=initialStreams[10]|initialStreams[11]<<8;
-  const channel=0x5CB6+streamOffset-1;
+  const channel=(basicChannels?.start??0x5CB6)+streamOffset-1;
   store(0x5C51,[channel&255,channel>>>8]);
+ }
+ // ROM 1235–124D copies its channel records and terminator, then
+ // puts PROG at the next address. Only the boot protocol owns this.
+ if(basicChannels){
+  const program=basicChannels.start+basicChannels.length;
+  store(0x5C53,[program&255,program>>>8]);
+  // 1BD1 stores the end of the current BASIC line, which runs LOAD
+  // and USR in one line. No subsequent BASIC statement runs in-game.
+  if(Number.isInteger(basicChannels.lineSize)){
+   const storeWord=(address,value)=>store(address,[value&255,value>>>8]);
+   const nextLine=program+basicChannels.lineSize;
+   const editLine=nextLine+1; // Variables terminator $80.
+   const cursor=editLine+3; // LOAD token plus two quotation marks.
+   const work=editLine+5; // LOAD "" followed by CR and $80.
+   storeWord(0x5C55,nextLine);
+   storeWord(0x5C57,program-1); // 1246: the loader has no DATA.
+   storeWord(0x5C59,editLine); // 167C moves the editor after the inserted program.
+   storeWord(0x5C5B,cursor);
+   storeWord(0x5C5D,nextLine-1); // 26C0 advances after USR's numeric literal.
+   if(Number.isInteger(basicChannels.loadHeaderWorkspace))storeWord(0x5C5F,nextLine+basicChannels.lineSize+basicChannels.loadHeaderWorkspace);
+   for(const address of [0x5C61,0x5C63,0x5C65])storeWord(address,work);
+   if(Number.isInteger(basicChannels.calculatorEntry))store(0x5C67,[basicChannels.calculatorEntry]);
+   if(Number.isInteger(basicChannels.calculatorMemory))storeWord(0x5C68,basicChannels.calculatorMemory);
+  }
  }
  store(0x5C76,[0,0]);
  return {bytes,index:0};

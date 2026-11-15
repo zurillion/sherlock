@@ -259,6 +259,13 @@ brown_fields = {
   ['5C3D–5C41','Puntatori BASIC e modo del cursore','Nel profilo 48K, ROM 122B inizializza ERR-SP a FF54, tre byte sotto RAMTOP. LIST-SP e MODE restano zero fino al riuso come spazio di lavoro.'],
   ['5C42–5C50','Candidati del dizionario decompresso','A95B conserva il prefisso e A92F aggiunge i quattro byte del suffisso. Il lexer decodifica prima di scartare i record D0 o fermarsi sul primo candidato dopo una corrispondenza esatta. Dopo UNTIL, UP lascia p e zero, mentre il resto conserva la coda dei candidati precedenti.'],
   ['5C51–5C52','Canale BASIC fuori dallo spazio di lavoro del candidato','CURCHL punta al canale dello stream 2 del loader. Nessuna voce del dizionario originale scrive oltre 5C50.'],
+  ['5C53–5C54','Indirizzo di inizio del programma BASIC','La ROM carica CHANS=5CB6 e copia 21 byte, incluso il terminatore, da 15AF. Il primo byte libero 5CCB diventa PROG. Il caricatore conserva l’inizio del programma.'],
+  ['5C55–5C56','Prossima riga BASIC','1BD1 calcola NXTLIN dall’intestazione di quattro byte e dalla lunghezza della riga 5. LOAD e USR condividono quella riga. Il valore 5CE2 sopravvive nella coda del buffer.'],
+  ['5C57–5C58','Puntatore DATA del BASIC','1246 salva PROG meno uno in DATADD. Il caricatore non usa READ e conserva il puntatore iniziale.'],
+  ['5C59–5C5E','Riga editor e cursori BASIC','167C sposta E-LINE e K-CUR dopo la riga caricata e il terminatore delle variabili. 26C0 conserva in CH-ADD la posizione dopo il valore numerico passato a USR.'],
+  ['5C5F–5C60','Riferimento al primo header di caricamento','0878 salva X-PTR. Il caricamento del BASIC e la successiva riserva di due header spostano il riferimento tramite 167C.'],
+  ['5C61–5C66','Spazio di lavoro e pila del calcolatore BASIC','16A8 ripristina WORKSP dopo la lettura del nome. 16C2 e 16C8 allineano STKBOT e STKEND; il calcolatore ripristina la base dopo aver consumato l’operando di USR.'],
+  ['5C67–5C69','Operazione e memoria del calcolatore BASIC','335F conserva BREG. Il token USR C0 passa da 26ED, 26FE e 2753, diventando 2D. 16CF inizializza MEM a 5C92.'],
   ['5C0E','Quarto carattere di una direzione annunciata','Il movimento del giardiniere lascia la t di west in A9D7. Un output successivo più corto non la cancella.'],
  ],
  0x5CEC: [
@@ -276,6 +283,7 @@ brown_fields = {
   ['5D46–5D4F','Scarico del punto del treno fuori scena','Con 7611, il dizionario viene soppresso ma il punto si scarica. C1E1 conserva AF, A9FD il ritorno AA00, A9F4 BC e A9EC il confronto della larghezza. A9DF salva il descrittore finale del testo. Altri chiamanti riscrivono alcuni della stessa famiglia di slot.'],
   ['5D48–5D51','Apertura, chiusura e attraversamento fuori scena','L’annuncio di una porta comune può sostituire il ritorno del treno con A80C. A827 salva l’indice della tabella scelta da A2E4. A398 lascia in C il flag del modello dell’azione, che A9F4 salva quando scarica il punto.'],
   ['5D54–5D5D','Ricerca della direzione D471/DD6E','D231 salva l’indirizzo ricavato dall’indice 840B. D228 e D224 salvano rispettivamente il predicato e la coppia di operandi. D344 conserva il ritorno, D33C AF della destinazione.'],
+  ['5D5E–5D5F','Ricerca di un’entità nella verifica del passaggio','C7FE chiama C821. Nel frame DOMAIN ordinario C863 passa per D237 e D363 lascia il puntatore al record nell’indice 8B6F. D212 e D344 possono riscrivere gli stessi byte.'],
   ['5D2C–5D31','Ultima cella della pulizia della console','C271/C293 conservano AF e BC della scansione e HL video nel frame 5D38. L’ultima cella parte da x=246.'],
  ],
 }

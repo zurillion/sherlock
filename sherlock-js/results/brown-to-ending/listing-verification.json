@@ -1,7 +1,7 @@
 {
   "roundtrip_equal": true,
-  "instructions": 715,
-  "bytes_roundtripped": 1478,
+  "instructions": 762,
+  "bytes_roundtripped": 1652,
   "regions": [
     {
       "start": "9CF2",
@@ -172,6 +172,27 @@
       "atlas_priority": 188
     },
     {
+      "start": "BF59",
+      "end_exclusive": "BF6E",
+      "kind": "data",
+      "label": "Abbreviazioni inglesi dei sette giorni",
+      "atlas_priority": 188
+    },
+    {
+      "start": "BF6E",
+      "end_exclusive": "BF79",
+      "kind": "data",
+      "label": "Buffer mutabile della stringa dell’orologio",
+      "atlas_priority": 188
+    },
+    {
+      "start": "BF79",
+      "end_exclusive": "BFD9",
+      "kind": "code",
+      "label": "Composizione della striscia: giorno, ora, minuto e indicatore am/pm",
+      "atlas_priority": 188
+    },
+    {
       "start": "C182",
       "end_exclusive": "C190",
       "kind": "code",
@@ -218,6 +239,13 @@
       "end_exclusive": "D045",
       "kind": "code",
       "label": "Ripristino e salvataggio del contesto NPC",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D05A",
+      "end_exclusive": "D078",
+      "kind": "data",
+      "label": "Riferimenti al dizionario per relazioni e direzioni",
       "atlas_priority": 188
     },
     {
@@ -274,6 +302,13 @@
       "end_exclusive": "EBCB",
       "kind": "domain",
       "label": "Lestrade: attesa della posizione del veicolo",
+      "atlas_priority": 188
+    },
+    {
+      "start": "EEB6",
+      "end_exclusive": "EEC6",
+      "kind": "domain",
+      "label": "Basil · fine dell’attesa e chiamata di EFC7",
       "atlas_priority": 188
     },
     {

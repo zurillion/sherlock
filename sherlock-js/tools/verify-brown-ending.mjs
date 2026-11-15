@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import { gunzipSync } from 'node:zlib';
 import { compareNaturalHistory } from '../test/helpers/compare-natural-history.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -9,9 +10,12 @@ const data = await read(new URL('data/game.json', root));
 const originalPrefix = (await read(new URL('results/murder-ending/native-brown-full.json', root))).cases[0];
 const former = (await read(new URL('results/passage-caller-c-22/extended-reference.json', root))).cases[0];
 const branch = process.argv[2] ?? 'native-tail';
-assert(/^[a-z-]+$/.test(branch));
-const tail = (await read(new URL(branch + '.json', results))).cases[0];
-const steps = [...originalPrefix.steps, ...tail.steps];
+assert(/^[a-z0-9-]+$/.test(branch));
+const standalone = branch === 'camden-efc7';
+const tail = standalone
+  ? JSON.parse(gunzipSync(await readFile(new URL('camden-efc7.json.gz', results)))).cases[0]
+  : (await read(new URL(branch + '.json', results))).cases[0];
+const steps = standalone ? tail.steps : [...originalPrefix.steps, ...tail.steps];
 assert.equal(originalPrefix.steps.length, 338);
 if (branch === 'native-tail') assert.deepEqual(steps.slice(0, former.steps.length), former.steps);
 const expected = steps.at(-1).ending?.text_pointer ?? null;

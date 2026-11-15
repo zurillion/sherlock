@@ -103,8 +103,9 @@ I nove selettori terminali hanno prove controllate in
 [CONCLUSIONE-INDAGINE.md](CONCLUSIONE-INDAGINE.md). Le partite naturali
 documentate raggiungono 693A, 69BF, 6A26, 6A33 e 759C. Si aggiungono
 75D2 nella camera di Basil, i due esiti di Victoria, 6AF3 e 6B79,
-e 6ABD per la vendita tardiva dopo le due deduzioni. Resta aperta
-la variante di 759C innescata da EFC7.
+e 6ABD per la vendita tardiva dopo le due deduzioni. Il secondo
+innesco di 759C via EFC7 è verificato nella partita di Camden,
+che termina martedì alle 23:41.
 
 [Vittoria e diramazione di Victoria](PERCORSO-VITTORIA.md) ·
 [Finale nella camera di Basil](BROWN-FINALE-BASIL.md) ·

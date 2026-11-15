@@ -29,3 +29,21 @@ test('A shorter last candidate preserves the dictionary suffix and earlier suffi
  assert.deepEqual(native.workspace.map((_, i) => game.sourceDisplay.read(0x5C42 + i)), native.workspace);
  assert.equal(game.sourceDisplay.read(0x5C51), 0xBB);
 });
+
+
+test('Cold-start BASIC pointers survive the shorter dictionary workspace and saves', () => {
+ const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+ const native = [0x5CCB, 0x5CE2, 0x5CCA, 0x5CE3, 0x5CE6, 0x5CE1, 0x5D1B, 0x5CE8, 0x5CE8, 0x5CE8];
+ const addresses = native.map((_, i) => 0x5C53 + 2 * i);
+ const readWords = g => addresses.map(address => g.sourceDisplay.read(address) + 256 * g.sourceDisplay.read(address + 1));
+ assert.deepEqual(readWords(game), native);
+ assert.deepEqual([0x5C67,0x5C68,0x5C69].map(address => game.sourceDisplay.read(address)), [0x2D,0x92,0x5C]);
+ const result = game.submit('WAIT UNTIL 9AM');
+ assert.equal(result.state.analysis.outcome, 'ok');
+ assert.deepEqual(readWords(game), native);
+ const saved = JSON.parse(JSON.stringify(game.dump()));
+ assert.deepEqual(readWords(Game.load(data, saved)), native);
+ const index = 0x5C54 - 0x5C0B;
+ saved.world.display.wordBuffer.bytes[index] = null;
+ assert.equal(Game.load(data, saved).sourceDisplay.read(0x5C54), null);
+});

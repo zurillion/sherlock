@@ -1,8 +1,8 @@
 {
-  "instructions": 4,
-  "bytes_roundtripped": 25,
+  "instructions": 118,
+  "bytes_roundtripped": 259,
   "rom_not_part_of_map": true,
-  "source": "ROM 127C\u20131285 / 15C6\u201315D3",
+  "source": "ROM 48K: sequenze di caricamento BASIC, stream e puntatori",
   "initial_streams": [
     1,
     0,

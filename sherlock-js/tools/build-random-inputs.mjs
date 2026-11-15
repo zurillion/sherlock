@@ -34,6 +34,13 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // never modifies these dictionary references.
  if(Array.from({length:16},(_,i)=>0xA24D+i).some(address=>written.has(address)))throw Error('The article tables are no longer immutable');
  ranges.push({start:0xA24D,kind:'immutable-article-references',values:[...payload.subarray(0xA24D-base,0xA25D-base)]});
+ // BFC6 copies three characters per day into the mutable clock buffer.
+ if(Array.from({length:21},(_,i)=>0xBF59+i).some(address=>written.has(address)))throw Error('The weekday names are no longer immutable');
+ ranges.push({start:0xBF59,kind:'immutable-weekday-names',values:[...payload.subarray(0xBF59-base,0xBF6E-base)]});
+ // D0F2 uses the first references for the room's locative phrases.
+ // The back half supplies direction words. Both are immutable.
+ if(Array.from({length:30},(_,i)=>0xD05A+i).some(address=>written.has(address)))throw Error('The location vocabulary references are no longer immutable');
+ ranges.push({start:0xD05A,kind:'immutable-location-vocabulary',values:[...payload.subarray(0xD05A-base,0xD078-base)]});
  const constants=[...code].filter(([at])=>at>=0x9921).sort((a,b)=>a[0]-b[0]);
  const npcBytes=[];for(const op of Object.values(npcPrograms.instructions)){const start=parseInt(op.source,16);for(let i=0;i<op.size;i++)if(!written.has(start+i))npcBytes.push([start+i,byte(start+i)]);}
  const catalog=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/locations.json'),'utf8')),
@@ -67,8 +74,25 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  // ROM 127C–1285 copies fourteen stream-map bytes to 5C10. These are
  // startup data reused by the game's word workspace, not a RAM fallback.
  if(Buffer.from(firmware.subarray(0x127C,0x1287)).toString('hex')!=='21c61511105c010e00edb0')throw Error('Unexpected ROM stream initialization');
+ // The ROM seeds CHANS and copies the default channel records before
+ // publishing PROG. Match the writer, including both destinations.
+ if(firmware.subarray(0x1235,0x124D).toString('hex')!=='21b65c224f5c11af15011500ebedb0eb2b22575c2322535c')throw Error('Unexpected ROM BASIC channel initialization');
+ const basicChannels={start:firmware.readUInt16LE(0x1236),length:firmware.readUInt16LE(0x123F)};
  const basic=await readFile(join(project,'sherlock-analisi/block-02.bin'));
  if(hash(basic)!=='fcd8b87a6c41db725a5af0694ffc04423d824993d6f7eb7ce7edfda360e680b0')throw Error('Unexpected BASIC bootstrap');
+ basicChannels.lineSize=4+basic.readUInt16LE(2);
+ // 0878 stores the header reference at X-PTR. MAKE-ROOM moves it
+ // by the program length, then a second LOAD reserves two headers at 061F.
+ if(firmware[0x061F]!==0x0E||firmware[0x0620]!==2*17)throw Error('Unexpected ROM tape header allocation');
+ basicChannels.loadHeaderWorkspace=firmware[0x0620];
+ if(basicChannels.lineSize!==basic.length)throw Error('The BASIC bootstrap no longer has one line');
+ // BASIC token USR becomes (token - AF + DC) & 3F; RST 28
+ // publishes the operation number as BREG before entering the loader.
+ const usr=basic[basic.indexOf(0xF5,4)+1];
+ if(usr!==0xC0||firmware[0x26ED]!==0xD6||firmware[0x26FE]!==0xC6||firmware[0x2753]!==0xE6)throw Error('Unexpected BASIC USR dispatch');
+ basicChannels.calculatorEntry=(usr-firmware[0x26EE]+firmware[0x26FF])&firmware[0x2754];
+ if(firmware.subarray(0x16CC,0x16D2).toString('hex')!=='21925c22685c')throw Error('Unexpected calculator memory reset');
+ basicChannels.calculatorMemory=firmware.readUInt16LE(0x16CD);
  const cab=JSON.parse(await readFile(join(project,'sherlock-analisi/cab/results/cab-data.json'),'utf8'));worldLayout.tables.push({start:0x9B7F,values:[...cab.routes.flatMap(r=>[r.source,r.target,r.duration]),255]});
  // Native tape IO is an explicitly unavailable command; the typed CODE
  // header remains its source value. Browser JSON save/load never modifies it.
@@ -85,7 +109,7 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  const terminator=factStarts.at(-1);if(byte(terminator)!==255)throw Error('Invalid fact table terminator');
  worldLayout.tables.push({start:terminator,values:[255],kind:'fact-table-terminator'});
  worldLayout.facts=factStarts.slice(0,-1).map((start,i)=>({start,subject:byte(start),predicate:byte(start+1),object:byte(start+2),flags:byte(start+3),handler:byte(start+4)|byte(start+5)<<8,terms:Array.from({length:(factStarts[i+1]-start-6)/2},(_,j)=>byte(start+6+2*j)|byte(start+7+2*j)<<8)}));
- return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{initialParserAll:byte(0xA01A),initialEditorTokenFlag:byte(0xD714),initialParserCount:byte(0xA012),initialStreams:[...firmware.subarray(0x15C6,0x15D4)],initialFillColor:byte(0xF60B),printerEnabled:Boolean(byte(0xA008)),keyboard:{rawKey:13,decodedKey:13,releaseScans:2,releaseWindow:firmware[0x02F5],repeatDelay:35,repeatPeriod:5}},source_sha256:hash(payload),firmware_sha256:hash(firmware),
+ return {version:1,worldLayout,editorInitial,basicProgramLength:basic.length,bootOptions:{basicChannels,initialParserAll:byte(0xA01A),initialEditorTokenFlag:byte(0xD714),initialParserCount:byte(0xA012),initialStreams:[...firmware.subarray(0x15C6,0x15D4)],initialFillColor:byte(0xF60B),printerEnabled:Boolean(byte(0xA008)),keyboard:{rawKey:13,decodedKey:13,releaseScans:2,releaseWindow:firmware[0x02F5],repeatDelay:35,repeatPeriod:5}},source_sha256:hash(payload),firmware_sha256:hash(firmware),
   scope:'Immutable inputs only. Unmapped display, buffers, records and mutable fields must be generated or rejected; no RAM image fallback.',
   ranges,constants,npcBytes,ruleBytes,excludedWrites:[...written].sort((a,b)=>a-b),
   historicalPrompt:{profile:'historical-prompt-watson-v4',seed:77,cursor:512,encounters:[30,0,0]}};
