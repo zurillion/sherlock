@@ -134,9 +134,9 @@ e la riserva dei due header del nastro. L’operazione USR attraversa
 conservano i byte correnti del buffer. Per un valore mancante in
 una vecchia partita il motore lascia la lettura non risolta.
 
-Il confronto dall’avvio con Salva/Carica coincide su 1.114
-checkpoint, 21.863 estrazioni e 46.500 letture fino alle 16:20
-di domenica.
+Il confronto dall’avvio con Salva/Carica coincide su tutti i
+1.223 checkpoint, 24.167 estrazioni e 51.224 letture fino alle
+10:00 del lunedì successivo. Entrambe le partite proseguono.
 Include la tabella dei giorni, i riferimenti di luogo a
 `$D05A` e il puntatore lasciato da `$D363` a `$5D5E` nel
 controllo di un passaggio. La lettura successiva a `$A35E`
@@ -162,10 +162,20 @@ estrazione della cuoca. `$9ED4` lascia in B lo zero del
 richiamo del giardiniere al turno successivo della cuoca.
 `$B87A` salva invece il puntatore della citazione consumata.
 
-Dal salvataggio JavaScript precedente alle 10:00, il confronto
-arriva a domenica alle 23:50. Lo scarto successivo riguarda
-`$5D4B` alle 23:54. È il byte alto di BC salvato da `$A9F4`
-durante la partenza di un treno fuori scena.
+Alle 23:54, Straker passa per `$9CD2` e `$9D40`: B contiene
+la sua stanza 53 e C il destinatario Watson (3). Le visite
+seguenti conservano la coppia fino al treno 36. `$E4E1`
+passa BC al formatter e `$A9F4` lo salva a `$5D4A–$5D4B`
+anche nella stampa fuori scena. Lunedì alle 01:35, il controllo
+di un movimento del giardiniere entra da `$D448`. La chiamata
+`$D344` lascia il ritorno `$D347` a `$5D5E–$5D5F`.
+
+Due esecuzioni di `$B87A` nel prefisso lasciano in
+`$B868–$B869` l’ultimo puntatore di citazione, `$5B8D`.
+La cuoca lo legge alle 07:47 di lunedì. Il confronto
+dall’avvio ne verifica la persistenza attraverso le attese.
+
+[Registri fra gli incontri e il treno](results/brown-to-ending/passive-train-caller-registers.json).
 
 [Ultimi operandi degli annunci](results/brown-to-ending/passive-announcement-operands.json) ·
 [Richiamo di sonno e scelta percentuale](results/brown-to-ending/passive-sleep-to-probability.json) ·

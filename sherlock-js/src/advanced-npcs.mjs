@@ -11,11 +11,11 @@ export class AdvancedNpcs {
  }
  sleep(actor){
   const w=this.w,state=this.host.state,rest=state.nightRest??(state.nightRest={5:0,8:0,9:0}),row=w.scheduler.actor(actor),room=rest[actor];
-  if(room){rest[actor]=0;w.entity(actor).rooms=[room];w.entity(actor).parent=null;this.describe(actor,0,actor===5?128:0,true);return actor===5?128:0;}
-  const clock=w.clock();if(clock.period!=='pm'||clock.hour!==9)return actor===5?74:0;
+  if(room){rest[actor]=0;w.entity(actor).rooms=[room];w.entity(actor).parent=null;this.describe(actor,0,actor===5?128:0,true);return actor===5?[128,128]:[0,0];}
+  const clock=w.clock();if(clock.period!=='pm'||clock.hour!==9)return actor===5?[74,128]:[0,0];
   const draw=this.host.game.runtimeRandom.absolute(30,{actor,mixOffset:504,purpose:'npc-night-rest'});
   // 9F06 adds into E without a carry into D. Preserve the discontinuity.
-  row.due=(row.due+(256|((248+draw)&255)))&65535;rest[actor]=w.roomOf(actor);w.entity(actor).rooms=[actor===5?74:0];w.entity(actor).parent=null;this.describe(actor,0x7F0,16,false);return 16;
+  row.due=(row.due+(256|((248+draw)&255)))&65535;rest[actor]=w.roomOf(actor);w.entity(actor).rooms=[actor===5?74:0];w.entity(actor).parent=null;this.describe(actor,0x7F0,16,false);return [16,actor===5?128:0];
  }
  finish(text,actor,messages,{reason='story',entry='9E74'}={}){
   return finishStory(this.host,text,actor,messages,{reason,entry});

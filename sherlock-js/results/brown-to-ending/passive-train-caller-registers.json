@@ -1,0 +1,330 @@
+{
+  "protocol": "Originale seed 1, tutti gli attori. Annuncio della partenza del treno 36 e visibilit\u00e0 spenta nella storia passiva Brown. I registri sono osservati ai PC indicati.",
+  "tick": 9594,
+  "train": 36,
+  "bc_on_formatter_entry": "3503",
+  "observations": [
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 4,
+      "bc": "1804",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 4,
+      "bc": "1804",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99C",
+      "sp": "5D70",
+      "actor": 4,
+      "bc": "1802",
+      "top": "1804"
+    },
+    {
+      "pc": "C99D",
+      "sp": "5D72",
+      "actor": 4,
+      "bc": "1804",
+      "top": "9878"
+    },
+    {
+      "pc": "9CD5",
+      "sp": "5D76",
+      "actor": 4,
+      "bc": "3500",
+      "top": "9CF9"
+    },
+    {
+      "pc": "9D42",
+      "sp": "5D7C",
+      "actor": 4,
+      "bc": "3503",
+      "top": "A0CF"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 4,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 6,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 6,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99C",
+      "sp": "5D70",
+      "actor": 6,
+      "bc": "3503",
+      "top": "3503"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 6,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 104,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 104,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99C",
+      "sp": "5D70",
+      "actor": 104,
+      "bc": "3503",
+      "top": "3503"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 104,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 7,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 7,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 7,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 10,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 10,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 10,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 11,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 11,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99C",
+      "sp": "5D70",
+      "actor": 11,
+      "bc": "3503",
+      "top": "3503"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 11,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 12,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 12,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99C",
+      "sp": "5D70",
+      "actor": 12,
+      "bc": "3503",
+      "top": "3503"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 12,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 95,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 95,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99C",
+      "sp": "5D70",
+      "actor": 95,
+      "bc": "3503",
+      "top": "3503"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 95,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 31,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 31,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 31,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 34,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 34,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "CC27",
+      "sp": "5D76",
+      "actor": 34,
+      "bc": "3503",
+      "top": "257A"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D76",
+      "actor": 36,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 36,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 36,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "C99D",
+      "sp": "5D72",
+      "actor": 36,
+      "bc": "3503",
+      "top": "98E0"
+    },
+    {
+      "pc": "C9B2",
+      "sp": "5D72",
+      "actor": 36,
+      "bc": "3503",
+      "top": "F2A7"
+    },
+    {
+      "pc": "C860",
+      "sp": "5D74",
+      "actor": 36,
+      "bc": "3503",
+      "top": "8CBA"
+    },
+    {
+      "pc": "E4E1",
+      "sp": "5D68",
+      "actor": 36,
+      "bc": "3503",
+      "top": "0244"
+    }
+  ]
+}

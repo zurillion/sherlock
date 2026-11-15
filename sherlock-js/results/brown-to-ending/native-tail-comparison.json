@@ -1,27 +1,32 @@
 {
-  "stoppedAt": "F060",
-  "nextOriginalClock": {
-    "tick": 9151,
-    "due": 9541,
-    "minute": 30,
-    "hour": 4,
-    "day": 6,
-    "period": "pm",
-    "label": "Sun 04:30pm"
+  "checkpoints": 1223,
+  "random_draws": 24169,
+  "clock": {
+    "tick": 10201,
+    "due": 10201,
+    "day": 7,
+    "minute": 0,
+    "hour": 10,
+    "period": "am",
+    "label": "Mon 10:00am"
   },
+  "terminal": null,
+  "all_actors": 24,
+  "load_future_compared": true,
+  "arena_bytes_per_checkpoint": 752,
+  "bitmaps_compared": true,
   "originalCheckpoints": 1223,
-  "checkpoints": 1114,
   "lastClock": {
-    "tick": 9141,
-    "due": 9541,
-    "day": 6,
-    "minute": 20,
-    "hour": 4,
-    "period": "pm",
-    "label": "Sun 04:20pm"
+    "tick": 10201,
+    "due": 10201,
+    "day": 7,
+    "minute": 0,
+    "hour": 10,
+    "period": "am",
+    "label": "Mon 10:00am"
   },
-  "comparedDraws": 21863,
-  "comparedReads": 46500,
+  "comparedDraws": 24167,
+  "comparedReads": 51224,
   "originalEnding": null,
   "verifiedEnding": null
 }

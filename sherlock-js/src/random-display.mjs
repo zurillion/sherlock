@@ -238,7 +238,7 @@ export class RandomDisplay {
  }
  // In the offstage train announcement the suppressed dictionary leaves
  // only '.' buffered. C1E1 still saves that character's AF before returning.
- offstageTrainPeriod(descriptor){
+ offstageTrainPeriod(descriptor,registers){
   const s=this.state;
   if(!s)return;
   if(s.wordBuffer?.index!==1||s.wordBuffer.bytes[0]!==46||this.world.npcs?.outputChannel!==0){
@@ -250,9 +250,11 @@ export class RandomDisplay {
   else delete s.scratch[0x5D46];
   const width=s.remaining;
   // The buffer holds one character. A9EC saves CP 1, A9F4 saves
-  // the train text's BC=0 and A9FD leaves its return address AA00.
+  // the train caller's BC and A9FD leaves its return address AA00.
   const widthFlags=2|(width===0?0x81:0)|(width===1?64:0)|((width&15)===0?16:0);
-  Object.assign(s.scratch,{[0x5D48]:0,[0x5D49]:0xAA,[0x5D4A]:0,[0x5D4B]:0,[0x5D4C]:widthFlags,[0x5D4D]:width});
+  Object.assign(s.scratch,{[0x5D48]:0,[0x5D49]:0xAA,[0x5D4C]:widthFlags,[0x5D4D]:width});
+  if(registers)Object.assign(s.scratch,{[0x5D4A]:registers[1],[0x5D4B]:registers[0]});
+  else this.invalidateScratch(0x5D4A,0x5D4B);
   if(Number.isInteger(descriptor)){
    s.scratch[0x5D4E]=descriptor&255;s.scratch[0x5D4F]=descriptor>>>8;
   }else this.invalidateScratch(0x5D4E,0x5D4F);
@@ -301,6 +303,12 @@ export class RandomDisplay {
    if(value==null)delete this.state.scratch[at];else this.state.scratch[at]=value;
   }
   Object.assign(this.state.scratch,{[0x5D60]:0x89,[0x5D61]:0xD4});
+ }
+ directionalSearchReturn(){
+  if(!this.state)return;
+  // DD03 calls D448 in the ordinary directional DOMAIN frame. D344
+  // leaves the return to D347; D455 later uses a shallower frame.
+  Object.assign(this.state.scratch,{[0x5D5E]:0x47,[0x5D5F]:0xD3});
  }
  passagePerceptionIndex(position){
   if(!this.state)return;

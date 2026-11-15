@@ -18,20 +18,14 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Diramazione passiva di Brown.** Il confronto con Salva/Carica
-   raggiunge domenica alle 16:20 su 1.114 checkpoint.
-   Il confronto da un checkpoint JavaScript arriva alle 23:50
-   e individua il primo scarto successivo a 5D4B. La stampa di
-   una partenza del treno conserva BC anche quando il treno è
-   fuori scena. Resta da verificare la continuazione fino al
-   lunedì successivo.
-2. **Seed e scelte del giocatore.** Aggiunti tre percorsi con seed
+1. **Seed e scelte del giocatore.** Aggiunti tre percorsi con seed
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
-   Estendere il profilo a NEW/LOAD e alla grafica originale nei
-   casi in cui la presentazione influisce sulle letture casuali.
+2. **Profili di esecuzione.** Estendere il confronto a NEW/LOAD e
+   alla grafica originale nei casi in cui la presentazione
+   influisce sulle letture casuali.
 
-La mappa riporta 39.840 byte documentati, 353 parziali e 1.407
+La mappa riporta 39.888 byte documentati, 326 parziali e 1.386
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 
@@ -42,9 +36,9 @@ Aggiornamento 12 novembre 2026.
 Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì
 alle 06:07, nella camera di Basil. Il percorso parte dal seed 1 con
 tutti gli attori e passa per Camden Street. La diramazione passiva
-dello stesso ramo è verificata con Salva/Carica fino a domenica
-alle 16:20, su 1.114 checkpoint. Nell’originale la diramazione
-passiva continua almeno fino al lunedì successivo alle 10:00.
+dello stesso ramo coincide su tutti i 1.223 checkpoint,
+dall’avvio fino al lunedì successivo alle 10:00. A quell’ora
+la partita prosegue in entrambi i motori.
 Il finale $759C è verificato anche dal controllo $EFC7. Scatta
 martedì alle 23:41, mentre Holmes è nell’ingresso di Camden
 e Basil è in camera.

@@ -1,5 +1,63 @@
 ; Dossier verificato sul payload originale.
 
+    ORG $9CCE
+; CODE: Incontri · stanza del parlante e confronto con il destinatario
+    LD IX,($A017)                         ; $9CCE dd 2a 17 a0
+    LD B,(IX+$0F)                         ; $9CD2 dd 46 0f | B riceve la stanza dell’attore nel record. C contiene il destinatario; C821 preserva BC. Dopo l’ultimo incontro di Straker la coppia può arrivare alla stampa del treno.
+    LD A,C                                ; $9CD5 79
+    CALL $D237                            ; $9CD6 cd 37 d2
+    LD A,(IX+$0F)                         ; $9CD9 dd 7e 0f
+    CP B                                  ; $9CDC b8
+    RET NZ                                ; $9CDD c0
+    LD A,C                                ; $9CDE 79
+    CALL $C821                            ; $9CDF cd 21 c8
+    JR Z,$9CE6                            ; $9CE2 28 02
+    XOR A                                 ; $9CE4 af
+    RET                                   ; $9CE5 c9
+    OR $01                                ; $9CE6 f6 01
+    RET                                   ; $9CE8 c9
+
+    ORG $9D30
+; CODE: Straker · incontri con Holmes e Watson
+    LD A,($9D90)                          ; $9D30 3a 90 9d
+    AND A                                 ; $9D33 a7
+    RET Z                                 ; $9D34 c8
+    LD HL,$9D2E                           ; $9D35 21 2e 9d
+    LD C,$00                              ; $9D38 0e 00
+    CALL $9CE9                            ; $9D3A cd e9 9c
+    LD HL,$9D2F                           ; $9D3D 21 2f 9d
+    LD C,$03                              ; $9D40 0e 03 | C=3 per il secondo incontro, con Watson. Alle 23:54 il treno eredita 3503, con Straker nella locazione 53.
+    JP $9CE9                              ; $9D42 c3 e9 9c
+
+    ORG $E4C9
+; DATA: Intestazione della regola dei treni
+    DEFB $04,$00                          ; $E4C9 04 00
+
+    ORG $E4CB
+; CODE: Treno · annuncio prima di cambiare visibilità e stanza
+    LD HL,$9C56                           ; $E4CB 21 56 9c
+    LD A,($A034)                          ; $E4CE 3a 34 a0
+    PUSH AF                               ; $E4D1 f5
+    CP $02                                ; $E4D2 fe 02
+    JR Z,$E4DE                            ; $E4D4 28 08
+    CP $03                                ; $E4D6 fe 03
+    JR Z,$E4DE                            ; $E4D8 28 04
+    CP $04                                ; $E4DA fe 04
+    JR NZ,$E4E7                           ; $E4DC 20 09
+    LD HL,$7611                           ; $E4DE 21 11 76
+    CALL $A59F                            ; $E4E1 cd 9f a5 | Invoca il formatter con il BC del chiamante. Nel caso fuori scena A9F4 salva ugualmente BC durante lo scarico del punto.
+    LD HL,$9C60                           ; $E4E4 21 60 9c
+    LD A,($A036)                          ; $E4E7 3a 36 a0
+    PUSH AF                               ; $E4EA f5
+    CALL $E4FB                            ; $E4EB cd fb e4
+    POP AF                                ; $E4EE f1
+    POP BC                                ; $E4EF c1
+    CALL $DD0E                            ; $E4F0 cd 0e dd
+    LD HL,($DCFF)                         ; $E4F3 2a ff dc
+    RES 6,(HL)                            ; $E4F6 cb b6
+    OR $01                                ; $E4F8 f6 01
+    RET                                   ; $E4FA c9
+
     ORG $9CF2
 ; CODE: Incontri NPC: pubblicazione del destinatario
     LD A,C                                ; $9CF2 79
@@ -880,6 +938,37 @@
     CP (HL)                               ; $D2D7 be
     POP HL                                ; $D2D8 e1
     JR Z,$D2B8                            ; $D2D9 28 dd
+
+    ORG $D33C
+; CODE: Indice della stanza dell’attore e ritorno D347
+    PUSH AF                               ; $D33C f5
+    LD IX,($A017)                         ; $D33D dd 2a 17 a0
+    LD A,(IX+$0F)                         ; $D341 dd 7e 0f
+    CALL $D224                            ; $D344 cd 24 d2 | Salva il ritorno D347 a 5D5E–5D5F nel frame di movimento DD03. Il giardiniere legge il byte alto lunedì alle 01:35.
+    POP AF                                ; $D347 f1
+    RET                                   ; $D348 c9
+
+    ORG $D448
+; CODE: Scansione delle uscite per direzione
+    PUSH DE                               ; $D448 d5
+    PUSH BC                               ; $D449 c5
+    PUSH IY                               ; $D44A fd e5
+    LD B,A                                ; $D44C 47
+    CALL $D33C                            ; $D44D cd 3c d3
+    LD DE,$0006                           ; $D450 11 06 00
+    ADD IX,DE                             ; $D453 dd 19
+    CALL $D206                            ; $D455 cd 06 d2
+    JR Z,$D467                            ; $D458 28 0d
+    LD A,(IX+$02)                         ; $D45A dd 7e 02
+    AND A                                 ; $D45D a7
+    JR Z,$D455                            ; $D45E 28 f5
+    LD A,(IX+$00)                         ; $D460 dd 7e 00
+    CP B                                  ; $D463 b8
+    JP NZ,$D455                           ; $D464 c2 55 d4
+    POP IY                                ; $D467 fd e1
+    POP BC                                ; $D469 c1
+    POP DE                                ; $D46A d1
+    RET                                   ; $D46B c9
 
     ORG $D3D5
 ; CODE: Descrittori dei nomi nelle liste

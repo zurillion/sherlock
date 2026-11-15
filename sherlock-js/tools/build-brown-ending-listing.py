@@ -12,6 +12,10 @@ from skoolkit.z80 import Assembler
 memory = bytes(0x5D80) + (project / 'sherlock-analisi/block-10.bin').read_bytes()
 assembler = Assembler()
 regions = [
+    (0x9CCE, 0x9CE9, 'code', 'Incontri · stanza del parlante e confronto con il destinatario'),
+    (0x9D30, 0x9D45, 'code', 'Straker · incontri con Holmes e Watson'),
+    (0xE4C9, 0xE4CB, 'data', 'Intestazione della regola dei treni'),
+    (0xE4CB, 0xE4FB, 'code', 'Treno · annuncio prima di cambiare visibilità e stanza'),
     (0x9CF2, 0x9D10, 'code', 'Incontri NPC: pubblicazione del destinatario'),
     (0x9D13, 0x9D2E, 'code', 'Watson verifica tre incontri, poi richiama un ricordo'),
     (0x9EC0, 0x9EC1, 'data', 'Daphne · stanza salvata prima del sonno'),
@@ -61,6 +65,8 @@ regions = [
     (0xD008, 0xD045, 'code', 'Ripristino e salvataggio del contesto NPC'),
     (0xD05A, 0xD078, 'data', 'Riferimenti al dizionario per relazioni e direzioni'),
     (0xD2CB, 0xD2DB, 'code', 'Dopo le letture casuali: salvataggio dell’indice della scelta'),
+    (0xD33C, 0xD349, 'code', 'Indice della stanza dell’attore e ritorno D347'),
+    (0xD448, 0xD46C, 'code', 'Scansione delle uscite per direzione'),
     (0xD3D5, 0xD448, 'code', 'Descrittori dei nomi nelle liste'),
     (0xD60B, 0xD671, 'code', 'Direzione del passaggio, articolo e nome'),
     (0xD898, 0xD8AD, 'code', 'Ingresso dell’editor: ricarica il contatore'),
@@ -81,6 +87,9 @@ notes = {
     0xBF59: 'Sette record consecutivi di tre caratteri. Il primo byte M è letto dal generatore domenica alle 05:38.',
     0xBF6E: 'Buffer di undici caratteri. BF79 lo aggiorna a ogni stampa del tempo; il contenuto su nastro è solo iniziale.',
     0xBFC6: 'Triplica l’indice del giorno e copia esattamente tre byte nella stringa da visualizzare.',
+    0x9CD2: 'B riceve la stanza dell’attore nel record. C contiene il destinatario; C821 preserva BC. Dopo l’ultimo incontro di Straker la coppia può arrivare alla stampa del treno.',
+    0x9D40: 'C=3 per il secondo incontro, con Watson. Alle 23:54 il treno eredita 3503, con Straker nella locazione 53.',
+    0xE4E1: 'Invoca il formatter con il BC del chiamante. Nel caso fuori scena A9F4 salva ugualmente BC durante lo scarico del punto.',
     0x9CF3: 'Scrive il destinatario A034 prima di controllarne la presenza. Anche un incontro fallito aggiorna il campo.',
     0x9D26: 'Ultimo destinatario di Watson: Straker (4). E691 può leggere A034 prima che la successiva regola lo cambi.',
     0x9ED4: 'Imposta BC a zero per giardiniere e cuoca. Il rientro pomeridiano conserva B e C. Domenica alle 17:06 il B del giardiniere arriva alla prima regola della cuoca.',
@@ -129,6 +138,7 @@ notes = {
     0xD658: 'L’articolo del nome comune scarica is nel frame 5D24, dopo il ritorno a capo della direzione. C3B8 salva un nuovo AF a 5D18/19.',
     0xD05A: 'Voci little endian. D0F2 usa i bit della stanza come offset. Il generatore legge il byte alto della prima voce domenica alle 08:50.',
     0xD2D3: 'Il salvataggio di HL segue la coppia di letture e precede il confronto con il seed. Vale anche quando la scelta ripete il tentativo.',
+    0xD344: 'Salva il ritorno D347 a 5D5E–5D5F nel frame di movimento DD03. Il giardiniere legge il byte alto lunedì alle 01:35.',
     0xD3E8: 'Nel nome del cocchiere fuori scena salva AF con A=ID dell’attore e F dal lookup A4BC, a 5D3E–5D3F. D3E9 salva il relativo del testo a 5D3C–5D3D.',
     0xD442: 'CALL del formatter del sostantivo. Nel nome del cocchiere fuori scena, lascia il ritorno D445 a 5D3A–5D3B.',
     0xD89B: 'All’ingresso del prompt carica 0BB8 (3000) prima di leggere il tasto.',

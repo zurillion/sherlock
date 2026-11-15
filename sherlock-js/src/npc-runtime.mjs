@@ -127,8 +127,8 @@ export class NpcRuntime {
    this.state.lastDomainOperands=[c.actor,255,...args];
    // 9EC1/9ED4 set B in the preceding sleep callback. The scheduler,
    // CC37 and the class-7 argument lookup preserve it into F19A.
-   const callback=this.state.sleepCallbackOperand;
-   if(name==='unimplemented.F198'&&start===c.operation.source&&this.w.scheduler.current?.steps===0&&callback?.tick===this.w.tick)c.probabilityCallerB=callback.value;
+   const callback=this.state.visitRegisters;
+   if(name==='unimplemented.F198'&&start===c.operation.source&&this.w.scheduler.current?.steps===0&&callback?.tick===this.w.tick)c.probabilityCallerB=callback.bytes[0];
    return this.rule(name,args,c,messages,actions);
   },
   action:(action,args,c)=>{
@@ -155,7 +155,8 @@ export class NpcRuntime {
   if(!visible&&text==='7611'){
    const bufferSink=c.bufferSink;
    const descriptor=g.data.texts[text].at(-1).randomContext;
-   c.bufferSink=(ch,options)=>{if(ch==='\n')g.sourceDisplay.offstageTrainPeriod(descriptor);bufferSink(ch,options);};
+   const saved=this.state.visitRegisters,registers=saved?.tick===this.w.tick?saved.bytes:null;
+   c.bufferSink=(ch,options)=>{if(ch==='\n')g.sourceDisplay.offstageTrainPeriod(descriptor,registers);bufferSink(ch,options);};
   }
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   if(visible&&arrivalGreeting&&actor===2&&context.object===0){
@@ -627,6 +628,7 @@ export class NpcRuntime {
   if(input[0]===255||classByAction[action]===undefined)preflightRejected=this.checkAction(action,args,actor,{ordinaryDomain:!context.request&&!context.isolated})===false;
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
+  if(action>=1&&action<=10&&!preflightRejected&&!context.request&&!context.isolated)g.sourceDisplay.directionalSearchReturn();
   const out=g.executeAs(this.node(action,args),actor,{textContext:context.prefab&&[47,48].includes(action)?{actorNameFrame:0x5D1A}:null});if(actor===w.player&&!out.projected&&out.messages.some(m=>m.kind==='narrative')){g.sourceDisplay.feed('\n');messages.push({kind:'narrative',text:'',raw_text:'\n'});}
   // Only a rejected global header with no local override proves no callback ran.
   if(preflightRejected&&!g.data.argumentChecks.entities[args[0]]?.[action]&&!out.cost&&!out.objectRule)this.ruleResults.write(...priorResults);
@@ -809,10 +811,14 @@ export class NpcRuntime {
   const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.'))this.game.sourceDisplay.bufferFeed(ch,{hidden:true});this.game.sourceDisplay.moneyCapital(pence);for(const ch of '.\n')this.game.sourceDisplay.bufferFeed(ch,{hidden:true});return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1),cab_action:[31,34].includes(actor)&&recipient===w.player,money_ends:[{end:text.indexOf(amount)+amount.length,pence}]};messages.push(message);this.game.projectMessages([message]);}}
  callback(actor,oldDue,messages){
   const id=actor.id,w=this.w;
-  delete this.state.sleepCallbackOperand;
   if(id===6){const e=w.entity(85);if(e.attributes&128&&this.state.burningNoteTicks!==255){this.state.burningNoteTicks=(this.state.burningNoteTicks-1)&255;if(!this.state.burningNoteTicks){e.qualifiers[0]=0x15B;e.name='burnt note';e.description=null;const fact=this.state.facts.find(f=>f.start===0x99A9);fact.terms[5]&=~0x0200;}}return;}
-  if([5,8,9].includes(id)){this.state.sleepCallbackOperand={tick:w.tick,value:this.advanced.sleep(id)};return;}
+  if([5,8,9].includes(id)){this.state.visitRegisters={tick:w.tick,bytes:this.advanced.sleep(id)};return;}
   if(![2,3,4,11,12].includes(id))return;
+  // 9CD2 loads the visitor’s room into B. The final encounter call
+  // has C set to its target. D237 and C821 preserve the pair on return.
+  const lastTarget=id===3?4:id===4&&this.state.flags.strakerMet?3:[11,12].includes(id)&&!this.state.flags.strakerMet?7:null;
+  if(lastTarget!==null)this.state.visitRegisters={tick:w.tick,bytes:[w.roomOf(id),lastTarget]};
+  if(id===2)delete this.state.visitRegisters;
   this.use(()=>{
    const counters=this.state.encounters[id],near=target=>w.roomOf(target)===w.roomOf(id)&&w.perceived(target,id);
    const encounter=(target,i,offset,text='6929',permanent=false,returnLink=0x9CEC)=>{
@@ -956,7 +962,8 @@ export class NpcRuntime {
   if(s.announcementOperands!==undefined&&!triple(s.announcementOperands))throw Error('Argomenti dell’annuncio non validi');
   const selection=s.information.watsonSelection;
   if(selection&&(!byte(selection.mode)||![0,1].includes(selection.recording)||!Array.isArray(selection.triple)||selection.triple.length!==3||selection.triple.some(value=>value!==null&&!byte(value))||selection.handler!==null&&(!Number.isInteger(selection.handler)||selection.handler<0||selection.handler>65535)))throw Error('Selezione di Watson non valida');
-  if(s.sleepCallbackOperand!==undefined&&(!Number.isInteger(s.sleepCallbackOperand?.tick)||s.sleepCallbackOperand.tick<0||s.sleepCallbackOperand.tick>65535||!byte(s.sleepCallbackOperand.value)))throw Error('Residuo del sonno NPC non valido');
+  const registers=s.visitRegisters;
+  if(registers!==undefined&&(!Number.isInteger(registers?.tick)||registers.tick<0||registers.tick>65535||!Array.isArray(registers.bytes)||registers.bytes.length!==2||!registers.bytes.every(byte)))throw Error('Registri della visita NPC non validi');
   if(s.lastConsumedQuote!=null&&(!Number.isInteger(s.lastConsumedQuote)||s.lastConsumedQuote<0||s.lastConsumedQuote>65535))throw Error('Puntatore dell’ultima citazione non valido');
   if(s.lastDomainOperands!==undefined&&(!Array.isArray(s.lastDomainOperands)||s.lastDomainOperands.length!==4||!s.lastDomainOperands.every(byte)))throw Error('Operandi DOMAIN non validi');
   if(s.requestOpcodes!==undefined&&(!Array.isArray(s.requestOpcodes)||s.requestOpcodes.length!==2||s.requestOpcodes.some(value=>value!==null&&!byte(value))))throw Error('Opcode della richiesta NPC non valido');

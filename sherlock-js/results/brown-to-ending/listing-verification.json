@@ -1,8 +1,36 @@
 {
   "roundtrip_equal": true,
-  "instructions": 851,
-  "bytes_roundtripped": 1941,
+  "instructions": 921,
+  "bytes_roundtripped": 2088,
   "regions": [
+    {
+      "start": "9CCE",
+      "end_exclusive": "9CE9",
+      "kind": "code",
+      "label": "Incontri · stanza del parlante e confronto con il destinatario",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9D30",
+      "end_exclusive": "9D45",
+      "kind": "code",
+      "label": "Straker · incontri con Holmes e Watson",
+      "atlas_priority": 188
+    },
+    {
+      "start": "E4C9",
+      "end_exclusive": "E4CB",
+      "kind": "data",
+      "label": "Intestazione della regola dei treni",
+      "atlas_priority": 188
+    },
+    {
+      "start": "E4CB",
+      "end_exclusive": "E4FB",
+      "kind": "code",
+      "label": "Treno · annuncio prima di cambiare visibilità e stanza",
+      "atlas_priority": 188
+    },
     {
       "start": "9CF2",
       "end_exclusive": "9D10",
@@ -344,6 +372,20 @@
       "end_exclusive": "D2DB",
       "kind": "code",
       "label": "Dopo le letture casuali: salvataggio dell’indice della scelta",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D33C",
+      "end_exclusive": "D349",
+      "kind": "code",
+      "label": "Indice della stanza dell’attore e ritorno D347",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D448",
+      "end_exclusive": "D46C",
+      "kind": "code",
+      "label": "Scansione delle uscite per direzione",
       "atlas_priority": 188
     },
     {
