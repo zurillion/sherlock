@@ -105,11 +105,14 @@ le 36 colonne. S e LOOK ridisegnano l’immagine di Baker Street
 (005) e tornano alle 18 colonne. L’hash della bitmap resta
 diverso a partire da D.
 
-In questi sette comandi sono uguali gli indirizzi e i valori letti
-dal generatore, il suo accumulatore e il suo cursore. La prossima
-verifica è prolungare il confronto fino a una lettura sensibile
-ai pixel o ai residui dello stack grafico. La grafica della pagina
-rimane una presentazione del profilo JavaScript già verificato.
+Nei primi sette comandi coincidono gli indirizzi e i valori letti
+dal generatore, il suo accumulatore e il suo cursore. Il confronto
+è stato esteso al tragitto in cab fino a King’s Cross e a un’attesa
+fino a lunedì alle 12:00. Su 615 estrazioni, tutte le 1298 letture
+coincidono fra i due profili. La prossima verifica è trovare una
+lettura sensibile ai pixel o ai residui dello stack grafico. La
+grafica della pagina rimane una presentazione del profilo
+JavaScript già verificato.
 
 [Misure dai due profili dello Spectrum](results/seed-and-saves/native-graphics-first-rooms.json).
 

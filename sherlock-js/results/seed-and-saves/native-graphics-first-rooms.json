@@ -358,5 +358,42 @@
         ]
       }
     }
-  ]
+  ],
+  "continued_through_noon": {
+    "last_clock": {
+      "tick": 241,
+      "due": 241,
+      "minute": 0,
+      "hour": 12,
+      "day": 0,
+      "period": "pm",
+      "label": "Mon 12:00pm"
+    },
+    "checkpoints": 18,
+    "draws": 615,
+    "reads": 1298,
+    "draw_sequences_equal": true,
+    "inputs_equal": true,
+    "comparison_digest": "748cfe96a211435a79ff7b24719dd18e100b4189df4152ad4e7dc3d1472b228a",
+    "route": [
+      "SAY \"HELLO\" TO WATSON",
+      "OPEN YOUR DOOR",
+      "W",
+      "D",
+      "OPEN DOOR",
+      "S",
+      "LOOK",
+      "HAIL CAB",
+      "CLIMB INTO CAB",
+      "SAY TO CABBIE \"GO TO KINGS CROSS ROAD\"",
+      "WAIT",
+      "WAIT",
+      "WAIT",
+      "PAY 6D TO CABBIE",
+      "GET OUT",
+      "NE",
+      "NE",
+      "WAIT UNTIL 12PM"
+    ]
+  }
 }
