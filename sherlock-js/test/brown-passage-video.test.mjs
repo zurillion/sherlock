@@ -88,3 +88,25 @@ test('The lower rejection scroll leaves two separate sets of scan registers', ()
   loaded.sourceDisplay.write('Text from an unclassified caller.');
   assert.deepEqual(laterScan.map(address => loaded.sourceDisplay.read(address)), [null, null, null, null]);
 });
+
+test('The canonical status row supplies bright attributes to the game source', () => {
+  const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+  assert.equal(game.runtimeRandom.read(0x5A3F), 0x38);
+  for (let column = 0; column < 32; column++) {
+    assert.equal(game.runtimeRandom.read(0x5A40 + column), 0x78);
+  }
+  assert.equal(game.runtimeRandom.read(0x5A60), 0x38);
+});
+
+test('Clock pixels match the original byte for byte across passive prompts', async () => {
+  const { samples } = await read('results/brown-to-ending/passive-status-clock.json');
+  const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+  for (const sample of samples) {
+    game.world.minutes = 480 + sample.tick - 1;
+    assert.equal(game.world.clock().label, sample.clock);
+    for (const [scan, bytes] of sample.bitmap.entries()) {
+      assert.deepEqual(bytes.map((_, i) => game.runtimeRandom.read(0x5040 + 256 * scan + i)), bytes);
+    }
+    assert.deepEqual(sample.attributes.map((_, i) => game.runtimeRandom.read(0x5A40 + i)), sample.attributes);
+  }
+});

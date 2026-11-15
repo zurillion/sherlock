@@ -12,7 +12,7 @@ REGIONS = [
  (0xAAA1,0xAAB2,'data'), (0xAAB2,0xAF6B,'code'),
  (0xAF6B,0xAFB3,'data'), (0xAFB3,0xB16D,'code'),
  (0xB191,0xB1AB,'code'), (0xB84C,0xB863,'code'),
- (0xC1E1,0xC1F4,'code'), (0xC1F4,0xC1FC,'data'), (0xC1FC,0xC249,'code'),
+ (0xC03B,0xC040,'code'), (0xC1E1,0xC1F4,'code'), (0xC1F4,0xC1FC,'data'), (0xC1FC,0xC249,'code'),
  (0xD6B8,0xD6C1,'data'), (0xD6C1,0xD714,'code'),
  (0xD714,0xD719,'data'), (0xD719,0xD769,'code'),
  (0xD769,0xD76D,'data'), (0xD76D,0xD77E,'code'), (0xD77E,0xD780,'data'),
@@ -26,6 +26,7 @@ REGIONS = [
 COMMENTS = {
  0x6859: 'Frase compressa: I do not know the word + virgoletta.',
  0x6866: 'Frase compressa: What ? + CR.',
+ 0xC03B: 'Verifica ZX Printer: legge la porta FB e isola il bit 6. I byte sono immutabili nella storia senza comandi stampante.',
  0xA536: 'Lettura tasto con timeout; zero = nessun comando. Iniettata nelle prove.',
  0xA85C: 'Nove suffissi da quattro byte; maiuscoli. Il backspace e un byte 08.',
  0xA887: 'Stampa parola: rispetta 5C3C. Foggy London modifica A88B, qui NON modificato.',

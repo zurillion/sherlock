@@ -36,7 +36,12 @@ export class NpcRuntime {
   const waitModel=player&&this.state.previousTokenClass===0xB0&&[49,50].includes(action)&&!node.all&&!node.subject&&!node.quote;
   this.state.nominalModelSelector=waitModel?1:null;
   if(this.state.resolutionMode===0)this.setResolutionMode(node.all?128:0); // B1EC
-  if(this.game.data.actions.find(a=>a.id===action)?.singleSelection)this.setResolutionMode(0); // B1FD
+  const model=this.game.data.actions.find(a=>a.id===action);
+  if(!node.subject&&model?.modelFlags&&node.groups.some((group,slot)=>
+   (group.noun||group.qualifiers.length)&&!(group.noun&0x8000)&&model.classes[slot]&&model.classes[slot]!==5)){
+   this.state.nominalVisibility=model.modelFlags[0]&1; // B4DF / B586
+  }
+  if(model?.singleSelection)this.setResolutionMode(0); // B1FD
  }
  finishPlayerResolution(success){this.state.playerResolutionMode=success?(this.state.resolutionMode??null):0;}
  // A01F/A020 is shared across operations, not an actor-local duration.
@@ -58,6 +63,9 @@ export class NpcRuntime {
   w.npcs.facts=clone(this.worldSource.layout.facts);
   w.npcs.information.verification={recognized:0,unproven:0,lastFact:0};
   w.npcs.information.resolution={cursors:[0,0],verb:0,triple:[0,0,0]};w.npcs.lexicalMatch=[0,0];w.npcs.parserCount=g.data.randomInputs.bootOptions.initialParserCount??null;w.npcs.parserAll=g.data.randomInputs.bootOptions.initialParserAll??null;w.npcs.editorTokenFlag=g.data.randomInputs.bootOptions.initialEditorTokenFlag??null;
+  w.npcs.nominalVisibility=0;
+  w.npcs.rejectionSlot=0; // B649/B658 are both JR NZ before the first rejection.
+  w.npcs.requestOpcodes=[0,0]; // B934/B935 are separate zero-initialized cells.
   w.npcs.lexicalGroupEnd=g.data.lexer?.initialGroupEnd??null;
   w.npcs.otherLiteral=g.data.argumentChecks?.initialOtherLiteral??null;
   w.npcs.parserMode=g.data.argumentChecks?.initialParserMode??null;
@@ -94,7 +102,7 @@ export class NpcRuntime {
  driver(messages,actions){return {prepare:a=>this.prepare(a),step:a=>this.step(a,messages,actions),callback:(a,c,s,old)=>this.callback(a,old,messages)};}
  step(actor,messages,actions){return this.use(runtime=>{const result=runtime.vm.step(actor.id,this.environment(runtime,messages,actions));if(runtime.identityChange!==undefined){changeNpcIdentity(this,actor.id,runtime.identityChange);delete runtime.identityChange;}return result;});}
  environment(runtime,messages,actions){const {vm,records}=runtime;return {
-  beginStep:()=>this.temporaryCost(0),
+  beginStep:()=>{this.temporaryCost(0);(this.state.requestOpcodes??=[null,null])[0]=0;}, // CC89 opens each DOMAIN dispatch.
   forcedCost:value=>this.temporaryCost(value),
   enterContext:({actor,frame})=>records.prepend('contexts',[actor,parseInt(frame.origin,16)&255,parseInt(frame.origin,16)>>>8,frame.saved[1],frame.saved[2],frame.request?2:1,frame.saved[0]]),
   leaveContext:({frame})=>{const p=records.remove('contexts',frame.record);if(!this.state.recordsSourceKnown&&!p&&(records.heads.requests||records.heads.syntax))throw new UnsupportedFeature('metadati dei contesti dopo questo percorso del parser');return records.returnSaved(p);},
@@ -111,8 +119,14 @@ export class NpcRuntime {
   // for the newly owned byte; do not reuse the prefab TELL frame 5D1A.
   order:({actor,recipient,action,args})=>{this.recordRequest(actor,recipient,{kind:'prefabricated',action,args});const e=this.w.entity(actor);this.print('682A',actor,{object:recipient,action,args,...(e.person&&(e.noun&32768)?{actorNameFrame:0x5D2A,actorNameUpper:true,...([29,30].includes(action)?{roomNameFrame:0x5D32}:{}),preserveGlyphFlags:[29,30].includes(action)}:{})},messages);},
   request:(r,c)=>this.request(r,c,messages,actions),
-  rule:(name,args,c)=>this.rule(name,args,c,messages,actions),
-  action:(action,args,c)=>this.action(action,args,c,messages,actions)
+  rule:(name,args,c)=>{
+   this.state.lastDomainOperands=[c.actor,255,...args];
+   return this.rule(name,args,c,messages,actions);
+  },
+  action:(action,args,c)=>{
+   this.state.lastDomainOperands=[c.actor,action,...args];
+   return this.action(action,args,c,messages,actions);
+  }
  };}
  print(text,actor,context,messages,{force=false}={}){
   if(this.state.executionPhase===0)this.state.announcementMode=0; // A5AD..A5B3.
@@ -130,6 +144,11 @@ export class NpcRuntime {
    display.glyphFrame=context.actorNameFrame;display.upperGlyphKnown=context.actorNameUpper===true;
    if(context.preserveTriciaPrefix)display.glyphFlagsKnown=true;
    try{write();}finally{Object.assign(display,{glyphFrame,upperGlyphKnown,glyphFlagsKnown});}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  if(!visible&&text==='7611'){
+   const bufferSink=c.bufferSink;
+   const descriptor=g.data.texts[text].at(-1).randomContext;
+   c.bufferSink=(ch,options)=>{if(ch==='\n')g.sourceDisplay.offstageTrainPeriod(descriptor);bufferSink(ch,options);};
+  }
   if(force&&!c.sink){c.characters=[];c.sink=ch=>{c.characters.push(ch);g.sourceDisplay.feed(ch,{buffer:false});};}
   if(visible&&arrivalGreeting&&actor===2&&context.object===0){
    const sink=c.sink;
@@ -290,6 +309,10 @@ export class NpcRuntime {
  });}
  request(request,context,messages,actions){
   const state=this.state,actor=context.actor;
+  const opcodes=state.requestOpcodes??=[null,null];
+  // B93B saves the opcode that accepted request dispatch. B953 copies
+  // it only for a parsed request; prefab orders and statements bypass it.
+  opcodes[1]=this.sourceBytes.get(Number.parseInt(context.operation?.source,16))??null;
   // BA20 only dispatches statements to Watson and Lestrade. Other actors
   // leave that request linked while continuing their ordinary turn.
   if(request.command.mode===2&&actor!==2&&actor!==3&&!state.pending[actor]){
@@ -310,6 +333,7 @@ export class NpcRuntime {
   while(true){
    let node=job.nodes?.[job.index],action=job.action,args=job.args||[255,255];
    if(job.nodes){if(!node){delete state.pending[actor];return {handled:true,cost:0};}action=this.game.action(node);}
+   if(node&&!(job.mode===2||job.mode===undefined&&node.subject))opcodes[0]=opcodes[1];
    if(node&&!(job.mode===2||job.mode===undefined&&node.subject))this.beginResolution(node,{requestMode:job.record?this.active.records.arena.byte(job.record+2):null});
    if(!job.prefab&&context.restriction&&[12,13,21,22,24,25,40,49,50].includes(action)){
     // CBA7 rejects the restricted order during preflight. B9AC still
@@ -491,7 +515,8 @@ export class NpcRuntime {
    }
    case 'counter.decrement':if(!counter)return no();{const n=(records.arena.byte(counter+1)-1)&255;records.arena.putByte(counter+1,n);if(!n){records.remove('counters',counter);return no();}result=yes();break;}
    case 'counter.delete':if(!counter)return no();records.remove('counters',counter);result=yes();break;
-   case 'unimplemented.F198':result=first>=g.runtimeRandom.percent({actor,mixOffset:5,purpose:'probability-predicate'})?yes():no();break;
+   // CE3B/CE57 materialize the live DOMAIN operands before F19A draws.
+   case 'unimplemented.F198':result=first>=g.runtimeRandom.percent({actor,mixOffset:5,purpose:'probability-predicate',operands:[255,first,second]})?yes():no();break;
    case 'entity.relocate':result=yes(2,{observerScopeLost:this.relocate(first,second,messages,{actor,direction:w.entity(first).attributes&64?w.rooms[w.roomOf(first)].exits[0]?.direction_id:null})});break;
    case 'location.exitDirection':{const edge=w.rooms[w.roomOf(actor)].exits.find(e=>e.target===first);if(!edge||edge.direction_id>10)return no();context.saved[1]=edge.direction_id;result=yes();break;}
    case 'unimplemented.E4C9':{
@@ -520,7 +545,9 @@ export class NpcRuntime {
     // E725 prints this warning under an extra saved AF. The original's
     // formatter can reach below the ordinary narrative glyph workspace.
     if(force||w.perceived(actor))g.sourceDisplay.invalidateScratch(0x5D0E,0x5D11);
-    this.print('6C54',actor,{},messages,{force});result=yes();break;
+    this.print('6C54',actor,{},messages,{force});
+    if(!force&&!w.perceived(actor))g.sourceDisplay.offstageFareWarning(w.entity(actor).noun);
+    result=yes();break;
    }
    case 'cab.demandPayment':this.demand(actor,first,second,messages);result=yes();break;
    case 'money.balanceAsLiteral':this.state.literal=encodeMoney(balance(w,first))|128;context.saved[1]=254;result=yes();break;
@@ -718,7 +745,20 @@ export class NpcRuntime {
     sink(ch);
    };
   }
-  if(!visible&&!(this.w.entity(actor).noun&0x8000))g.sourceDisplay.offstageFareArticle();
+  const speakerNoun=this.w.entity(actor).noun;
+  if(!visible){
+   const display=g.sourceDisplay,recipientNoun=this.w.entity(recipient).noun;
+   display.invalidateScratch(0x5D36,0x5D45);
+   if(!(speakerNoun&0x8000)){
+    display.offstageFareArticle({actor,noun:speakerNoun,
+     record:this.worldSource.layout.entities.find(entity=>entity.id===actor)?.start,
+     channel:this.state.outputChannel,relativeOffset:g.data.texts['6804']?.[0]?.relativeOffset});
+    c.offstageFareChoice=()=>display.offstageFareChoice();
+    if((recipientNoun&0x8000)&&(recipientNoun&0x0FFF))c.objectNameEntry=write=>{
+     write();display.offstageFareRecipientName();
+    };
+   }
+  }
   const prefix=g.text.render('6BB7',{...c,actor,object:recipient,other:owner}),pence=(-amount)&16383,money=' '+formatMoney(pence),tail=' "\n',suffix=money+tail;
   const append=text=>{for(const ch of text){g.sourceDisplay.bufferFeed(ch.replace('d','D'),{hidden:!visible});c.sink?.(ch);}};append(money);g.sourceDisplay.moneyCapital(pence);append(tail);
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
@@ -738,7 +778,22 @@ export class NpcRuntime {
     if(!near(target)){counters[i]=Math.max(0,counters[i]-1);return returnLink;}
     if(counters[i])return returnLink;counters[i]=30+this.game.runtimeRandom.absolute(15,{actor:id,mixOffset:offset,purpose:'encounter:'+target});if(permanent)counters[i]=1;if(text)this.print(text,id,{object:target},messages);return offset;
    };
-   if(id===3){let offset=oldDue;for(const [i,target] of [0,2,4].entries())offset=encounter(target,i,offset);const ctx={actor:3,mixOffset:offset,purpose:'watson-information'};if(this.game.runtimeRandom.percent(ctx)>=50){const draw=this.game.runtimeRandom.percent(ctx);this.information.recall(id,draw,messages);}return;}
+   // Every 9CF3 call writes the target, even when the encounter fails.
+   // The other two slots still belong to the DOMAIN operation that earned
+   // Watson this callback. CE4A/CE59 can leave their FF placeholders.
+   if(id===3){
+    const targets=[0,2,4];
+    let offset=oldDue;
+    for(const [i,target] of targets.entries())offset=encounter(target,i,offset);
+    const last=this.state.lastDomainOperands;
+    const operands=[last?.[0]===id?last[1]:null,targets.at(-1),last?.[0]===id?last[3]:null];
+    const ctx={actor:id,mixOffset:offset,purpose:'watson-information',operands};
+    if(this.game.runtimeRandom.percent(ctx)>=50){
+     const draw=this.game.runtimeRandom.percent(ctx);
+     this.information.recall(id,draw,messages);
+    }
+    return;
+   }
    if(id===11||id===12){if(!this.state.flags.strakerMet){let offset=oldDue;for(const [i,target]of[0,3,7].entries())offset=encounter(target,i,offset,'6D9A',true,0x9D68);}return;}
    if(id===4){if(this.state.flags.strakerMet){const offset=encounter(0,0,oldDue);encounter(3,1,offset);}return;}
    if(id===2){
@@ -772,6 +827,8 @@ export class NpcRuntime {
   if(address===0xCC0D){const actor=this.w.scheduler.current?.actor,local=this.active?.vm.states[actor]??this.state.program.states[actor];return local?Number(local.requestAvailable):actor===this.w.player?Number(this.w.scheduler.requests.some(r=>r.recipient===actor)):null;}
   if(address===0xCC0B){const actor=this.w.scheduler.current?.actor;if(actor===this.w.player)return this.state.playerFailures;return this.active?.vm.states[actor]?.failures??this.state.program.states[actor]?.failures??null;}
   if(address>=0xA013&&address<=0xA016){const pointer=this.state.argumentPointers?.[Math.floor((address-0xA013)/2)];return Number.isInteger(pointer)?((address&1)?pointer&255:pointer>>>8):null;}
+  if(address===0xB649||address===0xB658)return this.state.rejectionSlot==null?null:(this.state.rejectionSlot===0?0x20:0x28);
+  if(address===0xB934||address===0xB935)return this.state.requestOpcodes?.[address-0xB934]??null;
   if(address===0xD714)return this.state.editorTokenFlag??null;
   if(address>=0xCB28&&address<=0xCB2B)return this.ruleResults.read(address);
   if(address===0xC128)return this.w.display?.windowMode??null;
@@ -808,10 +865,17 @@ export class NpcRuntime {
   if(address>=0xA002&&address<0xA008)return this.state.information.addressee[address-0xA002];
   if(address>=0xDCFF&&address<=0xDD02){const room=this.state.lastRelocationRoom,ptr=room===undefined?0:this.worldSource.layout.rooms.find(r=>r.id===room).start;return [ptr&255,ptr>>>8,room??0,0][address-0xDCFF];}
   if(address>=0x9FDD&&address<=0x9FE2){const c=this.w.clock();return [c.tick&255,c.tick>>>8,c.minute,c.hour,c.day,c.period==='am'?97:112][address-0x9FDD];}
+  if(address===0x5C3C&&this.game.runtimeRandom.inFlight?.purpose==='watson-information'){
+   // CC67 checks whether Holmes is visible from the current actor.
+   return Number(this.w.perceived(this.w.player,3));
+  }
   if(address===0xA02F||address===0xA030)return address===0xA02F?this.state.literal&255:this.state.literal>>>8;
   if(address===0xA031||address===0xA032){const literal=this.state.otherLiteral;return literal==null?null:address===0xA031?literal&255:literal>>>8;}
+  if(address>=0xA033&&address<=0xA035)return this.game.runtimeRandom.inFlight?.operands?.[address-0xA033]??null;
   if(address===0xA036)return this.game.runtimeRandom.inFlight?.actor??null;
+  if(address===0xA038)return this.state.nominalVisibility??null;
   if(address===0xA037)return this.w.random.seed;
+  if(address===0xA03B||address===0xA03C){const timeout=this.state.editorTimeout;return timeout==null?null:address===0xA03B?timeout&255:timeout>>>8;}
   if(address===0xA039||address===0xA03A){const cursor=this.game.runtimeRandom.inFlight?.cursor??this.w.random.cursor;return address===0xA039?cursor&255:cursor>>>8;}
   if(address>=0x9C85&&address<0x9CA1){const callbacks=[[2,this.state.flags.strakerMet?0x9D95:0x9DFF],[3,0x9D13],[4,0x9D30],[11,0x9D48],[12,0x9D73],[8,0x9ED1],[9,0x9ECB],[5,0x9EC1],[6,0x9CA2]];return [...callbacks.flatMap(([id,at])=>[id,at&255,at>>>8]),255][address-0x9C85];}
   if(address===0x9CA1)return this.state.burningNoteTicks;
@@ -830,6 +894,9 @@ export class NpcRuntime {
  validate(){
   const s=this.state,byte=v=>Number.isInteger(v)&&v>=0&&v<=255,triple=v=>Array.isArray(v)&&v.length===3&&v.every(byte);
   for(const key of['resolutionMode','playerResolutionMode'])if(s[key]!==undefined&&s[key]!==null&&![0,128].includes(s[key]))throw Error('Invalid saved resolution mode');
+  if(s.lastDomainOperands!==undefined&&(!Array.isArray(s.lastDomainOperands)||s.lastDomainOperands.length!==4||!s.lastDomainOperands.every(byte)))throw Error('Operandi DOMAIN non validi');
+  if(s.requestOpcodes!==undefined&&(!Array.isArray(s.requestOpcodes)||s.requestOpcodes.length!==2||s.requestOpcodes.some(value=>value!==null&&!byte(value))))throw Error('Opcode della richiesta NPC non valido');
+  if(s.editorTimeout!=null&&(!Number.isInteger(s.editorTimeout)||s.editorTimeout<0||s.editorTimeout>65535))throw Error('Contatore dell’editor non valido');
   if(s.otherLiteral!=null&&(!Number.isInteger(s.otherLiteral)||s.otherLiteral<0||s.otherLiteral>65535))throw Error('Secondo letterale non valido');
   if(s.parserMode!=null&&(!Number.isInteger(s.parserMode)||s.parserMode<0||s.parserMode>255))throw Error('Modo sintattico non valido');
   if(s.nameQualifierMode!==undefined&&s.nameQualifierMode!==null&&(!Number.isInteger(s.nameQualifierMode)||s.nameQualifierMode<0||s.nameQualifierMode>255))throw Error('Modo dei qualificatori non valido');
@@ -845,6 +912,8 @@ export class NpcRuntime {
   if(s.parserTokenStart!=null&&(!Number.isInteger(s.parserTokenStart)||s.parserTokenStart<0||s.parserTokenStart>65535))throw Error('Puntatore iniziale del token non valido');
   if(s.editorTokenFlag!==undefined&&s.editorTokenFlag!==null&&![0,1].includes(s.editorTokenFlag))throw Error('Flag token editor non valido');
   if(s.parserAll!==undefined&&s.parserAll!==null&&![0,1,2].includes(s.parserAll))throw Error('Stato ALL/BUT non valido');
+  if(s.rejectionSlot!=null&&![0,1].includes(s.rejectionSlot))throw Error('Argomento rifiutato non valido');
+  if(s.nominalVisibility!=null&&![0,1,2].includes(s.nominalVisibility))throw Error('Visibilità della ricerca nominale non valida');
   if(s.nominalModelSelector!=null&&![0,1].includes(s.nominalModelSelector))throw Error('Selettore nominale non valido');
   if(s.previousTokenClass!=null&&!byte(s.previousTokenClass))throw Error('Classe precedente del token non valida');
   if(s.parserCount!==undefined&&s.parserCount!==null&&!byte(s.parserCount))throw Error('Contatore parser non valido');

@@ -1,0 +1,80 @@
+{
+  "protocol": "Original SHERLOCK.TAP to game entry A040 using SkoolKit tap2sna. Each retained row changed either byte and records its value after the instruction.",
+  "transitions": [
+    {
+      "pc": "0605",
+      "flags": 12,
+      "tv_flag": 1
+    },
+    {
+      "pc": "12F4",
+      "flags": 140,
+      "tv_flag": 1
+    },
+    {
+      "pc": "1642",
+      "flags": 140,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B74",
+      "flags": 141,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B6E",
+      "flags": 140,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B74",
+      "flags": 141,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B6E",
+      "flags": 140,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B74",
+      "flags": 141,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B6E",
+      "flags": 140,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B74",
+      "flags": 141,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B6E",
+      "flags": 140,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B74",
+      "flags": 141,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B6E",
+      "flags": 140,
+      "tv_flag": 0
+    },
+    {
+      "pc": "0B74",
+      "flags": 141,
+      "tv_flag": 0
+    },
+    {
+      "pc": "26C3",
+      "flags": 205,
+      "tv_flag": 0
+    }
+  ]
+}

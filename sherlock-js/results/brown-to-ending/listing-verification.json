@@ -1,8 +1,22 @@
 {
   "roundtrip_equal": true,
-  "instructions": 499,
-  "bytes_roundtripped": 1018,
+  "instructions": 715,
+  "bytes_roundtripped": 1478,
   "regions": [
+    {
+      "start": "9CF2",
+      "end_exclusive": "9D10",
+      "kind": "code",
+      "label": "Incontri NPC: pubblicazione del destinatario",
+      "atlas_priority": 188
+    },
+    {
+      "start": "9D13",
+      "end_exclusive": "9D2E",
+      "kind": "code",
+      "label": "Watson verifica tre incontri, poi richiama un ricordo",
+      "atlas_priority": 188
+    },
     {
       "start": "9E74",
       "end_exclusive": "9E85",
@@ -32,10 +46,52 @@
       "atlas_priority": 188
     },
     {
+      "start": "A038",
+      "end_exclusive": "A039",
+      "kind": "data",
+      "label": "Visibilità dei candidati nella ricerca nominale",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A03B",
+      "end_exclusive": "A03D",
+      "kind": "data",
+      "label": "Contatore di attesa del prossimo tasto",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A03D",
+      "end_exclusive": "A040",
+      "kind": "data",
+      "label": "Tre byte prima del punto d’ingresso",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A536",
+      "end_exclusive": "A55D",
+      "kind": "code",
+      "label": "Lettura del tasto e ciclo temporizzato",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A6D3",
+      "end_exclusive": "A6DF",
+      "kind": "code",
+      "label": "Scelta testuale: puntatore e ingresso del calcolo casuale",
+      "atlas_priority": 188
+    },
+    {
       "start": "A7D0",
       "end_exclusive": "A80E",
       "kind": "code",
       "label": "Articolo di un nome comune e ritorno del decoder",
+      "atlas_priority": 188
+    },
+    {
+      "start": "A815",
+      "end_exclusive": "A82F",
+      "kind": "code",
+      "label": "Chiusura del nome e salvataggio dell’indice dell’articolo",
       "atlas_priority": 188
     },
     {
@@ -47,9 +103,9 @@
     },
     {
       "start": "A9D7",
-      "end_exclusive": "A9DF",
+      "end_exclusive": "AA11",
       "kind": "code",
-      "label": "Scrittura della parola grezza nel buffer",
+      "label": "Buffer grezzo e scarico del punto anche fuori scena",
       "atlas_priority": 188
     },
     {
@@ -81,6 +137,55 @@
       "atlas_priority": 188
     },
     {
+      "start": "B4DA",
+      "end_exclusive": "B4E2",
+      "kind": "code",
+      "label": "Copia del bit di visibilità per il primo referente",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B581",
+      "end_exclusive": "B589",
+      "kind": "code",
+      "label": "Copia del bit di visibilità per il secondo referente",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B62F",
+      "end_exclusive": "B65F",
+      "kind": "code",
+      "label": "Rifiuto della ricerca: selezione del primo o secondo referente",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B934",
+      "end_exclusive": "B936",
+      "kind": "data",
+      "label": "Opcode attivo e ultimo opcode di consegna degli ordini",
+      "atlas_priority": 188
+    },
+    {
+      "start": "B936",
+      "end_exclusive": "B95C",
+      "kind": "code",
+      "label": "Consegna degli ordini: selezione e copia dell’opcode",
+      "atlas_priority": 188
+    },
+    {
+      "start": "C182",
+      "end_exclusive": "C190",
+      "kind": "code",
+      "label": "Attributi della striscia dell’orologio: 32 celle con BRIGHT",
+      "atlas_priority": 188
+    },
+    {
+      "start": "C1A8",
+      "end_exclusive": "C1C0",
+      "kind": "code",
+      "label": "Orologio: origine, spazi e avanzamento di sette pixel",
+      "atlas_priority": 188
+    },
+    {
       "start": "C271",
       "end_exclusive": "C29C",
       "kind": "code",
@@ -95,10 +200,31 @@
       "atlas_priority": 188
     },
     {
+      "start": "CC82",
+      "end_exclusive": "CC94",
+      "kind": "code",
+      "label": "Ingresso DOMAIN: azzeramento dell’opcode dell’ordine attivo",
+      "atlas_priority": 188
+    },
+    {
+      "start": "CE3B",
+      "end_exclusive": "CE65",
+      "kind": "code",
+      "label": "Operandi temporanei di una regola DOMAIN",
+      "atlas_priority": 188
+    },
+    {
       "start": "D008",
       "end_exclusive": "D045",
       "kind": "code",
       "label": "Ripristino e salvataggio del contesto NPC",
+      "atlas_priority": 188
+    },
+    {
+      "start": "D2CB",
+      "end_exclusive": "D2DB",
+      "kind": "code",
+      "label": "Dopo le letture casuali: salvataggio dell’indice della scelta",
       "atlas_priority": 188
     },
     {
@@ -116,6 +242,13 @@
       "atlas_priority": 188
     },
     {
+      "start": "D898",
+      "end_exclusive": "D8AD",
+      "kind": "code",
+      "label": "Ingresso dell’editor: ricarica il contatore",
+      "atlas_priority": 188
+    },
+    {
       "start": "DFCC",
       "end_exclusive": "DFE3",
       "kind": "code",
@@ -127,6 +260,13 @@
       "end_exclusive": "E6E6",
       "kind": "code",
       "label": "Stampa della richiesta di pagamento del cocchiere",
+      "atlas_priority": 188
+    },
+    {
+      "start": "E710",
+      "end_exclusive": "E72F",
+      "kind": "code",
+      "label": "Avvertimento del cocchiere e visibilità temporanea",
       "atlas_priority": 188
     },
     {

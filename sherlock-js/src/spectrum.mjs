@@ -1,4 +1,4 @@
-'use strict';
+import {spectrumClockAdvance,spectrumClockOrigin} from './text-window.mjs';
 // Presentation only: world, parser and clock come from the autonomous session.
 class SpectrumBuffer {
  constructor(columns=36, rows=18){this.columns=columns;this.rows=rows;this.clear();}
@@ -183,7 +183,7 @@ class SpectrumTerminal {
  lowerRows(){if(!this.clockVisible||!this.promptVisible)return Array(5).fill(' '.repeat(36));const rows=[...this.lowerHistory];if(this.lowerLine)rows.push(this.lowerLine);const draft=spectrumWrap(this.draft+(!this.busy&&!this.processing&&!this.ended?'+':''),34);rows.push(...draft);return [...Array(Math.max(0,5-rows.length)).fill(null),...rows.slice(-5)].map(line=>line===null?' '.repeat(36):('> '+line).padEnd(36,' '));}
  render(){
   const upper=this.model.visible(),lower=this.lowerRows();this.upper.textContent=upper.join('\n');this.lower.textContent=lower.join('\n');
-  this.canvas.setAttribute('aria-label',`Schermo ZX Spectrum${this.clockVisible?' · '+this.clock:''}. 36 colonne, 18 righe di testo, una riga di stato, 5 righe di comando.`);this.canvas.dataset.waiting=String(this.waiting);this.canvas.dataset.waitingReason=this.waitingReason||'';this.canvas.dataset.clockX='16';this.canvas.dataset.clockVisible=String(this.clockVisible);this.canvas.dataset.clock=this.clockVisible?this.clock:'';this.canvas.dataset.processing=String(this.processing);this.canvas.dataset.columns=String(this.model.columns);this.canvas.dataset.scrolls=String(this.model.scrolls);this.canvas.dataset.lineCounter=String(this.model.counter);this.canvas.dataset.picture=this.picture&&this.pictures?String(this.picture.room):'';this.canvas.dataset.pictureMode=this.pictureMode;
+  this.canvas.setAttribute('aria-label',`Schermo ZX Spectrum${this.clockVisible?' · '+this.clock:''}. 36 colonne, 18 righe di testo, una riga di stato, 5 righe di comando.`);this.canvas.dataset.waiting=String(this.waiting);this.canvas.dataset.waitingReason=this.waitingReason||'';this.canvas.dataset.clockX=String(spectrumClockOrigin+spectrumClockAdvance);this.canvas.dataset.clockVisible=String(this.clockVisible);this.canvas.dataset.clock=this.clockVisible?this.clock:'';this.canvas.dataset.processing=String(this.processing);this.canvas.dataset.columns=String(this.model.columns);this.canvas.dataset.scrolls=String(this.model.scrolls);this.canvas.dataset.lineCounter=String(this.model.counter);this.canvas.dataset.picture=this.picture&&this.pictures?String(this.picture.room):'';this.canvas.dataset.pictureMode=this.pictureMode;
   if(!this.assets)return;
   const scale=this.scale,dpr=window.devicePixelRatio||1,w=256*scale,h=192*scale;
   if(this.canvas.width!==Math.round(w*dpr)||this.canvas.height!==Math.round(h*dpr)){this.canvas.width=Math.round(w*dpr);this.canvas.height=Math.round(h*dpr);}
@@ -194,7 +194,7 @@ class SpectrumTerminal {
   ctx.fillStyle='#fff';ctx.fillRect(0,144,256,8);ctx.fillStyle='#000';
   for(let row=0;row<6;row++)for(let x=0;x<256;x++)if(this.assets.divider[row*4+Math.floor(x/8)%4]&(128>>(x%8)))ctx.fillRect(x,145+row,1,1);
   if(this.clockVisible){
-   ctx.fillStyle='#fff';ctx.fillRect(8,144,this.clock.length*7+16,8);this.drawText(ctx,this.clock,16,144);
+   ctx.fillStyle='#fff';ctx.fillRect(spectrumClockOrigin,144,(this.clock.length+2)*spectrumClockAdvance,8);this.drawText(ctx,this.clock,spectrumClockOrigin+spectrumClockAdvance,144);
    if(this.waiting&&['more','ending'].includes(this.waitingReason)&&Math.floor(Date.now()/320)%2===0){ctx.save();ctx.globalCompositeOperation='difference';ctx.fillStyle='#fff';ctx.fillRect(248,144,8,8);ctx.restore();}
   }
   for(let row=0;row<5;row++)this.drawText(ctx,lower[row],2,152+row*8);

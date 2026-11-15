@@ -64,22 +64,55 @@ Il lexer salva a `$DA32–$DA33` il limite esclusivo del gruppo scelto.
 limite di `UNTIL` è `$670A`. `11PM` e il punto non lo cambiano. Il
 giardiniere ne legge il byte basso giovedì alle 10:16.
 
-Mercoledì alle 10:17 il cocchiere chiede la tariffa a Portman nella
+Mercoledì alle 10:17 il cocchiere chiede la tariffa a Basil Phipps nella
 locazione 18, mentre Holmes è nella 48. La richiesta non produce testo
 visibile, ma `$A809` chiama comunque il decoder dell’articolo. Il flag
 `$5C3C` spento fa uscire `$A887` prima del renderer. La word di ritorno
 `$A80C` rimane a `$5D36–$5D37` al posto di `$50FE` e si ritrova nello
 stato JavaScript del giovedì alle 10:00.
 
-Il confronto dall’avvio coincide su 658 checkpoint, 11.409 estrazioni
-e 24.324 letture fino alle 14:20 di giovedì. Alle 14:29 il giardiniere
-legge `$A035`, il secondo operando corrente della regola.
+### Operandi, dizionario e orologio
+
+- **Operandi e ordini.** `$CE4A` scrive il secondo operando prima
+  della scelta casuale. Nel turno del giardiniere delle 14:29 i tre
+  byte `$A033–$A035` sono `FF 28 FF`. Watson, invece, scrive l’ultimo
+  destinatario con `$9CF3`. `$CC89` azzera l’ordine in corso a `$B934`
+  mentre `$B93B` conserva l’ultimo opcode tentato a `$B935`. Il valore
+  `$83` viene dall’ordine ricevuto dal cocchiere martedì alle 09:15.
+- **Editor e BASIC.** `$D89B` carica 3000 a `$A03B–$A03C`. Le prove
+  iniettano i tasti sopra la routine che consuma quel contatore.
+  Il buffer delle parole riusa alcune variabili del BASIC, fra cui
+  RASP, FLAGS, ERR-SP e MODE. Sono inizializzate dal loader e possono
+  essere riscritte dal gioco. `$C03B` legge la porta della ZX Printer.
+  Il motore legge i byte immutabili del test solo come ingressi casuali.
+- **Tariffa fuori scena.** Il ritorno dell’articolo `$A80C`,
+  l’indice dell’articolo, l’offset del testo, il record dell’attore e
+  il puntatore della scelta restano a varie profondità fra
+  `$5D36` e `$5D45`. Il successivo avvertimento del cocchiere
+  sovrascrive l’ultima word. Il punto dell’annuncio del treno
+  passa da `$C1E1` anche senza arrivare allo schermo.
+- **Dizionario.** `$A95B` conserva il prefisso e scrive le nuove
+  lettere. `$A92F` aggiunge anche il suffisso fisico con gli zeri
+  dopo le lettere. Il lexer decodifica il candidato successivo
+  prima di fermarsi. Dopo `UNTIL`, `UP` lascia `p` e zero, con
+  la coda di `UNTIL` e dei candidati ancora precedenti.
+- **Striscia dell’orologio.** `$C182` riempie i 32 attributi con
+  `$78`. `$C1A8` parte da x=8 con uno spazio largo sette pixel,
+  poi stampa il giorno a x=15 e aggiunge uno spazio a destra.
+  Due letture di questa striscia, a `$5A40` e `$5242`, cambiano
+  la scelta del giardiniere se si usa la geometria approssimata.
+
+Il confronto dall’avvio coincide su 876 checkpoint, 16.171 estrazioni
+e 34.412 letture fino alle 01:40 di sabato. Le verifiche includono la
+ripresa da SAVE/LOAD e i pacchetti della schermata web. Il campione
+successivo legge il ritorno AA00 a 5D49, lasciato da A9FD quando
+l’annuncio del treno scarica il punto senza disegnarlo.
 
 Il testo alternativo `$759C` è già verificato per l’apertura della
 cassaforte. Resta da confrontare il percorso in cui il controllo
 `$EFC7` lo seleziona da solo.
 
-[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Letture del ponte](results/brown-to-ending/passive-bridge-reads.json) · [Letture della console](results/brown-to-ending/passive-console-reads.json) · [Tariffa fuori scena](results/brown-to-ending/passive-fare-article.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
+[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Letture del ponte](results/brown-to-ending/passive-bridge-reads.json) · [Letture della console](results/brown-to-ending/passive-console-reads.json) · [Tariffa fuori scena](results/brown-to-ending/passive-fare-name-words.json) · [Operandi](results/brown-to-ending/passive-domain-operands.json) · [Opcode degli ordini](results/brown-to-ending/passive-request-opcodes.json) · [Flag ROM](results/brown-to-ending/passive-rom-loader-flags.json) · [Candidati lessicali](results/brown-to-ending/passive-lexical-candidates.json) · [Bitmap dell’orologio](results/brown-to-ending/passive-status-clock.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
 
 ## Riproduzione
 

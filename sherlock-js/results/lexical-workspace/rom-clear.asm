@@ -37,6 +37,37 @@
     JR Z,$11E2                            ; $11ED 28 f3
     DEC HL                                ; $11EF 2b
 
+    ORG $0B6E
+; CODE: BASIC: stato del canale associato all’ultimo output
+    RES 0,(HL)                            ; $0B6E cb 86
+    CP $20                                ; $0B70 fe 20
+    JR NZ,$0B76                           ; $0B72 20 02
+    SET 0,(HL)                            ; $0B74 cb c6 | Imposta il bit 0 dei flag con l’ultimo canale di output del loader.
+
+    ORG $26C3
+; CODE: BASIC: selezione della valutazione numerica di USR
+    SET 6,(IY+$01)                        ; $26C3 fd cb 01 f6 | Imposta il bit 6 nella valutazione numerica che precede USR. Con run e output, FLAGS diventa CD.
+
+    ORG $1212
+; CODE: BASIC: RASP, PIP, CHARS ed ERR-SP
+    LD BC,$0040                           ; $1212 01 40 00
+    LD ($5C38),BC                         ; $1215 ed 43 38 5c | BC=0040 inizializza RASP e PIP come un’unica word.
+    LD ($5CB2),HL                         ; $1219 22 b2 5c
+    LD HL,$3C00                           ; $121C 21 00 3c
+    LD ($5C36),HL                         ; $121F 22 36 5c | CHARS riceve 3C00.
+    LD HL,($5CB2)                         ; $1222 2a b2 5c
+    LD (HL),$3E                           ; $1225 36 3e
+    DEC HL                                ; $1227 2b
+    LD SP,HL                              ; $1228 f9
+    DEC HL                                ; $1229 2b
+    DEC HL                                ; $122A 2b
+    LD ($5C3D),HL                         ; $122B 22 3d 5c | ERR-SP è RAMTOP meno tre. Profilo 48K FF57 → FF54.
+
+    ORG $12F4
+; CODE: BASIC: ERR-NR prima dell’esecuzione
+    SET 7,(IY+$01)                        ; $12F4 fd cb 01 fe
+    LD (IY+$00),$FF                       ; $12F8 fd 36 00 ff | ERR-NR FF prima dell’esecuzione del comando BASIC.
+
     ORG $127C
 ; CODE: Copia solo 14 byte della mappa stream; conserva la coda zero
     LD HL,$15C6                           ; $127C 21 c6 15

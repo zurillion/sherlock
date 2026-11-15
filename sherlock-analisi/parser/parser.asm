@@ -1180,6 +1180,14 @@
     CALL $A59F                ; $B85F  CD 9F A5
     RET                       ; $B862  C9
 
+    ORG $C03B
+; CODE $C03B..$C03F
+
+; Verifica ZX Printer: legge la porta FB e isola il bit 6. I byte sono immutabili nella storia senza comandi stampante.
+    IN A,($FB)                ; $C03B  DB FB
+    AND $40                   ; $C03D  E6 40
+    RET                       ; $C03F  C9
+
     ORG $C1E1
 ; CODE $C1E1..$C1F3
 

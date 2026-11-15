@@ -1,0 +1,39 @@
+{
+  "protocol": "Natural commands from original Jones-confession and Thursday 23:00 prompts. Trace of B93B writes from Jones to Brown, and last CC89 store before the B934 read.",
+  "attempts": [
+    {
+      "pc": "B93B",
+      "value": 130,
+      "actor": 3,
+      "tick": 1474
+    },
+    {
+      "pc": "B93B",
+      "value": 131,
+      "actor": 31,
+      "tick": 1516
+    }
+  ],
+  "reads": [
+    {
+      "address": "B934",
+      "value": 0,
+      "clock": {
+        "tick": 5254,
+        "due": 5881,
+        "minute": 33,
+        "hour": 11,
+        "day": 3,
+        "period": "pm",
+        "label": "Thu 11:33pm"
+      },
+      "actor": 3,
+      "writer": {
+        "pc": "CC89",
+        "value": 0,
+        "actor": 3,
+        "tick": 5254
+      }
+    }
+  ]
+}

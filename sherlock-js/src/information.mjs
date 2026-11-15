@@ -20,6 +20,7 @@ export class Information {
   const indexBase=0x8B6F,indexEnd=indexBase+3*w.entities.length;
   state.verb=node.verb&4095;state.cursors=[indexBase-3,indexBase-3];
   const predicate=this.rules.predicates.indexOf(state.verb)+1;if(!predicate)return null;state.triple[1]=predicate;
+  this.state.nominalVisibility=2; // BDF0 allows the fact resolver to find offstage referents.
   const find=(g,slot)=>{const matches=w.entities.filter(e=>e.id!==0&&w.nounMatches(e,g));state.cursors[slot]=matches.length>1?indexBase+3*matches[1].id:indexEnd;if(matches.length)state.triple[slot===0?0:2]=matches[0].id;return matches;};
   const subjects=find(group(subject),0);if(!subjects.length)return null;if(subjects.length!==1)throw new UnsupportedFeature('internal ambiguous information reference');
   const remember=e=>{info[e.attributes&64?'he':'it']=this.reference(e);};remember(subjects[0]);

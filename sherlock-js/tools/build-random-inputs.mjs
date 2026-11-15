@@ -25,6 +25,11 @@ export async function buildRandomInputs(project,payload,npcPrograms){
  const ranges=[{start:0,kind:'immutable-firmware-entropy',values:[...firmware]},
   {start:base,kind:'immutable-lexicon-and-prose',values:[...payload.subarray(0,0x8258-base)]},
   {start:0xF60C,kind:'immutable-vector-picture-data',values:[...payload.subarray(0xF60C-base)]}];
+ // These three loaded bytes precede the entry at A040. There is no
+ // decoded game writer or command using them; only the entropy resolver
+ // observes them in the passive trace.
+ if([0xA03D,0xA03E,0xA03F].some(address=>written.has(address)))throw Error('The pre-entry data are no longer immutable');
+ ranges.push({start:0xA03D,kind:'immutable-pre-entry-data',values:[byte(0xA03D),byte(0xA03E),byte(0xA03F)]});
  const constants=[...code].filter(([at])=>at>=0x9921).sort((a,b)=>a[0]-b[0]);
  const npcBytes=[];for(const op of Object.values(npcPrograms.instructions)){const start=parseInt(op.source,16);for(let i=0;i<op.size;i++)if(!written.has(start+i))npcBytes.push([start+i,byte(start+i)]);}
  const catalog=JSON.parse(await readFile(join(project,'sherlock-analisi/locazioni/results/locations.json'),'utf8')),

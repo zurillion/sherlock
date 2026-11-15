@@ -51,6 +51,11 @@
       "kind": "code"
     },
     {
+      "start": "C03B",
+      "end_exclusive": "C040",
+      "kind": "code"
+    },
+    {
       "start": "C1E1",
       "end_exclusive": "C1F4",
       "kind": "code"
@@ -186,8 +191,8 @@
       "kind": "code"
     }
   ],
-  "instructions": 1780,
-  "bytes_roundtripped": 3663,
+  "instructions": 1783,
+  "bytes_roundtripped": 3668,
   "mismatches": 0,
   "note": "Roundtrip prova fedelta dei byte, non da solo la correttezza delle etichette codice/dati."
 }

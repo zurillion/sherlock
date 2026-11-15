@@ -20,3 +20,12 @@ test('Numeric literals and punctuation preserve the most recent alphabetic bucke
  delete saved.world.npcs.lexicalGroupEnd;
  assert.equal(Game.load(data, saved).npcRuntime.read(0xDA32), null);
 });
+
+test('A shorter last candidate preserves the dictionary suffix and earlier suffix bytes', async () => {
+ const native = JSON.parse(await readFile(new URL('../results/brown-to-ending/passive-lexical-candidates.json', import.meta.url)));
+ const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+ const { workspaceCopies, candidateCopies } = game.lexer.scan(native.input);
+ game.sourceDisplay.lexicalWorkspace(workspaceCopies, candidateCopies);
+ assert.deepEqual(native.workspace.map((_, i) => game.sourceDisplay.read(0x5C42 + i)), native.workspace);
+ assert.equal(game.sourceDisplay.read(0x5C51), 0xBB);
+});

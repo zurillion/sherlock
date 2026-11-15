@@ -4,13 +4,19 @@ export class InputError extends Error {
 }
 
 export class Dictionary {
- constructor(words){this.words=new Map(words.map(w=>[w.id,w]));this.groups=new Map();for(const w of words){const key=w.stem[0];if(!this.groups.has(key))this.groups.set(key,[]);this.groups.get(key).push(w);}}
+ constructor(words,candidateSuffixes=[]){this.candidateSuffixes=candidateSuffixes;this.words=new Map(words.map(w=>[w.id,w]));this.groups=new Map();for(const w of words){const key=w.stem[0];if(!this.groups.has(key))this.groups.set(key,[]);this.groups.get(key).push(w);}}
  word(id){return this.words.get(id&4095);}
  canonical(word){const seen=new Set();while(word.alias){if(seen.has(word.id))throw Error('Dictionary alias cycle');seen.add(word.id);word=this.words.get(word.alias);if(!word)throw Error('Invalid dictionary alias');}return word;}
- lookup(value){
+ lookup(value,{onCandidate=null}={}){
   const input=value.toLowerCase();let score=0,selected=null;
   if(!/^[a-y][a-z]*$/.test(input))return {type:208,value:0,word:null,matched_prefix:0};
   for(const candidate of this.groups.get(input[0])||[]){
+   // D9F5 decompresses the record before testing class or the score.
+   if(onCandidate&&Number.isInteger(candidate.prefix)){
+    const tail=[...candidate.stem.slice(1+candidate.prefix)].map(c=>c.charCodeAt(0));
+    tail.push(...(this.candidateSuffixes[candidate.suffix]||[]),0);
+    onCandidate([candidate.prefix,tail]);
+   }
    if(candidate.type===208)continue;if(score>=input.length)break;
    let matched=1;while(matched<input.length&&matched<candidate.stem.length&&input[matched]===candidate.stem[matched])matched++;
    if(matched<score)break;score=matched;selected=this.canonical(candidate);
@@ -64,7 +70,7 @@ export function numericLiteral(text){const result=scanNumeric(text+' .\r');if(!r
 export class Lexer {
  constructor(dictionary,groupEnds={}){this.dictionary=dictionary;this.groupEnds=groupEnds;}
  scan(raw,{onTokenStart=null}={}){
-  const normalized=normalizeInput(raw),tokens=[],workspaceCopies=[];if(normalized.length>128)throw new InputError('tool_limit','Sovrapposizione originale fra buffer editor e token non ancora ricostruita: comando non applicato.');let pos=0,lookupState=null,groupEnd;
+  const normalized=normalizeInput(raw),tokens=[],workspaceCopies=[],candidateCopies=[];if(normalized.length>128)throw new InputError('tool_limit','Sovrapposizione originale fra buffer editor e token non ancora ricostruita: comando non applicato.');let pos=0,lookupState=null,groupEnd;
   while(pos<normalized.length){const start=pos,c=normalized[pos];if(c===' '){pos++;continue;}onTokenStart?.(0x5B00+pos);
    const special={'.':176,',':160,'"':144}[c];if(special!==undefined){tokens.push({type:special,value:0,word:null,start,end:++pos,source:c});continue;}
    let result;
@@ -72,11 +78,22 @@ export class Lexer {
     result=scanNumeric(normalized+'\r',pos);if(result)pos=result.next;else{groupEnd=null;while(pos<normalized.length&&!/[ .,\"]/.test(normalized[pos]))pos++;}
 
    }
-   else{while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;if(pos===start)pos++;result=this.dictionary.lookup(normalized.slice(start,pos));const word=normalized.slice(start,pos);groupEnd=this.groupEnds[word[0]]??null;if(this.dictionary.groups.has(word[0]?.toLowerCase())){workspaceCopies.push([...word.slice(1)].map(c=>c.charCodeAt(0)|32).concat(0));lookupState=/^[A-Y][A-Z]*$/.test(word)?[word.length,result.matched_prefix]:[null,null];}}
-   if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized,lookupState,workspaceCopies,groupEnd});}
+   else{
+    while(pos<normalized.length&&normalized.charCodeAt(pos)>=64)pos++;
+    if(pos===start)pos++;
+    const word=normalized.slice(start,pos),copies=[];
+    result=this.dictionary.lookup(word,{onCandidate:copy=>copies.push(copy)});
+    groupEnd=this.groupEnds[word[0]]??null;
+    if(this.dictionary.groups.has(word[0]?.toLowerCase())){
+     workspaceCopies.push([...word.slice(1)].map(c=>c.charCodeAt(0)|32).concat(0));
+     candidateCopies.push(copies);
+     lookupState=/^[A-Y][A-Z]*$/.test(word)?[word.length,result.matched_prefix]:[null,null];
+    }
+   }
+   if(!result||result.type===208){const source=normalized.slice(start).split(/[ .]/)[0];throw new InputError('lexical_error',`I DO NOT KNOW THE WORD"${source} "`,{word:normalized.slice(start,pos),start,normalized,lookupState,workspaceCopies,candidateCopies,groupEnd});}
    tokens.push({...result,start,end:pos,source:normalized.slice(start,pos)});
   }
   onTokenStart?.(0x5B00+pos);tokens.push({type:192,value:0,word:null,start:pos,end:pos,source:''});
-  return {normalized,tokens,lookupState,workspaceCopies,groupEnd};
+  return {normalized,tokens,lookupState,workspaceCopies,candidateCopies,groupEnd};
  }
 }

@@ -1,5 +1,5 @@
 import {capitalKind,normalizedCapital,moneyClearsCapital} from './output-capitalization.mjs';
-import {textWindowControl} from './text-window.mjs';
+import {spectrumClockAdvance,spectrumClockOrigin,textWindowControl} from './text-window.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
 import {bootstrapKeyboard,bootstrapWordWorkspace} from './keyboard-profile.mjs';
 
@@ -198,12 +198,66 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D37,except);}
+ invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D4F,except);}
  get state(){return this.world.display;}
  // The offstage fare still calls the article decoder. With output
  // disabled A887 returns immediately, leaving its caller's return word.
- offstageFareArticle(){if(this.state){this.state.scratch[0x5D36]=0x0C;this.state.scratch[0x5D37]=0xA8;}}
- invalidateScratch(from=0x5CEC,to=0x5D37,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
+ offstageFareArticle({actor,noun,record,channel,relativeOffset}){
+  if(!this.state)return;
+  const {scratch}=this.state;
+  const saveWord=(address,value)=>{scratch[address]=value&255;scratch[address+1]=value>>>8;};
+  saveWord(0x5D36,0xA80C);
+  if(channel===0||channel===1){
+   // A809 advances HL to the high byte of the selected article word.
+   // The later A827 saves this same table address after the hidden noun.
+   const article=(channel===0?0xA24D:0xA255)+((noun>>>11)&0x1E)+1;
+   saveWord(0x5D38,article);
+  }else this.invalidateScratch(0x5D38,0x5D39);
+  if(!(noun&0x0FFF)||!Number.isInteger(record)||!Number.isInteger(relativeOffset))return this.invalidateScratch(0x5D3A,0x5D3F);
+  saveWord(0x5D3A,0xD445); // D442 calls the noun formatter.
+  saveWord(0x5D3C,relativeOffset); // D3E9 saves the enclosing text offset.
+  // D3E8 saves AF after the table search (compare actor with FF) and
+  // A4C8's 16-bit addition of the seven-byte entity prefix.
+  const diff=(actor+1)&255,prefix=record+7;
+  const flags=(diff&128)|(diff===0?64:0)|(actor===127?4:0)|((prefix>>>8)&0x28)|
+   ((record&0x0FFF)+7>=0x1000?16:0)|(prefix>0xFFFF?1:0);
+  saveWord(0x5D3E,(actor<<8)|flags);
+ }
+ // A6D3 sets HL at entry to the choice. D2D3 saves it after the
+ // pair of entropy bytes was read, including failed attempts.
+ offstageFareChoice(){if(this.state){this.state.scratch[0x5D40]=0xD3;this.state.scratch[0x5D41]=0xA6;}}
+ // A7D8 leaves HL=09EE for the proper recipient's name comparison.
+ // The noun call at the end of that name uses a shallower frame.
+ offstageFareRecipientName(){if(this.state)Object.assign(this.state.scratch,{[0x5D42]:0xEE,[0x5D43]:0x09,[0x5D44]:0x45,[0x5D45]:0xD4});}
+ // The offstage debt warning reaches the same article decoder with a
+ // shallower caller. Its return replaces the earlier recipient's D445.
+ offstageFareWarning(noun){
+  if(!this.state)return;
+  if(noun&0x8000)this.invalidateScratch(0x5D44,0x5D45);
+  else Object.assign(this.state.scratch,{[0x5D44]:0x0C,[0x5D45]:0xA8});
+ }
+ // In the offstage train announcement the suppressed dictionary leaves
+ // only '.' buffered. C1E1 still saves that character's AF before returning.
+ offstageTrainPeriod(descriptor){
+  const s=this.state;
+  if(!s)return;
+  if(s.wordBuffer?.index!==1||s.wordBuffer.bytes[0]!==46||this.world.npcs?.outputChannel!==0){
+   this.invalidateScratch(0x5D46,0x5D4F);return;
+  }
+  s.scratch[0x5D47]=s.wordBuffer.bytes[0];
+  if(s.spacingFlag===0)s.scratch[0x5D46]=0x22; // AA26: CP 20
+  else if(s.spacingFlag===1)s.scratch[0x5D46]=0x83; // AA14: CP 41
+  else delete s.scratch[0x5D46];
+  const width=s.remaining;
+  // The buffer holds one character. A9EC saves CP 1, A9F4 saves
+  // the train text's BC=0 and A9FD leaves its return address AA00.
+  const widthFlags=2|(width===0?0x81:0)|(width===1?64:0)|((width&15)===0?16:0);
+  Object.assign(s.scratch,{[0x5D48]:0,[0x5D49]:0xAA,[0x5D4A]:0,[0x5D4B]:0,[0x5D4C]:widthFlags,[0x5D4D]:width});
+  if(Number.isInteger(descriptor)){
+   s.scratch[0x5D4E]=descriptor&255;s.scratch[0x5D4F]=descriptor>>>8;
+  }else this.invalidateScratch(0x5D4E,0x5D4F);
+ }
+ invalidateScratch(from=0x5CEC,to=0x5D4F,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
@@ -214,12 +268,30 @@ export class RandomDisplay {
  normalizeSpacing(c){const s=this.state;if(!s)return;this.normalizeCapital(c);if(c==='\n'||c==='\r')s.spacingFlag=0;else if(c!==' '||s.spacingFlag!=null&&s.spacingFlag!==0)s.spacingFlag=1;}
  flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
  // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
- lexicalWorkspace(copies=[]){const b=this.state?.wordBuffer;if(!b)return;for(const values of copies)for(let i=0;i<values.length&&i<128;i++){
-  // DA6D/DA75 write after the first letter, without touching A9B5.
-  // At 5C42 the dictionary decoder reuses this same area: do not publish
-  // the input copy as its final value beyond that overlap.
-  b.bytes[i]=i<0x5C42-0x5C0B?values[i]:null;if(b.capitalClasses)b.capitalClasses[i]=b.bytes[i]==null?null:capitalKind(String.fromCharCode(b.bytes[i]));
- }}
+ lexicalWorkspace(copies=[],candidateCopies=[]){
+  const b=this.state?.wordBuffer;if(!b)return;
+  const candidateBase=0x5C42-0x5C0B;
+  const store=(i,value)=>{
+   b.bytes[i]=value;
+   if(b.capitalClasses)b.capitalClasses[i]=value==null?null:capitalKind(String.fromCharCode(value));
+  };
+  for(const [index,values] of copies.entries()){
+   // DA6D copies the input first. For an overlapping input the later
+   // comparison reads the very buffer that it is overwriting.
+   for(let i=0;i<values.length&&i<128;i++)store(i,i<candidateBase?values[i]:null);
+   if(values.length<=candidateBase)for(const [prefix,tail] of candidateCopies[index]||[]){
+    for(const [i,value] of tail.entries())store(candidateBase+prefix+i,value);
+   }
+  }
+ }
+ // Visible dictionary/name rendering can revisit the working candidates.
+ // Ownership resumes when the editor or another reconstructed writer runs.
+ invalidateCandidateWorkspace(){
+  const buffer=this.state?.wordBuffer;
+  if(!buffer)return;
+  const begin=0x5C42-0x5C0B,end=begin+15;
+  buffer.bytes.fill(null,begin,end);buffer.capitalClasses?.fill(null,begin,end);
+ }
  // Literal output still runs A9B7/AA14 when C1E1 discards pixels.
  // Dictionary/name emission is suppressed earlier at A887. Hidden output
  // uses the shared word pointer but never advances the screen cursor.
@@ -238,9 +310,10 @@ export class RandomDisplay {
  }
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
- write(text,{cabAction=false,leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{cabAction=false,leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
- prompt(){this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
+ prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
+  this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
  repeat(){this.setChannel(0);const s=this.state,column=((s.lowerCursor??16)-2)/7;s.lower[4]=s.lower[4].slice(0,Math.max(0,column-2));s.lowerCursor=Math.max(2,(s.lowerCursor??16)-14);}
  command(normalized){this.setChannel(0);const s=this.state;if(!s)return;
   // The active prompt is overwritten by the typed, normalized command.
@@ -262,6 +335,7 @@ export class RandomDisplay {
   // formatting. Zero is an emitted empty argument, not a missing value.
   // Unprojected messages still revoke it, in their actual output order.
   for(const[i,message]of messages.entries()){
+   this.invalidateCandidateWorkspace();
    const text=' '+message.text.toUpperCase();
    const column=((s.lowerCursor??2)-2)/7;
    const lineEnds=!inline||i<messages.length-1;
@@ -310,7 +384,8 @@ export class RandomDisplay {
    const lower=s.lowerCursor??(s.lower[4]==='> +'?16:2),upper=2+s.cursor*7,lp=0x50E0+Math.floor(lower/8),up=0x5020+Math.floor(upper/8);
    return [36-Math.floor((lower-2)/7),s.remaining,lp&255,lp>>>8,up&255,up>>>8,upper&7,lower&7][address-0xC1F4];
   }
-  if(address>=0x5800&&address<0x5B00)return 56; // canonical INK 0 / PAPER 7, no graphics
+  // C182 fills the 32 status cells with bright white paper.
+  if(address>=0x5800&&address<0x5B00)return address>=0x5A40&&address<0x5A60?0x78:0x38;
   // Declared oracle protocol: the tape was started with RETURN, it has been
   // released with two empty scans, and game keys are injected above the
   // ROM scanner. Its second KSTATE slot has not yet expired. This is NOT a model of
@@ -324,9 +399,17 @@ export class RandomDisplay {
   const offset=address-0x4000,y=((offset>>>11)&3)*64+((offset>>>5)&7)*8+((offset>>>8)&7),x=(offset&31)*8;
   if(y<144)return this.rowByte(s.upper[Math.floor(y/8)],y&7,x);
   if(y>=152){const row=Math.floor((y-152)/8);if(!s.lowerKnown[row])throw new RandomInputsUnavailable('Cronologia video degli errori non ancora ricostruita: comando non applicato.');return this.rowByte(s.lower[row],y&7,x);}
-  // The status pattern is an asset; clock text uses the same ROM glyphs.
-  const scan=y-144,clock=this.world.clock().label;let result=scan>=1&&scan<=6?this.data.spectrum.divider[(scan-1)*4+((x/8)%4)]:0;
-  if(x>=8&&x<clock.length*7+24){result=0;for(let col=0;col<clock.length;col++){const c=clock[col],glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-32];for(let bit=0;bit<8;bit++){const px=16+col*7+bit;if(px>=x&&px<x+8)result=(result&~(128>>(px-x)))|((glyph[scan]&(128>>bit))?(128>>(px-x)):0);}}}
+  const scan=y-144,clock=' '+this.world.clock().label+' ';
+  let result=scan>=1&&scan<=6?this.data.spectrum.divider[(scan-1)*4+((x/8)%4)]:0;
+  for(let bit=0;bit<8;bit++){
+   const offset=x+bit-spectrumClockOrigin;
+   if(offset<0||offset>=clock.length*spectrumClockAdvance)continue;
+   const character=clock[Math.floor(offset/spectrumClockAdvance)];
+   const glyph=this.data.spectrum.glyphs[character.charCodeAt(0)-this.data.spectrum.first];
+   const pixel=glyph[scan]&(128>>(offset%spectrumClockAdvance));
+   const mask=128>>bit;
+   result=(result&~mask)|(pixel?mask:0);
+  }
   return result;
  }
  static validate(s){if(s===null||s===undefined)return;if(s.capitalizationFlag!==undefined&&s.capitalizationFlag!==null&&(!Number.isInteger(s.capitalizationFlag)||s.capitalizationFlag<0||s.capitalizationFlag>255))throw Error('Stato delle maiuscole non valido');if(s.wordBuffer?.capitalClasses!==undefined&&(!Array.isArray(s.wordBuffer.capitalClasses)||s.wordBuffer.capitalClasses.length!==128||s.wordBuffer.capitalClasses.some(v=>v!==null&&![-1,0,1].includes(v))))throw Error('Classi del buffer delle maiuscole non valide');if(s.spacingFlag!==undefined&&s.spacingFlag!==null&&(!Number.isInteger(s.spacingFlag)||s.spacingFlag<0||s.spacingFlag>255))throw Error('Stato degli spazi non valido');if(s.windowMode!==undefined&&s.windowMode!==null&&s.windowMode!==0)throw Error('Modo finestra nativo non supportato dal profilo di testo.');if(s.wordBuffer!==undefined&&(!s.wordBuffer||!Number.isInteger(s.wordBuffer.index)||s.wordBuffer.index<0||s.wordBuffer.index>128||!Array.isArray(s.wordBuffer.bytes)||s.wordBuffer.bytes.length!==128||s.wordBuffer.bytes.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Buffer parola non valido');if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}

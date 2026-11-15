@@ -96,7 +96,7 @@
     JR Z,$DA12                            ; $D9F1 28 1f
     PUSH HL                               ; $D9F3 e5
     POP DE                                ; $D9F4 d1
-    CALL $A94D                            ; $D9F5 cd 4d a9 | Ogni candidato, compresi i record D0 scartati subito dopo, viene decompresso nel workspace alto.
+    CALL $A94D                            ; $D9F5 cd 4d a9 | Ogni candidato è decompresso prima di DA7D, compresi D0 e il primo candidato dopo un successo esatto. In WAIT UNTIL, UP lascia p/zero e conserva la coda di UNTIL. A92F scrive il suffisso fisico di quattro byte.
     LD A,(DE)                             ; $D9F8 1a
     AND $F0                               ; $D9F9 e6 f0
     CP $D0                                ; $D9FB fe d0

@@ -1,5 +1,39 @@
 ; Dossier verificato sul payload originale.
 
+    ORG $9CF2
+; CODE: Incontri NPC: pubblicazione del destinatario
+    LD A,C                                ; $9CF2 79
+    LD ($A034),A                          ; $9CF3 32 34 a0 | Scrive il destinatario A034 prima di controllarne la presenza. Anche un incontro fallito aggiorna il campo.
+    CALL $9CCE                            ; $9CF6 cd ce 9c
+    JR Z,$9D02                            ; $9CF9 28 07
+    DEC (HL)                              ; $9CFB 35
+    JP P,$9D00                            ; $9CFC f2 00 9d
+    INC (HL)                              ; $9CFF 34
+    POP DE                                ; $9D00 d1
+    RET                                   ; $9D01 c9
+    LD A,(HL)                             ; $9D02 7e
+    AND A                                 ; $9D03 a7
+    JR NZ,$9D00                           ; $9D04 20 fa
+    LD A,$0F                              ; $9D06 3e 0f
+    CALL $D2A4                            ; $9D08 cd a4 d2
+    ADD A,$1E                             ; $9D0B c6 1e
+    LD (HL),A                             ; $9D0D 77
+    XOR A                                 ; $9D0E af
+    RET                                   ; $9D0F c9
+
+    ORG $9D13
+; CODE: Watson verifica tre incontri, poi richiama un ricordo
+    LD HL,$9D10                           ; $9D13 21 10 9d
+    LD C,$00                              ; $9D16 0e 00
+    CALL $9CE9                            ; $9D18 cd e9 9c
+    LD HL,$9D11                           ; $9D1B 21 11 9d
+    LD C,$02                              ; $9D1E 0e 02
+    CALL $9CE9                            ; $9D20 cd e9 9c
+    LD HL,$9D12                           ; $9D23 21 12 9d
+    LD C,$04                              ; $9D26 0e 04 | Ultimo destinatario di Watson: Straker (4). E691 può leggere A034 prima che la successiva regola lo cambi.
+    CALL $9CE9                            ; $9D28 cd e9 9c
+    JP $E691                              ; $9D2B c3 91 e6
+
     ORG $9E74
 ; CODE: Stampa, pausa e chiusura del finale
     LD A,$01                              ; $9E74 3e 01
@@ -79,6 +113,52 @@
     INC IY                                ; $A533 fd 23
     RET                                   ; $A535 c9
 
+    ORG $A038
+; DATA: Visibilità dei candidati nella ricerca nominale
+    DEFB $00                              ; $A038 00 | Valori 0/1 ricavati da A01D per una ricerca dei referenti. BDF0 scrive 2 quando cerca i referenti di un’affermazione. Una semplice attesa senza ricerca non lo azzera.
+
+    ORG $A03B
+; DATA: Contatore di attesa del prossimo tasto
+    DEFB $00,$00                          ; $A03B 00 00 | Word little endian per il timeout dell’editor. D89B e A558 caricano 3000. L’ingresso che inietta i tasti sostituisce A536, quindi lascia il contatore pieno.
+
+    ORG $A03D
+; DATA: Tre byte prima del punto d’ingresso
+    DEFB $04,$40,$58                      ; $A03D 04 40 58 | Tre byte caricati 04 40 58. Il listing non identifica un writer o un lettore funzionale oltre al generatore casuale. La traccia del giardiniere legge 04 venerdì alle 05:44.
+
+    ORG $A536
+; CODE: Lettura del tasto e ciclo temporizzato
+    PUSH HL                               ; $A536 e5
+    LD HL,($A03B)                         ; $A537 2a 3b a0
+    CALL $C41F                            ; $A53A cd 1f c4
+    BIT 7,A                               ; $A53D cb 7f
+    JR NZ,$A553                           ; $A53F 20 12
+    LD A,$00                              ; $A541 3e 00
+    DEC A                                 ; $A543 3d
+    PUSH HL                               ; $A544 e5
+    POP HL                                ; $A545 e1
+    JR NZ,$A543                           ; $A546 20 fb
+    DEC HL                                ; $A548 2b
+    LD A,H                                ; $A549 7c
+    OR L                                  ; $A54A b5
+    JR NZ,$A53A                           ; $A54B 20 ed
+    POP HL                                ; $A54D e1
+    PUSH HL                               ; $A54E e5
+    CALL $D9B7                            ; $A54F cd b7 d9
+    XOR A                                 ; $A552 af
+    AND $7F                               ; $A553 e6 7f
+    LD HL,$0BB8                           ; $A555 21 b8 0b
+    LD ($A03B),HL                         ; $A558 22 3b a0 | Ricarica 3000 dopo la lettura del tasto nella routine originale. L’oracolo inietta sopra questa routine.
+    POP HL                                ; $A55B e1
+    RET                                   ; $A55C c9
+
+    ORG $A6D3
+; CODE: Scelta testuale: puntatore e ingresso del calcolo casuale
+    INC IX                                ; $A6D3 dd 23 | HL identifica l’inizio dell’interprete della scelta testuale. Nel tono del cocchiere fuori scena, D2D3 lo salva a 5D40–5D41.
+    LD A,(IX+$00)                         ; $A6D5 dd 7e 00
+    LD ($A6D1),A                          ; $A6D8 32 d1 a6
+    DEC A                                 ; $A6DB 3d
+    CALL $D2A4                            ; $A6DC cd a4 d2
+
     ORG $A7D0
 ; CODE: Articolo di un nome comune e ritorno del decoder
     XOR A                                 ; $A7D0 af
@@ -120,6 +200,27 @@
     POP DE                                ; $A80C d1
     RET                                   ; $A80D c9
 
+    ORG $A815
+; CODE: Chiusura del nome e salvataggio dell’indice dell’articolo
+    PUSH AF                               ; $A815 f5
+    LD A,D                                ; $A816 7a
+    AND $0F                               ; $A817 e6 0f
+    LD D,A                                ; $A819 57
+    POP AF                                ; $A81A f1
+    OR D                                  ; $A81B b2
+    LD D,A                                ; $A81C 57
+    AND $0F                               ; $A81D e6 0f
+    OR E                                  ; $A81F b3
+    RET Z                                 ; $A820 c8
+    CALL $A887                            ; $A821 cd 87 a8
+    LD A,($A7EA)                          ; $A824 3a ea a7
+    PUSH HL                               ; $A827 e5 | Il nome del cocchiere fuori scena salva la posizione della word articolo. Con la classe nominale di cabbie e il canale superiore, HL=A24E e occupa 5D38–5D39.
+    LD HL,$A026                           ; $A828 21 26 a0
+    OR (HL)                               ; $A82B b6
+    LD (HL),A                             ; $A82C 77
+    POP HL                                ; $A82D e1
+    RET                                   ; $A82E c9
+
     ORG $A887
 ; CODE: Uscita prima della stampa quando l’attore non è percepibile
     LD A,($5C3C)                          ; $A887 3a 3c 5c | Il flag 5C3C è zero per la richiesta fuori scena: A88B ritorna prima di invocare il renderer.
@@ -127,13 +228,42 @@
     RET Z                                 ; $A88B c8
 
     ORG $A9D7
-; CODE: Scrittura della parola grezza nel buffer
+; CODE: Buffer grezzo e scarico del punto anche fuori scena
     LD (HL),A                             ; $A9D7 77 | I nomi propri di stanza negli ingressi brevi e le direzioni lessicali dei passaggi scrivono i caratteri grezzi. Entranc(e) lascia il byte a 5C12 e northeas(t) a 5C13.
     INC HL                                ; $A9D8 23
     LD ($A9B5),HL                         ; $A9D9 22 b5 a9
     POP HL                                ; $A9DC e1
     POP AF                                ; $A9DD f1
     RET                                   ; $A9DE c9
+    PUSH DE                               ; $A9DF d5 | Prima dello scarico salva il descrittore DE. Nel punto di 7611 lascia il descrittore finale 383E a 5D4E–5D4F.
+    LD DE,$5C0B                           ; $A9E0 11 0b 5c
+    AND A                                 ; $A9E3 a7
+    SBC HL,DE                             ; $A9E4 ed 52
+    JR Z,$AA0B                            ; $A9E6 28 23
+    LD A,($C1F5)                          ; $A9E8 3a f5 c1
+    CP L                                  ; $A9EB bd
+    PUSH AF                               ; $A9EC f5 | Salva AF dal confronto tra spazio residuo e lunghezza della parola a 5D4C–5D4D.
+    JR NC,$A9F4                           ; $A9ED 30 05
+    LD A,$0D                              ; $A9EF 3e 0d
+    CALL $AA14                            ; $A9F1 cd 14 aa
+    PUSH BC                               ; $A9F4 c5 | Il punto di 7611 viene scaricato con BC esterno a zero, salvato a 5D4A–5D4B.
+    LD B,L                                ; $A9F5 45
+    LD HL,$5C0B                           ; $A9F6 21 0b 5c
+    LD ($A9B5),HL                         ; $A9F9 22 b5 a9
+    LD A,(HL)                             ; $A9FC 7e
+    CALL $AA14                            ; $A9FD cd 14 aa | La chiamata di AA14 lascia AA00 a 5D48–5D49, anche quando C1E1 non disegna pixel.
+    INC HL                                ; $AA00 23
+    DJNZ $A9FC                            ; $AA01 10 f9
+    POP BC                                ; $AA03 c1
+    POP AF                                ; $AA04 f1
+    JR NZ,$AA0B                           ; $AA05 20 04
+    XOR A                                 ; $AA07 af
+    LD ($A025),A                          ; $AA08 32 25 a0
+    POP DE                                ; $AA0B d1
+    POP HL                                ; $AA0C e1
+    POP AF                                ; $AA0D f1
+    JR $AA14                              ; $AA0E 18 04
+    POP AF                                ; $AA10 f1
 
     ORG $AE7F
 ; CODE: Lettura dei token e salvataggio della classe precedente
@@ -274,6 +404,87 @@
     XOR A                                 ; $B902 af
     RET                                   ; $B903 c9
 
+    ORG $B4DA
+; CODE: Copia del bit di visibilità per il primo referente
+    LD A,($A01D)                          ; $B4DA 3a 1d a0
+    AND $01                               ; $B4DD e6 01
+    LD ($A038),A                          ; $B4DF 32 38 a0
+
+    ORG $B581
+; CODE: Copia del bit di visibilità per il secondo referente
+    LD A,($A01D)                          ; $B581 3a 1d a0
+    AND $01                               ; $B584 e6 01
+    LD ($A038),A                          ; $B586 32 38 a0
+
+    ORG $B62F
+; CODE: Rifiuto della ricerca: selezione del primo o secondo referente
+    LD A,$28                              ; $B62F 3e 28
+    JR $B635                              ; $B631 18 02
+    LD A,$20                              ; $B633 3e 20
+    LD ($B649),A                          ; $B635 32 49 b6 | B649 e B658 ricevono entrambi 20 per il rifiuto del primo argomento o 28 per il secondo. JavaScript conserva lo slot semantico. Il giardiniere legge B649 sabato alle 02:15.
+    LD ($B658),A                          ; $B638 32 58 b6
+    LD IX,($B18E)                         ; $B63B dd 2a 8e b1
+    LD L,(IX+$04)                         ; $B63F dd 6e 04
+    LD H,(IX+$05)                         ; $B642 dd 66 05
+    BIT 7,(IX+$07)                        ; $B645 dd cb 07 7e
+    JR NZ,$B64E                           ; $B649 20 03
+    LD HL,$0000                           ; $B64B 21 00 00
+    EX (SP),HL                            ; $B64E e3
+    PUSH HL                               ; $B64F e5
+    LD L,(IX+$02)                         ; $B650 dd 6e 02
+    LD H,(IX+$03)                         ; $B653 dd 66 03
+    BIT 5,H                               ; $B656 cb 6c
+    JR NZ,$B65D                           ; $B658 20 03
+    LD HL,$0000                           ; $B65A 21 00 00
+    EX (SP),HL                            ; $B65D e3
+    JP (HL)                               ; $B65E e9
+
+    ORG $B934
+; DATA: Opcode attivo e ultimo opcode di consegna degli ordini
+    DEFB $00,$00                          ; $B934 00 00 | Due byte indipendenti. Il primo è l’opcode di un ordine attivo, il secondo è l’ultimo opcode del tentativo di consegna.
+
+    ORG $B936
+; CODE: Consegna degli ordini: selezione e copia dell’opcode
+    PUSH IX                               ; $B936 dd e5
+    PUSH IY                               ; $B938 fd e5
+    PUSH HL                               ; $B93A e5
+    LD ($B935),A                          ; $B93B 32 35 b9 | Salva l’opcode DOMAIN di qualunque tentativo di consegna. Ultimo B935=83 per il cocchiere martedì alle 09:15.
+    CALL $B90E                            ; $B93E cd 0e b9
+    LD A,(IX+$07)                         ; $B941 dd 7e 07
+    CP $02                                ; $B944 fe 02
+    JP Z,$BA20                            ; $B946 ca 20 ba
+    LD A,(IX+$01)                         ; $B949 dd 7e 01
+    CP $FF                                ; $B94C fe ff
+    JR Z,$B98C                            ; $B94E 28 3c
+    LD A,($B935)                          ; $B950 3a 35 b9
+    LD ($B934),A                          ; $B953 32 34 b9 | Copia l’opcode in B934 solo per la richiesta con un nodo sintattico. L’ordine prefabbricato e l’affermazione biforcano prima.
+    LD A,(IX+$02)                         ; $B956 dd 7e 02
+    LD ($A01C),A                          ; $B959 32 1c a0
+
+    ORG $C182
+; CODE: Attributi della striscia dell’orologio: 32 celle con BRIGHT
+    LD HL,$5A40                           ; $C182 21 40 5a
+    LD DE,$5A41                           ; $C185 11 41 5a
+    LD BC,$001F                           ; $C188 01 1f 00
+    LD (HL),$78                           ; $C18B 36 78 | Scrive 78 per la prima cella. LDIR la replica in tutta la striscia 5A40–5A5F, distinta dal normale PAPER 7 con BRIGHT spento. Il giardiniere legge 78 venerdì alle 09:50.
+    LDIR                                  ; $C18D ed b0
+    RET                                   ; $C18F c9
+
+    ORG $C1A8
+; CODE: Orologio: origine, spazi e avanzamento di sette pixel
+    LD DE,$5041                           ; $C1A8 11 41 50 | Parte a x=8 (5041). Lo spazio iniziale avanza di sette pixel. Il giorno parte a x=15; quello finale lascia visibili le celle successive del motivo grafico.
+    EX DE,HL                              ; $C1AB eb
+    LD C,$00                              ; $C1AC 0e 00
+    LD A,$20                              ; $C1AE 3e 20
+    CALL $C388                            ; $C1B0 cd 88 c3
+    LD A,(DE)                             ; $C1B3 1a
+    CALL $C388                            ; $C1B4 cd 88 c3
+    INC DE                                ; $C1B7 13
+    DJNZ $C1B3                            ; $C1B8 10 f9
+    LD A,$20                              ; $C1BA 3e 20
+    CALL $C388                            ; $C1BC cd 88 c3
+    RET                                   ; $C1BF c9
+
     ORG $C271
 ; CODE: Ultima cella della pulizia della console
     PUSH HL                               ; $C271 e5 | Pulizia della riga bassa a celle di sette pixel. L’ultima cella ha x=246 e indirizzo video 50FE; non coincide con l’origine della stampa alta.
@@ -378,6 +589,34 @@
     POP AF                                ; $C3E2 f1
     RET                                   ; $C3E3 c9
 
+    ORG $CC82
+; CODE: Ingresso DOMAIN: azzeramento dell’opcode dell’ordine attivo
+    LD L,(IY+$01)                         ; $CC82 fd 6e 01
+    LD H,(IY+$02)                         ; $CC85 fd 66 02
+    XOR A                                 ; $CC88 af
+    LD ($B934),A                          ; $CC89 32 34 b9 | Azzera B934 all’ingresso nell’interprete, ma non B935. Watson legge zero qui giovedì alle 23:33.
+    LD A,($CC0B)                          ; $CC8C 3a 0b cc
+    CP $0A                                ; $CC8F fe 0a
+    JP Z,$CD8B                            ; $CC91 ca 8b cd
+
+    ORG $CE3B
+; CODE: Operandi temporanei di una regola DOMAIN
+    LD A,(IX+$03)                         ; $CE3B dd 7e 03
+    CALL $CEDE                            ; $CE3E cd de ce
+    LD ($A034),A                          ; $CE41 32 34 a0
+    LD A,(IX+$04)                         ; $CE44 dd 7e 04
+    CALL $CEDE                            ; $CE47 cd de ce
+    LD ($A035),A                          ; $CE4A 32 35 a0 | Scrive il secondo operando risolto a A035; FF è il segnaposto originale per il parametro assente, non un valore di ripiego. Il giardiniere lo legge a 14:29 durante F19A.
+    JR $CE57                              ; $CE4D 18 08
+    LD A,$FF                              ; $CE4F 3e ff
+    LD ($A034),A                          ; $CE51 32 34 a0
+    LD ($A035),A                          ; $CE54 32 35 a0
+    LD A,$FF                              ; $CE57 3e ff
+    LD ($A033),A                          ; $CE59 32 33 a0 | Per una regola DOMAIN A033 è FF; per un’azione viene scritto il suo ID da un ingresso distinto.
+    LD L,(IX+$01)                         ; $CE5C dd 6e 01
+    LD H,(IX+$02)                         ; $CE5F dd 66 02
+    CALL $C591                            ; $CE62 cd 91 c5
+
     ORG $D008
 ; CODE: Ripristino e salvataggio del contesto NPC
     LD L,(IY+$04)                         ; $D008 fd 6e 04 | Ricarica gli argomenti dal contesto sospeso o dal record attore.
@@ -404,6 +643,17 @@
     LD (IY+$05),H                         ; $D041 fd 74 05
     RET                                   ; $D044 c9
 
+    ORG $D2CB
+; CODE: Dopo le letture casuali: salvataggio dell’indice della scelta
+    ADC A,(IX+$00)                        ; $D2CB dd 8e 00
+    ADD IX,DE                             ; $D2CE dd 19
+    XOR (IX+$01)                          ; $D2D0 dd ae 01
+    PUSH HL                               ; $D2D3 e5 | Il salvataggio di HL segue la coppia di letture e precede il confronto con il seed. Vale anche quando la scelta ripete il tentativo.
+    LD HL,$A037                           ; $D2D4 21 37 a0
+    CP (HL)                               ; $D2D7 be
+    POP HL                                ; $D2D8 e1
+    JR Z,$D2B8                            ; $D2D9 28 dd
+
     ORG $D3D5
 ; CODE: Descrittori dei nomi nelle liste
     PUSH IX                               ; $D3D5 dd e5
@@ -416,7 +666,7 @@
     POP DE                                ; $D3E4 d1
     POP IY                                ; $D3E5 fd e1
     RET                                   ; $D3E7 c9
-    PUSH AF                               ; $D3E8 f5
+    PUSH AF                               ; $D3E8 f5 | Nel nome del cocchiere fuori scena salva AF con A=ID dell’attore e F dal lookup A4BC, a 5D3E–5D3F. D3E9 salva il relativo del testo a 5D3C–5D3D.
     PUSH DE                               ; $D3E9 d5
     LD D,(IY+$01)                         ; $D3EA fd 56 01
     LD E,(IY+$00)                         ; $D3ED fd 5e 00
@@ -453,7 +703,7 @@
     LD A,D                                ; $D43E 7a
     OR E                                  ; $D43F b3
     LD A,$50                              ; $D440 3e 50
-    CALL NZ,$A815                         ; $D442 c4 15 a8
+    CALL NZ,$A815                         ; $D442 c4 15 a8 | CALL del formatter del sostantivo. Nel nome del cocchiere fuori scena, lascia il ritorno D445 a 5D3A–5D3B.
     POP DE                                ; $D445 d1
     POP AF                                ; $D446 f1
     RET                                   ; $D447 c9
@@ -505,6 +755,19 @@
     POP BC                                ; $D66F c1
     RET                                   ; $D670 c9
 
+    ORG $D898
+; CODE: Ingresso dell’editor: ricarica il contatore
+    LD HL,$0BB8                           ; $D898 21 b8 0b
+    LD ($A03B),HL                         ; $D89B 22 3b a0 | All’ingresso del prompt carica 0BB8 (3000) prima di leggere il tasto.
+    LD A,$01                              ; $D89E 3e 01
+    LD ($A027),A                          ; $D8A0 32 27 a0
+    CALL $D8AD                            ; $D8A3 cd ad d8
+    PUSH AF                               ; $D8A6 f5
+    XOR A                                 ; $D8A7 af
+    LD ($A027),A                          ; $D8A8 32 27 a0
+    POP AF                                ; $D8AB f1
+    RET                                   ; $D8AC c9
+
     ORG $DFCC
 ; CODE: Finale selezionato dalla presenza di Basil
     LD HL,$759C                           ; $DFCC 21 9c 75
@@ -534,6 +797,23 @@
     CALL $A2A2                            ; $E6E0 cd a2 a2
     OR $01                                ; $E6E3 f6 01
     RET                                   ; $E6E5 c9
+
+    ORG $E710
+; CODE: Avvertimento del cocchiere e visibilità temporanea
+    LD A,($5C3C)                          ; $E710 3a 3c 5c
+    PUSH AF                               ; $E713 f5
+    CALL $CFB6                            ; $E714 cd b6 cf
+    LD A,(IX+$03)                         ; $E717 dd 7e 03
+    AND A                                 ; $E71A a7
+    LD HL,$6C54                           ; $E71B 21 54 6c
+    JR NZ,$E725                           ; $E71E 20 05
+    LD A,$01                              ; $E720 3e 01
+    LD ($5C3C),A                          ; $E722 32 3c 5c
+    CALL $A59F                            ; $E725 cd 9f a5 | 6C54 fuori scena conserva il ritorno A80C dell’articolo nello slot 5D44–5D45, sostituendo il D445 della richiesta precedente. E729 ripristina il flag 5C3C.
+    POP AF                                ; $E728 f1
+    LD ($5C3C),A                          ; $E729 32 3c 5c
+    OR $01                                ; $E72C f6 01
+    RET                                   ; $E72E c9
 
     ORG $EBC5
 ; BYTECODE: Lestrade: attesa della posizione del veicolo

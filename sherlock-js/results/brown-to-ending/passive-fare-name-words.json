@@ -1,0 +1,977 @@
+{
+  "protocol": "Natural Brown Wednesday 10:00 prompt, then alternating passive waits. First stores are from the complete Wednesday 10:17 fare request; the read trace covers the later warning and train period too.",
+  "initial_writes": [
+    {
+      "pc": "A827",
+      "target": 23864,
+      "sp": "5D3A",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        84,
+        8223,
+        20840,
+        41550
+      ],
+      "stack": [
+        "D445",
+        "FFF3",
+        "1F08",
+        "A7CD",
+        "E66F",
+        "A758",
+        "A720",
+        "A72A",
+        "A636"
+      ],
+      "bytes": [
+        78,
+        162
+      ]
+    },
+    {
+      "pc": "D442",
+      "target": 23866,
+      "sp": "5D3C",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        20524,
+        8223,
+        360,
+        41550
+      ],
+      "stack": [
+        "FFF3",
+        "1F08",
+        "A7CD",
+        "E66F",
+        "A758",
+        "A720",
+        "A72A",
+        "A636",
+        "A5CA"
+      ],
+      "bytes": [
+        69,
+        212
+      ]
+    },
+    {
+      "pc": "D3E9",
+      "target": 23868,
+      "sp": "5D3E",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        7944,
+        8223,
+        65523,
+        36634
+      ],
+      "stack": [
+        "1F08",
+        "A7CD",
+        "E66F",
+        "A758",
+        "A720",
+        "A72A",
+        "A636",
+        "A5CA",
+        "A769"
+      ],
+      "bytes": [
+        243,
+        255
+      ]
+    },
+    {
+      "pc": "D3E8",
+      "target": 23870,
+      "sp": "5D40",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        7944,
+        8223,
+        65523,
+        36634
+      ],
+      "stack": [
+        "A7CD",
+        "E66F",
+        "A758",
+        "A720",
+        "A72A",
+        "A636",
+        "A5CA",
+        "A769",
+        "6804"
+      ],
+      "bytes": [
+        8,
+        31
+      ]
+    },
+    {
+      "pc": "D2D3",
+      "target": 23872,
+      "sp": "5D42",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        45476,
+        513,
+        65523,
+        42707
+      ],
+      "stack": [
+        "201F",
+        "67F9",
+        "D2A7",
+        "A6DF",
+        "A636",
+        "A5CA",
+        "A769",
+        "6804",
+        "A636"
+      ],
+      "bytes": [
+        211,
+        166
+      ]
+    },
+    {
+      "pc": "A827",
+      "target": 23874,
+      "sp": "5D44",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        340,
+        8223,
+        22140,
+        2542
+      ],
+      "stack": [
+        "D445",
+        "58DB",
+        "0608",
+        "A7CD",
+        "E66F",
+        "A758",
+        "A72C",
+        "A636",
+        "A5CA"
+      ],
+      "bytes": [
+        238,
+        9
+      ]
+    },
+    {
+      "pc": "D442",
+      "target": 23876,
+      "sp": "5D46",
+      "tick": 3018,
+      "actor": 31,
+      "regs": [
+        20648,
+        8223,
+        34428,
+        2542
+      ],
+      "stack": [
+        "58DB",
+        "0608",
+        "A7CD",
+        "E66F",
+        "A758",
+        "A72C",
+        "A636",
+        "A5CA",
+        "A769"
+      ],
+      "bytes": [
+        69,
+        212
+      ]
+    }
+  ],
+  "reads": [
+    {
+      "address": "5D38",
+      "value": 78,
+      "clock": {
+        "tick": 5692,
+        "due": 5881,
+        "minute": 51,
+        "hour": 6,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 06:51am"
+      },
+      "actor": 3,
+      "writer": {
+        "pc": "A827",
+        "target": 23864,
+        "sp": "5D3A",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          84,
+          8223,
+          20840,
+          41550
+        ],
+        "stack": [
+          "D445",
+          "FFF3",
+          "1F08",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636"
+        ],
+        "bytes": [
+          78,
+          162
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D39",
+      "value": 162,
+      "clock": {
+        "tick": 5779,
+        "due": 5881,
+        "minute": 18,
+        "hour": 8,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 08:18am"
+      },
+      "actor": 9,
+      "writer": {
+        "pc": "A827",
+        "target": 23864,
+        "sp": "5D3A",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          84,
+          8223,
+          20840,
+          41550
+        ],
+        "stack": [
+          "D445",
+          "FFF3",
+          "1F08",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636"
+        ],
+        "bytes": [
+          78,
+          162
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3F",
+      "value": 31,
+      "clock": {
+        "tick": 5779,
+        "due": 5881,
+        "minute": 18,
+        "hour": 8,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 08:18am"
+      },
+      "actor": 9,
+      "writer": {
+        "pc": "D3E8",
+        "target": 23870,
+        "sp": "5D40",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          7944,
+          8223,
+          65523,
+          36634
+        ],
+        "stack": [
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804"
+        ],
+        "bytes": [
+          8,
+          31
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3A",
+      "value": 69,
+      "clock": {
+        "tick": 5871,
+        "due": 5881,
+        "minute": 50,
+        "hour": 9,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 09:50am"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D442",
+        "target": 23866,
+        "sp": "5D3C",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          20524,
+          8223,
+          360,
+          41550
+        ],
+        "stack": [
+          "FFF3",
+          "1F08",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA"
+        ],
+        "bytes": [
+          69,
+          212
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D40",
+      "value": 211,
+      "clock": {
+        "tick": 5871,
+        "due": 5881,
+        "minute": 50,
+        "hour": 9,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 09:50am"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D2D3",
+        "target": 23872,
+        "sp": "5D42",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          45476,
+          513,
+          65523,
+          42707
+        ],
+        "stack": [
+          "201F",
+          "67F9",
+          "D2A7",
+          "A6DF",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804",
+          "A636"
+        ],
+        "bytes": [
+          211,
+          166
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3B",
+      "value": 212,
+      "clock": {
+        "tick": 5970,
+        "due": 6661,
+        "minute": 29,
+        "hour": 11,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 11:29am"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D442",
+        "target": 23866,
+        "sp": "5D3C",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          20524,
+          8223,
+          360,
+          41550
+        ],
+        "stack": [
+          "FFF3",
+          "1F08",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA"
+        ],
+        "bytes": [
+          69,
+          212
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D41",
+      "value": 166,
+      "clock": {
+        "tick": 5970,
+        "due": 6661,
+        "minute": 29,
+        "hour": 11,
+        "day": 4,
+        "period": "am",
+        "label": "Fri 11:29am"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D2D3",
+        "target": 23872,
+        "sp": "5D42",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          45476,
+          513,
+          65523,
+          42707
+        ],
+        "stack": [
+          "201F",
+          "67F9",
+          "D2A7",
+          "A6DF",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804",
+          "A636"
+        ],
+        "bytes": [
+          211,
+          166
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3C",
+      "value": 243,
+      "clock": {
+        "tick": 6063,
+        "due": 6661,
+        "minute": 2,
+        "hour": 1,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 01:02pm"
+      },
+      "actor": 3,
+      "writer": {
+        "pc": "D3E9",
+        "target": 23868,
+        "sp": "5D3E",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          7944,
+          8223,
+          65523,
+          36634
+        ],
+        "stack": [
+          "1F08",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA",
+          "A769"
+        ],
+        "bytes": [
+          243,
+          255
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3D",
+      "value": 255,
+      "clock": {
+        "tick": 6153,
+        "due": 6661,
+        "minute": 32,
+        "hour": 2,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 02:32pm"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D3E9",
+        "target": 23868,
+        "sp": "5D3E",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          7944,
+          8223,
+          65523,
+          36634
+        ],
+        "stack": [
+          "1F08",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA",
+          "A769"
+        ],
+        "bytes": [
+          243,
+          255
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D43",
+      "value": 9,
+      "clock": {
+        "tick": 6153,
+        "due": 6661,
+        "minute": 32,
+        "hour": 2,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 02:32pm"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "A827",
+        "target": 23874,
+        "sp": "5D44",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          340,
+          8223,
+          22140,
+          2542
+        ],
+        "stack": [
+          "D445",
+          "58DB",
+          "0608",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A72C",
+          "A636",
+          "A5CA"
+        ],
+        "bytes": [
+          238,
+          9
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3E",
+      "value": 8,
+      "clock": {
+        "tick": 6246,
+        "due": 6661,
+        "minute": 5,
+        "hour": 4,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 04:05pm"
+      },
+      "actor": 9,
+      "writer": {
+        "pc": "D3E8",
+        "target": 23870,
+        "sp": "5D40",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          7944,
+          8223,
+          65523,
+          36634
+        ],
+        "stack": [
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804"
+        ],
+        "bytes": [
+          8,
+          31
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D44",
+      "value": 12,
+      "clock": {
+        "tick": 6246,
+        "due": 6661,
+        "minute": 5,
+        "hour": 4,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 04:05pm"
+      },
+      "actor": 9,
+      "writer": {
+        "pc": "A809",
+        "target": 23876,
+        "sp": "5D46",
+        "tick": 3021,
+        "actor": 31,
+        "regs": [
+          100,
+          0,
+          2205,
+          41550
+        ],
+        "stack": [
+          "0100",
+          "D3F3",
+          "0005",
+          "1F08",
+          "A7CD",
+          "9FE7",
+          "A758",
+          "A720",
+          "A72A"
+        ],
+        "bytes": [
+          12,
+          168
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D3F",
+      "value": 31,
+      "clock": {
+        "tick": 6337,
+        "due": 6661,
+        "minute": 36,
+        "hour": 5,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 05:36pm"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D3E8",
+        "target": 23870,
+        "sp": "5D40",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          7944,
+          8223,
+          65523,
+          36634
+        ],
+        "stack": [
+          "A7CD",
+          "E66F",
+          "A758",
+          "A720",
+          "A72A",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804"
+        ],
+        "bytes": [
+          8,
+          31
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D45",
+      "value": 168,
+      "clock": {
+        "tick": 6337,
+        "due": 6661,
+        "minute": 36,
+        "hour": 5,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 05:36pm"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "A809",
+        "target": 23876,
+        "sp": "5D46",
+        "tick": 3021,
+        "actor": 31,
+        "regs": [
+          100,
+          0,
+          2205,
+          41550
+        ],
+        "stack": [
+          "0100",
+          "D3F3",
+          "0005",
+          "1F08",
+          "A7CD",
+          "9FE7",
+          "A758",
+          "A720",
+          "A72A"
+        ],
+        "bytes": [
+          12,
+          168
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D40",
+      "value": 211,
+      "clock": {
+        "tick": 6428,
+        "due": 6661,
+        "minute": 7,
+        "hour": 7,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 07:07pm"
+      },
+      "actor": 3,
+      "writer": {
+        "pc": "D2D3",
+        "target": 23872,
+        "sp": "5D42",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          45476,
+          513,
+          65523,
+          42707
+        ],
+        "stack": [
+          "201F",
+          "67F9",
+          "D2A7",
+          "A6DF",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804",
+          "A636"
+        ],
+        "bytes": [
+          211,
+          166
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D41",
+      "value": 166,
+      "clock": {
+        "tick": 6519,
+        "due": 6661,
+        "minute": 38,
+        "hour": 8,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 08:38pm"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "D2D3",
+        "target": 23872,
+        "sp": "5D42",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          45476,
+          513,
+          65523,
+          42707
+        ],
+        "stack": [
+          "201F",
+          "67F9",
+          "D2A7",
+          "A6DF",
+          "A636",
+          "A5CA",
+          "A769",
+          "6804",
+          "A636"
+        ],
+        "bytes": [
+          211,
+          166
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D47",
+      "value": 46,
+      "clock": {
+        "tick": 6519,
+        "due": 6661,
+        "minute": 38,
+        "hour": 8,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 08:38pm"
+      },
+      "actor": 8,
+      "writer": {
+        "pc": "C1E1",
+        "target": 23878,
+        "sp": "5D48",
+        "tick": 6518,
+        "actor": 36,
+        "regs": [
+          11810,
+          256,
+          23563,
+          23563
+        ],
+        "stack": [
+          "AA00",
+          "0000",
+          "2402",
+          "383E",
+          "67B8",
+          "0D38",
+          "A2A8",
+          "2E38",
+          "A65A"
+        ],
+        "bytes": [
+          34,
+          46
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "address": "5D42",
+      "value": 238,
+      "clock": {
+        "tick": 6675,
+        "due": 7321,
+        "minute": 14,
+        "hour": 11,
+        "day": 4,
+        "period": "pm",
+        "label": "Fri 11:14pm"
+      },
+      "actor": 3,
+      "writer": {
+        "pc": "A827",
+        "target": 23874,
+        "sp": "5D44",
+        "tick": 3018,
+        "actor": 31,
+        "regs": [
+          340,
+          8223,
+          22140,
+          2542
+        ],
+        "stack": [
+          "D445",
+          "58DB",
+          "0608",
+          "A7CD",
+          "E66F",
+          "A758",
+          "A72C",
+          "A636",
+          "A5CA"
+        ],
+        "bytes": [
+          238,
+          9
+        ]
+      },
+      "agrees": true
+    }
+  ]
+}

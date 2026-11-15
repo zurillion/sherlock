@@ -14,10 +14,10 @@ const payload=await readFile(join(analysis,'block-10.bin'));
 const sha=createHash('sha256').update(payload).digest('hex');
 if(sha!=='c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407')throw Error('Unrecognized source data version');
 const byte=p=>payload[p-0x5d80],word=p=>byte(p)|(byte(p+1)<<8);
-const dictionary=(await read('parser/results/dictionary.json')).map(w=>({id:parseInt(w.offset,16),stem:w.stem,form:w.output_inflected,suffix:parseInt(w.suffix_code,16),type:parseInt(w.class,16),alias:w.alias_direct?parseInt(w.alias_direct,16):null}));
+const dictionary=(await read('parser/results/dictionary.json')).map(w=>({id:parseInt(w.offset,16),stem:w.stem,form:w.output_inflected,suffix:parseInt(w.suffix_code,16),type:parseInt(w.class,16),prefix:w.prefix_length_excluding_initial,alias:w.alias_direct?parseInt(w.alias_direct,16):null}));
 // DA34 scans the alphabetic index for the next nonempty bucket.
 const alphabeticIndex=Array.from({length:32},(_,i)=>word(0x5D80+2*i));
-const lexer={initialGroupEnd:word(0xDA32),groupEnds:Object.fromEntries(Array.from({length:25},(_,i)=>{
+const lexer={candidateSuffixes:Array.from({length:9},(_,i)=>[...payload.subarray(0xA85C-0x5D80+4*i,0xA85C-0x5D80+4*i+4)]),initialGroupEnd:word(0xDA32),groupEnds:Object.fromEntries(Array.from({length:25},(_,i)=>{
  const index=i+1,end=alphabeticIndex.slice(index+1).find(Boolean);
  if(!alphabeticIndex[index]||end===undefined)throw Error('Unexpected dictionary bucket');
  return [String.fromCharCode(65+i),0x5DBF+end];
