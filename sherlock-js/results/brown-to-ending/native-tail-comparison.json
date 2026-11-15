@@ -1,27 +1,27 @@
 {
-  "stoppedAt": "CB29",
+  "stoppedAt": "A032",
   "nextOriginalClock": {
-    "tick": 4181,
+    "tick": 4441,
     "due": 4441,
-    "minute": 40,
-    "hour": 5,
+    "minute": 0,
+    "hour": 10,
     "day": 3,
     "period": "am",
-    "label": "Thu 05:40am"
+    "label": "Thu 10:00am"
   },
   "originalCheckpoints": 1223,
-  "checkpoints": 603,
+  "checkpoints": 629,
   "lastClock": {
-    "tick": 4171,
+    "tick": 4431,
     "due": 4441,
     "day": 3,
-    "minute": 30,
-    "hour": 5,
+    "minute": 50,
+    "hour": 9,
     "period": "am",
-    "label": "Thu 05:30am"
+    "label": "Thu 09:50am"
   },
-  "comparedDraws": 10013,
-  "comparedReads": 21350,
+  "comparedDraws": 10705,
+  "comparedReads": 22816,
   "originalEnding": null,
   "verifiedEnding": null
 }

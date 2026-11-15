@@ -198,9 +198,9 @@ export class RandomDisplay {
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
- invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D31,except);}
+ invalidateGlyphExtras({preserve1A=false,preserveScan=false,preserveFlags=false,preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false,extra=[]}={}){const except=[...extra];if(preserve1A||preserveScan)except.push(0x5D1A);if(preserveScan)except.push(0x5D1B,0x5D1C,0x5D1D);if(preserve1F)except.push(0x5D1F);if(preserve23)except.push(0x5D23);if(preserve22)except.push(0x5D22);if(preserve1E)except.push(0x5D1E);if(preserve24)except.push(0x5D24);if(preserve25)except.push(0x5D25);if(preserve20)except.push(0x5D20);if(preserve26)except.push(0x5D26);if(preserve21)except.push(0x5D21);if(preserve27)except.push(0x5D27);if(preserve28)except.push(0x5D28);if(preserve29)except.push(0x5D29);if(preserve2A)except.push(0x5D2A);if(preserve2B)except.push(0x5D2B);if(preserveLowerClear)except.push(0x5D2C,0x5D2D,0x5D2E,0x5D2F,0x5D30,0x5D31);this.invalidateScratch(preserveFlags?0x5D1F:preserveLow?0x5D1E:0x5D1A,0x5D35,except);}
  get state(){return this.world.display;}
- invalidateScratch(from=0x5CEC,to=0x5D31,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
+ invalidateScratch(from=0x5CEC,to=0x5D35,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
  newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
  put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.newline();}}
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
@@ -261,22 +261,27 @@ export class RandomDisplay {
   for(const[i,message]of messages.entries()){
    const text=' '+message.text.toUpperCase();
    const column=((s.lowerCursor??2)-2)/7;
-   if(message.lower_scenery_clear&&column===0&&text.length>=36){
+   const lineEnds=!inline||i<messages.length-1;
+   if(message.lower_scenery_clear&&column===0&&(text.length>=36||lineEnds)){
     // C271 clears 36 seven-pixel cells from x=1 on the bottom row.
-    // The last space is rendered at frame 5D38 in this rejection caller.
+    // The rejection pipeline reaches it at two depths. In each case
+    // C3B7/C3B8 leave BC and AF from the last scan of the final space.
     const lastPixel=1+35*7;
     const address=0x50E0+Math.floor(lastPixel/8);
     const shift=lastPixel&7;
     const priorScanHigh=(address>>>8)+6;
     const blank=this.data.spectrum.glyphs[32-this.data.spectrum.first];
-    s.scratch[0x5D2C]=shift?incrementFlags(shift-1):incrementFlags(priorScanHigh);
-    s.scratch[0x5D2D]=blank[7];
-    s.scratch[0x5D2E]=shift;
-    s.scratch[0x5D2F]=1;
-    s.scratch[0x5D30]=address&255;
-    s.scratch[0x5D31]=address>>>8;
+    const scan=[shift?incrementFlags(shift-1):incrementFlags(priorScanHigh),blank[7],shift,1];
+    if(text.length>=36){
+     for(const [offset,byte] of scan.entries())s.scratch[0x5D2C+offset]=byte;
+     s.scratch[0x5D30]=address&255;
+     s.scratch[0x5D31]=address>>>8;
+    }
+    if(lineEnds)for(const [offset,byte] of scan.entries())s.scratch[0x5D32+offset]=byte;
+    // The shallower clear also writes HL at $5D36–$5D37. Later
+    // calls can replace that word while leaving the scan saves intact.
    }
-   this.lowerText(text+(inline&&i===messages.length-1?'':'\r'));if(this.world.npcs)this.world.npcs.dictionaryReference=Number.isInteger(message.dictionary_reference)&&message.dictionary_reference>=0&&message.dictionary_reference<=65535?message.dictionary_reference:null;}
+   this.lowerText(text+(lineEnds?'\r':''));if(this.world.npcs)this.world.npcs.dictionaryReference=Number.isInteger(message.dictionary_reference)&&message.dictionary_reference>=0&&message.dictionary_reference<=65535?message.dictionary_reference:null;}
   this.setChannel(0); // D710/D7CA/CB74 write zero, rather than restoring the incoming channel.
  }
  lexed(tokens){const s=this.state;if(!s)return;s.counter=0;this.wideWindow();s.pending='';if(!s.tokens)return; // D719/C142 reset the formatter and word-buffer pointer.

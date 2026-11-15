@@ -2,15 +2,15 @@
 
     ORG $CB28
 ; DATA: Puntatori IX/IY restituiti dall’ultima regola
-    DEFB $00,$00,$00,$00                  ; $CB28 00 00 00 00 | Due word little-endian mutabili, non istruzioni. Primo risultato IX, secondo IY. La riscrittura ne possiede solo i callback ricostruiti; i percorsi ignoti revocano il campo, senza fallback al payload.
+    DEFB $00,$00,$00,$00                  ; $CB28 00 00 00 00 | Due word little-endian mutabili, non istruzioni. Primo risultato IX, secondo IY. Nel ramo Brown: F19A conserva IX 8D42, DD07 restituisce IY 8D42 e DD6E lascia IY sull’intestazione DD61. La riscrittura ne possiede solo i callback ricostruiti; i percorsi ignoti revocano il campo, senza fallback al payload.
 
     ORG $CB2C
 ; CODE: Ponte regole: ripristino, chiamata e conservazione dei risultati
     LD IX,($CB28)                         ; $CB2C dd 2a 28 cb | Il corpo riprende i risultati precedenti: non ricarica genericamente i due argomenti.
     LD IY,($CB2A)                         ; $CB30 fd 2a 2a cb
     CALL $CB40                            ; $CB34 cd 40 cb | Ingresso del predicato: il chiamante ha già selezionato IX e intestazione IY. Anche un predicato falso ritorna qui e salva i suoi risultati.
-    LD ($CB28),IX                         ; $CB37 dd 22 28 cb | Unico store del primo risultato. OPEN/CLOSE ordinari lasciano il descrittore caricato da A013; contatori e rilascio lasciano record o link specifici.
-    LD ($CB2A),IY                         ; $CB3B fd 22 2a cb | Unico store del secondo risultato. IY può essere un’intestazione, un predecessore o altro: non dedurlo sempre dal primo puntatore.
+    LD ($CB28),IX                         ; $CB37 dd 22 28 cb | Unico store del primo risultato. La cuoca legge il byte alto 8D alle 05:37, quando F19A ha appena conservato IX 8D42. OPEN/CLOSE ordinari lasciano il descrittore caricato da A013; contatori e rilascio lasciano record o link specifici.
+    LD ($CB2A),IY                         ; $CB3B fd 22 2a cb | Unico store del secondo risultato. Le letture del ramo Brown vedono il byte basso di 8D42 e il byte alto di DD61. IY può essere un’intestazione, un predecessore o altro: non dedurlo sempre dal primo puntatore.
     RET                                   ; $CB3F c9
     JP (HL)                               ; $CB40 e9
 

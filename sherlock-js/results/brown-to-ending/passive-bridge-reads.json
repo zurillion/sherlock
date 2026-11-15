@@ -1,0 +1,94 @@
+{
+  "protocol": "Original Brown passive history, observed from the natural Wednesday 23:00 prompt. Last writes include unchanged CB37/CB3B stores. Read addresses observed at D2CB/D2D0.",
+  "start_tick": 3781,
+  "reads": [
+    {
+      "address": "CB28",
+      "value": 159,
+      "clock": {
+        "tick": 4088,
+        "due": 4441,
+        "minute": 7,
+        "hour": 4,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 04:07am"
+      },
+      "actor": 3,
+      "writer": {
+        "instruction": "CB37",
+        "rule_entry": "DD6E",
+        "rule_actor": 3,
+        "caller_return": "C9EE",
+        "pointer": "879F",
+        "tick": 4088
+      }
+    },
+    {
+      "address": "CB29",
+      "value": 141,
+      "clock": {
+        "tick": 4178,
+        "due": 4441,
+        "minute": 37,
+        "hour": 5,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 05:37am"
+      },
+      "actor": 9,
+      "writer": {
+        "instruction": "CB37",
+        "rule_entry": "F19A",
+        "rule_actor": 9,
+        "caller_return": "CA67",
+        "pointer": "8D42",
+        "tick": 4178
+      }
+    },
+    {
+      "address": "CB2A",
+      "value": 66,
+      "clock": {
+        "tick": 4267,
+        "due": 4441,
+        "minute": 6,
+        "hour": 7,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 07:06am"
+      },
+      "actor": 9,
+      "writer": {
+        "instruction": "CB3B",
+        "rule_entry": "DD07",
+        "rule_actor": 8,
+        "caller_return": "CA67",
+        "pointer": "8D42",
+        "tick": 4267
+      }
+    },
+    {
+      "address": "CB2B",
+      "value": 221,
+      "clock": {
+        "tick": 4361,
+        "due": 4441,
+        "minute": 40,
+        "hour": 8,
+        "day": 3,
+        "period": "am",
+        "label": "Thu 08:40am"
+      },
+      "actor": 3,
+      "writer": {
+        "instruction": "CB3B",
+        "rule_entry": "DD6E",
+        "rule_actor": 3,
+        "caller_return": "C9EE",
+        "pointer": "DD61",
+        "tick": 4361
+      }
+    }
+  ]
+}

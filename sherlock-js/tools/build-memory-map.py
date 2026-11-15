@@ -259,6 +259,7 @@ brown_fields = {
   ['5D17','H del video durante la pulizia','Nel salotto di Tricia C398 conserva H dopo wall. La congiunzione prima del nome proprio scorre su un frame differente.'],
   ['5D19 / 5D1A','A grezzo del font e C dello shift','C3B8/C3B7 con frame 5D24 durante la richiesta di pagamento 6BB7. La o di to viene scaricata mentre comincia il nome del destinatario.'],
   ['5D2B','H della posizione video nel frame 5D32','C38B/C398 salva il byte alto di 5020+floor((2+7*colonna)/8) per lo spazio dopo il qualificatore del passaggio.'],
+  ['5D32–5D35','AF e BC lasciati dallo scorrimento inferiore','Nel rifiuto di EXAMINE ROCK, C3B7 e C3B8 nel frame 5D3E conservano i registri dell’ottava scansione dell’ultimo spazio a x=246. Il contatore è ancora 1, lo shift vale 6. Le attese successive conservano questi quattro byte. Il puntatore video a 5D36–5D37 ha una storia di scritture distinta.'],
   ['5D2C–5D31','Ultima cella della pulizia della console','C271/C293 conservano AF e BC della scansione e HL video nel frame 5D38. L’ultima cella parte da x=246.'],
  ],
 }

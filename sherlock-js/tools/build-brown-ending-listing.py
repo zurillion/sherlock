@@ -44,7 +44,7 @@ notes = {
     0xB3DA: 'Azzera il selettore prima della ricerca controllata. Questa scrittura non riguarda la classe del token precedente.',
     0xB8D3: 'La citazione riuscita alloca otto byte di richiesta. I campi +05/+06 puntano alla lista sintattica e +07 contiene il modo.',
     0xC271: 'Pulizia della riga bassa a celle di sette pixel. L’ultima cella ha x=246 e indirizzo video 50FE; non coincide con l’origine della stampa alta.',
-    0xC293: 'Il frame di pulizia conserva AF di scansione, BC di scansione e HL video a 5D2C–5D31.',
+    0xC293: 'Nel rifiuto di EXAMINE ROCK si osservano due profondità: 5D38 lascia AF, BC e HL a 5D2C–5D31. Il frame 5D3E lascia AF e BC a 5D32–5D35. HL a 5D36–5D37 può essere sovrascritto da chiamate successive.',
     0xC398: 'Lo spazio dopo plain lascia L e H di HL a 5D2A/B nel frame 5D32. Nella lista di persone, il clear dopo wall lascia H a 5D17 prima della congiunzione and.',
     0xC3B7: 'La o di to nella richiesta di pagamento 6BB7 conserva C a 5D1A nel frame 5D24. C deriva dalla colonna del glifo.',
     0xC3B8: 'Lo stesso glifo conserva a 5D19 l’ultima riga del font prima della rotazione, indipendente dall’offset C.',

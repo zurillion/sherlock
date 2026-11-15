@@ -19,8 +19,8 @@ i motori, con le due deduzioni sugli omicidi accettate.
 ## Lavoro ancora aperto
 
 1. **Diramazione passiva di Brown e seconda origine di $759C.**
-   Riprendere il confronto alla lettura $CB29 di giovedì mattina,
-   identificando la word di cui è il byte alto. Verificare anche
+   Il confronto passa il ponte $CB28–$CB2B e la prima lettura della
+   console a $5D32. Riprendere da $A032, giovedì alle 09:55. Verificare anche
    l’innesco $EFC7 di $759C oltre alla cassaforte già verificata.
 2. **Seed e scelte del giocatore.** Ripetere i passaggi decisivi con più
    seed e sequenze di comandi plausibili. Confrontare l’origine della
@@ -39,8 +39,8 @@ Aggiornamento 12 novembre 2026.
 Il ramo Brown ora raggiunge il finale naturale **$75D2**, mercoledì
 alle 06:07, nella camera di Basil. Il percorso parte dal seed 1 con
 tutti gli attori e passa per Camden Street. La diramazione passiva
-dello stesso ramo è verificata fino a giovedì 05:30. Si ferma al
-residuo di ritorno $CB29, letto nel campione originale delle 05:40.
+dello stesso ramo è verificata fino a giovedì 09:50. Le letture del
+ponte di regole e la prima lettura della console ora coincidono.
 Nell’originale la diramazione passiva non termina entro lunedì
 successivo alle 10:00. Il finale $759C è già verificato per la
 cassaforte. Rimangono da confrontare la variante $759C da $EFC7

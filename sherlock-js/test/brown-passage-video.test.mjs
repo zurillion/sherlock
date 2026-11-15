@@ -68,3 +68,23 @@ test('Fresh-row arrivals preserve the saved video address', async () => {
   assert.equal(cases.length, 300);
   assert(cases.every(row => row.column === 0 && row.cells[16] === 165 && row.cells[17] === 165));
 });
+
+test('The lower rejection scroll leaves two separate sets of scan registers', () => {
+  const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });
+  const display = game.sourceDisplay;
+  const laterScan = [0x5D32, 0x5D33, 0x5D34, 0x5D35];
+  assert.deepEqual(laterScan.map(address => display.read(address)), [null, null, null, null]);
+
+  display.state.lowerCursor = 2;
+  display.error([{ text: 'I SEE NO ROCK THAT YOU CAN EXAMINE', lower_scenery_clear: true }], { inline: true });
+  assert.deepEqual(laterScan.map(address => display.read(address)), [null, null, null, null]);
+
+  display.state.lowerCursor = 2;
+  display.error([{ text: 'I SEE NO ROCK THAT YOU CAN EXAMINE', lower_scenery_clear: true }]);
+  assert.deepEqual(laterScan.map(address => display.read(address)), [0, 0, 6, 1]);
+  assert.equal(display.read(0x5D36), null);
+  const loaded = Game.load(data, JSON.parse(JSON.stringify(game.dump())));
+  assert.deepEqual(laterScan.map(address => loaded.sourceDisplay.read(address)), [0, 0, 6, 1]);
+  loaded.sourceDisplay.write('Text from an unclassified caller.');
+  assert.deepEqual(laterScan.map(address => loaded.sourceDisplay.read(address)), [null, null, null, null]);
+});

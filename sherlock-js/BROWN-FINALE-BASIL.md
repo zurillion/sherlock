@@ -32,9 +32,36 @@ Le prove separano il caso naturale dalle configurazioni controllate. La traccia 
 
 Restando nella cucina di Tricia con attese ripetute, l’originale continua fino a **lunedì successivo alle 10:00** senza un epilogo. Basil raggiunge mercoledì alle 15:20 l’attesa in `$EF90` e il salto indietro di `$EF93`. Lestrade rimane a `$EBC5`, in attesa di una condizione sul proprio veicolo. Questi stati valgono per questo percorso e per il seed 1.
 
-Il motore autonomo è stato confrontato su 603 checkpoint di questa variante fino a giovedì alle 05:30. Il modello incontra `$CB29` alle 05:37, nella finestra del successivo checkpoint originale delle 05:40. Il relativo residuo del ritorno di regola è ancora da ricostruire. Il testo alternativo `$759C` è già verificato per l’apertura della cassaforte. Rimane da confrontare il percorso in cui il controllo `$EFC7` lo seleziona da solo.
+Il ponte delle regole conserva due puntatori indipendenti a `$CB28–$CB2B`.
+La traccia delle scritture osserva i seguenti risultati. Il motore
+JavaScript li genera già a partire dalle regole e dai record del mondo.
 
-[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
+| Ora (giovedì) | Lettura | Ultima regola e puntatore |
+|---|---|---|
+| 04:07 | `$CB28 = $9F` | `$DD6E` di Watson ha restituito IX `$879F`. |
+| 05:37 | `$CB29 = $8D` | `$F19A` della cuoca ha conservato IX `$8D42`. |
+| 07:06 | `$CB2A = $42` | `$DD07` del giardiniere ha restituito IY `$8D42`. |
+| 08:40 | `$CB2B = $DD` | `$DD6E` di Watson ha lasciato IY sull’intestazione `$DD61`. |
+
+Quando `EXAMINE ROCK` viene rifiutato martedì alle 11:36, il ritorno a
+capo passa da `$C228` a `$C271`. La pulizia ridisegna 36 spazi larghi
+sette pixel. Il glifo finale parte da x=246, con shift 6. Nel frame
+`$5D3E`, `$C3B7` salva BC con B ancora a 1 e `$C3B8` salva AF con i
+flag ricavati dallo shift e A dall’ottava riga del font. Il motore
+conserva questi quattro byte in `$5D32–$5D35` e li legge quando
+servono al generatore casuale. La stampa in linea senza ritorno a capo
+non attiva questo salvataggio. Il puntatore video di `$5D36–$5D37`
+viene riutilizzato da altri chiamanti.
+
+Il confronto dall’avvio coincide su 629 checkpoint, 10.705 estrazioni
+e 22.816 letture fino alle 09:50 di giovedì. Alle 09:55 la cuoca
+legge `$A032`, il byte alto del secondo argomento letterale.
+
+Il testo alternativo `$759C` è già verificato per l’apertura della
+cassaforte. Resta da confrontare il percorso in cui il controllo
+`$EFC7` lo seleziona da solo.
+
+[Confronto passivo](results/brown-to-ending/native-tail-comparison.json) · [Letture del ponte](results/brown-to-ending/passive-bridge-reads.json) · [Letture della console](results/brown-to-ending/passive-console-reads.json) · [Traccia originale passiva](results/brown-to-ending/native-tail.json) · [Verifica del ramo della cassaforte](ALTRI-FINALI.md)
 
 ## Riproduzione
 
@@ -47,4 +74,5 @@ node tools/verify-brown-ending.mjs native-tail
 ```
 
 Per ripetere la traccia mirata dei glifi nell’originale usare
-`python3 tools/probe-brown-ending-stack.py --passage-wrap`.
+`python3 tools/probe-brown-ending-stack.py --passage-wrap`. Per il ramo
+passivo usare `python3 tools/probe-brown-ending-stack.py --passive-console`.

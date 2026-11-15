@@ -249,7 +249,7 @@
     LD B,$24                              ; $C28D 06 24
     LD C,$01                              ; $C28F 0e 01
     LD A,$20                              ; $C291 3e 20
-    CALL $C388                            ; $C293 cd 88 c3 | Il frame di pulizia conserva AF di scansione, BC di scansione e HL video a 5D2C–5D31.
+    CALL $C388                            ; $C293 cd 88 c3 | Nel rifiuto di EXAMINE ROCK si osservano due profondità: 5D38 lascia AF, BC e HL a 5D2C–5D31. Il frame 5D3E lascia AF e BC a 5D32–5D35. HL a 5D36–5D37 può essere sovrascritto da chiamate successive.
     DJNZ $C293                            ; $C296 10 fb
     POP BC                                ; $C298 c1
     POP DE                                ; $C299 d1
