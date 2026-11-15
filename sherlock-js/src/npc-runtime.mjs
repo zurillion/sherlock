@@ -581,8 +581,10 @@ export class NpcRuntime {
  }
  node(action,args){
   const model=this.game.data.actions.find(a=>a.id===action);if(!model)throw new UnsupportedFeature('azione interna NPC '+action);
-  const [verb,r1,r2,modifier]=model.words,lookup=v=>v?this.game.dictionary.lookup(v.toUpperCase()).value:0;
-  return {verb:lookup(verb),modifier:lookup(modifier),groups:args[0]===255?[]:[{noun:0,qualifiers:[],relations:[r1,r2].filter(Boolean).map(lookup)}],resolved:args.filter(v=>v!==255),subject:null,all:false,exclusion:false,quote:null};
+  // C4D1 starts from the selected action model. Keep its dictionary
+  // references, since parsing IN as player input can turn it into VISIT.
+  const [verb,r1,r2,modifier]=model.words.map((word,i)=>word?model.wordReferences[i]&0x0FFF:0);
+  return {verb,modifier,groups:args[0]===255?[]:[{noun:0,qualifiers:[],relations:[r1,r2].filter(Boolean)}],resolved:args.filter(v=>v!==255),subject:null,all:false,exclusion:false,quote:null};
  }
  // C8EF updates a slot only for an ID below FE. Class <5 selects the
  // room index; other classes select the entity index. FE/FF preserve the

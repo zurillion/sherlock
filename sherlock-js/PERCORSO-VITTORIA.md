@@ -276,6 +276,47 @@ python3 tools/probe-murder-ending.py \
   --output /tmp/sherlock-victoria-native.json
 ```
 
+## La stessa sequenza con seed 255
+
+Con il seed 255, i comandi del percorso per Victoria portano al
+finale **$6A26** martedì alle 01:02. Holmes è in un cab a King’s
+Cross Road mentre Lestrade è a Slater Street. Il caso non è pronto
+e $9E87–$9EA1 seleziona $6A26 dopo il confronto delle due locazioni.
+
+Il primo scarto osservato nel confronto era alla riga 219
+(checkpoint 218 con indice da zero), durante un’attesa. Strachan
+sceglie di sedersi sul divano dei Brown. Il nodo $F053 contiene
+già l’ID di SIT IN ($28) e lascia ambo gli argomenti a FF. Il ramo
+$C4D1–$C53F carica il modello, cerca il primo candidato e verifica
+la regola locale $E40A del divano. A fine azione lo slot 5 è nel
+contenitore 60 e riprende da $F029 tra due minuti. Alle 15:03
+Strachan si alza tramite $F057 e la ripresa a $F059 conserva lo
+stesso costo.
+
+Il lexer dell’input interpreta IN come alias di VISIT. Il modello
+dell’azione conserva invece l’offset lessicale $450, che produce
+IN. La ricostruzione delle azioni interne usa i riferimenti del
+modello. Lo stesso meccanismo preserva la preposizione nelle
+azioni interne DROP IN e PUT IN. Un test verifica tutti gli ID
+del catalogo con un argomento già risolto.
+
+Il confronto arriva al finale in 803 checkpoint con 2.460 estrazioni
+e 5.168 letture dopo l’avvio. Comprende i 24 slot degli attori, i record,
+le bitmap, la schermata prima della conferma del finale e la
+prosecuzione dopo Salva/Carica.
+
+[Rapporto](results/seed-and-saves/victoria-seed255-verification.json) ·
+[Corpus originale](results/seed-and-saves/victoria-seed255-native.json.gz) ·
+[Manifest](results/seed-and-saves/victoria-seed255-manifest.json)
+
+Per ripetere l’acquisizione dallo Spectrum:
+
+```sh
+python3 tools/probe-murder-ending.py --seed 255 --every-minute \
+  --manifest results/seed-and-saves/victoria-seed255-manifest.json \
+  --output /tmp/sherlock-victoria-seed255.json
+```
+
 ## Riproduzione JavaScript fino a Mrs Jones
 
 Il confronto dal primo comando arriva a **374 checkpoint**, fino

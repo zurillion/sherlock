@@ -1,0 +1,7 @@
+[
+  {
+    "label": "victoria-route-with-seed-255",
+    "history": "results/victory-route/victoria-full-route.txt",
+    "expected": "6A26"
+  }
+]

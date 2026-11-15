@@ -1,0 +1,26 @@
+{
+  "seed": 255,
+  "checkpoints": 803,
+  "terminal": {
+    "entry": "9E74",
+    "reason": "story",
+    "text_pointer": "6A26"
+  },
+  "last_clock": {
+    "tick": 1023,
+    "due": 1026,
+    "minute": 2,
+    "hour": 1,
+    "day": 1,
+    "period": "am",
+    "label": "Tue 01:02am"
+  },
+  "actor_slots": 24,
+  "arena_bytes_per_checkpoint": 752,
+  "upper_and_lower_bitmaps": true,
+  "browser_packets": true,
+  "future_after_load": true,
+  "compared_post_boot_draws": 2460,
+  "compared_post_boot_reads": 5168,
+  "native_corpus_sha256": "eedf6363233e11b802d9a76db89399b2c5d23ecd8bb88761dac5799a1a30da1c"
+}

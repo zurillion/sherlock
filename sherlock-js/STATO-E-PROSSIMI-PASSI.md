@@ -87,6 +87,12 @@ i qualificatori dal soggetto.
 [Rapporto seed 137](results/seed-and-saves/brown-clues-verification.json) ·
 [Corpus dello Spectrum](results/seed-and-saves/brown-clues-native.json.gz)
 
+Con il seed 255, la sequenza per Victoria porta al finale $6A26
+martedì alle 01:02. La verifica copre 803 checkpoint, inclusi il
+turno in cui Strachan si siede e la conferma del finale. I riferimenti
+lessicali dei modelli DOMAIN ora restano quelli dell’azione già scelta.
+[Percorso e spiegazione](PERCORSO-VITTORIA.md#la-stessa-sequenza-con-seed-255).
+
 ## Storico precedente
 
 Aggiornamento 12 novembre 2026.
