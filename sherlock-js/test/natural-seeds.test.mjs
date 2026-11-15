@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import { Game } from '../src/game.mjs';
 import { compareNaturalHistory } from './helpers/compare-natural-history.mjs';
@@ -15,6 +16,19 @@ for (const scenario of cases) {
   });
 }
 
+
+test('Native seed 137 through the Brown house clues', async () => {
+  const directory = new URL('../results/seed-and-saves/', import.meta.url);
+  const report = JSON.parse(await readFile(new URL('brown-clues-verification.json', directory)));
+  const compressed = await readFile(new URL('brown-clues-native.json.gz', directory));
+  assert.equal(createHash('sha256').update(compressed).digest('hex'), report.native_corpus_sha256);
+  const { cases: [scenario] } = JSON.parse(gunzipSync(compressed));
+  assert.equal(scenario.seed, report.seed);
+  assert.equal(scenario.steps.length, report.checkpoints);
+  const result = await compareNaturalHistory(data, scenario);
+  assert.deepEqual(result.clock, report.last_clock);
+  assert.equal(result.terminal, report.terminal);
+});
 
 test('The consumed quotation address survives unrelated commands and saves', () => {
   const game = new Game(data, { npc_profile: 'world-v5', seed: 1 });

@@ -683,7 +683,7 @@ export class NpcRuntime {
     const e=w.entity(actor);
     const name=w.name(actor),prefixEnd=name.indexOf(' ');
     // The qualified arrival frame is verified for Inspector Lestrade.
-    if(e.person&&(e.noun&32768)&&name.slice(0,prefixEnd)==='Inspector')for(const m of shown)if(m.arrival_entity===actor){
+    if(e.person&&(e.noun&32768)&&e.qualifiers.some(Boolean)&&name.slice(0,prefixEnd)==='Inspector')for(const m of shown)if(m.arrival_entity===actor){
      m.scene_trace=[{kind:'arrival-person-prefix',start:0,end:prefixEnd,frame:0x5D2C}];
     }
     if(e.person&&(e.noun&32768)&&e.qualifiers.every(q=>!q||(q&32768)))for(const m of shown)if(m.arrival_entity===actor)Object.assign(m,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,...(this.game.sourceDisplay.state?.cursor===0&&this.game.sourceDisplay.state?.remaining===36&&this.game.sourceDisplay.state?.pending===''&&this.game.sourceDisplay.state?.spacingFlag===0&&this.game.sourceDisplay.state?.counter+2<15&&m.text.length<36?{preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true}:{})});

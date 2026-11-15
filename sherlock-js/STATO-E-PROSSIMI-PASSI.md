@@ -69,6 +69,24 @@ solo al confronto offline.
 [Corpus dello Spectrum](results/seed-and-saves/watson-cab-native.json.gz) ·
 [Test](test/natural-seeds.test.mjs)
 
+Con il seed 137, la sequenza più lunga copre l’arrivo a Leatherhead,
+l’ingresso nella casa dei Brown e gli indizi. Coincide fino a martedì
+alle 11:36 su 338 checkpoint, con 4.045 estrazioni e 8.650 letture
+dopo l’apertura. La partita prosegue a quel punto. Usa lo stesso
+profilo e confronto Salva/Carica dei percorsi brevi.
+
+Il cursore del parser in $A02B–$A02C resta oltre il punto finale di
+`WAIT UNTIL` anche quando l’attesa è eseguita in una sola chiamata.
+L’attesa interattiva e quella sincrona salvano lo stesso stato.
+Per gli annunci d’arrivo, il ramo del prefisso «Inspector» richiede
+che il record contenga un qualificatore. Il controllo ABI degli
+arrivi usa il testo originale stampato quando il probe toglie
+i qualificatori dal soggetto.
+
+[Comandi fino agli indizi di Brown](results/seed-and-saves/brown-clues-route.txt) ·
+[Rapporto seed 137](results/seed-and-saves/brown-clues-verification.json) ·
+[Corpus dello Spectrum](results/seed-and-saves/brown-clues-native.json.gz)
+
 ## Storico precedente
 
 Aggiornamento 12 novembre 2026.

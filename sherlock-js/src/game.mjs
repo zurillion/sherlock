@@ -202,7 +202,7 @@ export class Game {
     if(actor===w.player)w.npcs.playerProgramCounter='9945';
     // AEA4 has consumed the period after the literal. D797 returns the
     // cursor one byte past it while A029 still points to the period.
-    if(this.streamWait&&this.actingActor===undefined&&w.npcs.parserTokenStart+1===this.currentInputEnd)
+    if(this.actingActor===undefined&&w.npcs.parserTokenStart+1===this.currentInputEnd)
      w.npcs.parserNextToken=this.currentInputEnd;
    }
    const cost=waitUntilCost(literal,w.clock());if(w.npcs){this.npcRuntime.temporaryCost(cost);if(this.actingActor===undefined)this.npcRuntime.captureAnnouncementOperands(action,[254]);}return ok([],cost,[254]);
