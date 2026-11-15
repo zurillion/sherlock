@@ -68,3 +68,22 @@ test('Internal NPC actions keep the selected model’s dictionary references', (
   assert.equal(left.cost, 2);
   assert.equal(game.world.entity(5).parent, null);
 });
+
+test('The text-only profile follows the original read at the first graphics divergence', async () => {
+  const evidence = new URL('../results/seed-and-saves/native-graphics-first-read.json', import.meta.url);
+  const report = JSON.parse(await readFile(evidence));
+  const game = new Game(data, { npc_profile: 'world-v5', seed: report.seed });
+  for (const command of report.route.slice(0, -1)) game.submit(command);
+  const before = game.world.random.draws;
+  const outcome = game.submit(report.route.at(-1));
+  const count = game.world.random.draws - before;
+  assert(count > 0);
+  const draw = game.world.random.trace.at(-count);
+  const expected = report.first_difference.graphics_off;
+  assert.equal(outcome.state.clock.label, report.video[1].clock.label);
+  for (const key of ['actor', 'width', 'seed', 'cursor', 'result', 'next_seed', 'next_cursor']) {
+    assert.equal(draw[key], expected[key], key);
+  }
+  assert.equal(draw.mixOffset, expected.offset);
+  assert.deepEqual(draw.reads.map(({ address, value }) => [address, value]), expected.reads);
+});

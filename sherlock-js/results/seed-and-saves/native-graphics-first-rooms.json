@@ -395,5 +395,46 @@
       "NE",
       "WAIT UNTIL 12PM"
     ]
+  },
+  "continued_to_kings_cross_ending": {
+    "checkpoints": 400,
+    "draws": 1129,
+    "reads": 2366,
+    "last_clock": {
+      "tick": 418,
+      "due": 901,
+      "minute": 57,
+      "hour": 2,
+      "day": 0,
+      "period": "pm",
+      "label": "Mon 02:57pm"
+    },
+    "terminal": {
+      "entry": "9E74",
+      "reason": "story",
+      "text_pointer": "693A"
+    },
+    "route": [
+      "SAY \"HELLO\" TO WATSON",
+      "OPEN YOUR DOOR",
+      "W",
+      "D",
+      "OPEN DOOR",
+      "S",
+      "LOOK",
+      "HAIL CAB",
+      "CLIMB INTO CAB",
+      "SAY TO CABBIE \"GO TO KINGS CROSS ROAD\"",
+      "WAIT",
+      "WAIT",
+      "WAIT",
+      "PAY 6D TO CABBIE",
+      "GET OUT",
+      "NE",
+      "NE",
+      "WAIT UNTIL 12PM",
+      "WAIT UNTIL 11PM"
+    ],
+    "matched_trace_sha256": "f504ab120f4c1fe3d83c0c015925d417ac6f8b3f35fab899646cbf223855586d"
   }
 }

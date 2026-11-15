@@ -1,0 +1,742 @@
+{
+  "protocol": "Two native runs from the free initial LOOK with injected uppercase keys and immediate MORE. The second clears A011 once after boot.",
+  "seed": 1,
+  "actors": 24,
+  "route": [
+    "SAY \"HELLO\" TO WATSON",
+    "TAKE LAMP",
+    "OPEN ALL",
+    "N",
+    "WEAR CHINA MANS DISGUISE",
+    "TAKE OFF CHINA MANS DISGUISE",
+    "S",
+    "WAIT",
+    "WAIT",
+    "SAY WATSON \"FOLLOW ME\"",
+    "W",
+    "D"
+  ],
+  "matched_draws": 65,
+  "matched_reads": 132,
+  "matched_trace_sha256": "9cff3f1f5a6f3090a07d430b82ccbebc1a389871ba1b5cf436922a7a7ea8fdc8",
+  "first_difference": {
+    "graphics_on": {
+      "tick": 24,
+      "actor": 5,
+      "width": 99,
+      "offset": 5,
+      "seed": 80,
+      "cursor": 17408,
+      "reads": [
+        [
+          17664,
+          0
+        ],
+        [
+          17670,
+          0
+        ],
+        [
+          17920,
+          0
+        ],
+        [
+          17926,
+          0
+        ],
+        [
+          18176,
+          0
+        ],
+        [
+          18182,
+          0
+        ],
+        [
+          18432,
+          0
+        ],
+        [
+          18438,
+          0
+        ],
+        [
+          18688,
+          0
+        ],
+        [
+          18694,
+          0
+        ],
+        [
+          18944,
+          0
+        ],
+        [
+          18950,
+          0
+        ],
+        [
+          19200,
+          0
+        ],
+        [
+          19206,
+          0
+        ],
+        [
+          19456,
+          0
+        ],
+        [
+          19462,
+          0
+        ],
+        [
+          19712,
+          0
+        ],
+        [
+          19718,
+          0
+        ],
+        [
+          19968,
+          0
+        ],
+        [
+          19974,
+          0
+        ],
+        [
+          20224,
+          0
+        ],
+        [
+          20230,
+          0
+        ],
+        [
+          20480,
+          0
+        ],
+        [
+          20486,
+          0
+        ],
+        [
+          20736,
+          3
+        ],
+        [
+          20742,
+          64
+        ]
+      ],
+      "result": 80,
+      "next_seed": 19,
+      "next_cursor": 20736
+    },
+    "graphics_off": {
+      "tick": 24,
+      "actor": 5,
+      "width": 99,
+      "offset": 5,
+      "seed": 80,
+      "cursor": 17408,
+      "reads": [
+        [
+          17664,
+          17
+        ],
+        [
+          17670,
+          4
+        ]
+      ],
+      "result": 2,
+      "next_seed": 101,
+      "next_cursor": 17664
+    }
+  },
+  "video": [
+    {
+      "graphics": true,
+      "before": [
+        4,
+        8
+      ],
+      "checkpoints": [
+        {
+          "pc": "A277",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            16,
+            72
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "A296",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            16,
+            72
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "A284",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "C129",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "A28D",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1
+        },
+        {
+          "pc": "A290",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1
+        },
+        {
+          "pc": "D2AD",
+          "tick": 24,
+          "actor": 5,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1
+        },
+        {
+          "pc": "F1A1",
+          "tick": 24,
+          "actor": 5,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1,
+          "threshold": 10,
+          "percentage": 81
+        },
+        {
+          "pc": "D2AD",
+          "tick": 25,
+          "actor": 3,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1
+        },
+        {
+          "pc": "D2AD",
+          "tick": 25,
+          "actor": 3,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1
+        },
+        {
+          "pc": "D2AD",
+          "tick": 25,
+          "actor": 5,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1
+        },
+        {
+          "pc": "F1A1",
+          "tick": 25,
+          "actor": 5,
+          "values": [
+            0,
+            0
+          ],
+          "narrow": 1,
+          "threshold": 10,
+          "percentage": 4
+        }
+      ],
+      "video_changes": [
+        {
+          "pc": "C33C",
+          "values": [
+            8,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            8,
+            67
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            16,
+            67
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            16,
+            72
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            72
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            64
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            2,
+            64
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            2,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            15,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            15,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            5
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            22,
+            5
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            22,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            10
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            1,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            1,
+            71
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            22,
+            71
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            22,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            0
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            4,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            0,
+            0
+          ]
+        }
+      ],
+      "clock": {
+        "tick": 26,
+        "due": 26,
+        "minute": 25,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:25am"
+      },
+      "strachan": {
+        "pc": "F018",
+        "due": 25
+      }
+    },
+    {
+      "graphics": false,
+      "before": [
+        4,
+        8
+      ],
+      "checkpoints": [
+        {
+          "pc": "A277",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            16,
+            72
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "A290",
+          "tick": 24,
+          "actor": 0,
+          "values": [
+            16,
+            72
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "D2AD",
+          "tick": 24,
+          "actor": 5,
+          "values": [
+            17,
+            4
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "F1A1",
+          "tick": 24,
+          "actor": 5,
+          "values": [
+            17,
+            4
+          ],
+          "narrow": 0,
+          "threshold": 10,
+          "percentage": 3
+        },
+        {
+          "pc": "D2AD",
+          "tick": 25,
+          "actor": 3,
+          "values": [
+            15,
+            8
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "D2AD",
+          "tick": 25,
+          "actor": 3,
+          "values": [
+            15,
+            8
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "D2AD",
+          "tick": 25,
+          "actor": 5,
+          "values": [
+            15,
+            8
+          ],
+          "narrow": 0
+        },
+        {
+          "pc": "F1A1",
+          "tick": 25,
+          "actor": 5,
+          "values": [
+            15,
+            8
+          ],
+          "narrow": 0,
+          "threshold": 10,
+          "percentage": 2
+        }
+      ],
+      "video_changes": [
+        {
+          "pc": "C33C",
+          "values": [
+            8,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            8,
+            67
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            16,
+            67
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            16,
+            72
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            72
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            64
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            2,
+            64
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            2,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            8
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            17,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            15,
+            4
+          ]
+        },
+        {
+          "pc": "C33C",
+          "values": [
+            15,
+            8
+          ]
+        }
+      ],
+      "clock": {
+        "tick": 26,
+        "due": 26,
+        "minute": 25,
+        "hour": 8,
+        "day": 0,
+        "period": "am",
+        "label": "Mon 08:25am"
+      },
+      "strachan": {
+        "pc": "F018",
+        "due": 25
+      }
+    }
+  ]
+}

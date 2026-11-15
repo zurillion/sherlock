@@ -108,13 +108,45 @@ diverso a partire da D.
 Nei primi sette comandi coincidono gli indirizzi e i valori letti
 dal generatore, il suo accumulatore e il suo cursore. Il confronto
 è stato esteso al tragitto in cab fino a King’s Cross e a un’attesa
-fino a lunedì alle 12:00. Su 615 estrazioni, tutte le 1298 letture
-coincidono fra i due profili. La prossima verifica è trovare una
-lettura sensibile ai pixel o ai residui dello stack grafico. La
-grafica della pagina rimane una presentazione del profilo
-JavaScript già verificato.
+fino a lunedì alle 12:00. Su 615 estrazioni coincidono tutte le
+1.298 letture. Restando al binario con WAIT UNTIL 11PM, il finale
+$693A interrompe l’attesa lunedì alle 14:57 in entrambi i profili.
+L’intera tratta copre 400 checkpoint, 1.129 estrazioni e 2.366
+letture coincidenti.
 
-[Misure dai due profili dello Spectrum](results/seed-and-saves/native-graphics-first-rooms.json).
+Nella sequenza per Victoria, dopo 65 estrazioni e 132 letture
+coincidenti, il primo scarto arriva con D, entrando nella stanza
+006. La lettura avviene al tick 24 (lunedì alle 08:23) durante
+il turno di Strachan. Il prompt ritorna alle 08:25.
+
+- All’ingresso in $A277 i byte $4500 e $4506 sono $10 e $48 in
+  entrambi i profili. Sono nella riga pixel 5, da x=0 e x=48.
+- Se c’è un’immagine, $A296 accoda 18 ritorni a capo e azzera
+  $A019 a ciascun giro. La copia $C33C cancella entrambi i byte;
+  il valore è già zero all’ingresso di $C129, prima di $F3C2.
+  Nel profilo senza grafica, lo scroll della descrizione ordinaria
+  lascia invece $11 e $04 al momento dell’estrazione. La traccia
+  attribuisce tutti i cambi di questi due byte a $C33C.
+- $D2CB e $D2D0 leggono la coppia con offset 5. Con grafica,
+  dodici coppie a zero lasciano invariato l’accumulatore. Il primo
+  tentativo valido usa $5100 e $5106. $F1A1 confronta 81 con
+  la soglia 10 e il predicato fallisce. Senza grafica, accetta
+  subito la coppia $4500/$4506, restituisce 3 e il predicato riesce.
+  Il motore JavaScript attuale coincide con questo secondo profilo.
+
+Il passo seguente è modellare la pulizia, lo scorrimento a 16
+byte per riga pixel con la finestra stretta e il riquadro nel
+buffer letto dal generatore. Questo caso fornisce un controllo
+puntuale del passaggio fra i due profili.
+
+[Misure iniziali e ramo di King’s Cross](results/seed-and-saves/native-graphics-first-rooms.json) ·
+[Prima estrazione divergente e writer](results/seed-and-saves/native-graphics-first-read.json).
+
+Per ripetere il probe dalla cartella del motore:
+
+```sh
+python3 tools/probe-native-graphics-first-read.py /tmp/sherlock-first-video-read.json
+```
 
 ## Storico precedente
 
