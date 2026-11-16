@@ -1,6 +1,7 @@
 import {capitalKind,normalizedCapital,moneyClearsCapital} from './output-capitalization.mjs';
 import {spectrumClockAdvance,spectrumClockOrigin,textWindowControl} from './text-window.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
+import {applyRoomPicture,newPictureWindow,paintGlyph,scrollPictureWindow,validPictureWindow} from './picture-window.mjs';
 import {bootstrapKeyboard,bootstrapWordWorkspace} from './keyboard-profile.mjs';
 
 function incrementFlags(before,carry=0){
@@ -13,6 +14,7 @@ function incrementFlags(before,carry=0){
 export class RandomDisplay {
  constructor(data,world){this.data=data;this.world=world;}
  initialize(opening,{sceneTrace=[],deferPrompt=false}={}){this.world.display={version:1,profile:'historical-text-only',capitalizationFlag:this.data.argumentChecks?.initialCapitalization??null,forceUppercase:this.data.argumentChecks?.initialForceUppercase??null,spacingFlag:this.data.argumentChecks?.initialOutputSpacing??null,wordBuffer:bootstrapWordWorkspace(this.data.randomInputs.bootOptions),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
+  if(this.world.npcs?.nativeGraphicsEnabled)this.state.pictureWindow=newPictureWindow();
   if(this.data.randomInputs.editorInitial){this.state.input=this.data.randomInputs.editorInitial.slice(0,129);this.state.inputKnown=this.state.input.map(()=>true);this.state.tokens=this.data.randomInputs.editorInitial.slice(129);this.state.tokenKnown=this.state.tokens.map(()=>true);}
   // ROM 0616–062B allocates a LOAD header after the BASIC program, its
   // variable terminator and the five-byte LOAD "" editor line. It fills
@@ -22,6 +24,23 @@ export class RandomDisplay {
   this.wideWindow(); // C14A/C15D initializes the source window through C142.
   this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');if(!deferPrompt)this.prompt();}
  wideWindow(){const s=this.state;if(!s)return;const next=textWindowControl(false,s.counter);s.windowMode=next.mode;s.cursor=next.cursor;s.remaining=next.remaining;s.started=false;}
+ picture(room,direct){
+  const s=this.state,asset=this.data.sourcePictures?.[room];
+  if(!s.pictureWindow||asset===undefined){
+   if(s.pictureWindow&&this.data.pictures?.[room])throw new RandomInputsUnavailable('Dati grafici originali della locazione mancanti.');
+   return;
+  }
+  // A296: empty the previous window with 18 CRs; reset the MORE budget
+  // after each. C129 switches to 18 columns before drawing the picture.
+  for(let row=0;row<18;row++){this.feed('\n');s.counter=0;}
+  const {mode,cursor,remaining,counter}=textWindowControl(true,s.counter);
+  Object.assign(s,{windowMode:mode,cursor,remaining,counter,started:false});
+  if(!applyRoomPicture(s.pictureWindow,asset))throw new RandomInputsUnavailable('Sfondo del disegno originale non ricostruito.');
+  // The verified direct LOOK/movement callers start F3C2 at 5D54 or 5D58.
+  // The deepest asset needs 40 bytes below that frame. Leave a guard for
+  // A296's text calls. Other callers keep the more conservative revocation.
+  this.invalidateScratch(direct?0x5D00:0x5CEC);
+ }
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[]){const s=this.state;
   const shallow=sceneTrace.some(r=>r.kind==='relocation-person-prefix');
@@ -327,15 +346,40 @@ export class RandomDisplay {
   Object.assign(s,{[0x5D64]:0xA7,[0x5D65]:0xD2,[0x5D66]:0xA2,[0x5D67]:0xD2,[0x5D68]:0x9D,[0x5D69]:0xF1});
  }
  invalidateScratch(from=0x5CEC,to=0x5D69,except=[]){if(this.state)for(const at of Object.keys(this.state.scratch))if(Number(at)>=from&&Number(at)<=to&&!except.includes(Number(at)))delete this.state.scratch[at];}
- newline(){const s=this.state;if(this.world.npcs?.printerEnabled){const paper=s.printerPaper??(s.printerPaper=[]);paper.push(Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));}if(s.counter===15){this.wideWindow();s.counter=255;}s.counter=(s.counter+1)&255;s.upper.shift();s.upper.push('');s.cursor=0;s.remaining=36;s.started=false;s.scrolls++;}
- put(c,glyphFrame=this.glyphFrame){const s=this.state,row=s.upper[17].padEnd(36,' ');s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();s.cursor++;s.remaining--;s.started=true;if(!s.remaining){if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.newline();}}
+ newline(){
+  const s=this.state;
+  if(s.counter===15){this.wideWindow();s.counter=255;}
+  if(this.world.npcs?.printerEnabled&&s.windowMode!==1){
+   const paper=s.printerPaper??(s.printerPaper=[]);
+   paper.push(s.pictureWindow?s.pictureWindow.pixels.slice(0,256):
+    Array.from({length:256},(_,i)=>this.rowByte(s.upper[0],Math.floor(i/32),(i%32)*8)));
+  }
+  s.counter=(s.counter+1)&255;
+  if(s.pictureWindow)scrollPictureWindow(s.pictureWindow,s.windowMode===1);
+  s.upper.shift();s.upper.push('');
+  s.cursor=0;s.remaining=s.windowMode===1?18:36;s.started=false;s.scrolls++;
+ }
+ put(c,glyphFrame=this.glyphFrame){
+  const s=this.state,row=s.upper[17].padEnd(36,' ');
+  if(s.pictureWindow){
+   const glyph=this.data.spectrum.glyphs[(c==='£'?96:c.charCodeAt(0))-this.data.spectrum.first];
+   if(!glyph)throw new RandomInputsUnavailable('Glifo della proiezione video non ricostruito.');
+   paintGlyph(s.pictureWindow,glyph,s.cursor);
+  }
+  s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();
+  s.cursor++;s.remaining--;s.started=true;
+  if(s.remaining)return;
+  if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),s.windowMode===1?17:35,0x5A20);
+  else if(this.upperGlyphKnown===false)for(const address of [0x5D1E,0x5D20,0x5D21,0x5D22,0x5D23,0x5D24,0x5D25,0x5D26,0x5D27,0x5D28,0x5D29,0x5D2A,0x5D2B])delete s.scratch[address];
+  this.newline();
+ }
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
  // wraps and C142 do not reset it. Only normalized CR and an exact-fit
  // buffered word clear it; a non-suppressed character sets it to1.
  normalizeCapital(c){this.state.capitalizationFlag=normalizedCapital(this.state.capitalizationFlag,c);}
  moneyCapital(pence){if(moneyClearsCapital(pence))this.state.capitalizationFlag=0;}
  normalizeSpacing(c){const s=this.state;if(!s)return;this.normalizeCapital(c);if(c==='\n'||c==='\r')s.spacingFlag=0;else if(c!==' '||s.spacingFlag!=null&&s.spacingFlag!==0)s.spacingFlag=1;}
- flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
+ flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,s.windowMode===1?17:35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
  // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
  lexicalWorkspace(copies=[],candidateCopies=[]){
   const b=this.state?.wordBuffer;if(!b)return;
@@ -379,7 +423,7 @@ export class RandomDisplay {
  }
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
- write(text,{cabAction=false,leading=false,sceneTrace=null,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureDirect=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureDirect);if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
   this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}
@@ -455,7 +499,7 @@ export class RandomDisplay {
    return [36-Math.floor((lower-2)/7),s.remaining,lp&255,lp>>>8,up&255,up>>>8,upper&7,lower&7][address-0xC1F4];
   }
   // C182 fills the 32 status cells with bright white paper.
-  if(address>=0x5800&&address<0x5B00)return address>=0x5A40&&address<0x5A60?0x78:0x38;
+  if(address>=0x5800&&address<0x5B00)return address>=0x5A40&&address<0x5A60?0x78:s.pictureWindow?.attributes[address-0x5800]??0x38;
   // Declared oracle protocol: the tape was started with RETURN, it has been
   // released with two empty scans, and game keys are injected above the
   // ROM scanner. Its second KSTATE slot has not yet expired. This is NOT a model of
@@ -467,6 +511,7 @@ export class RandomDisplay {
   if(address in (s.scratch||{}))return s.scratch[address];
   if(address<0x4000||address>=0x5800)return null;
   const offset=address-0x4000,y=((offset>>>11)&3)*64+((offset>>>5)&7)*8+((offset>>>8)&7),x=(offset&31)*8;
+  if(y<144&&s.pictureWindow)return s.pictureWindow.pixels[y*32+x/8];
   if(y<144)return this.rowByte(s.upper[Math.floor(y/8)],y&7,x);
   if(y>=152){const row=Math.floor((y-152)/8);if(!s.lowerKnown[row])throw new RandomInputsUnavailable('Cronologia video degli errori non ancora ricostruita: comando non applicato.');return this.rowByte(s.lower[row],y&7,x);}
   const scan=y-144,clock=' '+this.world.clock().label+' ';
@@ -482,5 +527,5 @@ export class RandomDisplay {
   }
   return result;
  }
- static validate(s){if(s===null||s===undefined)return;if(s.forceUppercase!=null&&s.forceUppercase!==0&&s.forceUppercase!==1)throw Error("Modo maiuscole forzate non valido");if(s.capitalizationFlag!==undefined&&s.capitalizationFlag!==null&&(!Number.isInteger(s.capitalizationFlag)||s.capitalizationFlag<0||s.capitalizationFlag>255))throw Error('Stato delle maiuscole non valido');if(s.wordBuffer?.capitalClasses!==undefined&&(!Array.isArray(s.wordBuffer.capitalClasses)||s.wordBuffer.capitalClasses.length!==128||s.wordBuffer.capitalClasses.some(v=>v!==null&&![-1,0,1].includes(v))))throw Error('Classi del buffer delle maiuscole non valide');if(s.spacingFlag!==undefined&&s.spacingFlag!==null&&(!Number.isInteger(s.spacingFlag)||s.spacingFlag<0||s.spacingFlag>255))throw Error('Stato degli spazi non valido');if(s.windowMode!==undefined&&s.windowMode!==null&&s.windowMode!==0)throw Error('Modo finestra nativo non supportato dal profilo di testo.');if(s.wordBuffer!==undefined&&(!s.wordBuffer||!Number.isInteger(s.wordBuffer.index)||s.wordBuffer.index<0||s.wordBuffer.index>128||!Array.isArray(s.wordBuffer.bytes)||s.wordBuffer.bytes.length!==128||s.wordBuffer.bytes.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Buffer parola non valido');if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>36||s.remaining!==36-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
+ static validate(s){if(s===null||s===undefined)return;if(s.forceUppercase!=null&&s.forceUppercase!==0&&s.forceUppercase!==1)throw Error("Modo maiuscole forzate non valido");if(s.capitalizationFlag!==undefined&&s.capitalizationFlag!==null&&(!Number.isInteger(s.capitalizationFlag)||s.capitalizationFlag<0||s.capitalizationFlag>255))throw Error('Stato delle maiuscole non valido');if(s.wordBuffer?.capitalClasses!==undefined&&(!Array.isArray(s.wordBuffer.capitalClasses)||s.wordBuffer.capitalClasses.length!==128||s.wordBuffer.capitalClasses.some(v=>v!==null&&![-1,0,1].includes(v))))throw Error('Classi del buffer delle maiuscole non valide');if(s.spacingFlag!==undefined&&s.spacingFlag!==null&&(!Number.isInteger(s.spacingFlag)||s.spacingFlag<0||s.spacingFlag>255))throw Error('Stato degli spazi non valido');if(s.pictureWindow!==undefined&&!validPictureWindow(s.pictureWindow)||s.windowMode!=null&&s.windowMode!==0&&(s.windowMode!==1||!s.pictureWindow))throw Error('Modo finestra nativo non valido.');if(s.wordBuffer!==undefined&&(!s.wordBuffer||!Number.isInteger(s.wordBuffer.index)||s.wordBuffer.index<0||s.wordBuffer.index>128||!Array.isArray(s.wordBuffer.bytes)||s.wordBuffer.bytes.length!==128||s.wordBuffer.bytes.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Buffer parola non valido');if(s.printerPaper!==undefined&&(!Array.isArray(s.printerPaper)||s.printerPaper.length>100000||s.printerPaper.some(r=>!Array.isArray(r)||r.length!==256||r.some(v=>!Number.isInteger(v)||v<0||v>255))))throw Error('Carta della stampante non valida');if(s.version!==1||s.profile!=='historical-text-only'||!Array.isArray(s.upper)||s.upper.length!==18||!s.upper.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lower)||s.lower.length!==5||!s.lower.every(v=>typeof v==='string'&&v.length<=36)||!Array.isArray(s.lowerKnown)||s.lowerKnown.length!==5||!s.lowerKnown.every(v=>typeof v==='boolean')||typeof s.pending!=='string'||s.pending.length>128||!Array.isArray(s.input)||!s.input.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!Array.isArray(s.inputKnown)||s.inputKnown.length!==s.input.length||!s.inputKnown.every(v=>typeof v==='boolean')||!Number.isInteger(s.cursor)||s.cursor<0||s.cursor>(s.windowMode===1?18:36)||s.remaining!==(s.windowMode===1?18:36)-s.cursor||!Number.isInteger(s.counter)||s.counter<0||s.counter>255||!Number.isSafeInteger(s.scrolls)||s.scrolls<0||typeof s.started!=='boolean'||s.lastSpacePrinted!==undefined&&typeof s.lastSpacePrinted!=='boolean'||s.lowerCursor!==undefined&&(!Number.isInteger(s.lowerCursor)||s.lowerCursor<2||s.lowerCursor>254||(s.lowerCursor-2)%7))throw Error('Proiezione video casuale non valida.');}
 }

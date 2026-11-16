@@ -75,9 +75,24 @@ const informationRules={
  predicates:Array.from({length:11},(_,i)=>word(0x994D+2*i)),predicateTerminator:word(0x9963),exceptions:[],
  initialWatsonSelection:{mode:byte(0xBA60),recording:byte(0xBA61),triple:[byte(0xBA62),byte(0xBA63),byte(0xBA64)],handler:word(0xBA65)},
 };
-const data={argumentChecks,lexer,informationRules,randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{}};
+const data={argumentChecks,lexer,informationRules,randomInputs,conversationTopics,npcPrograms,descriptionSearch,cab:{streets:cabCatalog.destinations.map(d=>d.id),routes:cabCatalog.routes.map(({source,target,duration})=>({source,target,duration}))},version:1,source_sha256:sha,dictionary,rooms,entities,actions,texts,spectrum:assets,pictures:{},sourcePictures:{}};
 await mkdir(join(target,'data'),{recursive:true});await mkdir(join(target,'images'),{recursive:true});
 for(const name of await readdir(join(analysis,'grafica/immagini')))if(/^\d{3}.*-straight\.svg$/.test(name)){const id=Number(name.slice(0,3)),route=`images/${String(id).padStart(3,'0')}.svg`;await copyFile(join(analysis,'grafica/immagini',name),join(target,route));data.pictures[id]=route;}
+// These .scr assets were rendered offline from the picture primitives. Pack
+// only the right half, never the console, status bar or engine workspace.
+const nativePictures=await read('grafica/verification.json');
+const verifiedPictures=new Map(nativePictures.results.filter(row=>row.mismatches===0&&row.command_mismatches.length===0).map(row=>[row.location,row.screen_sha256]));
+for(const name of await readdir(join(analysis,'grafica/immagini'))){
+ if(!/^\d{3}\.scr$/.test(name))continue;
+ const id=Number(name.slice(0,3)),source=await readFile(join(analysis,'grafica/immagini',name)),rows=[];
+ if(source.length!==6912||createHash('sha256').update(source).digest('hex')!==verifiedPictures.get(id))throw Error('Unexpected original location picture: '+name);
+ for(let y=0;y<144;y++){
+  const start=((y&192)<<5)|((y&7)<<8)|((y&56)<<2)|16;
+  rows.push(source.subarray(start,start+16));
+ }
+ for(let y=0;y<18;y++)rows.push(source.subarray(6144+y*32+16,6144+y*32+32));
+ data.sourcePictures[id]=Buffer.concat(rows).toString('base64');
+}
 await writeFile(join(target,'data/game.json'),JSON.stringify(data)+'\n');
 await mkdir(join(target,'test/fixtures'),{recursive:true});
 for(const [source,name] of [['parser/results/commands.json','parser.json'],['parser/results/lookup-checks.json','lookup.json'],['parser/results/literals-and-boundary.json','literals.json'],['parser/results-special/special-cases.json','special.json']])await writeFile(join(target,'test/fixtures',name),JSON.stringify(await read(source))+'\n');

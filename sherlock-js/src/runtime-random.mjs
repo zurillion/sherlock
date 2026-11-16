@@ -15,6 +15,9 @@ export class RuntimeRandom {
  get available(){return Boolean(this.world.random);}
  read(address){
   if(!Number.isInteger(address)||address<0||address>65535)throw Error('Invalid random source address');
+  // F4AE/F4CD/F4EC write the two scanline flags when a picture was drawn.
+  if(this.world.display?.pictureWindow?.drawn&&(address===0xF48E||address===0xF48F))
+   throw new RandomInputsUnavailable('Residuo del riempimento grafico non ancora ricostruito.',{address});
   if(this.projector){const projected=this.projector(address);if(projected!==null)return projected;}
   for(const range of this.inputs.source.ranges)if(address>=range.start&&address<range.start+range.values.length)return range.values[address-range.start];
   if(address>=0x4000&&address<0x5D80&&this.display){const value=this.display.read(address);if(value!==null)return value;}

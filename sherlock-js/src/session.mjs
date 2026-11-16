@@ -44,12 +44,18 @@ export class ClientSession {
   else if(m.screen_clear)events=[...Array.from({length:18},()=>[{op:'word',text:'',delimiter:'\r',formatted:true},{op:'counter',value:0}]).flat(),{op:'clear-picture'}];
   else if(m.raw_text!==undefined)events=rawPackets((m.paragraph_before?'\n':'')+m.raw_text,buffer);
   else{events=packets(m.text,{leading:Boolean(m.paragraph_before)});if(buffer.word&&events.length){events[0]={...events[0],text:buffer.word+events[0].text,formatted:true};buffer.word='';}}
-  return {...m,screen_events:[...(m.image_room?[{op:'picture',room:m.image_room}]:[]),...events]};});}
+  if(m.image_room){
+   // The native picture's clear follows the paragraph CR, then C129
+   // resets its page counter before any of the scene text is printed.
+   const at=this.game.world.npcs?.nativeGraphicsEnabled&&m.paragraph_before?1:0;
+   events.splice(at,0,{op:'picture',room:m.image_room});
+  }
+  return {...m,screen_events:events};});}
  request(operation,body={}){
   if(operation==='printer')return {svg:paperSvg(this.game.world.display?.printerPaper||[])};
   if(operation==='data')return this.publicData();
   if(operation==='state')return this.state();
-  if(operation==='reset'){this.game=new Game(this.data,{start_mode:body.start_mode,npc_profile:'world-v5',seed:body.seed??1});this.job=null;return {state:this.state(),messages:[{kind:'narrative',text:this.game.opening,screen_events:packets(this.game.opening,{leading:true})}]};}
+  if(operation==='reset'){this.game=new Game(this.data,{start_mode:body.start_mode,npc_profile:'world-v5',seed:body.seed??1,native_graphics:body.native_graphics??false});this.job=null;return {state:this.state(),messages:[{kind:'narrative',text:this.game.opening,screen_events:packets(this.game.opening,{leading:true})}]};}
   if(operation==='teleport'){const out=this.game.teleport(body.room);return {state:this.state(),messages:this.messages(out.messages)};}
   if(operation==='save'){if(this.job)throw Error('Completa il comando prima di salvare.');return seal(this.game.dump(),body.presentation??null).then(save=>({save}));}
   if(operation==='load'){if(this.job)throw Error('Completa il comando prima di caricare.');return verify(body.save).then(document=>{const loaded=Game.load(this.data,document);this.game=loaded;return {state:this.state(),presentation:document.presentation??null,messages:[]};});}

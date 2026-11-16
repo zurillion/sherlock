@@ -68,7 +68,7 @@ $('show-history').onclick=()=>{$('history-status').textContent='';$('command-his
 $('close-history').onclick=()=>$('command-history').close();
 $('copy-history').onclick=async()=>{renderHistory();const area=$('history-text');try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(area.value);$('history-status').textContent='Cronologia copiata.';}catch{area.focus();area.select();$('history-status').textContent=document.execCommand('copy')?'Cronologia copiata.':'Testo selezionato: premi ⌘C o Ctrl+C per copiarlo.';}};
 
-function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
+function setBusy(value){busy=value;if($('engine-select'))$('engine-select').disabled=false;const ended=Boolean(state?.game_over);$('command').disabled=value||ended;$('submit').disabled=value||ended;$('reset').disabled=restarting||persisting||!data;$('seed').disabled=value||persisting;$('start-mode').disabled=persisting;$('native-graphics').disabled=persisting||restarting;$('save-game').disabled=value||!state;$('load-game').disabled=value||!state;$('busy-label').textContent=value?'Analisi del comando…':'In inglese, come nell’originale';$('map').setAttribute('aria-busy',String(value));spectrum.setBusy(value);for(const button of document.querySelectorAll('[data-command]'))button.disabled=value||ended;}
 function setClock(clock){spectrum.setClock(clock.label);$('clock').textContent=clock.label;$('ticks').textContent=`Tick ${clock.tick} · ${state?.visited.length||0} luoghi esplorati`;}
 function updateGameStatus(s){
  const text=gameStatus(s);
@@ -175,6 +175,7 @@ $('load-file').onchange=async()=>{
   if(file.size>20000000)throw new Error('File di salvataggio troppo grande.');
   const document=JSON.parse(await file.text());validatePresentation(document.presentation);setBusy(true);
   const result=await engineRequest('load',{save:document});const epoch=++operationEpoch;
+  $('native-graphics').checked=Boolean(result.state.native_graphics);
   spectrum.reset();$('transcript').replaceChildren();$('analysis').textContent='';$('command').value='';transcriptRows=[];textTranscript=new Transcript();pendingTranscriptCommand=null;
   const p=result.presentation;
   if(p){
@@ -259,7 +260,7 @@ $('reset').onclick=async()=>{
  try{
   // Let an already submitted action finish before replacing its session.
   await Promise.allSettled([...pendingRequests]);
-  const r=await engineRequest('reset',{start_mode:$('start-mode').value,seed:Number($('seed').value)});if(epoch!==operationEpoch)return;
+  const r=await engineRequest('reset',{start_mode:$('start-mode').value,seed:Number($('seed').value),native_graphics:$('native-graphics').checked});if(epoch!==operationEpoch)return;
   update(r.state);centerRoom(r.state.room);restarting=false;setBusy(true);
   await showMessages(r.messages);
  }catch(error){if(epoch===operationEpoch)append('error',error.message);}
@@ -281,6 +282,7 @@ $('search').addEventListener('input',()=>{const q=$('search').value.trim().toLow
   let restored=null;try{restored=recallTab(sessionStorage,bundle,validatePresentation);}catch(error){notice('Sessione della scheda non ripristinata: '+error.message);}
   if(restored)session.game=restored.game;
   const initialState=await engineRequest('state');if(epoch!==operationEpoch)return;
+  $('native-graphics').checked=Boolean(initialState.native_graphics);
   update(initialState);centerRoom(state.room);setBusy(true);
   if(restored?.presentation){
    await restorePresentation(restored.presentation,initialState);notice('Ripresa la partita JavaScript di questa scheda.');

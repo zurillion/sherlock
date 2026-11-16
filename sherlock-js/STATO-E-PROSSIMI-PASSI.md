@@ -25,7 +25,7 @@ i motori, con le due deduzioni sugli omicidi accettate.
    alla grafica originale nei casi in cui la presentazione
    influisce sulle letture casuali.
 
-La mappa riporta 39.888 byte documentati, 326 parziali e 1.386
+La mappa riporta 39.890 byte documentati, 326 parziali e 1.384
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 
@@ -134,10 +134,35 @@ il turno di Strachan. Il prompt ritorna alle 08:25.
   subito la coppia $4500/$4506, restituisce 3 e il predicato riesce.
   Il motore JavaScript attuale coincide con questo secondo profilo.
 
-Il passo seguente è modellare la pulizia, lo scorrimento a 16
-byte per riga pixel con la finestra stretta e il riquadro nel
-buffer letto dal generatore. Questo caso fornisce un controllo
-puntuale del passaggio fra i due profili.
+Il motore autonomo offre il profilo **Grafica nativa (sperimentale)**.
+Per provarlo, selezionare la casella accanto al seed e premere
+**Riavvia**. La preferenza di visualizzazione delle immagini
+resta indipendente. Nel profilo nativo, Salva/Carica include
+i pixel e gli attributi che alimentano il generatore.
+
+Il buffer superiore applica i 18 CR di $A296, i glifi da 8×8
+con passo di sette pixel, lo scroll da 16 o 32 byte per riga
+pixel e la copia degli attributi durante lo scroll largo. Il
+riquadro usa i dati statici delle 14 immagini ricostruite
+offline dalle primitive, con verifica SHA-256 contro il
+confronto grafico precedente. Lo stesso buffer serve alla
+lettura di $D2CB/$D2D0.
+
+Il confronto con grafica nativa attiva copre 56 comandi, fino
+all’ingresso a Leatherhead lunedì alle 10:45. Sono uguali i
+pixel superiori, gli attributi e i contatori video al prompt
+e a ogni estrazione, oltre a tutte le 403 estrazioni e 870
+letture. Sono compresi il LOOK a Baker Street, il cab, il
+treno e la prosecuzione dal salvataggio nell’atrio fino
+a King’s Cross Road.
+
+I residui del fill e il fondo di una nuova immagine con
+pixel o attributi preesistenti in condizioni diverse dal
+fondo standard richiedono ulteriori prove. Il motore
+revoca i residui di stack potenzialmente sovrascritti e
+segnala una lettura ancora sconosciuta invece di attribuirle
+un valore. Le immagini continuano ad avere un’opzione
+di presentazione separata.
 
 [Misure iniziali e ramo di King’s Cross](results/seed-and-saves/native-graphics-first-rooms.json) ·
 [Prima estrazione divergente e writer](results/seed-and-saves/native-graphics-first-read.json).
@@ -146,6 +171,8 @@ Per ripetere il probe dalla cartella del motore:
 
 ```sh
 python3 tools/probe-native-graphics-first-read.py /tmp/sherlock-first-video-read.json
+python3 tools/probe-native-picture-window.py /tmp/sherlock-picture-window.json
+node --test test/native-picture-window.test.mjs
 ```
 
 ## Storico precedente

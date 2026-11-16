@@ -55,7 +55,7 @@ export class NpcRuntime {
   vm.restore(state.program);const primitives=new NpcPrimitives(this.w),runtime={vm,records,primitives};this.active=runtime;
   try{return operation(runtime);}finally{state.program=vm.dump();state.records=records.dump();this.active=null;}
  }
- initialize(seed=1){
+ initialize(seed=1,nativeGraphics=false){
   if(!Number.isInteger(seed)||seed<0||seed>255)throw Error('Il seed deve essere un intero da 0 a 255.');
   const g=this.game,w=this.w,vm=new NpcProgram(g.data.npcPrograms,w.scheduler),records=new RecordLists();
   w.npcs={version:1,profile:'world-v5',clarificationOffset:0,program:null,records:records.dump(),pending:{},foreignContexts:{},playerRootSaved:[255,255,255],information:{he:Array(6).fill(0),it:Array(6).fill(0),addressee:[0x71,9,0,0,0,0]},burningNoteTicks:15,flags:{strakerMet:false,lestradeMet:false,brownClueFound:false,jonesClueFound:false,burningNoteFound:false},encounters:{2:[0,0,0],3:[30,0,0],4:[0,0],11:[0,0,0],12:[0,0,0]},literal:0};
@@ -78,12 +78,9 @@ export class NpcRuntime {
   w.npcs.outputChannel=g.data.argumentChecks?.initialOutputChannel??null;
   w.npcs.modelFlags=g.data.argumentChecks?.initialModelFlags?[...g.data.argumentChecks.initialModelFlags]:[null,null];
   w.npcs.dictionaryReference=null;w.npcs.resolutionMode=g.data.argumentChecks?.initialResolutionMode??null;w.npcs.playerResolutionMode=0;w.npcs.argumentCheck=g.data.argumentChecks?.initialValue??null;w.npcs.initialSeed=seed;w.npcs.argumentClasses=[0,0];w.npcs.argumentPointers=[null,null];
-  // Graphics are presentation-only in the declared text-only source profile.
-  // F490/F507 are its only colour writers; neither runs after this boot.
   w.npcs.nativeFillColor=g.data.randomInputs.bootOptions.initialFillColor;
-  // The declared source protocol disables original bitmap drawing after
-  // boot. SVG/pixel display preferences do not change that world input.
-  w.npcs.nativeGraphicsEnabled=false;
+  if(typeof nativeGraphics!=='boolean')throw Error('Profilo grafico non valido');
+  w.npcs.nativeGraphicsEnabled=nativeGraphics;
   w.npcs.printerEnabled=g.data.randomInputs.bootOptions.printerEnabled;
   w.npcs.recordsSourceKnown=true;
   w.npcs.playerFailures=0;
@@ -979,7 +976,7 @@ export class NpcRuntime {
   if(s.argumentCheck!==undefined&&s.argumentCheck!==null&&![0,1].includes(s.argumentCheck))throw Error('Invalid saved argument check');
   if(s.clarificationOffset!==undefined&&s.clarificationOffset!==null&&![0,8,18].includes(s.clarificationOffset))throw Error('Invalid saved clarification offset');
   if(s.temporaryCost!==undefined&&(!Array.isArray(s.temporaryCost)||s.temporaryCost.length!==2||s.temporaryCost.some(v=>v!==null&&(!Number.isInteger(v)||v<0||v>255))))throw Error('Costo temporaneo non valido');
-  if(s.nativeGraphicsEnabled!==undefined&&s.nativeGraphicsEnabled!==false)throw Error('Grafica nativa fuori dal profilo ricostruito');
+  if((s.nativeGraphicsEnabled!==undefined&&typeof s.nativeGraphicsEnabled!=='boolean')||Boolean(s.nativeGraphicsEnabled)!==Boolean(this.w.display?.pictureWindow))throw Error('Profilo grafico del salvataggio incoerente');
   if(s.nativeFillColor!==undefined&&!byte(s.nativeFillColor))throw Error('Colore fill nativo non valido');
   if(s.parserNextToken!=null&&(!Number.isInteger(s.parserNextToken)||s.parserNextToken<0||s.parserNextToken>65535))throw Error('Cursore del parser non valido');
   if(s.parserTokenStart!=null&&(!Number.isInteger(s.parserTokenStart)||s.parserTokenStart<0||s.parserTokenStart>65535))throw Error('Puntatore iniziale del token non valido');
