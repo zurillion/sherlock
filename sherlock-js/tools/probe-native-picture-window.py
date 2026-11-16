@@ -1,4 +1,4 @@
-"""Record original video hashes and random reads over the first cab journey."""
+"""Record original video hashes and random reads through the first investigation in Leatherhead."""
 import hashlib
 import json
 import sys
@@ -11,7 +11,7 @@ from explorer import Game
 from extract_locations import extract
 from native_world import word
 
-route=(root/'results/victory-route/victoria-full-route.txt').read_text().splitlines()[:55]
+route=(root/'results/victory-route/victoria-full-route.txt').read_text().splitlines()[:80]
 route.insert(14,'LOOK')
 game=Game(project,extract(project),seed=1,active_npcs=None)
 world=game.world

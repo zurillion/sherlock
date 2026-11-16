@@ -36,7 +36,7 @@ test('Native graphics reproduce original pixels, attributes and random draws thr
   };
 
   let resumed;
-  assert.equal(reference.steps.length, 56);
+  assert.equal(reference.steps.length, 81);
   for (const [index, row] of reference.steps.entries()) {
     scans = [];
     const before = game.world.random.draws;
@@ -68,7 +68,8 @@ test('Native graphics reproduce original pixels, attributes and random draws thr
       if (index === 22) resumed = null;
     }
   }
-  assert.equal(game.world.clock().label, 'Mon 10:45am');
+  assert.equal(game.world.clock().label, 'Mon 11:42am');
+  assert.equal(game.world.roomOf(), 88);
   const text = session.request('reset', { seed: reference.seed });
   assert.equal(text.state.native_graphics, undefined);
   assert.equal(session.game.world.display.pictureWindow, undefined);

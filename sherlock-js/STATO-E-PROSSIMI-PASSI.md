@@ -148,10 +148,10 @@ offline dalle primitive, con verifica SHA-256 contro il
 confronto grafico precedente. Lo stesso buffer serve alla
 lettura di $D2CB/$D2D0.
 
-Il confronto con grafica nativa attiva copre 56 comandi, fino
-all’ingresso a Leatherhead lunedì alle 10:45. Sono uguali i
+Il confronto con grafica nativa attiva copre 81 comandi, fino
+al ponte di Leatherhead lunedì alle 11:42. Sono uguali i
 pixel superiori, gli attributi e i contatori video al prompt
-e a ogni estrazione, oltre a tutte le 403 estrazioni e 870
+e a ogni estrazione, oltre a tutte le 525 estrazioni e 1.114
 letture. Sono compresi il LOOK a Baker Street, il cab, il
 treno e la prosecuzione dal salvataggio nell’atrio fino
 a King’s Cross Road.
