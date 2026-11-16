@@ -143,7 +143,15 @@ class SpectrumTerminal {
   else if(event.op==='picture'){
    if(this.pictures&&this.urls?.[this.pictureMode]?.[event.room]){
     // A277: clear with 18 CRs, resetting A019 AFTER each; then C129.
-    for(let row=0;row<18;row++){this.model.started=false;if(!await this.line(epoch))return false;this.model.counter=0;}
+    for(let row=0;row<this.model.rows;row++){
+     this.model.started=false;
+     if(!await this.line(epoch))return false;
+     this.model.counter=0;
+     this.render();
+     // Yield to the browser after each CR so the scroll is visible.
+     await new Promise(resolve=>setTimeout(resolve,this.delay));
+     if(epoch!==this.epoch||!this.active)return false;
+    }
     await this.loadPicture(event.room);
    }
   }else if(event.op==='word'){
