@@ -39,7 +39,7 @@ export class RandomDisplay {
   // The verified direct LOOK/movement callers start F3C2 at 5D54 or 5D58.
   // The deepest asset needs 40 bytes below that frame. Leave a guard for
   // A296's text calls. Other callers keep the more conservative revocation.
-  this.invalidateScratch(direct?0x5D00:0x5CEC);
+  this.invalidateScratch(direct?0x5D20:0x5CEC);
  }
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[]){const s=this.state;

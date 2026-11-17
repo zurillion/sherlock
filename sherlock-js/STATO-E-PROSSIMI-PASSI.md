@@ -156,6 +156,20 @@ letture. Sono compresi il LOOK a Baker Street, il cab, il
 treno e la prosecuzione dal salvataggio nell’atrio fino
 a King’s Cross Road.
 
+Il confronto oltre il ponte coincide per un totale di 108 checkpoint,
+fino alle 12:26, quando Holmes è sul treno. Il primo scarto rimasto
+alle 12:27 riguarda il residuo $5CEF, con $50 sullo Spectrum e $5A
+nel modello. È una lettura del generatore durante l’attesa.
+
+Con seed 137, una partita distinta ha evidenziato una revoca troppo
+ampia dopo un disegno diretto. Nell’atrio e a Baker Street, i frame
+di A277 non scendono sotto $5D32 per il movimento e $5D36 per LOOK.
+La verifica indipendente di tutte le immagini misura al massimo
+40 byte sotto l’ingresso F3C2. Il modello revoca da $5D20 nei
+chiamanti diretti e conserva $5D00. Il primo consumo rilevante
+arriva nell’attesa in cab delle 08:29, quando Strachan legge $36 da
+$5D00. Il confronto da quel punto prosegue fino al finale $693A.
+
 I residui del fill e il fondo di una nuova immagine con
 pixel o attributi preesistenti in condizioni diverse dal
 fondo standard richiedono ulteriori prove. Il motore
