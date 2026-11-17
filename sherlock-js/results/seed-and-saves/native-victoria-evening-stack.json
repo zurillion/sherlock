@@ -1,0 +1,64 @@
+{
+  "seed": 137,
+  "reads": [
+    {
+      "read_tick": 3543,
+      "reader": 8,
+      "address": "5D24",
+      "value": 4,
+      "writer": {
+        "pc": "C39C",
+        "sp": "5D26",
+        "actor": 0,
+        "registers": {
+          "A": 0,
+          "F": 0,
+          "B": 1,
+          "C": 4,
+          "D": 63,
+          "E": 71,
+          "H": 87,
+          "L": 37
+        },
+        "stack_hex": "25500b5c04011a68f1c21a680701115c00aa07009306f751597ea0209fa8"
+      }
+    },
+    {
+      "read_tick": 3543,
+      "reader": 8,
+      "address": "5D2A",
+      "value": 4,
+      "writer": {
+        "pc": "C389",
+        "sp": "5D2C",
+        "actor": 0,
+        "registers": {
+          "A": 104,
+          "F": 26,
+          "B": 1,
+          "C": 4,
+          "D": 92,
+          "E": 11,
+          "H": 80,
+          "L": 37
+        },
+        "stack_hex": "1a68f1c21a680701115c00aa07009306f751597ea0209fa8f7510700597e"
+      }
+    }
+  ],
+  "word_buffer": {
+    "address": "5C10",
+    "value": 83,
+    "clock": "Wed 06:15pm",
+    "fragment": "68ED",
+    "word": "enterS",
+    "writer": {
+      "pc": "A9D7",
+      "tick": 3494,
+      "actor": 43,
+      "buffer_before": "656e74657269636c652e642e3f01000600100000000000",
+      "stack_hex": "465c145326a99842372b50a2ef68eda5caa5b9a542373390ed68372b0acc3a90d0ca73ca0c882c2b"
+    },
+    "read_tick": 3495
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "source": "E44C",
+  "header": "E452",
+  "bridge": "CB34–CB3F",
+  "scope": "ordinary deferred FOLLOW and COME WITH",
+  "original_context_examples": [
+    {
+      "target": "E44C",
+      "caller": "C9EE",
+      "tick": 3,
+      "actor": 3,
+      "args": [
+        21,
+        0,
+        255
+      ],
+      "before": [
+        36026,
+        58450
+      ],
+      "argument_pointers": [
+        36026,
+        36077
+      ],
+      "after": [
+        36026,
+        58450
+      ]
+    },
+    {
+      "target": "E44C",
+      "caller": "C9EE",
+      "tick": 3,
+      "actor": 3,
+      "args": [
+        21,
+        0,
+        255
+      ],
+      "before": [
+        36026,
+        58450
+      ],
+      "argument_pointers": [
+        36026,
+        36077
+      ],
+      "after": [
+        36026,
+        58450
+      ]
+    },
+    {
+      "target": "E44C",
+      "caller": "C9EE",
+      "tick": 3,
+      "actor": 3,
+      "args": [
+        21,
+        0,
+        255
+      ],
+      "before": [
+        36026,
+        58450
+      ],
+      "argument_pointers": [
+        36026,
+        36077
+      ],
+      "after": [
+        36026,
+        58450
+      ]
+    }
+  ],
+  "victoria": {
+    "seed": 137,
+    "clock": "Wed 07:44pm",
+    "replayed_input": "CLIMB INTO CAB",
+    "reader": 2,
+    "address": "CB2A",
+    "original_value": 82
+  }
+}

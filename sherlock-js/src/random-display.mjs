@@ -45,6 +45,7 @@ export class RandomDisplay {
  }
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[],moneyEnds=[]){const s=this.state;
+  let projectedMargin=false,policeLookFlags=null,arrivalScanCount=null;
   const shallow=sceneTrace.some(r=>r.kind==='relocation-person-prefix');
   const preserveScan=shallow&&s.cursor===0&&!s.pending&&s.counter+2<15&&text.length<36;
   this.invalidateGlyphExtras({preserveScan});const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
@@ -66,23 +67,36 @@ export class RandomDisplay {
    // The noun of this same passage shares the raw span with its prefix.
    if(rawText&&rawText.affectsStack!==false&&i===rawText.start){if(!this.glyphCallerBKnown)delete this.state.scratch[0x5D23];if(!this.glyphCallerCKnown)delete this.state.scratch[0x5D22];if(!this.glyphVideoLowKnown)delete this.state.scratch[0x5D1E];if(!this.glyphCallerFlagsKnown)delete this.state.scratch[0x5D24];if(!this.glyphCallerAKnown)delete this.state.scratch[0x5D25];if(!this.glyphDescriptorLowKnown)delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];if(!this.glyphDescriptorHighKnown)delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    if(i<text.length){
-    this.feed(text[i],{buffer:!rawText});
+    this.feed(text[i],{buffer:!rawText,preserveClearDescriptor:projectedMargin});
+    projectedMargin=false;
     for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);
    }
    if(rawText&&i+1===rawText.end)for(const {c,...options}of rawText.events)this.bufferFeed(c,options);
    // A word is flushed by the following delimiter, within the same owner.
    // After a carried-name prefix, A887 emits the separating space from
    // its caller. Filling column 35 clears the next row at that caller depth.
-   if(role&&i+1===role.end){this.flush(role.kind==='passage-direction'?role.frame:null);if(role.spaceClearFrame&&this.state.cursor===35)this.glyphResidue(' ',role.spaceClearFrame,35,0x5A20);if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter)){this.glyphSpaceScanKnown=role.spaceScanKnown===true;this.glyphSpaceByteKnown=role.spaceByteKnown===true;this.glyphSpaceShiftKnown=role.spaceShiftKnown===true;this.glyphSpaceCountKnown=role.spaceCountKnown===true;this.glyphSpaceVideoLowKnown=role.spaceVideoLowKnown===true;this.glyphSpaceVideoHighKnown=role.spaceVideoHighKnown===true;const savedFlags=this.glyphFlagsKnown;if(role.spaceScanAfKnown)this.glyphFlagsKnown=true;
-     this.glyphResidue(' ',role.frame+12,this.state.cursor,0x5000|(this.world.entity(role.parent).noun&4095));
-     this.glyphFlagsKnown=savedFlags;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;}this.glyphFrame=null;}
+   if(role&&i+1===role.end){this.flush(role.kind==='passage-direction'?role.frame:null);
+    if(role.kind==='police-cab-look-carrying'&&s.windowMode===0&&s.cursor===8)policeLookFlags=s.scratch[0x5D0E]??null;
+    if(s.pictureWindow&&role.kind==='arrival-person-prefix'&&s.windowMode===1&&s.cursor===9&&s.counter<=12)
+     arrivalScanCount=s.scratch[0x5D23]??null;const clearFrame=role.spaceClearFrame&&s.cursor===35?role.spaceClearFrame:null;
+    const carriedMargin=clearFrame===0x5D22&&role.kind==='carried-object-prefix'&&s.pictureWindow&&s.windowMode===0;
+    if(clearFrame&&!carriedMargin)this.glyphResidue(' ',clearFrame,35,0x5A20);
+    if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter)){this.glyphSpaceScanKnown=role.spaceScanKnown===true;this.glyphSpaceByteKnown=role.spaceByteKnown===true;this.glyphSpaceShiftKnown=role.spaceShiftKnown===true;this.glyphSpaceCountKnown=role.spaceCountKnown===true;this.glyphSpaceVideoLowKnown=role.spaceVideoLowKnown===true;this.glyphSpaceVideoHighKnown=role.spaceVideoHighKnown===true;const savedFlags=this.glyphFlagsKnown;if(role.spaceScanAfKnown)this.glyphFlagsKnown=true;
+     this.glyphResidue(' ',role.frame+12,this.state.cursor,role.spaceDescriptor??(0x5000|(this.world.entity(role.parent).noun&4095)));
+     this.glyphFlagsKnown=savedFlags;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;}
+    // The visible delimiter saves its descriptor before C374 clears the next row.
+    if(carriedMargin){this.glyphResidue(' ',clearFrame,35,0x5A20);projectedMargin=true;}
+    this.glyphFrame=null;}
   }
    // The last noun can remain buffered until the caller emits CR after
    // scene(). A wrap there is outside the proved passage-prefix frame.
    if(this.state.pending.length>=this.state.remaining){delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    // Reserve the final CR and action separator below the MORE threshold.
    if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
-  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.trainScanKnown=false;this.vehicleScanKnown=false;this.arrivalNameKnown=false;this.cabWordRole=null;this.relocationPersonPrefix=false;this.arrivalFromRule=false;this.relocationPersonNoun=false;this.relocationPersonVerb=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}}
+  }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.trainScanKnown=false;this.vehicleScanKnown=false;this.arrivalNameKnown=false;this.cabWordRole=null;this.relocationPersonPrefix=false;this.arrivalFromRule=false;this.relocationPersonNoun=false;this.relocationPersonVerb=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}
+  if(arrivalScanCount!==null)s.scratch[0x5D23]=arrivalScanCount;
+  return policeLookFlags;
+ }
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null,{fareRowClear=false,encounterRowClear=false}={}){
   if(!frame)return;
   const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
@@ -127,21 +141,43 @@ export class RandomDisplay {
    const policeScan=this.vehicleScanKnown===true&&(
     frame===0x5D22&&at===0x5D21||
     [0x5D2C,0x5D32].includes(frame)&&at===frame-12||
-    frame===0x5D30&&at===0x5D27
+    this.state.pictureWindow&&at===frame-11&&(
+     frame===0x5D2C&&descriptor===0x5A20||frame===0x5D32&&this.cabWordRole==='police-cab-country'
+    )||
+    frame===0x5D30&&at===0x5D27||
+    this.state.pictureWindow&&(
+     frame===0x5D2E&&at===0x5D22&&descriptor===0x59EE&&this.cabWordRole==='description-delimits-inventory'||
+     frame===0x5D30&&at===0x5D28&&descriptor===0x5A20
+    )
    );
    const cabProse=this.cabWordRole==='cab-possessive'&&frame===0x5D32&&at===0x5D2A||this.cabWordRole==='cab-city'&&frame===0x5D2C&&at===0x5D24;
    const refusalScan=this.refusalScanKnown===true&&at===frame-11&&[0x5D2E,0x5D34].includes(frame);
-   const arrivalName=this.arrivalNameKnown===true&&frame===0x5D2C&&[0x5D22,0x5D28].includes(at);
+   const arrivalName=this.arrivalNameKnown===true&&frame===0x5D2C&&
+    ([0x5D22,0x5D28].includes(at)||this.state.pictureWindow&&at===0x5D23);
    const ruleArrival=this.arrivalFromRule===true&&frame===0x5D28&&at>=0x5D1C&&at<=0x5D25;
    const relocationSpace=this.relocationPersonPrefix===true&&frame===0x5D36&&c===' '&&[0x5D2A,0x5D2B].includes(at);
    const relocationPrefix=this.relocationPersonPrefix===true&&frame===0x5D2A&&at>=0x5D1E&&at<=0x5D29||relocationSpace;
    const relocationVerb=this.relocationPersonVerb===true&&frame===0x5D3A&&[0x5D30,0x5D31].includes(at);
-   const trainScan=this.trainScanKnown===true&&at===frame-9&&[0x5D28,0x5D2E].includes(frame);
+   const trainScan=this.trainScanKnown===true&&(
+    [0x5D28,0x5D2E].includes(frame)&&(at===frame-9||this.state.pictureWindow&&at===frame-8)||
+    this.state.pictureWindow&&frame===0x5D2E&&(at===frame-10||at===frame-4)||
+    this.state.pictureWindow&&frame===0x5D34&&descriptor===0x5A20&&at===frame-11
+   );
+   // C389's caller BC for the brief identity qualifier includes 1E/1F.
+   const briefIdentityCallerBC=briefIdentity&&frame===0x5D22&&this.state.pictureWindow;
+   const cabBoardName=this.cabWordRole==='cab-board-name'&&frame===0x5D2C&&at===0x5D24;
+   const cabBoardScan=this.cabWordRole==='cab-board-into'&&frame===0x5D2A;
+   const carriedMargin=this.cabWordRole==='carried-object-prefix'&&c===' '&&column===35&&
+    this.state.windowMode===0&&this.state.pictureWindow;
+   const carriedDescriptorHigh=carriedMargin&&frame===0x5D2A&&descriptor!==0x5A20&&at===frame-5;
+   const carriedClearCount=carriedMargin&&frame===0x5D22&&descriptor===0x5A20&&at===frame-3;
+   // Only the measured COUNTRY flush owns the raw scan in this slot.
+   if(at===0x5D27&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb)||
-    (at===0x5D1E&&this.upperGlyphKnown!==true&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
-    (at===0x5D1F&&this.upperGlyphKnown===false&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb)||
+    (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
+    (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;
    }
@@ -367,7 +403,7 @@ export class RandomDisplay {
   s.upper.shift();s.upper.push('');
   s.cursor=0;s.remaining=s.windowMode===1?18:36;s.started=false;s.scrolls++;
  }
- put(c,glyphFrame=this.glyphFrame,wordLettersRemaining=null){
+ put(c,glyphFrame=this.glyphFrame,wordLettersRemaining=null,preserveClearDescriptor=false){
   const s=this.state,row=s.upper[17].padEnd(36,' ');
   if(s.pictureWindow){
    const glyph=this.data.spectrum.glyphs[(c==='£'?96:c.charCodeAt(0))-this.data.spectrum.first];
@@ -388,7 +424,7 @@ export class RandomDisplay {
    s.scratch[glyphFrame-1]=wordLettersRemaining;
   }
   if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),s.windowMode===1&&s.counter!==15?17:35,0x5A20);
-  else if(this.upperGlyphKnown===false)for(const address of [0x5D1E,0x5D20,0x5D21,0x5D22,0x5D23,0x5D24,0x5D25,0x5D26,0x5D27,0x5D28,0x5D29,0x5D2A,0x5D2B])delete s.scratch[address];
+  else if(this.upperGlyphKnown===false)for(const address of [0x5D1E,0x5D20,0x5D21,0x5D22,0x5D23,0x5D24,0x5D25,0x5D26,0x5D27,0x5D28,0x5D29,0x5D2A,0x5D2B])if(address!==0x5D25||!preserveClearDescriptor)delete s.scratch[address];
   this.newline();
  }
  // A025 belongs to AA14 normalization, not the physical cursor. Raw margin
@@ -428,20 +464,26 @@ export class RandomDisplay {
  // uses the shared word pointer but never advances the screen cursor.
  hiddenSpacing(c,length){if(this.world.npcs?.outputChannel==null){this.state.spacingFlag=null;return;}if(this.world.npcs.outputChannel!==0)return;if(![' ','\n','\r','"'].includes(c))return;if(length){for(let i=0;i<length;i++){const kind=this.state.wordBuffer.capitalClasses?.[i]??(this.state.wordBuffer.bytes[i]==null?null:capitalKind(String.fromCharCode(this.state.wordBuffer.bytes[i])));if(kind===null)this.state.capitalizationFlag=null;else if(kind>=0)this.state.capitalizationFlag=kind;}if(this.state.remaining<length)this.normalizeSpacing('\r');this.state.spacingFlag=1;/* A nonempty buffered word emits non-space characters. */if(this.state.remaining===length)this.state.spacingFlag=0;}this.normalizeSpacing(c);}
  bufferFeed(c,{known=true,hidden=false}={}){const s=this.state;if(!s)return;const b=s.wordBuffer??(s.wordBuffer={bytes:Array(128).fill(null),index:0});if(hidden)this.hiddenSpacing(c,b.index);if(!b.capitalClasses)b.capitalClasses=b.bytes.map(v=>v==null?null:capitalKind(String.fromCharCode(v)));if([' ','\n','\r','"'].includes(c)){b.index=0;return;}if(c==='\b'){b.index=Math.max(0,b.index-1);return;}if(b.index>=128)throw new RandomInputsUnavailable('Buffer parola oltre il confine ricostruito');b.capitalClasses[b.index]=capitalKind(c);b.bytes[b.index++]=known?(c==='£'?96:c.charCodeAt(0)):null;}
- feed(c,{buffer=true}={}){
+ feed(c,{buffer=true,preserveClearDescriptor=false}={}){
   const s=this.state;if(!s)return;if(buffer)this.bufferFeed(c,{known:!/[A-Za-z]/.test(c)});
   if(c==='\b'){s.pending=s.pending.slice(0,-1);return;}
   if(![' ','\n','\r','"'].includes(c)){s.lastSpacePrinted=false;s.pending+=c;return;}
   this.flush();this.normalizeSpacing(c);
   if(c==='\n'||c==='\r'){this.newline();s.lastSpacePrinted=false;}
-  else if(c===' '){const printed=s.started;if(printed){const frame=this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined?this.glyphFrame+12:this.glyphFrame;if(frame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',frame,s.cursor,this.glyphSpaceDescriptor);this.put(c,this.refusalScanKnown?null:frame&&this.vehicleScanKnown&&[0x5D32,0x5D36].includes(frame)?frame+12:frame);}s.lastSpacePrinted=printed;}
+  else if(c===' '){const printed=s.started;if(printed){const frame=this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined?this.glyphFrame+12:this.glyphFrame;if(frame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',frame,s.cursor,this.glyphSpaceDescriptor);this.put(c,this.refusalScanKnown?null:frame&&this.vehicleScanKnown&&[0x5D32,0x5D36].includes(frame)?frame+12:frame,null,preserveClearDescriptor);}s.lastSpacePrinted=printed;}
   // AA2A sets A025 before emitting a quote; a raw margin wrap does not
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}
  }
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
- write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace)this.scene(text,sceneTrace,moneyEnds);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace){
+  const carriedFlags=this.scene(text,sceneTrace,moneyEnds);
+  if(sceneTrace.some(e=>e.kind==='police-cab-look')){
+   this.invalidateScratch(0x5D00,0x5D0F);
+   if(carriedFlags!==null)this.state.scratch[0x5D0E]=carriedFlags;
+  }
+ }else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
   this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}

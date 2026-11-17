@@ -239,7 +239,7 @@ dall’accensione con tutti gli attori attivi.
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 755 | lunedì 23:58, bitmap durante l’inventario a Slater Street |
 | 1 | 3.219 | 14 | lunedì 08:29, HAIL CAB legge il temporaneo $5D6D |
-| 137 | 3.219 | 1.644 | martedì 16:56, il giardiniere legge $5D1A |
+| 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
@@ -266,9 +266,70 @@ A Parliament Street il cocchiere dà il resto a Lestrade. La r
 di «Inspector» arriva all’ultima colonna nel frame $5D2A. C374
 pulisce la riga seguente con un frame otto byte più profondo.
 C3B8 conserva l’ultima scansione grezza del glifo spazio in
-$5D17, letta dal giardiniere alle 12:31. Il primo scarto
-successivo è alle 16:56, su $5D1A, durante l’attesa a Camden Street.
+$5D17, letta dal giardiniere alle 12:31.
 [Traccia dello scorrimento durante il resto](results/seed-and-saves/native-cab-change-margin.json).
+
+A Camden Street la domanda del cocchiere passa per CDB9 e usa
+la cornice $6830 con argomento $6C1B. Quando parte su una riga
+larga libera, il frame verificato lascia intatti $5D1A–$5D1D.
+Lo confermano 88 prove con due cocchieri, quattro valori
+dell’accumulatore e undici valori iniziali del contatore.
+Il modello conserva quei byte e supera la lettura delle 16:56.
+[Prova dei frame della domanda](results/seed-and-saves/native-cab-waiting-speech.json).
+
+Nel cortile di Basil, C389 salva BC nel frame $5D22 mentre
+stampa «china». Il giardiniere legge il contatore B=$01 da
+$5D1F alle 02:43. Quando Watson sale sul cab, C39D usa invece
+$5D1E per i flag della scansione della o di «into». La cuoca
+legge quel byte alle 10:20 insieme al byte basso del puntatore
+video lasciato dalla m di «hansom» nel frame $5D2C.
+[Tracce dei due frame](results/seed-and-saves/native-victoria-midgame-stack.json).
+
+Al binario di King’s Cross, lo spazio tra «some» e «money»
+chiude la riga. C38A salva l’alto del descrittore $5575 a
+$5D25. La pulizia successiva salva B=$01 a $5D1F, dal
+contatore di C374. In viaggio la parola «English» lascia
+invece i byte bassi dei puntatori video della pulizia e
+del glifo h in $5D20 e $5D26. Il giardiniere legge queste
+coppie alle 11:43 e alle 13:17.
+[Tracce dei descrittori e dei puntatori video](results/seed-and-saves/native-victoria-afternoon-stack.json).
+
+Nella carrozza della polizia, il byte letto alle 15:20 viene
+dai flag della g di «carrying» durante LOOK. Alle 16:13
+vengono letti i flag dello spazio prima di «You» e il byte
+basso del puntatore della pulizia di riga. Alle 16:36 il
+giardiniere legge poi il riferimento $573F del token «road»
+dal descrittore del dizionario in $A022–$A023.
+[Tracce della carrozza della polizia](results/seed-and-saves/native-police-cab-stack.json).
+
+A Leatherhead, il titolo «Inspector» lascia il contatore di
+scansione in $5D23. La parola «station.» va a capo nella
+finestra stretta e la pulizia lascia la scansione dello spazio
+in $5D29. Alle 18:02 il LOOK lascia in $A023 l’alto di $51AB,
+il riferimento al sostantivo «chronicle» che chiude il testo.
+[Traccia dello schermo di Leatherhead](results/seed-and-saves/native-leatherhead-station-stack.json).
+
+La notifica di arrivo del treno usa il frammento $68ED e
+lascia la S di «enterS» in $5C10. Nell’ultimo viaggio la h di
+«English» lascia lo shift 4 in $5D24 e $5D2A, letto alle 19:03.
+Il confronto prosegue fino al richiamo del cab a King’s Cross.
+[Traccia dell’ultimo viaggio](results/seed-and-saves/native-victoria-evening-stack.json).
+
+Durante l’ultima salita sul cab, Lestrade esegue FOLLOW.
+Il predicato E44C lascia in IY l’intestazione $E452. CB3B
+la copia in $CB2A–$CB2B e il generatore legge il byte basso
+$52 prima di scegliere la durata del contatore di Lestrade.
+Il motore ricava il puntatore dalla regola selezionata.
+La prova con seed 137 segue l’intero percorso dall’avvio
+e confronta 8.912 estrazioni e 19.024 letture, oltre alla
+finestra superiore, agli attributi, all’orologio e al finale.
+[Traccia del puntatore FOLLOW](results/seed-and-saves/native-victoria-follow-pointer.json).
+
+
+
+
+
+
 
 Un LOOK aggiuntivo prima del primo HAIL CAB cambia il percorso
 col seed 1. In questa variante, mercoledì Lestrade rifiuta le

@@ -1,0 +1,55 @@
+{
+  "seed": 137,
+  "reads": [
+    {
+      "read_tick": 3457,
+      "actor": 8,
+      "address": "5D23",
+      "value": 1,
+      "writer": {
+        "pc": "C39C",
+        "sp": "5D24",
+        "actor": 2,
+        "registers": {
+          "A": 0,
+          "F": 0,
+          "B": 1,
+          "C": 2,
+          "D": 63,
+          "E": 151,
+          "H": 87,
+          "L": 39
+        },
+        "stack_hex": "27500b5c02011a72f1c21a723701135c00aa37021a12dc54ee0988209fa8"
+      }
+    },
+    {
+      "read_tick": 3457,
+      "actor": 8,
+      "address": "5D29",
+      "value": 0,
+      "writer": {
+        "pc": "C3B8",
+        "sp": "5D2A",
+        "actor": 42,
+        "registers": {
+          "A": 0,
+          "F": 0,
+          "B": 8,
+          "C": 1,
+          "D": 61,
+          "E": 0,
+          "H": 80,
+          "L": 47
+        },
+        "stack_hex": "01082f5020500101102077c30b5c20500200e2c2830d00000300f4a99302"
+      }
+    }
+  ],
+  "last_noun": {
+    "text": "chronicle",
+    "reference": "51AB",
+    "observed_high_byte": 81,
+    "clock": "Wed 06:02pm"
+  }
+}

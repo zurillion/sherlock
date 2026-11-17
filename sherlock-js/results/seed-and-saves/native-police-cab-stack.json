@@ -1,0 +1,121 @@
+{
+  "seed": 137,
+  "reads": [
+    {
+      "tick_before_checkpoint": 3287,
+      "reader": 8,
+      "address": "5D21",
+      "value": 0,
+      "writer": {
+        "pc": "C3B8",
+        "sp": "5D22",
+        "actor": 0,
+        "registers": {
+          "A": 0,
+          "F": 0,
+          "B": 8,
+          "C": 7,
+          "D": 61,
+          "E": 0,
+          "H": 80,
+          "L": 62
+        },
+        "stack_hex": "07083e50205a0701542077c30b5c20500269e2c2830d1a690300f4a99302"
+      }
+    },
+    {
+      "tick_before_checkpoint": 3287,
+      "reader": 8,
+      "address": "5D27",
+      "value": 56,
+      "writer": {
+        "pc": "C39D",
+        "sp": "5D28",
+        "actor": 0,
+        "registers": {
+          "A": 56,
+          "F": 0,
+          "B": 1,
+          "C": 6,
+          "D": 63,
+          "E": 207,
+          "H": 87,
+          "L": 42
+        },
+        "stack_hex": "06012a500b5c06011a79f1c21a790201115c00aa0200021e3f57207e2c20"
+      }
+    },
+    {
+      "tick_before_checkpoint": 3320,
+      "reader": 3,
+      "address": "5D0E",
+      "value": 0,
+      "writer": {
+        "pc": "C39D",
+        "sp": "5D10",
+        "actor": 0,
+        "registers": {
+          "A": 56,
+          "F": 0,
+          "B": 1,
+          "C": 3,
+          "D": 63,
+          "E": 63,
+          "H": 87,
+          "L": 38
+        },
+        "stack_hex": "030126500b5c03011a67f1c220670101125c00aa01699b029d084ea28820"
+      }
+    },
+    {
+      "tick_before_checkpoint": 3373,
+      "reader": 8,
+      "address": "5D22",
+      "value": 0,
+      "writer": {
+        "pc": "C3B8",
+        "sp": "5D24",
+        "actor": 0,
+        "registers": {
+          "A": 0,
+          "F": 0,
+          "B": 8,
+          "C": 5,
+          "D": 61,
+          "E": 0,
+          "H": 80,
+          "L": 57
+        },
+        "stack_hex": "05083950ee5905691a20f1c293200069ee099fa8ee590069ee090b7e24a8"
+      }
+    },
+    {
+      "tick_before_checkpoint": 3373,
+      "reader": 8,
+      "address": "5D28",
+      "value": 62,
+      "writer": {
+        "pc": "C38B",
+        "sp": "5D2A",
+        "actor": 0,
+        "registers": {
+          "A": 32,
+          "F": 84,
+          "B": 2,
+          "C": 0,
+          "D": 90,
+          "E": 32,
+          "H": 80,
+          "L": 62
+        },
+        "stack_hex": "205a0002542077c30b5c20500269e2c2830d00690300f4a993025054c867"
+      }
+    }
+  ],
+  "dictionary_reference": {
+    "word": "road",
+    "argument": "573F",
+    "parameter_storage": "A022–A023",
+    "read_checkpoint": "Wed 04:36pm"
+  }
+}

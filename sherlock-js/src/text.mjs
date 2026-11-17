@@ -209,7 +209,10 @@ export class Text {
     if(trace&&tail)trace.push({start:previous.length-tail[0].length,end:previous.length,kind:'list-tail-delimited-by-carrier',parent,frame:listFrame(depth)-20,spaceAfter:true});
     if(trace)trace.push({start,end:start+name.length,kind:'carrying-name',parent,depth,frame:listFrame(depth)});
     if(trace)trace.push({start:start+name.length+1,end:start+name.length+3,kind:'carrying-is',parent,depth,frame:listFrame(depth)});
-    if(trace)trace.push({start:start+name.length+4,end:start+name.length+12,kind:'carrying-verb',parent,depth,frame:listFrame(depth)+2});
+    const policeLookCarrying=w.display?.pictureWindow&&source==='look'&&w.entity(w.player).parent===109&&parent===3&&depth===1;
+    if(trace)trace.push({start:start+name.length+4,end:start+name.length+12,
+      kind:policeLookCarrying?'police-cab-look-carrying':'carrying-verb',parent,depth,
+      frame:policeLookCarrying?0x5D1A:listFrame(depth)+2});
     // D526 names the carried objects after the carrying verb. Their article
     // and qualifiers flush through D3E8/A815; a wrapped article can reach
     // working fields that the verb itself never touches.
@@ -217,6 +220,8 @@ export class Text {
     if(trace&&conjunction>=0)trace.push({kind:'contents-list-conjunction',start:start+name.length+13+conjunction+1,end:start+name.length+13+conjunction+4,frame:listFrame(depth)+2});
     if(trace)for(const [i,item] of names.entries()){offset=inventory.indexOf(item,offset);const prefix=item.lastIndexOf(' ');if(prefix>0)trace.push({start:start+name.length+13+offset,end:start+name.length+13+offset+prefix,kind:'carried-object-prefix',parent:children[i].id,frame:listFrame(depth)+4,spaceClearFrame:listFrame(depth)+8,spaceAfter:true});this.traceNameBuffer(trace,children[i].id,item,start+name.length+13+offset,{indefinite:true});offset+=item.length;}
     text.push(name+' is carrying '+joinList(names)+'.');
+    if(trace&&w.display?.pictureWindow&&source==='look'&&this.data.pictures[room]&&children.at(-1).id===25)
+     trace.push({kind:'last-carried-dictionary-reference',end:text.join(' ').length,value:0x5000|(children.at(-1).noun&4095)});
    }else{const relation=({1:'In',2:'On',3:'Behind',4:'Under',5:'Tied to'})[container.properties&7]||'In',name=w.name(parent),start=text.join(' ').length+(text.length?1:0);
     prefix=`${relation} ${name} there ${children.length===1?'is':'are'} `;
     if(trace){const nameEnd=start+relation.length+1+name.length;trace.push({kind:'container-relation',start,end:start+relation.length+1,frame:listFrame(depth)-2});trace.push({kind:'container-name',parent,start:start+relation.length+1,end:nameEnd,frame:listFrame(depth)});
@@ -286,7 +291,12 @@ export class Text {
     // can leave different working fields before different descriptions.
     let id=r.description,calls=0,first=this.data.texts[id]?.[0];
     while(first?.op==='call'&&calls<24){calls++;id=first.text;first=this.data.texts[id]?.[0];}
-    if(first?.op==='actorIs'){const last=previous.match(/\S+$/);if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,frame:source==='look'&&r.description==='7E0B'&&parent===109?0x5D22:0x5D1A+entryOffset-8*calls,vehicleScanKnown:source==='look'&&r.description==='7E0B'&&parent===109});}
+    if(first?.op==='actorIs'){
+     const last=previous.match(/\S+$/),policeLook=source==='look'&&r.description==='7E0B'&&parent===109;
+     if(last)trace.push({kind:'description-delimits-inventory',start:previous.length-last[0].length,end:previous.length,
+      frame:policeLook?0x5D22:0x5D1A+entryOffset-8*calls,vehicleScanKnown:policeLook,
+      ...(policeLook&&w.player===0&&w.display?.pictureWindow?{spaceAfter:true,spaceDescriptor:0x59EE}:{})});
+    }
    }
    // Capture the TEXT-domain buffer effects without executing them while
    // building the scene. Raw suffix capitals/backspaces differ from pixels.
@@ -311,13 +321,20 @@ export class Text {
    if(trace&&r.description==='7E0B'&&parent===109){
     const isLooking=source==='look',copula=prose.indexOf(' are ');
     if(isLooking)trace.push({kind:'police-cab-look'});
+    if(w.display?.pictureWindow)trace.push({kind:'final-dictionary-reference',
+      value:this.data.texts[r.description].findLast(t=>t.op==='word').randomContext});
     // The remainder of this flat fragment cannot reach the deep copula wrap.
     trace.push({kind:'police-cab-prose',start,end:start+prose.length,frame:isLooking?0x5D36:0x5D32,vehicleScanKnown:true});
     if(copula>=0)trace.push({kind:'police-cab-copula',start:start+copula+1,end:start+copula+4,
                            frame:isLooking?0x5D36:0x5D32,vehicleScanKnown:true});
     const at=prose.indexOf(' country ');
-    if(at>=0)trace.push({kind:'police-cab-country',start:start+at+1,end:start+at+8,
-                        frame:source==='look'?0x5D36:0x5D32,vehicleScanKnown:true});
+    if(at>=0){
+     const end=start+at+8;
+     trace.push({kind:'police-cab-country',start:start+at+1,end,
+                 frame:isLooking?0x5D36:0x5D32,vehicleScanKnown:true});
+     if(!isLooking&&w.display?.pictureWindow)trace.push({kind:'police-cab-prose-tail',start:end,end:start+prose.length,
+                                                       frame:0x5D32,vehicleScanKnown:true});
+    }
 
    }
    text.push(prose);
@@ -370,6 +387,8 @@ export class Text {
   if(!briefDark)describeExits();
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
+  const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);
+  if(listedNoun)trace.push({kind:'final-dictionary-reference',value:listedNoun.value});
   // The initial alternate-identity phrase goes through D187/68DD,
   // including the brief description with no prose. Its qualifier is
   // six bytes below the frame used for the final noun.

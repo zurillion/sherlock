@@ -141,14 +141,34 @@ export class NpcRuntime {
   // F2C6's departure speech at a fresh upper row stays above the
   // saved scan registers, including its wraps before a MORE pause.
   const screen=g.sourceDisplay.state;
-  const preserveScan=context.preserveTriciaPrefix===true||text==='6BF6'&&screen?.cursor===0&&!screen.pending&&screen.counter+4<15;
+  // The DOMAIN SAY frame for the cabbie's 6C1B question stays above
+  // the earlier scan registers on a wide, fresh row with room before MORE.
+  const waitingCabbie=screen?.pictureWindow&&text==='6830'&&[31,34].includes(actor)&&
+   context.object===0&&context.textArguments?.[0]==='6C1B'&&context.argumentContexts?.[0]===0x5D7A&&
+   screen.cursor===0&&screen.remaining===36&&!screen.pending&&screen.counter<=10;
+  const preserveScan=waitingCabbie||context.preserveTriciaPrefix===true||text==='6BF6'&&screen?.cursor===0&&!screen.pending&&screen.counter+4<15;
   const preserveArrivalName=context.preserveArrivalName===true&&screen?.cursor===0&&!screen.pending&&screen.counter+3<15;
   const arrivalGreeting=text==='6929'&&messages.some(m=>m.rule_arrival_tick===this.w.tick);
   const extra=arrivalGreeting?Array.from({length:16},(_,i)=>0x5D1C+i):[];
+  const narrowTrain=screen?.pictureWindow&&text==='7611'&&screen.windowMode===1&&
+   screen.cursor===0&&!screen.pending&&screen.counter<=12;
+  if(narrowTrain)extra.push(0x5D23);
   const c=visible?g.npcTextContext(actor,{preserveFlags:context.preserveGlyphFlags===true,preserveScan,preserveArrivalName,extra}):{};if(visible&&context.actorNameFrame)c.actorNamePrefix=write=>{const display=g.sourceDisplay,{glyphFrame,upperGlyphKnown,glyphFlagsKnown}=display;
    display.glyphFrame=context.actorNameFrame;display.upperGlyphKnown=context.actorNameUpper===true;
    if(context.preserveTriciaPrefix)display.glyphFlagsKnown=true;
    try{write();}finally{Object.assign(display,{glyphFrame,upperGlyphKnown,glyphFlagsKnown});}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  if(visible&&narrowTrain&&c.sink){
+   const sink=c.sink,display=g.sourceDisplay;
+   c.sink=ch=>{
+    if(ch==='\n'&&screen.pending.toLowerCase()==='station.'&&screen.remaining<screen.pending.length){
+     // The buffered final word wraps while the station picture is visible.
+     const previous=display.trainScanKnown;
+     display.trainScanKnown=true;
+     try{display.glyphResidue(' ',0x5D34,17,0x5A20);}finally{display.trainScanKnown=previous;}
+    }
+    sink(ch);
+   };
+  }
   if(!visible&&text==='7611'){
    const bufferSink=c.bufferSink;
    const descriptor=g.data.texts[text].at(-1).randomContext;
@@ -614,7 +634,15 @@ export class NpcRuntime {
   if([29,30].includes(action)&&[31,34].includes(actor)){this.ruleResults.invalidate();return this.travel(actor,input[0],action===30,messages);}
   if([29,30].includes(action)&&actor===11){this.ruleResults.invalidate();return this.advanced.policeTravel(actor,input[0],action===30,messages,input[1]);}
   if(action===45&&[31,34].includes(actor)){this.ruleResults.invalidate();return {cost:0,defer:'E08F',args:input};}
-  if([21,22].includes(action)){this.ruleResults.invalidate();return {cost:0,defer:'E456',args:[input[0],255]};} // E44C predicate results remain unprojected.
+  if([21,22].includes(action)){
+   // E44C/E28D compare the actor with the resolved target without
+   // changing the predicate's IX argument or IY rule header.
+   if(input[0]!==255&&!context.request&&!context.isolated&&w.display?.pictureWindow){
+    const header=g.data.actions.find(entry=>entry.id===action).rule;
+    this.ruleResults.write(this.state.argumentPointers[0],parseInt(header,16));
+   }else this.ruleResults.invalidate();
+   return {cost:0,defer:'E456',args:[input[0],255]};
+  }
   const classByAction={12:8,13:8,24:8,25:8,40:8,31:8,19:8,41:9,42:9,44:9,11:9,23:9,16:10,17:10,38:10,39:10,36:8,14:8,26:10,32:0,49:0};
   let args=input.slice();if(action===31){if(args[0]===255){const e=w.entities.find(e=>g.cab.available(e,actor));if(!e)return no();args[0]=e.id;}}
   else if(classByAction[action]!==undefined){if(args[0]===255&&classByAction[action]!==0){const previous=g.actingActor;g.actingActor=actor;try{const e=w.entities.find(e=>{const checked=this.checkAction(action,[e.id,args[1]],actor,{phase:0});return checked!==false&&this.select(e.id,classByAction[action],actor)!==null&&g.canResolve(e,action,0);});if(!e)return no();args[0]=e.id;}finally{g.actingActor=previous;}}else{preflightRejected=this.checkAction(action,args,actor)===false;const selected=this.select(args[0],classByAction[action],actor);if(selected===null)return no();args[0]=selected;}}
@@ -675,6 +703,13 @@ export class NpcRuntime {
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
   if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown);
     if(actor===3&&out.cost&&[13,25].includes(out.action)&&[30,33].includes(out.args[0]))for(const m of shown)m.cab_action=true;
+    if(w.display?.pictureWindow&&actor===3&&out.cost&&out.action===12&&[30,33].includes(out.args[0]))for(const m of shown){
+     const start=m.text.indexOf(' into ')+1;
+     const name=m.scene_trace?.find(part=>part.kind==='action-entity-prefix');
+     if(name)name.kind='cab-board-name';
+     // The target name flushes the preposition before D3D5 prints the article.
+     if(start>0)m.scene_trace=[...(m.scene_trace||[]),{kind:'cab-board-into',start,end:start+4,frame:0x5D2A}];
+    }
     // CBC2 in the ordinary action caller keeps1A–1D for an unqualified
     // proper person name, and the independent1F contract is also verified.
     // Qualified names can wrap at a deeper frame;
@@ -734,7 +769,7 @@ export class NpcRuntime {
    // CAAF/CBC2 announce the outermost arriving entity; a vehicle's
    // passengers are described by their own subsequent actions.
    let outer=id;while(w.entity(outer).parent!==null)outer=w.entity(outer).parent;
-   const name=w.name(outer,{indefinite:true}),message={kind:'narrative',text:name[0].toUpperCase()+name.slice(1)+' enters.'};
+   const name=w.name(outer,{indefinite:true}),message={kind:'narrative',text:name[0].toUpperCase()+name.slice(1)+' enters.',arrival_entity:outer};
    if(name.startsWith('Inspector ')&&id===outer&&id===notification.actor){
     // CBEA enters the notification with one extra saved register pair.
     message.scene_trace=[{kind:'rule-arrival-person-prefix',start:0,end:name.indexOf(' '),frame:0x5D28}];

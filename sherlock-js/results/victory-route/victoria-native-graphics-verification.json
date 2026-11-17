@@ -123,36 +123,8 @@
     },
     {
       "seed": 137,
-      "matched": 1644,
-      "next": {
-        "clock": "Tue 04:56pm",
-        "command": "WAIT UNTIL 10:05PM",
-        "field": "stack",
-        "address": "5D1A",
-        "native_draw": {
-          "actor": 8,
-          "width": 99,
-          "mixOffset": 5,
-          "seed": 143,
-          "cursor": 23572,
-          "reads": [
-            {
-              "address": 23828,
-              "value": 11
-            },
-            {
-              "address": 23834,
-              "value": 0
-            }
-          ],
-          "video": "c4fcba1b538c1c1b7ea8607d1fbeac75943731752486c01e8812f5868ddad51b",
-          "counter": 5,
-          "narrow": 0,
-          "result": 55,
-          "next_seed": 154,
-          "next_cursor": 23828
-        }
-      },
+      "matched": 3219,
+      "next": null,
       "previous_next": {
         "clock": "Tue 05:56am",
         "command": "WAIT UNTIL 9:18AM",
@@ -320,7 +292,649 @@
           "next_cursor": 23825
         },
         "js_input_value": 1
-      }
+      },
+      "resolved_cab_waiting_speech": {
+        "clock": "Tue 04:56pm",
+        "command": "WAIT UNTIL 10:05PM",
+        "field": "stack",
+        "address": "5D1A",
+        "native_draw": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 143,
+          "cursor": 23572,
+          "reads": [
+            {
+              "address": 23828,
+              "value": 11
+            },
+            {
+              "address": 23834,
+              "value": 0
+            }
+          ],
+          "video": "c4fcba1b538c1c1b7ea8607d1fbeac75943731752486c01e8812f5868ddad51b",
+          "counter": 5,
+          "narrow": 0,
+          "result": 55,
+          "next_seed": 154,
+          "next_cursor": 23828
+        }
+      },
+      "resolved_brief_identity": {
+        "clock": "Wed 02:43am",
+        "command": "WAIT UNTIL 10:06AM",
+        "field": "stack",
+        "address": "5D1F",
+        "native_draw": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 101,
+          "cursor": 23577,
+          "reads": [
+            {
+              "address": 23833,
+              "value": 1
+            },
+            {
+              "address": 23839,
+              "value": 1
+            }
+          ],
+          "video": "6fe3cbfebe68a200ff09de0bdfa32e3b43ef0343ccb1c7133650e006eec2497c",
+          "counter": 0,
+          "narrow": 0,
+          "result": 4,
+          "next_seed": 103,
+          "next_cursor": 23833
+        }
+      },
+      "resolved_boarding": {
+        "clock": "Wed 10:20am",
+        "command": "CLIMB INTO CAB",
+        "address": "5D1E",
+        "value": 0
+      },
+      "resolved_carried_object_delimiter": {
+        "clock": "Wed 11:43am",
+        "command": "WAIT UNTIL 12:15PM",
+        "difference": "FIRST 2717  Wed 11:43am Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non è stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non è stato applicato.",
+        "native_draws": [
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 180,
+            "cursor": 23071,
+            "reads": [
+              {
+                "address": 23327,
+                "value": 79
+              },
+              {
+                "address": 63500,
+                "value": 95
+              }
+            ],
+            "video": "626abc9486820c00bdf95b22fdbf8c6abfe85c683903e3599513386bac1cc57f",
+            "counter": 0,
+            "narrow": 0,
+            "result": 7,
+            "next_seed": 92,
+            "next_cursor": 23327
+          },
+          {
+            "actor": 8,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 92,
+            "cursor": 23327,
+            "reads": [
+              {
+                "address": 23583,
+                "value": 0
+              },
+              {
+                "address": 23589,
+                "value": 0
+              },
+              {
+                "address": 23839,
+                "value": 1
+              },
+              {
+                "address": 23845,
+                "value": 85
+              }
+            ],
+            "video": "626abc9486820c00bdf95b22fdbf8c6abfe85c683903e3599513386bac1cc57f",
+            "counter": 0,
+            "narrow": 0,
+            "result": 91,
+            "next_seed": 8,
+            "next_cursor": 23839
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 8,
+            "cursor": 23839,
+            "reads": [
+              {
+                "address": 24095,
+                "value": 143
+              },
+              {
+                "address": 24101,
+                "value": 223
+              }
+            ],
+            "video": "626abc9486820c00bdf95b22fdbf8c6abfe85c683903e3599513386bac1cc57f",
+            "counter": 0,
+            "narrow": 0,
+            "result": 27,
+            "next_seed": 72,
+            "next_cursor": 24095
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 72,
+            "cursor": 24095,
+            "reads": [
+              {
+                "address": 24351,
+                "value": 160
+              },
+              {
+                "address": 24357,
+                "value": 8
+              }
+            ],
+            "video": "626abc9486820c00bdf95b22fdbf8c6abfe85c683903e3599513386bac1cc57f",
+            "counter": 0,
+            "narrow": 0,
+            "result": 13,
+            "next_seed": 224,
+            "next_cursor": 24351
+          }
+        ]
+      },
+      "resolved_train_video": {
+        "clock": "Wed 01:17pm",
+        "addresses": [
+          "5D20",
+          "5D26"
+        ]
+      },
+      "resolved_police_cab_look": {
+        "clock": "Wed 03:20pm",
+        "diagnostic": "FIRST 2932  Wed 03:20pm Ingresso casuale originale non ancora ricostruito: $5D0E. Il comando non è stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D0E. Il comando non è stato applicato.",
+        "native_draws": [
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 167,
+            "cursor": 48673,
+            "reads": [
+              {
+                "address": 48929,
+                "value": 164
+              },
+              {
+                "address": 23566,
+                "value": 108
+              }
+            ],
+            "video": "7aff00470dd6cd2b6669a338f9b389011ebc418cb483b3927ba5180ab452afb9",
+            "counter": 0,
+            "narrow": 0,
+            "result": 60,
+            "next_seed": 39,
+            "next_cursor": 48929
+          },
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 39,
+            "cursor": 48929,
+            "reads": [
+              {
+                "address": 49185,
+                "value": 254
+              },
+              {
+                "address": 23822,
+                "value": 0
+              }
+            ],
+            "video": "7aff00470dd6cd2b6669a338f9b389011ebc418cb483b3927ba5180ab452afb9",
+            "counter": 0,
+            "narrow": 0,
+            "result": 62,
+            "next_seed": 37,
+            "next_cursor": 49185
+          },
+          {
+            "actor": 8,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 37,
+            "cursor": 49185,
+            "reads": [
+              {
+                "address": 49441,
+                "value": 255
+              },
+              {
+                "address": 49447,
+                "value": 201
+              }
+            ],
+            "video": "7aff00470dd6cd2b6669a338f9b389011ebc418cb483b3927ba5180ab452afb9",
+            "counter": 0,
+            "narrow": 0,
+            "result": 19,
+            "next_seed": 237,
+            "next_cursor": 49441
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 237,
+            "cursor": 49441,
+            "reads": [
+              {
+                "address": 49697,
+                "value": 61
+              },
+              {
+                "address": 49703,
+                "value": 2
+              }
+            ],
+            "video": "7aff00470dd6cd2b6669a338f9b389011ebc418cb483b3927ba5180ab452afb9",
+            "counter": 0,
+            "narrow": 0,
+            "result": 59,
+            "next_seed": 40,
+            "next_cursor": 49697
+          }
+        ]
+      },
+      "resolved_leatherhead_station": {
+        "clock": "Wed 05:37pm",
+        "command": "WAIT UNTIL 5:45PM",
+        "address": "5D23",
+        "native_draws": [
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 158,
+            "cursor": 23331,
+            "reads": [
+              {
+                "address": 23587,
+                "value": 0
+              },
+              {
+                "address": 63760,
+                "value": 239
+              }
+            ],
+            "video": "bb4ecfeab9b909f21aeff3897085ed177974ebefd10670808cfd34dca4cd86bc",
+            "counter": 0,
+            "narrow": 0,
+            "result": 14,
+            "next_seed": 113,
+            "next_cursor": 23587
+          },
+          {
+            "actor": 8,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 113,
+            "cursor": 23587,
+            "reads": [
+              {
+                "address": 23843,
+                "value": 1
+              },
+              {
+                "address": 23849,
+                "value": 0
+              }
+            ],
+            "video": "bb4ecfeab9b909f21aeff3897085ed177974ebefd10670808cfd34dca4cd86bc",
+            "counter": 0,
+            "narrow": 0,
+            "result": 15,
+            "next_seed": 114,
+            "next_cursor": 23843
+          },
+          {
+            "actor": 8,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 114,
+            "cursor": 23843,
+            "reads": [
+              {
+                "address": 24099,
+                "value": 89
+              },
+              {
+                "address": 24105,
+                "value": 80
+              }
+            ],
+            "video": "bb4ecfeab9b909f21aeff3897085ed177974ebefd10670808cfd34dca4cd86bc",
+            "counter": 0,
+            "narrow": 0,
+            "result": 56,
+            "next_seed": 155,
+            "next_cursor": 24099
+          }
+        ]
+      },
+      "resolved_train_arrival_word": {
+        "clock": "Wed 06:15pm",
+        "command": "WAIT UNTIL 6:15PM",
+        "address": "5C10",
+        "native_draws": [
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 84,
+            "cursor": 48675,
+            "reads": [
+              {
+                "address": 48931,
+                "value": 253
+              },
+              {
+                "address": 23568,
+                "value": 83
+              }
+            ],
+            "video": "1d962dc5982b1c31544c9169d13eda0ec9657383c84af0dafa48e337d7f16292",
+            "counter": 1,
+            "narrow": 0,
+            "result": 97,
+            "next_seed": 2,
+            "next_cursor": 48931
+          },
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 2,
+            "cursor": 48931,
+            "reads": [
+              {
+                "address": 49187,
+                "value": 32
+              },
+              {
+                "address": 23824,
+                "value": 16
+              }
+            ],
+            "video": "1d962dc5982b1c31544c9169d13eda0ec9657383c84af0dafa48e337d7f16292",
+            "counter": 1,
+            "narrow": 0,
+            "result": 49,
+            "next_seed": 50,
+            "next_cursor": 49187
+          }
+        ]
+      },
+      "resolved_english_shift": {
+        "clock": "Wed 07:03pm",
+        "addresses": [
+          "5D24",
+          "5D2A"
+        ]
+      },
+      "resolved_follow_pointer": {
+        "clock": "Wed 07:44pm",
+        "command": "CLIMB INTO CAB",
+        "address": "CB2A",
+        "native_draws": [
+          {
+            "actor": 2,
+            "width": 0,
+            "mixOffset": 5,
+            "seed": 28,
+            "cursor": 51748,
+            "reads": [
+              {
+                "address": 52004,
+                "value": 104
+              },
+              {
+                "address": 52010,
+                "value": 82
+              }
+            ],
+            "video": "15d8945fa3fd03b10ae61410360e8acf9afad7a35dccf1833b585d08c4ea1d60",
+            "counter": 2,
+            "narrow": 0,
+            "result": 0,
+            "next_seed": 214,
+            "next_cursor": 52004
+          },
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 214,
+            "cursor": 52004,
+            "reads": [
+              {
+                "address": 52260,
+                "value": 24
+              },
+              {
+                "address": 26897,
+                "value": 194
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 55,
+            "next_seed": 44,
+            "next_cursor": 52260
+          },
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 44,
+            "cursor": 52260,
+            "reads": [
+              {
+                "address": 52516,
+                "value": 221
+              },
+              {
+                "address": 27153,
+                "value": 49
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 43,
+            "next_seed": 56,
+            "next_cursor": 52516
+          },
+          {
+            "actor": 8,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 56,
+            "cursor": 52516,
+            "reads": [
+              {
+                "address": 52772,
+                "value": 205
+              },
+              {
+                "address": 52778,
+                "value": 221
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 9,
+            "next_seed": 216,
+            "next_cursor": 52772
+          },
+          {
+            "actor": 8,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 216,
+            "cursor": 52772,
+            "reads": [
+              {
+                "address": 53028,
+                "value": 26
+              },
+              {
+                "address": 53034,
+                "value": 12
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 28,
+            "next_seed": 254,
+            "next_cursor": 53028
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 254,
+            "cursor": 53028,
+            "reads": [
+              {
+                "address": 53284,
+                "value": 159
+              },
+              {
+                "address": 53290,
+                "value": 182
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 56,
+            "next_seed": 43,
+            "next_cursor": 53284
+          },
+          {
+            "actor": 31,
+            "width": 3,
+            "mixOffset": 5,
+            "seed": 43,
+            "cursor": 53284,
+            "reads": [
+              {
+                "address": 53540,
+                "value": 200
+              },
+              {
+                "address": 53546,
+                "value": 245
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 3,
+            "next_seed": 6,
+            "next_cursor": 53540
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 6,
+            "cursor": 53540,
+            "reads": [
+              {
+                "address": 53796,
+                "value": 213
+              },
+              {
+                "address": 53802,
+                "value": 38
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 27,
+            "next_seed": 253,
+            "next_cursor": 53796
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 253,
+            "cursor": 53796,
+            "reads": [
+              {
+                "address": 54052,
+                "value": 253
+              },
+              {
+                "address": 54058,
+                "value": 79
+              }
+            ],
+            "video": "f04f3b7e2b6f034a057544c9d77104a002dfb42957aae2b34a20dbfbb811d50e",
+            "counter": 5,
+            "narrow": 0,
+            "result": 82,
+            "next_seed": 181,
+            "next_cursor": 54052
+          }
+        ]
+      },
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
+      },
+      "draws": 8912,
+      "reads": 19024
     }
   ],
   "extra_look_variant": {

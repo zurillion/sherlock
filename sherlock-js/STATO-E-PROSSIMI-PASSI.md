@@ -21,9 +21,10 @@ i motori, con le due deduzioni sugli omicidi accettate.
 1. **Seed e scelte del giocatore.** Aggiunti tre percorsi con seed
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
-2. **Grafica nativa.** Estendere la sequenza verso Victoria oltre
-   la lettura di $5D1A del seed 137, martedì alle 16:56. Due percorsi con grafica attiva fino a $693A
-   sono verificati. Il comportamento di NEW, Riavvia e LOAD è
+2. **Grafica nativa.** Il seed 137 coincide dall’avvio alla vittoria
+   $6AF3 su 3.219 checkpoint. Restano le divergenze dei seed 0 e 1.
+   Due percorsi con grafica attiva fino a $693A sono verificati.
+   Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 
 La mappa riporta 39.937 byte documentati, 326 parziali e 1.337

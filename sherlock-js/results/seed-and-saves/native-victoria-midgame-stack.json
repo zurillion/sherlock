@@ -1,0 +1,111 @@
+{
+  "seed": 137,
+  "route": "results/victory-route/victoria-full-route.txt",
+  "addresses": {
+    "5D1F": {
+      "read_tick_before_checkpoint": 2563,
+      "reader": 8,
+      "value": 1,
+      "pc": "C389",
+      "sp_before_push": "5D20",
+      "writer_actor": 1,
+      "registers": {
+        "A": 97,
+        "F": 26,
+        "B": 1,
+        "C": 2,
+        "D": 92,
+        "E": 11,
+        "H": 80,
+        "L": 39
+      },
+      "stack_words": [
+        "611A",
+        "C2F1",
+        "611A",
+        "0100",
+        "5C0F",
+        "AA00",
+        "6600",
+        "2012",
+        "5546",
+        "A24E",
+        "2004",
+        "A89F",
+        "5546",
+        "6600",
+        "A24E"
+      ]
+    },
+    "5D1E": {
+      "read_tick_before_checkpoint": 3019,
+      "reader": 9,
+      "value": 0,
+      "pc": "C39D",
+      "sp_before_push": "5D20",
+      "writer_actor": 3,
+      "registers": {
+        "A": 0,
+        "F": 0,
+        "B": 1,
+        "C": 1,
+        "D": 63,
+        "E": 127,
+        "H": 87,
+        "L": 47
+      },
+      "stack_words": [
+        "0101",
+        "502F",
+        "5C0B",
+        "0101",
+        "6F0A",
+        "C2F1",
+        "6F0A",
+        "0128",
+        "5C0E",
+        "AA00",
+        "0128",
+        "1602",
+        "089D",
+        "A258",
+        "2088"
+      ]
+    },
+    "5D24": {
+      "read_tick_before_checkpoint": 3019,
+      "reader": 9,
+      "value": 56,
+      "pc": "C38B",
+      "sp_before_push": "5D26",
+      "writer_actor": 3,
+      "registers": {
+        "A": 109,
+        "F": 10,
+        "B": 1,
+        "C": 6,
+        "D": 92,
+        "E": 11,
+        "H": 80,
+        "L": 56
+      },
+      "stack_words": [
+        "5C0B",
+        "0106",
+        "6D0A",
+        "C2F1",
+        "6D0A",
+        "0128",
+        "5C10",
+        "AA00",
+        "0128",
+        "0D02",
+        "5164",
+        "A258",
+        "2024",
+        "A89F",
+        "5164"
+      ]
+    }
+  }
+}

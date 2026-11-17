@@ -1,0 +1,97 @@
+{
+  "seed": 137,
+  "reads": [
+    {
+      "clock": "Wed 11:43am",
+      "tick_before_checkpoint": 3103,
+      "address": "5D1F",
+      "value": 1,
+      "reader": 8,
+      "writer": {
+        "pc": "C389",
+        "sp_before_push": "5D20",
+        "subject": 0,
+        "registers": {
+          "A": 32,
+          "F": 84,
+          "B": 1,
+          "C": 7,
+          "D": 90,
+          "E": 32,
+          "H": 80,
+          "L": 62
+        },
+        "stack_hex": "542077c3755520500216e2c29320011654a29fa87555011654a2c38b24a8"
+      }
+    },
+    {
+      "clock": "Wed 11:43am",
+      "tick_before_checkpoint": 3103,
+      "address": "5D25",
+      "value": 85,
+      "reader": 8,
+      "writer": {
+        "pc": "C38A",
+        "sp_before_push": "5D26",
+        "subject": 0,
+        "registers": {
+          "A": 32,
+          "F": 26,
+          "B": 22,
+          "C": 7,
+          "D": 85,
+          "E": 117,
+          "H": 80,
+          "L": 62
+        },
+        "stack_hex": "07161a20f1c29320011654a29fa87555011654a2c38b24a845d407004800"
+      }
+    },
+    {
+      "clock": "Wed 01:17pm",
+      "tick_before_checkpoint": 3197,
+      "address": "5D20",
+      "value": 62,
+      "reader": 8,
+      "writer": {
+        "pc": "C38B",
+        "sp_before_push": "5D22",
+        "subject": 0,
+        "registers": {
+          "A": 32,
+          "F": 84,
+          "B": 2,
+          "C": 0,
+          "D": 90,
+          "E": 32,
+          "H": 80,
+          "L": 62
+        },
+        "stack_hex": "205a0002542077c30b5c20500200e2c2830d07000700f4a99306f751597e"
+      }
+    },
+    {
+      "clock": "Wed 01:17pm",
+      "tick_before_checkpoint": 3197,
+      "address": "5D26",
+      "value": 37,
+      "reader": 8,
+      "writer": {
+        "pc": "C38B",
+        "sp_before_push": "5D28",
+        "subject": 0,
+        "registers": {
+          "A": 104,
+          "F": 26,
+          "B": 1,
+          "C": 4,
+          "D": 92,
+          "E": 11,
+          "H": 80,
+          "L": 37
+        },
+        "stack_hex": "0b5c04011a68f1c21a680701115c00aa07009306f751597ea0209fa8f751"
+      }
+    }
+  ]
+}
