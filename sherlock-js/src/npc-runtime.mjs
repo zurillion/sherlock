@@ -809,7 +809,18 @@ export class NpcRuntime {
   if(visible)messages.push(g.textMessage(prefix+' '+suffix.trim(),c));
  }
  sayPayment(actor,recipient,pence,messages){this.game.text.setQualifierMode(0);this.game.sourceDisplay.setChannel(0);this.modelFlags(37); // E34B/CA76 -> A323/A38B, including off-stage payments.
-  const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.'))this.game.sourceDisplay.bufferFeed(ch,{hidden:true});this.game.sourceDisplay.moneyCapital(pence);for(const ch of '.\n')this.game.sourceDisplay.bufferFeed(ch,{hidden:true});return;}const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+(recipient===w.player?'you':w.name(recipient))+'.';if(w.perceived(actor)){const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1),cab_action:[31,34].includes(actor)&&recipient===w.player,money_ends:[{end:text.indexOf(amount)+amount.length,pence}]};messages.push(message);this.game.projectMessages([message]);}}
+  const w=this.w,amount=formatMoney(pence);if(!w.perceived(actor)){for(const ch of ' '+amount.replace(/d\./g,'D.'))this.game.sourceDisplay.bufferFeed(ch,{hidden:true});this.game.sourceDisplay.moneyCapital(pence);for(const ch of '.\n')this.game.sourceDisplay.bufferFeed(ch,{hidden:true});return;}const recipientName=recipient===w.player?'you':w.name(recipient);
+  const text=w.name(actor)+' pays '+amount+(amount.endsWith('.')?' To ':' to ')+recipientName+'.';
+  const message={kind:'narrative',text:text[0].toUpperCase()+text.slice(1),cab_action:[31,34].includes(actor)&&recipient===w.player,money_ends:[{end:text.indexOf(amount)+amount.length,pence}]};
+  const titleEnd=recipientName.indexOf(' '),recipientEntity=w.entity(recipient);
+  if(w.display?.pictureWindow&&[31,34].includes(actor)&&recipientEntity.person&&
+     recipientEntity.noun&0x8000&&titleEnd>0&&titleEnd===recipientName.lastIndexOf(' ')){
+   // The change announcement emits the recipient's title at SP5D2A.
+   // If its last glyph fills the row, C374 reaches SP5D22.
+   const start=text.length-recipientName.length-1;
+   message.scene_trace=[{kind:'cab-change-recipient-title',start,end:start+titleEnd,frame:0x5D2A}];
+  }
+  messages.push(message);this.game.projectMessages([message]);}
  callback(actor,oldDue,messages){
   const id=actor.id,w=this.w;
   if(id===6){const e=w.entity(85);if(e.attributes&128&&this.state.burningNoteTicks!==255){this.state.burningNoteTicks=(this.state.burningNoteTicks-1)&255;if(!this.state.burningNoteTicks){e.qualifiers[0]=0x15B;e.name='burnt note';e.description=null;const fact=this.state.facts.find(f=>f.start===0x99A9);fact.terms[5]&=~0x0200;}}return;}

@@ -44,7 +44,7 @@ export class RandomDisplay {
   this.invalidateScratch(bounded?0x5D20:0x5CEC);
  }
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
- scene(text,sceneTrace=[]){const s=this.state;
+ scene(text,sceneTrace=[],moneyEnds=[]){const s=this.state;
   const shallow=sceneTrace.some(r=>r.kind==='relocation-person-prefix');
   const preserveScan=shallow&&s.cursor===0&&!s.pending&&s.counter+2<15&&text.length<36;
   this.invalidateGlyphExtras({preserveScan});const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
@@ -65,7 +65,10 @@ export class RandomDisplay {
    // A later name/prose caller has its own unprojected register saves.
    // The noun of this same passage shares the raw span with its prefix.
    if(rawText&&rawText.affectsStack!==false&&i===rawText.start){if(!this.glyphCallerBKnown)delete this.state.scratch[0x5D23];if(!this.glyphCallerCKnown)delete this.state.scratch[0x5D22];if(!this.glyphVideoLowKnown)delete this.state.scratch[0x5D1E];if(!this.glyphCallerFlagsKnown)delete this.state.scratch[0x5D24];if(!this.glyphCallerAKnown)delete this.state.scratch[0x5D25];if(!this.glyphDescriptorLowKnown)delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];if(!this.glyphDescriptorHighKnown)delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
-   if(i<text.length)this.feed(text[i],{buffer:!rawText});
+   if(i<text.length){
+    this.feed(text[i],{buffer:!rawText});
+    for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);
+   }
    if(rawText&&i+1===rawText.end)for(const {c,...options}of rawText.events)this.bufferFeed(c,options);
    // A word is flushed by the following delimiter, within the same owner.
    // After a carried-name prefix, A887 emits the separating space from
@@ -438,7 +441,7 @@ export class RandomDisplay {
  }
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
- write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace)this.scene(text,sceneTrace,moneyEnds);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
   this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}

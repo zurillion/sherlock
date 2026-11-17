@@ -239,7 +239,7 @@ dall’accensione con tutti gli attori attivi.
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 755 | lunedì 23:58, bitmap durante l’inventario a Slater Street |
 | 1 | 3.219 | 14 | lunedì 08:29, HAIL CAB legge il temporaneo $5D6D |
-| 137 | 3.219 | 1.432 | martedì 12:31, il giardiniere legge $5D17 |
+| 137 | 3.219 | 1.644 | martedì 16:56, il giardiniere legge $5D1A |
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
@@ -259,9 +259,16 @@ Alle 09:39, l’arrivo di Watson al binario di Leatherhead passa
 per CC07 e il frammento $68ED. A9D7 lascia la r di «enterS»
 nel buffer $5C0F, che Watson legge prima della prossima parola.
 Il modello riproduce quel frammento anche per il buffer grezzo.
-Alle 12:31, nel nuovo primo scarto, il giardiniere legge $00 in
-$5D17 sullo Spectrum e $01 nel modello.
+
 [Scrittura osservata durante l’arrivo](results/seed-and-saves/native-arrival-word-buffer.json).
+
+A Parliament Street il cocchiere dà il resto a Lestrade. La r
+di «Inspector» arriva all’ultima colonna nel frame $5D2A. C374
+pulisce la riga seguente con un frame otto byte più profondo.
+C3B8 conserva l’ultima scansione grezza del glifo spazio in
+$5D17, letta dal giardiniere alle 12:31. Il primo scarto
+successivo è alle 16:56, su $5D1A, durante l’attesa a Camden Street.
+[Traccia dello scorrimento durante il resto](results/seed-and-saves/native-cab-change-margin.json).
 
 Un LOOK aggiuntivo prima del primo HAIL CAB cambia il percorso
 col seed 1. In questa variante, mercoledì Lestrade rifiuta le

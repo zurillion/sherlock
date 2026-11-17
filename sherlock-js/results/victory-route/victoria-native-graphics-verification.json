@@ -123,36 +123,35 @@
     },
     {
       "seed": 137,
-      "matched": 1432,
+      "matched": 1644,
       "next": {
-        "clock": "Tue 12:31pm",
-        "command": "WAIT UNTIL 12:40PM",
+        "clock": "Tue 04:56pm",
+        "command": "WAIT UNTIL 10:05PM",
         "field": "stack",
-        "address": "5D17",
+        "address": "5D1A",
         "native_draw": {
           "actor": 8,
           "width": 99,
           "mixOffset": 5,
-          "seed": 125,
-          "cursor": 23569,
+          "seed": 143,
+          "cursor": 23572,
           "reads": [
             {
-              "address": 23825,
-              "value": 1
+              "address": 23828,
+              "value": 11
             },
             {
-              "address": 23831,
+              "address": 23834,
               "value": 0
             }
           ],
-          "video": "9483b2a318ef3fcb1ffd58b2df7342a32ee455251bba4a5db5aa3e54c33d1dd8",
-          "counter": 13,
+          "video": "c4fcba1b538c1c1b7ea8607d1fbeac75943731752486c01e8812f5868ddad51b",
+          "counter": 5,
           "narrow": 0,
-          "result": 27,
-          "next_seed": 126,
-          "next_cursor": 23825
-        },
-        "js_input_value": 1
+          "result": 55,
+          "next_seed": 154,
+          "next_cursor": 23828
+        }
       },
       "previous_next": {
         "clock": "Tue 05:56am",
@@ -291,6 +290,36 @@
             "next_cursor": 23567
           }
         ]
+      },
+      "resolved_cab_change": {
+        "clock": "Tue 12:31pm",
+        "command": "WAIT UNTIL 12:40PM",
+        "field": "stack",
+        "address": "5D17",
+        "native_draw": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 125,
+          "cursor": 23569,
+          "reads": [
+            {
+              "address": 23825,
+              "value": 1
+            },
+            {
+              "address": 23831,
+              "value": 0
+            }
+          ],
+          "video": "9483b2a318ef3fcb1ffd58b2df7342a32ee455251bba4a5db5aa3e54c33d1dd8",
+          "counter": 13,
+          "narrow": 0,
+          "result": 27,
+          "next_seed": 126,
+          "next_cursor": 23825
+        },
+        "js_input_value": 1
       }
     }
   ],

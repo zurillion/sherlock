@@ -1,0 +1,35 @@
+{
+  "profile": {
+    "seed": 137,
+    "graphics": true,
+    "route": "results/victory-route/victoria-full-route.txt"
+  },
+  "message": "The cabbie pays £4 19/8 to Inspector Lestrade.",
+  "last_glyph": {
+    "pc": "C388",
+    "sp": "5D2A",
+    "tick": 1708,
+    "column": 35,
+    "character": "r",
+    "video_pointer": "503E"
+  },
+  "row_clear": {
+    "glyph_frame": "5D22",
+    "pc": "C3B8",
+    "sp_before_push": "5D18",
+    "registers": {
+      "A": 0,
+      "F": 0,
+      "B": 1,
+      "C": 7
+    },
+    "saved_byte": "5D17",
+    "stack_hex": "07013e50205a0701542077c30b5c20500201e2c21a720c01135c00aa0c014a09dc54ee0988209fa8dc540c01"
+  },
+  "first_read": {
+    "tick_before_checkpoint": 1711,
+    "clock_of_checkpoint": "Tue 12:31pm",
+    "actor": 8,
+    "value": 0
+  }
+}
