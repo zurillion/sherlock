@@ -168,6 +168,11 @@ Sul gioco originale, l’ingresso in A277 è a $5D5A e il minimo è
 $5D2E. L’arrivo ordinario del cab conserva quindi lo stack basso.
 Ora coincidono 371 checkpoint fino alle 17:33. Alle 17:34 il
 giardiniere legge $5D0C e trova $00 sullo Spectrum e $05 nel modello.
+L’ultima variazione osservata risale al tick 398. C374 pulisce
+la riga stretta con spazi. Su quello finale, alla colonna 17
+(shift 1, HL=$502F), C3B8 salva F=$00 con SP=$5D0E prima di
+PUSH AF. Il modello usa ancora un frame diverso durante la frase
+del cab. [Traccia di $5D0C](results/seed-and-saves/cab-narrow-clear-5d0c.json).
 [Scorrimento stretto](results/seed-and-saves/narrow-scroll-stack.json) ·
 [Persistenza di $5CF1](results/seed-and-saves/cab-graphics-stack-preservation.json).
 

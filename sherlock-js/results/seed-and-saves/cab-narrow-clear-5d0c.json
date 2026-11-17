@@ -1,0 +1,41 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "active_npcs": "all",
+    "route": "results/victory-route/victoria-full-route.txt",
+    "insert_before_command": 15,
+    "insert": "LOOK"
+  },
+  "address": "5D0C",
+  "last_changed": {
+    "tick": 398,
+    "pc": "C3B8",
+    "sp_before_push": "5D0E",
+    "actor": 0,
+    "a": 0,
+    "f": 0,
+    "video_pointer": "502F",
+    "space_column": 17,
+    "pixel_x": 121,
+    "shift": 1
+  },
+  "changes_observed": 3207,
+  "trace_through_tick": 577,
+  "first_different_read": {
+    "tick": 575,
+    "clock": "Mon 05:34pm",
+    "reads": [
+      {
+        "address": 23814,
+        "value": 1
+      },
+      {
+        "address": 23820,
+        "value": 0
+      }
+    ],
+    "actor": 8,
+    "js_value_at_eb2b830": 5
+  }
+}
