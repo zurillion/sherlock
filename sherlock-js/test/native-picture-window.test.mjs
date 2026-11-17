@@ -104,10 +104,10 @@ test('Native graphics reproduce original pixels, attributes and random draws thr
   assert.equal(session.game.world.display.pictureWindow, undefined);
 });
 
-test('Native graphics preserve narrow-scroll stack inputs across the first return train', async () => {
-  assert.equal(victoriaPrefix.steps.length, 371);
+test('Native graphics preserve narrow-scroll stack inputs through the return to Slater Street', async () => {
+  assert.equal(victoriaPrefix.steps.length, 755);
   const session = await replay(victoriaPrefix);
-  assert.equal(session.game.world.clock().label, 'Mon 05:33pm');
+  assert.equal(session.game.world.clock().label, 'Mon 11:57pm');
 });
 
 for (const trace of cases) {

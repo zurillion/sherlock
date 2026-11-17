@@ -22,7 +22,7 @@ i motori, con le due deduzioni sugli omicidi accettate.
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
 2. **Grafica nativa.** Estendere la sequenza verso Victoria oltre
-   il residuo $5D0C. Due percorsi con grafica attiva fino a $693A
+   la divergenza video di lunedì alle 23:58. Due percorsi con grafica attiva fino a $693A
    sono verificati. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 
@@ -166,13 +166,17 @@ C39D al tick 329, che salva l’ultima riga del glifo. L’arrivo
 del cab a Slater Street alle 14:37 aveva revocato quel byte nel modello.
 Sul gioco originale, l’ingresso in A277 è a $5D5A e il minimo è
 $5D2E. L’arrivo ordinario del cab conserva quindi lo stack basso.
-Ora coincidono 371 checkpoint fino alle 17:33. Alle 17:34 il
-giardiniere legge $5D0C e trova $00 sullo Spectrum e $05 nel modello.
-L’ultima variazione osservata risale al tick 398. C374 pulisce
-la riga stretta con spazi. Su quello finale, alla colonna 17
-(shift 1, HL=$502F), C3B8 salva F=$00 con SP=$5D0E prima di
-PUSH AF. Il modello usa ancora un frame diverso durante la frase
-del cab. [Traccia di $5D0C](results/seed-and-saves/cab-narrow-clear-5d0c.json).
+Alle 17:34 il giardiniere legge $5D0C. L’ultima variazione
+osservata risale al tick 398, durante l’arrivo a Slater Street.
+L’articolo del passaggio scarica la parola «is» con frame $5D20.
+La s riempie la riga e C374 la fa scorrere. Nell’ultimo spazio
+della nuova riga (colonna 17, shift 1, HL=$502F), C3B8 salva F=$00
+con SP=$5D0E prima di PUSH AF. Il modello calcola ora quel flag
+durante il ritorno a capo e coincide su 755 checkpoint fino alle
+23:57. Alle 23:58 il comando I a Slater Street lascia una bitmap
+diversa già alla prima estrazione, con lo stesso contatore (4)
+e la stessa larghezza (36 colonne).
+[Traccia di $5D0C](results/seed-and-saves/cab-narrow-clear-5d0c.json).
 [Scorrimento stretto](results/seed-and-saves/narrow-scroll-stack.json) ·
 [Persistenza di $5CF1](results/seed-and-saves/cab-graphics-stack-preservation.json).
 

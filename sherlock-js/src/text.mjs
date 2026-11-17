@@ -242,6 +242,12 @@ export class Text {
                   events:Array.from(raw,c=>({c,known:true}))});
       // D64D/D653 emit the direction in the passage introduction. If
       // its word wraps, C374 clears the row at a different depth.
+      if(source==='cab-arrival'&&full&&!r.description&&[30,33].includes(parent)&&
+         w.display?.pictureWindow&&this.data.pictures[room]&&/^(?:a|an|the|some) /.test(name)){
+       // D658 starts the gate's article. It flushes the pending IS at
+       // C388/SP5D20. If the S fills the last column, C374 uses SP5D18.
+       trace.push({kind:'cab-passage-article-delimits-verb',start:start-3,end:start-1,frame:0x5D20});
+      }
       if(parent===null&&!remote&&source==='arrival'&&full){
        trace.push({kind:'passage-direction',start:at,end:at+d.length,frame:0x5D22});
        // D3E8/A7D0 emits the article, which flushes the pending IS.
