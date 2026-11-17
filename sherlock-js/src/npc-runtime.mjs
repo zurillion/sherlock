@@ -717,7 +717,9 @@ export class NpcRuntime {
   if(before!==w.roomOf()){
    const room=w.rooms[w.roomOf()],full=!(room.flags&64);
    const parent=w.entity(w.player).parent;
-   const message={...g.sceneMessage({full,source:notification.sceneSource??'arrival',perceptionRoom:before}),image_room:full?w.roomOf():null};room.flags|=64;messages.push(message);g.projectMessages([message]);
+   const boundedPicture=w.display?.pictureWindow&&notification.sceneSource==='cab-arrival'&&[30,33].includes(parent);
+   const message={...g.sceneMessage({full,source:notification.sceneSource??'arrival',perceptionRoom:before}),image_room:full?w.roomOf():null,
+    ...(boundedPicture?{picture_bounded:true}:{})};room.flags|=64;messages.push(message);g.projectMessages([message]);
    // D187's introduction tail and compound-subject prefix are projected by
    // the scene trace, including C374's return link on a wrapped word. Keep
    // those derived glyph fields for the ordinary hansom cab. The police

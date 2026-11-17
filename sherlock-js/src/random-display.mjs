@@ -24,7 +24,7 @@ export class RandomDisplay {
   this.wideWindow(); // C14A/C15D initializes the source window through C142.
   this.feed('\n');this.scene(opening,sceneTrace);if(!opening.endsWith('\n'))this.feed('\n');if(!deferPrompt)this.prompt();}
  wideWindow(){const s=this.state;if(!s)return;const next=textWindowControl(false,s.counter);s.windowMode=next.mode;s.cursor=next.cursor;s.remaining=next.remaining;s.started=false;}
- picture(room,direct){
+ picture(room,bounded){
   const s=this.state,asset=this.data.sourcePictures?.[room];
   if(!s.pictureWindow||asset===undefined){
    if(s.pictureWindow&&this.data.pictures?.[room])throw new RandomInputsUnavailable('Dati grafici originali della locazione mancanti.');
@@ -36,10 +36,10 @@ export class RandomDisplay {
   const {mode,cursor,remaining,counter}=textWindowControl(true,s.counter);
   Object.assign(s,{windowMode:mode,cursor,remaining,counter,started:false});
   if(!applyRoomPicture(s.pictureWindow,asset))throw new RandomInputsUnavailable('Sfondo del disegno originale non ricostruito.');
-  // The verified direct LOOK/movement callers start F3C2 at 5D54 or 5D58.
+  // The verified LOOK, movement and hansom-arrival callers start F3C2 at 5D58, 5D54 or 5D50.
   // The deepest asset needs 40 bytes below that frame. Leave a guard for
   // A296's text calls. Other callers keep the more conservative revocation.
-  this.invalidateScratch(direct?0x5D20:0x5CEC);
+  this.invalidateScratch(bounded?0x5D20:0x5CEC);
  }
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[]){const s=this.state;
@@ -426,7 +426,7 @@ export class RandomDisplay {
  }
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
- write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureDirect=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureDirect);if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace)this.scene(text,sceneTrace);else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
   this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}

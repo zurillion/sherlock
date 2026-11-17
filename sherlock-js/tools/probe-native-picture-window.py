@@ -29,6 +29,7 @@ pending=None
 draws=[]
 steps=[]
 frames=[]
+more=[]
 active_picture=None
 def picture(m):
     bitmap=bytearray()
@@ -41,6 +42,9 @@ def picture(m):
 def observe(m,r,R):
     global pending, active_picture
     pc=r[R.PC]
+    if pc == 0xC306:
+        more.append(dict(command=command, tick=word(m,0x9FDD), counter=m[0xA019],
+                         narrow=m[0xC128], video=picture(m)))
     if pc == 0xA277:
         active_picture = dict(room=r[R.A], entry=r[R.SP], minimum=r[R.SP])
     if active_picture is not None:
@@ -88,5 +92,5 @@ for command in route:
     if world.ended or out['state']['analysis']['outcome']=='tool_limit':
         break
 
-report = dict(protocol='Graphics enabled from boot, free initial LOOK and all 24 actors. Hash covers row-major upper pixels (144 x 32) then 18 x 32 attributes.', seed=args.seed, steps=steps, picture_frames=frames)
+report = dict(protocol='Graphics enabled from boot, free initial LOOK and all 24 actors. Hash covers row-major upper pixels (144 x 32) then 18 x 32 attributes.', seed=args.seed, steps=steps, picture_frames=frames, more=more)
 args.output.write_text(json.dumps(report,separators=(',',':'))+'\n')

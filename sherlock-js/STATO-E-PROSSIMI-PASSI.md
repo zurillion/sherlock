@@ -22,7 +22,7 @@ i motori, con le due deduzioni sugli omicidi accettate.
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
 2. **Grafica nativa.** Estendere la sequenza verso Victoria oltre
-   il residuo $5CF1. Due percorsi con grafica attiva fino a $693A
+   il residuo $5D0C. Due percorsi con grafica attiva fino a $693A
    sono verificati. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 
@@ -161,8 +161,13 @@ Sul treno alle 12:23, il ritorno a capo stretto lascia DE=$5020
 in C38A. Lo scroll largo passa per C361 e lascia invece $5A20.
 Watson legge il byte alto in $5CEF alle 12:27. Dopo la correzione
 il percorso oltre il ponte coincide su 226 checkpoint, fino
-alle 15:08. Il prossimo limite della stessa sequenza è $5CF1
-alle 15:09. [Traccia stack](results/seed-and-saves/narrow-scroll-stack.json).
+alle 15:08. Alle 15:09 Watson legge $5CF1. L’arrivo del cab
+a Slater Street alle 14:37 aveva revocato questo byte nel modello.
+Sul gioco originale, l’ingresso in A277 è a $5D5A e il minimo è
+$5D2E. L’arrivo ordinario del cab conserva quindi lo stack basso.
+Ora coincidono 371 checkpoint fino alle 17:33. Alle 17:34 il
+giardiniere legge $5D0C e trova $00 sullo Spectrum e $05 nel modello.
+[Traccia stack](results/seed-and-saves/narrow-scroll-stack.json).
 
 Con seed 137, una partita distinta ha evidenziato una revoca troppo
 ampia dopo un disegno diretto. Nell’atrio e a Baker Street, i frame
@@ -213,6 +218,19 @@ Per ripetere l’acquisizione con un altro seed:
 python3 tools/probe-native-picture-window.py /tmp/sherlock-native-ending.json \
   --route results/seed-and-saves/native-picture-ending-route.txt --seed 137
 ```
+
+## Ridisegno delle stanze e MORE con la grafica attiva
+
+Un percorso di 14 comandi disegna nove volte le immagini
+dell’atrio e di Baker Street, anche con LOOK consecutivi e
+rientri nelle due stanze. `LOOK. I. I. I. I. I. I. I. I`
+raggiunge C306 con la finestra ancora a 18 colonne e A019
+pari a 15. Il test confronta l’hash di bitmap e attributi
+prima della pausa, poi la ripresa a 36 colonne. Coincidono
+75 estrazioni, 184 letture e il seguito dopo Salva/Carica.
+
+[Comandi del confronto](results/seed-and-saves/native-picture-stress-route.txt) ·
+[Traccia nativa](test/fixtures/native-picture-stress.json)
 
 ## Storico precedente
 

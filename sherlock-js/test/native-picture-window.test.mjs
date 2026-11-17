@@ -8,6 +8,7 @@ import { ClientSession } from '../src/session.mjs';
 const read = async path => JSON.parse(await readFile(new URL(path, import.meta.url)));
 const data = await read('../data/game.json');
 const reference = await read('fixtures/native-picture-window.json');
+const pictureStress = await read('fixtures/native-picture-stress.json');
 const packed = await readFile(new URL('fixtures/native-picture-endings.json.gz', import.meta.url));
 const { cases, victoria_prefix: victoriaPrefix } = JSON.parse(gunzipSync(packed));
 
@@ -31,7 +32,17 @@ async function replay(trace, { mirrorUntil = -1 } = {}) {
   assert.equal(session.request('reset', { seed: trace.seed, native_graphics: true }).state.native_graphics, true);
   const game = session.game;
   let job, mirrorJob, resumed;
-  let scans = [];
+  let scans = [], command;
+  const pauses = [];
+  if (trace.more) {
+    const newline = game.sourceDisplay.newline.bind(game.sourceDisplay);
+    game.sourceDisplay.newline = () => {
+      if (game.world.display.counter === 15) {
+        pauses.push({ command, tick: game.world.tick, ...scan(game) });
+      }
+      return newline();
+    };
+  }
   const absolute = game.runtimeRandom.absolute.bind(game.runtimeRandom);
   game.runtimeRandom.absolute = (...args) => {
     scans.push(scan(game));
@@ -39,6 +50,7 @@ async function replay(trace, { mirrorUntil = -1 } = {}) {
   };
 
   for (const [index, row] of trace.steps.entries()) {
+    if (row.command !== null) command = row.command;
     scans = [];
     const before = game.world.random.draws;
     const operation = row.command === null ? 'continue-command' :
@@ -78,6 +90,7 @@ async function replay(trace, { mirrorUntil = -1 } = {}) {
       assert.deepEqual(resumed.game.dump(), game.dump());
     }
   }
+  if (trace.more) assert.deepEqual(pauses, trace.more);
   return session;
 }
 
@@ -92,9 +105,9 @@ test('Native graphics reproduce original pixels, attributes and random draws thr
 });
 
 test('Native graphics preserve narrow-scroll stack inputs across the first return train', async () => {
-  assert.equal(victoriaPrefix.steps.length, 226);
+  assert.equal(victoriaPrefix.steps.length, 371);
   const session = await replay(victoriaPrefix);
-  assert.equal(session.game.world.clock().label, 'Mon 03:08pm');
+  assert.equal(session.game.world.clock().label, 'Mon 05:33pm');
 });
 
 for (const trace of cases) {
@@ -105,3 +118,13 @@ for (const trace of cases) {
     assert.deepEqual(session.request('command', { command: 'LOOK' }).messages, []);
   });
 }
+
+test('Repeated room pictures preserve the pictured window when MORE interrupts scrolling', async () => {
+  assert.equal(pictureStress.steps.length, 14);
+  assert.equal(pictureStress.picture_frames.length, 9);
+  assert.equal(pictureStress.more.length, 1);
+  assert.equal(pictureStress.more[0].narrow, 1);
+  assert.equal(pictureStress.more[0].counter, 15);
+  const session = await replay(pictureStress, { mirrorUntil: Infinity });
+  assert.equal(session.game.world.clock().label, 'Mon 08:27am');
+});
