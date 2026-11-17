@@ -1,0 +1,123 @@
+{
+  "seed": 137,
+  "route": "results/victory-route/victoria-full-route.txt",
+  "native_graphics": true,
+  "scan": "Stack changes and entropy reads on the original, from boot with all actors.",
+  "readings": [
+    {
+      "address": "5CF9",
+      "value": 80,
+      "reader": "Watson",
+      "read_tick_before_next_checkpoint": 1316,
+      "writer": {
+        "pc": "C31E",
+        "sp_before_push": "5CFA",
+        "actor": 0,
+        "registers": {
+          "A": 1,
+          "F": 16,
+          "B": 1,
+          "C": 2,
+          "D": 92,
+          "E": 11,
+          "H": 80,
+          "L": 32
+        },
+        "stack_words_before_push": [
+          "0102",
+          "C2E2",
+          "2E83",
+          "0101",
+          "5C11",
+          "AA00",
+          "3601",
+          "0742",
+          "5971",
+          "09EE",
+          "2028",
+          "A89F",
+          "5971",
+          "3601",
+          "09EE"
+        ]
+      }
+    },
+    {
+      "address": "5CFA",
+      "value": 2,
+      "reader": "Watson",
+      "read_tick_before_next_checkpoint": 1407,
+      "writer": {
+        "pc": "C31D",
+        "sp_before_push": "5CFC",
+        "actor": 0,
+        "registers": {
+          "A": 1,
+          "F": 16,
+          "B": 1,
+          "C": 2,
+          "D": 92,
+          "E": 11,
+          "H": 80,
+          "L": 32
+        },
+        "stack_words_before_push": [
+          "C2E2",
+          "2E83",
+          "0101",
+          "5C11",
+          "AA00",
+          "3601",
+          "0742",
+          "5971",
+          "09EE",
+          "2028",
+          "A89F",
+          "5971",
+          "3601",
+          "09EE",
+          "68B1"
+        ]
+      }
+    },
+    {
+      "address": "5CFB",
+      "value": 1,
+      "reader": "Watson",
+      "read_tick_before_next_checkpoint": 1500,
+      "writer": {
+        "pc": "C31D",
+        "sp_before_push": "5CFC",
+        "actor": 0,
+        "registers": {
+          "A": 1,
+          "F": 16,
+          "B": 1,
+          "C": 2,
+          "D": 92,
+          "E": 11,
+          "H": 80,
+          "L": 32
+        },
+        "stack_words_before_push": [
+          "C2E2",
+          "2E83",
+          "0101",
+          "5C11",
+          "AA00",
+          "3601",
+          "0742",
+          "5971",
+          "09EE",
+          "2028",
+          "A89F",
+          "5971",
+          "3601",
+          "09EE",
+          "68B1"
+        ]
+      }
+    }
+  ],
+  "last_observed_change_tick": 1139
+}

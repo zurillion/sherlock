@@ -239,16 +239,22 @@ dall’accensione con tutti gli attori attivi.
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 755 | lunedì 23:58, bitmap durante l’inventario a Slater Street |
 | 1 | 3.219 | 14 | lunedì 08:29, HAIL CAB legge il temporaneo $5D6D |
-| 137 | 3.219 | 1.055 | martedì 05:56, Watson legge $5CF9 |
+| 137 | 3.219 | 1.267 | martedì 09:39, lettura di $5C0F dopo N |
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
 di ciascun riempimento. Il modello applica questa regola
 dopo ogni disegno. La verifica Z80 copre tutte le 14 immagini.
-Al primo scarto successivo, Watson legge $50 da $5CF9 sullo
-Spectrum e $01 nel modello durante la seconda estrazione
-del turno. La cuoca esegue poi due estrazioni sull’originale
-e una in JavaScript.
+
+All’arrivo del treno al binario 1 di Leatherhead, il punto dopo
+«Watson» riempie la riga a 18 colonne con il glifo nel frame
+$5CFC. C2DA prepara HL=$5020 e C=$02. C31D salva BC e C31E salva
+HL prima della copia dei pixel. Watson ritrova il byte alto di
+HL in $5CF9 alle 05:56, poi i byte di BC in $5CFA e $5CFB alle
+07:27 e alle 09:00. Con questi salvataggi il confronto supera
+anche entrambe le estrazioni della cuoca delle 05:56. Il primo
+scarto è ora a $5C0F, nel buffer di parola, durante N.
+[Registri e letture osservati](results/seed-and-saves/native-exact-margin-stack.json).
 
 Un LOOK aggiuntivo prima del primo HAIL CAB cambia il percorso
 col seed 1. In questa variante, mercoledì Lestrade rifiuta le

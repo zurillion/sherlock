@@ -364,7 +364,7 @@ export class RandomDisplay {
   s.upper.shift();s.upper.push('');
   s.cursor=0;s.remaining=s.windowMode===1?18:36;s.started=false;s.scrolls++;
  }
- put(c,glyphFrame=this.glyphFrame){
+ put(c,glyphFrame=this.glyphFrame,wordLettersRemaining=null){
   const s=this.state,row=s.upper[17].padEnd(36,' ');
   if(s.pictureWindow){
    const glyph=this.data.spectrum.glyphs[(c==='£'?96:c.charCodeAt(0))-this.data.spectrum.first];
@@ -374,6 +374,16 @@ export class RandomDisplay {
   s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();
   s.cursor++;s.remaining--;s.started=true;
   if(s.remaining)return;
+  if(s.pictureWindow&&glyphFrame===0x5CFC&&s.windowMode===1&&s.counter!==15&&wordLettersRemaining!==null){
+   // C2DF enters C316 at the same depth as C2EE entered C388.
+   // C31D saves BC first. C31E then saves the fresh row's video
+   // pointer loaded by C2DA, before the deeper C374 space loop.
+   const rowStart=0x5020,columnShift=2;
+   s.scratch[glyphFrame-4]=rowStart&255;
+   s.scratch[glyphFrame-3]=rowStart>>>8;
+   s.scratch[glyphFrame-2]=columnShift;
+   s.scratch[glyphFrame-1]=wordLettersRemaining;
+  }
   if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),s.windowMode===1&&s.counter!==15?17:35,0x5A20);
   else if(this.upperGlyphKnown===false)for(const address of [0x5D1E,0x5D20,0x5D21,0x5D22,0x5D23,0x5D24,0x5D25,0x5D26,0x5D27,0x5D28,0x5D29,0x5D2A,0x5D2B])delete s.scratch[address];
   this.newline();
@@ -384,7 +394,7 @@ export class RandomDisplay {
  normalizeCapital(c){this.state.capitalizationFlag=normalizedCapital(this.state.capitalizationFlag,c);}
  moneyCapital(pence){if(moneyClearsCapital(pence))this.state.capitalizationFlag=0;}
  normalizeSpacing(c){const s=this.state;if(!s)return;this.normalizeCapital(c);if(c==='\n'||c==='\r')s.spacingFlag=0;else if(c!==' '||s.spacingFlag!=null&&s.spacingFlag!==0)s.spacingFlag=1;}
- flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,s.windowMode===1&&s.counter!==15?17:35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
+ flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,s.windowMode===1&&s.counter!==15?17:35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c,this.glyphFrame,word.length-i);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
  // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
  lexicalWorkspace(copies=[],candidateCopies=[]){
   const b=this.state?.wordBuffer;if(!b)return;
