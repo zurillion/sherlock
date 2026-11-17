@@ -1,0 +1,304 @@
+{
+  "route": "results/victory-route/victoria-full-route.txt",
+  "route_sha256": "4f7624a10bd29e45d826bfe3f4a57a609c3a9f6729caf7f216262c3a988c4c05",
+  "profile": {
+    "native_graphics": true,
+    "active_npcs": "all",
+    "first_look": "free",
+    "teleports": false
+  },
+  "native_wins": [
+    {
+      "seed": 0,
+      "checkpoints": 3219,
+      "draws": 8844,
+      "reads": 18824,
+      "pictures": 22,
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
+      },
+      "room": 30,
+      "trace_sha256": "ed1fc23ab7b77640320fea112383e8de6a883ddc491a3311871fb39e27af3ccf"
+    },
+    {
+      "seed": 1,
+      "checkpoints": 3219,
+      "draws": 9171,
+      "reads": 19464,
+      "pictures": 22,
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
+      },
+      "room": 30,
+      "trace_sha256": "a07f7aa3ccbc295a24ec5bfb21a4530b988a4e4619b35961c1c0bc24f4382b47"
+    },
+    {
+      "seed": 137,
+      "checkpoints": 3219,
+      "draws": 8912,
+      "reads": 19024,
+      "pictures": 22,
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
+      },
+      "room": 30,
+      "trace_sha256": "3c21790a9a434df2ca73399e0a97abee5f0166a0b6de99bb99b9348b83ccf753"
+    }
+  ],
+  "strict_js_checkpoints": [
+    {
+      "seed": 0,
+      "matched": 755,
+      "next": {
+        "clock": "Mon 11:58pm",
+        "command": "I",
+        "actor": 3,
+        "field": "upper video"
+      }
+    },
+    {
+      "seed": 1,
+      "matched": 14,
+      "next": {
+        "clock": "Mon 08:29am",
+        "command": "HAIL CAB",
+        "field": "stack",
+        "native_draw": {
+          "actor": 31,
+          "width": 1,
+          "mixOffset": 64876,
+          "seed": 43,
+          "cursor": 24320,
+          "reads": [
+            {
+              "address": 24576,
+              "value": 68
+            },
+            {
+              "address": 23917,
+              "value": 165
+            }
+          ],
+          "video": "f23a73b93960f0b5a9bf4ae39153ee419037a0bc5f20bf268f712f28c125e7d9",
+          "counter": 2,
+          "narrow": 0,
+          "result": 0,
+          "next_seed": 202,
+          "next_cursor": 24576
+        }
+      }
+    },
+    {
+      "seed": 137,
+      "matched": 1055,
+      "next": {
+        "clock": "Tue 05:56am",
+        "command": "WAIT UNTIL 9:18AM",
+        "js_draw_count": 3,
+        "native_draws": [
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 73,
+            "cursor": 48652,
+            "reads": [
+              {
+                "address": 48908,
+                "value": 203
+              },
+              {
+                "address": 23545,
+                "value": 0
+              }
+            ],
+            "video": "07c1f2274c03b02d507a489c0af1dd25c55755773a34da79f9e0d0b3df91d647",
+            "counter": 2,
+            "narrow": 0,
+            "result": 79,
+            "next_seed": 20,
+            "next_cursor": 48908
+          },
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 20,
+            "cursor": 48908,
+            "reads": [
+              {
+                "address": 49164,
+                "value": 58
+              },
+              {
+                "address": 23801,
+                "value": 80
+              }
+            ],
+            "video": "07c1f2274c03b02d507a489c0af1dd25c55755773a34da79f9e0d0b3df91d647",
+            "counter": 2,
+            "narrow": 0,
+            "result": 69,
+            "next_seed": 30,
+            "next_cursor": 49164
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 30,
+            "cursor": 49164,
+            "reads": [
+              {
+                "address": 49420,
+                "value": 0
+              },
+              {
+                "address": 49426,
+                "value": 254
+              }
+            ],
+            "video": "07c1f2274c03b02d507a489c0af1dd25c55755773a34da79f9e0d0b3df91d647",
+            "counter": 2,
+            "narrow": 0,
+            "result": 13,
+            "next_seed": 224,
+            "next_cursor": 49420
+          },
+          {
+            "actor": 9,
+            "width": 99,
+            "mixOffset": 5,
+            "seed": 224,
+            "cursor": 49420,
+            "reads": [
+              {
+                "address": 49676,
+                "value": 7
+              },
+              {
+                "address": 49682,
+                "value": 24
+              }
+            ],
+            "video": "07c1f2274c03b02d507a489c0af1dd25c55755773a34da79f9e0d0b3df91d647",
+            "counter": 2,
+            "narrow": 0,
+            "result": 28,
+            "next_seed": 255,
+            "next_cursor": 49676
+          }
+        ],
+        "first_different_read": {
+          "actor": 3,
+          "address": "5CF9",
+          "native": 80,
+          "model": 1,
+          "native_result": 69,
+          "model_result": 20
+        }
+      }
+    }
+  ],
+  "extra_look_variant": {
+    "seed": 1,
+    "added_before_command": 15,
+    "command": "LOOK",
+    "strict_js_checkpoints": 755,
+    "next": {
+      "clock": "Mon 11:58pm",
+      "command": "I",
+      "native_delayed_word": [
+        [
+          0,
+          43520,
+          0,
+          0
+        ],
+        [
+          82,
+          43520,
+          0,
+          0
+        ],
+        [
+          111,
+          43520,
+          0,
+          0
+        ],
+        [
+          117,
+          43520,
+          0,
+          0
+        ],
+        [
+          110,
+          43520,
+          0,
+          0
+        ],
+        [
+          100,
+          43520,
+          0,
+          0
+        ],
+        [
+          46,
+          43520,
+          0,
+          0
+        ],
+        [
+          13,
+          41640,
+          0,
+          0
+        ]
+      ],
+      "case_note": "The staged flush starts with byte 00 then prints Round. before the inventory.",
+      "at": "AA6E",
+      "native_video_sha256": "bfd1fd1af05a1a5dad53babe3fcfc1fa553a6c2ec6123a0e7f21dca75e2d56cf"
+    },
+    "latest_native_checkpoint": {
+      "clock": "Wed 10:01pm",
+      "room": 30,
+      "ending": null
+    }
+  }
+}

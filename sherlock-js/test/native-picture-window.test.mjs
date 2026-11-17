@@ -110,6 +110,18 @@ test('Native graphics preserve narrow-scroll stack inputs through the return to 
   assert.equal(session.game.world.clock().label, 'Mon 11:57pm');
 });
 
+test('The graphics-enabled Victoria route matches through Tuesday dawn', async () => {
+  const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed137.json.gz', import.meta.url));
+  const trace = JSON.parse(gunzipSync(corpus));
+  const index = trace.steps.findIndex(step => step.draws.some(draw =>
+    draw.actor === 8 && draw.reads.some(read => read.address === 0xF60B)));
+  assert.equal(index, 326);
+  assert.deepEqual(trace.steps.at(-1).ending, { entry: '9E74', reason: 'story', text_pointer: '6AF3' });
+  const steps = trace.steps.slice(0, 1055);
+  const session = await replay({ ...trace, steps, more: undefined });
+  assert.equal(session.game.world.clock().label, 'Tue 05:55am');
+});
+
 for (const trace of cases) {
   test('Native graphics through ending 693A with seed ' + trace.seed, async () => {
     assert.equal(trace.steps.length, 400);

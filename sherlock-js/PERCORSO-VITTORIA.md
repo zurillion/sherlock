@@ -228,6 +228,49 @@ L’intera tratta è una prova sullo Spectrum.
 
 ## Vittoria a Victoria
 
+### Verifica con la grafica nativa attiva
+
+Lo stesso percorso completo raggiunge **$6AF3** nello Spectrum
+mercoledì alle **20:12**, al binario 1 di Victoria, con i seed
+0, 1 e 137 e 22 disegni per partita. Gli ingressi usano i comandi
+dall’accensione con tutti gli attori attivi.
+
+| Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
+| ---: | ---: | ---: | --- |
+| 0 | 3.219 | 755 | lunedì 23:58, bitmap durante l’inventario a Slater Street |
+| 1 | 3.219 | 14 | lunedì 08:29, HAIL CAB legge il temporaneo $5D6D |
+| 137 | 3.219 | 1.055 | martedì 05:56, Watson legge $5CF9 |
+
+Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
+Il colore di lavoro parte da $38 e F507 lo azzera al termine
+di ciascun riempimento. Il modello applica questa regola
+dopo ogni disegno. La verifica Z80 copre tutte le 14 immagini.
+Al primo scarto successivo, Watson legge $50 da $5CF9 sullo
+Spectrum e $01 nel modello durante la seconda estrazione
+del turno. La cuoca esegue poi due estrazioni sull’originale
+e una in JavaScript.
+
+Un LOOK aggiuntivo prima del primo HAIL CAB cambia il percorso
+col seed 1. In questa variante, mercoledì Lestrade rifiuta le
+deduzioni sui piani e sulla vendita. L’attesa a Victoria fino
+alle 22:00 lascia la partita aperta. Al primo scarto video di
+questa variante, lunedì alle 23:58, A9F4 scarica il residuo
+della frase di Lestrade prima dell’inventario. AA6E riceve
+$00 seguito da «Round.» e dal ritorno a capo.
+
+[Esiti e primi scarti](results/victory-route/victoria-native-graphics-verification.json) ·
+[Traccia completa con seed 137](results/victory-route/victoria-native-graphics-seed137.json.gz) ·
+[Riempimenti verificati](results/seed-and-saves/native-picture-fill-residue.json).
+
+Per ripetere la prova sullo Spectrum dalla cartella del motore:
+
+```sh
+python3 tools/probe-native-picture-window.py /tmp/sherlock-victoria-137.json \
+  --route results/victory-route/victoria-full-route.txt --seed 137
+```
+
+### Verifica del profilo testuale
+
 Una partita con seed 1 e tutti gli attori attivi raggiunge il testo
 `$6AF3` **mercoledì alle 20:12**, al binario 1 di Victoria.
 I comandi sono stati giocati sullo Spectrum senza teletrasporti o

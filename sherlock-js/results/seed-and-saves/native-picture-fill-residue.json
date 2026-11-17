@@ -1,0 +1,127 @@
+{
+  "entry": "F3C2",
+  "store": "F507",
+  "address": "F60B",
+  "initial_value": 56,
+  "rooms": [
+    {
+      "room": 5,
+      "fill_instructions": 3,
+      "zero_stores": 3,
+      "final_value": 0
+    },
+    {
+      "room": 74,
+      "fill_instructions": 7,
+      "zero_stores": 7,
+      "final_value": 0
+    },
+    {
+      "room": 71,
+      "fill_instructions": 7,
+      "zero_stores": 7,
+      "final_value": 0
+    },
+    {
+      "room": 89,
+      "fill_instructions": 10,
+      "zero_stores": 10,
+      "final_value": 0
+    },
+    {
+      "room": 88,
+      "fill_instructions": 3,
+      "zero_stores": 3,
+      "final_value": 0
+    },
+    {
+      "room": 54,
+      "fill_instructions": 7,
+      "zero_stores": 7,
+      "final_value": 0
+    },
+    {
+      "room": 55,
+      "fill_instructions": 7,
+      "zero_stores": 7,
+      "final_value": 0
+    },
+    {
+      "room": 11,
+      "fill_instructions": 4,
+      "zero_stores": 4,
+      "final_value": 0
+    },
+    {
+      "room": 62,
+      "fill_instructions": 2,
+      "zero_stores": 2,
+      "final_value": 0
+    },
+    {
+      "room": 6,
+      "fill_instructions": 5,
+      "zero_stores": 5,
+      "final_value": 0
+    },
+    {
+      "room": 92,
+      "fill_instructions": 8,
+      "zero_stores": 8,
+      "final_value": 0
+    },
+    {
+      "room": 95,
+      "fill_instructions": 4,
+      "zero_stores": 4,
+      "final_value": 0
+    },
+    {
+      "room": 61,
+      "fill_instructions": 3,
+      "zero_stores": 3,
+      "final_value": 0
+    },
+    {
+      "room": 12,
+      "fill_instructions": 6,
+      "zero_stores": 6,
+      "final_value": 0
+    }
+  ],
+  "sample_gameplay_read": {
+    "case_index": 326,
+    "clock": {
+      "tick": 530,
+      "due": 956,
+      "minute": 49,
+      "hour": 4,
+      "day": 0,
+      "period": "pm",
+      "label": "Mon 04:49pm"
+    },
+    "draw": {
+      "actor": 8,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 57,
+      "cursor": 62725,
+      "reads": [
+        {
+          "address": 62981,
+          "value": 203
+        },
+        {
+          "address": 62987,
+          "value": 0
+        }
+      ],
+      "video": "6f2c14dc8d7a7a44cfa78fa21e8ba4ac9301b5abeb51a9e9df24facc609b760b",
+      "counter": 0,
+      "narrow": 0,
+      "result": 95,
+      "next_seed": 4,
+      "next_cursor": 62981
+    }
+  }
+}

@@ -36,6 +36,8 @@ export class RandomDisplay {
   const {mode,cursor,remaining,counter}=textWindowControl(true,s.counter);
   Object.assign(s,{windowMode:mode,cursor,remaining,counter,started:false});
   if(!applyRoomPicture(s.pictureWindow,asset))throw new RandomInputsUnavailable('Sfondo del disegno originale non ricostruito.');
+  // Every original room picture executes FILL. F507 resets its ink when the fill ends.
+  if(this.world.npcs)this.world.npcs.nativeFillColor=0;
   // The verified LOOK, movement and hansom-arrival callers start F3C2 at 5D58, 5D54 or 5D50.
   // The deepest asset needs 40 bytes below that frame. Leave a guard for
   // A296's text calls. Other callers keep the more conservative revocation.

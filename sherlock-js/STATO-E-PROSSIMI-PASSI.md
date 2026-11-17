@@ -1,6 +1,6 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento 15 novembre 2026.
+Aggiornamento 17 novembre 2026.
 
 Il percorso naturale con seed 1 raggiunge la vittoria **$6AF3**
 sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
@@ -22,11 +22,11 @@ i motori, con le due deduzioni sugli omicidi accettate.
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
 2. **Grafica nativa.** Estendere la sequenza verso Victoria oltre
-   la divergenza video di lunedì alle 23:58. Due percorsi con grafica attiva fino a $693A
+   la lettura di $5CF9 del seed 137, martedì alle 05:56. Due percorsi con grafica attiva fino a $693A
    sono verificati. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 
-La mappa riporta 39.936 byte documentati, 326 parziali e 1.338
+La mappa riporta 39.937 byte documentati, 326 parziali e 1.337
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 
