@@ -1,0 +1,58 @@
+{
+  "writer": {
+    "tick": 264,
+    "byte": 80,
+    "instruction": "C38A",
+    "stack_pointer": 23792,
+    "actor": 0,
+    "character": 32,
+    "columns": 18,
+    "text_shift": 2,
+    "video_pointer": 20512
+  },
+  "reader": {
+    "clock": {
+      "tick": 268,
+      "due": 336,
+      "minute": 27,
+      "hour": 12,
+      "day": 0,
+      "period": "pm",
+      "label": "Mon 12:27pm"
+    },
+    "draw": {
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 17,
+      "cursor": 48898,
+      "reads": [
+        {
+          "address": 49154,
+          "value": 97
+        },
+        {
+          "address": 23791,
+          "value": 80
+        }
+      ],
+      "video": "3998ce59a54c1532d654beb5fd1380a4d6d7dd6a7df15fa68897287bb694bbb3",
+      "counter": 3,
+      "narrow": 0,
+      "result": 65,
+      "next_seed": 34,
+      "next_cursor": 49154
+    }
+  },
+  "matched_checkpoints": 226,
+  "next_limiting_address": "5CF1",
+  "next_clock": {
+    "tick": 430,
+    "due": 956,
+    "minute": 9,
+    "hour": 3,
+    "day": 0,
+    "period": "pm",
+    "label": "Mon 03:09pm"
+  }
+}

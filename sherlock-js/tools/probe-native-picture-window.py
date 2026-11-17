@@ -1,4 +1,5 @@
 """Record original video hashes and random reads through the first investigation in Leatherhead."""
+import argparse
 import hashlib
 import json
 import sys
@@ -11,9 +12,17 @@ from explorer import Game
 from extract_locations import extract
 from native_world import word
 
-route=(root/'results/victory-route/victoria-full-route.txt').read_text().splitlines()[:80]
-route.insert(14,'LOOK')
-game=Game(project,extract(project),seed=1,active_npcs=None)
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('output', type=Path)
+parser.add_argument('--route', type=Path)
+parser.add_argument('--seed', type=int, choices=range(256), default=1)
+args = parser.parse_args()
+if args.route:
+    route = [line for line in args.route.read_text().splitlines() if line and not line.startswith('#')]
+else:
+    route = (root/'results/victory-route/victoria-full-route.txt').read_text().splitlines()[:80]
+    route.insert(14, 'LOOK')
+game = Game(project,extract(project),seed=args.seed,active_npcs=None)
 world=game.world
 assert world.m[0xA011]==1
 pending=None
@@ -57,13 +66,27 @@ def observe(m,r,R):
         pending=None
 
 world.observer=observe
-for command in route:
-    out=game.command(command)
-    steps.append(dict(command=command,clock=world.clock(),room=world.room,
-                      outcome=out['state']['analysis']['outcome'],
-                      video=picture(world.m),counter=world.m[0xA019],
-                      narrow=world.m[0xC128],draws=draws[:]))
+def record(command, out):
+    steps.append(dict(command=command, clock=world.clock(), room=world.room,
+                      outcome=out.get('state', {}).get('analysis', {}).get('outcome'),
+                      video=picture(world.m), counter=world.m[0xA019],
+                      narrow=world.m[0xC128], draws=draws[:], ending=world.ended,
+                      running=bool(out.get('running'))))
     draws.clear()
-    print(command,world.clock()['label'],world.room,flush=True)
-report = dict(protocol='Graphics enabled from boot, free initial LOOK and all 24 actors. Hash covers row-major upper pixels (144 x 32) then 18 x 32 attributes.', seed=1, steps=steps, picture_frames=frames)
-Path(sys.argv[1]).write_text(json.dumps(report,separators=(',',':'))+'\n')
+
+for command in route:
+    if command.startswith('WAIT UNTIL'):
+        out = game.start_command(command)
+        record(command,out)
+        while out['running']:
+            out = game.continue_command(out['job'])
+            record(None,out)
+    else:
+        out = game.command(command)
+        record(command,out)
+    print(command,world.clock()['label'],world.room,world.ended,flush=True)
+    if world.ended or out['state']['analysis']['outcome']=='tool_limit':
+        break
+
+report = dict(protocol='Graphics enabled from boot, free initial LOOK and all 24 actors. Hash covers row-major upper pixels (144 x 32) then 18 x 32 attributes.', seed=args.seed, steps=steps, picture_frames=frames)
+args.output.write_text(json.dumps(report,separators=(',',':'))+'\n')

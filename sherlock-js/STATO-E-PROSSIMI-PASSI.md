@@ -156,10 +156,12 @@ letture. Sono compresi il LOOK a Baker Street, il cab, il
 treno e la prosecuzione dal salvataggio nell’atrio fino
 a King’s Cross Road.
 
-Il confronto oltre il ponte coincide per un totale di 108 checkpoint,
-fino alle 12:26, quando Holmes è sul treno. Il primo scarto rimasto
-alle 12:27 riguarda il residuo $5CEF, con $50 sullo Spectrum e $5A
-nel modello. È una lettura del generatore durante l’attesa.
+Sul treno alle 12:23, il ritorno a capo stretto lascia DE=$5020
+in C38A. Lo scroll largo passa per C361 e lascia invece $5A20.
+Watson legge il byte alto in $5CEF alle 12:27. Dopo la correzione
+il percorso oltre il ponte coincide su 226 checkpoint, fino
+alle 15:08. Il prossimo limite della stessa sequenza è $5CF1
+alle 15:09. [Traccia stack](results/seed-and-saves/narrow-scroll-stack.json).
 
 Con seed 137, una partita distinta ha evidenziato una revoca troppo
 ampia dopo un disegno diretto. Nell’atrio e a Baker Street, i frame
@@ -187,6 +189,28 @@ Per ripetere il probe dalla cartella del motore:
 python3 tools/probe-native-graphics-first-read.py /tmp/sherlock-first-video-read.json
 python3 tools/probe-native-picture-window.py /tmp/sherlock-picture-window.json
 node --test test/native-picture-window.test.mjs
+```
+
+## Finale $693A con grafica nativa
+
+Il percorso di King’s Cross, con le immagini di Baker Street e
+il viaggio in cab, arriva al finale $693A lunedì alle 14:57.
+Con seed 1 e 137, il confronto verifica 400 checkpoint per
+partita, compresi i minuti di WAIT UNTIL e la bitmap superiore
+al finale. Il seed 1 confronta 1.129 estrazioni e 2.366 letture.
+Il seed 137 confronta 1.154 estrazioni e 2.404 letture. In
+entrambi i casi, il test riparte anche da un salvataggio
+JavaScript dopo l’immagine dell’atrio e segue lo stesso esito
+fino al blocco del prompt.
+
+[Comandi della partita](results/seed-and-saves/native-picture-ending-route.txt) ·
+[Corpus originale compresso](test/fixtures/native-picture-endings.json.gz)
+
+Per ripetere l’acquisizione con un altro seed:
+
+```sh
+python3 tools/probe-native-picture-window.py /tmp/sherlock-native-ending.json \
+  --route results/seed-and-saves/native-picture-ending-route.txt --seed 137
 ```
 
 ## Storico precedente

@@ -199,15 +199,18 @@ export class RandomDisplay {
   // after AND 0. A9F5 supplies the remaining word length as the caller's B.
   for(let at=frame-4;at<frame;at++)if(at>=0x5CEC&&(at<=0x5D2B||at===0x5D30))delete s[at];
   const code=c.charCodeAt(0),difference=(code-13)&255,flags=2|8|(difference&128)|(difference===0?64:0)|((code&15)<13?16:0)|(((code^13)&(code^difference)&128)?4:0)|(code<13?1:0);
-  put(frame-2,descriptor===0x5A20?84:flags);put(frame-1,code);
+  const narrowClear=descriptor===0x5A20&&this.state.windowMode===1&&this.state.counter!==15;
+  put(frame-2,descriptor===0x5A20?(narrowClear?0x10:0x54):flags);put(frame-1,code);
   if(callerCount!==null||descriptor===0x5A20){put(frame-4,shift);put(frame-3,descriptor===0x5A20?1:callerCount);}
   // C38B retains the glyph address; C39C the last scan and bit shift;
   // C39D/C3B8 the unshifted final scan. Only established fields are owned.
   put(frame-8,address&255);put(frame-7,address>>>8);
   // C38A saves the current text descriptor. While A9DF flushes a word it
   // points at the word buffer; the following delimiter restores the caller's
-  // descriptor (A815/D438: $5000 | noun). C374's row clear uses $5A20.
-  put(frame-6,descriptor&255);put(frame-5,descriptor>>>8);
+  // descriptor (A815/D438: $5000 | noun). C361 moves DE to $5A20
+  // only on a wide scroll. The narrow scroll leaves DE at $5020.
+  const savedDescriptor=narrowClear?0x5020:descriptor;
+  put(frame-6,savedDescriptor&255);put(frame-5,savedDescriptor>>>8);
   // On the last scan, C39D retains flags from INC H at the end of
   // scan seven. A split byte restores them, then DEC/INC C before C3B8.
   // Derive those flags from the row address and shift, not a boot zero.
@@ -369,7 +372,7 @@ export class RandomDisplay {
   s.upper[17]=(row.slice(0,s.cursor)+c+row.slice(s.cursor+1)).trimEnd();
   s.cursor++;s.remaining--;s.started=true;
   if(s.remaining)return;
-  if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),s.windowMode===1?17:35,0x5A20);
+  if(glyphFrame)this.glyphResidue(' ',glyphFrame-(this.cabWordRole==='cab-city'?6:8),s.windowMode===1&&s.counter!==15?17:35,0x5A20);
   else if(this.upperGlyphKnown===false)for(const address of [0x5D1E,0x5D20,0x5D21,0x5D22,0x5D23,0x5D24,0x5D25,0x5D26,0x5D27,0x5D28,0x5D29,0x5D2A,0x5D2B])delete s.scratch[address];
   this.newline();
  }
@@ -379,7 +382,7 @@ export class RandomDisplay {
  normalizeCapital(c){this.state.capitalizationFlag=normalizedCapital(this.state.capitalizationFlag,c);}
  moneyCapital(pence){if(moneyClearsCapital(pence))this.state.capitalizationFlag=0;}
  normalizeSpacing(c){const s=this.state;if(!s)return;this.normalizeCapital(c);if(c==='\n'||c==='\r')s.spacingFlag=0;else if(c!==' '||s.spacingFlag!=null&&s.spacingFlag!==0)s.spacingFlag=1;}
- flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,s.windowMode===1?17:35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
+ flush(wrapFrame=null){const s=this.state,word=s.pending;if(!word.length)return;const exactSpacing=s.remaining===word.length;if(s.remaining<word.length){if(wrapFrame||this.glyphFrame)this.glyphResidue(' ',wrapFrame??this.glyphFrame-6,s.windowMode===1&&s.counter!==15?17:35,0x5A20);else if(this.upperGlyphKnown===false){delete s.scratch[0x5D22];delete s.scratch[0x5D23];delete s.scratch[0x5D1E];delete s.scratch[0x5D24];delete s.scratch[0x5D25];delete s.scratch[0x5D20];delete s.scratch[0x5D26];delete s.scratch[0x5D21];delete s.scratch[0x5D27];delete s.scratch[0x5D28];delete s.scratch[0x5D29];delete s.scratch[0x5D2A];delete s.scratch[0x5D2B];}this.normalizeSpacing('\r');this.newline();}const exact=s.remaining===word.length;for(const [i,c]of [...word].entries()){this.normalizeSpacing(c);this.glyphResidue(c,this.glyphFrame,s.cursor,0x5C0B,word.length-i);this.put(c);}s.pending='';if(exactSpacing)s.spacingFlag=0;if(exact)s.started=false;}
  // A9B7 owns a reused word workspace. Flushing resets its pointer, not bytes.
  lexicalWorkspace(copies=[],candidateCopies=[]){
   const b=this.state?.wordBuffer;if(!b)return;
