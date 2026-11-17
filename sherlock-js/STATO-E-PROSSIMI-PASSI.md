@@ -21,11 +21,12 @@ i motori, con le due deduzioni sugli omicidi accettate.
 1. **Seed e scelte del giocatore.** Aggiunti tre percorsi con seed
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
-2. **Profili di esecuzione.** Estendere il confronto a NEW/LOAD e
-   alla grafica originale nei casi in cui la presentazione
-   influisce sulle letture casuali.
+2. **Grafica nativa.** Estendere la sequenza verso Victoria oltre
+   il residuo $5CF1. Due percorsi con grafica attiva fino a $693A
+   sono verificati. Il comportamento di NEW, Riavvia e LOAD è
+   [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 
-La mappa riporta 39.890 byte documentati, 326 parziali e 1.384
+La mappa riporta 39.936 byte documentati, 326 parziali e 1.338
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 

@@ -90,6 +90,42 @@ del nastro durante il servizio. LOAD non riproduce il trasferimento nastro,
 il riavvio e i residui temporanei del caricatore. QUIT si ferma prima del
 riavvio nativo. I pulsanti Salva/Carica restano disponibili.
 
+## Riavvio e caricamento sullo Spectrum
+
+Il parser rifiuta `NEW` con `I DO NOT KNOW THE WORD"NEW "`.
+Per una nuova partita, il manuale indica QUIT e il riavvolgimento
+del nastro del gioco. Nel browser questa operazione è il pulsante
+**Riavvia**, che crea lo stato iniziale con il seed e il profilo
+grafico selezionati.
+
+Il `LOAD` dello Spectrum prepara il servizio in $B0AC e passa per
+$A0E7 e $B0D7. $B0EE determina il blocco ordinario dei dati del mondo,
+7.188 byte da $840B a $A01E inclusi. $C0DF legge 17 byte di intestazione
+e $C089 rilegge da questa la lunghezza e la destinazione del blocco.
+Il confronto offline esegue queste routine del gioco e fornisce
+intestazione e dati alla chiamata ROM $0556 con un trasporto in RAM.
+
+Dopo il trasferimento $A0EE salta a $A040. La stanza, il calendario
+e le strutture dentro il blocco provengono dal salvataggio. Il ramo
+d’avvio pulisce lo schermo, richiede la scelta grafica, azzera il
+chiarimento $A01B e rilegge l’accumulatore dal registro R. Nel probe,
+il cursore $A039 resta quello della sessione che ha invocato LOAD.
+Anche il tick riprende ad avanzare prima del prompt. Nel caso misurato
+la stanza salvata è Baker Street, il prompt passa dalle 08:09 salvate
+alle 08:10 e il cursore resta $3000, che apparteneva alla sessione
+di carica. Il seed di riavvio è fissato a 204 per controllare il
+confronto.
+
+Il JSON della pagina ripristina la partita al prompt del salvataggio,
+inclusi accumulatore, cursore, buffer video e richieste in sospeso.
+I test verificano il riavvio con le stesse opzioni, la prosecuzione
+dopo avere chiuso il selettore di LOAD, un chiarimento e un ordine
+a Watson salvato mentre è ancora in coda. L’importazione del formato
+nastro resta fuori dal servizio web.
+
+[Traccia del caricamento](results/native-load/restart-and-load.json) ·
+[Listato del servizio](results/native-load/tape.asm)
+
 ## Attese e calendario
 
 La singola `WAIT UNTIL` continua a eseguire un minuto alla volta, con tutti

@@ -1,0 +1,288 @@
+{
+  "protocol": "LOAD typed at an ordinary prompt. Offline cassette uses real C0DF/C089 and substitutes only ROM 0556 header/data transfer. Graphics answer Y and accumulator byte 204 controlled at restart. SAVE data region taken from a normally played prompt.",
+  "saved": {
+    "room": 5,
+    "clock": {
+      "tick": 10,
+      "due": 10,
+      "minute": 9,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:09am"
+    },
+    "graphics": 1,
+    "accumulator": 183,
+    "cursor": 7680,
+    "query": 0,
+    "syntax": 0,
+    "video": "33eb777db5842d118883d4652826aeadd7216646ce559dae442fd304369217e1"
+  },
+  "before": {
+    "room": 8,
+    "clock": {
+      "tick": 16,
+      "due": 16,
+      "minute": 15,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:15am"
+    },
+    "graphics": 1,
+    "accumulator": 233,
+    "cursor": 12288,
+    "query": 8,
+    "syntax": 0,
+    "video": "ea74bd2ccff6c4eeb930a3d9c29b846182ecc807904a9ffe26536f17c25b4aad"
+  },
+  "events": [
+    {
+      "pc": "B0AC",
+      "state": {
+        "room": 8,
+        "clock": {
+          "tick": 16,
+          "due": 16,
+          "minute": 15,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:15am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 8,
+        "syntax": 0,
+        "video": "e2cd0edb4f44ce14b266ca00ff5f145204e324771944f6b095347759cd4e956f"
+      }
+    },
+    {
+      "pc": "A0E7",
+      "state": {
+        "room": 8,
+        "clock": {
+          "tick": 0,
+          "due": 1,
+          "minute": 15,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:15am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 38868,
+        "video": "e2cd0edb4f44ce14b266ca00ff5f145204e324771944f6b095347759cd4e956f"
+      }
+    },
+    {
+      "pc": "B0EE",
+      "state": {
+        "room": 8,
+        "clock": {
+          "tick": 0,
+          "due": 1,
+          "minute": 15,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:15am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 38868,
+        "video": "e2cd0edb4f44ce14b266ca00ff5f145204e324771944f6b095347759cd4e956f"
+      }
+    },
+    {
+      "pc": "C0DF",
+      "state": {
+        "room": 8,
+        "clock": {
+          "tick": 0,
+          "due": 1,
+          "minute": 15,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:15am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 38868,
+        "video": "e2cd0edb4f44ce14b266ca00ff5f145204e324771944f6b095347759cd4e956f"
+      }
+    },
+    {
+      "pc": "0556",
+      "flag": 0,
+      "address": 49406,
+      "length": 17,
+      "state": {
+        "room": 8,
+        "clock": {
+          "tick": 0,
+          "due": 1,
+          "minute": 15,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:15am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 38868,
+        "video": "1aa335c22032dadc5cde445deb91c936b6d20cae56d6c64f56591267a8268fea"
+      }
+    },
+    {
+      "pc": "0556",
+      "flag": 255,
+      "address": 33803,
+      "length": 7188,
+      "state": {
+        "room": 5,
+        "clock": {
+          "tick": 10,
+          "due": 10,
+          "minute": 9,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:09am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 0,
+        "video": "1aa335c22032dadc5cde445deb91c936b6d20cae56d6c64f56591267a8268fea"
+      }
+    },
+    {
+      "pc": "A040",
+      "state": {
+        "room": 5,
+        "clock": {
+          "tick": 10,
+          "due": 10,
+          "minute": 9,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:09am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 0,
+        "video": "1aa335c22032dadc5cde445deb91c936b6d20cae56d6c64f56591267a8268fea"
+      }
+    },
+    {
+      "pc": "A05F",
+      "state": {
+        "room": 5,
+        "clock": {
+          "tick": 10,
+          "due": 10,
+          "minute": 9,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:09am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 0,
+        "video": "b4c03cb0043509bb182eb910f1746613cdfcf2e354f5ee9d1b9b5842061b0b23"
+      }
+    },
+    {
+      "pc": "A061",
+      "state": {
+        "room": 5,
+        "clock": {
+          "tick": 10,
+          "due": 10,
+          "minute": 9,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:09am"
+        },
+        "graphics": 1,
+        "accumulator": 233,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 0,
+        "video": "b4c03cb0043509bb182eb910f1746613cdfcf2e354f5ee9d1b9b5842061b0b23"
+      }
+    },
+    {
+      "pc": "A536",
+      "state": {
+        "room": 5,
+        "clock": {
+          "tick": 11,
+          "due": 10,
+          "minute": 10,
+          "hour": 8,
+          "day": 0,
+          "period": "am",
+          "label": "Mon 08:10am"
+        },
+        "graphics": 1,
+        "accumulator": 204,
+        "cursor": 12288,
+        "query": 0,
+        "syntax": 0,
+        "video": "712109963be3966c15ce5223d8858bed17ab272d903efe40af8c5c98e993a85e"
+      }
+    }
+  ],
+  "after": {
+    "room": 5,
+    "clock": {
+      "tick": 11,
+      "due": 10,
+      "minute": 10,
+      "hour": 8,
+      "day": 0,
+      "period": "am",
+      "label": "Mon 08:10am"
+    },
+    "graphics": 1,
+    "accumulator": 204,
+    "cursor": 12288,
+    "query": 0,
+    "syntax": 0,
+    "video": "712109963be3966c15ce5223d8858bed17ab272d903efe40af8c5c98e993a85e"
+  },
+  "new": {
+    "analysis": {
+      "input": "NEW",
+      "normalised": "NEW",
+      "outcome": "lexical_error",
+      "continuation_slot": 0,
+      "units": [],
+      "actions": []
+    },
+    "messages": [
+      "I DO NOT KNOW THE WORD\"NEW \""
+    ]
+  }
+}
