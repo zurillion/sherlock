@@ -239,7 +239,7 @@ dall’accensione con tutti gli attori attivi.
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 755 | lunedì 23:58, bitmap durante l’inventario a Slater Street |
 | 1 | 3.219 | 14 | lunedì 08:29, HAIL CAB legge il temporaneo $5D6D |
-| 137 | 3.219 | 1.267 | martedì 09:39, lettura di $5C0F dopo N |
+| 137 | 3.219 | 1.432 | martedì 12:31, il giardiniere legge $5D17 |
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
@@ -252,9 +252,16 @@ $5CFC. C2DA prepara HL=$5020 e C=$02. C31D salva BC e C31E salva
 HL prima della copia dei pixel. Watson ritrova il byte alto di
 HL in $5CF9 alle 05:56, poi i byte di BC in $5CFA e $5CFB alle
 07:27 e alle 09:00. Con questi salvataggi il confronto supera
-anche entrambe le estrazioni della cuoca delle 05:56. Il primo
-scarto è ora a $5C0F, nel buffer di parola, durante N.
+anche entrambe le estrazioni della cuoca delle 05:56.
 [Registri e letture osservati](results/seed-and-saves/native-exact-margin-stack.json).
+
+Alle 09:39, l’arrivo di Watson al binario di Leatherhead passa
+per CC07 e il frammento $68ED. A9D7 lascia la r di «enterS»
+nel buffer $5C0F, che Watson legge prima della prossima parola.
+Il modello riproduce quel frammento anche per il buffer grezzo.
+Alle 12:31, nel nuovo primo scarto, il giardiniere legge $00 in
+$5D17 sullo Spectrum e $01 nel modello.
+[Scrittura osservata durante l’arrivo](results/seed-and-saves/native-arrival-word-buffer.json).
 
 Un LOOK aggiuntivo prima del primo HAIL CAB cambia il percorso
 col seed 1. In questa variante, mercoledì Lestrade rifiuta le

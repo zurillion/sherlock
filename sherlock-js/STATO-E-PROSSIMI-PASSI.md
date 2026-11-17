@@ -22,7 +22,7 @@ i motori, con le due deduzioni sugli omicidi accettate.
    0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
    e dei finali con seed diversi e altre interazioni plausibili.
 2. **Grafica nativa.** Estendere la sequenza verso Victoria oltre
-   la lettura di $5C0F del seed 137, martedì alle 09:39. Due percorsi con grafica attiva fino a $693A
+   la lettura di $5D17 del seed 137, martedì alle 12:31. Due percorsi con grafica attiva fino a $693A
    sono verificati. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 

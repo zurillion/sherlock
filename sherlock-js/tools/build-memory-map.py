@@ -232,6 +232,9 @@ add(0xBA20,0xBA3E,'Destinatari delle affermazioni','code','BA28 e BA2F seleziona
 add(0xD026,0xD03B,'DOMAIN · ripristino degli argomenti di lavoro','code','D031 ripristina il cliente già selezionato dopo il predicato E6EA. Nella traccia delle 12:31 la scrittura temporanea identifica Holmes, quella finale Lestrade.',listed(0xD026,0xD03B),victory_trace,priority=100)
 add(0xCA76,0xCA7F,'Movimento · annuncio di partenza da una regola','code','Il corpo di ricollocazione usa la notifica ordinaria. Il nome qualificato di Lestrade passa dai frame 5D2A e 5D38 e aggiorna il buffer delle parole.',listed(0xCA76,0xCA7F),victory_trace,priority=101)
 add(0xCBEA,0xCC0B,'Movimento · notifica di arrivo da una regola','code','Se il destinatario è percepibile, CC07 stampa la notifica con l’attore ripristinato. Il ritorno a Scotland Yard da EA21 usa 5D28 per il prefisso Inspector.',listed(0xCBEA,0xCC0B),victory_trace,priority=101)
+arrival_word=source(ROOT/'results/seed-and-saves/native-arrival-word-buffer.json','Buffer di parola durante l’annuncio di arrivo di Watson')
+add(0xCC07,0xCC0B,'Movimento · testo compresso dell’arrivo','code','CC07 passa 68ED ad A59F dopo aver ripristinato l’attore. Il nome e il verbo vengono scritti nel buffer da A9D7. Il verbo conserva il suffisso S nel buffer prima della conversione a video.',listed(0xCC07,0xCC0B),arrival_word,priority=212)
+add(0xA9D7,0xA9D8,'Testo · scrittura del carattere nel buffer della parola','code','A9D7 scrive A nel byte puntato da HL. Durante l’arrivo al binario di Leatherhead, Watson lascia r in 5C0F scaricando enterS.',listed(0xA9D7,0xA9D8),arrival_word,priority=212)
 add(0xCB12,0xCB28,'Movimento · annuncio di arrivo','code','CB22 seleziona il testo 68ED. Il qualificatore Inspector usa il frame 5D2C. Lo shift di colonna resta a 5D22 e 5D28: gli annunci successivi di Watson e della partenza del treno non li sovrascrivono.',listed(0xCB12,0xCB28),victory_trace,priority=101)
 add(0xDD07,0xDD35,'Movimento · ritorno del record dell’attore','code','D237 lascia IX sul record dell’attore. D249 conserva entrambi gli indici: la cuoca alle 17:32 legge in CB28 il byte basso del record del giardiniere, dopo il suo movimento.',listed(0xDD07,0xDD35),victory_trace,priority=101)
 add(0xDEE4,0xDF02,'Contenitori · capacità residua','code','Sottrae dalla capacità sia la dimensione del candidato sia il carico del contenitore, calcolato da D2ED. Un residuo nullo non è sufficiente.',listed(0xDEE4,0xDF02),victory_trace,priority=101)
@@ -299,6 +302,7 @@ brown_fields = {
   ['5C5F–5C60','Riferimento al primo header di caricamento','0878 salva X-PTR. Il caricamento del BASIC e la successiva riserva di due header spostano il riferimento tramite 167C.'],
   ['5C61–5C66','Spazio di lavoro e pila del calcolatore BASIC','16A8 ripristina WORKSP dopo la lettura del nome. 16C2 e 16C8 allineano STKBOT e STKEND; il calcolatore ripristina la base dopo aver consumato l’operando di USR.'],
   ['5C67–5C69','Operazione e memoria del calcolatore BASIC','335F conserva BREG. Il token USR C0 passa da 26ED, 26FE e 2753, diventando 2D. 16CF inizializza MEM a 5C92.'],
+  ['5C0F','Quinto carattere del verbo di arrivo','CC07/68ED passa il verbo ad A9D7. L’arrivo di Watson al binario di Leatherhead lascia la r di enterS in 5C0F, letta subito dal generatore.'],
   ['5C0E','Quarto carattere di una direzione annunciata','Il movimento del giardiniere lascia la t di west in A9D7. Un output successivo più corto non la cancella.'],
  ],
  0x5CEC: [

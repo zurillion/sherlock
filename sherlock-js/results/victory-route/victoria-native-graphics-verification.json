@@ -123,37 +123,36 @@
     },
     {
       "seed": 137,
-      "matched": 1267,
+      "matched": 1432,
       "next": {
-        "clock": "Tue 09:39am",
-        "command": "N",
-        "field": "word buffer",
-        "address": "5C0F",
-        "native_draws": [
-          {
-            "actor": 3,
-            "width": 99,
-            "mixOffset": 40172,
-            "seed": 232,
-            "cursor": 23311,
-            "reads": [
-              {
-                "address": 23567,
-                "value": 114
-              },
-              {
-                "address": 63740,
-                "value": 5
-              }
-            ],
-            "video": "9ef153679e7dd8c229488f36d75db884f1229706fb9b414ef900c9a15a488291",
-            "counter": 7,
-            "narrow": 1,
-            "result": 4,
-            "next_seed": 95,
-            "next_cursor": 23567
-          }
-        ]
+        "clock": "Tue 12:31pm",
+        "command": "WAIT UNTIL 12:40PM",
+        "field": "stack",
+        "address": "5D17",
+        "native_draw": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 125,
+          "cursor": 23569,
+          "reads": [
+            {
+              "address": 23825,
+              "value": 1
+            },
+            {
+              "address": 23831,
+              "value": 0
+            }
+          ],
+          "video": "9483b2a318ef3fcb1ffd58b2df7342a32ee455251bba4a5db5aa3e54c33d1dd8",
+          "counter": 13,
+          "narrow": 0,
+          "result": 27,
+          "next_seed": 126,
+          "next_cursor": 23825
+        },
+        "js_input_value": 1
       },
       "previous_next": {
         "clock": "Tue 05:56am",
@@ -261,6 +260,37 @@
           "native_result": 69,
           "model_result": 20
         }
+      },
+      "resolved_arrival_buffer": {
+        "clock": "Tue 09:39am",
+        "command": "N",
+        "field": "word buffer",
+        "address": "5C0F",
+        "native_draws": [
+          {
+            "actor": 3,
+            "width": 99,
+            "mixOffset": 40172,
+            "seed": 232,
+            "cursor": 23311,
+            "reads": [
+              {
+                "address": 23567,
+                "value": 114
+              },
+              {
+                "address": 63740,
+                "value": 5
+              }
+            ],
+            "video": "9ef153679e7dd8c229488f36d75db884f1229706fb9b414ef900c9a15a488291",
+            "counter": 7,
+            "narrow": 1,
+            "result": 4,
+            "next_seed": 95,
+            "next_cursor": 23567
+          }
+        ]
       }
     }
   ],
