@@ -1,0 +1,56 @@
+{
+  "address": "5CF1",
+  "last_change": {
+    "tick": 329,
+    "value": 0,
+    "pc": "C39D",
+    "sp": 23794,
+    "actor": 0,
+    "font_row": 0,
+    "scan_count": 1,
+    "shift": 4,
+    "video": 22309
+  },
+  "changes_traced": 1309,
+  "observed_cab_picture": {
+    "command": "WAIT",
+    "room": 12,
+    "entry": 23898,
+    "minimum": 23854,
+    "draw_entry": 23888
+  },
+  "read": {
+    "clock": {
+      "tick": 430,
+      "due": 956,
+      "minute": 9,
+      "hour": 3,
+      "day": 0,
+      "period": "pm",
+      "label": "Mon 03:09pm"
+    },
+    "draw": {
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 159,
+      "cursor": 48900,
+      "reads": [
+        {
+          "address": 49156,
+          "value": 58
+        },
+        {
+          "address": 23793,
+          "value": 0
+        }
+      ],
+      "video": "a5f88870df5ea094d43503a4b4b24f6793e439672dc05e8ca09fa5e930417aa5",
+      "counter": 0,
+      "narrow": 0,
+      "result": 9,
+      "next_seed": 217,
+      "next_cursor": 49156
+    }
+  }
+}

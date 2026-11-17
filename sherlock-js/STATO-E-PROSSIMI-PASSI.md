@@ -161,13 +161,15 @@ Sul treno alle 12:23, il ritorno a capo stretto lascia DE=$5020
 in C38A. Lo scroll largo passa per C361 e lascia invece $5A20.
 Watson legge il byte alto in $5CEF alle 12:27. Dopo la correzione
 il percorso oltre il ponte coincide su 226 checkpoint, fino
-alle 15:08. Alle 15:09 Watson legge $5CF1. L’arrivo del cab
-a Slater Street alle 14:37 aveva revocato questo byte nel modello.
+alle 15:08. Alle 15:09 Watson legge $5CF1. L’ultima variazione osservata a $5CF1 è
+C39D al tick 329, che salva l’ultima riga del glifo. L’arrivo
+del cab a Slater Street alle 14:37 aveva revocato quel byte nel modello.
 Sul gioco originale, l’ingresso in A277 è a $5D5A e il minimo è
 $5D2E. L’arrivo ordinario del cab conserva quindi lo stack basso.
 Ora coincidono 371 checkpoint fino alle 17:33. Alle 17:34 il
 giardiniere legge $5D0C e trova $00 sullo Spectrum e $05 nel modello.
-[Traccia stack](results/seed-and-saves/narrow-scroll-stack.json).
+[Scorrimento stretto](results/seed-and-saves/narrow-scroll-stack.json) ·
+[Persistenza di $5CF1](results/seed-and-saves/cab-graphics-stack-preservation.json).
 
 Con seed 137, una partita distinta ha evidenziato una revoca troppo
 ampia dopo un disegno diretto. Nell’atrio e a Baker Street, i frame
