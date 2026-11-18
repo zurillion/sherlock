@@ -54,7 +54,7 @@ export class RandomDisplay {
    // the literal name in the preceding contents list. A wrapped word also
    // clears a row (C316/C374), publishing the final space's scan state.
    const role=sceneTrace.findLast(e=>e.start<=i&&i<e.end&&Number.isInteger(e.frame));
-   this.glyphFrame=role?.kind==='passage-direction'?null:role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.briefIdentityKnown=role?.briefIdentityKnown===true;this.trainScanKnown=role?.trainScanKnown===true;this.vehicleScanKnown=role?.vehicleScanKnown===true;this.arrivalNameKnown=role?.kind==='arrival-person-prefix';this.cabWordRole=role?.kind;this.relocationPersonPrefix=role?.kind==='relocation-person-prefix';this.arrivalFromRule=role?.kind==='rule-arrival-person-prefix';this.relocationPersonNoun=role?.kind==='relocation-person-noun';this.relocationPersonVerb=role?.kind==='relocation-person-verb';this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
+   this.glyphFrame=['passage-direction','qualified-hail-delimiter'].includes(role?.kind)?null:role?.frame??null;this.glyphFlagsKnown=role?.flagsKnown===true;this.briefIdentityKnown=role?.briefIdentityKnown===true;this.trainScanKnown=role?.trainScanKnown===true;this.vehicleScanKnown=role?.vehicleScanKnown===true;this.arrivalNameKnown=role?.kind==='arrival-person-prefix';this.cabWordRole=role?.kind;this.relocationPersonPrefix=role?.kind==='relocation-person-prefix';this.arrivalFromRule=role?.kind==='rule-arrival-person-prefix';this.relocationPersonNoun=role?.kind==='relocation-person-noun';this.relocationPersonVerb=role?.kind==='relocation-person-verb';this.glyphVideoHighKnown=role?.videoHighKnown===true;this.glyphVideoLowKnown=role?.videoLowKnown===true;this.glyphCallerBKnown=role?.callerBKnown===true;this.glyphCallerCKnown=role?.callerCKnown===true;this.glyphCallerFlagsKnown=role?.callerFlagsKnown===true;this.glyphCallerAKnown=role?.callerAKnown===true;this.glyphDescriptorLowKnown=role?.descriptorLowKnown===true;this.glyphDescriptorHighKnown=role?.descriptorHighKnown===true;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;
    this.glyphSpaceDescriptor=null;
    if(role&&['carrying-name','literal-person-name'].includes(role.kind)&&i<role.end-this.world.name(role.parent).split(' ').at(-1).length-(role.kind==='literal-person-name'?1:0))this.glyphFrame+=role.kind==='literal-person-name'?30:-20;
    // A887 inserts a space before the next dictionary reference. That space
@@ -175,6 +175,9 @@ export class RandomDisplay {
    const ruleArrival=this.arrivalFromRule===true&&frame===0x5D28&&at>=0x5D1C&&at<=0x5D25;
    const relocationSpace=this.relocationPersonPrefix===true&&frame===0x5D36&&c===' '&&[0x5D2A,0x5D2B].includes(at);
    const relocationPrefix=this.relocationPersonPrefix===true&&frame===0x5D2A&&at>=0x5D1E&&at<=0x5D29||relocationSpace;
+   const hailVerbScan=this.cabWordRole==='qualified-hail-verb'&&frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
+   const exitListScan=this.cabWordRole==='brief-disguised-exits'&&frame===0x5D30&&[0x5D24,0x5D25].includes(at);
+   const hailClearScan=this.cabWordRole==='qualified-hail-delimiter'&&frame===0x5D30&&descriptor===0x5A20&&[0x5D24,0x5D25].includes(at);
    const relocationVerb=this.relocationPersonVerb===true&&frame===0x5D3A&&[0x5D30,0x5D31].includes(at);
    const trainScan=this.trainScanKnown===true&&(
     [0x5D28,0x5D2E].includes(frame)&&(at===frame-9||this.state.pictureWindow&&at===frame-8)||
@@ -193,9 +196,9 @@ export class RandomDisplay {
    if(at===0x5D27&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb)||
-    (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
-    (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan)||
+    (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!hailVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
+    (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!hailVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;
    }
@@ -487,7 +490,10 @@ export class RandomDisplay {
   if(![' ','\n','\r','"'].includes(c)){s.lastSpacePrinted=false;s.pending+=c;return;}
   this.flush();this.normalizeSpacing(c);
   if(c==='\n'||c==='\r'){this.newline();s.lastSpacePrinted=false;}
-  else if(c===' '){const printed=s.started;if(printed){const frame=this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined?this.glyphFrame+12:this.glyphFrame;if(frame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',frame,s.cursor,this.glyphSpaceDescriptor);this.put(c,this.refusalScanKnown?null:frame&&this.vehicleScanKnown&&[0x5D32,0x5D36].includes(frame)?frame+12:frame,null,preserveClearDescriptor);}s.lastSpacePrinted=printed;}
+  else if(c===' '){const printed=s.started;if(printed){const frame=this.glyphFrame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined?this.glyphFrame+12:this.glyphFrame;if(frame&&this.glyphSpaceDescriptor!==null&&this.glyphSpaceDescriptor!==undefined)this.glyphResidue(' ',frame,s.cursor,this.glyphSpaceDescriptor);// In A3DE's HAIL, the noun's delimiter fills the last cell at
+    // frame 5D38. C374 then enters at 5D30, above the saved verb AF.
+    const spaceFrame=this.cabWordRole==='qualified-hail-delimiter'?0x5D38:frame;
+    this.put(c,this.refusalScanKnown?null:spaceFrame&&this.vehicleScanKnown&&[0x5D32,0x5D36].includes(spaceFrame)?spaceFrame+12:spaceFrame,null,preserveClearDescriptor);}s.lastSpacePrinted=printed;}
   // AA2A sets A025 before emitting a quote; a raw margin wrap does not
   // clear it. Only the word-buffer exact-fit path or CR resets that flag.
   else{if(!s.started&&!s.lastSpacePrinted)this.put(' ');this.put(c);s.started=true;s.lastSpacePrinted=false;}

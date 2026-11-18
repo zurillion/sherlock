@@ -658,7 +658,7 @@ export class NpcRuntime {
   // failed operation, not an untranslated special body (e.g. Daphne ED2A).
   if([14,36].includes(action)&&!w.entity(args[0]).rules.some(r=>r.action===action))return no();
   this.ruleResults.invalidate(); // Selected ordinary callbacks remain unknown until projected.
-  if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor,{domainAction:!context.request});const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions);this.bind(context,args);return yes(1,{args});}
+  if(action===31){const vehicle=w.entity(args[0]);if(!g.cab.available(vehicle,actor))return no();g.text.setQualifierMode(0);g.cab.arrive(vehicle,actor,{domainAction:!context.request});const out={messages:[{kind:'narrative',text:w.name(actor)+' hails '+w.name(vehicle.id)+'.'}],cost:1,action,args};this.showAction(out,actor,messages,actions,{argumentFlags:!context.request&&!context.isolated});this.bind(context,args);return yes(1,{args});}
   if(input[0]===255||classByAction[action]===undefined)preflightRejected=this.checkAction(action,args,actor,{ordinaryDomain:!context.request&&!context.isolated})===false;
   const headerCost=g.data.entities[args[0]]?.rules.find(r=>r.action===action)?.headerCost??g.data.actions.find(a=>a.id===action)?.headerCost;if(headerCost!==null&&headerCost!==undefined)this.temporaryCost(headerCost);
   this.state.executionPhase=1;this.state.announcementMode=1; // C53C / CA37: execute the selected action.
@@ -709,6 +709,16 @@ export class NpcRuntime {
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
   if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown);
+    if(w.display?.pictureWindow&&out.action===31&&out.cost&&[30,33].includes(out.args[0])){
+     const prefix=w.name(actor);
+     if(w.entity(actor).person&&(w.entity(actor).noun&32768)&&prefix.includes(' '))for(const m of shown){
+      const start=prefix.length+1;
+      if(m.text.slice(start,start+5)!=='hails')continue;
+      const name=w.name(out.args[0]),delimiter=m.text.length-1-name.split(' ').at(-1).length-1;
+      m.scene_trace=[{kind:'qualified-hail-verb',start,end:start+5,frame:0x5D2A},
+                     {kind:'qualified-hail-delimiter',start:delimiter,end:delimiter+1,frame:0x5D38}];
+     }
+    }
     if(actor===3&&out.cost&&[13,25].includes(out.action)&&[30,33].includes(out.args[0]))for(const m of shown)m.cab_action=true;
     if(w.display?.pictureWindow&&actor===3&&out.cost&&out.action===12&&[30,33].includes(out.args[0]))for(const m of shown){
      const start=m.text.indexOf(' into ')+1;

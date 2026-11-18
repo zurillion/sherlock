@@ -133,18 +133,18 @@ test('Seed 0 reproduces the delayed inventory word and the qualified HAIL name',
   const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed0-prefix.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(corpus));
   assert.equal(trace.seed, 0);
-  assert.equal(trace.steps.length, 2685);
+  assert.equal(trace.steps.length, 3103);
   const session = await replay(trace, { expectedPrefixes: { 755: '\0Round.' } });
-  assert.equal(session.game.world.clock().label, 'Wed 10:45am');
+  assert.equal(session.game.world.clock().label, 'Wed 06:10pm');
 });
 
 test('Seed 1 reproduces the cabbie reply and clock-buffer reads on the Victoria route', async () => {
   const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed1-prefix.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(corpus));
   assert.equal(trace.seed, 1);
-  assert.equal(trace.steps.length, 2635);
+  assert.equal(trace.steps.length, 2670);
   const session = await replay(trace);
-  assert.equal(session.game.world.clock().label, 'Wed 09:39am');
+  assert.equal(session.game.world.clock().label, 'Wed 10:16am');
 });
 
 test('The graphics-enabled Victoria route reproduces the complete victory at Victoria', async () => {

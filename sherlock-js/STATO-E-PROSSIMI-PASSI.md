@@ -1115,20 +1115,23 @@ Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 contr
 
 
 Con seed 1 e grafica nativa, il replay da accensione coincide
-per 2.635 checkpoint, fino a mercoledì alle 09:39. Risolti
+per 2.670 checkpoint, fino a mercoledì alle 10:16. Risolti
 il ritorno A5B9 in $5D6D, il buffer dell’orologio $BF6E–$BF78
 e la scansione dell’articolo del cocchiere in $5D1C–$5D1D. Il
-prossimo scarto si osserva a $5D24 alle 09:40. In $A023 ora
-resta correttamente il byte alto dell’ultima uscita stampata.
+prossimo scarto si osserva a $5C0B durante EXAMINE NOTE alle 10:17.
+In $A023 resta il byte alto dell’ultima uscita stampata e
+in $5D24 il flag dell’ultima scansione di «exits».
 
 
 Con seed 0 e grafica nativa, a Slater Street il primo CR
 dell’inventario scarica il suffisso «Round.» lasciato da
 Lestrade insieme al terminatore zero scritto dal lexer.
 La proiezione include il glifo ROM 3C00. Il replay coincide
-per 2.685 checkpoint fino a mercoledì alle 10:45. HAIL CAB
+per 3.103 checkpoint fino a mercoledì alle 18:10. HAIL CAB
 scrive il nome del veicolo nel buffer e Watson legge la «m»
-residua in $5C10. Primo scarto successivo, $5D1E alle 10:47.
+residua in $5C10. Nella chiamata del cab da parte di Lestrade, $5D1E
+viene da «hails» e $5D24 dalla pulizia dopo «hansom».
+Primo scarto successivo, $5D23 alle 18:11.
 
 In entrambi i seed, il separatore dopo «china» nella descrizione
 breve D1B2 lascia il flag F della scansione in $5D22. C3B8 lo

@@ -81,11 +81,11 @@
   "strict_js_checkpoints": [
     {
       "seed": 0,
-      "matched": 2685,
+      "matched": 3103,
       "next": {
-        "clock": "Wed 10:47am",
-        "active_command": "W",
-        "diagnostic": "FIRST 2685 W Wed 10:47am Ingresso casuale originale non ancora ricostruito: $5D1E. Il comando non \u00e8 stato applicato."
+        "clock": "Wed 06:11pm",
+        "active_command": "WAIT UNTIL 6:15PM",
+        "diagnostic": "FIRST 3103  Wed 06:11pm Ingresso casuale originale non ancora ricostruito: $5D23. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D23. Il comando non \u00e8 stato applicato."
       },
       "previous_next": {
         "clock": "Mon 11:58pm",
@@ -93,8 +93,8 @@
         "actor": 3,
         "field": "upper video"
       },
-      "draws": 7306,
-      "reads": 15532,
+      "draws": 8498,
+      "reads": 18096,
       "resolved_hail_name": {
         "clock": "Tue 12:14pm",
         "active_command": "HAIL CAB",
@@ -126,47 +126,20 @@
             "value": 0
           }
         ]
+      },
+      "resolved_previous_scan": {
+        "clock": "Wed 10:47am",
+        "active_command": "W",
+        "diagnostic": "FIRST 2685 W Wed 10:47am Ingresso casuale originale non ancora ricostruito: $5D1E. Il comando non \u00e8 stato applicato."
       }
     },
     {
       "seed": 1,
-      "matched": 2635,
+      "matched": 2670,
       "next": {
-        "clock": "Wed 09:40am",
-        "active_command": "WAIT UNTIL 10:06AM",
-        "field": "stack",
-        "address": "5D24",
-        "draw": {
-          "actor": 9,
-          "width": 99,
-          "mixOffset": 5,
-          "seed": 215,
-          "cursor": 23326,
-          "reads": [
-            {
-              "address": 23582,
-              "value": 0
-            },
-            {
-              "address": 23588,
-              "value": 0
-            },
-            {
-              "address": 23838,
-              "value": 2
-            },
-            {
-              "address": 23844,
-              "value": 0
-            }
-          ],
-          "video": "6fe3cbfebe68a200ff09de0bdfa32e3b43ef0343ccb1c7133650e006eec2497c",
-          "counter": 0,
-          "narrow": 0,
-          "result": 9,
-          "next_seed": 217,
-          "next_cursor": 23838
-        }
+        "clock": "Wed 10:17am",
+        "active_command": "EXAMINE NOTE",
+        "diagnostic": "FIRST 2670 EXAMINE NOTE Wed 10:17am Ingresso casuale originale non ancora ricostruito: $5C0B. Il comando non \u00e8 stato applicato."
       },
       "previous_next": {
         "clock": "Mon 08:29am",
@@ -196,8 +169,8 @@
           "next_cursor": 24576
         }
       },
-      "draws": 7334,
-      "reads": 15532,
+      "draws": 7432,
+      "reads": 15736,
       "resolved_question_article": {
         "clock": "Tue 08:12pm",
         "active_command": "WAIT UNTIL 10:05PM",
@@ -234,6 +207,43 @@
         "clock": "Wed 08:34am",
         "active_command": "WAIT UNTIL 10:06AM",
         "diagnostic": "FIRST 2569  Wed 08:34am Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato."
+      },
+      "resolved_previous_scan": {
+        "clock": "Wed 09:40am",
+        "active_command": "WAIT UNTIL 10:06AM",
+        "field": "stack",
+        "address": "5D24",
+        "draw": {
+          "actor": 9,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 215,
+          "cursor": 23326,
+          "reads": [
+            {
+              "address": 23582,
+              "value": 0
+            },
+            {
+              "address": 23588,
+              "value": 0
+            },
+            {
+              "address": 23838,
+              "value": 2
+            },
+            {
+              "address": 23844,
+              "value": 0
+            }
+          ],
+          "video": "6fe3cbfebe68a200ff09de0bdfa32e3b43ef0343ccb1c7133650e006eec2497c",
+          "counter": 0,
+          "narrow": 0,
+          "result": 9,
+          "next_seed": 217,
+          "next_cursor": 23838
+        }
       }
     },
     {

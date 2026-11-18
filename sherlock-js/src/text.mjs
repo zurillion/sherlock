@@ -287,6 +287,9 @@ export class Text {
    if(trace&&w.display?.pictureWindow&&source==='arrival'&&!full&&!remote&&parent===null){
     const offset=this.dictionary.lookup(exits.at(-1))?.value;
     if(Number.isInteger(offset))lastExitReference={end:text.join(' ').length,value:offset};
+    // D6A6's list introduction flushes "exits" before its direction.
+    if(w.player!==0)trace.push({kind:'brief-disguised-exits',start:start-'exits are '.length,
+                               end:start-' are '.length,frame:0x5D30});
    }
   };
   const describe=()=>{

@@ -237,8 +237,8 @@ dall’accensione con tutti gli attori attivi.
 
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
-| 0 | 3.219 | 2.685 | mercoledì 10:47, una lettura di $5D1E |
-| 1 | 3.219 | 2.635 | mercoledì 09:40, una lettura di $5D24 |
+| 0 | 3.219 | 3.103 | mercoledì 18:11, una lettura di $5D23 |
+| 1 | 3.219 | 2.670 | mercoledì 10:17, una lettura di $5C0B durante EXAMINE NOTE |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -314,6 +314,23 @@ alle 08:33, prima del checkpoint delle 08:34. Il modello
 deriva il riferimento dall’ultima direzione dell’elenco
 quando quello è l’ultimo testo della descrizione breve.
 [Traccia di $A023](results/seed-and-saves/native-victoria-last-exit-reference.json).
+
+Con seed 0, dopo la deduzione a Scotland Yard, Lestrade
+chiama il cab. L’ultima «s» di «hails» raggiunge C388 con
+frame $5D2A e shift 3. C3B8 conserva F in $5D1E. Lo
+spazio dopo «hansom» riempie la riga e la pulizia usa
+il frame $5D30, che conserva la coppia precedente e
+scrive F in $5D24. Il giardiniere legge entrambi nella
+stessa estrazione. Il replay dall’accensione coincide
+fino a Leatherhead mercoledì alle 18:10.
+
+Con seed 1, il riferimento di «west» permette di arrivare
+alla lettura di $5D24 alle 09:39, prima del checkpoint
+delle 09:40. Il valore viene dalla «s» finale di «exits»,
+quinta lettera scaricata da A9FD/AA14 con frame $5D30.
+C39D salva F; i byte sono ancora intatti al turno della
+cuoca. Il replay coincide fino alle 10:16.
+[Tracce delle scansioni](results/seed-and-saves/native-victoria-hail-and-room-scans.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
