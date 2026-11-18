@@ -92,5 +92,5 @@ dispone di 45 minuti. L’esecuzione del 18 novembre sul commit
 43e9735 si è fermata al precedente limite di 20 minuti durante
 i test, come conferma l’annotazione del runner.
 
-[Workflow di pubblicazione](../.github/workflows/pages.yml) ·
+[Workflow di pubblicazione](https://github.com/zurillion/sherlock/blob/main/.github/workflows/pages.yml) ·
 [Esecuzione interrotta](https://github.com/zurillion/sherlock/actions/runs/44299657258)
