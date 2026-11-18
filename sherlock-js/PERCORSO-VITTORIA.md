@@ -238,7 +238,7 @@ dall’accensione con tutti gli attori attivi.
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 2.685 | mercoledì 10:47, una lettura di $5D1E |
-| 1 | 3.219 | 2.569 | mercoledì 08:34, una lettura di $A023 |
+| 1 | 3.219 | 2.635 | mercoledì 09:40, una lettura di $5D24 |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -305,6 +305,15 @@ frame $5D2E. C3B8 salva F dell’ultima scansione a $5D22.
 Entrambe le letture ora coincidono. Il confronto arriva
 a mercoledì alle 10:45 con seed 0 e alle 08:33 con seed 1.
 [Traccia del separatore](results/seed-and-saves/native-victoria-disguise-separator.json).
+
+Durante lo stesso arrivo nel cortile, il seed 1 percorre
+l’elenco delle uscite libere. D6A6 invia «west» ad A887, che
+scrive il riferimento $0992 in $A022–$A023. A414 appende il
+punto lasciando intatto il riferimento. La cuoca legge $09
+alle 08:33, prima del checkpoint delle 08:34. Il modello
+deriva il riferimento dall’ultima direzione dell’elenco
+quando quello è l’ultimo testo della descrizione breve.
+[Traccia di $A023](results/seed-and-saves/native-victoria-last-exit-reference.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine

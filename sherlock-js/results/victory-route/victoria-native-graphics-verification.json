@@ -130,11 +130,43 @@
     },
     {
       "seed": 1,
-      "matched": 2569,
+      "matched": 2635,
       "next": {
-        "clock": "Wed 08:34am",
+        "clock": "Wed 09:40am",
         "active_command": "WAIT UNTIL 10:06AM",
-        "diagnostic": "FIRST 2569  Wed 08:34am Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato."
+        "field": "stack",
+        "address": "5D24",
+        "draw": {
+          "actor": 9,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 215,
+          "cursor": 23326,
+          "reads": [
+            {
+              "address": 23582,
+              "value": 0
+            },
+            {
+              "address": 23588,
+              "value": 0
+            },
+            {
+              "address": 23838,
+              "value": 2
+            },
+            {
+              "address": 23844,
+              "value": 0
+            }
+          ],
+          "video": "6fe3cbfebe68a200ff09de0bdfa32e3b43ef0343ccb1c7133650e006eec2497c",
+          "counter": 0,
+          "narrow": 0,
+          "result": 9,
+          "next_seed": 217,
+          "next_cursor": 23838
+        }
       },
       "previous_next": {
         "clock": "Mon 08:29am",
@@ -164,8 +196,8 @@
           "next_cursor": 24576
         }
       },
-      "draws": 7156,
-      "reads": 15160,
+      "draws": 7334,
+      "reads": 15532,
       "resolved_question_article": {
         "clock": "Tue 08:12pm",
         "active_command": "WAIT UNTIL 10:05PM",
@@ -197,6 +229,11 @@
             "value": 0
           }
         ]
+      },
+      "resolved_exit_reference": {
+        "clock": "Wed 08:34am",
+        "active_command": "WAIT UNTIL 10:06AM",
+        "diagnostic": "FIRST 2569  Wed 08:34am Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato."
       }
     },
     {

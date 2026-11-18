@@ -268,6 +268,7 @@ export class Text {
     if(trace.length>before&&parent===null&&!remote&&prefix>0){const frame=0x5D26+entryOffset;trace.push({kind:'passage-name-prefix',parent:edge.gate,start,end:start+prefix,frame,flagsKnown:true,videoHighKnown:frame===0x5D26,videoLowKnown:frame===0x5D26,callerBKnown:frame===0x5D26,callerCKnown:frame===0x5D26,callerFlagsKnown:frame===0x5D26,callerAKnown:frame===0x5D26,descriptorLowKnown:frame===0x5D26,descriptorHighKnown:frame===0x5D26,spaceByteKnown:frame===0x5D26,spaceShiftKnown:frame===0x5D26,spaceCountKnown:frame===0x5D26,spaceVideoLowKnown:frame===0x5D26,spaceVideoHighKnown:frame===0x5D26,spaceScanKnown:frame===0x5D26,spaceAfter:true,spaceClearFrame:frame+4});}
    }
   }};
+  let lastExitReference=null;
   const describeExits=()=>{
    const exits=r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).map(e=>DIRECTION_NAMES[e.direction_id]);
    if(!exits.length)return;
@@ -281,6 +282,12 @@ export class Text {
    if(trace&&source==='cab-arrival'&&parent!==null&&full&&!r.description)
     trace.push({kind:'cab-arrival-exits',start:start-'exits are '.length,end:start-' are '.length,frame:0x5D24});
    text.push('Visible exits are '+directions+'.');
+   // D6A6 passes the last direction's dictionary word to A887.
+   // A414 emits the period without changing A022/A023.
+   if(trace&&w.display?.pictureWindow&&source==='arrival'&&!full&&!remote&&parent===null){
+    const offset=this.dictionary.lookup(exits.at(-1))?.value;
+    if(Number.isInteger(offset))lastExitReference={end:text.join(' ').length,value:offset};
+   }
   };
   const describe=()=>{
    const previous=text.join(' ');
@@ -389,6 +396,7 @@ export class Text {
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);
   if(listedNoun)trace.push({kind:'final-dictionary-reference',value:listedNoun.value});
+  if(lastExitReference?.end===output.length)trace.push({kind:'final-dictionary-reference',value:lastExitReference.value});
   // The initial alternate-identity phrase goes through D187/68DD,
   // including the brief description with no prose. Its qualifier is
   // six bytes below the frame used for the final noun.
