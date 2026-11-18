@@ -241,7 +241,7 @@ dall’accensione con tutti gli attori attivi.
 | 1 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
-Il test del seed 137 confronta anche sei riprese da salvataggio JSON
+I test dei seed 0, 1 e 137 confrontano sei riprese da salvataggio JSON
 tramite la stessa API della pagina, in una sessione nuova ogni volta.
 I punti sono l’atrio con immagine alle 08:25, il cab prenotato alle 08:32,
 il treno delle 09:21, gli indizi di Leatherhead alle 11:08, l’ultimo
@@ -251,6 +251,7 @@ e i pacchetti video con la partita continua, minuto per minuto fino
 al punto seguente. In ogni confronto delle attese le due sessioni
 usano il proprio identificatore di trasporto. Dal primo salvataggio
 alla vittoria sono 3.207 checkpoint di prosecuzione confrontati.
+[Verifica dei seed 0 e 1](SALVATAGGI-GRAFICA-NATIVA.md).
 
 Con seed 0, il discorso di Lestrade a Slater Street lascia
 `arounD.` nel buffer parola. L’input «I» fa scrivere un

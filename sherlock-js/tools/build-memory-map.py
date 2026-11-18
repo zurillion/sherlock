@@ -397,6 +397,13 @@ for candidate in candidates:
  if candidate['kind']=='workspace' and candidate['start'] in brown_fields:
   candidate['fields'].extend(brown_fields[candidate['start']])
 
+# SAVE/LOAD checks certify persistence of the reconstructed fields.
+# They supplement the sources for those domains without reclassifying bytes.
+native_saves=source(ROOT/'results/seed-and-saves/native-victoria-save-load.json','Confronto Salva/Carica con grafica nativa e seed 0 e 1')
+for candidate in candidates:
+ if candidate['start'] in (0x9570,0x5C0B,0x5CEC):
+  candidate['sources'].append(native_saves)
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END

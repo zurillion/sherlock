@@ -16,12 +16,13 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Salvataggio con grafica nativa.** Ripetere con i seed 0 e 1 il
-   confronto minuto per minuto dopo SAVE/LOAD. I sei punti del seed 137
-   forniscono già una base.
-2. **Rami delle deduzioni e dei finali.** Verificare la stessa sequenza
+1. **Rami delle deduzioni e dei finali.** Verificare la stessa sequenza
    con altre interazioni plausibili e altri seed. Il comportamento di
    NEW, Riavvia e LOAD è [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
+
+Con grafica nativa, i sei punti Salva/Carica sono verificati anche
+per i seed 0 e 1, con 3.207 checkpoint di prosecuzione per seed.
+[Perimetro e risultati](SALVATAGGI-GRAFICA-NATIVA.md).
 
 La mappa riporta 39.964 byte documentati, 305 parziali e 1.331
 ancora sconosciuti, su 41.600 byte di memoria del gioco.

@@ -134,7 +134,7 @@ test('Seed 0 reproduces the complete graphics-enabled victory at Victoria', asyn
   const trace = JSON.parse(gunzipSync(corpus));
   assert.equal(trace.seed, 0);
   assert.equal(trace.steps.length, 3219);
-  const session = await replay(trace, { expectedPrefixes: { 755: '\0Round.' } });
+  const session = await replay(trace, { savePoints: [11, 16, 31, 62, 3198, 3217], expectedPrefixes: { 755: '\0Round.' } });
   assert.equal(session.game.world.clock().label, 'Wed 08:12pm');
   assert.equal(session.game.world.roomOf(), 30);
   assert.equal(session.game.ended.text_pointer, '6AF3');
@@ -146,7 +146,7 @@ test('Seed 1 reproduces the Victoria route through the victory at Victoria', asy
   assert.equal(trace.seed, 1);
   assert.equal(trace.steps.length, 3219);
   assert.deepEqual(trace.steps.at(-1).ending, { entry: '9E74', reason: 'story', text_pointer: '6AF3' });
-  const session = await replay(trace);
+  const session = await replay(trace, { savePoints: [11, 16, 31, 62, 3198, 3217] });
   assert.equal(session.game.world.clock().label, 'Wed 08:12pm');
   assert.equal(session.game.world.roomOf(), 30);
   assert.equal(session.game.ended.text_pointer, '6AF3');

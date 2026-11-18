@@ -151,6 +151,19 @@
         "day": 2,
         "period": "pm",
         "label": "Wed 08:12pm"
+      },
+      "save_load": {
+        "protocol": "ClientSession save, JSON serialization, then load in a fresh ClientSession. Compare complete replies, screen packets and world dump after every subsequent input or streamed WAIT minute. Verify connection-local job identifiers separately. Compare each original random draw, upper bitmap and attributes, clock, location and ending in the uninterrupted session.",
+        "after_checkpoints": [
+          11,
+          16,
+          31,
+          62,
+          3198,
+          3217
+        ],
+        "matched_future_checkpoints": 3207,
+        "terminal": "6AF3"
       }
     },
     {
@@ -363,6 +376,19 @@
         "day": 2,
         "period": "pm",
         "label": "Wed 08:12pm"
+      },
+      "save_load": {
+        "protocol": "ClientSession save, JSON serialization, then load in a fresh ClientSession. Compare complete replies, screen packets and world dump after every subsequent input or streamed WAIT minute. Verify connection-local job identifiers separately. Compare each original random draw, upper bitmap and attributes, clock, location and ending in the uninterrupted session.",
+        "after_checkpoints": [
+          11,
+          16,
+          31,
+          62,
+          3198,
+          3217
+        ],
+        "matched_future_checkpoints": 3207,
+        "terminal": "6AF3"
       }
     },
     {

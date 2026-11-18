@@ -1,0 +1,235 @@
+{
+  "protocol": {
+    "startup": "Fresh ClientSession, world-v5, free initial LOOK, native graphics enabled, all 24 actors",
+    "save": "ClientSession save, JSON serialization, then load in a fresh ClientSession",
+    "comparison": "Compare complete replies, screen packets and world dump after every subsequent input or streamed WAIT minute. Verify connection-local job identifiers separately. Compare each original random draw, upper bitmap and attributes, clock, location and ending in the uninterrupted session.",
+    "checked_future": [
+      "random accumulator and cursor",
+      "mutable random inputs including retained word and glyph fields",
+      "scheduler, NPC contexts, requests and counters",
+      "entities, locations, knowledge and deductions",
+      "upper and lower display state",
+      "command history and output packets"
+    ]
+  },
+  "seeds": [
+    {
+      "seed": 0,
+      "corpus": "results/victory-route/victoria-native-graphics-seed0.json.gz",
+      "sha256": "a3fb34ac76a493b528e9c9fb04fd0def337c8c265e81836510613eb723ee9cf2",
+      "original_checkpoints": 3219,
+      "draws": 8844,
+      "reads": 18824,
+      "saves": [
+        {
+          "checkpoint": 11,
+          "command": "D",
+          "clock": {
+            "tick": 26,
+            "due": 26,
+            "minute": 25,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:25am"
+          },
+          "room": 6
+        },
+        {
+          "checkpoint": 16,
+          "command": "SAY TO CABBIE \"GO TO KINGS CROSS ROAD\"",
+          "clock": {
+            "tick": 33,
+            "due": 33,
+            "minute": 32,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:32am"
+          },
+          "room": 1
+        },
+        {
+          "checkpoint": 31,
+          "command": "CLIMB INTO TRAIN",
+          "clock": {
+            "tick": 82,
+            "due": 82,
+            "minute": 21,
+            "hour": 9,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 09:21am"
+          },
+          "room": 22
+        },
+        {
+          "checkpoint": 62,
+          "command": "CLOSELY EXAMINE CLOTHES",
+          "clock": {
+            "tick": 189,
+            "due": 189,
+            "minute": 8,
+            "hour": 11,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 11:08am"
+          },
+          "room": 95
+        },
+        {
+          "checkpoint": 3198,
+          "command": "SAY CABBIE \"FURIOUSLY GO TO BUCKINGHAM PALACE ROAD\"",
+          "clock": {
+            "tick": 3592,
+            "due": 3592,
+            "minute": 51,
+            "hour": 7,
+            "day": 2,
+            "period": "pm",
+            "label": "Wed 07:51pm"
+          },
+          "room": 1
+        },
+        {
+          "checkpoint": 3217,
+          "command": "I",
+          "clock": {
+            "tick": 3612,
+            "due": 3612,
+            "minute": 11,
+            "hour": 8,
+            "day": 2,
+            "period": "pm",
+            "label": "Wed 08:11pm"
+          },
+          "room": 29
+        }
+      ],
+      "matched_future_checkpoints": 3207,
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "terminal_clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
+      }
+    },
+    {
+      "seed": 1,
+      "corpus": "results/victory-route/victoria-native-graphics-seed1.json.gz",
+      "sha256": "cbfd24d9ea1e49faf75fbe12d412bb07b34d37bc3596b315c5356a7f143e8d9b",
+      "original_checkpoints": 3219,
+      "draws": 9171,
+      "reads": 19464,
+      "saves": [
+        {
+          "checkpoint": 11,
+          "command": "D",
+          "clock": {
+            "tick": 26,
+            "due": 26,
+            "minute": 25,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:25am"
+          },
+          "room": 6
+        },
+        {
+          "checkpoint": 16,
+          "command": "SAY TO CABBIE \"GO TO KINGS CROSS ROAD\"",
+          "clock": {
+            "tick": 33,
+            "due": 33,
+            "minute": 32,
+            "hour": 8,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 08:32am"
+          },
+          "room": 1
+        },
+        {
+          "checkpoint": 31,
+          "command": "CLIMB INTO TRAIN",
+          "clock": {
+            "tick": 82,
+            "due": 82,
+            "minute": 21,
+            "hour": 9,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 09:21am"
+          },
+          "room": 22
+        },
+        {
+          "checkpoint": 62,
+          "command": "CLOSELY EXAMINE CLOTHES",
+          "clock": {
+            "tick": 189,
+            "due": 189,
+            "minute": 8,
+            "hour": 11,
+            "day": 0,
+            "period": "am",
+            "label": "Mon 11:08am"
+          },
+          "room": 95
+        },
+        {
+          "checkpoint": 3198,
+          "command": "SAY CABBIE \"FURIOUSLY GO TO BUCKINGHAM PALACE ROAD\"",
+          "clock": {
+            "tick": 3592,
+            "due": 3592,
+            "minute": 51,
+            "hour": 7,
+            "day": 2,
+            "period": "pm",
+            "label": "Wed 07:51pm"
+          },
+          "room": 1
+        },
+        {
+          "checkpoint": 3217,
+          "command": "I",
+          "clock": {
+            "tick": 3612,
+            "due": 3612,
+            "minute": 11,
+            "hour": 8,
+            "day": 2,
+            "period": "pm",
+            "label": "Wed 08:11pm"
+          },
+          "room": 29
+        }
+      ],
+      "matched_future_checkpoints": 3207,
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "terminal_clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
+      }
+    }
+  ]
+}
