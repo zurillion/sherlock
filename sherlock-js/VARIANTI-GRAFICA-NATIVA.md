@@ -85,3 +85,12 @@ Il probe acquisisce nuovamente l’esecuzione originale dall’accensione.
 python3 tools/probe-native-picture-window.py /tmp/sherlock-early-platform.json --route results/victory-route/victoria-early-platform-graphics-route.txt --seed 1
 python3 tools/probe-native-picture-window.py /tmp/sherlock-extra-look.json --route results/victory-route/victoria-extra-look-route.txt --seed 1
 ~~~
+
+
+La pubblicazione Pages esegue la suite completa. Il job di build
+dispone di 45 minuti. L’esecuzione del 18 novembre sul commit
+43e9735 si è fermata al precedente limite di 20 minuti durante
+i test, come conferma l’annotazione del runner.
+
+[Workflow di pubblicazione](../.github/workflows/pages.yml) ·
+[Esecuzione interrotta](https://github.com/zurillion/sherlock/actions/runs/44299657258)
