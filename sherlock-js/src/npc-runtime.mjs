@@ -150,6 +150,9 @@ export class NpcRuntime {
   const preserveArrivalName=context.preserveArrivalName===true&&screen?.cursor===0&&!screen.pending&&screen.counter+3<15;
   const arrivalGreeting=text==='6929'&&messages.some(m=>m.rule_arrival_tick===this.w.tick);
   const extra=arrivalGreeting?Array.from({length:16},(_,i)=>0x5D1C+i):[];
+  const watsonToLestrade=screen?.pictureWindow&&text==='6929'&&actor===3&&context.object===2&&
+   screen.cursor===0&&screen.remaining===36&&!screen.pending&&screen.counter+4<15;
+  if(watsonToLestrade)extra.push(0x5D24,0x5D25,0x5D2A);
   const narrowTrain=screen?.pictureWindow&&text==='7611'&&screen.windowMode===1&&
    screen.cursor===0&&!screen.pending&&screen.counter<=12;
   if(narrowTrain)extra.push(0x5D23);

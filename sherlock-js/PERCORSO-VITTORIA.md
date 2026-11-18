@@ -237,8 +237,8 @@ dall’accensione con tutti gli attori attivi.
 
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
-| 0 | 3.219 | 3.189 | mercoledì 19:42, una lettura di $5D24 durante HAIL CAB |
-| 1 | 3.219 | 2.693 | mercoledì 11:00, una lettura di $5D1F durante WAIT |
+| 0 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
+| 1 | 3.219 | 2.754 | mercoledì 12:20, una lettura di $5D20 in treno |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -346,6 +346,26 @@ A9D7 lascia in $5C0B la lettera grezza «l». Il renderer
 JavaScript usa i caratteri grezzi prodotti dal decodificatore
 per il buffer e i caratteri formattati per il video.
 [Tracce della nota e del dizionario](results/seed-and-saves/native-victoria-note-and-station-dictionary.json).
+
+Con seed 0, il cab finale per Victoria conserva due effetti
+del qualificatore «hansom». In C388, la «m» entra a colonna
+18 e frame $5D2C. C38B salva il puntatore video $5030 in
+$5D24–$5D25 e C388 salva F=$0A in $5D2A. Il saluto di Watson
+a Lestrade conserva questi valori su una riga libera.
+Il cocchiere legge poi $5C91, il flag di stampa P_FLAG
+della ROM. Il normale avvio con la grafica attiva lascia
+zero, misurato nei tre seed, e i renderer del gioco
+usano i propri flag. La partita JavaScript riproduce tutti
+i 3.219 checkpoint, 8.844 estrazioni e 18.824 letture.
+Il controllo arriva da un nuovo avvio fino a $6AF3 a
+Victoria alle 20:12.
+
+Con seed 1, «You talk to the cabbie» lascia AF della
+«o» di «to» nel frame $5D2A e HL video della «e» di «the»
+nel frame $5D2C. «You wait.» a bordo del veicolo conserva
+i byte poi letti dal giardiniere. Il confronto arriva
+fino alle 12:19, durante il successivo viaggio in treno.
+[Tracce del cab e del flag della ROM](results/seed-and-saves/native-victoria-hail-talk-and-print-flag.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine

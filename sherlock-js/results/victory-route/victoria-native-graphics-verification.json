@@ -81,20 +81,16 @@
   "strict_js_checkpoints": [
     {
       "seed": 0,
-      "matched": 3189,
-      "next": {
-        "clock": "Wed 07:42pm",
-        "active_command": "HAIL CAB",
-        "diagnostic": "FIRST 3189 HAIL CAB Wed 07:42pm Ingresso casuale originale non ancora ricostruito: $5D24. Il comando non \u00e8 stato applicato."
-      },
+      "matched": 3219,
+      "next": null,
       "previous_next": {
         "clock": "Mon 11:58pm",
         "command": "I",
         "actor": 3,
         "field": "upper video"
       },
-      "draws": 8736,
-      "reads": 18602,
+      "draws": 8844,
+      "reads": 18824,
       "resolved_hail_name": {
         "clock": "Tue 12:14pm",
         "active_command": "HAIL CAB",
@@ -136,15 +132,34 @@
         "clock": "Wed 06:11pm",
         "active_command": "WAIT UNTIL 6:15PM",
         "diagnostic": "FIRST 3103  Wed 06:11pm Ingresso casuale originale non ancora ricostruito: $5D23. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D23. Il comando non \u00e8 stato applicato."
+      },
+      "resolved_cab_prompt_or_wait": {
+        "clock": "Wed 07:42pm",
+        "active_command": "HAIL CAB",
+        "diagnostic": "FIRST 3189 HAIL CAB Wed 07:42pm Ingresso casuale originale non ancora ricostruito: $5D24. Il comando non \u00e8 stato applicato."
+      },
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
       }
     },
     {
       "seed": 1,
-      "matched": 2693,
+      "matched": 2754,
       "next": {
-        "clock": "Wed 11:00am",
-        "active_command": "WAIT",
-        "diagnostic": "FIRST 2693 WAIT Wed 11:00am Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non \u00e8 stato applicato."
+        "clock": "Wed 12:20pm",
+        "active_command": "WAIT UNTIL 1:29PM",
+        "diagnostic": "FIRST 2754  Wed 12:20pm Ingresso casuale originale non ancora ricostruito: $5D20. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D20. Il comando non \u00e8 stato applicato."
       },
       "previous_next": {
         "clock": "Mon 08:29am",
@@ -174,8 +189,8 @@
           "next_cursor": 24576
         }
       },
-      "draws": 7565,
-      "reads": 16008,
+      "draws": 7808,
+      "reads": 16560,
       "resolved_question_article": {
         "clock": "Tue 08:12pm",
         "active_command": "WAIT UNTIL 10:05PM",
@@ -254,6 +269,11 @@
         "clock": "Wed 10:17am",
         "active_command": "EXAMINE NOTE",
         "diagnostic": "FIRST 2670 EXAMINE NOTE Wed 10:17am Ingresso casuale originale non ancora ricostruito: $5C0B. Il comando non \u00e8 stato applicato."
+      },
+      "resolved_cab_prompt_or_wait": {
+        "clock": "Wed 11:00am",
+        "active_command": "WAIT",
+        "diagnostic": "FIRST 2693 WAIT Wed 11:00am Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non \u00e8 stato applicato."
       }
     },
     {

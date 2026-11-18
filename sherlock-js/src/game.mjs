@@ -215,7 +215,14 @@ export class Game {
   if([21,22].includes(action)){if(!w.npcs)throw new UnsupportedFeature('FOLLOW nel profilo storico');const target=this.resolve(node,action);if(target.message)return {messages:[target.message],cost:0,action,args:[]};return {...ok([],0,[target.entity.id]),objectRule:'unimplemented.E452',semanticResolved:true};}
   if([29,30,45].includes(action)){const result=this.resolve(node,action);return result.message?{messages:[result.message],cost:0,action,args:[]}:reject('YOU CANNOT '+this.word(node.verb).toUpperCase());}
   if([18,27].includes(action)&&w.npcs){const group=node.groups[0]||{noun:0,qualifiers:[]},rooms=this.locationCandidates(node);if(!rooms.length){const out=this.resolve(node,action);return {messages:[out.message],cost:0,action,args:[]};}if(rooms.length>1){this.question(node,0);return reject('WHICH '+this.word(group.noun).toUpperCase()+' ?');}return {...ok([],0,[rooms[0].id]),objectRule:'move.adjacent',semanticResolved:true};}
-  if(action===49){if(w.npcs&&this.actingActor===undefined)this.npcRuntime.captureAnnouncementOperands(action,[]);return ok([say('wait','.')],5);}
+  if(action===49){
+   if(w.npcs&&this.actingActor===undefined)this.npcRuntime.captureAnnouncementOperands(action,[]);
+   const text=say('wait','.');
+   if(w.display?.pictureWindow&&this.actingActor===undefined&&actor===w.player&&
+      [30,33].includes(w.entity(actor).parent))
+    return ok([{kind:'narrative',text,preserve_renderer_1f:true,preserve_renderer_25:true}],5);
+   return ok([text],5);
+  }
   if(action===50){const literal=node.groups[0]?.noun;if(w.npcs&&literal&32768){w.npcs.literal=literal;if(this.actingActor===undefined)this.npcRuntime.checkAction(action,[254],actor);}if(!(literal&32768)||literal&128)return reject(literal&32768?"DON'T BE SILLY.":'WAIT UNTIL WHAT ?');
    if(w.npcs){
     w.npcs.literal=literal;
@@ -237,7 +244,12 @@ export class Game {
    // E2CB/CA7E describe the cab via the action-name formatter. The
    // dictionary spelling can survive after the shorter noun and period.
    const scene_trace=[];
-   this.text.traceNameBuffer(scene_trace,vehicle.id,name,announcement.length-name.length-1);
+   const nameStart=announcement.length-name.length-1;
+   this.text.traceNameBuffer(scene_trace,vehicle.id,name,nameStart);
+   const qualifierStart=name.indexOf(' ')+1,qualifierEnd=name.lastIndexOf(' ');
+   if(qualifierStart>0&&qualifierEnd>qualifierStart)
+    scene_trace.push({kind:'player-hail-qualifier',start:nameStart+qualifierStart,
+                     end:nameStart+qualifierEnd,frame:0x5D2C});
    return ok([{kind:'narrative',text:announcement,scene_trace}],1,[vehicle.id]);
   }
   if(action===46){
@@ -255,7 +267,16 @@ export class Game {
     this.npcRuntime.addressee(node.groups[0]);
     if(!w.scheduler.actors.some(a=>a.id===target.entity.id&&a.enabled))throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
     if(commands.length)this.npcRuntime.queue(actor,target.entity.id,commands,quoteMode);
-    return ok([say('talk',' to '+w.name(target.entity.id)+'.')],1,[target.entity.id]);
+    const name=w.name(target.entity.id),announcement=say('talk',' to '+name+'.');
+    if(w.display?.pictureWindow&&actor===w.player&&[31,34].includes(target.entity.id)){
+     const preposition=announcement.indexOf(' to ')+1;
+     const nameStart=preposition+3,articleEnd=name.indexOf(' ');
+     if(preposition>0&&articleEnd>0)return ok([{kind:'narrative',text:announcement,scene_trace:[
+      {kind:'cabbie-talk-preposition',start:preposition,end:preposition+2,frame:0x5D2A},
+      {kind:'cabbie-talk-article',start:nameStart,end:nameStart+articleEnd,frame:0x5D2C},
+     ]}],1,[target.entity.id]);
+    }
+    return ok([announcement],1,[target.entity.id]);
    }
    if(target.entity.id!==3||!w.scheduler.actor(3).enabled)throw new UnsupportedFeature('programma e conversazione di '+target.entity.name);
    if(node.quote){

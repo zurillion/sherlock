@@ -14,7 +14,12 @@ function incrementFlags(before,carry=0){
 export class RandomDisplay {
  constructor(data,world){this.data=data;this.world=world;}
  initialize(opening,{sceneTrace=[],deferPrompt=false}={}){this.world.display={version:1,profile:'historical-text-only',capitalizationFlag:this.data.argumentChecks?.initialCapitalization??null,forceUppercase:this.data.argumentChecks?.initialForceUppercase??null,spacingFlag:this.data.argumentChecks?.initialOutputSpacing??null,wordBuffer:bootstrapWordWorkspace(this.data.randomInputs.bootOptions),upper:Array(18).fill(''),cursor:0,remaining:36,started:false,counter:0,scrolls:0,pending:'',lower:Array(5).fill(''),lowerKnown:Array(5).fill(true),input:[],inputKnown:[],scratch:{}};
-  if(this.world.npcs?.nativeGraphicsEnabled)this.state.pictureWindow=newPictureWindow();
+  if(this.world.npcs?.nativeGraphicsEnabled){
+   this.state.pictureWindow=newPictureWindow();
+   // The 48K boot's normal ROM print mode remains in P_FLAG.
+   // The game's text and graphics use their own formatter.
+   this.state.scratch[0x5C91]=0;
+  }
   if(this.data.randomInputs.editorInitial){this.state.input=this.data.randomInputs.editorInitial.slice(0,129);this.state.inputKnown=this.state.input.map(()=>true);this.state.tokens=this.data.randomInputs.editorInitial.slice(129);this.state.tokenKnown=this.state.tokens.map(()=>true);}
   // ROM 0616–062B allocates a LOAD header after the BASIC program, its
   // variable terminator and the five-byte LOAD "" editor line. It fills
@@ -182,8 +187,11 @@ export class RandomDisplay {
    const ruleArrival=this.arrivalFromRule===true&&frame===0x5D28&&at>=0x5D1C&&at<=0x5D25;
    const relocationSpace=this.relocationPersonPrefix===true&&frame===0x5D36&&c===' '&&[0x5D2A,0x5D2B].includes(at);
    const relocationPrefix=this.relocationPersonPrefix===true&&frame===0x5D2A&&at>=0x5D1E&&at<=0x5D29||relocationSpace;
-   const hailVerbScan=this.cabWordRole==='qualified-hail-verb'&&frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
+   const actionVerbScan=['qualified-hail-verb','cabbie-talk-preposition'].includes(this.cabWordRole)&&
+    frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
    const exitListScan=this.cabWordRole==='brief-disguised-exits'&&frame===0x5D30&&[0x5D24,0x5D25].includes(at);
+   const playerHailName=this.cabWordRole==='player-hail-qualifier'&&frame===0x5D2C&&[0x5D24,0x5D25,0x5D2A].includes(at);
+   const talkArticle=this.cabWordRole==='cabbie-talk-article'&&frame===0x5D2C&&[0x5D24,0x5D25].includes(at);
    const hailClearScan=this.cabWordRole==='qualified-hail-delimiter'&&frame===0x5D30&&descriptor===0x5A20&&[0x5D24,0x5D25].includes(at);
    const relocationVerb=this.relocationPersonVerb===true&&frame===0x5D3A&&[0x5D30,0x5D31].includes(at);
    const trainScan=this.trainScanKnown===true&&(
@@ -203,9 +211,9 @@ export class RandomDisplay {
    if(at===0x5D27&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan)||
-    (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!hailVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
-    (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!hailVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle)||
+    (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
+    (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;
    }

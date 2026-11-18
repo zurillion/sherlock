@@ -1115,10 +1115,12 @@ Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 contr
 
 
 Con seed 1 e grafica nativa, il replay da accensione coincide
-per 2.693 checkpoint, fino a mercoledì alle 10:55. Risolti
+per 2.754 checkpoint, fino a mercoledì alle 12:19. Risolti
 il ritorno A5B9 in $5D6D, il buffer dell’orologio $BF6E–$BF78
 e la scansione dell’articolo del cocchiere in $5D1C–$5D1D. Il
-prossimo scarto si osserva a $5D1F durante WAIT alle 11:00.
+prossimo scarto si osserva a $5D20 in treno alle 12:20.
+«You talk to the cabbie» e la conservazione durante WAIT
+hanno superato la lettura di $5D1F e $5D25.
 La l della nota bruciata resta in $5C0B senza la conversione video.
 In $A023 resta il byte alto dell’ultima uscita stampata e
 in $5D24 il flag dell’ultima scansione di «exits».
@@ -1128,13 +1130,14 @@ Con seed 0 e grafica nativa, a Slater Street il primo CR
 dell’inventario scarica il suffisso «Round.» lasciato da
 Lestrade insieme al terminatore zero scritto dal lexer.
 La proiezione include il glifo ROM 3C00. Il replay coincide
-per 3.189 checkpoint fino a mercoledì alle 19:41. HAIL CAB
+per tutti i 3.219 checkpoint fino a Victoria alle 20:12. HAIL CAB
 scrive il nome del veicolo nel buffer e Watson legge la «m»
 residua in $5C10. Nella chiamata del cab da parte di Lestrade, $5D1E
 viene da «hails» e $5D24 dalla pulizia dopo «hansom».
 Il LOOK al binario 2 di Leatherhead lascia in $5D23 il byte
-alto del puntatore a chronicle. Primo scarto successivo,
-$5D24 alle 19:42 durante HAIL CAB.
+alto del puntatore a chronicle. L’ultimo HAIL CAB lascia
+HL video in $5D24–$5D25, F in $5D2A e usa il flag
+di stampa ROM $5C91. Esito originale $6AF3 da accensione.
 
 In entrambi i seed, il separatore dopo «china» nella descrizione
 breve D1B2 lascia il flag F della scansione in $5D22. C3B8 lo
