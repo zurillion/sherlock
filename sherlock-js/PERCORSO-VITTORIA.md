@@ -237,8 +237,8 @@ dall’accensione con tutti gli attori attivi.
 
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
-| 0 | 3.219 | 3.103 | mercoledì 18:11, una lettura di $5D23 |
-| 1 | 3.219 | 2.670 | mercoledì 10:17, una lettura di $5C0B durante EXAMINE NOTE |
+| 0 | 3.219 | 3.189 | mercoledì 19:42, una lettura di $5D24 durante HAIL CAB |
+| 1 | 3.219 | 2.693 | mercoledì 11:00, una lettura di $5D1F durante WAIT |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -331,6 +331,21 @@ quinta lettera scaricata da A9FD/AA14 con frame $5D30.
 C39D salva F; i byte sono ancora intatti al turno della
 cuoca. Il replay coincide fino alle 10:16.
 [Tracce delle scansioni](results/seed-and-saves/native-victoria-hail-and-room-scans.json).
+
+Con seed 0, durante «LOOK» al binario 2 di Leatherhead,
+A990 salva DE=$5F6A in $5D22–$5D23. A8EE ha formato il
+puntatore aggiungendo la base $5DBF all’offset $01AB della
+voce «chronicle». Il ritorno a capo finale porta il contatore
+da 14 a 15. Watson legge il byte alto durante l’attesa
+delle 18:10, prima del checkpoint delle 18:11. Il recupero
+prosegue fino all’ultimo cab delle 19:41.
+
+Con seed 1, il testo della nota bruciata usa il modo
+maiuscolo $A851. Dopo la L finale sullo schermo,
+A9D7 lascia in $5C0B la lettera grezza «l». Il renderer
+JavaScript usa i caratteri grezzi prodotti dal decodificatore
+per il buffer e i caratteri formattati per il video.
+[Tracce della nota e del dizionario](results/seed-and-saves/native-victoria-note-and-station-dictionary.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine

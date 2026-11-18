@@ -95,6 +95,13 @@ export class RandomDisplay {
    if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
   }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.trainScanKnown=false;this.vehicleScanKnown=false;this.arrivalNameKnown=false;this.cabWordRole=null;this.relocationPersonPrefix=false;this.arrivalFromRule=false;this.relocationPersonNoun=false;this.relocationPersonVerb=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}
   if(arrivalScanCount!==null)s.scratch[0x5D23]=arrivalScanCount;
+  const stationNoun=sceneTrace.find(role=>role.kind==='station-carried-noun-decode');
+  if(stationNoun&&s.pending.length&&s.pending.length<s.remaining&&s.counter<15){
+   // In the pictured platform LOOK, A990 retains A8EE's record
+   // pointer for the noun. The terminal glyph flush is shallower.
+   s.scratch[0x5D22]=stationNoun.record&255;
+   s.scratch[0x5D23]=stationNoun.record>>>8;
+  }
   return policeLookFlags;
  }
  cabQuestionArticle(){

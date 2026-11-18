@@ -398,7 +398,11 @@ export class Text {
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);
-  if(listedNoun)trace.push({kind:'final-dictionary-reference',value:listedNoun.value});
+  if(listedNoun){
+   trace.push({kind:'final-dictionary-reference',value:listedNoun.value});
+   if(parent===null&&r.description==='7F57')
+    trace.push({kind:'station-carried-noun-decode',record:0x5DBF+(listedNoun.value&0xFFF)});
+  }
   if(lastExitReference?.end===output.length)trace.push({kind:'final-dictionary-reference',value:lastExitReference.value});
   // The initial alternate-identity phrase goes through D187/68DD,
   // including the brief description with no prose. Its qualifier is

@@ -331,8 +331,18 @@ export class Game {
   }
   if(action===19&&e.person)return {...reject(`YOU CANNOT EXAMINE ${e.id===actor?'ME':w.name(e.id).toUpperCase()}.`),args:[e.id],semanticResolved:true};
   if(action===19){if(e.rules.some(r=>r.action===19))throw new UnsupportedFeature('EXAMINE speciale di '+e.name);if(![0,1,100].includes(actor))return ok([say('examine',' '+w.name(e.id)+'.')]);if(w.npcs){if(!this.text.examinePreservesLowScratch(e.description))this.sourceDisplay.invalidateScratch();else this.sourceDisplay.invalidateScratch(0x5D16);}e.status|=64;
-   const characters=[],description=e.description?this.text.render(e.description,{object:e.id,sink:c=>{if(c==='\b')characters.pop();else characters.push(c);}}):`${subject} see ${w.name(e.id,{indefinite:true})}.`,announcement=say('examine',' '+w.name(e.id)+'.')+'\n';
-   return ok([{kind:'narrative',text:announcement+description,raw_text:announcement+(e.description?characters.join(''):description)+'\n'}],1,[e.id]);}
+   const characters=[],bufferEvents=[];
+   const codedNote=w.display?.pictureWindow&&e.description==='8158';
+   const description=e.description?this.text.render(e.description,{object:e.id,
+    ...(codedNote?{captureBuffer:(c,options)=>bufferEvents.push({c,...options})}:{}),
+    sink:c=>{if(c==='\b')characters.pop();else characters.push(c);}}):`${subject} see ${w.name(e.id,{indefinite:true})}.`;
+   const announcement=say('examine',' '+w.name(e.id)+'.')+'\n',rendered=e.description?characters.join(''):description;
+   // DF52/A59F expands the original note. A851 changes the visible
+   // case only: the final packed l remains lowercase in A9B7's buffer.
+   const scene_trace=codedNote?[{kind:'raw-text-buffer',start:announcement.length,
+    end:announcement.length+rendered.length,events:bufferEvents,affectsStack:false}]:null;
+   return ok([{kind:'narrative',text:announcement+description,raw_text:announcement+rendered+'\n',
+    ...(scene_trace?{scene_trace}:{})}],1,[e.id]);}
   if(action===15){if(!e.money)throw new UnsupportedFeature('COUNT non monetario');const pence=e.pence&16383,text=`You count ${w.name(e.id)}.\nIt totals ${formatMoney(pence)}`;return ok([{kind:'narrative',text,money_ends:[{end:text.length,pence}]}],1,[e.id]);}
   throw new UnsupportedFeature('azione '+action);
  }
