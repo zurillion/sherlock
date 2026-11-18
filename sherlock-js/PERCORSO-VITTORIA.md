@@ -237,8 +237,8 @@ dall’accensione con tutti gli attori attivi.
 
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
-| 0 | 3.219 | 2.540 | mercoledì 08:05, una lettura di $5D22 |
-| 1 | 3.219 | 2.465 | mercoledì 06:50, una lettura di $5D22 |
+| 0 | 3.219 | 2.685 | mercoledì 10:47, una lettura di $5D1E |
+| 1 | 3.219 | 2.569 | mercoledì 08:34, una lettura di $A023 |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -295,6 +295,16 @@ setup preservavano entrambi i byte. La traccia naturale di
 questa chiamata stabilisce la scrittura dell’articolo. Il
 confronto prosegue fino a mercoledì alle 06:49.
 [Prova controllata e traccia naturale](results/seed-and-saves/native-cab-waiting-speech.json).
+
+Nei percorsi dei seed 0 e 1, la cuoca legge $5D22
+durante l’attesa nel cortile di Basil. Nel seed 0 è stato
+tracciato il writer originale. All’arrivo di Holmes in
+travestimento, D1B2 stampa «The china man». Lo spazio tra
+«china» e «man» passa al renderer con descrittore $5546 e
+frame $5D2E. C3B8 salva F dell’ultima scansione a $5D22.
+Entrambe le letture ora coincidono. Il confronto arriva
+a mercoledì alle 10:45 con seed 0 e alle 08:33 con seed 1.
+[Traccia del separatore](results/seed-and-saves/native-victoria-disguise-separator.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine

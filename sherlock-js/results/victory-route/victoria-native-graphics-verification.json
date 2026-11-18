@@ -81,22 +81,11 @@
   "strict_js_checkpoints": [
     {
       "seed": 0,
-      "matched": 2540,
+      "matched": 2685,
       "next": {
-        "clock": "Wed 08:05am",
-        "active_command": "WAIT UNTIL 10:06AM",
-        "field": "stack",
-        "address": "5D22",
-        "reads": [
-          {
-            "address": 23836,
-            "value": 11
-          },
-          {
-            "address": 23842,
-            "value": 0
-          }
-        ]
+        "clock": "Wed 10:47am",
+        "active_command": "W",
+        "diagnostic": "FIRST 2685 W Wed 10:47am Ingresso casuale originale non ancora ricostruito: $5D1E. Il comando non \u00e8 stato applicato."
       },
       "previous_next": {
         "clock": "Mon 11:58pm",
@@ -104,8 +93,8 @@
         "actor": 3,
         "field": "upper video"
       },
-      "draws": 6840,
-      "reads": 14508,
+      "draws": 7306,
+      "reads": 15532,
       "resolved_hail_name": {
         "clock": "Tue 12:14pm",
         "active_command": "HAIL CAB",
@@ -121,13 +110,9 @@
             "value": 2
           }
         ]
-      }
-    },
-    {
-      "seed": 1,
-      "matched": 2465,
-      "next": {
-        "clock": "Wed 06:50am",
+      },
+      "resolved_disguise_separator": {
+        "clock": "Wed 08:05am",
         "active_command": "WAIT UNTIL 10:06AM",
         "field": "stack",
         "address": "5D22",
@@ -141,6 +126,15 @@
             "value": 0
           }
         ]
+      }
+    },
+    {
+      "seed": 1,
+      "matched": 2569,
+      "next": {
+        "clock": "Wed 08:34am",
+        "active_command": "WAIT UNTIL 10:06AM",
+        "diagnostic": "FIRST 2569  Wed 08:34am Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $A023. Il comando non \u00e8 stato applicato."
       },
       "previous_next": {
         "clock": "Mon 08:29am",
@@ -170,8 +164,8 @@
           "next_cursor": 24576
         }
       },
-      "draws": 6865,
-      "reads": 14512,
+      "draws": 7156,
+      "reads": 15160,
       "resolved_question_article": {
         "clock": "Tue 08:12pm",
         "active_command": "WAIT UNTIL 10:05PM",
@@ -184,6 +178,22 @@
           },
           {
             "address": 23836,
+            "value": 0
+          }
+        ]
+      },
+      "resolved_disguise_separator": {
+        "clock": "Wed 06:50am",
+        "active_command": "WAIT UNTIL 10:06AM",
+        "field": "stack",
+        "address": "5D22",
+        "reads": [
+          {
+            "address": 23836,
+            "value": 11
+          },
+          {
+            "address": 23842,
             "value": 0
           }
         ]

@@ -150,7 +150,8 @@ export class RandomDisplay {
    );
    const briefIdentity=this.briefIdentityKnown===true&&(
     frame===0x5D22&&at>=0x5D1A&&at<=0x5D21||
-    frame===0x5D2E&&descriptor!==0x5A20&&at===0x5D23
+    // D187's space after the disguise qualifier saves scan AF at 22/23.
+    frame===0x5D2E&&c===' '&&descriptor!==0x5A20&&[0x5D22,0x5D23].includes(at)
    );
    const usesUpperContext=at>=0x5D20&&at<=0x5D2B||at===0x5D30;
    const cabClear=fareRowClear&&at===0x5D24;
