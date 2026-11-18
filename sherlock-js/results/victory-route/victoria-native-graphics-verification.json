@@ -155,11 +155,43 @@
     },
     {
       "seed": 1,
-      "matched": 2754,
+      "matched": 2917,
       "next": {
-        "clock": "Wed 12:20pm",
-        "active_command": "WAIT UNTIL 1:29PM",
-        "diagnostic": "FIRST 2754  Wed 12:20pm Ingresso casuale originale non ancora ricostruito: $5D20. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D20. Il comando non \u00e8 stato applicato."
+        "clock": "Wed 03:06pm",
+        "active_command": "WAIT UNTIL 3:14PM",
+        "field": "stack",
+        "address": "5D22",
+        "draw": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 227,
+          "cursor": 23330,
+          "reads": [
+            {
+              "address": 23586,
+              "value": 0
+            },
+            {
+              "address": 23592,
+              "value": 0
+            },
+            {
+              "address": 23842,
+              "value": 7
+            },
+            {
+              "address": 23848,
+              "value": 6
+            }
+          ],
+          "video": "cbe9d83fedf3341db0edb7ee21f9aafe0cc52dcabf1fa9a57e32526cc09ade7f",
+          "counter": 10,
+          "narrow": 0,
+          "result": 19,
+          "next_seed": 236,
+          "next_cursor": 23842
+        }
       },
       "previous_next": {
         "clock": "Mon 08:29am",
@@ -189,8 +221,8 @@
           "next_cursor": 24576
         }
       },
-      "draws": 7808,
-      "reads": 16560,
+      "draws": 8290,
+      "reads": 17580,
       "resolved_question_article": {
         "clock": "Tue 08:12pm",
         "active_command": "WAIT UNTIL 10:05PM",
@@ -274,6 +306,11 @@
         "clock": "Wed 11:00am",
         "active_command": "WAIT",
         "diagnostic": "FIRST 2693 WAIT Wed 11:00am Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non \u00e8 stato applicato."
+      },
+      "resolved_train_boarding_scan": {
+        "clock": "Wed 12:20pm",
+        "active_command": "WAIT UNTIL 1:29PM",
+        "diagnostic": "FIRST 2754  Wed 12:20pm Ingresso casuale originale non ancora ricostruito: $5D20. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D20. Il comando non \u00e8 stato applicato."
       }
     },
     {

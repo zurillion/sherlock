@@ -140,13 +140,13 @@ test('Seed 0 reproduces the complete graphics-enabled victory at Victoria', asyn
   assert.equal(session.game.ended.text_pointer, '6AF3');
 });
 
-test('Seed 1 reproduces the cabbie reply and clock-buffer reads on the Victoria route', async () => {
+test('Seed 1 reproduces the Victoria route through the police cab', async () => {
   const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed1-prefix.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(corpus));
   assert.equal(trace.seed, 1);
-  assert.equal(trace.steps.length, 2754);
+  assert.equal(trace.steps.length, 2917);
   const session = await replay(trace);
-  assert.equal(session.game.world.clock().label, 'Wed 12:19pm');
+  assert.equal(session.game.world.clock().label, 'Wed 03:05pm');
 });
 
 test('The graphics-enabled Victoria route reproduces the complete victory at Victoria', async () => {

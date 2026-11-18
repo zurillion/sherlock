@@ -191,6 +191,7 @@ export class RandomDisplay {
     frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
    const exitListScan=this.cabWordRole==='brief-disguised-exits'&&frame===0x5D30&&[0x5D24,0x5D25].includes(at);
    const playerHailName=this.cabWordRole==='player-hail-qualifier'&&frame===0x5D2C&&[0x5D24,0x5D25,0x5D2A].includes(at);
+   const trainBoardName=this.cabWordRole==='train-board-name'&&frame===0x5D2C&&[0x5D20,0x5D26].includes(at);
    const talkArticle=this.cabWordRole==='cabbie-talk-article'&&frame===0x5D2C&&[0x5D24,0x5D25].includes(at);
    const hailClearScan=this.cabWordRole==='qualified-hail-delimiter'&&frame===0x5D30&&descriptor===0x5A20&&[0x5D24,0x5D25].includes(at);
    const relocationVerb=this.relocationPersonVerb===true&&frame===0x5D3A&&[0x5D30,0x5D31].includes(at);
@@ -211,7 +212,7 @@ export class RandomDisplay {
    if(at===0x5D27&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle)||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];

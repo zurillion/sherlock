@@ -238,7 +238,7 @@ dall’accensione con tutti gli attori attivi.
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
-| 1 | 3.219 | 2.754 | mercoledì 12:20, una lettura di $5D20 in treno |
+| 1 | 3.219 | 2.917 | mercoledì 15:06, una lettura di $5D22 nella carrozza della polizia |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -366,6 +366,16 @@ nel frame $5D2C. «You wait.» a bordo del veicolo conserva
 i byte poi letti dal giardiniere. Il confronto arriva
 fino alle 12:19, durante il successivo viaggio in treno.
 [Tracce del cab e del flag della ROM](results/seed-and-saves/native-victoria-hail-talk-and-print-flag.json).
+
+Sul binario di King’s Cross, Watson sale sul treno.
+La «m» di «steam» entra in C388 con frame $5D2C.
+C39D e C3B8 conservano F dell’ultima scansione in $5D20,
+mentre C38A conserva il descrittore del buffer parola
+$5C0B in $5D26–$5D27. Il giardiniere legge $5D20 e
+$5D26 alle 12:19, prima del checkpoint delle 12:20.
+La partita coincide fino alle 15:05, nella carrozza
+della polizia.
+[Traccia della salita sul treno](results/seed-and-saves/native-victoria-train-boarding-1.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
