@@ -238,7 +238,7 @@ dall’accensione con tutti gli attori attivi.
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
-| 1 | 3.219 | 2.917 | mercoledì 15:06, una lettura di $5D22 nella carrozza della polizia |
+| 1 | 3.219 | 2.997 | mercoledì 16:25, una lettura di $5D23 nella carrozza della polizia |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -376,6 +376,21 @@ $5D26 alle 12:19, prima del checkpoint delle 12:20.
 La partita coincide fino alle 15:05, nella carrozza
 della polizia.
 [Traccia della salita sul treno](results/seed-and-saves/native-victoria-train-boarding-1.json).
+
+All’avvio del viaggio nella carrozza della polizia, «are»
+non entra nel resto della riga. La pulizia di $C374
+arriva a $C388 con frame $5D2C. $C39C e $C3B7 conservano
+a $5D22 lo shift della colonna finale. Nello stesso testo, la
+«y» di «country» passa per il frame $5D32 e lascia lo shift
+a $5D28. Il giardiniere legge entrambi prima delle 15:06.
+Il successivo LOOK conserva a $5D0E–$5D0F l’ultima scansione
+di «carrying». Watson legge il byte alto, la riga del glifo,
+prima delle 15:41. Alle 15:44 il predicato $E604 ha
+già confrontato le radici di contenimento. Le due chiamate
+a $C863 preservano IX. Anche quando il confronto è falso,
+$CB37 pubblica il record dell’argomento, $8CDC in questa
+partita. Il giardiniere legge il byte basso da $CB28.
+[Traccia degli shift e del glifo durante il viaggio](results/seed-and-saves/native-victoria-moving-police-cab-1.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine

@@ -1115,11 +1115,13 @@ Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 contr
 
 
 Con seed 1 e grafica nativa, il replay da accensione coincide
-per 2.917 checkpoint, fino a mercoledì alle 15:05. Risolti
+per 2.997 checkpoint, fino a mercoledì alle 16:24. Risolti
 il ritorno A5B9 in $5D6D, il buffer dell’orologio $BF6E–$BF78
 e la scansione dell’articolo del cocchiere in $5D1C–$5D1D. Il
-prossimo scarto si osserva a $5D22 nella carrozza della
-polizia alle 15:06. In treno, la stampa di steam lascia
+prossimo scarto si osserva in $5D23 nella carrozza della
+polizia alle 16:25. Il testo della corsa e il LOOK
+lasciano tre byte di scansione in $5D22, $5D28 e $5D0F.
+Il predicato $E604 pubblica in $CB28 il record dell’argomento. In treno, la stampa di steam lascia
 F di scansione in $5D20 e il descrittore in $5D26.
 «You talk to the cabbie» e la conservazione durante WAIT
 hanno superato la lettura di $5D1F e $5D25.

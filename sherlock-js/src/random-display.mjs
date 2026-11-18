@@ -50,7 +50,7 @@ export class RandomDisplay {
  }
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[],moneyEnds=[]){const s=this.state;
-  let projectedMargin=false,policeLookFlags=null,arrivalScanCount=null;
+  let projectedMargin=false,policeLookScan=null,arrivalScanCount=null;
   const shallow=sceneTrace.some(r=>r.kind==='relocation-person-prefix');
   const preserveScan=shallow&&s.cursor===0&&!s.pending&&s.counter+2<15&&text.length<36;
   this.invalidateGlyphExtras({preserveScan});const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
@@ -81,7 +81,8 @@ export class RandomDisplay {
    // After a carried-name prefix, A887 emits the separating space from
    // its caller. Filling column 35 clears the next row at that caller depth.
    if(role&&i+1===role.end){this.flush(role.kind==='passage-direction'?role.frame:null);
-    if(role.kind==='police-cab-look-carrying'&&s.windowMode===0&&s.cursor===8)policeLookFlags=s.scratch[0x5D0E]??null;
+    if(role.kind==='police-cab-look-carrying'&&s.windowMode===0&&s.cursor===8)
+     policeLookScan=[s.scratch[0x5D0E],s.scratch[0x5D0F]];
     if(s.pictureWindow&&role.kind==='arrival-person-prefix'&&s.windowMode===1&&s.cursor===9&&s.counter<=12)
      arrivalScanCount=s.scratch[0x5D23]??null;const clearFrame=role.spaceClearFrame&&s.cursor===35?role.spaceClearFrame:null;
     const carriedMargin=clearFrame===0x5D22&&role.kind==='carried-object-prefix'&&s.pictureWindow&&s.windowMode===0;
@@ -107,7 +108,7 @@ export class RandomDisplay {
    s.scratch[0x5D22]=stationNoun.record&255;
    s.scratch[0x5D23]=stationNoun.record>>>8;
   }
-  return policeLookFlags;
+  return policeLookScan;
  }
  cabQuestionArticle(){
   const s=this.state;
@@ -176,7 +177,9 @@ export class RandomDisplay {
     )||
     frame===0x5D30&&at===0x5D27||
     this.state.pictureWindow&&(
+     frame===0x5D2C&&at===0x5D22&&descriptor===0x5A20&&this.cabWordRole==='police-cab-copula'||
      frame===0x5D2E&&at===0x5D22&&descriptor===0x59EE&&this.cabWordRole==='description-delimits-inventory'||
+     frame===0x5D32&&at===0x5D28&&this.cabWordRole==='police-cab-country'||
      frame===0x5D30&&at===0x5D28&&descriptor===0x5A20
     )
    );
@@ -208,8 +211,9 @@ export class RandomDisplay {
     this.state.windowMode===0&&this.state.pictureWindow;
    const carriedDescriptorHigh=carriedMargin&&frame===0x5D2A&&descriptor!==0x5A20&&at===frame-5;
    const carriedClearCount=carriedMargin&&frame===0x5D22&&descriptor===0x5A20&&at===frame-3;
-   // Only the measured COUNTRY flush owns the raw scan in this slot.
-   if(at===0x5D27&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
+   // The moving-cab tail is emitted at a shallower depth than COUNTRY.
+   // Preserve the final scan's A at 5D27 and pixel shift at 5D28.
+   if([0x5D27,0x5D28].includes(at)&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
     (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName)||
@@ -517,10 +521,11 @@ export class RandomDisplay {
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
  write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace){
-  const carriedFlags=this.scene(text,sceneTrace,moneyEnds);
+  const carriedScan=this.scene(text,sceneTrace,moneyEnds);
   if(sceneTrace.some(e=>e.kind==='police-cab-look')){
    this.invalidateScratch(0x5D00,0x5D0F);
-   if(carriedFlags!==null)this.state.scratch[0x5D0E]=carriedFlags;
+   for(const [i,value] of (carriedScan??[]).entries())
+    if(value!==undefined)this.state.scratch[0x5D0E+i]=value;
   }
  }else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}

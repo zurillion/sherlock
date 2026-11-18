@@ -144,9 +144,9 @@ test('Seed 1 reproduces the Victoria route through the police cab', async () => 
   const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed1-prefix.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(corpus));
   assert.equal(trace.seed, 1);
-  assert.equal(trace.steps.length, 2917);
+  assert.equal(trace.steps.length, 2997);
   const session = await replay(trace);
-  assert.equal(session.game.world.clock().label, 'Wed 03:05pm');
+  assert.equal(session.game.world.clock().label, 'Wed 04:24pm');
 });
 
 test('The graphics-enabled Victoria route reproduces the complete victory at Victoria', async () => {

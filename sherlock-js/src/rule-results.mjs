@@ -34,8 +34,9 @@ export class RuleResults {
    const gate=this.host.worldSource.read(exit+1),destination=this.host.worldSource.read(exit+2);
    this.write(exit,header);
    this.host.game.sourceDisplay.exitSearchRegisters(layout.start,parseInt(meta.predicateSource,16),header,args[0],args[1],[gate,destination]);
-  }else if(name==='entity.at'||name==='entity.samePlace'){
+  }else if(['entity.at','entity.samePlace','entity.sameContainer'].includes(name)){
    // E5E6 leaves the second entity selected even when E5F0 rejects.
+   // E604 calls C863 twice; both walks preserve the resolved argument in IX.
    this.write(this.state.argumentPointers?.[name==='entity.samePlace'?1:0],parseInt(meta.source,16));
   }
   else this.invalidate();
