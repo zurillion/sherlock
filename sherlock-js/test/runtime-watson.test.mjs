@@ -39,7 +39,16 @@ test('The actual web session returns a greeting in the upper output',()=>{
 
 test('An unknown random input rolls back its action and speculative clock frames',()=>{
  const s=new ClientSession(data);s.game.world.random.cursor=0x5B10;
+ const read=s.game.sourceDisplay.read.bind(s.game.sourceDisplay);
+ let missingReads=0;
+ // This is a controlled unavailable projection. Dictionary reconstruction
+ // may make the same byte available during an ordinary greeting.
+ s.game.sourceDisplay.read=address=>{
+  if(address===0x5C10){missingReads++;return null;}
+  return read(address);
+ };
  const before=s.game.world.dump(),reply=s.request('start-command',{command:'SAY TO WATSON "HELLO"'});
+ assert.equal(missingReads,1);
  assert.equal(reply.running,false);assert.equal(reply.state.analysis.outcome,'not_translated');
  assert(reply.messages.some(m=>m.kind==='system'&&m.text.includes('$5C10')));
  const after=s.game.world.dump();delete before.display;delete after.display;assert.deepEqual(after,before);assert.equal(s.game.lastFrames.length,0);

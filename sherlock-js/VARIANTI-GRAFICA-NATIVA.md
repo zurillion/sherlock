@@ -94,3 +94,13 @@ i test, come conferma l’annotazione del runner.
 
 [Workflow di pubblicazione](https://github.com/zurillion/sherlock/blob/main/.github/workflows/pages.yml) ·
 [Esecuzione interrotta](https://github.com/zurillion/sherlock/actions/runs/44299657258)
+
+
+Il test controllato del rollback rende indisponibile la proiezione
+di $5C10 durante il saluto a Watson. Verifica l’annullamento
+dell’azione, il ripristino del mondo e l’assenza di frame
+temporali speculativi. La ricostruzione dei nomi può fornire quel
+byte nella partita ordinaria. I 14 test del modulo Watson passano
+con l’ingresso mancante imposto esplicitamente dal test.
+
+[Test del rollback e delle risposte di Watson](test/runtime-watson.test.mjs)
