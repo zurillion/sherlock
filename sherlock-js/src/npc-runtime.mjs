@@ -195,12 +195,27 @@ export class NpcRuntime {
     sink(ch);
    };
   }
-  if(visible&&text==='681A'&&this.w.entity(actor).parent!==null)c.refusalWord=write=>{
-   // 67D6 / 67EE flush «cannot» and «that» at the same depth.
-   const display=g.sourceDisplay,{glyphFrame,refusalScanKnown}=display;
-   display.glyphFrame=0x5D34;display.refusalScanKnown=true;
-   try{write();}finally{Object.assign(display,{glyphFrame,refusalScanKnown});}
-  };
+  if(visible&&text==='681A'&&this.w.entity(actor).parent!==null){
+   const display=g.sourceDisplay;
+   c.refusalWord=write=>{
+    // 67D6 / 67EE flush «cannot» and «that» at the same depth.
+    const {glyphFrame,refusalScanKnown}=display;
+    display.glyphFrame=0x5D34;display.refusalScanKnown=true;
+    try{write();}finally{Object.assign(display,{glyphFrame,refusalScanKnown});}
+   };
+   if(context.onRefusalMargin&&screen?.pictureWindow&&(this.w.entity(actor).noun&0x8000)){
+    const sink=c.sink,noun=this.w.name(actor).split(' ').at(-1).toLowerCase();
+    c.sink=ch=>{
+     // When the speaker's noun fills the narrow row at the MORE threshold,
+     // C2DF restarts in wide mode. C38A saves its $5A20 clear descriptor.
+     if(ch===' '&&screen.windowMode===1&&screen.counter===15&&screen.remaining===noun.length&&screen.pending.toLowerCase()===noun){
+      display.glyphResidue(' ',0x5D16,35,0x5A20);
+      context.onRefusalMargin();
+     }
+     sink(ch);
+    };
+   }
+  }
   const value=g.text.render(text,{...context,...c,actor});if(visible)messages.push(g.textMessage(value,c));return value;
  }
  inspect(id,actor,messages){
@@ -375,15 +390,17 @@ export class NpcRuntime {
     // CBA7 rejects the restricted order during preflight. B9AC still
     // clears the syntax pointer through B9D4 before freeing the request.
     this.game.sourceDisplay.setChannel(0);
-    this.print('681A',actor,{object:job.sender},messages);
+    const inVehicle=this.w.perceived(actor)&&this.w.entity(actor).parent!==null;
+    const preserved=inVehicle?[0x5D23,0x5D29]:[];
+    this.print('681A',actor,{object:job.sender,
+     ...(action===12&&inVehicle?{onRefusalMargin:()=>preserved.push(0x5D10,0x5D11)}:{})},messages);
     const follow=[21,22].includes(action)&&context.operation.source==='EAC6';
     if(follow){
      // FOLLOW runs the same predicate in both the candidate scan and
      // the ordinary action fallback when the DOMAIN operation forbids it.
      this.print('681A',actor,{object:job.sender},messages);
     }
-    const inVehicle=this.w.perceived(actor)&&this.w.entity(actor).parent!==null;
-    this.game.sourceDisplay.invalidateScratch(0x5D06,0x5D31,inVehicle?[0x5D23,0x5D29]:[]);
+    this.game.sourceDisplay.invalidateScratch(0x5D06,0x5D31,preserved);
     cancel(true);
     if(follow)this.active.vm.state(actor).pc=context.operation.next;
     return {handled:true,cost:0};

@@ -103,10 +103,12 @@ export class RandomDisplay {
   if(arrivalScanCount!==null)s.scratch[0x5D23]=arrivalScanCount;
   const stationNoun=sceneTrace.find(role=>role.kind==='station-carried-noun-decode');
   if(stationNoun&&s.pending.length&&s.pending.length<s.remaining&&s.counter<15){
-   // In the pictured platform LOOK, A990 retains A8EE's record
-   // pointer for the noun. The terminal glyph flush is shallower.
+   // In the pictured platform LOOK, A97C calls A990. The call link
+   // and the noun record pushed by A990 survive the final glyph flush.
    s.scratch[0x5D22]=stationNoun.record&255;
    s.scratch[0x5D23]=stationNoun.record>>>8;
+   s.scratch[0x5D24]=0x7F;
+   s.scratch[0x5D25]=0xA9;
   }
   return policeLookScan;
  }
@@ -178,9 +180,9 @@ export class RandomDisplay {
     frame===0x5D30&&at===0x5D27||
     this.state.pictureWindow&&(
      frame===0x5D2C&&at===0x5D22&&descriptor===0x5A20&&this.cabWordRole==='police-cab-copula'||
-     frame===0x5D2E&&at===0x5D22&&descriptor===0x59EE&&this.cabWordRole==='description-delimits-inventory'||
+     frame===0x5D2E&&[0x5D22,0x5D23].includes(at)&&descriptor===0x59EE&&this.cabWordRole==='description-delimits-inventory'||
      frame===0x5D32&&at===0x5D28&&this.cabWordRole==='police-cab-country'||
-     frame===0x5D30&&at===0x5D28&&descriptor===0x5A20
+     frame===0x5D30&&[0x5D28,0x5D29].includes(at)&&descriptor===0x5A20
     )
    );
    const cabProse=this.cabWordRole==='cab-possessive'&&frame===0x5D32&&at===0x5D2A||this.cabWordRole==='cab-city'&&frame===0x5D2C&&at===0x5D24;

@@ -1071,5 +1071,69 @@
         ]
       }
     ]
+  },
+  "native_rom_print_flag_trace": {
+    "seed": 0,
+    "address": "5C91",
+    "observed_range": "5C91\u20135C92",
+    "events": [
+      {
+        "tick": 1,
+        "command": "SAY \"HELLO\" TO WATSON",
+        "pc": "A536",
+        "writer": null,
+        "sp": "5D64",
+        "actor": 0,
+        "bytes": "0000",
+        "stack": [
+          "D8C6",
+          "D8A6",
+          "D6C4",
+          "CB37",
+          "CA67",
+          "C99C",
+          "0003",
+          "9860",
+          "C993",
+          "D6BF",
+          "CE65",
+          "A0B3"
+        ]
+      },
+      {
+        "tick": 3582,
+        "command": "HAIL CAB",
+        "pc": "D2D0",
+        "writer": [
+          "D2CE",
+          "5D50",
+          13,
+          8,
+          2,
+          1,
+          166,
+          211,
+          253,
+          108
+        ],
+        "sp": "5D50",
+        "actor": 31,
+        "bytes": "0000",
+        "stack": [
+          "0000",
+          "6919",
+          "D2A7",
+          "A6DF",
+          "A636",
+          "A5CA",
+          "A769",
+          "6BAC",
+          "A636",
+          "A5CA",
+          "A77C",
+          "6833"
+        ]
+      }
+    ]
   }
 }

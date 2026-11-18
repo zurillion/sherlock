@@ -155,44 +155,8 @@
     },
     {
       "seed": 1,
-      "matched": 2997,
-      "next": {
-        "clock": "Wed 04:25pm",
-        "active_command": "WAIT UNTIL 4:45PM",
-        "field": "stack",
-        "address": "5D23",
-        "draw": {
-          "actor": 8,
-          "width": 99,
-          "mixOffset": 5,
-          "seed": 231,
-          "cursor": 23331,
-          "reads": [
-            {
-              "address": 23587,
-              "value": 0
-            },
-            {
-              "address": 23593,
-              "value": 0
-            },
-            {
-              "address": 23843,
-              "value": 0
-            },
-            {
-              "address": 23849,
-              "value": 80
-            }
-          ],
-          "video": "7aff00470dd6cd2b6669a338f9b389011ebc418cb483b3927ba5180ab452afb9",
-          "counter": 0,
-          "narrow": 0,
-          "result": 84,
-          "next_seed": 183,
-          "next_cursor": 23843
-        }
-      },
+      "matched": 3219,
+      "next": null,
       "previous_next": {
         "clock": "Mon 08:29am",
         "command": "HAIL CAB",
@@ -221,8 +185,8 @@
           "next_cursor": 24576
         }
       },
-      "draws": 8524,
-      "reads": 18096,
+      "draws": 9171,
+      "reads": 19464,
       "resolved_question_article": {
         "clock": "Tue 08:12pm",
         "active_command": "WAIT UNTIL 10:05PM",
@@ -348,6 +312,57 @@
           "next_seed": 236,
           "next_cursor": 23842
         }
+      },
+      "resolved_police_cab_look_and_leatherhead": {
+        "clock": "Wed 04:25pm",
+        "active_command": "WAIT UNTIL 4:45PM",
+        "field": "stack",
+        "address": "5D23",
+        "draw": {
+          "actor": 8,
+          "width": 99,
+          "mixOffset": 5,
+          "seed": 231,
+          "cursor": 23331,
+          "reads": [
+            {
+              "address": 23587,
+              "value": 0
+            },
+            {
+              "address": 23593,
+              "value": 0
+            },
+            {
+              "address": 23843,
+              "value": 0
+            },
+            {
+              "address": 23849,
+              "value": 80
+            }
+          ],
+          "video": "7aff00470dd6cd2b6669a338f9b389011ebc418cb483b3927ba5180ab452afb9",
+          "counter": 0,
+          "narrow": 0,
+          "result": 84,
+          "next_seed": 183,
+          "next_cursor": 23843
+        }
+      },
+      "terminal": {
+        "entry": "9E74",
+        "reason": "story",
+        "text_pointer": "6AF3"
+      },
+      "clock": {
+        "tick": 3613,
+        "due": 3614,
+        "minute": 12,
+        "hour": 8,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 08:12pm"
       }
     },
     {

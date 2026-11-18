@@ -79,7 +79,7 @@ export class Text {
   const properCapital=(proper=true)=>{if(w.display&&(context.bufferSink||context.sink))w.display.capitalizationFlag=nameCapital(w.display.capitalizationFlag,proper);};
   const dictionaryCapital=()=>{if(w.display&&context.bufferVisible!==false&&context.sink)w.display.capitalizationFlag=1;};
   let nameBuffer=false;
-  const feed=(text,{raw=text,dict=false,buffer=true}={})=>{if(buffer&&(context.bufferSink||context.captureBuffer)&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))(context.bufferSink||context.captureBuffer)(c,{known:!nameBuffer});for(let c of String(text)){
+  const feed=(text,{raw=text,dict=false,buffer=true,rawNameKnown=false}={})=>{if(buffer&&(context.bufferSink||context.captureBuffer)&&(!(dict||nameBuffer)||context.bufferVisible!==false))for(const c of String(nameBuffer?String(raw).toLowerCase():raw))(context.bufferSink||context.captureBuffer)(c,{known:!nameBuffer||rawNameKnown});for(let c of String(text)){
    if(c==='\b'){result=result.slice(0,-1);pending=pending.slice(0,-1);context.sink?.(c);continue;}
    if([' ','\n','\r','"'].includes(c))pending='';
    else{if(!pending)pendingCap=capitalize;pending+=c;}
@@ -93,10 +93,15 @@ export class Text {
   const feedName=(id,be=false,actorToken=false)=>{const previousNameBuffer=nameBuffer;nameBuffer=true;try{
    feed(' ');const e=w.entity(id);
    if(e.person&&(e.noun&32768)&&id!==w.player){const parts=w.name(id).split(' ');
+    // D442/A815 decode the proper noun's dictionary stem before case
+    // conversion. Leave unresolved qualifiers on the conservative path.
+    const emitNoun=()=>{const last=parts.at(-1),stem=this.dictionary.word(e.noun)?.stem;
+     feed(last,{rawNameKnown:stem===last.toLowerCase()});};
     // In the prefab TELL path, the actor-name prefix flushes while the
     // nested name call is active. Its last noun is flushed after return.
-    if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);properCapital(Boolean(e.attributes&64));}feed(' ');});capitalize=true;feed(parts.at(-1));properCapital(Boolean(e.attributes&64));}
-    else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;feed(part);properCapital(Boolean(e.attributes&64));}if(be)feed(' is');}
+    if(actorToken&&context.actorNamePrefix&&parts.length>1){context.actorNamePrefix(()=>{for(const[i,part]of parts.slice(0,-1).entries()){if(i)feed(' ');capitalize=true;feed(part);properCapital(Boolean(e.attributes&64));}feed(' ');});capitalize=true;emitNoun();properCapital(Boolean(e.attributes&64));}
+    else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;
+     if(i===parts.length-1)emitNoun();else feed(part);properCapital(Boolean(e.attributes&64));}if(be)feed(' is');}
    else if(actorToken&&context.actorNamePrefix&&id!==w.player){const parts=w.name(id,{indefinite:Boolean(e.person)}).split(' ');context.actorNamePrefix(()=>{feed(parts.slice(0,-1).join(' '));feed(' ');});feed(parts.at(-1)+(be?' is':''));}
    else feed(name(id,be));if(e.noun&4095)remember(0x5000|(e.noun&4095));if(be)remember(id===0?0x007A:0x0485);}finally{nameBuffer=previousNameBuffer;}
   };

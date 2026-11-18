@@ -1,15 +1,13 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento 17 novembre 2026.
+Aggiornamento 18 novembre 2026.
 
-Il percorso naturale con seed 1 raggiunge la vittoria **$6AF3**
-sullo Spectrum mercoledì alle 20:12, a Victoria. Entrando al
-binario due minuti prima si ottiene **$6B79** allo stesso orario.
-Il motore JavaScript riproduce il recupero della nota dal fuoco,
-le deduzioni sui piani e sul luogo della vendita e la partenza
-di Lestrade. Il confronto del percorso principale arriva fino
-alla vittoria a Victoria (700 checkpoint, 8.784 estrazioni).
-Anche la diramazione $6B79 coincide da un salvataggio nell’atrio.
+Con grafica nativa, il motore JavaScript e lo Spectrum coincidono
+dall’accensione alla vittoria **$6AF3** a Victoria per i seed 0, 1 e 137.
+Ciascuna partita ha 3.219 checkpoint e termina mercoledì alle 20:12.
+Entrando al binario due minuti prima nello Spectrum si ottiene **$6B79**
+allo stesso orario. Anche questa diramazione coincide da un salvataggio
+nell’atrio.
 [Percorso completo e perimetro della verifica](PERCORSO-VITTORIA.md).
 
 La vendita tardiva $6ABD termina giovedì alle 10:00 in entrambi
@@ -18,16 +16,14 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Seed e scelte del giocatore.** Aggiunti tre percorsi con seed
-   0, 137 e 255. Ripetere anche i passaggi decisivi delle deduzioni
-   e dei finali con seed diversi e altre interazioni plausibili.
-2. **Grafica nativa.** Il seed 137 coincide dall’avvio alla vittoria
-   $6AF3 su 3.219 checkpoint. Restano le divergenze dei seed 0 e 1.
-   Due percorsi con grafica attiva fino a $693A sono verificati.
-   Il comportamento di NEW, Riavvia e LOAD è
-   [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
+1. **Salvataggio con grafica nativa.** Ripetere con i seed 0 e 1 il
+   confronto minuto per minuto dopo SAVE/LOAD. I sei punti del seed 137
+   forniscono già una base.
+2. **Rami delle deduzioni e dei finali.** Verificare la stessa sequenza
+   con altre interazioni plausibili e altri seed. Il comportamento di
+   NEW, Riavvia e LOAD è [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
 
-La mappa riporta 39.937 byte documentati, 326 parziali e 1.337
+La mappa riporta 39.964 byte documentati, 305 parziali e 1.331
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 
@@ -1115,19 +1111,10 @@ Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 contr
 
 
 Con seed 1 e grafica nativa, il replay da accensione coincide
-per 2.997 checkpoint, fino a mercoledì alle 16:24. Risolti
-il ritorno A5B9 in $5D6D, il buffer dell’orologio $BF6E–$BF78
-e la scansione dell’articolo del cocchiere in $5D1C–$5D1D. Il
-prossimo scarto si osserva in $5D23 nella carrozza della
-polizia alle 16:25. Il testo della corsa e il LOOK
-lasciano tre byte di scansione in $5D22, $5D28 e $5D0F.
-Il predicato $E604 pubblica in $CB28 il record dell’argomento. In treno, la stampa di steam lascia
-F di scansione in $5D20 e il descrittore in $5D26.
-«You talk to the cabbie» e la conservazione durante WAIT
-hanno superato la lettura di $5D1F e $5D25.
-La l della nota bruciata resta in $5C0B senza la conversione video.
-In $A023 resta il byte alto dell’ultima uscita stampata e
-in $5D24 il flag dell’ultima scansione di «exits».
+per tutti i 3.219 checkpoint fino alla vittoria $6AF3 a Victoria,
+mercoledì alle 20:12. Il confronto verifica schermo, clock, esiti
+e ogni lettura della sorgente casuale. Il dossier della vittoria
+descrive le singole correzioni.
 
 
 Con seed 0 e grafica nativa, a Slater Street il primo CR

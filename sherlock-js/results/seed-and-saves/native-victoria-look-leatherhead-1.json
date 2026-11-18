@@ -1,0 +1,179 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "active_npcs": "all",
+    "first_look": "free",
+    "teleports": false
+  },
+  "source_full_sha256": "a07f7aa3ccbc295a24ec5bfb21a4530b988a4e4619b35961c1c0bc24f4382b47",
+  "checkpoint_per_read": [
+    2997,
+    2997,
+    3026,
+    3079,
+    3116
+  ],
+  "reads": [
+    {
+      "a": "5D23",
+      "v": 0,
+      "tick": 3385,
+      "cmd": "WAIT UNTIL 4:45PM",
+      "actor": 8,
+      "writer": {
+        "instruction": [
+          50104,
+          23844,
+          0,
+          0,
+          1,
+          5,
+          87,
+          57,
+          61,
+          7
+        ],
+        "glyph": [
+          23854,
+          32,
+          5,
+          49905
+        ],
+        "tick": 3315,
+        "cmd": "LOOK",
+        "actor": 0,
+        "value": 0,
+        "stack": "000005013950ee5905691a20f1c293200069ee099fa8ee590069ee090b7e24a8"
+      }
+    },
+    {
+      "a": "5D29",
+      "v": 80,
+      "tick": 3385,
+      "cmd": "WAIT UNTIL 4:45PM",
+      "actor": 8,
+      "writer": {
+        "instruction": [
+          50072,
+          23850,
+          32,
+          108,
+          1,
+          7,
+          80,
+          62,
+          61,
+          0
+        ],
+        "glyph": [
+          23856,
+          32,
+          7,
+          50039
+        ],
+        "tick": 3315,
+        "cmd": "LOOK",
+        "actor": 0,
+        "value": 80,
+        "stack": "3e50205a0701542077c30b5c20500269e2c2830d00690300f4a993025054c867"
+      }
+    },
+    {
+      "a": "5C10",
+      "v": 110,
+      "tick": 3417,
+      "cmd": "WAIT UNTIL 5:45PM",
+      "actor": 3,
+      "writer": {
+        "instruction": [
+          43479,
+          23886,
+          110,
+          10,
+          55,
+          80,
+          92,
+          16,
+          103,
+          48
+        ],
+        "glyph": [
+          23882,
+          32,
+          0,
+          49905
+        ],
+        "tick": 3416,
+        "cmd": "WAIT UNTIL 5:45PM",
+        "actor": 2,
+        "value": 110,
+        "stack": "465c386e26a971590337ee092d6924a845d4db580803cda7689858a72ca736a6"
+      }
+    },
+    {
+      "a": "5D24",
+      "v": 127,
+      "tick": 3469,
+      "cmd": "WAIT UNTIL 6:00PM",
+      "actor": 3,
+      "writer": {
+        "instruction": [
+          43388,
+          23846,
+          7,
+          16,
+          7,
+          0,
+          95,
+          108,
+          95,
+          106
+        ],
+        "glyph": [
+          23826,
+          32,
+          1,
+          50039
+        ],
+        "tick": 3466,
+        "cmd": "LOOK",
+        "actor": 0,
+        "value": 127,
+        "stack": "7fa9bf5dfea842636a5f5037ab5101374ea2ba8b24a845d407004800e4d35d00"
+      }
+    },
+    {
+      "a": "5D11",
+      "v": 90,
+      "tick": 3504,
+      "cmd": "WAIT UNTIL 7:29PM",
+      "actor": 3,
+      "writer": {
+        "instruction": [
+          50058,
+          23826,
+          32,
+          84,
+          1,
+          7,
+          80,
+          62,
+          90,
+          32
+        ],
+        "glyph": [
+          23830,
+          32,
+          7,
+          50039
+        ],
+        "tick": 3500,
+        "cmd": "LOOK",
+        "actor": 2,
+        "value": 90,
+        "stack": "205a0701542077c30b5c20500201e2c21a65b401125c00aab4094a087907d1a6"
+      }
+    }
+  ]
+}

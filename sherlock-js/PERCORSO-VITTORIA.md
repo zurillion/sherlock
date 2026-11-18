@@ -238,7 +238,7 @@ dall’accensione con tutti gli attori attivi.
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
-| 1 | 3.219 | 2.997 | mercoledì 16:25, una lettura di $5D23 nella carrozza della polizia |
+| 1 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -392,6 +392,23 @@ $CB37 pubblica il record dell’argomento, $8CDC in questa
 partita. Il giardiniere legge il byte basso da $CB28.
 [Traccia degli shift e del glifo durante il viaggio](results/seed-and-saves/native-victoria-moving-police-cab-1.json).
 
+Nel LOOK durante la corsa, la pausa tra «chronicle»
+e «you» lascia la scansione dello spazio a $5D22–$5D23.
+La pulizia della riga conserva l’indirizzo video a
+$5D28–$5D29. Al binario di Leatherhead, il saluto di
+Lestrade usa il nome di dizionario «watson». $D442 passa
+per $A815 e $A9D7 conserva la «n» minuscola in $5C10
+prima che la stampa applichi la normale maiuscola del nome.
+Il successivo LOOK da terra lascia il ritorno $A97F
+della chiamata al lettore a cinque bit in $5D24–$5D25.
+Più tardi, al rifiuto di salire di nuovo in treno, la «e»
+finale di «Lestrade» riempie la diciottesima colonna al
+limite di MORE. $C306 ripristina la finestra larga prima
+che $C2DF chieda di pulire la riga. Nel frame $5D16,
+$C38A salva il descrittore $5A20 in $5D10–$5D11.
+Watson legge il byte alto prima delle 18:24.
+[Traccia del LOOK e delle letture a Leatherhead](results/seed-and-saves/native-victoria-look-leatherhead-1.json).
+
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
 di ciascun riempimento. Il modello applica questa regola
@@ -491,7 +508,9 @@ della frase di Lestrade prima dell’inventario. AA6E riceve
 $00 seguito da «Round.» e dal ritorno a capo.
 
 [Esiti e primi scarti](results/victory-route/victoria-native-graphics-verification.json) ·
-[Traccia completa con seed 137](results/victory-route/victoria-native-graphics-seed137.json.gz) ·
+[Traccia con seed 0](results/victory-route/victoria-native-graphics-seed0.json.gz) ·
+[Traccia con seed 1](results/victory-route/victoria-native-graphics-seed1.json.gz) ·
+[Traccia con seed 137](results/victory-route/victoria-native-graphics-seed137.json.gz) ·
 [Riempimenti verificati](results/seed-and-saves/native-picture-fill-residue.json).
 
 Per ripetere la prova sullo Spectrum dalla cartella del motore:
