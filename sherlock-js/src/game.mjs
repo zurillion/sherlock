@@ -34,12 +34,25 @@ export class Game {
   this.history=new CommandHistory(this.historyMeta());
  }
  historyMeta(){return {seed:this.world.npcs?.initialSeed??null,startMode:this.startMode,profile:this.world.npcs?.profile??this.world.scheduler.actor(3).behavior?.profile??null,source_sha256:this.data.source_sha256};}
- configureRandom(){this.text.chooseIndex=this.world.random?(count,ctx)=>this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+ctx.fragment,...(ctx.fragment==='67F7'&&ctx.context?.offstageFareChoice?{afterReadPair:ctx.context.offstageFareChoice}:{})}):undefined;}
+ configureRandom(){
+  this.text.chooseIndex=this.world.random?(count,ctx)=>{
+   const {fragment,context}=ctx;
+   // CDA7's SAY supplies one argument to 6830. While the 6918
+   // selector in the cabbie's reply runs, A5B6's return is still live.
+   const cabReply=fragment==='6918'&&context.textArguments?.[0]==='6BAC'&&context.argumentContexts?.[0]===0x5D7A;
+   return this.runtimeRandom.chooseIndex(count,{...ctx,purpose:'text:'+fragment,
+    ...(cabReply?{textReturn:{address:context.argumentContexts[0]-14,pointer:0xA5B9}}:{}),
+    ...(fragment==='67F7'&&context.offstageFareChoice?{afterReadPair:context.offstageFareChoice}:{})});
+  }:undefined;
+ }
  // Literal speech still traverses the word workspace outside Holmes' view;
  // only the screen sink and dictionary/name writes are suppressed there.
  npcTextContext(actor,{preserveFlags=false,preserveScan=false,preserveArrivalName=false,extra=[]}={}){if(!this.world.display)return {};if(!this.world.perceived(actor))return {bufferVisible:false,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,{...options,hidden:true})};this.sourceDisplay.invalidateCandidateWorkspace();this.sourceDisplay.invalidateGlyphExtras({preserveFlags,preserveScan,preserve22:preserveArrivalName,preserve28:preserveArrivalName,extra});const characters=[];return {characters,bufferVisible:true,bufferSink:(c,options)=>this.sourceDisplay.bufferFeed(c,options),...(this.actingTextContext?.actorNameFrame?{actorNamePrefix:write=>{const previous=this.sourceDisplay.glyphFrame,upper=this.sourceDisplay.upperGlyphKnown;this.sourceDisplay.glyphFrame=this.actingTextContext.actorNameFrame;this.sourceDisplay.upperGlyphKnown=false;try{write();}finally{this.sourceDisplay.glyphFrame=previous;this.sourceDisplay.upperGlyphKnown=upper;}}}:{}),sink:c=>{if(c==='\b')characters.pop();else characters.push(c);this.sourceDisplay.feed(c,{buffer:false});}};}
  textMessage(text,context){return {kind:'narrative',text,...(context.characters?{raw_text:context.characters.join('')}: {})};}
- projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative'){this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace,pictureRoom:m.image_room,pictureBounded:m.picture_bounded,cabAction:m.cab_action===true,moneyEnds:m.money_ends,preserveLow:m.preserve_renderer_low===true,preserve1F:m.preserve_renderer_1f===true,preserve23:m.preserve_renderer_23===true,preserve22:m.preserve_renderer_22===true,preserve1E:m.preserve_renderer_1e===true,preserve24:m.preserve_renderer_24===true,preserve25:m.preserve_renderer_25===true,preserve20:m.preserve_renderer_20===true,preserve26:m.preserve_renderer_26===true,preserve21:m.preserve_renderer_21===true,preserve27:m.preserve_renderer_27===true,preserve28:m.preserve_renderer_28===true,preserve29:m.preserve_renderer_29===true,preserve2A:m.preserve_renderer_2a===true,preserve2B:m.preserve_renderer_2b===true});if(m.scene_trace?.some(e=>e.kind==='train-platform-look'))this.sourceDisplay.invalidateScratch(0x5CF0,0x5D0F);if(this.world.npcs&&/[A-Za-z]/.test(m.raw_text??m.text))this.world.npcs.dictionaryReference=m.scene_trace?.findLast(e=>e.kind==='final-dictionary-reference')?.value??null;
+ projectMessages(messages){if(this.world.display)for(const m of messages)if(m.kind==='narrative'){
+  const pending=this.world.display.pending;
+  if(m.paragraph_before&&pending.startsWith('\0'))m.screen_prefix=pending;
+  this.sourceDisplay.write(m.raw_text??m.text,{leading:Boolean(m.paragraph_before),sceneTrace:m.scene_trace,pictureRoom:m.image_room,pictureBounded:m.picture_bounded,cabAction:m.cab_action===true,moneyEnds:m.money_ends,preserveLow:m.preserve_renderer_low===true,preserve1F:m.preserve_renderer_1f===true,preserve23:m.preserve_renderer_23===true,preserve22:m.preserve_renderer_22===true,preserve1E:m.preserve_renderer_1e===true,preserve24:m.preserve_renderer_24===true,preserve25:m.preserve_renderer_25===true,preserve20:m.preserve_renderer_20===true,preserve26:m.preserve_renderer_26===true,preserve21:m.preserve_renderer_21===true,preserve27:m.preserve_renderer_27===true,preserve28:m.preserve_renderer_28===true,preserve29:m.preserve_renderer_29===true,preserve2A:m.preserve_renderer_2a===true,preserve2B:m.preserve_renderer_2b===true});if(m.scene_trace?.some(e=>e.kind==='train-platform-look'))this.sourceDisplay.invalidateScratch(0x5CF0,0x5D0F);if(this.world.npcs&&/[A-Za-z]/.test(m.raw_text??m.text))this.world.npcs.dictionaryReference=m.scene_trace?.findLast(e=>e.kind==='final-dictionary-reference')?.value??null;
   // CBC2/CC07 emits the ordinary visible arrival through compressed text.
   // Its dictionary suffix remains in the word buffer after the screen's CR.
   if(m.arrival_entity!==undefined&&this.world.display.pictureWindow)this.text.render('68ED',{
@@ -218,7 +231,14 @@ export class Game {
    const group=node.groups[0]||{noun:0,qualifiers:[]};const missing=!group.noun&&!group.qualifiers.length;
    const nominal=w.entities.filter(e=>w.nounMatches(e,group)),vehicle=nominal.find(e=>this.cab.available(e,actor));
    if(!vehicle)return reject(missing?'I SEE NOTHING THAT YOU CAN HAIL':!this.cab.isStreet(w.roomOf(actor))&&nominal.some(e=>e.rules.some(r=>r.rule==='hailCab'))?'YOU CANNOT HAIL THE '+this.queryName(group).toUpperCase():'I SEE NO '+this.queryName(group).toUpperCase()+' THAT YOU CAN HAIL');
-   this.cab.arrive(vehicle,actor);return ok([say('hail',' '+w.name(vehicle.id)+'.')],1,[vehicle.id]);
+   this.cab.arrive(vehicle,actor);
+   const name=w.name(vehicle.id),announcement=say('hail',' '+name+'.');
+   if(!w.display?.pictureWindow||actor!==w.player)return ok([announcement],1,[vehicle.id]);
+   // E2CB/CA7E describe the cab via the action-name formatter. The
+   // dictionary spelling can survive after the shorter noun and period.
+   const scene_trace=[];
+   this.text.traceNameBuffer(scene_trace,vehicle.id,name,announcement.length-name.length-1);
+   return ok([{kind:'narrative',text:announcement,scene_trace}],1,[vehicle.id]);
   }
   if(action===46){
    if(node.implicitMissing){this.question({...node,implicitMissing:false},0);return reject('TALK TO WHAT ?');}

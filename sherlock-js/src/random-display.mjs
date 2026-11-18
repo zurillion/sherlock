@@ -1,5 +1,5 @@
 import {capitalKind,normalizedCapital,moneyClearsCapital} from './output-capitalization.mjs';
-import {spectrumClockAdvance,spectrumClockOrigin,textWindowControl} from './text-window.mjs';
+import {spectrumClockAdvance,spectrumClockOrigin,spectrumGlyph,textWindowControl} from './text-window.mjs';
 import {RandomInputsUnavailable} from './random.mjs';
 import {applyRoomPicture,newPictureWindow,paintGlyph,scrollPictureWindow,validPictureWindow} from './picture-window.mjs';
 import {bootstrapKeyboard,bootstrapWordWorkspace} from './keyboard-profile.mjs';
@@ -406,7 +406,7 @@ export class RandomDisplay {
  put(c,glyphFrame=this.glyphFrame,wordLettersRemaining=null,preserveClearDescriptor=false){
   const s=this.state,row=s.upper[17].padEnd(36,' ');
   if(s.pictureWindow){
-   const glyph=this.data.spectrum.glyphs[(c==='£'?96:c.charCodeAt(0))-this.data.spectrum.first];
+   const glyph=spectrumGlyph(this.data.spectrum,c==='£'?96:c.charCodeAt(0));
    if(!glyph)throw new RandomInputsUnavailable('Glifo della proiezione video non ricostruito.');
    paintGlyph(s.pictureWindow,glyph,s.cursor);
   }
@@ -534,12 +534,23 @@ export class RandomDisplay {
    this.lowerText(text+(lineEnds?'\r':''));if(this.world.npcs)this.world.npcs.dictionaryReference=Number.isInteger(message.dictionary_reference)&&message.dictionary_reference>=0&&message.dictionary_reference<=65535?message.dictionary_reference:null;}
   this.setChannel(0); // D710/D7CA/CB74 write zero, rather than restoring the incoming channel.
  }
- lexed(tokens){const s=this.state;if(!s)return;s.counter=0;this.wideWindow();s.pending='';if(!s.tokens)return; // D719/C142 reset the formatter and word-buffer pointer.
+ lexed(tokens){const s=this.state;if(!s)return;s.counter=0;this.wideWindow();
+  // D719/C142 reset the row and its count. The pending pointer survives.
+  // DA6D may already have replaced the first byte with the lexer's NUL.
+  // Project an intact suffix when all remaining bytes still belong to it.
+  const buffer=s.wordBuffer,raw=buffer?.bytes.slice(0,buffer.index);
+  const retained=s.pictureWindow&&/^[a-z]{2,}\.$/i.test(s.pending)&&raw?.length===s.pending.length&&
+   raw[0]===0&&raw.slice(1).every(byte=>byte!==null)&&
+   String.fromCharCode(...raw.slice(1)).toLowerCase()===s.pending.slice(1).toLowerCase();
+  // D820 sets initial capitalization before the first action's CR.
+  const suffix=s.pending.slice(1).toLowerCase();
+  s.pending=retained?'\0'+(s.forceUppercase===1?suffix.toUpperCase():suffix[0].toUpperCase()+suffix.slice(1)):'';
+  if(!s.tokens)return;
   for(let i=0;i<96;i++){s.tokens[i]=0;s.tokenKnown[i]=true;}const bytes=tokens.flatMap(t=>[t.type,...([128,160,176,192].includes(t.type)?[]:[t.value>>>8,t.value&255])]);for(const [i,v]of bytes.entries()){s.tokens[i]=v;s.tokenKnown[i]=true;}}
  quoted(quote,{consumed=false}={}){const s=this.state;if(!s?.tokens)return;const size=quote.tokens.slice(0,-1).reduce((n,t)=>n+([128,160,176,192].includes(t.type)?1:3),0),at=quote.tokenPointer-0x5B81+size;if(at>=0&&at<s.tokens.length){s.tokens[at]=consumed?144:192;s.tokenKnown[at]=true;}}
  rowByte(text,row,byteX){
   let result=0;for(let column=0;column<36;column++){
-   const c=text[column]||' ',code=c==='£'?96:c.charCodeAt(0),glyph=this.data.spectrum.glyphs[code-this.data.spectrum.first];
+   const c=text[column]||' ',code=c==='£'?96:c.charCodeAt(0),glyph=spectrumGlyph(this.data.spectrum,code);
    if(!glyph)throw new RandomInputsUnavailable('Glifo della proiezione video non ricostruito.');
    const start=2+column*7;
    for(let pixel=0;pixel<8;pixel++){const x=start+pixel;if(x<byteX||x>=byteX+8)continue;const mask=128>>(x-byteX);result=(result&~mask)|((glyph[row]&(128>>pixel))?mask:0);}

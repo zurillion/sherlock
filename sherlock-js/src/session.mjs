@@ -50,6 +50,11 @@ export class ClientSession {
    const at=this.game.world.npcs?.nativeGraphicsEnabled&&m.paragraph_before?1:0;
    events.splice(at,0,{op:'picture',room:m.image_room});
   }
+  if(m.screen_prefix){
+   // The first CR releases the residual word before this action's text.
+   events[0]={...events[0],text:m.screen_prefix,formatted:true};
+   return {...m,text:m.screen_prefix.slice(1)+'\n'+m.text,screen_events:events};
+  }
   return {...m,screen_events:events};});}
  request(operation,body={}){
   if(operation==='printer')return {svg:paperSvg(this.game.world.display?.printerPaper||[])};

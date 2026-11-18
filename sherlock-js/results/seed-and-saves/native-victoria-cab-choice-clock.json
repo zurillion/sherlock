@@ -1,0 +1,393 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "active_npcs": "all",
+    "first_look": "free",
+    "more": "immediate",
+    "teleports": false
+  },
+  "source_full_sha256": "a07f7aa3ccbc295a24ec5bfb21a4530b988a4e4619b35961c1c0bc24f4382b47",
+  "observations": [
+    {
+      "address": "5D6D",
+      "checkpoint": 14,
+      "read": {
+        "actor": 31,
+        "width": 1,
+        "mixOffset": 64876,
+        "seed": 43,
+        "cursor": 24320,
+        "reads": [
+          {
+            "address": 24576,
+            "value": 68
+          },
+          {
+            "address": 23917,
+            "value": 165
+          }
+        ],
+        "video": "f23a73b93960f0b5a9bf4ae39153ee419037a0bc5f20bf268f712f28c125e7d9",
+        "counter": 2,
+        "narrow": 0,
+        "result": 0,
+        "next_seed": 202,
+        "next_cursor": 24576
+      },
+      "events": [
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "D23F",
+          "sp": "5D6A",
+          "actor": 31,
+          "bytes": "000068c8ba8c",
+          "stack": [
+            "0000",
+            "C868",
+            "8CBA",
+            "C83D",
+            "3E07",
+            "8CBA",
+            "CC6A",
+            "CC7B",
+            "A0B3",
+            "1F4A",
+            "98D0"
+          ],
+          "AF": "003B",
+          "BC": "FFFF"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "D246",
+          "sp": "5D6A",
+          "actor": 31,
+          "bytes": "ba8c68c8ba8c",
+          "stack": [
+            "8CBA",
+            "C868",
+            "8CBA",
+            "C83D",
+            "3E07",
+            "8CBA",
+            "CC6A",
+            "CC7B",
+            "A0B3",
+            "1F4A",
+            "98D0"
+          ],
+          "AF": "003B",
+          "BC": "FFFF"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "C86E",
+          "sp": "5D6C",
+          "actor": 31,
+          "bytes": "ba8c6bc8ba8c",
+          "stack": [
+            "C86B",
+            "8CBA",
+            "C83D",
+            "3E07",
+            "8CBA",
+            "CC6A",
+            "CC7B",
+            "A0B3",
+            "1F4A",
+            "98D0",
+            "0000"
+          ],
+          "AF": "003B",
+          "BC": "FFFF"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "A5A4",
+          "sp": "5D6E",
+          "actor": 31,
+          "bytes": "ba8c6bc82a07",
+          "stack": [
+            "072A",
+            "F2B6",
+            "001D",
+            "3E07",
+            "CDBC",
+            "6BAC",
+            "A0B3",
+            "1F4A",
+            "98D0",
+            "0000",
+            "0001"
+          ],
+          "AF": "072A",
+          "BC": "3E07"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "A5A5",
+          "sp": "5D6C",
+          "actor": 31,
+          "bytes": "ba8c30682a07",
+          "stack": [
+            "6830",
+            "072A",
+            "F2B6",
+            "001D",
+            "3E07",
+            "CDBC",
+            "6BAC",
+            "A0B3",
+            "1F4A",
+            "98D0",
+            "0000"
+          ],
+          "AF": "072A",
+          "BC": "3E07"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "A5C4",
+          "sp": "5D6C",
+          "actor": 31,
+          "bytes": "ba8cb9a52a07",
+          "stack": [
+            "A5B9",
+            "072A",
+            "F2B6",
+            "001D",
+            "3E07",
+            "CDBC",
+            "6BAC",
+            "A0B3",
+            "1F4A",
+            "98D0",
+            "0000"
+          ],
+          "AF": "0110",
+          "BC": "3E07"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "A5C5",
+          "sp": "5D6A",
+          "actor": 31,
+          "bytes": "3068b9a52a07",
+          "stack": [
+            "6830",
+            "A5B9",
+            "072A",
+            "F2B6",
+            "001D",
+            "3E07",
+            "CDBC",
+            "6BAC",
+            "A0B3",
+            "1F4A",
+            "98D0"
+          ],
+          "AF": "0110",
+          "BC": "3E07"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "A5CD",
+          "sp": "5D6A",
+          "actor": 31,
+          "bytes": "caa5b9a52a07",
+          "stack": [
+            "A5CA",
+            "A5B9",
+            "072A",
+            "F2B6",
+            "001D",
+            "3E07",
+            "CDBC",
+            "6BAC",
+            "A0B3",
+            "1F4A",
+            "98D0"
+          ],
+          "AF": "0110",
+          "BC": "3E07"
+        },
+        {
+          "tick": 29,
+          "command": "HAIL CAB",
+          "pc": "D2D0",
+          "sp": "5D50",
+          "actor": 31,
+          "bytes": "caa5b9a52a07",
+          "stack": [
+            "3E07",
+            "6919",
+            "D2A7",
+            "A6DF",
+            "A636",
+            "A5CA",
+            "A769",
+            "6BAC",
+            "A636",
+            "A5CA",
+            "A77C"
+          ],
+          "AF": "6F09",
+          "BC": "0201"
+        }
+      ]
+    },
+    {
+      "address": "BF70",
+      "checkpoint": 184,
+      "read": {
+        "actor": 31,
+        "width": 1,
+        "mixOffset": 64876,
+        "seed": 39,
+        "cursor": 49411,
+        "reads": [
+          {
+            "address": 49667,
+            "value": 79
+          },
+          {
+            "address": 49008,
+            "value": 110
+          }
+        ],
+        "video": "770f17602a3dd990a78fe2993e39e6aabf21ee92fea4f6285384749d6dd8a6be",
+        "counter": 2,
+        "narrow": 0,
+        "result": 0,
+        "next_seed": 24,
+        "next_cursor": 49667
+      },
+      "events": [
+        {
+          "tick": 181,
+          "command": "CLOSELY EXAMINE BOOKCASE",
+          "pc": "BFAD",
+          "sp": "5D7C",
+          "actor": 37,
+          "bytes": "4d6f6e203131",
+          "stack": [
+            "BF8E",
+            "A074",
+            "0000",
+            "0001",
+            "00A7",
+            "0164",
+            "020D",
+            "0280",
+            "02DD",
+            "036A",
+            "03BA"
+          ],
+          "AF": "3120",
+          "BC": "0031"
+        },
+        {
+          "tick": 241,
+          "command": "N",
+          "pc": "BFAD",
+          "sp": "5D7C",
+          "actor": 37,
+          "bytes": "4d6f6e203132",
+          "stack": [
+            "BF8E",
+            "A074",
+            "0000",
+            "0001",
+            "00A7",
+            "0164",
+            "020D",
+            "0280",
+            "02DD",
+            "036A",
+            "03BA"
+          ],
+          "AF": "3220",
+          "BC": "0031"
+        },
+        {
+          "tick": 301,
+          "command": "WAIT UNTIL 1:35PM",
+          "pc": "BFAD",
+          "sp": "5D7A",
+          "actor": 37,
+          "bytes": "4d6f6e203032",
+          "stack": [
+            "BFA7",
+            "BF8E",
+            "A074",
+            "0000",
+            "0001",
+            "00A7",
+            "0164",
+            "020D",
+            "0280",
+            "02DD",
+            "036A"
+          ],
+          "AF": "3091",
+          "BC": "0030"
+        },
+        {
+          "tick": 301,
+          "command": "WAIT UNTIL 1:35PM",
+          "pc": "BFAD",
+          "sp": "5D7C",
+          "actor": 37,
+          "bytes": "4d6f6e203031",
+          "stack": [
+            "BF8E",
+            "A074",
+            "0000",
+            "0001",
+            "00A7",
+            "0164",
+            "020D",
+            "0280",
+            "02DD",
+            "036A",
+            "03BA"
+          ],
+          "AF": "3120",
+          "BC": "0030"
+        },
+        {
+          "tick": 348,
+          "command": "HAIL CAB",
+          "pc": "D2D0",
+          "sp": "5D50",
+          "actor": 31,
+          "bytes": "4d6f6e203031",
+          "stack": [
+            "0400",
+            "6919",
+            "D2A7",
+            "A6DF",
+            "A636",
+            "A5CA",
+            "A769",
+            "6BAC",
+            "A636",
+            "A5CA",
+            "A77C"
+          ],
+          "AF": "7629",
+          "BC": "0201"
+        }
+      ]
+    }
+  ]
+}

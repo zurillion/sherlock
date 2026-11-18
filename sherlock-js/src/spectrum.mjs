@@ -1,4 +1,4 @@
-import {spectrumClockAdvance,spectrumClockOrigin} from './text-window.mjs';
+import {spectrumClockAdvance,spectrumClockOrigin,spectrumGlyph} from './text-window.mjs';
 // Presentation only: world, parser and clock come from the autonomous session.
 class SpectrumBuffer {
  constructor(columns=36, rows=18){this.columns=columns;this.rows=rows;this.clear();}
@@ -207,6 +207,6 @@ class SpectrumTerminal {
   }
   for(let row=0;row<5;row++)this.drawText(ctx,lower[row],2,152+row*8);
  }
- drawText(ctx,text,x,y){ctx.fillStyle='#000';for(const character of text){let code=character==='£'?96:character.charCodeAt(0);if(code<32||code>127)code=63;const glyph=this.assets.glyphs[code-this.assets.first];for(let row=0;row<8;row++)for(let col=0;col<8;col++)if(glyph[row]&(128>>col))ctx.fillRect(x+col,y+row,1,1);x+=7;}}
+ drawText(ctx,text,x,y){ctx.fillStyle='#000';for(const character of text){let code=character==='£'?96:character.charCodeAt(0);if(code!==0&&(code<32||code>127))code=63;const glyph=spectrumGlyph(this.assets,code);for(let row=0;row<8;row++)for(let col=0;col<8;col++)if(glyph[row]&(128>>col))ctx.fillRect(x+col,y+row,1,1);x+=7;}}
 }
 export {SpectrumBuffer,SpectrumTerminal,spectrumTokens,spectrumWrap,presentationPackets};

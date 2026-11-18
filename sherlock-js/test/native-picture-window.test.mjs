@@ -27,11 +27,12 @@ function scan(game) {
   };
 }
 
-async function replay(trace, { mirrorUntil = -1 } = {}) {
+async function replay(trace, { mirrorUntil = -1, savePoints = [], expectedPrefixes = {} } = {}) {
   const session = new ClientSession(data);
   assert.equal(session.request('reset', { seed: trace.seed, native_graphics: true }).state.native_graphics, true);
   const game = session.game;
   let job, mirrorJob, resumed;
+  let verifiedSaves = 0;
   let scans = [], command;
   const pauses = [];
   if (trace.more) {
@@ -58,6 +59,12 @@ async function replay(trace, { mirrorUntil = -1 } = {}) {
     const input = row.command === null ? { job } : { command: row.command };
     const out = session.request(operation, input);
     job = out.job;
+    if (Object.hasOwn(expectedPrefixes, index)) {
+      const firstWord = out.messages.flatMap(m => m.screen_events ?? []).find(e => e.op === 'word');
+      assert.equal(firstWord?.text, expectedPrefixes[index]);
+      assert.equal(firstWord?.delimiter, '\r');
+      assert.equal(firstWord?.formatted, true);
+    }
     const label = (row.command ?? 'WAIT UNTIL') + ' · ' + row.clock.label;
     assert.notEqual(out.state.analysis.outcome, 'not_translated', out.state.prototype_notice);
     if (row.outcome) assert.equal(out.state.analysis.outcome, row.outcome, label);
@@ -80,17 +87,29 @@ async function replay(trace, { mirrorUntil = -1 } = {}) {
     if (resumed) {
       const mirror = resumed.request(operation, row.command === null ? { job: mirrorJob } : input);
       mirrorJob = mirror.job;
-      assert.deepEqual(mirror, out, label + ' after load');
+      // Job identifiers only address this connection's active transport.
+      // The two sessions receive and use their own identifier on every tick.
+      const { job: sourceJob, state: { job: sourceStateJob, ...sourceState }, ...sourceReply } = out;
+      const { job: loadedJob, state: { job: loadedStateJob, ...loadedState }, ...loadedReply } = mirror;
+      assert.equal(sourceJob, sourceStateJob, label);
+      assert.equal(loadedJob, loadedStateJob, label);
+      assert.equal(Boolean(loadedJob), Boolean(sourceJob), label);
+      assert.deepEqual({ ...loadedReply, state: loadedState }, { ...sourceReply, state: sourceState }, label + ' after load');
       assert.deepEqual(resumed.game.world.dump(), game.world.dump(), label + ' after load');
-    } else if (index < mirrorUntil && row.command === 'D' && row.room === 6) {
+    }
+    const milestone = savePoints.includes(index);
+    if (milestone || !resumed && index < mirrorUntil && row.command === 'D' && row.room === 6) {
+      assert.equal(Boolean(out.running), false, label + ' before save');
       const { save } = await session.request('save');
       resumed = new ClientSession(data);
       const loaded = await resumed.request('load', { save: JSON.parse(JSON.stringify(save)) });
       assert.equal(loaded.state.native_graphics, true);
       assert.deepEqual(resumed.game.dump(), game.dump());
+      if (milestone) verifiedSaves++;
     }
   }
   if (trace.more) assert.deepEqual(pauses, trace.more);
+  assert.equal(verifiedSaves, savePoints.length);
   return session;
 }
 
@@ -110,6 +129,24 @@ test('Native graphics preserve narrow-scroll stack inputs through the return to 
   assert.equal(session.game.world.clock().label, 'Mon 11:57pm');
 });
 
+test('Seed 0 reproduces the delayed inventory word and the qualified HAIL name', async () => {
+  const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed0-prefix.json.gz', import.meta.url));
+  const trace = JSON.parse(gunzipSync(corpus));
+  assert.equal(trace.seed, 0);
+  assert.equal(trace.steps.length, 2540);
+  const session = await replay(trace, { expectedPrefixes: { 755: '\0Round.' } });
+  assert.equal(session.game.world.clock().label, 'Wed 08:04am');
+});
+
+test('Seed 1 reproduces the cabbie reply and clock-buffer reads on the Victoria route', async () => {
+  const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed1-prefix.json.gz', import.meta.url));
+  const trace = JSON.parse(gunzipSync(corpus));
+  assert.equal(trace.seed, 1);
+  assert.equal(trace.steps.length, 1841);
+  const session = await replay(trace);
+  assert.equal(session.game.world.clock().label, 'Tue 08:11pm');
+});
+
 test('The graphics-enabled Victoria route reproduces the complete victory at Victoria', async () => {
   const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed137.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(corpus));
@@ -118,7 +155,10 @@ test('The graphics-enabled Victoria route reproduces the complete victory at Vic
   assert.equal(index, 326);
   assert.deepEqual(trace.steps.at(-1).ending, { entry: '9E74', reason: 'story', text_pointer: '6AF3' });
   assert.equal(trace.steps.length, 3219);
-  const session = await replay({ ...trace, more: undefined });
+  // Hall picture, booked cab, train, Leatherhead evidence, final cab and
+  // the last platform. An uninterrupted run validates each loaded segment.
+  const savePoints = [11, 16, 31, 62, 3198, 3217];
+  const session = await replay({ ...trace, more: undefined }, { savePoints });
   assert.equal(session.game.world.clock().label, 'Wed 08:12pm');
   assert.equal(session.game.world.roomOf(), 30);
   assert.equal(session.game.ended.text_pointer, '6AF3');

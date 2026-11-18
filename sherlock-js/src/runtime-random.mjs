@@ -33,12 +33,19 @@ export class RuntimeRandom {
   throw new RandomInputsUnavailable('Ingresso casuale originale non ancora ricostruito: $'+address.toString(16).toUpperCase().padStart(4,'0')+'. Il comando non è stato applicato.',{address});
  }
  chooseIndex(count,context){return count-1-this.absolute(count-1,context);}
- absolute(width,{mixOffset,actor=3,purpose='npc',operands=null,afterReadPair=null}={}){
+ absolute(width,{mixOffset,actor=3,purpose='npc',operands=null,afterReadPair=null,textReturn=null}={}){
   const state=this.world.random;if(!state)throw new RandomInputsUnavailable('Stato casuale originale assente in questa partita precedente: salva e usa Riavvia.');
   const generator=new OriginalRandom(state),reads=[];
+  const readInput=address=>{
+   if(textReturn){
+    if(address===textReturn.address)return textReturn.pointer&255;
+    if(address===textReturn.address+1)return textReturn.pointer>>>8;
+   }
+   return this.read(address);
+  };
   let result;try{result=generator.absolute(width,{mixOffset,inputs:({cursor,mixOffset})=>{
    this.inFlight={actor,cursor,operands,purpose};
-   const second=(cursor+mixOffset+1)&65535,firstValue=this.read(cursor),secondValue=this.read(second);
+   const second=(cursor+mixOffset+1)&65535,firstValue=readInput(cursor),secondValue=readInput(second);
    reads.push({address:cursor,value:firstValue},{address:second,value:secondValue});afterReadPair?.();return {first:firstValue,second:secondValue};
   }});}finally{this.inFlight=null;}
   state.trace.push({actor,purpose,width,mixOffset,seed:state.seed,cursor:state.cursor,reads,result,next_seed:generator.seed,next_cursor:generator.cursor});

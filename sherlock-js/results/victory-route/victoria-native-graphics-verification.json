@@ -81,18 +81,68 @@
   "strict_js_checkpoints": [
     {
       "seed": 0,
-      "matched": 755,
+      "matched": 2540,
       "next": {
+        "clock": "Wed 08:05am",
+        "active_command": "WAIT UNTIL 10:06AM",
+        "field": "stack",
+        "address": "5D22",
+        "reads": [
+          {
+            "address": 23836,
+            "value": 11
+          },
+          {
+            "address": 23842,
+            "value": 0
+          }
+        ]
+      },
+      "previous_next": {
         "clock": "Mon 11:58pm",
         "command": "I",
         "actor": 3,
         "field": "upper video"
+      },
+      "draws": 6840,
+      "reads": 14508,
+      "resolved_hail_name": {
+        "clock": "Tue 12:14pm",
+        "active_command": "HAIL CAB",
+        "field": "word buffer",
+        "address": "5C10",
+        "reads": [
+          {
+            "address": 23568,
+            "value": 109
+          },
+          {
+            "address": 63741,
+            "value": 2
+          }
+        ]
       }
     },
     {
       "seed": 1,
-      "matched": 14,
+      "matched": 1841,
       "next": {
+        "clock": "Tue 08:12pm",
+        "active_command": "WAIT UNTIL 10:05PM",
+        "field": "stack",
+        "address": "5D1C",
+        "reads": [
+          {
+            "address": 23830,
+            "value": 4
+          },
+          {
+            "address": 23836,
+            "value": 0
+          }
+        ]
+      },
+      "previous_next": {
         "clock": "Mon 08:29am",
         "command": "HAIL CAB",
         "field": "stack",
@@ -119,7 +169,9 @@
           "next_seed": 202,
           "next_cursor": 24576
         }
-      }
+      },
+      "draws": 5409,
+      "reads": 11442
     },
     {
       "seed": 137,
@@ -360,7 +412,7 @@
       "resolved_carried_object_delimiter": {
         "clock": "Wed 11:43am",
         "command": "WAIT UNTIL 12:15PM",
-        "difference": "FIRST 2717  Wed 11:43am Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non è stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non è stato applicato.",
+        "difference": "FIRST 2717  Wed 11:43am Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D1F. Il comando non \u00e8 stato applicato.",
         "native_draws": [
           {
             "actor": 3,
@@ -473,7 +525,7 @@
       },
       "resolved_police_cab_look": {
         "clock": "Wed 03:20pm",
-        "diagnostic": "FIRST 2932  Wed 03:20pm Ingresso casuale originale non ancora ricostruito: $5D0E. Il comando non è stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D0E. Il comando non è stato applicato.",
+        "diagnostic": "FIRST 2932  Wed 03:20pm Ingresso casuale originale non ancora ricostruito: $5D0E. Il comando non \u00e8 stato applicato. draws 0 engine counter 0 proto Ingresso casuale originale non ancora ricostruito: $5D0E. Il comando non \u00e8 stato applicato.",
         "native_draws": [
           {
             "actor": 3,
@@ -934,7 +986,20 @@
         "label": "Wed 08:12pm"
       },
       "draws": 8912,
-      "reads": 19024
+      "reads": 19024,
+      "save_load": {
+        "protocol": "ClientSession save, JSON serialization, and load into a fresh session. Each resumed segment is compared to an uninterrupted run, including each streamed WAIT minute. Connection-local job identifiers are verified separately.",
+        "after_checkpoints": [
+          11,
+          16,
+          31,
+          62,
+          3198,
+          3217
+        ],
+        "matched_future_checkpoints": 3207,
+        "terminal": "6AF3"
+      }
     }
   ],
   "extra_look_variant": {

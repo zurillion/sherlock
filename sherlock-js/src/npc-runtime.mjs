@@ -971,6 +971,13 @@ export class NpcRuntime {
   if(address>=0x9FF6&&address<0xA002)return [...this.state.information.he,...this.state.information.it][address-0x9FF6];
   if(address>=0xA002&&address<0xA008)return this.state.information.addressee[address-0xA002];
   if(address>=0xDCFF&&address<=0xDD02){const room=this.state.lastRelocationRoom,ptr=room===undefined?0:this.worldSource.layout.rooms.find(r=>r.id===room).start;return [ptr&255,ptr>>>8,room??0,0][address-0xDCFF];}
+  // A071 formats the clock from BFD9's updated registers before any
+  // actor visits. BFC6 indexes its seven day names without a modulo.
+  if(address>=0xBF6E&&address<0xBF79){
+   const clock=this.w.clock(),offset=address-0xBF6E;
+   if(offset<3&&clock.day>=7)return null;
+   return clock.label.charCodeAt(offset);
+  }
   if(address>=0x9FDD&&address<=0x9FE2){const c=this.w.clock();return [c.tick&255,c.tick>>>8,c.minute,c.hour,c.day,c.period==='am'?97:112][address-0x9FDD];}
   if(address===0x5C3C&&this.game.runtimeRandom.inFlight?.purpose==='watson-information'){
    // CC67 checks whether Holmes is visible from the current actor.

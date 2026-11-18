@@ -237,9 +237,53 @@ dall’accensione con tutti gli attori attivi.
 
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
-| 0 | 3.219 | 755 | lunedì 23:58, bitmap durante l’inventario a Slater Street |
-| 1 | 3.219 | 14 | lunedì 08:29, HAIL CAB legge il temporaneo $5D6D |
+| 0 | 3.219 | 2.540 | mercoledì 08:05, una lettura di $5D22 |
+| 1 | 3.219 | 1.841 | martedì 20:12, una lettura di $5D1C |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
+
+Il test del seed 137 confronta anche sei riprese da salvataggio JSON
+tramite la stessa API della pagina, in una sessione nuova ogni volta.
+I punti sono l’atrio con immagine alle 08:25, il cab prenotato alle 08:32,
+il treno delle 09:21, gli indizi di Leatherhead alle 11:08, l’ultimo
+viaggio in cab mercoledì alle 19:51 e il binario di arrivo alle 20:11.
+Dopo ogni ripresa il test confronta lo stato del motore, le risposte
+e i pacchetti video con la partita continua, minuto per minuto fino
+al punto seguente. In ogni confronto delle attese le due sessioni
+usano il proprio identificatore di trasporto. Dal primo salvataggio
+alla vittoria sono 3.207 checkpoint di prosecuzione confrontati.
+
+Con seed 0, il discorso di Lestrade a Slater Street lascia
+`arounD.` nel buffer parola. L’input «I» fa scrivere un
+terminatore zero al lexer DA75, sopra la prima lettera.
+D719/C142 azzerano il contatore e riposizionano il cursore senza
+svuotare la parola; D820 imposta la maiuscola. Il primo CR
+dell’inventario passa da DE71 e scarica «Round.» preceduta
+dal glifo zero. C388 legge le otto righe FF in ROM a $3C00.
+La correzione riproduce anche i pixel della riga e permette
+di arrivare fino a martedì alle 12:13.
+[Scritture e glifi osservati](results/seed-and-saves/native-victoria-delayed-inventory.json).
+
+Alle 12:14, sempre con seed 0, «HAIL CAB» stampa il nome
+del veicolo. D427 e D445 percorrono rispettivamente il
+qualificatore «hansom» e il nome «cab». A9D7 scrive la «m»
+di «hansom» in $5C10. La parola più corta e il punto
+sovrascrivono solo i primi quattro byte, così Watson legge
+ancora la «m» nel suo turno. Il modello ricava il nome
+dal dizionario e da quel punto coincide fino a mercoledì
+alle 08:04.
+[Traccia del nome durante HAIL CAB](results/seed-and-saves/native-victoria-hail-name.json).
+
+Con seed 1, la risposta del cocchiere a «HAIL CAB» delle 08:29
+passa da CDA7–CDBC al testo 6830 e al frammento 6BAC. Il
+selettore 6918 legge $5D6D mentre il ritorno $A5B9 della chiamata
+A5B6 è ancora attivo. Il modello espone i due byte del ritorno
+solo all’interno di quella scelta. Alle 13:48 lo stesso
+selettore legge la «n» di «Mon» da $BF70. A071 chiama BF79
+prima delle visite degli attori; BFC6 copia tre byte dal
+giorno selezionato e BFB0 converte ora e minuti in due cifre.
+La proiezione dei nomi copre la tabella originale di sette giorni.
+Il replay dall’accensione coincide fino a martedì alle 20:11.
+[Scritture e letture osservate](results/seed-and-saves/native-victoria-cab-choice-clock.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine
