@@ -103,7 +103,13 @@ export class Text {
     else for(const [i,part] of parts.entries()){if(i)feed(' ');capitalize=true;
      if(i===parts.length-1)emitNoun();else feed(part);properCapital(Boolean(e.attributes&64));}if(be)feed(' is');}
    else if(actorToken&&context.actorNamePrefix&&id!==w.player){const parts=w.name(id,{indefinite:Boolean(e.person)}).split(' ');context.actorNamePrefix(()=>{feed(parts.slice(0,-1).join(' '));feed(' ');});feed(parts.at(-1)+(be?' is':''));}
-   else feed(name(id,be));if(e.noun&4095)remember(0x5000|(e.noun&4095));if(be)remember(id===0?0x007A:0x0485);}finally{nameBuffer=previousNameBuffer;}
+   else{
+    const visibleName=name(id),trace=[];
+    this.traceNameBuffer(trace,id,visibleName,0,{indefinite:Boolean(e.person)});
+    const raw=trace[0]?.events.map(event=>event.c).join('').trimStart();
+    feed(visibleName,{raw:raw??visibleName,rawNameKnown:raw!==undefined});
+    if(be)feed(id===0?' are':' is');
+   }if(e.noun&4095)remember(0x5000|(e.noun&4095));if(be)remember(id===0?0x007A:0x0485);}finally{nameBuffer=previousNameBuffer;}
   };
   const emit=t=>{
    switch(t.op){
@@ -378,15 +384,20 @@ export class Text {
   else {
    const name=this.roomName(room);
    const intro=remote?`${actorName} can see `:`${actorIs} ${{2:'in',3:'on',4:'at'}[(r.flags&14)/2]||'in'} `;
-   if(trace&&source==='arrival'&&!remote&&(r.nameWords[0]&0x8000)){
+   if(trace&&source==='arrival'&&!remote){
     // D1BE/A815 emit the room's descriptors before case conversion.
     const qualifiers=r.nameWords.slice(1).filter(Boolean).map(ref=>this.dictionary.word(ref));
     const noun=this.dictionary.word(r.nameWords[0]);
     if(noun&&qualifiers.every(Boolean)){
      const raw=qualifiers.map(word=>word.stem+(['S','ES','IES','\bIES','D','ING','ED','\bING','LY'][word.suffix]||''));
+     const proper=Boolean(r.nameWords[0]&0x8000);
+     const article=proper?[]:[({0:'the',4096:'a',8192:'an',12288:'some'})[r.nameWords[0]&12288]];
      const before=trace.length;
-     this.traceRawName(trace,' '+[...raw,noun.stem].join(' '),name,intro.length);
-     if(w.player!==0&&!full){
+     this.traceRawName(trace,' '+[...article,...raw,noun.stem].join(' '),name,intro.length);
+     // Raw dictionary bytes have their own ownership. Keep the existing
+     // glyph-frame contract for the common-name arrival path.
+     if(!proper)for(const event of trace.slice(before))event.affectsStack=false;
+     if(proper&&w.player!==0&&!full){
       for(const event of trace.slice(before))event.affectsStack=false;
       // D1C6's proper room name reaches a shallower clear than the
       // preceding D187 qualifier. Track the final component and period.

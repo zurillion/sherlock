@@ -1,0 +1,48 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "first_look": "free",
+    "active_npcs": "all",
+    "teleports": false
+  },
+  "original_corpus": "results/victory-route/victoria-early-platform-graphics-seed1.json.gz",
+  "sha256": "67114ec43b20d5e566b49d8bb043b151f2d489bf13f76bb2fbee700a19815851",
+  "common_checkpoints": 3216,
+  "changed_inputs": {
+    "original": [
+      "I",
+      "I",
+      "E"
+    ],
+    "early_platform": [
+      "E",
+      "I",
+      "I"
+    ]
+  },
+  "checkpoints": 3219,
+  "draws": 9169,
+  "reads": 19460,
+  "terminal": {
+    "entry": "9E74",
+    "reason": "story",
+    "text_pointer": "6B79"
+  },
+  "clock": {
+    "tick": 3613,
+    "due": 3614,
+    "minute": 12,
+    "hour": 8,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 08:12pm"
+  },
+  "offline_provenance": {
+    "original_source_sha256": "a07f7aa3ccbc295a24ec5bfb21a4530b988a4e4619b35961c1c0bc24f4382b47",
+    "native_checkpoint_sha256": "6e56a66756990af3ddeb3cc0fb2241e4569e5d9bbd05f71ff72e7b3526d5b82b",
+    "prefix_checkpoints": 2751,
+    "native_checkpoint_tick": 3136,
+    "input_change": "At Victoria Station, replace final I, I, E with E, I, I."
+  }
+}

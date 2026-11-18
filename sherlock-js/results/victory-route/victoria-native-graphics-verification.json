@@ -1224,8 +1224,50 @@
     "seed": 1,
     "added_before_command": 15,
     "command": "LOOK",
-    "strict_js_checkpoints": 755,
+    "strict_js_checkpoints": 1896,
     "next": {
+      "checkpoint": 1896,
+      "clock": {
+        "tick": 2179,
+        "due": 2286,
+        "minute": 18,
+        "hour": 8,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 08:18pm"
+      },
+      "command": "WAIT UNTIL 10:05PM",
+      "address": "5D1C",
+      "draw": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 114,
+        "cursor": 23574,
+        "reads": [
+          {
+            "address": 23830,
+            "value": 1
+          },
+          {
+            "address": 23836,
+            "value": 0
+          }
+        ],
+        "video": "61d72e303df1a6c463e576a8556f7392003c2a47db29711c56e8dae719254ce3",
+        "counter": 5,
+        "narrow": 0,
+        "result": 16,
+        "next_seed": 115,
+        "next_cursor": 23830
+      }
+    },
+    "latest_native_checkpoint": {
+      "clock": "Wed 10:01pm",
+      "room": 30,
+      "ending": null
+    },
+    "resolved_delayed_word": {
       "clock": "Mon 11:58pm",
       "command": "I",
       "native_delayed_word": [
@@ -1282,10 +1324,14 @@
       "at": "AA6E",
       "native_video_sha256": "bfd1fd1af05a1a5dad53babe3fcfc1fa553a6c2ec6123a0e7f21dca75e2d56cf"
     },
-    "latest_native_checkpoint": {
-      "clock": "Wed 10:01pm",
-      "room": 30,
-      "ending": null
-    }
+    "corpus": "results/victory-route/victoria-extra-look-native-seed1.json.gz",
+    "sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639"
+  },
+  "early_platform_variant": {
+    "seed": 1,
+    "strict_js_checkpoints": 3219,
+    "terminal": "6B79",
+    "clock": "Wed 08:12pm",
+    "verification": "results/victory-route/native-early-platform-graphics-verification.json"
   }
 }

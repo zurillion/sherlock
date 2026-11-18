@@ -152,6 +152,33 @@ test('Seed 1 reproduces the Victoria route through the victory at Victoria', asy
   assert.equal(session.game.ended.text_pointer, '6AF3');
 });
 
+test('An extra LOOK before the first cab retains dictionary buffers through Tuesday evening', async () => {
+  const packed = await readFile(new URL('../results/victory-route/victoria-extra-look-native-seed1.json.gz', import.meta.url));
+  const trace = JSON.parse(gunzipSync(packed));
+  const limit = 1896;
+  assert.equal(trace.seed, 1);
+  assert.equal(trace.steps.length, 3312);
+  const excluded = trace.steps[limit];
+  assert(excluded.draws.some(draw => draw.reads.some(read => read.address === 0x5D1C)));
+  const session = await replay({ ...trace, steps: trace.steps.slice(0, limit) });
+  assert.equal(session.game.world.clock().label, 'Tue 08:17pm');
+  const boundary = session.request('continue-command', { job: session.state().job });
+  assert.equal(boundary.state.analysis.outcome, 'not_translated');
+  assert.equal(boundary.state.analysis.missing_address, 0x5D1C);
+});
+
+test('Entering the Victoria platform early reproduces the original death with graphics enabled', async () => {
+  const packed = await readFile(new URL('../results/victory-route/victoria-early-platform-graphics-seed1.json.gz', import.meta.url));
+  const trace = JSON.parse(gunzipSync(packed));
+  assert.equal(trace.seed, 1);
+  assert.equal(trace.steps.length, 3219);
+  assert.deepEqual(trace.steps.at(-1).ending, { entry: '9E74', reason: 'story', text_pointer: '6B79' });
+  const session = await replay(trace, { savePoints: [3215] });
+  assert.equal(session.game.world.clock().label, 'Wed 08:12pm');
+  assert.equal(session.game.world.roomOf(), 30);
+  assert.equal(session.game.ended.text_pointer, '6B79');
+});
+
 test('The graphics-enabled Victoria route reproduces the complete victory at Victoria', async () => {
   const corpus = await readFile(new URL('../results/victory-route/victoria-native-graphics-seed137.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(corpus));

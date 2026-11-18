@@ -16,9 +16,16 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Rami delle deduzioni e dei finali.** Verificare la stessa sequenza
-   con altre interazioni plausibili e altri seed. Il comportamento di
-   NEW, Riavvia e LOAD è [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
+1. **Variante LOOK aggiuntivo.** Ricostruire la lettura di $5D1C
+   del giardiniere, martedì alle 20:18. Coincidono 1.896 checkpoint
+   fino alle 20:17. Il corpus originale prosegue fino a Victoria.
+2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
+   e dei finali. Il comportamento di NEW, Riavvia e LOAD è
+   [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
+
+Con grafica nativa, il ramo con ingresso anticipato a Victoria
+coincide fino al finale mortale $6B79 alle 20:12 di mercoledì.
+[Varianti e perimetro](VARIANTI-GRAFICA-NATIVA.md).
 
 Con grafica nativa, i sei punti Salva/Carica sono verificati anche
 per i seed 0 e 1, con 3.207 checkpoint di prosecuzione per seed.

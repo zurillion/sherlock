@@ -500,13 +500,18 @@ finestra superiore, agli attributi, all’orologio e al finale.
 
 
 
+Il ramo con ingresso anticipato al binario di Victoria è ora
+confrontato anche con grafica nativa. Gli ultimi input E, I, I
+raggiungono $6B79 mercoledì alle 20:12, su 3.219 checkpoint.
+Il test riparte dall’accensione e ripete anche il tratto finale
+da un salvataggio nell’atrio.
+
 Un LOOK aggiuntivo prima del primo HAIL CAB cambia il percorso
-col seed 1. In questa variante, mercoledì Lestrade rifiuta le
-deduzioni sui piani e sulla vendita. L’attesa a Victoria fino
-alle 22:00 lascia la partita aperta. Al primo scarto video di
-questa variante, lunedì alle 23:58, A9F4 scarica il residuo
-della frase di Lestrade prima dell’inventario. AA6E riceve
-$00 seguito da «Round.» e dal ritorno a capo.
+col seed 1. Il confronto della variante coincide fino a martedì
+alle 20:17, su 1.896 checkpoint. Il residuo iniziale «Round.»
+e i buffer di leatherhead e bloodstained sono ricostruiti.
+Il successivo scarto è una lettura di $5D1C alle 20:18.
+[Varianti, writer e perimetro delle verifiche](VARIANTI-GRAFICA-NATIVA.md).
 
 [Esiti e primi scarti](results/victory-route/victoria-native-graphics-verification.json) ·
 [Traccia con seed 0](results/victory-route/victoria-native-graphics-seed0.json.gz) ·
