@@ -238,7 +238,7 @@ dall’accensione con tutti gli attori attivi.
 | Seed | Checkpoint originali | Checkpoint coincidenti in JavaScript | Primo scarto |
 | ---: | ---: | ---: | --- |
 | 0 | 3.219 | 2.540 | mercoledì 08:05, una lettura di $5D22 |
-| 1 | 3.219 | 1.841 | martedì 20:12, una lettura di $5D1C |
+| 1 | 3.219 | 2.465 | mercoledì 06:50, una lettura di $5D22 |
 | 137 | 3.219 | 3.219 | finale $6AF3, mercoledì alle 20:12 |
 
 Il test del seed 137 confronta anche sei riprese da salvataggio JSON
@@ -284,6 +284,17 @@ giorno selezionato e BFB0 converte ora e minuti in due cifre.
 La proiezione dei nomi copre la tabella originale di sette giorni.
 Il replay dall’accensione coincide fino a martedì alle 20:11.
 [Scritture e letture osservate](results/seed-and-saves/native-victoria-cab-choice-clock.json).
+
+La domanda 6830/6C1B del cocchiere a Camden Street inizia con
+«The». Durante la partita, il flush A9FD/AA14 usa il frame
+$5D28 per quell’articolo. All’ultima scansione della «e»,
+C39D salva AF in $5D1C–$5D1D. Il giardiniere legge il byte
+basso durante l’attesa delle 20:11, prima del checkpoint delle
+20:12. Le 88 prove controllate partivano da CDB6 e in quel
+setup preservavano entrambi i byte. La traccia naturale di
+questa chiamata stabilisce la scrittura dell’articolo. Il
+confronto prosegue fino a mercoledì alle 06:49.
+[Prova controllata e traccia naturale](results/seed-and-saves/native-cab-waiting-speech.json).
 
 Con seed 137, il giardiniere legge $F60B lunedì alle 16:49.
 Il colore di lavoro parte da $38 e F507 lo azzera al termine

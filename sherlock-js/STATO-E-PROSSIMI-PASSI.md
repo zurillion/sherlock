@@ -1115,9 +1115,10 @@ Verifica conclusiva 5D23: suite completa 1.155 test passati, 0 errori; 106 contr
 
 
 Con seed 1 e grafica nativa, il replay da accensione coincide
-per 1.841 checkpoint, fino a martedì alle 20:11. Risolti
-la lettura del ritorno A5B9 in $5D6D e il buffer dell’orologio
-$BF6E–$BF78. Il prossimo scarto si osserva a $5D1C alle 20:12.
+per 2.465 checkpoint, fino a mercoledì alle 06:49. Risolti
+il ritorno A5B9 in $5D6D, il buffer dell’orologio $BF6E–$BF78
+e la scansione dell’articolo del cocchiere in $5D1C–$5D1D. Il
+prossimo scarto si osserva a $5D22 alle 06:50.
 
 
 Con seed 0 e grafica nativa, a Slater Street il primo CR

@@ -125,19 +125,19 @@
     },
     {
       "seed": 1,
-      "matched": 1841,
+      "matched": 2465,
       "next": {
-        "clock": "Tue 08:12pm",
-        "active_command": "WAIT UNTIL 10:05PM",
+        "clock": "Wed 06:50am",
+        "active_command": "WAIT UNTIL 10:06AM",
         "field": "stack",
-        "address": "5D1C",
+        "address": "5D22",
         "reads": [
           {
-            "address": 23830,
-            "value": 4
+            "address": 23836,
+            "value": 11
           },
           {
-            "address": 23836,
+            "address": 23842,
             "value": 0
           }
         ]
@@ -170,8 +170,24 @@
           "next_cursor": 24576
         }
       },
-      "draws": 5409,
-      "reads": 11442
+      "draws": 6865,
+      "reads": 14512,
+      "resolved_question_article": {
+        "clock": "Tue 08:12pm",
+        "active_command": "WAIT UNTIL 10:05PM",
+        "field": "stack",
+        "address": "5D1C",
+        "reads": [
+          {
+            "address": 23830,
+            "value": 4
+          },
+          {
+            "address": 23836,
+            "value": 0
+          }
+        ]
+      }
     },
     {
       "seed": 137,

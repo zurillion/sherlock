@@ -141,8 +141,8 @@ export class NpcRuntime {
   // F2C6's departure speech at a fresh upper row stays above the
   // saved scan registers, including its wraps before a MORE pause.
   const screen=g.sourceDisplay.state;
-  // The DOMAIN SAY frame for the cabbie's 6C1B question stays above
-  // the earlier scan registers on a wide, fresh row with room before MORE.
+  // On a fresh wide row, the cabbie's question retains the deeper
+  // 5D1A/5D1B pair. The speaker's article can reach 5D1C/5D1D.
   const waitingCabbie=screen?.pictureWindow&&text==='6830'&&[31,34].includes(actor)&&
    context.object===0&&context.textArguments?.[0]==='6C1B'&&context.argumentContexts?.[0]===0x5D7A&&
    screen.cursor===0&&screen.remaining===36&&!screen.pending&&screen.counter<=10;
@@ -157,6 +157,13 @@ export class NpcRuntime {
    display.glyphFrame=context.actorNameFrame;display.upperGlyphKnown=context.actorNameUpper===true;
    if(context.preserveTriciaPrefix)display.glyphFlagsKnown=true;
    try{write();}finally{Object.assign(display,{glyphFrame,upperGlyphKnown,glyphFlagsKnown});}};if(visible&&context.roomNameFrame){c.roomNamePrefix=write=>{const previous=g.sourceDisplay.glyphFrame,upper=g.sourceDisplay.upperGlyphKnown;g.sourceDisplay.glyphFrame=context.roomNameFrame;g.sourceDisplay.upperGlyphKnown=true;try{write();}finally{g.sourceDisplay.glyphFrame=previous;g.sourceDisplay.upperGlyphKnown=upper;}};c.unknownRoomName=()=>g.sourceDisplay.invalidateScratch(0x5D26,0x5D30);}if(visible&&context.objectNameFrame)c.objectNameEntry=write=>{const p=g.sourceDisplay,frame=p.glyphFrame,upper=p.upperGlyphKnown;p.glyphFrame=context.objectNameFrame;p.upperGlyphKnown=false;try{write();}finally{p.glyphFrame=frame;p.upperGlyphKnown=upper;}};c.bufferVisible=visible;c.bufferSink=(ch,options)=>g.sourceDisplay.bufferFeed(ch,{...options,hidden:!visible});
+  if(visible&&waitingCabbie&&c.sink){
+   const sink=c.sink,display=g.sourceDisplay;
+   c.sink=ch=>{
+    if(ch===' '&&screen.cursor===0&&screen.pending.toLowerCase()==='the')display.cabQuestionArticle();
+    sink(ch);
+   };
+  }
   if(visible&&narrowTrain&&c.sink){
    const sink=c.sink,display=g.sourceDisplay;
    c.sink=ch=>{

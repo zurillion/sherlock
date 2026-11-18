@@ -97,9 +97,26 @@ export class RandomDisplay {
   if(arrivalScanCount!==null)s.scratch[0x5D23]=arrivalScanCount;
   return policeLookFlags;
  }
+ cabQuestionArticle(){
+  const s=this.state;
+  // A9FD/AA14 flush the speaker's article at C388 entry 5D28.
+  // The following noun takes a shallower path. Only this scan pair
+  // has been traced through the later random read.
+  const column=s.cursor+s.pending.length-1;
+  const {flags,font}=this.finalGlyphScan(s.pending.at(-1),column);
+  s.scratch[0x5D1C]=flags;
+  s.scratch[0x5D1D]=font;
+ }
+ finalGlyphScan(character,column){
+  const shift=(2+column*7)&7,lastRowFlags=incrementFlags(0x56);
+  return {
+   flags:shift?incrementFlags(shift-1,lastRowFlags&1):lastRowFlags,
+   font:spectrumGlyph(this.data.spectrum,character==='£'?96:character.charCodeAt(0))[7]
+  };
+ }
  glyphResidue(c,frame,column,descriptor=0x5C0B,callerCount=null,{fareRowClear=false,encounterRowClear=false}={}){
   if(!frame)return;
-  const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,glyph=this.data.spectrum.glyphs[c.charCodeAt(0)-this.data.spectrum.first],s=this.state.scratch;
+  const x=2+column*7,address=0x5020+Math.floor(x/8),shift=x&7,s=this.state.scratch;
   // C38B/C398 retain the screen address at frame-8. The verified
   // literal actor-name prefix uses frame5D2A and publishes its low byte
   // at5D22 and high byte at5D23. C38A separately saves E of the text
@@ -255,9 +272,8 @@ export class RandomDisplay {
   // On the last scan, C39D retains flags from INC H at the end of
   // scan seven. A split byte restores them, then DEC/INC C before C3B8.
   // Derive those flags from the row address and shift, not a boot zero.
-  const lastRowFlags=incrementFlags(((address>>>8)+6)&255,0);
-  const savedScanFlags=shift?incrementFlags((shift-1)&255,lastRowFlags&1):lastRowFlags;
-  put(frame-10,shift);put(frame-9,1);put(frame-12,savedScanFlags);put(frame-11,glyph[7]);
+  const {flags:scanFlags,font}=this.finalGlyphScan(c,column);
+  put(frame-10,shift);put(frame-9,1);put(frame-12,scanFlags);put(frame-11,font);
  }
  // The verified GO TO announcement never reaches saved scan AF or BC.
  // Unprojected callers revoke the owned upper fields; each register has its own role.
