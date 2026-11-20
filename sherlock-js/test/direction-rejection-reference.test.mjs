@@ -36,6 +36,7 @@ test('The descriptor is selected from available no-argument model data, never fr
  model.wordReferences[0]=0;assert.equal(g.text.directionRejectionReference(8),0);
  delete model.wordReferences;assert.equal(g.text.directionRejectionReference(8),null);
  model.wordReferences=[0x0827];model.modelFlags[0]|=4;assert.equal(g.text.directionRejectionReference(8),null);
+ for(const flags of [[],[undefined],['0'],[-1],[256],null]){model.modelFlags=flags;assert.equal(g.text.directionRejectionReference(8),null);}
  for(const id of [0,11,35,undefined])assert.equal(g.text.directionRejectionReference(id),null);
 });
 

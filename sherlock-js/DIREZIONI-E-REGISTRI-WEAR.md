@@ -103,3 +103,37 @@ identificate, senza colorare altro grigio sulla sola base del disassemblato.
 [Ultimo BC di WEAR](results/direction-rejection-reference/wear-count-writer.json) ·
 [Disassemblato commentato](results/direction-rejection-reference/direction-and-wear.asm) ·
 [Rapporto del confronto](results/victory-route/native-extra-look-verification.json).
+
+Controlli conclusivi:26 test mirati e5 test dell’atlante superati;
+replay della variante dall’avvio con entrambi i LOAD superato. Anche
+i tre percorsi completi seed0,1 e137 conservano la vittoria $6AF3,
+ciascuno su3.219checkpoint con i rispettivi Salva/Carica. Il pacchetto Pages
+locale è verificato, con analisi e listati correnti nell’archivio.
+[Rapporto dei controlli](results/direction-rejection-reference/verification.json).
+
+## Scrittori del prossimo limite: individuati, ancora da proiettare
+
+La continuazione originale osserva entrambi i campi richiesti dall’estrazione
+della cuoca al tick3077, durante NE (checkpoint escluso2780):
+
+| Byte | Valore | Ultimo store al tick3076 | Contesto |
+| --- | ---: | --- | --- |
+| $5D1E | 7 | PUSH BC, $C3B7 | s, frame $5D28, shift7, ottava scansione |
+| $5D24 | 0 | PUSH AF, $C3B8 | spazio, frame $5D30, shift7, ottava scansione |
+
+Non ci sono transizioni non classificate. La traccia riparte dallo stesso
+prompt originale verificato prima di WEAR e osserva anche riscritture del
+medesimo valore. Il byte $5D1E ora è C, non il flag F del precedente WEAR:
+lo stesso indirizzo RAM appartiene a stack frame diversi. Il prossimo
+lavoro è identificare il chiamante di stampa attivo durante NE e
+misurarne il contratto nelle geometrie ammesse, quindi estenderne la
+proiezione. Non sono ancora introdotti nuovi valori nel motore.
+[Prova dei due scrittori](results/direction-rejection-reference/next-ne-writers.json).
+
+La catena del primo store contiene $731A, il token letterale **yes**
+del frammento **$7319**: «Yes Inspector, unfortunately nothing was found.»
+La s osservata conclude quel letterale. Questo indizio riguarda una stampa
+attiva durante NE, non basta ad attribuirla alla descrizione della locazione
+o a un NPC preciso. Il secondo store appartiene al glifo spazio chiamato
+dalla pulizia di riga: il ritorno del glifo è $C377. Conservare questa
+distinzione quando si ricostruiscono i contratti del formatter.

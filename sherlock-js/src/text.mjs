@@ -25,8 +25,8 @@ export class Text {
  // A880 strips model metadata before A887 stores the descriptor.
  directionRejectionReference(action){
   if(!Number.isInteger(action)||action<1||action>10)return null;
-  const model=this.data.actions.find(a=>a.id===action),reference=model?.wordReferences?.[0];
-  if(!model?.modelFlags||model.modelFlags[0]&12||!Number.isInteger(reference)||reference<0||reference>65535)return null;
+  const model=this.data.actions.find(a=>a.id===action),reference=model?.wordReferences?.[0],flags=model?.modelFlags?.[0];
+  if(!Number.isInteger(flags)||flags<0||flags>255||flags&12||!Number.isInteger(reference)||reference<0||reference>65535)return null;
   return reference&4095;
  }
 

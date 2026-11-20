@@ -451,6 +451,17 @@ for candidate in candidates:
    note=direction_notes.get(rr['a'])
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
+# The following writer is observed but its scene-caller projection remains open.
+ne_source=source(ROOT/'results/direction-rejection-reference/next-ne-writers.json','NE: ultimi writer osservati di5D1E e5D24; contratto ancora aperto')
+for candidate in candidates:
+ if candidate['start']==0x5CEC or candidate['start']<=0xC3B7<candidate['end'] or candidate['start']<=0x7319<candidate['end']:
+  candidate['sources'].append(ne_source)
+  candidate['description']+=' Prossimo limite NE: C3B7 al3076 salva C=7 della s/frame5D28 in1E; C3B8 salva AF dello spazio/frame5D30 in24. Stack731A: yes del frammento7319. Lo spazio è chiamato dalla puliziaC377. Il chiamante di stampa resta da proiettare: nessuna estensione della proprietà nel motore.'
+  for rr in candidate['rows']:
+   if rr['a']==0xC3B7:
+    note='Nel successivo NE, frame5D28: lo stesso PUSH scrive C in5D1E, non F del vecchio WEAR. Contratto del nuovo chiamante ancora aperto.'
+    if note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END

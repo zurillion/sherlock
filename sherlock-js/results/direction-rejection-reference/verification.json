@@ -1,0 +1,64 @@
+{
+  "profile": {
+    "seed": 1,
+    "npc_profile": "world-v5",
+    "active_npcs": "all24",
+    "native_graphics": true,
+    "first_look": "free",
+    "teleports": false
+  },
+  "strict_prefix": {
+    "checkpoints": 2780,
+    "until": "Wed 11:15am",
+    "draws": 7316,
+    "reads": 15510,
+    "save_load_checkpoints": [
+      1488,
+      2005
+    ],
+    "future_after_last_load": 774,
+    "next_checkpoint": 2780,
+    "next_command": "NE",
+    "next_address": "5D1E"
+  },
+  "native_controls": {
+    "direction_inputs": 90,
+    "identities": [
+      0,
+      1,
+      100
+    ],
+    "wear_caption_geometries": 24,
+    "qualified_rejections": 168
+  },
+  "tests": {
+    "targeted": 26,
+    "targeted_failures": 0,
+    "atlas": 5,
+    "atlas_failures": 0,
+    "extra_look_cold_replay_and_json_futures": true,
+    "seed0_complete_victory_regression": true,
+    "seed1_complete_victory_regression": true,
+    "seed137_complete_victory_regression": true,
+    "complete_victory_regression_seeds": [
+      0,
+      1,
+      137
+    ],
+    "complete_victory_checkpoints_per_seed": 3219
+  },
+  "atlas": {
+    "unique_listing_bytes": 121,
+    "instructions": 75,
+    "documented": 40029,
+    "partial": 305,
+    "unknown": 1266,
+    "classification_changes": 0
+  },
+  "pages": {
+    "local_package_verified": true,
+    "archive_uses_current_tracked_sources": true
+  },
+  "scope": "Original executable and snapshots are offline evidence only; no recorded inputs or CPU runtime are used by the browser. This certificate covers the specified histories and owned caller contracts, not every gameplay path.",
+  "next_original_writers": "results/direction-rejection-reference/next-ne-writers.json"
+}

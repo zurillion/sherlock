@@ -18,6 +18,8 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 1. **Variante LOOK aggiuntivo.** Ricostruire il nuovo scrittore di
    $5D1E durante NE, nel checkpoint originale delle 11:17 di mercoledì.
+   Individuato C3B7: C=7 della s,frame5D28; misurare il contratto del
+   chiamante di stampa (token yes a731A). Anche5D24 viene dallo spazio,frame5D30/C3B8.
    Coincidono 2.780 checkpoint fino alle 11:15, con Salva/Carica dopo LOOK
    e WEAR. Superati A022 alle 08:50 e5D23 alle 09:58.
    [Descrittore delle direzioni e registri WEAR](DIREZIONI-E-REGISTRI-WEAR.md).
