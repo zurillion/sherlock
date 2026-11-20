@@ -45,7 +45,7 @@ test('A requested LOOK does not borrow the ordinary LOOK separator AF frame',()=
  assert.equal(prefix.spaceScanKnown,undefined);assert.equal(prefix.spaceByteKnown,undefined);
 });
 
-test('Ordinary WEAR preserves low scan bytes and derives both argument-prefix AF bytes',async()=>{
+test('Ordinary WEAR preserves low scan bytes and derives argument-prefix AF, BC and video HL',async()=>{
  const abi=await read('results/extra-look-wear-scan/wear-abi.json'),g=make(),p=g.sourceDisplay;let checked=0;
  for(const row of abi.cases.filter(r=>r.column===0&&r.counter+3<15)){
   fresh(p);p.state.counter=row.counter;
@@ -53,13 +53,13 @@ test('Ordinary WEAR preserves low scan bytes and derives both argument-prefix AF
   const message={kind:'narrative',text:'You wear '+g.world.name(row.target)+'.',paragraph_before:true};
   g.npcRuntime.annotateArgumentPrefix({messages:[message],cost:1,action:51,args:[row.target]},[message],{player:true});
   assert(message.scene_trace.some(r=>r.kind==='wear-argument-prefix'&&r.frame===0x5D2C));g.projectMessages([message]);
-  for(let at=0x5D1A;at<=0x5D21;at++)assert.equal(p.read(at),row.cells[at],JSON.stringify({target:row.target,counter:row.counter,at}));checked++;
+  for(let at=0x5D1A;at<=0x5D25;at++)assert.equal(p.read(at),row.cells[at],JSON.stringify({target:row.target,counter:row.counter,at}));checked++;
  }
  assert.equal(checked,24);
  const glyphs=await read('test/fixtures/glyph-count-abi.json');let nonzero=0;
  for(const row of glyphs.cases.filter(r=>r.frame===0x5D2C)){
   fresh(p);p.upperGlyphKnown=false;p.cabWordRole='wear-argument-prefix';p.glyphResidue(row.char,row.frame,row.column,row.descriptor,row.count);
-  assert.equal(p.read(0x5D20),row.cells[0x5D20]);assert.equal(p.read(0x5D21),row.cells[0x5D21]);if(p.read(0x5D21)!==0)nonzero++;
+  for(let at=0x5D20;at<=0x5D25;at++)assert.equal(p.read(at),row.cells[at]);if(p.read(0x5D21)!==0)nonzero++;
  }
  assert(nonzero>0,'Argument font row is computed, not filled with zero');
 });

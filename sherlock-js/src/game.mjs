@@ -342,7 +342,15 @@ export class Game {
    // DCD2 resolves the exit before DCDD/CBA7 checks the suspended request.
    if(action!==35&&edge?.target&&this.actingRequestRestriction)return {messages:[],cost:0,action,args:[],requestRefused:true};
    const gate=edge?.gate?w.entity(edge.gate):null;
-   const failure=()=>{const out=action===35?reject(`YOU CANNOT LOOK THROUGH ${gate?w.name(gate.id).toUpperCase():'THAT'}.`):reject(`YOU CANNOT GO ${DIRECTION_NAMES[direction||action]?.toUpperCase()||'THAT WAY'}.`);if(action>=1&&action<=10&&this.actingActor===undefined&&actor===w.player&&!node.groups.length)Object.assign(out.messages[0],{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true});return out;};
+   const failure=()=>{
+    const out=action===35?reject(`YOU CANNOT LOOK THROUGH ${gate?w.name(gate.id).toUpperCase():'THAT'}.`):reject(`YOU CANNOT GO ${DIRECTION_NAMES[direction||action]?.toUpperCase()||'THAT WAY'}.`);
+    if(action>=1&&action<=10&&this.actingActor===undefined&&actor===w.player&&!node.groups.length){
+     Object.assign(out.messages[0],{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true});
+     const reference=this.text.directionRejectionReference(action);
+     if(reference!==null)out.messages[0].dictionary_reference=reference;
+    }
+    return out;
+   };
    if(!edge||!edge.target||action!==35&&w.entity(actor).parent!==null||(gate&&(!(gate.attributes&40)||action!==35&&gate.size<w.entity(actor).size))){const out=failure();return action===35?{...out,args:[gate?.id??node.resolved?.[0]??255],semanticResolved:true}:out;}
    if(action===35){if(actor!==w.player)return ok([say('look',' through '+w.name(gate.id)+'.')],2,[gate.id]);const room=w.roomOf(actor),parent=w.entity(actor).parent;w.move(actor,edge.target,parent);let scene;try{scene=this.text.scene({full:false,remote:true,mark:true,source:'remote'});}finally{w.move(actor,room,parent);}return ok([`You look through ${w.name(gate.id)}.\n${scene}`],2,[gate.id]);}
    const room=edge.target,first=!(w.rooms[room].flags&64),visibleBefore=w.perceived(actor);w.move(actor,room);if(w.npcs)this.npcRuntime.moved(room);

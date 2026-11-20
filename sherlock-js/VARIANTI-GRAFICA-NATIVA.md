@@ -1,5 +1,9 @@
 # Varianti del percorso con grafica nativa
 
+Seguito: [direzioni e registri WEAR](DIREZIONI-E-REGISTRI-WEAR.md),
+2.780 checkpoint fino a mercoledì11:15; prossimo5D1E duranteNE.
+
+
 Aggiornamento 18 novembre 2026.
 
 Sono confrontate due storie con seed 1, grafica attiva dall’avvio,

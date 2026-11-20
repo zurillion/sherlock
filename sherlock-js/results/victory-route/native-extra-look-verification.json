@@ -13,18 +13,18 @@
     "command": "LOOK"
   },
   "native_checkpoints": 3312,
-  "strict_js_checkpoints": 2664,
+  "strict_js_checkpoints": 2780,
   "verified_until": {
-    "tick": 2930,
-    "due": 3007,
-    "minute": 49,
-    "hour": 8,
+    "tick": 3076,
+    "due": 3076,
+    "minute": 15,
+    "hour": 11,
     "day": 2,
     "period": "am",
-    "label": "Wed 08:49am"
+    "label": "Wed 11:15am"
   },
-  "draws": 6917,
-  "reads": 14648,
+  "draws": 7316,
+  "reads": 15510,
   "first_room_buffer_read": {
     "checkpoint": 1282,
     "store": {
@@ -708,7 +708,7 @@
       1488,
       2005
     ],
-    "last_save_future_checkpoints": 658,
+    "last_save_future_checkpoints": 774,
     "comparison": "Fresh JSON sessions; complete future replies and world state plus original per-draw video, random inputs, time and pagination through the verified prefix."
   },
   "resolved_boundaries": [
@@ -791,44 +791,143 @@
         "next_seed": 245,
         "next_cursor": 24090
       }
+    },
+    {
+      "checkpoint": 2664,
+      "clock": {
+        "tick": 2931,
+        "due": 3007,
+        "minute": 50,
+        "hour": 8,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 08:50am"
+      },
+      "address": "A022",
+      "draw": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 237,
+        "cursor": 40732,
+        "reads": [
+          {
+            "address": 40988,
+            "value": 0
+          },
+          {
+            "address": 40994,
+            "value": 39
+          }
+        ],
+        "video": "fe64c54c325fa2c4354ca5bd19f5d53820525aca436b8b20099e381b9eb96487",
+        "counter": 0,
+        "narrow": 0,
+        "result": 2,
+        "next_seed": 202,
+        "next_cursor": 40988
+      }
+    },
+    {
+      "checkpoint": 2732,
+      "clock": {
+        "tick": 2999,
+        "due": 3007,
+        "minute": 58,
+        "hour": 9,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 09:58am"
+      },
+      "address": "5D23",
+      "draw": {
+        "actor": 31,
+        "width": 3,
+        "mixOffset": 5,
+        "seed": 34,
+        "cursor": 23325,
+        "reads": [
+          {
+            "address": 23581,
+            "value": 0
+          },
+          {
+            "address": 23587,
+            "value": 0
+          },
+          {
+            "address": 23837,
+            "value": 1
+          },
+          {
+            "address": 23843,
+            "value": 1
+          },
+          {
+            "address": 24093,
+            "value": 17
+          },
+          {
+            "address": 24099,
+            "value": 89
+          }
+        ],
+        "video": "fe64c54c325fa2c4354ca5bd19f5d53820525aca436b8b20099e381b9eb96487",
+        "counter": 0,
+        "narrow": 0,
+        "result": 3,
+        "next_seed": 106,
+        "next_cursor": 24093
+      }
     }
   ],
   "wear_scan_writers": "results/extra-look-wear-scan/natural-writers.json",
   "next": {
-    "checkpoint": 2664,
+    "checkpoint": 2780,
     "clock": {
-      "tick": 2931,
-      "due": 3007,
-      "minute": 50,
-      "hour": 8,
+      "tick": 3078,
+      "due": 3078,
+      "minute": 17,
+      "hour": 11,
       "day": 2,
       "period": "am",
-      "label": "Wed 08:50am"
+      "label": "Wed 11:17am"
     },
-    "address": "A022",
+    "command": "NE",
+    "address": "5D1E",
     "draw": {
       "actor": 9,
       "width": 99,
       "mixOffset": 5,
-      "seed": 237,
-      "cursor": 40732,
+      "seed": 228,
+      "cursor": 23326,
       "reads": [
         {
-          "address": 40988,
+          "address": 23582,
           "value": 0
         },
         {
-          "address": 40994,
-          "value": 39
+          "address": 23588,
+          "value": 0
+        },
+        {
+          "address": 23838,
+          "value": 7
+        },
+        {
+          "address": 23844,
+          "value": 0
         }
       ],
-      "video": "fe64c54c325fa2c4354ca5bd19f5d53820525aca436b8b20099e381b9eb96487",
-      "counter": 0,
+      "video": "dd6bfb1ac66f1445a2b0934fe64c41182e3287eda762c8e06d0e054d8d92cd00",
+      "counter": 6,
       "narrow": 0,
-      "result": 2,
-      "next_seed": 202,
-      "next_cursor": 40988
+      "result": 18,
+      "next_seed": 235,
+      "next_cursor": 23838
     }
   },
-  "scan_af_writers": "results/extra-look-scan-af/natural-writers.json"
+  "scan_af_writers": "results/extra-look-scan-af/natural-writers.json",
+  "direction_refusal_writers": "results/direction-rejection-reference/natural-writer.json",
+  "wear_scan_bc_writer": "results/direction-rejection-reference/wear-count-writer.json"
 }

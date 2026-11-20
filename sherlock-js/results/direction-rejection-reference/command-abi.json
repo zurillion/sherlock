@@ -1,0 +1,5315 @@
+{
+  "protocol": "Controlled complete original inputs from natural post-WEAR prompt2287. Three playable identities overlaid at root Portman Street45; failure budget10; no exits except the closed south door. All24 actors retained. Ten directions, abbreviations, full names and GO forms. Capture actual A88C/A8B5 writes in lower channel separately from any later NPC output. Controlled setups are not natural-play certificates.",
+  "cases": [
+    {
+      "player": 0,
+      "action": 1,
+      "command": "N",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 1,
+      "command": "NORTH",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 1,
+      "command": "GO NORTH",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 2,
+      "command": "S",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 2,
+      "command": "SOUTH",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 2,
+      "command": "GO SOUTH",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 3,
+      "command": "E",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 3,
+      "command": "EAST",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 3,
+      "command": "GO EAST",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 4,
+      "command": "W",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 4,
+      "command": "WEST",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 4,
+      "command": "GO WEST",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 5,
+      "command": "NE",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 5,
+      "command": "NORTHEAST",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 5,
+      "command": "GO NORTHEAST",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 6,
+      "command": "NW",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 6,
+      "command": "NORTHWEST",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 6,
+      "command": "GO NORTHWEST",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 7,
+      "command": "SE",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 7,
+      "command": "SOUTHEAST",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 7,
+      "command": "GO SOUTHEAST",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 8,
+      "command": "SW",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 8,
+      "command": "SOUTHWEST",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 8,
+      "command": "GO SOUTHWEST",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 9,
+      "command": "U",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 9,
+      "command": "UP",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 9,
+      "command": "GO UP",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 10,
+      "command": "D",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 10,
+      "command": "DOWN",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 0,
+      "action": 10,
+      "command": "GO DOWN",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 1,
+      "command": "N",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 1,
+      "command": "NORTH",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 1,
+      "command": "GO NORTH",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 2,
+      "command": "S",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 2,
+      "command": "SOUTH",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 2,
+      "command": "GO SOUTH",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 3,
+      "command": "E",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 3,
+      "command": "EAST",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 3,
+      "command": "GO EAST",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 4,
+      "command": "W",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 4,
+      "command": "WEST",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 4,
+      "command": "GO WEST",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 5,
+      "command": "NE",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 5,
+      "command": "NORTHEAST",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 5,
+      "command": "GO NORTHEAST",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 6,
+      "command": "NW",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 6,
+      "command": "NORTHWEST",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 6,
+      "command": "GO NORTHWEST",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 7,
+      "command": "SE",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 7,
+      "command": "SOUTHEAST",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 7,
+      "command": "GO SOUTHEAST",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 8,
+      "command": "SW",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 8,
+      "command": "SOUTHWEST",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 8,
+      "command": "GO SOUTHWEST",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 9,
+      "command": "U",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 9,
+      "command": "UP",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 9,
+      "command": "GO UP",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 10,
+      "command": "D",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 10,
+      "command": "DOWN",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 1,
+      "action": 10,
+      "command": "GO DOWN",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 1,
+      "command": "N",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 1,
+      "command": "NORTH",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 1,
+      "command": "GO NORTH",
+      "text": "YOU CANNOT GO NORTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1475,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1475,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1475,
+      "final_descriptor": 1475,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 2,
+      "command": "S",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 2,
+      "command": "SOUTH",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 2,
+      "command": "GO SOUTH",
+      "text": "YOU CANNOT GO SOUTH.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2074,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2074,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2074,
+      "final_descriptor": 2074,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 3,
+      "command": "E",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 3,
+      "command": "EAST",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 3,
+      "command": "GO EAST",
+      "text": "YOU CANNOT GO EAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 644,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 644,
+          "actor": 0
+        }
+      ],
+      "descriptor": 644,
+      "final_descriptor": 644,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 4,
+      "command": "W",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 4,
+      "command": "WEST",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 4,
+      "command": "GO WEST",
+      "text": "YOU CANNOT GO WEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2450,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2450,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2450,
+      "final_descriptor": 2450,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 5,
+      "command": "NE",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 5,
+      "command": "NORTHEAST",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 5,
+      "command": "GO NORTHEAST",
+      "text": "YOU CANNOT GO NORTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1479,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1479,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1479,
+      "final_descriptor": 1479,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 6,
+      "command": "NW",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 6,
+      "command": "NORTHWEST",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 6,
+      "command": "GO NORTHWEST",
+      "text": "YOU CANNOT GO NORTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 1488,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 1488,
+          "actor": 0
+        }
+      ],
+      "descriptor": 1488,
+      "final_descriptor": 1488,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 7,
+      "command": "SE",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 7,
+      "command": "SOUTHEAST",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 7,
+      "command": "GO SOUTHEAST",
+      "text": "YOU CANNOT GO SOUTHEAST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2078,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2078,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2078,
+      "final_descriptor": 2078,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 8,
+      "command": "SW",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 8,
+      "command": "SOUTHWEST",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 8,
+      "command": "GO SOUTHWEST",
+      "text": "YOU CANNOT GO SOUTHWEST.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2087,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2087,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2087,
+      "final_descriptor": 2087,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 9,
+      "command": "U",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 9,
+      "command": "UP",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 9,
+      "command": "GO UP",
+      "text": "YOU CANNOT GO UP.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 2364,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 2364,
+          "actor": 0
+        }
+      ],
+      "descriptor": 2364,
+      "final_descriptor": 2364,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 10,
+      "command": "D",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 10,
+      "command": "DOWN",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    },
+    {
+      "player": 100,
+      "action": 10,
+      "command": "GO DOWN",
+      "text": "YOU CANNOT GO DOWN.",
+      "stores": [
+        {
+          "pc": 43148,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 23022,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 383,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 909,
+          "actor": 0
+        },
+        {
+          "pc": 43148,
+          "value": 626,
+          "actor": 0
+        },
+        {
+          "pc": 43189,
+          "value": 626,
+          "actor": 0
+        }
+      ],
+      "descriptor": 626,
+      "final_descriptor": 626,
+      "clock": {
+        "tick": 2288,
+        "due": 2288,
+        "minute": 7,
+        "hour": 10,
+        "day": 1,
+        "period": "pm",
+        "label": "Tue 10:07pm"
+      }
+    }
+  ]
+}

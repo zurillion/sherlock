@@ -1,5 +1,9 @@
 # Due salvataggi AF: spazio del LOOK e qualificatore di WEAR
 
+Seguito: [direzioni e registri WEAR](DIREZIONI-E-REGISTRI-WEAR.md),
+2.780 checkpoint fino a mercoledì11:15; prossimo5D1E duranteNE.
+
+
 20 novembre 2026.
 
 La variante con LOOK prima del primo HAIL CAB coincide con l’originale

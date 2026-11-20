@@ -1,0 +1,71 @@
+{
+  "protocol": "Original seed1 extra-LOOK route, all actors, graphics native from boot, free opening LOOK. Observe PUSH/CALL/RST/index PUSH and EX(SP),HL, including same-value stores; independently record changed bytes not explained by those operations. No CPU code in browser engine.",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "handover": {
+    "sha256": "c8a2e13b815ab5c6262dd5c02d5562df925b0b80913b05516ab733036bb60136",
+    "tick": 2286,
+    "next_command": 240,
+    "original_checkpoint": 2004,
+    "clock_room_video_counter_and_mode_match": true,
+    "video": "61d72e303df1a6c463e576a8556f7392003c2a47db29711c56e8dae719254ce3"
+  },
+  "reads": [
+    {
+      "tick": 2998,
+      "command": "WAIT UNTIL 10:06AM",
+      "actor": 31,
+      "address": "5D23",
+      "value": 1,
+      "writer": {
+        "tick": 2286,
+        "command": "WEAR CHINA MANS DISGUISE",
+        "pc": 50103,
+        "sp": 23844,
+        "actor": 0,
+        "registers": [
+          0,
+          0,
+          1,
+          4,
+          63,
+          159,
+          87,
+          51
+        ],
+        "glyph": {
+          "frame": 23852,
+          "character": 115,
+          "counter": 1,
+          "mode": 0,
+          "channel": 0,
+          "descriptor": 23563,
+          "address": 20531,
+          "shift": 4,
+          "return_link": 49905
+        },
+        "stack": [
+          20531,
+          23563,
+          260,
+          29466,
+          49905,
+          29466,
+          264,
+          23566,
+          43520,
+          264,
+          4370,
+          21081,
+          41560,
+          8200,
+          43167,
+          21081
+        ],
+        "address": "5D23",
+        "value": 1
+      },
+      "count": 192
+    }
+  ],
+  "unclassified_transitions": []
+}

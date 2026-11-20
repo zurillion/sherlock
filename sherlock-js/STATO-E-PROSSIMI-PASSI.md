@@ -16,11 +16,11 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Variante LOOK aggiuntivo.** Ricostruire il chiamante che aggiorna
-   $A022, letto dalla cuoca mercoledì alle 08:50. Coincidono 2.664
-   checkpoint fino alle 08:49, con Salva/Carica dopo LOOK e WEAR.
-   Superati anche $5D1A e $5D20 nell’estrazione delle 05:30.
-   [Due produttori AF e conservazione dei rifiuti](SCANSIONI-LOOK-WEAR.md).
+1. **Variante LOOK aggiuntivo.** Ricostruire il nuovo scrittore di
+   $5D1E durante NE, nel checkpoint originale delle 11:17 di mercoledì.
+   Coincidono 2.780 checkpoint fino alle 11:15, con Salva/Carica dopo LOOK
+   e WEAR. Superati A022 alle 08:50 e5D23 alle 09:58.
+   [Descrittore delle direzioni e registri WEAR](DIREZIONI-E-REGISTRI-WEAR.md).
 2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
    e dei finali. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).

@@ -439,6 +439,18 @@ for candidate in candidates:
    note=scan_af_notes.get(rr['a'])
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
+# Direction refusal descriptor and the complete bounded WEAR scan register group.
+direction_source=source(ROOT/'results/direction-rejection-reference/natural-writer.json','Rifiuto SW: ultimo descrittore A022 verificato nell’originale')
+wear_count_source=source(ROOT/'results/direction-rejection-reference/wear-count-writer.json','WEAR: ultimo BC letto a5D23 e handover originale verificato')
+direction_notes={0xA39E:'Movimenti senza argomenti: prima go, poi la direzione aA3A2; ultimo SW lascia0827 inA022.',0xA3A2:'Il riferimento è selezionato dal modello e mascherato daA880.90comandi completi,3identità e10direzioni.',0xA88C:'Canale disabilitato: ritorno prima dello store. Abilitato: store anche per offsetzero; aA8B5 ricombina contesto eoffset.',0xC3B7:'WEAR mans/frame5D2C: BC0104 in5D22–23 al2286; letto a5D23 daattore31 al2998. Proiezione indipendente diAF/BC/HL in20–25.'}
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=at<candidate['end'] for at in (*direction_notes,0xA022)):
+  candidate['sources'].extend([direction_source,wear_count_source])
+  candidate['description']+=' Variante LOOK: rifiutoSW aggiorna A022 dal modello del movimento; scansione WEAR proietta AF,BC,HL in5D20–25.2780checkpoint fino a mercoledì11:15; prossimo5D1E duranteNE.'
+  for rr in candidate['rows']:
+   note=direction_notes.get(rr['a'])
+   if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END

@@ -20,6 +20,16 @@ export class Text {
   return [Boolean(refs[1]&0x2000)!==invert?refs[1]:0,Boolean(refs[3]&0x8000)!==invert?refs[2]:0];
  }
 
+ // A37D emits the modifier first and the main model word last. With
+ // a direction's no-argument model, A3E2 goes straight to the terminator.
+ // A880 strips model metadata before A887 stores the descriptor.
+ directionRejectionReference(action){
+  if(!Number.isInteger(action)||action<1||action>10)return null;
+  const model=this.data.actions.find(a=>a.id===action),reference=model?.wordReferences?.[0];
+  if(!model?.modelFlags||model.modelFlags[0]&12||!Number.isInteger(reference)||reference<0||reference>65535)return null;
+  return reference&4095;
+ }
+
  // D3D5/D3E8 names: qualifier descriptors use context4 (inflected),
  // noun context5 uses the stem. The raw suffix bytes precede AA14 case conversion.
  rawEntityName(id,{indefinite=false}={}){

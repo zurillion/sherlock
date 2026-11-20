@@ -1,0 +1,49 @@
+{
+  "regions": [
+    {
+      "start": "A37D",
+      "end_exclusive": "A3AB",
+      "kind": "code",
+      "label": "Compositore dell\u2019azione: azzera A028 e seleziona il modello corrente.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "A3E2",
+      "end_exclusive": "A3ED",
+      "kind": "code",
+      "label": "Secondo argomento assente o non previsto: passa al terminatore A414 senza una nuova parola.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "A880",
+      "end_exclusive": "A899",
+      "kind": "code",
+      "label": "Carica il riferimento dal modello e maschera il nibble alto di contesto.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "A8AC",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Descrittore e registri del renderer",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C39E",
+      "kind": "code",
+      "label": "WEAR: articolo e qualificatori usano frame5D2C; sono distinti dal verbo a5D2A.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C3B7",
+      "end_exclusive": "C3BB",
+      "kind": "code",
+      "label": "WEAR mans: salva BC=0104 in5D22\u201323 nell\u2019ottava scansione della s, tick2286.",
+      "atlas_priority": 65
+    }
+  ],
+  "instructions": 75,
+  "verification": "Every instruction reassembles and matches the TAP payload in tools/build-memory-map.py.",
+  "unique_bytes": 121
+}
