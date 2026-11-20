@@ -1,0 +1,22 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "first_look": "free",
+    "active_npcs": "all",
+    "teleports": false
+  },
+  "native_corpus": "results/victory-route/victoria-extra-look-native-seed1.json.gz",
+  "native_corpus_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "entry_protocol": "Natural extra-LOOK history resumed from original prompt tick1771. Captured CA76/CBC2 before actual visible announcements at ticks1805/1806/1808/1809. No memory overlays at entry capture. Controlled ABI subsequently resets geometry and inserts marker A5; those cases are not natural-play certificates.",
+  "files": {
+    "entry-1809.json.gz": "199044297beece301122f9e9aa87dc493b3c3986d0328938cf4ebfd52ead211c",
+    "stack-writers.json": "4d88b8aaec19969230d9fe8afc214083bf5a25988363cd81e38a14751ab773a8",
+    "entry-1808.json.gz": "2d29439da832029169ad6ebfabcd09af8f54cd0467c93207bacc419b73a9026c",
+    "announcements-native.json": "daea431ce6f04b05f25f92215a43dbaec0f9f5a040843e350f410972eed56eae",
+    "announcement-abi.json": "7f2bcc659be186a92e4199b4cb336e5f8b14f5cc12fdfe6f272220ba76b0ca9f",
+    "entry-1806.json.gz": "05a643a46af576c350f81e840334d330fc3c10b71fd5238d093288c872aaf8f9",
+    "listing-verification.json": "6662ba6310c27150b1632362dc941c9ec2fa7bec43654c39e07667803c177c94",
+    "entry-1805.json.gz": "9bb2e7d7a139713c0e904e897e0fb8454a51ceb7c6cf7602c1cc90ebbed07550"
+  }
+}

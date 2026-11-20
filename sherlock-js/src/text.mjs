@@ -49,14 +49,16 @@ export class Text {
    events:Array.from(' '+word+'.',c=>({c,known:true}))}];
   // In the relocation announcement, CA76 formats the qualified subject
   // before the verb. C388's frame for the first word is 5D2A.
-  if(relocatingActor!==null&&name.startsWith('Inspector ')){
+  const mover=relocatingActor===null?null:this.world.entity(relocatingActor);
+  if(mover?.person&&(mover.noun&32768)&&name.split(' ').length===2){
+   this.traceNameBuffer(scene_trace,relocatingActor,name,0);
+   const raw=scene_trace.find(e=>e.kind==='raw-text-buffer'&&e.start===0);
+   if(!raw)return {kind:'narrative',text,scene_trace};
+   raw.affectsStack=false;
    const split=name.indexOf(' ');
    scene_trace.push({kind:'relocation-person-prefix',parent:relocatingActor,start:0,end:split,frame:0x5D2A,spaceAfter:true});
    scene_trace.push({kind:'relocation-person-noun',start:split+1,end:name.length,frame:0x5D38});
    scene_trace.push({kind:'relocation-person-verb',start:name.length+1,end:name.length+5,frame:0x5D3A});
-   this.traceNameBuffer(scene_trace,relocatingActor,name,0);
-   const raw=scene_trace.find(e=>e.kind==='raw-text-buffer'&&e.start===0);
-   if(raw)raw.affectsStack=false;
   }
   return {kind:'narrative',text,scene_trace};
  }
@@ -413,6 +415,14 @@ export class Text {
   if(!briefDark)describeExits();
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
+  // D526's final carried name ends the scene. Its separating space
+  // saves the scan's BC below the later noun flush.
+  const finalContents=trace?.findLast(part=>part.kind==='personal-contents'&&part.depth===1&&part.end===output.length&&part.child!==null);
+  if(source==='look'&&w.display?.pictureWindow&&finalContents){
+   const prefix=trace.findLast(part=>part.kind==='carried-object-prefix'&&part.parent===finalContents.child);
+   if(prefix?.frame===0x5D1A&&!(w.entity(prefix.parent).noun&32768))
+    Object.assign(prefix,{spaceShiftKnown:true,spaceCountKnown:true});
+  }
   const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);
   if(listedNoun){
    trace.push({kind:'final-dictionary-reference',value:listedNoun.value});

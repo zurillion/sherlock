@@ -1,6 +1,6 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento 18 novembre 2026.
+Aggiornamento 20 novembre 2026.
 
 Con grafica nativa, il motore JavaScript e lo Spectrum coincidono
 dall’accensione alla vittoria **$6AF3** a Victoria per i seed 0, 1 e 137.
@@ -16,9 +16,11 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Variante LOOK aggiuntivo.** Ricostruire la lettura di $5D1C
-   del giardiniere, martedì alle 20:18. Coincidono 1.896 checkpoint
-   fino alle 20:17. Il corpus originale prosegue fino a Victoria.
+1. **Variante LOOK aggiuntivo.** Ricostruire la lettura di $5D1E
+   della cuoca, mercoledì alle 01:24. Coincidono 2.218 checkpoint
+   fino alle 01:23, incluso Salva/Carica dopo il LOOK di Portman Street.
+   Superato il precedente limite $5D1C del giardiniere.
+   [Writer, notifiche e prove](LOOK-AGGIUNTIVO-E-SEPARATORE.md).
 2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
    e dei finali. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).
@@ -31,7 +33,7 @@ Con grafica nativa, i sei punti Salva/Carica sono verificati anche
 per i seed 0 e 1, con 3.207 checkpoint di prosecuzione per seed.
 [Perimetro e risultati](SALVATAGGI-GRAFICA-NATIVA.md).
 
-La mappa riporta 39.964 byte documentati, 305 parziali e 1.331
+La mappa riporta 40.029 byte documentati, 305 parziali e 1.266
 ancora sconosciuti, su 41.600 byte di memoria del gioco.
 
 

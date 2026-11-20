@@ -13,18 +13,18 @@
     "command": "LOOK"
   },
   "native_checkpoints": 3312,
-  "strict_js_checkpoints": 1896,
+  "strict_js_checkpoints": 2218,
   "verified_until": {
-    "tick": 2178,
-    "due": 2286,
-    "minute": 17,
-    "hour": 8,
-    "day": 1,
-    "period": "pm",
-    "label": "Tue 08:17pm"
+    "tick": 2484,
+    "due": 3007,
+    "minute": 23,
+    "hour": 1,
+    "day": 2,
+    "period": "am",
+    "label": "Wed 01:23am"
   },
-  "draws": 5397,
-  "reads": 11442,
+  "draws": 5898,
+  "reads": 12466,
   "first_room_buffer_read": {
     "checkpoint": 1282,
     "store": {
@@ -652,7 +652,20 @@
       1896
     ]
   },
-  "next": {
+  "last_native_checkpoint": {
+    "clock": {
+      "tick": 3614,
+      "due": 3614,
+      "minute": 13,
+      "hour": 8,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 08:13pm"
+    },
+    "room": 30,
+    "ending": null
+  },
+  "resolved_boundary": {
     "checkpoint": 1896,
     "clock": {
       "tick": 2179,
@@ -689,17 +702,46 @@
       "next_cursor": 23830
     }
   },
-  "last_native_checkpoint": {
+  "carried_separator_writer": "results/extra-look-carried-scan/stack-writers.json",
+  "save_load": {
+    "checkpoint": 1488,
+    "continuation_checkpoints": 729,
+    "comparison": "Fresh JSON session; complete future replies and world state, plus original draws, video, time and pagination through verified prefix."
+  },
+  "next": {
+    "checkpoint": 2218,
     "clock": {
-      "tick": 3614,
-      "due": 3614,
-      "minute": 13,
-      "hour": 8,
+      "tick": 2485,
+      "due": 3007,
+      "minute": 24,
+      "hour": 1,
       "day": 2,
-      "period": "pm",
-      "label": "Wed 08:13pm"
+      "period": "am",
+      "label": "Wed 01:24am"
     },
-    "room": 30,
-    "ending": null
+    "address": "5D1E",
+    "draw": {
+      "actor": 9,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 97,
+      "cursor": 23576,
+      "reads": [
+        {
+          "address": 23832,
+          "value": 26
+        },
+        {
+          "address": 23838,
+          "value": 0
+        }
+      ],
+      "video": "fe64c54c325fa2c4354ca5bd19f5d53820525aca436b8b20099e381b9eb96487",
+      "counter": 0,
+      "narrow": 0,
+      "result": 24,
+      "next_seed": 123,
+      "next_cursor": 23832
+    }
   }
 }

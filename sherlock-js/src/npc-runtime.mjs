@@ -751,6 +751,17 @@ export class NpcRuntime {
      // The target name flushes the preposition before D3D5 prints the article.
      if(start>0)m.scene_trace=[...(m.scene_trace||[]),{kind:'cab-board-into',start,end:start+4,frame:0x5D2A}];
     }
+    // CA76's ordinary proper-door announcements stay above1E on a fresh
+    // wide row. The qualifier/subject paths differ (anonymous:2A, visible:2C/
+    // 2E); a bounded two-row message avoids MORE and its deeper callers.
+    const display=this.game.sourceDisplay.state;
+    const freshWide=w.display?.pictureWindow&&display.windowMode===0&&display.cursor===0&&display.remaining===36&&!display.pending&&display.spacingFlag===0;
+    const rawMatches=id=>{const raw=this.game.text.rawEntityName(id);return raw!==null&&raw.trim().toLowerCase()===w.name(id).toLowerCase();};
+    const properPair=id=>{const entity=w.entity(id);return Boolean(entity.noun&32768)&&w.name(id).split(' ').length===2&&rawMatches(id);};
+    if(freshWide&&display.counter+3<15&&door&&(door.noun&32768)&&rawMatches(door.id)&&w.name(door.id).split(' ').length===3&&(anonymous||properPair(actor)))for(const m of shown)if(m.text.length<=72)m.preserve_renderer_low=true;
+    // CBC2's qualified proper name has frame2C, with minimum20 before
+    // a wrap. This independent low-byte contract does not own later cells.
+    if(freshWide&&display.counter+2<15&&properPair(actor))for(const m of shown)if(m.arrival_entity===actor&&m.text.length<36)m.preserve_renderer_low=true;
     // CBC2 in the ordinary action caller keeps1A–1D for an unqualified
     // proper person name, and the independent1F contract is also verified.
     // Qualified names can wrap at a deeper frame;

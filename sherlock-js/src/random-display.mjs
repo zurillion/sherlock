@@ -163,6 +163,11 @@ export class RandomDisplay {
     at===0x5D2A&&this.glyphSpaceVideoLowKnown===true||
     at===0x5D2B&&this.glyphSpaceVideoHighKnown===true
    );
+   const carriedSeparator=frame===0x5D26&&c===' '&&this.state.pictureWindow&&
+    this.state.windowMode===0&&column<35&&this.state.counter+2<15&&(
+     at===0x5D1C&&this.glyphSpaceShiftKnown===true||
+     at===0x5D1D&&this.glyphSpaceCountKnown===true
+    );
    const briefIdentity=this.briefIdentityKnown===true&&(
     frame===0x5D22&&at>=0x5D1A&&at<=0x5D21||
     // D187's space after the disguise qualifier saves scan AF at 22/23.
@@ -217,7 +222,7 @@ export class RandomDisplay {
    // Preserve the final scan's A at 5D27 and pixel shift at 5D28.
    if([0x5D27,0x5D28].includes(at)&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
-    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival)||
+    (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival&&!carriedSeparator)||
     (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){

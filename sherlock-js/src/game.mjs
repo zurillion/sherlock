@@ -338,7 +338,7 @@ export class Game {
     // arrival only when the actor becomes perceptible from elsewhere.
     if(visibleBefore){
      if(action===28)messages.push(`${subject} goes through ${w.name(gate.id)}.`);
-     else messages.push(this.text.directionalMovement(subject,direction));
+     else messages.push(this.text.directionalMovement(subject,direction,{relocatingActor:actor}));
     }
     if(!visibleBefore&&visibleAfter){const name=w.name(actor,{indefinite:true});messages.push({kind:'narrative',text:name.replace(/^./,c=>c.toUpperCase())+' enters.',arrival_entity:actor});}
     return {...ok(messages,2,action===28?[gate.id]:[]),visibilityResolved:true,...(!visibleBefore?{offstageMovement:true}:{})};

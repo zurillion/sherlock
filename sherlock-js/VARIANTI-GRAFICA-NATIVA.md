@@ -42,9 +42,9 @@ Questa storia aggiunge LOOK prima del primo HAIL CAB, conservando
 gli altri input del percorso principale. Il tempo e la sorgente
 casuale seguono quindi una storia distinta.
 
-Il confronto JavaScript coincide su 1.896 checkpoint fino a
-martedì alle 20:17. A quel punto Holmes si trova a Parliament Street,
-durante WAIT UNTIL 10:05PM. Sono superate le letture $5C15 e $5C16.
+Il confronto JavaScript coincide su 2.218 checkpoint fino a
+mercoledì alle 01:23. Holmes attende a Portman Street,
+anche durante WAIT UNTIL 10:05PM. Sono superate le letture $5C15, $5C16 e $5D1C.
 
 Durante l’arrivo a Leatherhead, al tick 1.536, il descrittore
 $44D3 viene decodificato da $D427/$A815. $A9D7 scrive la
@@ -60,10 +60,15 @@ confrontato sulle 110 entità con entrambe le politiche
 dell’articolo. Tre regressioni mirate controllano l’arrivo,
 i nomi negli argomenti di testo e INVENTORY, compreso LOAD.
 
-Il primo checkpoint escluso è martedì alle 20:18. Il giardiniere
-legge $5D1C. Il chiamante che lascia questo valore richiede
-ancora una ricostruzione. Il test segnala quel confine e conserva
-la protezione del prototipo. La registrazione originale prosegue
+Il LOOK delle 13:30 lascia lo shift dello spazio fra «daily» e
+«chronicle» in $5D1C e il conteggio di scansione in $5D1D.
+Le successive notifiche di Tricia non li sovrascrivono nelle geometrie
+verificate. Il confronto comprende 729 checkpoint dopo Salva/Carica.
+[Analisi del separatore e dei chiamanti](LOOK-AGGIUNTIVO-E-SEPARATORE.md).
+
+Il primo checkpoint escluso è mercoledì alle 01:24: la cuoca legge
+$5D1E. La protezione del prototipo resta attiva su quel percorso.
+La registrazione originale prosegue
 fino a mercoledì alle 20:13, con Holmes al binario di Victoria e
 senza un finale raggiunto a quell’ora.
 

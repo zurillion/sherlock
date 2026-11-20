@@ -1,0 +1,3019 @@
+{
+  "entries": {
+    "1805": {
+      "entry": 51830,
+      "frame": 23914
+    },
+    "1806": {
+      "entry": 52162,
+      "frame": 23914
+    },
+    "1808": {
+      "entry": 51830,
+      "frame": 23916
+    },
+    "1809": {
+      "entry": 51830,
+      "frame": 23912
+    }
+  },
+  "min_sp": {
+    "1805": 23838,
+    "1806": 23840,
+    "1807": 23878,
+    "1808": 23840,
+    "1809": 23838
+  },
+  "glyphs": [
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 83,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 36,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 111,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 35,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 109,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 34,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 101,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 33,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 111,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 32,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 110,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 31,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23868,
+      "character": 101,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 30,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 1547,
+      "remaining": 29,
+      "buffer": "736f6d656f6e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 111,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 28,
+      "buffer": "6f70656e536e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 112,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 27,
+      "buffer": "6f70656e536e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 101,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 26,
+      "buffer": "6f70656e536e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 110,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 25,
+      "buffer": "6f70656e536e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 115,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 24,
+      "buffer": "6f70656e536e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23862,
+      "character": 32,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 18686,
+      "remaining": 23,
+      "buffer": "6f70656e536e656c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 116,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 22,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 114,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 21,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 105,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 20,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 99,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 19,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 105,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 18,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 97,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 17,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 115,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 16,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23862,
+      "character": 32,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 17237,
+      "remaining": 15,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 102,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 14,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 114,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 13,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 111,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 12,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 110,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 11,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23850,
+      "character": 116,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 10,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23862,
+      "character": 32,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 21102,
+      "remaining": 9,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23876,
+      "character": 100,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 8,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23876,
+      "character": 111,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 7,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23876,
+      "character": 111,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 6,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23876,
+      "character": 114,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 5,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23876,
+      "character": 46,
+      "counter": 0,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 4,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1805,
+      "frame": 23880,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 3,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23852,
+      "character": 84,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 36,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23852,
+      "character": 114,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 35,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23852,
+      "character": 105,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 34,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23852,
+      "character": 99,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 33,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23852,
+      "character": 105,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 32,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23852,
+      "character": 97,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 31,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23864,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 21250,
+      "remaining": 30,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23866,
+      "character": 70,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 29,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23866,
+      "character": 101,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 28,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23866,
+      "character": 110,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 27,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23866,
+      "character": 100,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 26,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23866,
+      "character": 101,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 25,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23866,
+      "character": 114,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 24,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23878,
+      "character": 32,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 17048,
+      "remaining": 23,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 101,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 22,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 110,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 21,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 116,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 20,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 101,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 19,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 114,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 18,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 115,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 17,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23872,
+      "character": 46,
+      "counter": 1,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 16,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1806,
+      "frame": 23876,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 15,
+      "buffer": "656e746572532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23854,
+      "character": 84,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 36,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23854,
+      "character": 114,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 35,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23854,
+      "character": 105,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 34,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23854,
+      "character": 99,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 33,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23854,
+      "character": 105,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 32,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23854,
+      "character": 97,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 31,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23866,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 21250,
+      "remaining": 30,
+      "buffer": "7472696369612e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23870,
+      "character": 70,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 29,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23870,
+      "character": 101,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 28,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23870,
+      "character": 110,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 27,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23870,
+      "character": 100,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 26,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23870,
+      "character": 101,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 25,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23870,
+      "character": 114,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 24,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 439,
+      "remaining": 23,
+      "buffer": "66656e6465722e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 99,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 22,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 108,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 21,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 111,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 20,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 115,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 19,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 101,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 18,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 115,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 17,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23864,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 18686,
+      "remaining": 16,
+      "buffer": "636c6f7365532e6c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 116,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 15,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 114,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 14,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 105,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 13,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 99,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 12,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 105,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 11,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 97,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 10,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 115,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 9,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23864,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 17237,
+      "remaining": 8,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 102,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 7,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 114,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 6,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 111,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 5,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 110,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 4,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23852,
+      "character": 116,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 3,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23864,
+      "character": 32,
+      "counter": 2,
+      "mode": 0,
+      "descriptor": 21102,
+      "remaining": 2,
+      "buffer": "66726f6e7461736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23872,
+      "character": 32,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 1,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23878,
+      "character": 100,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 36,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23878,
+      "character": 111,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 35,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23878,
+      "character": 111,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 34,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23878,
+      "character": 114,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 33,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23878,
+      "character": 46,
+      "counter": 3,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 32,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1808,
+      "frame": 23882,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 31,
+      "buffer": "646f6f722e61736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23850,
+      "character": 84,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 36,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23850,
+      "character": 114,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 35,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23850,
+      "character": 105,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 34,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23850,
+      "character": 99,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 33,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23850,
+      "character": 105,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 32,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23850,
+      "character": 97,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 31,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23862,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 21250,
+      "remaining": 30,
+      "buffer": "747269636961736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23864,
+      "character": 70,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 29,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23864,
+      "character": 101,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 28,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23864,
+      "character": 110,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 27,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23864,
+      "character": 100,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 26,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23864,
+      "character": 101,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 25,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23864,
+      "character": 114,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 24,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23876,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 909,
+      "remaining": 23,
+      "buffer": "66656e646572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23866,
+      "character": 103,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 22,
+      "buffer": "676f45536572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23866,
+      "character": 111,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 21,
+      "buffer": "676f45536572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23866,
+      "character": 101,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 20,
+      "buffer": "676f45536572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23866,
+      "character": 115,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 19,
+      "buffer": "676f45536572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 2074,
+      "remaining": 18,
+      "buffer": "676f45536572736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23874,
+      "character": 115,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 17,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23874,
+      "character": 111,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 16,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23874,
+      "character": 117,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 15,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23874,
+      "character": 116,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 14,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23874,
+      "character": 104,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 13,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23874,
+      "character": 46,
+      "counter": 4,
+      "mode": 0,
+      "descriptor": 23563,
+      "remaining": 12,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    },
+    {
+      "tick": 1809,
+      "frame": 23878,
+      "character": 32,
+      "counter": 5,
+      "mode": 0,
+      "descriptor": 23072,
+      "remaining": 11,
+      "buffer": "736f7574682e736c652e656400010006001000000000000000000000"
+    }
+  ]
+}

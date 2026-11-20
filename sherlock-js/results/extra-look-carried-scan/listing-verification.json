@@ -1,0 +1,42 @@
+{
+  "instructions": 186,
+  "bytes_roundtripped": 322,
+  "roundtrip_equal": true,
+  "regions": [
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA10",
+      "kind": "code",
+      "label": "Scarico della parola e separatore del nome",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo: shift e contatore salvati dallo spazio del nome portato",
+      "atlas_priority": 98
+    },
+    {
+      "start": "CA76",
+      "end_exclusive": "CA7F",
+      "kind": "code",
+      "label": "Annuncio ordinario: soppressione e chiamata al formatter",
+      "atlas_priority": 98
+    },
+    {
+      "start": "CAAF",
+      "end_exclusive": "CB12",
+      "kind": "code",
+      "label": "Arrivo e porta condivisa: soggetto anonimo temporaneo",
+      "atlas_priority": 98
+    },
+    {
+      "start": "CBC2",
+      "end_exclusive": "CC0B",
+      "kind": "code",
+      "label": "Notifica di arrivo nel contesto dell\u2019osservatore",
+      "atlas_priority": 98
+    }
+  ]
+}

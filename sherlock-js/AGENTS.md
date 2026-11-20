@@ -1450,3 +1450,5 @@ non raggiungibilità ditutte le forme;non presentare36comandi comeinteramenteequ
   original reference has 562 rows through Wed 23:00. Baseline 6A33 again
   verifies 521 rows through Thu 10:00. Natural 6ABD and other open endings
   remain to verify. Atlas refinements preserve the byte classifications.
+
+- Read LOOK-AGGIUNTIVO-E-SEPARATORE.md for the extra-LOOK native-graphics variant. Strict prefix is 2218 checkpoints through Wed01:23; next excluded is5D1E at01:24 (cook9). C39C at tick1770 stores shift C and scan count B of the daily/chronicle separator, frame5D26, in1C/1D. Tricia’s anonymous door, arrival, closing and departure have distinct shallow frames; preserve low bytes only in bounded ordinary-caller geometries. Keep partial-row counterexamples, raw dictionary name matching and missing legacy-save fields. Save/load at1488 verifies729 future checkpoints. Room45 is Portman Street, not Parliament Street.
