@@ -2,10 +2,14 @@
 
 20 novembre 2026.
 
-La variante con LOOK prima del primo HAIL CAB coincide ora con l’originale
+Aggiornamento successivo: superati anche $5D1A e $5D20; il prefisso
+coincide fino alle 08:49 su 2.664 checkpoint.
+[Nuovi contratti e prossimo limite](SCANSIONI-LOOK-WEAR.md).
+
+Questa fase ha verificato la variante con LOOK prima del primo HAIL CAB
 per **2.464 checkpoint**, fino a **mercoledì alle 05:29**. Sono superate
-le letture di $5D1E e $5D1F della cuoca. Il prossimo checkpoint escluso
-è alle **05:30**: il giardiniere legge $5D1A e poi $5D20 nella stessa
+le letture di $5D1E e $5D1F della cuoca. Il checkpoint allora escluso
+era alle **05:30**: il giardiniere legge $5D1A e poi $5D20 nella stessa
 estrazione. Il modello segnala il primo campo ancora sconosciuto.
 
 Il profilo resta seed 1, tutti i 24 attori, grafica nativa dall’avvio,

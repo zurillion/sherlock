@@ -59,7 +59,7 @@ test('Qualified missing-object errors preserve just the independently proven sca
   assert.equal(message.preserve_renderer_1e,true,row.player+' '+row.command);assert.equal(message.preserve_renderer_1f,true,row.player+' '+row.command);
   p.state.scratch[0x5D1E]=165;p.state.scratch[0x5D1F]=165;p.error([message]);
   assert.deepEqual([p.read(0x5D1E),p.read(0x5D1F)],row.cells);
-  if(node.groups[0].qualifiers.length)assert.equal(message.preserve_renderer_low,undefined,'No blanket ownership of the lower cells');
+  if(node.groups[0].qualifiers.length)assert.equal(message.preserve_renderer_26,undefined,'The new qualified contract stops at25');
  }
 });
 

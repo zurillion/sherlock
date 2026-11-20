@@ -1,0 +1,120 @@
+{
+  "protocol": "Original seed1 extra-LOOK route, all actors, graphics native from boot, free opening LOOK. Observe PUSH/CALL/RST/index PUSH and EX(SP),HL, including same-value stores; independently record changed bytes not explained by those operations. No CPU code in browser engine.",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "handover": null,
+  "reads": [
+    {
+      "tick": 2730,
+      "command": "WAIT UNTIL 10:06AM",
+      "actor": 8,
+      "address": "5D1A",
+      "value": 0,
+      "writer": {
+        "tick": 1770,
+        "command": "LOOK",
+        "pc": 50077,
+        "sp": 23836,
+        "actor": 0,
+        "registers": [
+          0,
+          0,
+          1,
+          0,
+          61,
+          7,
+          87,
+          48
+        ],
+        "glyph": {
+          "frame": 23846,
+          "character": 32,
+          "counter": 4,
+          "mode": 0,
+          "channel": 0,
+          "descriptor": 20907,
+          "address": 20528,
+          "shift": 0,
+          "return_link": 49905
+        },
+        "stack": [
+          256,
+          20528,
+          20907,
+          11520,
+          8218,
+          49905,
+          8339,
+          11521,
+          41550,
+          43167,
+          20907,
+          11521,
+          41550,
+          35770,
+          43044,
+          54341
+        ],
+        "address": "5D1A",
+        "value": 0
+      },
+      "count": 37709
+    },
+    {
+      "tick": 2730,
+      "command": "WAIT UNTIL 10:06AM",
+      "actor": 8,
+      "address": "5D20",
+      "value": 0,
+      "writer": {
+        "tick": 2286,
+        "command": "WEAR CHINA MANS DISGUISE",
+        "pc": 50104,
+        "sp": 23842,
+        "actor": 0,
+        "registers": [
+          0,
+          0,
+          1,
+          4,
+          63,
+          159,
+          87,
+          51
+        ],
+        "glyph": {
+          "frame": 23852,
+          "character": 115,
+          "counter": 1,
+          "mode": 0,
+          "channel": 0,
+          "descriptor": 23563,
+          "address": 20531,
+          "shift": 4,
+          "return_link": 49905
+        },
+        "stack": [
+          260,
+          20531,
+          23563,
+          260,
+          29466,
+          49905,
+          29466,
+          264,
+          23566,
+          43520,
+          264,
+          4370,
+          21081,
+          41560,
+          8200,
+          43167
+        ],
+        "address": "5D20",
+        "value": 0
+      },
+      "count": 78224
+    }
+  ],
+  "unclassified_transitions": []
+}

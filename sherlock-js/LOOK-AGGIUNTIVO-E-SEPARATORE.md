@@ -3,8 +3,8 @@
 20 novembre 2026.
 
 Aggiornamento successivo: il contratto WEAR supera anche $5D1E–$5D1F.
-La variante coincide ora fino alle 05:29 di mercoledì su 2.464 checkpoint.
-[Nuova analisi e prossimo limite](WEAR-E-SCANSIONE-NOTTURNA.md).
+La variante coincide ora fino alle 08:49 di mercoledì su 2.664 checkpoint.
+[Nuova analisi e prossimo limite](SCANSIONI-LOOK-WEAR.md).
 
 Questa fase ha verificato la variante con un LOOK prima del primo
 HAIL CAB su **2.218 checkpoint**, fino a mercoledì alle **01:23**.

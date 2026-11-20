@@ -117,7 +117,7 @@ test('Original arrivals preserve caller C and can overwrite scan BC on a wrapped
     const message = game.resolve(game.parser.parse(command).nodes[0], 19).message;
     game.sourceDisplay.error([message]);
     const simple = command === 'EXAMINE STREAM';
-    assert.equal(game.sourceDisplay.read(0x5D22), simple ? 5 : null);
+    assert.equal(game.sourceDisplay.read(0x5D22), 5);
     assert.equal(game.sourceDisplay.read(0x5D28), simple ? 4 : null);
     assert.equal(game.sourceDisplay.read(0x5D29), simple ? 1 : null);
   }

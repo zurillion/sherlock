@@ -190,7 +190,7 @@ export class Text {
   const walk=key=>{if(++depth>24)throw Error('Text recursion');const tokens=this.data.texts[key];if(!tokens)throw Error('Unknown text fragment '+key);fragments.push(key);for(const t of tokens)if(emit(t))break;fragments.pop();depth--;};
   walk(id);return result.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
  }
- scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look',perceptionRoom}={}){
+ scene({full=true,room=this.world.roomOf(),remote=false,mark=true,trace=null,source='look',perceptionRoom,ordinaryLook=true}={}){
   const w=this.world,r=w.rooms[room],text=[],actorName=remote&&w.entity(w.player).parent!==null?w.name(w.entity(w.player).parent).replace(/^./,c=>c.toUpperCase()):w.player===0?'You':w.name(w.player,{indefinite:true}).replace(/^./,c=>c.toUpperCase()),actorIs=actorName+(w.player===0?' are':' is');w.lastListed=[];
   const briefDark=!full&&!remote&&w.dark(w.player,perceptionRoom);
   const parent=remote?null:w.entity(w.player).parent;
@@ -416,12 +416,15 @@ export class Text {
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
   // D526's final carried name ends the scene. Its separating space
-  // saves the scan's BC below the later noun flush.
+  // saves the scan's AF and BC below the later noun flush.
   const finalContents=trace?.findLast(part=>part.kind==='personal-contents'&&part.depth===1&&part.end===output.length&&part.child!==null);
   if(source==='look'&&w.display?.pictureWindow&&finalContents){
    const prefix=trace.findLast(part=>part.kind==='carried-object-prefix'&&part.parent===finalContents.child);
-   if(prefix?.frame===0x5D1A&&!(w.entity(prefix.parent).noun&32768))
+   if(prefix?.frame===0x5D1A&&!(w.entity(prefix.parent).noun&32768)){
     Object.assign(prefix,{spaceShiftKnown:true,spaceCountKnown:true});
+    const raw=trace.find(part=>part.kind==='raw-text-buffer'&&part.start===prefix.start&&part.end===finalContents.end-1);
+    if(ordinaryLook===true&&raw&&!w.entity(prefix.parent).money)Object.assign(prefix,{spaceScanKnown:true,spaceByteKnown:true});
+   }
   }
   const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);
   if(listedNoun){

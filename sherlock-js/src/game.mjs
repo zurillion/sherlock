@@ -148,18 +148,18 @@ export class Game {
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
   // Ordinary absent-object rejections in a root room without prose do
-  // not reach the saved scan AF at1E/1F, including bounded qualifiers.
-  // The wider low-word contract remains restricted to simple EXAMINE.
+  // preserve1A–25, including bounded qualifiers. The wider26–2B and
+  // lower-row-clear contracts remain restricted to simple EXAMINE.
   if(scenery?.action===action&&scenery.slot===slot){
    const relations=([45,47,48].includes(action)?[]:action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();
    const dictionaryWords=!scenery.found&&this.actingActor===undefined&&this.actor===w.player?this.text.rejectionDictionaryWords(action,slot):null;
    if(dictionaryWords&&w.npcs)w.npcs.rejectionSlot=slot;
    const ordinaryAbsent=!scenery.found&&this.actingActor===undefined&&this.actor===w.player&&!node.quote&&!node.subject&&!node.all&&node.groups.length===1&&group.noun&&!group.relations.length&&w.entity(w.player).parent===null&&!w.dark()&&!w.rooms[w.roomOf()].description;
    const preserveLow=ordinaryAbsent&&[19,20].includes(action)&&!group.qualifiers.length;
-   const preserveScan=ordinaryAbsent&&[11,14,19,20,23,36,41].includes(action)&&group.qualifiers.length<=2;
+   const preserveAbsent=ordinaryAbsent&&[11,14,19,20,23,36,41].includes(action)&&group.qualifiers.length<=2;
    const message=this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`);
    if(preserveLow)Object.assign(message,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true,lower_scenery_clear:true});
-   if(preserveScan)Object.assign(message,{preserve_renderer_1e:true,preserve_renderer_1f:true});
+   if(preserveAbsent)Object.assign(message,{preserve_renderer_low:true,preserve_renderer_1e:true,preserve_renderer_1f:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_22:true,preserve_renderer_23:true,preserve_renderer_24:true,preserve_renderer_25:true});
    if(dictionaryWords)message.dictionary_reference=dictionaryWords.at(-1);
    return {message};
   }
@@ -193,7 +193,7 @@ export class Game {
   if(!SUPPORTED_ACTIONS.includes(action))throw new UnsupportedFeature(`azione ${action} (${this.word(node.verb)})`);
   const lightFreeLocal=node.groups[0]&&w.entities.some(e=>w.nounMatches(e,node.groups[0])&&e.rules.some(r=>r.action===action&&['takeBurningNote','openSafe','untranslated:E0A0','untranslated:E0E0','untranslated:E0F2','untranslated:E104'].includes(r.rule)));
   if(w.dark(actor)&&![31,43,46,47,48,49,50,51,53,54].includes(action)&&!lightFreeLocal)return reject('SORRY IT IS TOO DARK.');
-  if(action===34)return actor===w.player?ok([{...this.sceneMessage({source:'look'}),image_room:w.roomOf(),...(w.display?.pictureWindow&&this.actingActor===undefined?{picture_bounded:true}:{})}]):ok([],1);
+  if(action===34)return actor===w.player?ok([{...this.sceneMessage({source:'look',ordinaryLook:this.actingActor===undefined}),image_room:w.roomOf(),...(w.display?.pictureWindow&&this.actingActor===undefined?{picture_bounded:true}:{})}]):ok([],1);
   if(action===33){
    this.text.setQualifierMode(0);
    const listed=w.entities.filter(e=>e.parent===actor&&e.rooms.length<2&&w.perceived(e.id,actor));

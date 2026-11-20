@@ -697,14 +697,15 @@ export class NpcRuntime {
  annotateArgumentPrefix(out,messages=out.messages,{player=false}={}){
   const w=this.w;
   // The action formatter flushes WEAR at frame2A; its final scan owns1E/1F.
-  // The argument qualifiers use2C and the final noun46. A fresh, short
+  // The argument qualifiers use2C (scan AF20/21) and the final noun46.
+  // A fresh, short
   // wide-row caption cannot wrap back below that verb's scan frame.
   const display=this.game.sourceDisplay.state;
   if(player&&!out.projected&&out.cost&&out.action===51&&out.args[0]!==undefined&&w.display?.pictureWindow&&display.windowMode===0&&display.cursor===0&&display.remaining===36&&!display.pending&&display.spacingFlag===0&&display.counter+3<15){
    const id=out.args[0],name=w.name(id);
    for(const m of messages)if(!m.scene_trace&&m.text==='You wear '+name+'.'&&m.text.length<36){
     const trace=[];this.game.text.traceNameBuffer(trace,id,name,9);
-    if(trace.length){for(const raw of trace)raw.affectsStack=false;m.scene_trace=[{kind:'wear-action-verb',start:4,end:8,frame:0x5D2A},...trace];}
+    if(trace.length){for(const raw of trace)raw.affectsStack=false;m.scene_trace=[{kind:'wear-action-verb',start:4,end:8,frame:0x5D2A},{kind:'wear-argument-prefix',start:9,end:9+name.lastIndexOf(' '),frame:0x5D2C},...trace];}
    }
   }
   if(!out.projected&&out.cost&&[12,43].includes(out.action)&&out.args[0]!==undefined){

@@ -42,9 +42,9 @@ Questa storia aggiunge LOOK prima del primo HAIL CAB, conservando
 gli altri input del percorso principale. Il tempo e la sorgente
 casuale seguono quindi una storia distinta.
 
-Il confronto JavaScript coincide su 2.464 checkpoint fino a
-mercoledì alle 05:29. Holmes attende a Portman Street,
-anche durante WAIT UNTIL 10:05PM. Sono superate le letture $5C15, $5C16, $5D1C, $5D1E e $5D1F.
+Il confronto JavaScript coincide su 2.664 checkpoint fino a
+mercoledì alle 08:49. Holmes attende a Portman Street,
+anche durante WAIT UNTIL 10:05PM. Sono superate le letture $5C15, $5C16, $5D1C, $5D1E e $5D1F, oltre a $5D1A e $5D20.
 
 Durante l’arrivo a Leatherhead, al tick 1.536, il descrittore
 $44D3 viene decodificato da $D427/$A815. $A9D7 scrive la
@@ -63,14 +63,15 @@ i nomi negli argomenti di testo e INVENTORY, compreso LOAD.
 Il LOOK delle 13:30 lascia lo shift dello spazio fra «daily» e
 «chronicle» in $5D1C e il conteggio di scansione in $5D1D.
 Le successive notifiche di Tricia non li sovrascrivono nelle geometrie
-verificate. Il confronto comprende Salva/Carica dopo LOOK e dopo WEAR, con 458
+verificate. Il confronto comprende Salva/Carica dopo LOOK e dopo WEAR, con 658
 checkpoint di futuro dopo quest’ultimo.
 [Analisi del separatore e dei chiamanti](LOOK-AGGIUNTIVO-E-SEPARATORE.md).
 
-WEAR lascia AF della scansione del verbo in $5D1E–$5D1F; i successivi
-rifiuti senza descrizione li conservano. Il primo checkpoint escluso
-è mercoledì alle 05:30: il giardiniere legge $5D1A, poi $5D20.
-[Analisi di WEAR e dei rifiuti](WEAR-E-SCANSIONE-NOTTURNA.md).
+Lo spazio del LOOK conserva AF in $5D1A–$5D1B; i qualificatori di WEAR
+lo conservano in $5D20–$5D21. I rifiuti senza descrizione mantengono i
+campi verificati fino a $5D25. Il primo checkpoint escluso è mercoledì
+alle 08:50: la cuoca legge $A022.
+[Nuova analisi dei due AF](SCANSIONI-LOOK-WEAR.md).
 La protezione del prototipo resta attiva su quel percorso.
 La registrazione originale prosegue
 fino a mercoledì alle 20:13, con Holmes al binario di Victoria e

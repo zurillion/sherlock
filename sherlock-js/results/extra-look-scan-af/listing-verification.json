@@ -1,0 +1,42 @@
+{
+  "instructions": 188,
+  "bytes_roundtripped": 339,
+  "roundtrip_equal": true,
+  "regions": [
+    {
+      "start": "A3A2",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Verbo in attesa e nome del primo argomento",
+      "atlas_priority": 98
+    },
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA10",
+      "kind": "code",
+      "label": "Scarico della parola nel contesto del separatore",
+      "atlas_priority": 98
+    },
+    {
+      "start": "B6FD",
+      "end_exclusive": "B710",
+      "kind": "code",
+      "label": "Ritorno senza ricerca se manca la descrizione",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "AF dello spazio LOOK e del qualificatore WEAR",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome di entit\u00e0: articolo, qualificatori e sostantivo",
+      "atlas_priority": 98
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "first_look": "free",
+    "active_npcs": "all",
+    "teleports": false
+  },
+  "native_corpus": "results/victory-route/victoria-extra-look-native-seed1.json.gz",
+  "native_corpus_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "original_payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
+  "cold_trace": true,
+  "controlled_protocol": "The wide rejection ABI restores the original post-WEAR prompt for each case, explicitly overlays playable identity, failure budget and marker bytes. These controls do not claim natural reachability. Browser code imports no oracle or captured replies.",
+  "files": {
+    "look-wear-af.asm": "de4486f9394fee1ea6832783f811bc0b9e1a3fccd0f61d2209254185c3a0aadc",
+    "listing-verification.json": "af9edce482d71446dcba219899ad08405d9e7a93b3b191e550b699c36c55442e",
+    "natural-writers.json": "bb52c0098299892b31a2af420aa75be7ee46fffac904d624ea60b585b1f91a11",
+    "rejection-abi.json": "45ef2c68ab5568c5e42bcced6de2e630b0a8b81fc728aa99825363621fcdfdeb"
+  }
+}
