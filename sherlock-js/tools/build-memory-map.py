@@ -452,15 +452,27 @@ for candidate in candidates:
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
 # The following writer is observed but its scene-caller projection remains open.
-ne_source=source(ROOT/'results/direction-rejection-reference/next-ne-writers.json','NE: ultimi writer osservati di5D1E e5D24; contratto ancora aperto')
+ne_source=source(ROOT/'results/direction-rejection-reference/next-ne-writers.json','NE: primi writer osservati di5D1E e5D24; chiamante ora identificato')
 for candidate in candidates:
- if candidate['start']==0x5CEC or candidate['start']<=0xC3B7<candidate['end'] or candidate['start']<=0x7319<candidate['end']:
+ if candidate['start']==0x5CEC or candidate['start']<=0xC3B7<candidate['end']:
   candidate['sources'].append(ne_source)
-  candidate['description']+=' Prossimo limite NE: C3B7 al3076 salva C=7 della s/frame5D28 in1E; C3B8 salva AF dello spazio/frame5D30 in24. Stack731A: yes del frammento7319. Lo spazio è chiamato dalla puliziaC377. Il chiamante di stampa resta da proiettare: nessuna estensione della proprietà nel motore.'
+  candidate['description']+=' Analisi iniziale NE, ora superato: C3B7 al3076 salva C=7 della s/frame5D28 in1E; C3B8 salva AF dello spazio/frame5D30 in24. Correzione:731A è AF salvato della s; la parola nel buffer è exits (68F1/D68C), non yes. Lo spazio è chiamato dalla puliziaC377. Il chiamante è D68C nell’arrivo completo; proiezione ora verificata da full-arrival-exits, entro i limiti misurati.'
   for rr in candidate['rows']:
    if rr['a']==0xC3B7:
     note='Nel successivo NE, frame5D28: lo stesso PUSH scrive C in5D1E, non F del vecchio WEAR. Contratto del nuovo chiamante ancora aperto.'
     if note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
+# Full ordinary arrival: measured word boundaries and typed saved-register provenance.
+full_exit_source=source(ROOT/'results/full-arrival-exits/natural-ne-detail.json','Arrivo completo: buffer exits, frame e salvataggi AF verificati')
+full_exit_abi=source(ROOT/'results/full-arrival-exits/formatter-abi.json','540 geometrie native: zero/una/due uscite,36colonne,5contatori')
+full_exit_notes={0x68F1:'Testo compresso: visible exits are. La s aC388/SP5D28 appartiene a exits, non a yes.',0xD179:'Chiamata D68C dell’arrivo completo, SP5D5E nel profilo misurato.',0xD69A:'Seleziona68F1 per le uscite senza oggetto interposto.',0xA9DF:'Parola attiva: intervallo5C0B..HL. I byte residui dopo HL non appartengono alla parola.',0xC2BC:'AF salvato:731A è s con flag1A, non un puntatore a731A.',0xC3B7:'Arrivo completo: exits/frame5D28 salva C in5D1E. Le direzioni/frame5D36 possono pulire la riga con spazio/frame5D30, F in5D24.'}
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=at<candidate['end'] for at in full_exit_notes):
+  candidate['sources'].extend([full_exit_source,full_exit_abi])
+  candidate['description']+=' Arrivo completo del giocatore0,radice,senza contenuti da elencare: exits/frame5D28 e pulizia da direzioni/frame5D30. Corretto falso collegamento a7319:731A è AF.2962checkpoint fino a mercoledì14:22,prossimo5D20/Watson alle14:23. Nessuna proprietà per altri chiamanti o oltre i limiti misurati.'
+  for rr in candidate['rows']:
+   note=full_exit_notes.get(rr['a'])
+   if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.

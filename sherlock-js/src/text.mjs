@@ -305,6 +305,20 @@ export class Text {
    if(trace&&source==='cab-arrival'&&parent!==null&&full&&!r.description)
     trace.push({kind:'cab-arrival-exits',start:start-'exits are '.length,end:start-' are '.length,frame:0x5D24});
    text.push('Visible exits are '+directions+'.');
+   // D102/D178 calls D68C at SP5D5E for the ordinary full arrival.
+   // A887's 'are' flushes EXITS at5D28; successive directions flush
+   // ARE and their predecessor at5D36. With no room contents, the last
+   // direction is flushed by the action's final CR at5D48.
+   if(trace&&w.display?.pictureWindow&&source==='arrival'&&full&&!remote&&parent===null&&w.player===0&&exits.length<=2&&!list(null).length){
+    trace.push({kind:'full-player-exits',start:start-'exits are '.length,end:start-' are '.length,frame:0x5D28});
+    trace.push({kind:'full-player-exit-word',start:start-4,end:start-1,frame:0x5D36});
+    let offset=start;
+    for(const [i,direction]of exits.entries()){
+     const last=i===exits.length-1;
+     trace.push({kind:'full-player-exit-word',start:offset,end:offset+direction.length+(last?1:0),frame:last?0x5D48:0x5D36});
+     offset+=direction.length+1;
+    }
+   }
    // D6A6 passes the last direction's dictionary word to A887.
    // A414 emits the period without changing A022/A023.
    if(trace&&w.display?.pictureWindow&&source==='arrival'&&!full&&!remote&&parent===null){

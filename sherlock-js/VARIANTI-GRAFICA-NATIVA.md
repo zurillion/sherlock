@@ -1,5 +1,9 @@
 # Varianti del percorso con grafica nativa
 
+Seguito: [EXITS e scorrimento](USCITE-E-SCANSIONE-5D1E.md),
+2.962 checkpoint fino a mercoledì14:22; prossimo5D20/Watson.
+
+
 Seguito: [direzioni e registri WEAR](DIREZIONI-E-REGISTRI-WEAR.md),
 2.780 checkpoint fino a mercoledì11:15; prossimo5D1E duranteNE.
 

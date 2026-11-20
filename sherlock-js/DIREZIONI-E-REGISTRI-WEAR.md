@@ -1,5 +1,9 @@
 # Il descrittore dei rifiuti di movimento e i registri di WEAR
 
+Seguito: [EXITS e scorrimento](USCITE-E-SCANSIONE-5D1E.md),
+2.962 checkpoint fino a mercoledì14:22; prossimo5D20/Watson.
+
+
 20 novembre 2026.
 
 La variante con un LOOK prima del primo HAIL CAB coincide per **2.780
@@ -130,10 +134,8 @@ misurarne il contratto nelle geometrie ammesse, quindi estenderne la
 proiezione. Non sono ancora introdotti nuovi valori nel motore.
 [Prova dei due scrittori](results/direction-rejection-reference/next-ne-writers.json).
 
-La catena del primo store contiene $731A, il token letterale **yes**
-del frammento **$7319**: «Yes Inspector, unfortunately nothing was found.»
-La s osservata conclude quel letterale. Questo indizio riguarda una stampa
-attiva durante NE, non basta ad attribuirla alla descrizione della locazione
-o a un NPC preciso. Il secondo store appartiene al glifo spazio chiamato
-dalla pulizia di riga: il ritorno del glifo è $C377. Conservare questa
-distinzione quando si ricostruiscono i contratti del formatter.
+**Correzione dell’interpretazione dello stack:** $731A è AF salvato per il
+carattere s ($73) e i flag $1A. Non è un puntatore al token yes e non
+identifica il frammento $7319. La traccia successiva misura la parola nel
+buffer e identifica exits, nell’elenco $68F1 stampato da $D68C.
+[Analisi corretta e prosecuzione](USCITE-E-SCANSIONE-5D1E.md).

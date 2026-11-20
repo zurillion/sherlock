@@ -1,0 +1,55 @@
+{
+  "regions": [
+    {
+      "start": "D16B",
+      "end_exclusive": "D182",
+      "kind": "code",
+      "label": "Chiamante dell\u2019elenco uscite",
+      "atlas_priority": 65
+    },
+    {
+      "start": "D68C",
+      "end_exclusive": "D6B8",
+      "kind": "code",
+      "label": "Salva quattro coppie di registri e enumera le uscite prive di oggetto interposto.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA04",
+      "kind": "code",
+      "label": "Lunghezza della parola da HL meno5C0B. Il buffer non termina necessariamente con zero.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C2BA",
+      "end_exclusive": "C2BD",
+      "kind": "code",
+      "label": "Chiamante dell\u2019elenco uscite",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C39E",
+      "kind": "code",
+      "label": "Salva nuovamente AF prima della scansione: il tipo del dato viene dal PUSH.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C3B7",
+      "end_exclusive": "C3BB",
+      "kind": "code",
+      "label": "Con frame5D28, C della scansione occupa5D1E; la s di exits lascia7 nella traccia naturale.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "68F1",
+      "end_exclusive": "6900",
+      "kind": "data",
+      "label": "Introduzione: Visible exits are",
+      "atlas_priority": 65
+    }
+  ],
+  "instructions": 73,
+  "unique_bytes": 148
+}

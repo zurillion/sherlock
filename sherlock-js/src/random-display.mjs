@@ -202,6 +202,9 @@ export class RandomDisplay {
    const wearArgumentScan=this.cabWordRole==='wear-argument-prefix'&&frame===0x5D2C&&at>=0x5D20&&at<=0x5D25;
    const actionVerbScan=['qualified-hail-verb','cabbie-talk-preposition','wear-action-verb'].includes(this.cabWordRole)&&
     frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
+   const fullExitScope=this.state.pictureWindow&&this.state.windowMode===0&&this.state.counter+6<15;
+   const fullExitScan=fullExitScope&&this.cabWordRole==='full-player-exits'&&frame===0x5D28&&at===0x5D1E;
+   const fullExitClear=fullExitScope&&this.cabWordRole==='full-player-exit-word'&&frame===0x5D30&&descriptor===0x5A20&&at===0x5D24;
    const exitListScan=this.cabWordRole==='brief-disguised-exits'&&frame===0x5D30&&[0x5D24,0x5D25].includes(at);
    const playerHailName=this.cabWordRole==='player-hail-qualifier'&&frame===0x5D2C&&[0x5D24,0x5D25,0x5D2A].includes(at);
    const trainBoardName=this.cabWordRole==='train-board-name'&&frame===0x5D2C&&[0x5D20,0x5D26].includes(at);
@@ -226,8 +229,8 @@ export class RandomDisplay {
    if([0x5D27,0x5D28].includes(at)&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival&&!carriedSeparator)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan)||
-    (at===0x5D1E&&this.upperGlyphKnown!==true&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!fullExitClear)||
+    (at===0x5D1E&&this.upperGlyphKnown!==true&&!fullExitScan&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
     return;

@@ -1,0 +1,60 @@
+{
+  "profile": {
+    "seed": 1,
+    "all_24_actors": true,
+    "native_graphics": true,
+    "first_look": "free",
+    "teleports": false
+  },
+  "strict_checkpoints": 2962,
+  "through": "Wed 02:22pm",
+  "draws": 7801,
+  "reads": 16562,
+  "save_load_points": [
+    1488,
+    2005,
+    2780
+  ],
+  "last_load_future_checkpoints": 181,
+  "next": {
+    "checkpoint": 2962,
+    "clock": "Wed 02:23pm",
+    "actor": 3,
+    "address": "5D20"
+  },
+  "test_results": [
+    {
+      "name": "formatter_and_map_22",
+      "passed": true,
+      "log_sha256": "cbed9a388aea4f0f12395a1095e4734c7c5bdc8a70c996972a4cafabe2c14f39"
+    },
+    {
+      "name": "glyph_contract_49",
+      "passed": true,
+      "log_sha256": "13c45640f1a05ab5ff368b18781da0e6a518806e5251c099528378d5f21214c1"
+    },
+    {
+      "name": "cold_extra_look",
+      "passed": true,
+      "log_sha256": "2743ad90f21927444e4363fb0040f10d8cd339b7dd439700abe2833ad9d7008d"
+    },
+    {
+      "name": "victory_seed0",
+      "passed": true,
+      "log_sha256": "c16f9fc9eed861eda63bb3df75114ee26fddb0001dcf27b66a19c08fd05e9880"
+    },
+    {
+      "name": "victory_seed1",
+      "passed": true,
+      "log_sha256": "812ad42ec87b5c23e0f2d1db365556a448e57078023298dc2d430358f47c0e78"
+    },
+    {
+      "name": "victory_seed137",
+      "passed": true,
+      "log_sha256": "41e77dbc6b5200bbb9c51741bb98ed8f019f2f67a7193050e3e8acec4c35ac6d"
+    }
+  ],
+  "gameplay_scope": "Specified histories and owned formatter callers; not whole-game equivalence.",
+  "abi_report": "verification.json",
+  "original_corpus_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639"
+}

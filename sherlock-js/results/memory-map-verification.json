@@ -1,6 +1,6 @@
 {
   "payload_sha256": "c5d48285c0cee5c25cf4734dff0ac8296c0ec0194135e3a72267e49724ac8407",
-  "atlas_sha256": "1f87d7154feca9b9746abb8f1b1b3f6bdf1095c0d3edbd4dc6f5c8eea9c2c15d",
+  "atlas_sha256": "fccf746f9a52a26b2c62928b4bf795bf755e5abb0079b489f8b948b75cb0cd21",
   "payload_bytes": 41600,
   "unique_counts": {
     "partial": 305,
@@ -8,10 +8,10 @@
     "documented": 40029
   },
   "segments": 1247,
-  "sources": 132,
+  "sources": 135,
   "all_listing_bytes_match": true,
   "all_listing_operations_reassemble": true,
-  "checked_bytes_with_duplicates": 69717,
+  "checked_bytes_with_duplicates": 69865,
   "partition_has_no_gaps_or_overlaps": true,
   "video_and_rom_excluded": true,
   "not_gameplay_equivalence": true

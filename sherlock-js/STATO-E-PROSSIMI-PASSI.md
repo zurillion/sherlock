@@ -16,13 +16,13 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Variante LOOK aggiuntivo.** Ricostruire il nuovo scrittore di
-   $5D1E durante NE, nel checkpoint originale delle 11:17 di mercoledì.
-   Individuato C3B7: C=7 della s,frame5D28; misurare il contratto del
-   chiamante di stampa (token yes a731A). Anche5D24 viene dallo spazio,frame5D30/C3B8.
-   Coincidono 2.780 checkpoint fino alle 11:15, con Salva/Carica dopo LOOK
-   e WEAR. Superati A022 alle 08:50 e5D23 alle 09:58.
-   [Descrittore delle direzioni e registri WEAR](DIREZIONI-E-REGISTRI-WEAR.md).
+1. **Variante LOOK aggiuntivo.** Individuare il nuovo scrittore di
+   $5D20, letto da Watson nella continuazione dell’attesa delle 14:23
+   di mercoledì. Coincidono 2.962 checkpoint fino alle 14:22, con
+   Salva/Carica dopo LOOK, WEAR e NE. Superati5D1E e5D24 alle11:17.
+   La precedente attribuzione a yes/7319 era errata:731A era AF salvato;
+   la parola osservata è exits, stampata da68F1/D68C.
+   [Elenco uscite e registri del formatter](USCITE-E-SCANSIONE-5D1E.md).
 2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
    e dei finali. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).

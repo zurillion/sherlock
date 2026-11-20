@@ -1,0 +1,20 @@
+{
+  "setups": 540,
+  "known_fields_compared": {
+    "scanC": 169,
+    "clearF": 36,
+    "unknown": 875
+  },
+  "observed_scan_shifts": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "mismatches": 0,
+  "scope": "D68C/SP5D5E plus final CR A9B7/SP5D5C; ordinary player0, root, full arrival, no listed room contents, one/two ungated exits. Wide native picture window, counter+6<15 at each owned glyph. Other fields and excluded geometries remain unknown."
+}

@@ -1,0 +1,134 @@
+formatter_and_map_22
+✔ Cold original trace distinguishes LOOK-space AF from WEAR-qualifier AF at the same draw (4.859667ms)
+✔ Carried separator owns scan F/A independently from shift/count in the original glyph ABI (94.929084ms)
+✔ LOOK separator AF requires a final common name with a matching raw dictionary span (45.19225ms)
+✔ A requested LOOK does not borrow the ordinary LOOK separator AF frame (17.991041ms)
+✔ Ordinary WEAR preserves low scan bytes and derives argument-prefix AF, BC and video HL (41.49375ms)
+✔ 168 complete original rejections preserve the twelve marked fields and have no stack writer at20 (1914.798708ms)
+✔ Unknown old save fields are not recreated by a known-preserving error (21.289208ms)
+✔ Natural WEAR leaves independent F/A bytes until both overnight reads (7.27125ms)
+✔ Both disguise captions match the owned fields of the original WEAR geometry ABI (115.778041ms)
+✔ WEAR scan ownership excludes unproved callers, partial rows and MORE boundaries (88.74ms)
+✔ Qualified missing-object errors preserve just the independently proven scan fields (1709.818208ms)
+✔ Prose searches, quotes, requests and ALL do not inherit missing-object scan preservation (50.086833ms)
+✔ WEAR-derived scan state persists in JSON; missing legacy fields stay absent through errors (22.4465ms)
+✔ The natural s is EXITS; 731A on the stack is saved AF, not a dialogue address (6.524958ms)
+✔ Full-arrival exit scan and direction-wrap fields match the controlled original ABI (365.780125ms)
+✔ Other scene callers do not borrow the full arrival exit roles (88.944041ms)
+✔ Exit scan ownership is per byte, bounded before MORE, and absent legacy fields remain absent (49.3245ms)
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (14.23175ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (0.609958ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (55.590958ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (12.602542ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (14.947083ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2447.185292
+
+glyph_contract_49
+✔ Native5D1E ABI frame5d1e B3 char32 (43.440791ms)
+✔ Native5D1E ABI frame5d1e B3 char84 (30.382083ms)
+✔ Native5D1E ABI frame5d1e B3 char113 (18.019083ms)
+✔ Native5D1E ABI frame5d1e B7 char32 (23.410709ms)
+✔ Native5D1E ABI frame5d1e B7 char84 (14.818166ms)
+✔ Native5D1E ABI frame5d1e B7 char113 (12.846208ms)
+✔ Native5D1E ABI frame5d20 B3 char32 (12.070625ms)
+✔ Native5D1E ABI frame5d20 B3 char84 (11.196083ms)
+✔ Native5D1E ABI frame5d20 B3 char113 (11.378125ms)
+✔ Native5D1E ABI frame5d20 B7 char32 (10.720708ms)
+✔ Native5D1E ABI frame5d20 B7 char84 (9.288875ms)
+✔ Native5D1E ABI frame5d20 B7 char113 (10.224625ms)
+✔ Native5D1E ABI frame5d22 B3 char32 (9.178875ms)
+✔ Native5D1E ABI frame5d22 B3 char84 (9.971792ms)
+✔ Native5D1E ABI frame5d22 B3 char113 (9.132709ms)
+✔ Native5D1E ABI frame5d22 B7 char32 (10.706417ms)
+✔ Native5D1E ABI frame5d22 B7 char84 (9.555583ms)
+✔ Native5D1E ABI frame5d22 B7 char113 (10.575875ms)
+✔ Native5D1E ABI frame5d24 B3 char32 (11.562959ms)
+✔ Native5D1E ABI frame5d24 B3 char84 (11.549ms)
+✔ Native5D1E ABI frame5d24 B3 char113 (10.804542ms)
+✔ Native5D1E ABI frame5d24 B7 char32 (9.703625ms)
+✔ Native5D1E ABI frame5d24 B7 char84 (11.643375ms)
+✔ Native5D1E ABI frame5d24 B7 char113 (8.656333ms)
+✔ Native5D1E ABI frame5d26 B3 char32 (10.021625ms)
+✔ Native5D1E ABI frame5d26 B3 char84 (14.121208ms)
+✔ Native5D1E ABI frame5d26 B3 char113 (9.070958ms)
+✔ Native5D1E ABI frame5d26 B7 char32 (9.413458ms)
+✔ Native5D1E ABI frame5d26 B7 char84 (8.963625ms)
+✔ Native5D1E ABI frame5d26 B7 char113 (10.202042ms)
+✔ Native5D1E ABI frame5d28 B3 char32 (11.625167ms)
+✔ Native5D1E ABI frame5d28 B3 char84 (10.751834ms)
+✔ Native5D1E ABI frame5d28 B3 char113 (8.958916ms)
+✔ Native5D1E ABI frame5d28 B7 char32 (12.17975ms)
+✔ Native5D1E ABI frame5d28 B7 char84 (10.630583ms)
+✔ Native5D1E ABI frame5d28 B7 char113 (10.381083ms)
+✔ Native5D1E ABI frame5d2a B3 char32 (8.919833ms)
+✔ Native5D1E ABI frame5d2a B3 char84 (10.7465ms)
+✔ Native5D1E ABI frame5d2a B3 char113 (9.845667ms)
+✔ Native5D1E ABI frame5d2a B7 char32 (12.10275ms)
+✔ Native5D1E ABI frame5d2a B7 char84 (10.51875ms)
+✔ Native5D1E ABI frame5d2a B7 char113 (13.081584ms)
+✔ Native5D1E ABI frame5d2c B3 char32 (13.021542ms)
+✔ Native5D1E ABI frame5d2c B3 char84 (11.7655ms)
+✔ Native5D1E ABI frame5d2c B3 char113 (10.953459ms)
+✔ Native5D1E ABI frame5d2c B7 char32 (10.539958ms)
+✔ Native5D1E ABI frame5d2c B7 char84 (8.899791ms)
+✔ Native5D1E ABI frame5d2c B7 char113 (9.403958ms)
+✔ 5D1E has independent ownership and no legacy SAVE fallback (20.950416ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 883.903542
+
+cold_extra_look
+✔ An extra LOOK before the first cab retains renderer state into Wednesday (203766.881583ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 204133.758875
+
+victory_seed0
+✔ Seed 0 reproduces the complete graphics-enabled victory at Victoria (302738.739459ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 303134.752708
+
+victory_seed1
+✔ Seed 1 reproduces the Victoria route through the victory at Victoria (304820.975667ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 305160.90275
+
+victory_seed137
+✔ The graphics-enabled Victoria route reproduces the complete victory at Victoria (303934.849417ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 304283.333541
