@@ -16,11 +16,12 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Variante LOOK aggiuntivo.** Ricostruire la lettura di $5D1E
-   della cuoca, mercoledì alle 01:24. Coincidono 2.218 checkpoint
-   fino alle 01:23, incluso Salva/Carica dopo il LOOK di Portman Street.
-   Superato il precedente limite $5D1C del giardiniere.
-   [Writer, notifiche e prove](LOOK-AGGIUNTIVO-E-SEPARATORE.md).
+1. **Variante LOOK aggiuntivo.** Ricostruire la lettura di $5D1A
+   del giardiniere, mercoledì alle 05:30; $5D20 è letto nello stesso draw.
+   Coincidono 2.464 checkpoint fino alle 05:29, incluso Salva/Carica
+   dopo il LOOK di Portman Street e dopo WEAR. Superate le letture
+   $5D1C, $5D1E e $5D1F.
+   [WEAR, rifiuti e due letture notturne](WEAR-E-SCANSIONE-NOTTURNA.md).
 2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
    e dei finali. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).

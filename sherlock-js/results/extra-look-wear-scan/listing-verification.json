@@ -1,0 +1,42 @@
+{
+  "instructions": 193,
+  "bytes_roundtripped": 350,
+  "roundtrip_equal": true,
+  "regions": [
+    {
+      "start": "A2E4",
+      "end_exclusive": "A35D",
+      "kind": "code",
+      "label": "Annuncio normale del giocatore: chiamante di WEAR",
+      "atlas_priority": 98
+    },
+    {
+      "start": "A37D",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Verbo in attesa e nome del primo argomento",
+      "atlas_priority": 98
+    },
+    {
+      "start": "B69D",
+      "end_exclusive": "B6AE",
+      "kind": "code",
+      "label": "Rifiuto di oggetto assente: argomenti vuoti e frammento6894",
+      "atlas_priority": 98
+    },
+    {
+      "start": "B6FD",
+      "end_exclusive": "B710",
+      "kind": "code",
+      "label": "Ricerca nella descrizione: ritorno anticipato se assente",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Glifo del verbo WEAR: F e A salvati in1E/1F",
+      "atlas_priority": 98
+    }
+  ]
+}

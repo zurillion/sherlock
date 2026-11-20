@@ -147,9 +147,22 @@ export class Game {
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
-  // Class-9 absent simple EXAMINE in a root room without prose has no deeper
-  // name/description renderer. Qualified or requested actions remain unowned.
-  if(scenery?.action===action&&scenery.slot===slot){const relations=([45,47,48].includes(action)?[]:action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();const dictionaryWords=!scenery.found&&this.actingActor===undefined&&this.actor===w.player?this.text.rejectionDictionaryWords(action,slot):null;if(dictionaryWords&&w.npcs)w.npcs.rejectionSlot=slot;const preserveLow=!scenery.found&&[19,20].includes(action)&&this.actingActor===undefined&&this.actor===w.player&&!node.quote&&!node.subject&&!node.all&&node.groups.length===1&&group.noun&&!group.qualifiers.length&&!group.relations.length&&w.entity(w.player).parent===null&&!w.dark()&&!w.rooms[w.roomOf()].description;return {message:{...this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`),...(preserveLow?{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true,lower_scenery_clear:true}:{}),...(dictionaryWords?{dictionary_reference:dictionaryWords.at(-1)}:{})}};}
+  // Ordinary absent-object rejections in a root room without prose do
+  // not reach the saved scan AF at1E/1F, including bounded qualifiers.
+  // The wider low-word contract remains restricted to simple EXAMINE.
+  if(scenery?.action===action&&scenery.slot===slot){
+   const relations=([45,47,48].includes(action)?[]:action===26?(node.sourceNode||node).groups.flatMap(g=>g.relations).map(r=>this.word(r)):this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[],modifier=this.word(node.modifier).toUpperCase();
+   const dictionaryWords=!scenery.found&&this.actingActor===undefined&&this.actor===w.player?this.text.rejectionDictionaryWords(action,slot):null;
+   if(dictionaryWords&&w.npcs)w.npcs.rejectionSlot=slot;
+   const ordinaryAbsent=!scenery.found&&this.actingActor===undefined&&this.actor===w.player&&!node.quote&&!node.subject&&!node.all&&node.groups.length===1&&group.noun&&!group.relations.length&&w.entity(w.player).parent===null&&!w.dark()&&!w.rooms[w.roomOf()].description;
+   const preserveLow=ordinaryAbsent&&[19,20].includes(action)&&!group.qualifiers.length;
+   const preserveScan=ordinaryAbsent&&[11,14,19,20,23,36,41].includes(action)&&group.qualifiers.length<=2;
+   const message=this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`);
+   if(preserveLow)Object.assign(message,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true,lower_scenery_clear:true});
+   if(preserveScan)Object.assign(message,{preserve_renderer_1e:true,preserve_renderer_1f:true});
+   if(dictionaryWords)message.dictionary_reference=dictionaryWords.at(-1);
+   return {message};
+  }
   if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
   if([12,13,24,25,40,43,46,47,48,51,53,54,21,22].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
   if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
@@ -460,7 +473,7 @@ export class Game {
       const paragraph=(outcome.cost||outcome.objectRule)&&!outcome.suppressParagraph&&outcome.messages.find(m=>m.kind==='narrative');if(paragraph)paragraph.paragraph_before=true;
       messages.push(...outcome.messages);
       if(this.world.display){const errors=outcome.messages.filter(m=>m.kind==='error');if(errors.length){this.sourceDisplay.error(errors,{inline:Boolean(this.pending)});for(const e of errors)projectedErrors.add(e);}}
-      if(this.world.npcs)this.npcRuntime.annotateArgumentPrefix(outcome);
+      if(this.world.npcs)this.npcRuntime.annotateArgumentPrefix(outcome,outcome.messages,{player:true});
       if(!outcome.projected)this.projectMessages(outcome.messages);
       if(this.world.npcs&&(outcome.cost||outcome.action===32||outcome.semanticResolved))this.npcRuntime.playerAction(outcome);
       if(outcome.objectRule){actions.push({actor:this.world.player,id:outcome.action,arguments:outcome.args});this.npcRuntime.executePlayerObject(outcome.objectRule,outcome.action,outcome.args,messages,actions);}

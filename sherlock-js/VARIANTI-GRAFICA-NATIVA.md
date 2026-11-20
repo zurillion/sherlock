@@ -42,9 +42,9 @@ Questa storia aggiunge LOOK prima del primo HAIL CAB, conservando
 gli altri input del percorso principale. Il tempo e la sorgente
 casuale seguono quindi una storia distinta.
 
-Il confronto JavaScript coincide su 2.218 checkpoint fino a
-mercoledì alle 01:23. Holmes attende a Portman Street,
-anche durante WAIT UNTIL 10:05PM. Sono superate le letture $5C15, $5C16 e $5D1C.
+Il confronto JavaScript coincide su 2.464 checkpoint fino a
+mercoledì alle 05:29. Holmes attende a Portman Street,
+anche durante WAIT UNTIL 10:05PM. Sono superate le letture $5C15, $5C16, $5D1C, $5D1E e $5D1F.
 
 Durante l’arrivo a Leatherhead, al tick 1.536, il descrittore
 $44D3 viene decodificato da $D427/$A815. $A9D7 scrive la
@@ -63,11 +63,15 @@ i nomi negli argomenti di testo e INVENTORY, compreso LOAD.
 Il LOOK delle 13:30 lascia lo shift dello spazio fra «daily» e
 «chronicle» in $5D1C e il conteggio di scansione in $5D1D.
 Le successive notifiche di Tricia non li sovrascrivono nelle geometrie
-verificate. Il confronto comprende 729 checkpoint dopo Salva/Carica.
+verificate. Il confronto comprende Salva/Carica dopo LOOK e dopo WEAR, con 458
+checkpoint di futuro dopo quest’ultimo.
 [Analisi del separatore e dei chiamanti](LOOK-AGGIUNTIVO-E-SEPARATORE.md).
 
-Il primo checkpoint escluso è mercoledì alle 01:24: la cuoca legge
-$5D1E. La protezione del prototipo resta attiva su quel percorso.
+WEAR lascia AF della scansione del verbo in $5D1E–$5D1F; i successivi
+rifiuti senza descrizione li conservano. Il primo checkpoint escluso
+è mercoledì alle 05:30: il giardiniere legge $5D1A, poi $5D20.
+[Analisi di WEAR e dei rifiuti](WEAR-E-SCANSIONE-NOTTURNA.md).
+La protezione del prototipo resta attiva su quel percorso.
 La registrazione originale prosegue
 fino a mercoledì alle 20:13, con Holmes al binario di Victoria e
 senza un finale raggiunto a quell’ora.

@@ -1,0 +1,127 @@
+{
+  "protocol": "Original seed1 extra-LOOK route, all actors, graphics native from boot, free opening LOOK. Observe PUSH/CALL/RST/index PUSH and EX(SP),HL, including same-value stores; independently record changed bytes not explained by those operations. No CPU code in browser engine.",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "handover": {
+    "sha256": "c8a2e13b815ab5c6262dd5c02d5562df925b0b80913b05516ab733036bb60136",
+    "tick": 2286,
+    "next_command": 240,
+    "original_checkpoint": 2004,
+    "clock_room_video_counter_and_mode_match": true,
+    "video": "61d72e303df1a6c463e576a8556f7392003c2a47db29711c56e8dae719254ce3"
+  },
+  "reads": [
+    {
+      "tick": 2484,
+      "command": "WAIT UNTIL 10:06AM",
+      "actor": 9,
+      "address": "5D1E",
+      "value": 0,
+      "writer": {
+        "tick": 2286,
+        "command": "WEAR CHINA MANS DISGUISE",
+        "pc": 50104,
+        "sp": 23840,
+        "actor": 0,
+        "registers": [
+          0,
+          0,
+          1,
+          3,
+          63,
+          151,
+          87,
+          38
+        ],
+        "glyph": {
+          "frame": 23850,
+          "character": 114,
+          "counter": 1,
+          "mode": 0,
+          "channel": 0,
+          "descriptor": 23563,
+          "address": 20518,
+          "shift": 3,
+          "return_link": 49905
+        },
+        "stack": [
+          259,
+          20518,
+          23563,
+          259,
+          29210,
+          49905,
+          29210,
+          264,
+          23566,
+          43520,
+          264,
+          8210,
+          2205,
+          41560,
+          8328,
+          43167
+        ],
+        "address": "5D1E",
+        "value": 0
+      },
+      "count": 64
+    },
+    {
+      "tick": 2608,
+      "command": "WAIT UNTIL 10:06AM",
+      "actor": 9,
+      "address": "5D1F",
+      "value": 0,
+      "writer": {
+        "tick": 2286,
+        "command": "WEAR CHINA MANS DISGUISE",
+        "pc": 50104,
+        "sp": 23840,
+        "actor": 0,
+        "registers": [
+          0,
+          0,
+          1,
+          3,
+          63,
+          151,
+          87,
+          38
+        ],
+        "glyph": {
+          "frame": 23850,
+          "character": 114,
+          "counter": 1,
+          "mode": 0,
+          "channel": 0,
+          "descriptor": 23563,
+          "address": 20518,
+          "shift": 3,
+          "return_link": 49905
+        },
+        "stack": [
+          259,
+          20518,
+          23563,
+          259,
+          29210,
+          49905,
+          29210,
+          264,
+          23566,
+          43520,
+          264,
+          8210,
+          2205,
+          41560,
+          8328,
+          43167
+        ],
+        "address": "5D1F",
+        "value": 0
+      },
+      "count": 64
+    }
+  ],
+  "unclassified_transitions": []
+}

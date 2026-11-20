@@ -1,0 +1,21 @@
+{
+  "profile": {
+    "seed": 1,
+    "native_graphics": true,
+    "first_look": "free",
+    "active_npcs": "all",
+    "teleports": false
+  },
+  "native_corpus": "results/victory-route/victoria-extra-look-native-seed1.json.gz",
+  "native_corpus_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "entry_protocol": "Original natural prompt2286 before WEAR, exact CA76/SP5D6C entry and original post-WEAR prompt2287. Native random reads retain the actual stack PUSH writer, including same-value writes. Geometry/argument/identity/marker overlays in ABI probes are declared controlled cases, never runtime inputs or natural-play claims.",
+  "files": {
+    "wear-announcement.json": "3b38dfe66410e8dee5bc6eb5dfd130949e50a1759753cf1b9d45f7855a649746",
+    "wear-entry.json.gz": "1b40de871f9bbbfe820c04a598f42fa879689299458ffb3126c94bcaf94579cf",
+    "listing-verification.json": "4abc3fc53bc15c803021f502ad69ecc0128d53b323bd088f561ff854c8ba54f9",
+    "natural-writers.json": "4a226988bcf5ffde8715a172c4f3ec57d97f425dc406731486111f038332f998",
+    "rejection-abi.json": "9ab071756abb06a79ed2a93d11c222adb2ad3b4807c8740bfbb7e943dd4da1c1",
+    "post-wear-prompt.json.gz": "78a2feecd19d47550206b179d67a2c972844cffdad7f342069cf9c1a8081f33c",
+    "wear-abi.json": "9be0e98de83141157e0a783624786c7c08e0495355c56e444c01619ffb007280"
+  }
+}

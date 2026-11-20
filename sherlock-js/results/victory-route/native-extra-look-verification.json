@@ -13,18 +13,18 @@
     "command": "LOOK"
   },
   "native_checkpoints": 3312,
-  "strict_js_checkpoints": 2218,
+  "strict_js_checkpoints": 2464,
   "verified_until": {
-    "tick": 2484,
+    "tick": 2730,
     "due": 3007,
-    "minute": 23,
-    "hour": 1,
+    "minute": 29,
+    "hour": 5,
     "day": 2,
     "period": "am",
-    "label": "Wed 01:23am"
+    "label": "Wed 05:29am"
   },
-  "draws": 5898,
-  "reads": 12466,
+  "draws": 6375,
+  "reads": 13484,
   "first_room_buffer_read": {
     "checkpoint": 1282,
     "store": {
@@ -704,44 +704,94 @@
   },
   "carried_separator_writer": "results/extra-look-carried-scan/stack-writers.json",
   "save_load": {
-    "checkpoint": 1488,
-    "continuation_checkpoints": 729,
-    "comparison": "Fresh JSON session; complete future replies and world state, plus original draws, video, time and pagination through verified prefix."
+    "checkpoints": [
+      1488,
+      2005
+    ],
+    "last_save_future_checkpoints": 458,
+    "comparison": "Fresh JSON sessions; complete future replies and world state plus original per-draw video, random inputs, time and pagination through the verified prefix."
   },
+  "resolved_boundaries": [
+    {
+      "checkpoint": 2218,
+      "clock": {
+        "tick": 2485,
+        "due": 3007,
+        "minute": 24,
+        "hour": 1,
+        "day": 2,
+        "period": "am",
+        "label": "Wed 01:24am"
+      },
+      "address": "5D1E",
+      "draw": {
+        "actor": 9,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 97,
+        "cursor": 23576,
+        "reads": [
+          {
+            "address": 23832,
+            "value": 26
+          },
+          {
+            "address": 23838,
+            "value": 0
+          }
+        ],
+        "video": "fe64c54c325fa2c4354ca5bd19f5d53820525aca436b8b20099e381b9eb96487",
+        "counter": 0,
+        "narrow": 0,
+        "result": 24,
+        "next_seed": 123,
+        "next_cursor": 23832
+      }
+    }
+  ],
   "next": {
-    "checkpoint": 2218,
+    "checkpoint": 2464,
     "clock": {
-      "tick": 2485,
+      "tick": 2731,
       "due": 3007,
-      "minute": 24,
-      "hour": 1,
+      "minute": 30,
+      "hour": 5,
       "day": 2,
       "period": "am",
-      "label": "Wed 01:24am"
+      "label": "Wed 05:30am"
     },
-    "address": "5D1E",
+    "address": "5D1A",
     "draw": {
-      "actor": 9,
+      "actor": 8,
       "width": 99,
       "mixOffset": 5,
-      "seed": 97,
-      "cursor": 23576,
+      "seed": 223,
+      "cursor": 23578,
       "reads": [
         {
-          "address": 23832,
-          "value": 26
+          "address": 23834,
+          "value": 0
         },
         {
-          "address": 23838,
+          "address": 23840,
           "value": 0
+        },
+        {
+          "address": 24090,
+          "value": 1
+        },
+        {
+          "address": 24096,
+          "value": 21
         }
       ],
       "video": "fe64c54c325fa2c4354ca5bd19f5d53820525aca436b8b20099e381b9eb96487",
       "counter": 0,
       "narrow": 0,
-      "result": 24,
-      "next_seed": 123,
-      "next_cursor": 23832
+      "result": 23,
+      "next_seed": 245,
+      "next_cursor": 24090
     }
-  }
+  },
+  "wear_scan_writers": "results/extra-look-wear-scan/natural-writers.json"
 }

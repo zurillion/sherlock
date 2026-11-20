@@ -694,8 +694,19 @@ export class NpcRuntime {
   // deferred requests get their own context via NpcProgram.defer instead.
   if(out.cost||action===32){if(!context.request)this.bind(context,args);return yes(out.cost,{args});}return no();
  }
- annotateArgumentPrefix(out,messages=out.messages){
+ annotateArgumentPrefix(out,messages=out.messages,{player=false}={}){
   const w=this.w;
+  // The action formatter flushes WEAR at frame2A; its final scan owns1E/1F.
+  // The argument qualifiers use2C and the final noun46. A fresh, short
+  // wide-row caption cannot wrap back below that verb's scan frame.
+  const display=this.game.sourceDisplay.state;
+  if(player&&!out.projected&&out.cost&&out.action===51&&out.args[0]!==undefined&&w.display?.pictureWindow&&display.windowMode===0&&display.cursor===0&&display.remaining===36&&!display.pending&&display.spacingFlag===0&&display.counter+3<15){
+   const id=out.args[0],name=w.name(id);
+   for(const m of messages)if(!m.scene_trace&&m.text==='You wear '+name+'.'&&m.text.length<36){
+    const trace=[];this.game.text.traceNameBuffer(trace,id,name,9);
+    if(trace.length){for(const raw of trace)raw.affectsStack=false;m.scene_trace=[{kind:'wear-action-verb',start:4,end:8,frame:0x5D2A},...trace];}
+   }
+  }
   if(!out.projected&&out.cost&&[12,43].includes(out.action)&&out.args[0]!==undefined){
     const e=w.entity(out.args[0]),name=w.name(e.id),prefix=name.lastIndexOf(' ');
     // A3DE -> A745/A751 -> D3E8: qualifiers of the entity argument

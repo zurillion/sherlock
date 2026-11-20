@@ -357,7 +357,7 @@ brown_fields = {
   ['5C5F–5C60','Riferimento al primo header di caricamento','0878 salva X-PTR. Il caricamento del BASIC e la successiva riserva di due header spostano il riferimento tramite 167C.'],
   ['5C61–5C66','Spazio di lavoro e pila del calcolatore BASIC','16A8 ripristina WORKSP dopo la lettura del nome. 16C2 e 16C8 allineano STKBOT e STKEND; il calcolatore ripristina la base dopo aver consumato l’operando di USR.'],
   ['5C67–5C69','Operazione e memoria del calcolatore BASIC','335F conserva BREG. Il token USR C0 passa da 26ED, 26FE e 2753, diventando 2D. 16CF inizializza MEM a 5C92.'],
-  ['5C15–5C16','Code dei qualificatori nei nomi comuni','L’arrivo a Leatherhead conserva la d finale in 5C15. INVENTORY usa D539/D3D9 e conserva la e e la d di bloodstained in 5C15–5C16. La variante con LOOK supera anche il separatore di daily chronicle e coincide fino alle 01:23 di mercoledì. Il successivo ingresso 5D1E resta da ricostruire.'],
+  ['5C15–5C16','Code dei qualificatori nei nomi comuni','L’arrivo a Leatherhead conserva la d finale in 5C15. INVENTORY usa D539/D3D9 e conserva la e e la d di bloodstained in 5C15–5C16. La variante con LOOK supera il separatore di daily chronicle e la scansione di WEAR: coincide fino alle05:29 di mercoledì. Il successivo ingresso5D1A resta da ricostruire.'],
   ['5C10','Ultima lettera del nome Watson','D442/A815 consegnano a A9D7 lo stem watson. Watson legge la n minuscola dopo l’incontro con Lestrade.'],
   ['5C10','Sesto carattere della notifica di arrivo','L’arrivo del treno 43 a Leatherhead deposita la S di enterS tramite A9D7 e il frammento 68ED. Watson legge il byte alle 18:15. Con seed 0, A9D7 vi scrive anche la m del qualificatore hansom durante HAIL. Il successivo cab lascia intatto questo byte.'],
   ['5C0F','Quinto carattere del verbo di arrivo','CC07/68ED passa il verbo ad A9D7. L’arrivo di Watson al binario di Leatherhead lascia la r di enterS in 5C0F, letta subito dal generatore.'],
@@ -368,7 +368,8 @@ brown_fields = {
   ['5D0C','F della scansione nella pulizia stretta dopo l’arrivo del cab','L’ultima variazione osservata è C3B8 al tick 398. È lo spazio alla colonna 17, pixel 121 e shift 1, con HL=502F e SP=5D0E prima di PUSH AF. Il giardiniere legge F=00 al tick 575.'],
   ['5D15','Ultima riga del glifo durante la pulizia','Nel percorso di vittoria, A89F chiama il renderer mentre stampa wall safe. C374 cancella la nuova riga con SP 5D20. C3B8 salva l’ultima riga dello spazio. La lettura casuale delle 09:54 conserva il byte scritto alle 03:19.'],
   ['5D16 / 5D17','AF durante il ritorno a capo della direzione','Il frame 5D22 di C374 salva AF della scansione quando north non entra nel resto della riga. La successiva stampa di is nel frame 5D24 aggiorna invece 5D18/19.'],
-  ['5D1C–5D1D','Shift e conteggio del separatore dell’oggetto portato','LOOK a Portman Street, tick1770: lo spazio fra daily e chronicle entra con frame5D26. C39C salva C=0 e B=1, derivati dalla colonna18 e dall’ottava scansione. Le successive notifiche di Tricia restano sopra1E; il giardiniere legge1C al tick2178. Nuovo confine:1E alle01:24 di mercoledì.'],
+  ['5D1E–5D1F','AF dell’ultima scansione di WEAR','CA76/SP5D6C: il nome dell’argomento scarica wear con frame5D2A. C3B8 salva F della scansione in1E e l’ottava riga del font in1F. Ultima r al tick2286; cuoca9 legge i due byte ai tick2484 e2608. Rifiuti senza descrizione conservano questi soli campi nei casi verificati. Nuovo limite:1A al05:30 di mercoledì.'],
+  ['5D1C–5D1D','Shift e conteggio del separatore dell’oggetto portato','LOOK a Portman Street, tick1770: lo spazio fra daily e chronicle entra con frame5D26. C39C salva C=0 e B=1, derivati dalla colonna18 e dall’ottava scansione. Le successive notifiche di Tricia restano sopra1E; il giardiniere legge1C al tick2178. Superata anche1E con WEAR; prossimo confine1A alle05:30 di mercoledì.'],
   ['5D1C–5D1D','Scansione dell’articolo nella domanda del cocchiere','Nel frame 5D28, C39D lascia l’ultimo AF della e di The prima del nome cabbie.'],
   ['5D1A–5D21','Registri del frame 5D22 nella descrizione breve','A 5D1A–1B resta HL video, a 5D1C–1D DE del buffer e a 5D20–21 AF del carattere. Nella traccia notturna persistono fino alle letture del mattino. Lo spazio del frame 5D2E lascia F della scansione a 5D22 e A del font a 5D23; la cuoca legge F durante l’attesa nel cortile di Basil.'],
   ['5D0E / 5D21–5D22 / 5D27–5D28','Frame del LOOK e del viaggio nella carrozza della polizia','Distinti i flag di carrying, la scansione di country, lo spazio prima di you e il puntatore video di una pulizia. L’ultimo token road conserva il riferimento 573F in A022–A023.'],
@@ -417,7 +418,14 @@ carried_source=source(ROOT/'results/extra-look-carried-scan/stack-writers.json',
 for candidate in candidates:
  if candidate['start']==0x5CEC or any(candidate['start']<=at<candidate['end'] for at in (0xC39C,0xCB06,0xCBC2)):
   candidate['sources'].append(carried_source)
-  candidate['description']+=' Variante LOOK: C39C conserva lo shift e il conteggio del separatore daily/chronicle in5D1C–1D. Le stampe locali di Tricia non li sovrascrivono nelle geometrie verificate; il confronto arriva a mercoledì01:23, poi manca5D1E.'
+  candidate['description']+=' Variante LOOK: C39C conserva lo shift e il conteggio del separatore daily/chronicle in5D1C–1D. Le stampe locali di Tricia non li sovrascrivono nelle geometrie verificate; il confronto arriva a mercoledì05:29, poi manca5D1A.'
+
+# Independent WEAR scan AF and qualified-rejection contracts.
+wear_source=source(ROOT/'results/extra-look-wear-scan/natural-writers.json','WEAR: F/A del glifo e due letture notturne della cuoca')
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=at<candidate['end'] for at in (0xA3DE,0xB6A7,0xB70F,0xC3B8)):
+  candidate['sources'].append(wear_source)
+  candidate['description']+=' WEAR: la r finale lascia AF della scansione in5D1E–1F con frame5D2A. Distinti dalla precedente proprietà di C. I rifiuti qualificati senza descrizione mantengono solo i campi verificati; storia confrontata fino a mercoledì05:29, successivo5D1A.'
 
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.

@@ -2,11 +2,15 @@
 
 20 novembre 2026.
 
-La variante con un LOOK prima del primo HAIL CAB coincide ora con
-l’originale su **2.218 checkpoint**, fino a mercoledì alle **01:23**.
+Aggiornamento successivo: il contratto WEAR supera anche $5D1E–$5D1F.
+La variante coincide ora fino alle 05:29 di mercoledì su 2.464 checkpoint.
+[Nuova analisi e prossimo limite](WEAR-E-SCANSIONE-NOTTURNA.md).
+
+Questa fase ha verificato la variante con un LOOK prima del primo
+HAIL CAB su **2.218 checkpoint**, fino a mercoledì alle **01:23**.
 Il precedente limite era martedì alle 20:18, alla lettura di $5D1C.
-Il prossimo checkpoint escluso è mercoledì alle **01:24**: la cuoca
-legge $5D1E, il cui percorso di conservazione resta da ricostruire.
+Il checkpoint allora escluso era mercoledì alle **01:24**: la cuoca
+legge $5D1E, ora ricostruito nel dossier successivo.
 
 Il profilo usa seed 1, tutti i 24 attori, grafica nativa dall’avvio,
 LOOK iniziale gratuito e nessun teletrasporto. Le 5.898 estrazioni e

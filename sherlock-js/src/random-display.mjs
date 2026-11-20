@@ -197,7 +197,7 @@ export class RandomDisplay {
    const ruleArrival=this.arrivalFromRule===true&&frame===0x5D28&&at>=0x5D1C&&at<=0x5D25;
    const relocationSpace=this.relocationPersonPrefix===true&&frame===0x5D36&&c===' '&&[0x5D2A,0x5D2B].includes(at);
    const relocationPrefix=this.relocationPersonPrefix===true&&frame===0x5D2A&&at>=0x5D1E&&at<=0x5D29||relocationSpace;
-   const actionVerbScan=['qualified-hail-verb','cabbie-talk-preposition'].includes(this.cabWordRole)&&
+   const actionVerbScan=['qualified-hail-verb','cabbie-talk-preposition','wear-action-verb'].includes(this.cabWordRole)&&
     frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
    const exitListScan=this.cabWordRole==='brief-disguised-exits'&&frame===0x5D30&&[0x5D24,0x5D25].includes(at);
    const playerHailName=this.cabWordRole==='player-hail-qualifier'&&frame===0x5D2C&&[0x5D24,0x5D25,0x5D2A].includes(at);
