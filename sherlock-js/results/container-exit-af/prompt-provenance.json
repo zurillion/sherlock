@@ -1,0 +1,32 @@
+{
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "handover": {
+    "sha256": "e6b48d76aa40518e1c27bcc02eda742d1f3f1fccf666e6af42022492059704e1",
+    "original_checkpoint": 2779,
+    "clock_room_video_counter_and_mode_match": true,
+    "clock": {
+      "tick": 3076,
+      "due": 3076,
+      "minute": 15,
+      "hour": 11,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 11:15am"
+    }
+  },
+  "original_checkpoint": 2910,
+  "next_command": 310,
+  "clock": {
+    "tick": 3210,
+    "due": 3210,
+    "minute": 29,
+    "hour": 1,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 01:29pm"
+  },
+  "room": 54,
+  "video": "406c9882775e2963ba4f1fdfa89fc030eac476a3d86e263ad617fdd3c7a6942a",
+  "counter": 10,
+  "narrow": 1
+}

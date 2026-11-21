@@ -1,6 +1,6 @@
 # Stato del gameplay e ordine di completamento
 
-Aggiornamento 20 novembre 2026.
+Aggiornamento 21 novembre 2026.
 
 Con grafica nativa, il motore JavaScript e lo Spectrum coincidono
 dall’accensione alla vittoria **$6AF3** a Victoria per i seed 0, 1 e 137.
@@ -16,13 +16,13 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Variante LOOK aggiuntivo.** Individuare il nuovo scrittore di
-   $5D20, letto da Watson nella continuazione dell’attesa delle 14:23
-   di mercoledì. Coincidono 2.962 checkpoint fino alle 14:22, con
-   Salva/Carica dopo LOOK, WEAR e NE. Superati5D1E e5D24 alle11:17.
-   La precedente attribuzione a yes/7319 era errata:731A era AF salvato;
-   la parola osservata è exits, stampata da68F1/D68C.
-   [Elenco uscite e registri del formatter](USCITE-E-SCANSIONE-5D1E.md).
+1. **Variante LOOK aggiuntivo.** Proiettare il nuovo produttore di
+   $5D21, letto da Watson alle 15:50: C38A salva D del descrittore51AB
+   nello spazio prima di chronicle, durante LOOK alle15:15. Coincidono
+   3.050 checkpoint fino alle15:49, con quattro Salva/Carica.
+   Superato5D20 alle14:23: AF della m di steam durante l’uscita di Watson
+   dal treno, conservato da annunci, descrizioni brevi ed errori verificati.
+   [Uscita dai contenitori e AF](USCITA-CONTENITORI-E-AF.md).
 2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
    e dei finali. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).

@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-21",
+  "strict_checkpoints": 3050,
+  "through": {
+    "tick": 3350,
+    "due": 3406,
+    "minute": 49,
+    "hour": 3,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 03:49pm"
+  },
+  "draws": 8047,
+  "reads": 17074,
+  "save_load_points": [
+    1488,
+    2005,
+    2780,
+    2911
+  ],
+  "last_load_future_checkpoints": 138,
+  "full_native_victory_seeds": [
+    0,
+    1,
+    137
+  ],
+  "checkpoints_per_victory": 3219,
+  "original_controls": {
+    "captions": 1152,
+    "directions": 120,
+    "brief_scenes": 360,
+    "errors": 18,
+    "original_error_context_marker": 1,
+    "reused_glyph_cases": 216
+  },
+  "next": {
+    "checkpoint": 3050,
+    "clock": {
+      "tick": 3351,
+      "due": 3406,
+      "minute": 50,
+      "hour": 3,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 03:50pm"
+    },
+    "actor": 3,
+    "address": "5D21",
+    "observed_writer": "C38A",
+    "descriptor": "51AB",
+    "projection": "not implemented"
+  },
+  "tests": [
+    {
+      "name": "formatter_and_map_30",
+      "passed": true,
+      "sha256": "bf2a3282da18cc5109ff869ebb18c2e9488a7ed08d36fcfd2ef48cfaeca0e904"
+    },
+    {
+      "name": "cold_extra_look",
+      "passed": true,
+      "sha256": "c4c0d2d7940c72907f712a9e1625b23e167e3f5fa7ba029314c65fcc051d3bbe"
+    },
+    {
+      "name": "victory_seed0",
+      "passed": true,
+      "sha256": "a88c7314d77bf1fb4635e671359be94a13217bc359f556cb71a46b5325c9fdcd"
+    },
+    {
+      "name": "victory_seed1",
+      "passed": true,
+      "sha256": "2d7bf16304e012dfc32ff8b55b0d042634659355cc53c4750459bb7a32787c01"
+    },
+    {
+      "name": "victory_seed137",
+      "passed": true,
+      "sha256": "c954a042c0ee52efc2f5af5091ef2138c943c40033acad2c790cdfd6c1f93b1a"
+    }
+  ],
+  "scope": "Declared histories and bounded formatter caller contracts; not whole-game equivalence. Browser runtime is autonomous JavaScript, without original CPU execution or recorded-input replay."
+}

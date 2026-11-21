@@ -439,6 +439,11 @@ export class Text {
   if(!briefDark)describeExits();
   if(!briefDark)renderChildren(null);
   const output=text.map(s=>s.replace(/^./,c=>c.toUpperCase())).join(' ');
+  // D1B2 skips the deeper full-description caller. In the bounded
+  // ordinary common room-name path it never reaches the saved exit AF.
+  if(trace&&w.display?.pictureWindow&&source==='arrival'&&!full&&!remote&&parent===null&&w.player===0&&!briefDark&&!list(null).length&&!(r.nameWords[0]&32768)&&r.nameWords[1]&&!r.nameWords[2]&&r.nameWords.slice(0,2).every(ref=>this.dictionary.word(ref))&&r.exits.filter(e=>!e.gate&&e.direction_id>=1&&e.direction_id<=10).length<=5&&output.length<=96)
+   trace.push({kind:'brief-root-preserves-exit-af'});
+
   // D526's final carried name ends the scene. Its separating space
   // saves the scan's AF and BC below the later noun flush.
   const finalContents=trace?.findLast(part=>part.kind==='personal-contents'&&part.depth===1&&part.end===output.length&&part.child!==null);

@@ -1,5 +1,9 @@
 # EXITS, pulizia della riga e due byte della sorgente casuale
 
+Seguito: [uscita dai contenitori e AF](USCITA-CONTENITORI-E-AF.md),
+3.050checkpoint fino a mercoledì15:49; prossimo5D21/descrittore del LOOK.
+
+
 20 novembre 2026.
 
 La variante con LOOK prima del primo HAIL CAB coincide ora per **2.962

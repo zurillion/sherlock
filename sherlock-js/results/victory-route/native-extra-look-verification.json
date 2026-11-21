@@ -13,18 +13,18 @@
     "command": "LOOK"
   },
   "native_checkpoints": 3312,
-  "strict_js_checkpoints": 2962,
+  "strict_js_checkpoints": 3050,
   "verified_until": {
-    "tick": 3263,
-    "due": 3315,
-    "minute": 22,
-    "hour": 2,
+    "tick": 3350,
+    "due": 3406,
+    "minute": 49,
+    "hour": 3,
     "day": 2,
     "period": "pm",
-    "label": "Wed 02:22pm"
+    "label": "Wed 03:49pm"
   },
-  "draws": 7801,
-  "reads": 16562,
+  "draws": 8047,
+  "reads": 17074,
   "first_room_buffer_read": {
     "checkpoint": 1282,
     "store": {
@@ -707,9 +707,10 @@
     "checkpoints": [
       1488,
       2005,
-      2780
+      2780,
+      2911
     ],
-    "last_save_future_checkpoints": 181,
+    "last_save_future_checkpoints": 138,
     "comparison": "Fresh JSON sessions; complete future replies and world state plus original per-draw video, random inputs, time and pagination through the verified prefix."
   },
   "resolved_boundaries": [
@@ -925,48 +926,86 @@
         "next_seed": 235,
         "next_cursor": 23838
       }
+    },
+    {
+      "checkpoint": 2962,
+      "clock": {
+        "tick": 3264,
+        "due": 3315,
+        "minute": 23,
+        "hour": 2,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 02:23pm"
+      },
+      "command": null,
+      "address": "5D20",
+      "draw": {
+        "actor": 3,
+        "width": 99,
+        "mixOffset": 40172,
+        "seed": 44,
+        "cursor": 23584,
+        "reads": [
+          {
+            "address": 23840,
+            "value": 0
+          },
+          {
+            "address": 64013,
+            "value": 147
+          }
+        ],
+        "video": "20c66484faee6187b6ae9739f07293a9daaa84c8e708904a8d23a6069ef20500",
+        "counter": 0,
+        "narrow": 0,
+        "result": 92,
+        "next_seed": 191,
+        "next_cursor": 23840
+      }
     }
   ],
   "wear_scan_writers": "results/extra-look-wear-scan/natural-writers.json",
   "next": {
-    "checkpoint": 2962,
+    "checkpoint": 3050,
     "clock": {
-      "tick": 3264,
-      "due": 3315,
-      "minute": 23,
-      "hour": 2,
+      "tick": 3351,
+      "due": 3406,
+      "minute": 50,
+      "hour": 3,
       "day": 2,
       "period": "pm",
-      "label": "Wed 02:23pm"
+      "label": "Wed 03:50pm"
     },
     "command": null,
-    "address": "5D20",
+    "address": "5D21",
     "draw": {
       "actor": 3,
       "width": 99,
       "mixOffset": 40172,
-      "seed": 44,
-      "cursor": 23584,
+      "seed": 167,
+      "cursor": 23585,
       "reads": [
         {
-          "address": 23840,
-          "value": 0
+          "address": 23841,
+          "value": 81
         },
         {
-          "address": 64013,
-          "value": 147
+          "address": 64014,
+          "value": 8
         }
       ],
-      "video": "20c66484faee6187b6ae9739f07293a9daaa84c8e708904a8d23a6069ef20500",
+      "video": "812291336dadebd99b4da08ee1d9b0ae9ad3422e98c2442dc27efc97434d3b2c",
       "counter": 0,
       "narrow": 0,
-      "result": 92,
-      "next_seed": 191,
-      "next_cursor": 23840
+      "result": 21,
+      "next_seed": 240,
+      "next_cursor": 23841
     }
   },
   "scan_af_writers": "results/extra-look-scan-af/natural-writers.json",
   "direction_refusal_writers": "results/direction-rejection-reference/natural-writer.json",
   "wear_scan_bc_writer": "results/direction-rejection-reference/wear-count-writer.json",
-  "full_arrival_exits": "results/full-arrival-exits/natural-ne-detail.json"
+  "full_arrival_exits": "results/full-arrival-exits/natural-ne-detail.json",
+  "container_exit_af": "results/container-exit-af/natural-writer.json"
 }

@@ -1,0 +1,48 @@
+{
+  "regions": [
+    {
+      "start": "CA76",
+      "end_exclusive": "CA7F",
+      "kind": "code",
+      "label": "Ingresso dell\u2019annuncio ordinario. La traccia di uscita usa SP5D6C per giocatore e Watson.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "A3D6",
+      "end_exclusive": "A3E2",
+      "kind": "code",
+      "label": "Formatter del nome e ritorno della descrizione breve",
+      "atlas_priority": 65
+    },
+    {
+      "start": "D1B2",
+      "end_exclusive": "D1C6",
+      "kind": "code",
+      "label": "Descrizione breve: salta il chiamante profondo della descrizione completa. Conservazione AF misurata entro i limiti del dossier.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "D178",
+      "end_exclusive": "D182",
+      "kind": "code",
+      "label": "Formatter del nome e ritorno della descrizione breve",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C39E",
+      "kind": "code",
+      "label": "PUSH AF del chiamante: A \u00e8 il codice carattere; \u00e8 distinto dall\u2019AF della scansione finale.",
+      "atlas_priority": 65
+    },
+    {
+      "start": "C3B7",
+      "end_exclusive": "C3BB",
+      "kind": "code",
+      "label": "Formatter del nome e ritorno della descrizione breve",
+      "atlas_priority": 65
+    }
+  ],
+  "instructions": 43,
+  "unique_bytes": 77
+}

@@ -694,7 +694,7 @@ export class NpcRuntime {
   // deferred requests get their own context via NpcProgram.defer instead.
   if(out.cost||action===32){if(!context.request)this.bind(context,args);return yes(out.cost,{args});}return no();
  }
- annotateArgumentPrefix(out,messages=out.messages,{player=false}={}){
+ annotateArgumentPrefix(out,messages=out.messages,{player=false,actor=player?this.w.player:undefined}={}){
   const w=this.w;
   // The action formatter flushes WEAR at frame2A; its final scan owns1E/1F.
   // The argument qualifiers use2C (scan AF20/21) and the final noun46.
@@ -706,6 +706,17 @@ export class NpcRuntime {
    for(const m of messages)if(!m.scene_trace&&m.text==='You wear '+name+'.'&&m.text.length<36){
     const trace=[];this.game.text.traceNameBuffer(trace,id,name,9);
     if(trace.length){for(const raw of trace)raw.affectsStack=false;m.scene_trace=[{kind:'wear-action-verb',start:4,end:8,frame:0x5D2A},{kind:'wear-argument-prefix',start:9,end:9+name.lastIndexOf(' '),frame:0x5D2C},...trace];}
+   }
+  }
+  // Ordinary CA76 exits: the article/qualifier uses2C, but the noun
+  // returns to46. Its later wrap cannot replace the qualifier scan AF.
+  if(!out.projected&&out.cost&&[13,25].includes(out.action)&&out.args[0]!==undefined&&Number.isInteger(actor)&&w.display?.pictureWindow&&display.windowMode===0&&display.cursor===0&&display.remaining===36&&!display.pending&&display.spacingFlag===0&&display.counter+4<15){
+   const e=w.entity(out.args[0]),subject=w.entity(actor),name=w.name(e.id),raw=this.game.text.rawEntityName(e.id);
+   const commonQualifiers=e.qualifiers.filter(q=>q&&!(q&32768));
+   if((actor===0||subject.person&&(subject.noun&32768)&&w.name(actor).split(' ').length===1)&&!(e.noun&32768)&&commonQualifiers.length===1&&name.split(' ').length===3&&raw!==null&&raw.trim().toLowerCase()===name.toLowerCase())for(const m of messages)if(!m.scene_trace&&m.text.length<=72&&m.text.endsWith(name+'.')){
+    const start=m.text.length-name.length-1,prefix=name.lastIndexOf(' '),trace=[];
+    this.game.text.traceNameBuffer(trace,e.id,name,start);
+    if(trace.length&&start+prefix<35){for(const t of trace)t.affectsStack=false;m.scene_trace=[{kind:'container-exit-prefix',start,end:start+prefix,frame:0x5D2C,flagsKnown:true},{kind:'container-exit-noun',start:start+prefix+1,end:m.text.length,frame:0x5D46},...trace];}
    }
   }
   if(!out.projected&&out.cost&&[12,43].includes(out.action)&&out.args[0]!==undefined){
@@ -744,7 +755,7 @@ export class NpcRuntime {
   // entity is reused in distant buildings, which must not leak messages.
   const door=[14,36].includes(out.action)&&out.cost&&out.args[0]!==undefined?w.entity(out.args[0]):null;
   const anonymous=!visible&&door?.rooms.length>1&&door.rooms.includes(w.roomOf())&&w.perceived(door.id)&&w.rooms[w.roomOf(actor)].exits.some(exit=>exit.target===w.roomOf());
-  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown);
+  if(visible||anonymous){const shown=out.messages.filter(m=>m.kind==='narrative').map(m=>anonymous?{...m,text:'Someone'+m.text.slice(w.name(actor).length)}:m);if(argumentFlags){this.annotateArgumentPrefix(out,shown,{actor});
     if(w.display?.pictureWindow&&out.action===31&&out.cost&&[30,33].includes(out.args[0])){
      const prefix=w.name(actor);
      if(w.entity(actor).person&&(w.entity(actor).noun&32768)&&prefix.includes(' '))for(const m of shown){

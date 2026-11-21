@@ -474,6 +474,20 @@ for candidate in candidates:
    note=full_exit_notes.get(rr['a'])
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
+# AF producer and independently measured whole-caller preservation.
+exit_af_source=source(ROOT/'results/container-exit-af/natural-writer.json','Uscita dal treno: ultimo AF della scansione di steam, letto alle14:23')
+exit_af_caption=source(ROOT/'results/container-exit-af/caption-abi.json','1152 annunci controllati: due attori, due verbi e due contenitori')
+exit_af_brief=source(ROOT/'results/container-exit-af/brief-abi.json','360 geometrie di descrizione breve: conservazione della coppia AF')
+exit_af_next=source(ROOT/'results/container-exit-af/next-look-descriptor.json','Prossimo limite: dopo LOOK, D del descrittore51AB prende il posto di A in5D21')
+exit_af_notes={0xCA76:'Annuncio ordinario SP5D6C: A3DE porta il nome del contenitore a frame5D2C. Il sostantivo finale si scarica a5D46.',0xA3DE:'Uscite CLIMB OUT/GET OUT: il nome è un argomento; la scansione del qualificatore aggiorna AF20/21.',0xD1B2:'Nel contratto radice/giocatore0/nome comune/stanza senza oggetti e prima diMORE, la descrizione breve conserva20/21. Non ricrea byte mancanti.',0xC3B8:'Al3210, ultima m di steam nell’annuncio Watson: F=0,A=0 in20/21. Non sono costanti del generatore: vengono dalla scansione del font.',0xC38A:'Il successivo LOOK al3315 salva invece DE=51AB in20/21 (spazio prima di chronicle). La lettura di21 alle15:50 resta il prossimo limite.'}
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=a<candidate['end'] for a in exit_af_notes):
+  candidate['sources'].extend([exit_af_source,exit_af_caption,exit_af_brief,exit_af_next])
+  candidate['description']+=' Uscita dai contenitori: AF20/21 ricostruito per qualificatore/frame2C,conservato da annunci direzionali e descrizioni brevi nei limiti verificati.3050checkpoint fino a mercoledì15:49; prossimo21/D del descrittore dopoLOOK. Le proprietà dei byte sono distinte per chiamante.'
+  for rr in candidate['rows']:
+   note=exit_af_notes.get(rr['a'])
+   if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END

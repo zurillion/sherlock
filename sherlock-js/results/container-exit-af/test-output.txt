@@ -1,0 +1,83 @@
+formatter_and_map_30
+✔ The last original writer of20 is the steam qualifier scan AF in Watsons ordinary exit (23.300125ms)
+✔ 1152 original captions validate the bounded exit producer and the final noun wrap (1809.335084ms)
+✔ The producer computes both AF bytes for every glyph column and nonzero font rows (88.079334ms)
+✔ The 120 original direction captions preserve the marked AF; only fresh bounded player captions own it (5916.937292ms)
+✔ 360 original brief-scene geometries validate whole-call preservation without inventing a missing value (697.733666ms)
+✔ The missing class7 CLIMB reference preserves AF in both resolution branches and the original context (1329.483833ms)
+✔ Requests, alternate callers, partial captions and unverified scene kinds do not acquire the exit AF (451.750584ms)
+✔ SAVE keeps a zero AF pair, while old missing fields are not supplied by known-preserving code (208.772834ms)
+✔ Cold original trace distinguishes LOOK-space AF from WEAR-qualifier AF at the same draw (5.5695ms)
+✔ Carried separator owns scan F/A independently from shift/count in the original glyph ABI (142.820334ms)
+✔ LOOK separator AF requires a final common name with a matching raw dictionary span (72.507583ms)
+✔ A requested LOOK does not borrow the ordinary LOOK separator AF frame (116.823ms)
+✔ Ordinary WEAR preserves low scan bytes and derives argument-prefix AF, BC and video HL (194.677459ms)
+✔ 168 complete original rejections preserve the twelve marked fields and have no stack writer at20 (7664.95375ms)
+✔ Unknown old save fields are not recreated by a known-preserving error (118.435917ms)
+✔ Natural WEAR leaves independent F/A bytes until both overnight reads (6.036042ms)
+✔ Both disguise captions match the owned fields of the original WEAR geometry ABI (174.797625ms)
+✔ WEAR scan ownership excludes unproved callers, partial rows and MORE boundaries (385.243459ms)
+✔ Qualified missing-object errors preserve just the independently proven scan fields (6971.20925ms)
+✔ Prose searches, quotes, requests and ALL do not inherit missing-object scan preservation (163.3055ms)
+✔ WEAR-derived scan state persists in JSON; missing legacy fields stay absent through errors (68.257166ms)
+✔ The natural s is EXITS; 731A on the stack is saved AF, not a dialogue address (34.581333ms)
+✔ Full-arrival exit scan and direction-wrap fields match the controlled original ABI (903.57275ms)
+✔ Other scene callers do not borrow the full arrival exit roles (325.180875ms)
+✔ Exit scan ownership is per byte, bounded before MORE, and absent legacy fields remain absent (260.780292ms)
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (18.0135ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (0.609792ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (34.54475ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (8.270166ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (1.674208ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11405.650666
+
+cold_extra_look
+✔ An extra LOOK before the first cab retains renderer state into Wednesday (377437.213791ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 378719.331167
+
+victory_seed0
+✔ Seed 0 reproduces the complete graphics-enabled victory at Victoria (531346.498292ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 532237.163792
+
+victory_seed1
+✔ Seed 1 reproduces the Victoria route through the victory at Victoria (535108.352541ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 535806.40225
+
+victory_seed137
+✔ The graphics-enabled Victoria route reproduces the complete victory at Victoria (534554.943208ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 535288.448875

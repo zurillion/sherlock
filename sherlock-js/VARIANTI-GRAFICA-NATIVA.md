@@ -1,5 +1,9 @@
 # Varianti del percorso con grafica nativa
 
+Seguito: [uscita dai contenitori e AF](USCITA-CONTENITORI-E-AF.md),
+3.050checkpoint fino a mercoledì15:49; prossimo5D21/descrittore del LOOK.
+
+
 Seguito: [EXITS e scorrimento](USCITE-E-SCANSIONE-5D1E.md),
 2.962 checkpoint fino a mercoledì14:22; prossimo5D20/Watson.
 

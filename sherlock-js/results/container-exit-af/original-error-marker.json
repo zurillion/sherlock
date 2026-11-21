@@ -1,0 +1,46 @@
+{
+  "protocol": "Original pre-error prompt after the two south movements; no identity, location or failure-budget changes. Only A5 markers in20/21 and their editor-stack copies are overlaid. All24 actors retained. This is a preservation check in the original context, not an unmodified natural run.",
+  "before": {
+    "tick": 3216,
+    "due": 3216,
+    "minute": 35,
+    "hour": 1,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 01:35pm"
+  },
+  "after": {
+    "tick": 3216,
+    "due": 3216,
+    "minute": 35,
+    "hour": 1,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 01:35pm"
+  },
+  "messages": [
+    {
+      "kind": "narrative",
+      "text": "",
+      "screen_events": [
+        {
+          "op": "counter",
+          "value": 0,
+          "source": "D71A"
+        },
+        {
+          "op": "wide"
+        }
+      ]
+    },
+    {
+      "kind": "error",
+      "text": "I SEE NO POLICE CAB THAT YOU CAN CLIMB INTO",
+      "screen_events": []
+    }
+  ],
+  "cells": [
+    165,
+    165
+  ]
+}

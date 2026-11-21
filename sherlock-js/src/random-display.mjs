@@ -51,7 +51,7 @@ export class RandomDisplay {
  setChannel(value){if(this.world.npcs)this.world.npcs.outputChannel=value;}
  scene(text,sceneTrace=[],moneyEnds=[]){const s=this.state;
   let projectedMargin=false,policeLookScan=null,arrivalScanCount=null;
-  const shallow=sceneTrace.some(r=>['relocation-person-prefix','wear-action-verb'].includes(r.kind));
+  const shallow=sceneTrace.some(r=>['relocation-person-prefix','wear-action-verb','container-exit-prefix'].includes(r.kind));
   const preserveScan=shallow&&s.cursor===0&&!s.pending&&s.counter+2<15&&text.length<36;
   this.invalidateGlyphExtras({preserveScan});const previousFlags=this.glyphFlagsKnown;const previousUpper=this.upperGlyphKnown,previousVideoHigh=this.glyphVideoHighKnown,previousVideoLow=this.glyphVideoLowKnown,previousCallerB=this.glyphCallerBKnown,previousCallerC=this.glyphCallerCKnown,previousCallerFlags=this.glyphCallerFlagsKnown,previousCallerA=this.glyphCallerAKnown,previousDescriptorLow=this.glyphDescriptorLowKnown,previousSpaceScan=this.glyphSpaceScanKnown,previousDescriptorHigh=this.glyphDescriptorHighKnown,previousSpaceByte=this.glyphSpaceByteKnown,previousSpaceShift=this.glyphSpaceShiftKnown,previousSpaceCount=this.glyphSpaceCountKnown,previousSpaceVideoLow=this.glyphSpaceVideoLowKnown,previousSpaceVideoHigh=this.glyphSpaceVideoHighKnown;this.upperGlyphKnown=false;try{for(let i=0;i<=text.length;i++){
    // D5C4 renders the last word of the carrying person's name and the
@@ -199,6 +199,7 @@ export class RandomDisplay {
    const ruleArrival=this.arrivalFromRule===true&&frame===0x5D28&&at>=0x5D1C&&at<=0x5D25;
    const relocationSpace=this.relocationPersonPrefix===true&&frame===0x5D36&&c===' '&&[0x5D2A,0x5D2B].includes(at);
    const relocationPrefix=this.relocationPersonPrefix===true&&frame===0x5D2A&&at>=0x5D1E&&at<=0x5D29||relocationSpace;
+   const containerExitScan=this.cabWordRole==='container-exit-prefix'&&frame===0x5D2C&&[0x5D20,0x5D21].includes(at);
    const wearArgumentScan=this.cabWordRole==='wear-argument-prefix'&&frame===0x5D2C&&at>=0x5D20&&at<=0x5D25;
    const actionVerbScan=['qualified-hail-verb','cabbie-talk-preposition','wear-action-verb'].includes(this.cabWordRole)&&
     frame===0x5D2A&&[0x5D1E,0x5D1F].includes(at);
@@ -229,7 +230,7 @@ export class RandomDisplay {
    if([0x5D27,0x5D28].includes(at)&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival&&!carriedSeparator)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!fullExitClear)||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!containerExitScan&&!fullExitClear)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!fullExitScan&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];
@@ -533,14 +534,14 @@ export class RandomDisplay {
  }
  // Fresh-row cab payment and exit announcements leave the saved C at 5D1A.
  // A longer announcement or a pending MORE can reach a deeper clear.
- write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace){
+ write(text,{cabAction=false,leading=false,sceneTrace=null,pictureRoom=null,pictureBounded=false,moneyEnds=[],preserveLow=false,preserve1F=false,preserve23=false,preserve22=false,preserve1E=false,preserve24=false,preserve25=false,preserve20=false,preserve26=false,preserve21=false,preserve27=false,preserve28=false,preserve29=false,preserve2A=false,preserve2B=false,preserveLowerClear=false}={}){if(!this.state)return;const retainExitAf=sceneTrace?.some(e=>e.kind==='brief-root-preserves-exit-af')&&!leading&&pictureRoom===null&&this.state.pictureWindow&&this.state.windowMode===0&&this.state.cursor===0&&this.state.remaining===36&&!this.state.pending&&this.state.spacingFlag===0&&this.state.counter+8<15?[this.state.scratch[0x5D20],this.state.scratch[0x5D21]]:null;if(/[A-Za-z]/.test(text))this.invalidateCandidateWorkspace();if(!sceneTrace)this.invalidateGlyphExtras({preserve1A:cabAction&&this.state.cursor===0&&!this.state.pending&&this.state.counter+2<15&&text.length<=36,preserveLow,preserve1F,preserve23,preserve22,preserve1E,preserve24,preserve25,preserve20,preserve26,preserve21,preserve27,preserve28,preserve29,preserve2A,preserve2B});if(leading)this.feed('\n');if(pictureRoom!==null&&this.state.pictureWindow)this.picture(pictureRoom,pictureBounded);if(sceneTrace){
   const carriedScan=this.scene(text,sceneTrace,moneyEnds);
   if(sceneTrace.some(e=>e.kind==='police-cab-look')){
    this.invalidateScratch(0x5D00,0x5D0F);
    for(const [i,value] of (carriedScan??[]).entries())
     if(value!==undefined)this.state.scratch[0x5D0E+i]=value;
   }
- }else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');}
+ }else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');if(retainExitAf)for(const [i,value]of retainExitAf.entries()){if(value===undefined)delete this.state.scratch[0x5D20+i];else this.state.scratch[0x5D20+i]=value;}}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
   this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}

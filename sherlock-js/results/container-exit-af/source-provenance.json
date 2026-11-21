@@ -1,0 +1,39 @@
+{
+  "original_corpus_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "native_handover": {
+    "sha256": "e6b48d76aa40518e1c27bcc02eda742d1f3f1fccf666e6af42022492059704e1",
+    "original_checkpoint": 2779,
+    "clock_room_video_counter_and_mode_match": true,
+    "clock": {
+      "tick": 3076,
+      "due": 3076,
+      "minute": 15,
+      "hour": 11,
+      "day": 2,
+      "period": "am",
+      "label": "Wed 11:15am"
+    }
+  },
+  "next_read_handover": {
+    "sha256": "c2de702b613d2c43d0d434684d1a50eb689e1e56f8e375cb7f66151222f463e3",
+    "original_checkpoint": 2910,
+    "clock_room_video_counter_and_mode_match": true,
+    "clock": {
+      "tick": 3210,
+      "due": 3210,
+      "minute": 29,
+      "hour": 1,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 01:29pm"
+    }
+  },
+  "inputs": {
+    "pre-get-out-prompt.json.gz": "c2de702b613d2c43d0d434684d1a50eb689e1e56f8e375cb7f66151222f463e3",
+    "pre-error-prompt.json.gz": "529a46dba2ef4471f1aa9415fdd41db29dc16f1ff9f950d15da472dcbae49e66",
+    "caption-entry.json.gz": "f53f70241a15cbb3c2fdd0d5cd12d0157cc82940f3dfc3f2c46d07e8abb9ced9",
+    "brief-entry.json.gz": "73f27e03c6a995512eab81a53e2d801c68690c1625b3e5693c866a290cf0ba92",
+    "post-get-out-prompt.json.gz": "43a779e91914c662fe76e0d43082f33dff29bf82859a821715a42c9b152306bd"
+  },
+  "profile": "Seed1,all24actors,native graphics,free initial LOOK,uppercase injected input,immediate MORE,no teleports; snapshots are offline evidence, never imported by browser runtime."
+}

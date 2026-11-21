@@ -147,6 +147,7 @@ export class Game {
   if(possible.length===1)return {entity:possible[0]};
   const query=this.queryName(group).toUpperCase(),verb=this.word(node.verb).toUpperCase();
   const scenery=w.npcs?.sceneryFailure;
+  const preserveMissingContainerAf=action===12&&slot===0&&w.display?.pictureWindow&&this.actingActor===undefined&&this.actor===w.player&&!node.quote&&!node.subject&&!node.all&&!node.exclusion&&node.groups.length===1&&group.noun&&!(group.noun&32768)&&group.qualifiers.length<=2&&group.relations.length===1&&this.word(group.relations[0])==='into'&&w.entity(w.player).parent===null&&!w.dark()&&!w.rooms[w.roomOf()].description&&nominal.every(e=>!w.perceived(e.id));
   // Ordinary absent-object rejections in a root room without prose do
   // preserve1A–25, including bounded qualifiers. The wider26–2B and
   // lower-row-clear contracts remain restricted to simple EXAMINE.
@@ -160,11 +161,18 @@ export class Game {
    const message=this.error(scenery.found?`YOU CANNOT ${[modifier,verb,...([29,30,35].includes(action)?relations.map(r=>r.toUpperCase()):[])].filter(Boolean).join(' ')} THE ${query}`:`I SEE NO ${query} THAT YOU CAN ${[verb,...relations.map(r=>r.toUpperCase())].join(' ')}`);
    if(preserveLow)Object.assign(message,{preserve_renderer_low:true,preserve_renderer_1f:true,preserve_renderer_23:true,preserve_renderer_22:true,preserve_renderer_1e:true,preserve_renderer_24:true,preserve_renderer_25:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_26:true,preserve_renderer_27:true,preserve_renderer_28:true,preserve_renderer_29:true,preserve_renderer_2a:true,preserve_renderer_2b:true,lower_scenery_clear:true});
    if(preserveAbsent)Object.assign(message,{preserve_renderer_low:true,preserve_renderer_1e:true,preserve_renderer_1f:true,preserve_renderer_20:true,preserve_renderer_21:true,preserve_renderer_22:true,preserve_renderer_23:true,preserve_renderer_24:true,preserve_renderer_25:true});
+   if(!scenery.found&&preserveMissingContainerAf)Object.assign(message,{preserve_renderer_20:true,preserve_renderer_21:true});
    if(dictionaryWords)message.dictionary_reference=dictionaryWords.at(-1);
    return {message};
   }
   if(slot===1&&[17,38,39,42,44].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
-  if([12,13,24,25,40,43,46,47,48,51,53,54,21,22].includes(action))return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`)};
+  if([12,13,24,25,40,43,46,47,48,51,53,54,21,22].includes(action)){
+   const message=this.error(`I SEE NO ${query} THAT YOU CAN ${[verb,...(([45,47,48].includes(action)?[]:this.data.actions.find(a=>a.id===action)?.words.slice(1,3).filter(Boolean))||[])].join(' ').toUpperCase()}`);
+   // Class7 container lookup does not take the scenery-description path.
+   // This ordinary missing-reference error preserves the exit scan AF.
+   if(preserveMissingContainerAf)Object.assign(message,{preserve_renderer_20:true,preserve_renderer_21:true});
+   return {message};
+  }
   if(nominal.length>1)return {message:this.error(`I SEE NO ${query} THAT YOU CAN ${verb}`)};
   if([11,23,41,42,44].includes(action)&&slot===0&&nominal.length===1&&w.perceived(nominal[0].id)&&w.entities.some(p=>p.person&&p.id!==w.player&&w.owns(p.id,nominal[0].id)))return {message:this.error(`YOU CANNOT TAKE ${w.name(nominal[0].id).toUpperCase()}.`)};
   return {message:this.error(`YOU CANNOT ${verb} THE ${query}`)};
@@ -366,7 +374,9 @@ export class Game {
    }
    w.rooms[room].flags|=64;w.explored.add(room);
    const movement=action===28?say('go',' through '+w.name(gate.id)+'.'):say('go',' '+DIRECTION_NAMES[direction]+'.');
-   return ok([movement,{...this.sceneMessage({full:first}),image_room:first?room:null,...(w.display?.pictureWindow&&this.actingActor===undefined?{picture_bounded:true}:{})}],2,action===28?[gate.id]:[]);
+   const display=this.sourceDisplay.state;
+   const preserveExitAf=actor===0&&this.actingActor===undefined&&action>=1&&action<=10&&!node.groups.length&&display?.pictureWindow&&display.windowMode===0&&display.cursor===0&&display.remaining===36&&!display.pending&&display.spacingFlag===0&&display.counter+3<15&&movement.length<36;
+   return ok([{kind:'narrative',text:movement,...(preserveExitAf?{preserve_renderer_20:true,preserve_renderer_21:true}:{})},{...this.sceneMessage({full:first}),image_room:first?room:null,...(w.display?.pictureWindow&&this.actingActor===undefined?{picture_bounded:true}:{})}],2,action===28?[gate.id]:[]);
   }
   if(node.groups.some(g=>g.noun&32768))throw new UnsupportedFeature('argomenti letterali per questa azione');
   const result=this.resolve(node,action);if(result.message)return {messages:[result.message],cost:0,action,args:[],semanticFailed:true};const e=result.entity;
