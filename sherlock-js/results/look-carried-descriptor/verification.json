@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-22",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "strict_checkpoints": 3148,
+  "through": {
+    "tick": 3448,
+    "due": 3466,
+    "minute": 27,
+    "hour": 5,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 05:27pm"
+  },
+  "draws": 8283,
+  "reads": 17586,
+  "save_load_points": [
+    1488,
+    2005,
+    2780,
+    2911,
+    3015
+  ],
+  "last_load_future_checkpoints": 132,
+  "full_native_victory_seeds": [
+    0,
+    1,
+    137
+  ],
+  "checkpoints_per_victory": 3219,
+  "original_controls": {
+    "complete_look_inputs": 144,
+    "glyph_setups": 216
+  },
+  "next": {
+    "checkpoint": 3148,
+    "clock": {
+      "tick": 3449,
+      "due": 3466,
+      "minute": 28,
+      "hour": 5,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 05:28pm"
+    },
+    "actor": 3,
+    "address": "5D22",
+    "draw": {
+      "actor": 3,
+      "width": 99,
+      "mixOffset": 40172,
+      "seed": 33,
+      "cursor": 23586,
+      "reads": [
+        {
+          "address": 23842,
+          "value": 235
+        },
+        {
+          "address": 64015,
+          "value": 142
+        }
+      ],
+      "video": "172ba06c8b040a20e5bcf27ef9f6763649dc1d41b72005e00da48a9fa33f0f69",
+      "counter": 1,
+      "narrow": 0,
+      "result": 31,
+      "next_seed": 130,
+      "next_cursor": 23842
+    },
+    "observed_writer": "C38A",
+    "writer_tick": 3411,
+    "descriptor": "58EB",
+    "frame": "5D28",
+    "mode": "narrow",
+    "projection": "not implemented"
+  },
+  "tests": [
+    {
+      "name": "focused_34",
+      "passed": true,
+      "sha256": "2b8bb9029e0adc931b3ce5f0308ffb603fb32e6d33d0aa791dd298792d8de35f"
+    },
+    {
+      "name": "passage_16",
+      "passed": true,
+      "sha256": "e741afe1d5456f43743198c07969687479dd10b2c74a32e7369336b5ebad8c7d"
+    },
+    {
+      "name": "cold_extra_look",
+      "passed": true,
+      "sha256": "b7c7437035880941c53a13829135d898b871519012c8d9e3e721fef38fc60f67"
+    },
+    {
+      "name": "victory_seed0",
+      "passed": true,
+      "sha256": "27e27b41531d8658f023fe17a4d7d66e9e84e01261cd0726e48a7e369845dc75"
+    },
+    {
+      "name": "victory_seed1",
+      "passed": true,
+      "sha256": "0f919e48a692c61748c8966585a8fe65fcd40416a916cbd7e25299beacc3870b"
+    },
+    {
+      "name": "victory_seed137",
+      "passed": true,
+      "sha256": "f4cf22651b85562d340db9fa91368bf54e3cf68ba667be2dbcca99d3d793270a"
+    }
+  ],
+  "scope": "Declared natural histories and bounded final-carried-name LOOK contract. Controlled ABI asserts owned D only; native output archived verbatim. Strict natural comparison is not normalized. Browser runtime uses no original CPU or recorded-input replay."
+}

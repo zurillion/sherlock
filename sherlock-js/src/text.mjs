@@ -452,7 +452,10 @@ export class Text {
    if(prefix?.frame===0x5D1A&&!(w.entity(prefix.parent).noun&32768)){
     Object.assign(prefix,{spaceShiftKnown:true,spaceCountKnown:true});
     const raw=trace.find(part=>part.kind==='raw-text-buffer'&&part.start===prefix.start&&part.end===finalContents.end-1);
-    if(ordinaryLook===true&&raw&&!w.entity(prefix.parent).money)Object.assign(prefix,{spaceScanKnown:true,spaceByteKnown:true});
+    if(ordinaryLook===true&&raw&&!w.entity(prefix.parent).money){
+     Object.assign(prefix,{spaceScanKnown:true,spaceByteKnown:true,spaceDescriptorHighKnown:true});
+     trace.push({kind:'final-carried-noun-tail',end:output.length,frame:0x5D4C});
+    }
    }
   }
   const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);

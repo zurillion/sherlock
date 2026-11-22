@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-22",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "artifacts": [
+    {
+      "path": "results/look-carried-descriptor/glyph-abi.json",
+      "sha256": "bd630daa2f4f6579dcc05ff9ed24f12319defcaf447288081e962705e6848449",
+      "bytes": 50608
+    },
+    {
+      "path": "results/look-carried-descriptor/js-save-provenance.json",
+      "sha256": "443789026cfb8650f1647c26742fa331693c7dd36130631cdc625733d636cc18",
+      "bytes": 410
+    },
+    {
+      "path": "results/look-carried-descriptor/listing-verification.json",
+      "sha256": "006dac04824d66e90f4078ef65de2aa5d7cc744084deaa61c8a93a2552ed7f56",
+      "bytes": 984
+    },
+    {
+      "path": "results/look-carried-descriptor/look-abi.json",
+      "sha256": "82a9020d82d6fd945230e94440974754eab251021545fb1e46b61bd057131b03",
+      "bytes": 399444
+    },
+    {
+      "path": "results/look-carried-descriptor/look-carried-descriptor.asm",
+      "sha256": "edc55504bbab5e2b9f9af980b713ab24c043e234b36b92ff15824ebb2b4cb3d4",
+      "bytes": 11837
+    },
+    {
+      "path": "results/look-carried-descriptor/look-detail.json",
+      "sha256": "0ae08dd7d173df2a2baf38411dff288559a8ac06bf5a394bbdf153034b1be453",
+      "bytes": 99077
+    },
+    {
+      "path": "results/look-carried-descriptor/next-stack22.json",
+      "sha256": "f7410ea5e6a9c3be33c92d8fd17cee367a05a52de1795b7b692f93b65db4949f",
+      "bytes": 2344
+    },
+    {
+      "path": "results/look-carried-descriptor/pre-look-js-save.json.gz",
+      "sha256": "cf8b1f0abf3ac72a778a0c5a252de08335144f749e544851ce4605a722e5ed33",
+      "bytes": 27293
+    },
+    {
+      "path": "results/look-carried-descriptor/pre-look-prompt.json.gz",
+      "sha256": "8d8482e181ca013a9c403e07be039ff1cd00b936fef48333d9f0ca07c472408c",
+      "bytes": 58384
+    },
+    {
+      "path": "results/look-carried-descriptor/scene-entry.json.gz",
+      "sha256": "7f0a18f006e27105c0c9ed2040069b62eb9183565e3d5469e06d75c75fa8c885",
+      "bytes": 58226
+    },
+    {
+      "path": "results/look-carried-descriptor/separator-entry.json.gz",
+      "sha256": "726a363f1f425a5e79269b645a140d5fd6e04dde8882475459572a90edaa3d61",
+      "bytes": 58382
+    }
+  ]
+}

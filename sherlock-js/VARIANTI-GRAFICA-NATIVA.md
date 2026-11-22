@@ -126,3 +126,8 @@ byte nella partita ordinaria. I 14 test del modulo Watson passano
 con l’ingresso mancante imposto esplicitamente dal test.
 
 [Test del rollback e delle risposte di Watson](test/runtime-watson.test.mjs)
+
+
+Aggiornamento 22 novembre 2026: superato il successivo $5D21 del LOOK.
+Il prefisso della variante è ora 3.148 checkpoint fino a mercoledì alle 17:27; prossimo
+limite $5D22 alle 17:28. Vedi [nuovo dossier](LOOK-E-DESCRITTORE-DEL-SOSTANTIVO.md).

@@ -488,6 +488,20 @@ for candidate in candidates:
    note=exit_af_notes.get(rr['a'])
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
+# Final carried-name LOOK: next-noun descriptor D, independent from earlier scan AF.
+look_d_detail=source(ROOT/'results/look-carried-descriptor/look-detail.json','LOOK naturale3315: separatore daily/chronicle e ritorno a capo finale')
+look_d_abi=source(ROOT/'results/look-carried-descriptor/look-abi.json','144 LOOK completi controllati: colonne,contatori e scarico del nome')
+look_d_glyph=source(ROOT/'results/look-carried-descriptor/glyph-abi.json','216 glifi controllati: D deriva dal descrittore,non dal font')
+look_d_next=source(ROOT/'results/look-carried-descriptor/next-stack22.json','Prossimo ingresso22: E del descrittore58EB,steam/train a finestra stretta')
+look_d_notes={0xA815:'Il sostantivo successivo è già selezionato mentre il suo spazio scarica il qualificatore precedente.',0xA89C:'LOOK3315: daily è ancora nel buffer,ma DE dello spazio è51AB,chronicle. Non è5C0B del glifo della parola.',0xC38A:'Nuovo contratto LOOK: frame5D26 salva D in21,da5000|noun. Il nome finale a5D4C e il wrap a5D46 lo conservano nel perimetro verificato.3148checkpoint fino aWed17:27. Prossimo22 alle17:28:frame5D28,E=EB di58EB dopo steam,duranteN3411 in finestra stretta;ancora non proiettato.',0xD424:'Ultimo nome comune portato: prefisso del LOOK ordinario a5D1A; separatore prima del sostantivo a5D26. Esclusi richiesta,nome grezzo sconosciuto,denaro,margine35 eMORE.',0xD442:'Sostantivo finale del LOOK in buffer fino alCR:5D4C,wrap5D46. La conservazione21 non ripristina campi assenti e non concede20.',0xD526:'Il livello ricorsivo del nome finale determina il frame del separatore. Non estendere il contratto a qualunque oggetto o arrivo.'}
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=a<candidate['end'] for a in look_d_notes):
+  candidate['sources'].extend([look_d_detail,look_d_abi,look_d_glyph,look_d_next])
+  candidate['description']+=' LOOK finale: D del descrittore del prossimo sostantivo possiede21;nome finale ewrap misurati lo conservano.3148checkpoint fino a mercoledì17:27,cinqueLOAD. Nuovo limite22/E di58EB duranteN,non ancora proiettato. Copertura statica distinta dal gameplay.'
+  for rr in candidate['rows']:
+   note=look_d_notes.get(rr['a'])
+   if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END

@@ -88,7 +88,11 @@ export class RandomDisplay {
     const carriedMargin=clearFrame===0x5D22&&role.kind==='carried-object-prefix'&&s.pictureWindow&&s.windowMode===0;
     if(clearFrame&&!carriedMargin)this.glyphResidue(' ',clearFrame,35,0x5A20);
     if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter)){this.glyphSpaceScanKnown=role.spaceScanKnown===true;this.glyphSpaceByteKnown=role.spaceByteKnown===true;this.glyphSpaceShiftKnown=role.spaceShiftKnown===true;this.glyphSpaceCountKnown=role.spaceCountKnown===true;this.glyphSpaceVideoLowKnown=role.spaceVideoLowKnown===true;this.glyphSpaceVideoHighKnown=role.spaceVideoHighKnown===true;const savedFlags=this.glyphFlagsKnown;if(role.spaceScanAfKnown)this.glyphFlagsKnown=true;
+     // A887 has already selected the next name word before its delimiter.
+     // Only the verified final carried-name LOOK owns D saved at frame-5.
+     const savedDescriptorHigh=this.glyphDescriptorHighKnown;this.glyphDescriptorHighKnown=role.spaceDescriptorHighKnown===true&&Boolean(s.pictureWindow)&&s.windowMode===0&&s.cursor<35&&s.counter+3<15;
      this.glyphResidue(' ',role.frame+12,this.state.cursor,role.spaceDescriptor??(0x5000|(this.world.entity(role.parent).noun&4095)));
+     this.glyphDescriptorHighKnown=savedDescriptorHigh;
      this.glyphFlagsKnown=savedFlags;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;}
     // The visible delimiter saves its descriptor before C374 clears the next row.
     if(carriedMargin){this.glyphResidue(' ',clearFrame,35,0x5A20);projectedMargin=true;}
@@ -96,7 +100,7 @@ export class RandomDisplay {
   }
    // The last noun can remain buffered until the caller emits CR after
    // scene(). A wrap there is outside the proved passage-prefix frame.
-   if(this.state.pending.length>=this.state.remaining){delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
+   if(this.state.pending.length>=this.state.remaining){const keepCarriedD=sceneTrace.some(r=>r.kind==='final-carried-noun-tail'&&r.end===text.length)&&s.windowMode===0&&s.counter+3<15&&s.pending.length<36;delete this.state.scratch[0x5D22];delete this.state.scratch[0x5D23];delete this.state.scratch[0x5D1E];delete this.state.scratch[0x5D24];delete this.state.scratch[0x5D25];delete this.state.scratch[0x5D20];delete this.state.scratch[0x5D26];if(!keepCarriedD)delete this.state.scratch[0x5D21];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
    // Reserve the final CR and action separator below the MORE threshold.
    if(this.state.counter+2>=15){delete this.state.scratch[0x5D26];delete this.state.scratch[0x5D27];delete this.state.scratch[0x5D28];delete this.state.scratch[0x5D29];delete this.state.scratch[0x5D2A];delete this.state.scratch[0x5D2B];}
   }finally{this.glyphFrame=null;this.glyphSpaceDescriptor=null;this.briefIdentityKnown=false;this.trainScanKnown=false;this.vehicleScanKnown=false;this.arrivalNameKnown=false;this.cabWordRole=null;this.relocationPersonPrefix=false;this.arrivalFromRule=false;this.relocationPersonNoun=false;this.relocationPersonVerb=false;this.upperGlyphKnown=previousUpper;this.glyphVideoHighKnown=previousVideoHigh;this.glyphVideoLowKnown=previousVideoLow;this.glyphCallerBKnown=previousCallerB;this.glyphCallerCKnown=previousCallerC;this.glyphCallerFlagsKnown=previousCallerFlags;this.glyphCallerAKnown=previousCallerA;this.glyphDescriptorLowKnown=previousDescriptorLow;this.glyphSpaceScanKnown=previousSpaceScan;this.glyphDescriptorHighKnown=previousDescriptorHigh;this.glyphSpaceByteKnown=previousSpaceByte;this.glyphSpaceShiftKnown=previousSpaceShift;this.glyphSpaceCountKnown=previousSpaceCount;this.glyphSpaceVideoLowKnown=previousSpaceVideoLow;this.glyphSpaceVideoHighKnown=previousSpaceVideoHigh;this.glyphFlagsKnown=previousFlags;}
@@ -541,7 +545,14 @@ export class RandomDisplay {
    for(const [i,value] of (carriedScan??[]).entries())
     if(value!==undefined)this.state.scratch[0x5D0E+i]=value;
   }
- }else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}if(!text.endsWith('\n'))this.feed('\n');if(retainExitAf)for(const [i,value]of retainExitAf.entries()){if(value===undefined)delete this.state.scratch[0x5D20+i];else this.state.scratch[0x5D20+i]=value;}}
+ }else for(const[i,c]of[...text].entries()){this.feed(c);for(const end of moneyEnds)if(end.end===i+1)this.moneyCapital(end.pence);}
+ // The final carried noun flushes at5D4C (wrap5D46); neither reaches21.
+ // Retain only an already owned D through that independently proved CR.
+ const retainCarriedD=sceneTrace?.some(r=>r.kind==='final-carried-noun-tail'&&r.end===text.length)&&this.state.windowMode===0&&this.state.counter+3<15&&this.state.pending.length<36;
+ const carriedD=retainCarriedD?this.state.scratch[0x5D21]:undefined;
+ if(!text.endsWith('\n'))this.feed('\n');
+ if(retainCarriedD){if(carriedD===undefined)delete this.state.scratch[0x5D21];else this.state.scratch[0x5D21]=carriedD;}
+ if(retainExitAf)for(const [i,value]of retainExitAf.entries()){if(value===undefined)delete this.state.scratch[0x5D20+i];else this.state.scratch[0x5D20+i]=value;}}
  lowerText(text){const s=this.state;let column=((s.lowerCursor??2)-2)/7;for(const c of text){if(c==='\r'||c==='\n'){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;continue;}s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+c;if(++column===36){s.lower.shift();s.lowerKnown.shift();s.lower.push('');s.lowerKnown.push(true);column=0;}}s.lowerCursor=2+column*7;s.lower[4]=s.lower[4].slice(0,column).padEnd(column,' ')+'+';}
  prompt(){if(this.world.npcs)this.world.npcs.editorTimeout=3000; // D898/D89B reload the injected-key editor’s counter.
   this.setChannel(1);const s=this.state;if(!s)return;const column=((s.lowerCursor??2)-2)/7;if(s.lower[4][column]==='+'&&s.lower[4].slice(Math.max(0,column-2),column)==='> ')return;this.lowerText('> ');s.lowerKnown[4]=true;}

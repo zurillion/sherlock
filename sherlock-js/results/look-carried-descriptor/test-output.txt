@@ -1,0 +1,113 @@
+focused_34
+✔ The last original writer of20 is the steam qualifier scan AF in Watsons ordinary exit (24.039333ms)
+✔ 1152 original captions validate the bounded exit producer and the final noun wrap (2596.941416ms)
+✔ The producer computes both AF bytes for every glyph column and nonzero font rows (94.750416ms)
+✔ The 120 original direction captions preserve the marked AF; only fresh bounded player captions own it (7788.707667ms)
+✔ 360 original brief-scene geometries validate whole-call preservation without inventing a missing value (1341.403792ms)
+✔ The missing class7 CLIMB reference preserves AF in both resolution branches and the original context (1528.062167ms)
+✔ Requests, alternate callers, partial captions and unverified scene kinds do not acquire the exit AF (217.2335ms)
+✔ SAVE keeps a zero AF pair, while old missing fields are not supplied by known-preserving code (102.634792ms)
+✔ Extra LOOK last writer: separator shift and scan count precede the gardener read (161.526792ms)
+✔ Carried-object separator derives all eight shifts; unknown contexts and legacy saves stay unknown (514.441208ms)
+✔ Original four announcements preserve low cells on every fresh wide-row counter (5.139875ms)
+✔ Ordinary door and qualified-arrival contracts preserve only the bounded low fields (796.224208ms)
+✔ Cold original trace distinguishes LOOK-space AF from WEAR-qualifier AF at the same draw (7.322916ms)
+✔ Carried separator owns scan F/A independently from shift/count in the original glyph ABI (574.415958ms)
+✔ LOOK separator AF requires a final common name with a matching raw dictionary span (194.470917ms)
+✔ A requested LOOK does not borrow the ordinary LOOK separator AF frame (116.467292ms)
+✔ Ordinary WEAR preserves low scan bytes and derives argument-prefix AF, BC and video HL (362.569584ms)
+✔ 168 complete original rejections preserve the twelve marked fields and have no stack writer at20 (10784.5955ms)
+✔ Unknown old save fields are not recreated by a known-preserving error (70.743ms)
+✔ The natural s is EXITS; 731A on the stack is saved AF, not a dialogue address (10.627125ms)
+✔ Full-arrival exit scan and direction-wrap fields match the controlled original ABI (1798.99575ms)
+✔ Other scene callers do not borrow the full arrival exit roles (479.458125ms)
+✔ Exit scan ownership is per byte, bounded before MORE, and absent legacy fields remain absent (143.924917ms)
+✔ Original LOOK saves D of the next noun at21; the final noun and wrap use shallower frames (165.853166ms)
+✔ 216 original glyph setups prove descriptor high is independent from pixel column and not fixed51 (223.491ms)
+✔ 144 complete original LOOK geometries verify owned D through final noun CR and wrap (9566.508084ms)
+✔ Only ordinary raw final common carried names own the next-noun descriptor (274.209208ms)
+✔ Separator scopes exclude margin, MORE and narrow mode without filling absent fields (375.451542ms)
+✔ SAVE preserves computed D and independent missing legacy bytes (141.525834ms)
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (12.58875ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (1.020292ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (209.439417ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (137.753625ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (8.54075ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14716.554958
+
+passage_16
+✔ Natural20 and26 have independent writers, characters and frames at the actual cook read (98.583792ms)
+✔ Original six-role ABIs and descriptor variants distinguish a parameter byte from a fixed0B (383.876917ms)
+✔ Whole passage geometry matches every owned20 and26 in720 original calls (1375.603708ms)
+✔ 26 arrival preservation is restricted to fresh rows with a proved page-counter budget (13668.864167ms)
+✔ Simple lower errors preserve both inputs, while unproved error and arrival callers revoke26 (352.21625ms)
+✔ Descriptor E and the delimited-space scan require distinct scopes and preserve old-SAVE unknowns (193.356125ms)
+✔ Unmapped clears, final wraps, subsequent names and pending MORE revoke the new contracts (119.525542ms)
+✔ Ordinary JS commands reproduce the distinct n and separating-space writers and LOAD future (2335.907958ms)
+✔ Natural21/27 provenance reaches the actual later gardener read and retains the prior store prefix (155.375ms)
+✔ Original six-role ABIs and variable descriptor high bytes exclude a fixed5C and fixed font0 (488.880042ms)
+✔ All owned21/27 match720 original whole-passage geometries; LOOK remains unowned (1295.910209ms)
+✔ Original caller controls prove high-byte preservation with the stricter fresh-row policy for27 (689.5845ms)
+✔ Errors, qualified arrivals and nonordinary callers do not borrow the new preservation contracts (297.69075ms)
+✔ High descriptor and raw font byte require independent knowledge and preserve missing old-SAVE fields (151.135042ms)
+✔ Unknown clears, subsequent names, final wraps and page boundaries revoke high-byte ownership (75.629916ms)
+✔ Normal JS commands reconstruct21/27 from a prewriter SAVE and keep the LOAD future (2657.152708ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19452.315167
+
+cold_extra_look
+✔ An extra LOOK before the first cab retains renderer state into Wednesday (342623.180375ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 343745.777291
+
+victory_seed0
+✔ Seed 0 reproduces the complete graphics-enabled victory at Victoria (480118.40575ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 481044.337209
+
+victory_seed1
+✔ Seed 1 reproduces the Victoria route through the victory at Victoria (480886.592167ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 481816.738666
+
+victory_seed137
+✔ The graphics-enabled Victoria route reproduces the complete victory at Victoria (482195.555417ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 483029.324166

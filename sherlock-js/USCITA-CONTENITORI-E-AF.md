@@ -151,3 +151,8 @@ il contratto preesistente dei byte1A–1D. I12setup originali ammissibili
 li mantengono tutti a markerA5; i test controllano anche i valori del modello.
 Questo evita di perdere il precedente byte1A degli annunci del cab quando
 si introduce il nuovo tracciamento del nome dell’argomento.
+
+
+Aggiornamento 22 novembre 2026: superato il successivo $5D21 del LOOK.
+Il prefisso della variante è ora 3.148 checkpoint fino a mercoledì alle 17:27; prossimo
+limite $5D22 alle 17:28. Vedi [nuovo dossier](LOOK-E-DESCRITTORE-DEL-SOSTANTIVO.md).

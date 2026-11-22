@@ -1,0 +1,42 @@
+{
+  "instructions": 188,
+  "bytes_roundtripped": 354,
+  "roundtrip_equal": true,
+  "regions": [
+    {
+      "start": "A815",
+      "end_exclusive": "A82F",
+      "kind": "code",
+      "label": "Ingresso del sostantivo nel decoder",
+      "atlas_priority": 98
+    },
+    {
+      "start": "A887",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Separatore con descrittore della parola successiva",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C39E",
+      "kind": "code",
+      "label": "Salvataggi DE e AF del glifo",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D3E8",
+      "end_exclusive": "D445",
+      "kind": "code",
+      "label": "Nomi comuni: articolo, qualificatori e sostantivo",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D526",
+      "end_exclusive": "D5C9",
+      "kind": "code",
+      "label": "Elenco ricorsivo e frase degli oggetti portati",
+      "atlas_priority": 98
+    }
+  ]
+}
