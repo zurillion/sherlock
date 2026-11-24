@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-24",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "strict_checkpoints": 3240,
+  "through": {
+    "tick": 3535,
+    "due": 3570,
+    "minute": 54,
+    "hour": 6,
+    "day": 2,
+    "period": "pm",
+    "label": "Wed 06:54pm"
+  },
+  "draws": 8511,
+  "reads": 18068,
+  "save_load_points": [
+    1488,
+    2005,
+    2780,
+    2911,
+    3015,
+    3112
+  ],
+  "last_load_future_checkpoints": 127,
+  "full_native_victory_seeds": [
+    0,
+    1,
+    137
+  ],
+  "checkpoints_per_victory": 3219,
+  "original_controls": {
+    "name_period_cr": 216,
+    "glyph_setups": 108
+  },
+  "next": {
+    "checkpoint": 3240,
+    "clock": {
+      "tick": 3536,
+      "due": 3570,
+      "minute": 55,
+      "hour": 6,
+      "day": 2,
+      "period": "pm",
+      "label": "Wed 06:55pm"
+    },
+    "actor": 8,
+    "address": "5D23",
+    "draw": {
+      "actor": 8,
+      "width": 99,
+      "mixOffset": 5,
+      "seed": 104,
+      "cursor": 23331,
+      "reads": [
+        {
+          "address": 23587,
+          "value": 0
+        },
+        {
+          "address": 23593,
+          "value": 0
+        },
+        {
+          "address": 23843,
+          "value": 0
+        },
+        {
+          "address": 23849,
+          "value": 92
+        }
+      ],
+      "video": "8d0bdec14be2d5cffe559023524e28607c1cc5422138c0115b933bf916d73c09",
+      "counter": 6,
+      "narrow": 0,
+      "result": 47,
+      "next_seed": 52,
+      "next_cursor": 23843
+    },
+    "observed_writer": "C3B8",
+    "writer_tick": 3504,
+    "writer_actor": 0,
+    "word": "english",
+    "character": "h",
+    "frame": "5D2E",
+    "saved_register": "scan A / final raw font row",
+    "projection": "not implemented"
+  },
+  "tests": [
+    {
+      "name": "formatter_regressions_51",
+      "passed": true,
+      "sha256": "9e7ee67fc02db2d7e8d3ba03c41cd4ac85105e2a43edbc417770383d49b9e475"
+    },
+    {
+      "name": "memory_map_5",
+      "passed": true,
+      "sha256": "ba6793bb014feab82f84ce8793db4363f2460fd7dde61c8c023385f038277949"
+    },
+    {
+      "name": "cold_extra_look",
+      "passed": true,
+      "sha256": "c776f9b8af6e16a24747ddb951fb10feda503b10ae6ffe70ec944d28f4d8c445"
+    },
+    {
+      "name": "victory_seed0",
+      "passed": true,
+      "sha256": "68b8ec9cfff06fa47b1ca748027f77eb47b4885b27c9e0d112cadf590726522c"
+    },
+    {
+      "name": "victory_seed1",
+      "passed": true,
+      "sha256": "a2e4f1bb2d6a202c9fb3926718b54fb83a844e9a29d495bd021fec5512ce6b79"
+    },
+    {
+      "name": "victory_seed137",
+      "passed": true,
+      "sha256": "53c00929fed39ddd89d42034c21c40027e75676c8749e4b9f33b402d10a4b1aa"
+    }
+  ],
+  "scope": "Declared natural histories and bounded pictured full-arrival root-name contract. Controlled ABI asserts owned E only; original output archived verbatim. Strict natural comparison is not normalized. Browser runtime uses no original CPU or recorded-input replay."
+}

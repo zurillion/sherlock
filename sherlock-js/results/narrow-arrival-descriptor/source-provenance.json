@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-24",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "artifacts": [
+    {
+      "path": "results/narrow-arrival-descriptor/arrival-detail.json",
+      "sha256": "9582845c263bdfc9fe3871058ae89bb0b51958ea8bc677383a6497d729deaa0f",
+      "bytes": 212580
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/glyph-abi.json",
+      "sha256": "e16f79a967f1119954cd6280799fdd2017ef14f33c5547cb0122e657d19aa51f",
+      "bytes": 25611
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/js-save-provenance.json",
+      "sha256": "c31e0d02d1f85d1d3e6b063795905bb57c616d3c7566d3f4718473fb028c7fa9",
+      "bytes": 376
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/listing-verification.json",
+      "sha256": "4d10a5051e94f68258283dfbc36787c82cfe5c4a29397468d5fa478734cad5df",
+      "bytes": 988
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/name-abi.json",
+      "sha256": "dc5632d1be7a427fa928c6f2529816c7b9383b02f072af96bd6e2f41017ed16d",
+      "bytes": 67844
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/name-entry.json.gz",
+      "sha256": "2cdd137e93694ff94a47d106d8f032facbb177605cb4e87d8d6f611468f21196",
+      "bytes": 58283
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/narrow-arrival-descriptor.asm",
+      "sha256": "b5fe437a56871735abc13806064b3631d642fc6953347a8930bd721382e5ebc1",
+      "bytes": 9227
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/next-stack23.json",
+      "sha256": "5b1e2e913a0e3711aa03aeca7fad2d1e4d9c950c21eeb96af2c25b7c48a5edbc",
+      "bytes": 2351
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/pre-north-js-save.json.gz",
+      "sha256": "8fef0b1bd02af21cabc523e740d0cfc80735dd270099bee81d44a5b546fccf80",
+      "bytes": 27125
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/pre-north-prompt.json.gz",
+      "sha256": "4980439e1d0af21233c1de20c6025b37eda60de9bb467727f01a731f8feff580",
+      "bytes": 58490
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/scene-entry.json.gz",
+      "sha256": "b746dd52585e780964ac1a815b11cb4583e7d9faa0d3694393ef75db7ad8176c",
+      "bytes": 58328
+    },
+    {
+      "path": "results/narrow-arrival-descriptor/separator-entry.json.gz",
+      "sha256": "e51260f3ea186beeb4cf78ed2ebb2bf5c13accec0f4b1e0125d20803fdf6ffdb",
+      "bytes": 58331
+    }
+  ]
+}

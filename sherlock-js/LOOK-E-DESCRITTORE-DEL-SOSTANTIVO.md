@@ -111,3 +111,9 @@ Verifica conclusiva: **50 test mirati** passati, oltre al replay della
 variante dall’avvio e ai tre percorsi completi fino alla vittoria con
 seed 0, 1 e 137. Nessun confronto normalizzato o finale aggiuntivo.
 [Output dei test](results/look-carried-descriptor/test-output.txt).
+
+
+Aggiornamento 24 novembre 2026: superato il successivo $5D22 dell’arrivo
+con immagine. La variante coincide per 3.240 checkpoint fino a mercoledì
+alle 18:54; prossimo limite $5D23 alle 18:55.
+Vedi [arrivo con grafica e nome visibile](ARRIVO-CON-GRAFICA-E-NOME-VISIBILE.md).

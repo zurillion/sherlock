@@ -458,6 +458,16 @@ export class Text {
     }
    }
   }
+  // D102 full arrival lists root objects four bytes deeper than LOOK.
+  // A887 names the next noun before emitting its qualifier's delimiter.
+  if(trace&&w.display?.pictureWindow&&this.data.pictures[room]&&source==='arrival'&&full&&!remote&&parent===null&&w.player===0){
+   const roots=list(null),last=roots.length===1?roots[0]:null;
+   if(last&&!last.person&&!last.money&&!(last.noun&32768)&&last.qualifiers.filter(Boolean).length===1&&!list(last.id).length){
+    const prefix=trace.findLast(part=>part.kind==='root-object-prefix'&&part.parent===last.id);
+    const raw=prefix&&trace.find(part=>part.kind==='raw-text-buffer'&&part.start===prefix.start&&part.end===output.length-1);
+    if(prefix?.frame===0x5D1C&&raw)prefix.spaceDescriptorLowKnown=true;
+   }
+  }
   const listedNoun=trace?.findLast(part=>part.kind==='last-carried-dictionary-reference'&&part.end===output.length);
   if(listedNoun){
    trace.push({kind:'final-dictionary-reference',value:listedNoun.value});

@@ -131,3 +131,9 @@ con l’ingresso mancante imposto esplicitamente dal test.
 Aggiornamento 22 novembre 2026: superato il successivo $5D21 del LOOK.
 Il prefisso della variante è ora 3.148 checkpoint fino a mercoledì alle 17:27; prossimo
 limite $5D22 alle 17:28. Vedi [nuovo dossier](LOOK-E-DESCRITTORE-DEL-SOSTANTIVO.md).
+
+
+Aggiornamento 24 novembre 2026: superato il successivo $5D22 dell’arrivo
+con immagine. La variante coincide per 3.240 checkpoint fino a mercoledì
+alle 18:54; prossimo limite $5D23 alle 18:55.
+Vedi [arrivo con grafica e nome visibile](ARRIVO-CON-GRAFICA-E-NOME-VISIBILE.md).

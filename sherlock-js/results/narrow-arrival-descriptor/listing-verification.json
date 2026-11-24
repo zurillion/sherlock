@@ -1,0 +1,42 @@
+{
+  "instructions": 137,
+  "bytes_roundtripped": 264,
+  "roundtrip_equal": true,
+  "regions": [
+    {
+      "start": "A887",
+      "end_exclusive": "A8B9",
+      "kind": "code",
+      "label": "Descrittore del nome selezionato prima dello spazio",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C39E",
+      "kind": "code",
+      "label": "PUSH DE del glifo: E inframe-6",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D102",
+      "end_exclusive": "D11B",
+      "kind": "code",
+      "label": "Arrivo completo e immagine della locazione",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D3D5",
+      "end_exclusive": "D448",
+      "kind": "code",
+      "label": "Nome comune: articolo,qualificatori e sostantivo",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D526",
+      "end_exclusive": "D55A",
+      "kind": "code",
+      "label": "Elenco degli oggetti visibili alla radice",
+      "atlas_priority": 98
+    }
+  ]
+}

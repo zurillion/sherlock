@@ -90,9 +90,10 @@ export class RandomDisplay {
     if(this.state.started&&(role.kind==='literal-person-name'&&role.end<text.length||role.spaceAfter)){this.glyphSpaceScanKnown=role.spaceScanKnown===true;this.glyphSpaceByteKnown=role.spaceByteKnown===true;this.glyphSpaceShiftKnown=role.spaceShiftKnown===true;this.glyphSpaceCountKnown=role.spaceCountKnown===true;this.glyphSpaceVideoLowKnown=role.spaceVideoLowKnown===true;this.glyphSpaceVideoHighKnown=role.spaceVideoHighKnown===true;const savedFlags=this.glyphFlagsKnown;if(role.spaceScanAfKnown)this.glyphFlagsKnown=true;
      // A887 has already selected the next name word before its delimiter.
      // Only the verified final carried-name LOOK owns D saved at frame-5.
+     const savedDescriptorLow=this.glyphDescriptorLowKnown;this.glyphDescriptorLowKnown=role.spaceDescriptorLowKnown===true;
      const savedDescriptorHigh=this.glyphDescriptorHighKnown;this.glyphDescriptorHighKnown=role.spaceDescriptorHighKnown===true&&Boolean(s.pictureWindow)&&s.windowMode===0&&s.cursor<35&&s.counter+3<15;
      this.glyphResidue(' ',role.frame+12,this.state.cursor,role.spaceDescriptor??(0x5000|(this.world.entity(role.parent).noun&4095)));
-     this.glyphDescriptorHighKnown=savedDescriptorHigh;
+     this.glyphDescriptorHighKnown=savedDescriptorHigh;this.glyphDescriptorLowKnown=savedDescriptorLow;
      this.glyphFlagsKnown=savedFlags;this.glyphSpaceScanKnown=false;this.glyphSpaceByteKnown=false;this.glyphSpaceShiftKnown=false;this.glyphSpaceCountKnown=false;this.glyphSpaceVideoLowKnown=false;this.glyphSpaceVideoHighKnown=false;}
     // The visible delimiter saves its descriptor before C374 clears the next row.
     if(carriedMargin){this.glyphResidue(' ',clearFrame,35,0x5A20);projectedMargin=true;}
@@ -167,6 +168,11 @@ export class RandomDisplay {
     at===0x5D2A&&this.glyphSpaceVideoLowKnown===true||
     at===0x5D2B&&this.glyphSpaceVideoHighKnown===true
    );
+   // C38A in the full pictured arrival saves E of the next root noun.
+   // This is the narrow-window caller; other depths keep separate owners.
+   const rootNameSeparator=frame===0x5D28&&c===' '&&at===0x5D22&&
+    this.cabWordRole==='root-object-prefix'&&this.glyphDescriptorLowKnown===true&&
+    this.state.pictureWindow&&this.state.windowMode===1&&column<17&&this.state.counter+3<15;
    const carriedSeparator=frame===0x5D26&&c===' '&&this.state.pictureWindow&&
     this.state.windowMode===0&&column<35&&this.state.counter+2<15&&(
      at===0x5D1A&&this.glyphSpaceScanKnown===true||
@@ -234,7 +240,7 @@ export class RandomDisplay {
    if([0x5D27,0x5D28].includes(at)&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival&&!carriedSeparator)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!containerExitScan&&!fullExitClear)||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!containerExitScan&&!fullExitClear&&!rootNameSeparator)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!fullExitScan&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];

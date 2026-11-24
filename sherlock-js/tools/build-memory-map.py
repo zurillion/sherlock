@@ -502,6 +502,20 @@ for candidate in candidates:
    note=look_d_notes.get(rr['a'])
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
+# Pictured full arrival: E of the next root-object noun in the narrow window.
+narrow_root_detail=source(ROOT/'results/narrow-arrival-descriptor/arrival-detail.json','Arrivo naturale al binario55: nome del treno e separatore con DE58EB')
+narrow_root_abi=source(ROOT/'results/narrow-arrival-descriptor/name-abi.json','216 nomi controllati con punto/CR: finestre,colonne e contatori')
+narrow_root_glyph=source(ROOT/'results/narrow-arrival-descriptor/glyph-abi.json','108 glifi controllati: E del descrittore inframe5D28')
+narrow_root_next=source(ROOT/'results/narrow-arrival-descriptor/next-stack23.json','Prossimo limite23: A dell’ultima scansione di h in english,frame5D2E')
+narrow_root_notes={0xA89C:'ArrivoN3411: lo spazio dopo steam ha DE58EB,già selezionato per train. Non è il buffer della parola precedente.',0xC38A:'Nuovo proprietario22: E del descrittore del nome alla radice,frame5D28,finestra stretta. Derivare da5000|noun,non assegnareEB.3240checkpoint fino aWed18:54; prossimo23 alle18:55.',0xC3B8:'Prossimo produttore23: fontA dell’ottava scansione di h in english,frame5D2E,tick3504,attore0. Non è D dello stesso descrittore del treno; resta non proiettato.',0xD102:'Arrivo completo con immagine: frame dell’elenco alla radice distinto dal LOOK.',0xD118:'L’immagine lascia finestra stretta. Nuova proprietà solo nel chiamante del nome alla radice,non in ogni glifo della locazione.',0xD539:'D3D9 nome dell’unico oggetto comune alla radice: D3E8/SP5D42,qualificatore5D1C,separatore5D28. Richiesti nome grezzo e nessun contenuto successivo.',0xD541:'Punto finale aA9B7/SP5D48 eCR esterno aSP5D5C,prima delle notifiche d’arrivo diWatson.'}
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=a<candidate['end'] for a in narrow_root_notes):
+  candidate['sources'].extend([narrow_root_detail,narrow_root_abi,narrow_root_glyph,narrow_root_next])
+  candidate['description']+=' Arrivo con immagine: E del descrittore del sostantivo del nome visibile alla radice possiede22 nel frame5D28,narrow,beforeMORE.3240checkpoint fino a mercoledì18:54,seiLOAD; prossimo23/fontA a18:55. I byte adiacenti non ricevono nuova proprietà.'
+  for rr in candidate['rows']:
+   note=narrow_root_notes.get(rr['a'])
+   if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END
