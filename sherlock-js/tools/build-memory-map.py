@@ -516,6 +516,20 @@ for candidate in candidates:
    note=narrow_root_notes.get(rr['a'])
    if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
 
+# Moving train countryside: independent font A23 and descriptor D29.
+train_font_source=source(ROOT/'results/train-countryside-font/departure-detail.json','Partenza naturale3504:descrizione7E45 e frame di English')
+train_font_abi=source(ROOT/'results/train-countryside-font/prose-abi.json','162 frammenti controllati con CR:campagna,finestre,colonne e contatori')
+train_font_glyph=source(ROOT/'results/train-countryside-font/glyph-abi.json','216 glifi controllati:font A e descrittore D indipendenti')
+train_font_next=source(ROOT/'results/train-countryside-font/next-rule-result.json','Prossimo datoCB29:IX9997 restituito dal callbackE5AA dell’attore104')
+train_font_notes={0xC388:'Descrizione7E45,English/frame5D2E:nuova proprietà fontA23 e descrittoreD29 per giocatore0,wide,prima delMORE. Derivati dal glifo e dal parametro,non0/92costanti.',0xC38A:'WriterD29 al3504:DE5C0B durante ultima h di english. È distinto da fontA23 e dal precedente E22 del nome train.',0xC3B8:'WriterA23 al3504:ottava riga del font della h,prima della rotazione. Il giardiniere legge23 e29 nella stessa estrazione3535.3281checkpoint fino aWed19:39.',0xA9DF:'La parola english è scaricata dal successivo riferimento al tronco countr;il suffisso letterale ryside non cambia il descrittore selezionato.',0xD184:'Prosa del treno in corsa:frammento7E45,A59F/SP5D5A,English/glifo5D2E,CRsuccessivoSP5D58. Non estendere aLOOK o ad altri frammenti.',0xCB28:'Dati mutabili IX/IY della regola:gli zeri indicano solo l’inizializzazione. Nuovo limiteCB29 al checkpoint3281/19:41.',0xCB37:'Ultimo writerCB29 al3581:corpo callbackE5AA,ritornoCA67,attore104,IX9997,IYDDBE. Giardiniere8 legge99hex. Ricostruire il contratto specifico,non trattare come opcode o dato immutabile.'}
+for candidate in candidates:
+ if candidate['start']==0x5CEC or any(candidate['start']<=a<candidate['end'] for a in train_font_notes):
+  candidate['sources'].extend([train_font_source,train_font_abi,train_font_glyph,train_font_next])
+  candidate['description']+=' Campagna dal treno:fontA23 e descrittoreD29 ricostruiti nello stesso chiamante,conservando gli altri contratti.3281checkpoint fino a mercoledì19:39,setteLOAD. ProssimoCB29 daIX salvato dopoE5AA,dato mutabile ancora non proiettato per quel ritorno.'
+  for rr in candidate['rows']:
+   note=train_font_notes.get(rr['a'])
+   if note and note not in rr['c']:rr['c']=(rr['c']+' '+note).strip()
+
 # Resolve overlap once, deterministically. Smaller typed intervals win within
 # a source priority. Grey is not inferred as code or data from its byte values.
 owners=[None]*END

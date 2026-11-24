@@ -1,0 +1,6 @@
+{
+  "protocol": "Autonomous JS save after strict replay3112..3203 from verified JS3111. Original corpus supplies comparison only,not runtime bytes.",
+  "checkpoint": 3203,
+  "save_sha256": "d12387a78ccbb4313d59cf4c7346a5b273bcb3e3407c5e571fcd4fc5345d424b",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639"
+}

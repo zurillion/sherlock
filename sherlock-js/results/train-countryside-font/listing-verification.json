@@ -1,0 +1,42 @@
+{
+  "instructions": 119,
+  "bytes_roundtripped": 194,
+  "roundtrip_equal": true,
+  "regions": [
+    {
+      "start": "A9DF",
+      "end_exclusive": "AA10",
+      "kind": "code",
+      "label": "Scarico della parola e CR esterno",
+      "atlas_priority": 98
+    },
+    {
+      "start": "C388",
+      "end_exclusive": "C3E4",
+      "kind": "code",
+      "label": "Font A e descrittore D salvati indipendentemente",
+      "atlas_priority": 98
+    },
+    {
+      "start": "D16B",
+      "end_exclusive": "D187",
+      "kind": "code",
+      "label": "Descrizione della stanza mobile e decoder",
+      "atlas_priority": 98
+    },
+    {
+      "start": "CB28",
+      "end_exclusive": "CB2C",
+      "kind": "data",
+      "label": "IX e IY temporanei delle regole",
+      "atlas_priority": 98
+    },
+    {
+      "start": "CB2C",
+      "end_exclusive": "CB41",
+      "kind": "code",
+      "label": "Chiamata del predicato/corpo e salvataggio degli indici",
+      "atlas_priority": 98
+    }
+  ]
+}

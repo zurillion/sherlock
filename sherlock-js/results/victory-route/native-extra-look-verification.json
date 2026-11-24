@@ -13,18 +13,18 @@
     "command": "LOOK"
   },
   "native_checkpoints": 3312,
-  "strict_js_checkpoints": 3240,
+  "strict_js_checkpoints": 3281,
   "verified_until": {
-    "tick": 3535,
-    "due": 3570,
-    "minute": 54,
-    "hour": 6,
+    "tick": 3580,
+    "due": 3580,
+    "minute": 39,
+    "hour": 7,
     "day": 2,
     "period": "pm",
-    "label": "Wed 06:54pm"
+    "label": "Wed 07:39pm"
   },
-  "draws": 8511,
-  "reads": 18068,
+  "draws": 8620,
+  "reads": 18314,
   "first_room_buffer_read": {
     "checkpoint": 1282,
     "store": {
@@ -710,9 +710,10 @@
       2780,
       2911,
       3015,
-      3112
+      3112,
+      3203
     ],
-    "last_save_future_checkpoints": 127,
+    "last_save_future_checkpoints": 77,
     "comparison": "Fresh JSON sessions; complete future replies and world state plus original per-draw video, random inputs, time and pagination through the verified prefix."
   },
   "resolved_boundaries": [
@@ -1039,52 +1040,134 @@
         "next_seed": 130,
         "next_cursor": 23842
       }
+    },
+    {
+      "checkpoint": 3240,
+      "clock": {
+        "tick": 3536,
+        "due": 3570,
+        "minute": 55,
+        "hour": 6,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 06:55pm"
+      },
+      "command": null,
+      "address": "5D23",
+      "draw": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 104,
+        "cursor": 23331,
+        "reads": [
+          {
+            "address": 23587,
+            "value": 0
+          },
+          {
+            "address": 23593,
+            "value": 0
+          },
+          {
+            "address": 23843,
+            "value": 0
+          },
+          {
+            "address": 23849,
+            "value": 92
+          }
+        ],
+        "video": "8d0bdec14be2d5cffe559023524e28607c1cc5422138c0115b933bf916d73c09",
+        "counter": 6,
+        "narrow": 0,
+        "result": 47,
+        "next_seed": 52,
+        "next_cursor": 23843
+      }
+    },
+    {
+      "checkpoint": 3240,
+      "clock": {
+        "tick": 3536,
+        "due": 3570,
+        "minute": 55,
+        "hour": 6,
+        "day": 2,
+        "period": "pm",
+        "label": "Wed 06:55pm"
+      },
+      "command": null,
+      "address": "5D29",
+      "draw": {
+        "actor": 8,
+        "width": 99,
+        "mixOffset": 5,
+        "seed": 104,
+        "cursor": 23331,
+        "reads": [
+          {
+            "address": 23587,
+            "value": 0
+          },
+          {
+            "address": 23593,
+            "value": 0
+          },
+          {
+            "address": 23843,
+            "value": 0
+          },
+          {
+            "address": 23849,
+            "value": 92
+          }
+        ],
+        "video": "8d0bdec14be2d5cffe559023524e28607c1cc5422138c0115b933bf916d73c09",
+        "counter": 6,
+        "narrow": 0,
+        "result": 47,
+        "next_seed": 52,
+        "next_cursor": 23843
+      }
     }
   ],
   "wear_scan_writers": "results/extra-look-wear-scan/natural-writers.json",
   "next": {
-    "checkpoint": 3240,
+    "checkpoint": 3281,
     "clock": {
-      "tick": 3536,
-      "due": 3570,
-      "minute": 55,
-      "hour": 6,
+      "tick": 3582,
+      "due": 3582,
+      "minute": 41,
+      "hour": 7,
       "day": 2,
       "period": "pm",
-      "label": "Wed 06:55pm"
+      "label": "Wed 07:41pm"
     },
-    "command": null,
-    "address": "5D23",
+    "command": "SW",
+    "address": "CB29",
     "draw": {
       "actor": 8,
       "width": 99,
       "mixOffset": 5,
-      "seed": 104,
-      "cursor": 23331,
+      "seed": 58,
+      "cursor": 51747,
       "reads": [
         {
-          "address": 23587,
-          "value": 0
+          "address": 52003,
+          "value": 237
         },
         {
-          "address": 23593,
-          "value": 0
-        },
-        {
-          "address": 23843,
-          "value": 0
-        },
-        {
-          "address": 23849,
-          "value": 92
+          "address": 52009,
+          "value": 153
         }
       ],
-      "video": "8d0bdec14be2d5cffe559023524e28607c1cc5422138c0115b933bf916d73c09",
-      "counter": 6,
+      "video": "c6ac607df17394af707b01398c3d53df1c1c53090849315962beeb81c39ca313",
+      "counter": 5,
       "narrow": 0,
-      "result": 47,
-      "next_seed": 52,
-      "next_cursor": 23843
+      "result": 91,
+      "next_seed": 190,
+      "next_cursor": 52003
     }
   },
   "scan_af_writers": "results/extra-look-scan-af/natural-writers.json",
@@ -1093,5 +1176,6 @@
   "full_arrival_exits": "results/full-arrival-exits/natural-ne-detail.json",
   "container_exit_af": "results/container-exit-af/natural-writer.json",
   "look_carried_descriptor": "results/look-carried-descriptor/look-detail.json",
-  "narrow_arrival_descriptor": "results/narrow-arrival-descriptor/arrival-detail.json"
+  "narrow_arrival_descriptor": "results/narrow-arrival-descriptor/arrival-detail.json",
+  "train_countryside_registers": "results/train-countryside-font/paired-writers.json"
 }

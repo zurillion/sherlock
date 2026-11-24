@@ -155,18 +155,18 @@ test('Seed 1 reproduces the Victoria route through the victory at Victoria', asy
 test('An extra LOOK before the first cab retains renderer state into Wednesday', async () => {
   const packed = await readFile(new URL('../results/victory-route/victoria-extra-look-native-seed1.json.gz', import.meta.url));
   const trace = JSON.parse(gunzipSync(packed));
-  const limit = 3240;
+  const limit = 3281;
   assert.equal(trace.seed, 1);
   assert.equal(trace.steps.length, 3312);
   const excluded = trace.steps[limit];
-  assert(excluded.draws.some(draw => draw.reads.some(read => read.address === 0x5D23)));
-  const session = await replay({ ...trace, steps: trace.steps.slice(0, limit) }, { savePoints: [1488, 2005, 2780, 2911, 3015, 3112] });
-  assert.equal(session.game.world.clock().label, 'Wed 06:54pm');
+  assert(excluded.draws.some(draw => draw.reads.some(read => read.address === 0xCB29)));
+  const session = await replay({ ...trace, steps: trace.steps.slice(0, limit) }, { savePoints: [1488, 2005, 2780, 2911, 3015, 3112, 3203] });
+  assert.equal(session.game.world.clock().label, 'Wed 07:39pm');
   const boundary = excluded.command === null
     ? session.request('continue-command', { job: session.state().job })
     : session.request('command', { command: excluded.command });
   assert.equal(boundary.state.analysis.outcome, 'not_translated');
-  assert.equal(boundary.state.analysis.missing_address, 0x5D23);
+  assert.equal(boundary.state.analysis.missing_address, 0xCB29);
 });
 
 test('Entering the Victoria platform early reproduces the original death with graphics enabled', async () => {

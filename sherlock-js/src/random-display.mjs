@@ -222,6 +222,13 @@ export class RandomDisplay {
    const talkArticle=this.cabWordRole==='cabbie-talk-article'&&frame===0x5D2C&&[0x5D24,0x5D25].includes(at);
    const hailClearScan=this.cabWordRole==='qualified-hail-delimiter'&&frame===0x5D30&&descriptor===0x5A20&&[0x5D24,0x5D25].includes(at);
    const relocationVerb=this.relocationPersonVerb===true&&frame===0x5D3A&&[0x5D30,0x5D31].includes(at);
+   // The countryside description flushes English at5D2E. Its final raw
+   // font scan A is independent from the saved BC and video fields.
+   const trainEnglishScope=this.world.player===0&&this.trainScanKnown===true&&this.cabWordRole==='train-description-english'&&
+    frame===0x5D2E&&this.state.pictureWindow&&this.state.windowMode===0&&column<35&&this.state.counter+2<15;
+   const trainFont=trainEnglishScope&&at===0x5D23;
+   // C38A independently saves D of the active glyph descriptor at29.
+   const trainDescriptor=trainEnglishScope&&at===0x5D29;
    const trainScan=this.trainScanKnown===true&&(
     [0x5D28,0x5D2E].includes(frame)&&(at===frame-9||this.state.pictureWindow&&at===frame-8)||
     this.state.pictureWindow&&frame===0x5D2E&&(at===frame-10||at===frame-4)||
@@ -240,7 +247,7 @@ export class RandomDisplay {
    if([0x5D27,0x5D28].includes(at)&&frame===0x5D32&&this.cabWordRole==='police-cab-prose-tail')return;
    if((at===0x5D2B&&!passageSpace&&!greetingClear&&!relocationSpace)||
     (at>=0x5D1A&&at<=0x5D1D&&this.glyphFlagsKnown!==true&&!briefIdentity&&!ruleArrival&&!carriedSeparator)||
-    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!containerExitScan&&!fullExitClear&&!rootNameSeparator)||
+    (usesUpperContext&&this.upperGlyphKnown!==true&&!passagePrefix&&!passageSpace&&!briefIdentity&&!cabClear&&!trainScan&&!policeScan&&!arrivalName&&!refusalScan&&!cabProse&&!cabBoardName&&!carriedDescriptorHigh&&!relocationPrefix&&!ruleArrival&&!greetingClear&&!relocationVerb&&!exitListScan&&!hailClearScan&&!playerHailName&&!talkArticle&&!trainBoardName&&!wearArgumentScan&&!containerExitScan&&!fullExitClear&&!rootNameSeparator&&!trainFont&&!trainDescriptor)||
     (at===0x5D1E&&this.upperGlyphKnown!==true&&!fullExitScan&&!cabBoardScan&&!actionVerbScan&&!briefIdentityCallerBC&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoLowKnown===true&&[0x5D24,0x5D26].includes(frame)))||
     (at===0x5D1F&&this.upperGlyphKnown===false&&!briefIdentityCallerBC&&!actionVerbScan&&!carriedClearCount&&!trainScan&&!relocationPrefix&&!ruleArrival&&!(this.glyphVideoHighKnown===true&&frame===0x5D26))){
     delete s[at];

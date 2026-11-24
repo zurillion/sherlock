@@ -16,13 +16,13 @@ i motori, con le due deduzioni sugli omicidi accettate.
 
 ## Lavoro ancora aperto
 
-1. **Variante LOOK aggiuntivo.** Ricostruire il produttore di $5D23,
-   letto dal giardiniere alle 18:55: C3B8 salva A dell’ultima scansione
-   della h di english, frame $5D2E, tick 3504, attore 0.
-   Coincidono 3.240 checkpoint fino alle 18:54, con sei Salva/Carica.
-   Superato $5D22 alle 17:28: E del descrittore train durante l’arrivo
-   completo al binario 55, nell’elenco visibile accanto all’immagine.
-   [Arrivo con grafica e nome visibile](ARRIVO-CON-GRAFICA-E-NOME-VISIBILE.md).
+1. **Variante LOOK aggiuntivo.** Ricostruire il risultato IX del
+   callback $E5AA dell’attore 104: CB37 salva IX=$9997; il giardiniere
+   legge il byte alto in $CB29 durante SW alle 19:41.
+   Coincidono 3.281 checkpoint fino alle 19:39, con sette Salva/Carica.
+   Superati $5D23 e $5D29 nella stessa estrazione delle 18:55: font A
+   e descrittore D, indipendenti, dalla prosa della campagna sul treno.
+   [Treno, campagna e registri salvati](TRENO-CAMPAGNA-E-REGISTRI-SALVATI.md).
 2. **Altre interazioni e seed.** Ampliare le storie delle deduzioni
    e dei finali. Il comportamento di NEW, Riavvia e LOAD è
    [documentato](COMANDI-E-CALENDARIO.md#riavvio-e-caricamento-sullo-spectrum).

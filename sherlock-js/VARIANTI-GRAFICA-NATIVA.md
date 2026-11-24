@@ -137,3 +137,9 @@ Aggiornamento 24 novembre 2026: superato il successivo $5D22 dell’arrivo
 con immagine. La variante coincide per 3.240 checkpoint fino a mercoledì
 alle 18:54; prossimo limite $5D23 alle 18:55.
 Vedi [arrivo con grafica e nome visibile](ARRIVO-CON-GRAFICA-E-NOME-VISIBILE.md).
+
+
+Aggiornamento 24 novembre 2026: superati i successivi $5D23 e $5D29
+della prosa sul treno. La variante coincide per 3.281 checkpoint fino a
+mercoledì alle 19:39; prossimo limite $CB29 alle 19:41.
+Vedi [treno, campagna e registri salvati](TRENO-CAMPAGNA-E-REGISTRI-SALVATI.md).

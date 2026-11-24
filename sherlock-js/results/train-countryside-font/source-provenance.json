@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-24",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "artifacts": [
+    {
+      "path": "results/train-countryside-font/departure-detail.json",
+      "sha256": "c6e79bfe6c0c83727177d75117c62ef5f3fff6b855cdcc66a3f6c8c1120a30cd",
+      "bytes": 111193
+    },
+    {
+      "path": "results/train-countryside-font/glyph-abi.json",
+      "sha256": "800fa6b7ebd9e82b60ccf7d0db5e1d85d44a79941c88f5672ff2528746925d81",
+      "bytes": 54243
+    },
+    {
+      "path": "results/train-countryside-font/js-save-provenance.json",
+      "sha256": "6b91b0b36575b7ebc98181c7a34ced89b8e34d02d3622c0e56a62c2c64e698d8",
+      "bytes": 345
+    },
+    {
+      "path": "results/train-countryside-font/listing-verification.json",
+      "sha256": "851d97865983bb76087429658963fdeeacfb78ef07eac9b0c08866f339eee4ee",
+      "bytes": 984
+    },
+    {
+      "path": "results/train-countryside-font/next-rule-result.json",
+      "sha256": "48768e4d29b1d5dd70850e25bfff149d2e9174776baaf3664ce3bcaef8e57943",
+      "bytes": 1082
+    },
+    {
+      "path": "results/train-countryside-font/paired-writers.json",
+      "sha256": "102cd1c596125634c32166dc39aaa19d7457e196eeaa78368a6f75b653b0ed03",
+      "bytes": 3877
+    },
+    {
+      "path": "results/train-countryside-font/pre-wait-js-save.json.gz",
+      "sha256": "46d490bcc2b4f272ac9147aff45971d5f68ef634283a14365d779a7ffd1537bb",
+      "bytes": 27668
+    },
+    {
+      "path": "results/train-countryside-font/pre-wait-prompt.json.gz",
+      "sha256": "4621ae4d125765ccec2f652cf8888c34fbcb8e067380256761a1f8048dfaa9f7",
+      "bytes": 58834
+    },
+    {
+      "path": "results/train-countryside-font/prose-abi.json",
+      "sha256": "d94771a622a96a04ec7e6639ff76168a5c6ab92c1ba083c3a8fb57bbb86447e6",
+      "bytes": 224637
+    },
+    {
+      "path": "results/train-countryside-font/prose-entry.json.gz",
+      "sha256": "9957a2fd8b804240bef5a19f85334666a052b53f7bc4ed6eb4472a0025ba7c67",
+      "bytes": 59051
+    },
+    {
+      "path": "results/train-countryside-font/train-countryside-font.asm",
+      "sha256": "d7962cae2e5ff8f7de45b3fe0784a80e4fa6fd49b22973c5bb5b91a2e93e1abd",
+      "bytes": 8230
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "protocol": "Natural seed1 extra-LOOK route from original checkpoint3203;all24actors,nativegraphics,freeinitialLOOK,immediateMORE. Track every CB37 index save including unchanged values; flag unexplained CB29 changes. CB28..CB2B are mutable data,not instructions.",
+  "source_sha256": "ebad1c1b49217c97acc42dbdde4a8fd383b0b349a5e50385402267752cd84639",
+  "source_cache_sha256": "4621ae4d125765ccec2f652cf8888c34fbcb8e067380256761a1f8048dfaa9f7",
+  "read": {
+    "tick": 3581,
+    "actor": 8,
+    "address": "CB29",
+    "value": 153,
+    "command": "SW"
+  },
+  "writer": {
+    "pc": "CB37",
+    "tick": 3581,
+    "actor": 104,
+    "command": "SW",
+    "ix": 39319,
+    "iy": 56766,
+    "owner": {
+      "entry": "CB2C",
+      "sp": 23916,
+      "handler": 58794,
+      "caller": 51815,
+      "tick": 3581,
+      "actor": 104,
+      "action": 255,
+      "arguments": [
+        255,
+        255
+      ]
+    },
+    "value": 153
+  },
+  "observed_stores": 2844,
+  "returns_without_recorded_entry": 1,
+  "entry_points": [
+    "CB2C",
+    "CB34"
+  ],
+  "unclassified_transitions": []
+}

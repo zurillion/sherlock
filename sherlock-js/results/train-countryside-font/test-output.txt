@@ -1,0 +1,131 @@
+formatter_regressions_57
+✔ The last original writer of20 is the steam qualifier scan AF in Watsons ordinary exit (23.585667ms)
+✔ 1152 original captions validate the bounded exit producer and the final noun wrap (1523.363459ms)
+✔ The producer computes both AF bytes for every glyph column and nonzero font rows (178.197541ms)
+✔ The 120 original direction captions preserve the marked AF; only fresh bounded player captions own it (4403.188833ms)
+✔ 360 original brief-scene geometries validate whole-call preservation without inventing a missing value (334.125959ms)
+✔ The missing class7 CLIMB reference preserves AF in both resolution branches and the original context (590.80675ms)
+✔ Requests, alternate callers, partial captions and unverified scene kinds do not acquire the exit AF (99.566292ms)
+✔ SAVE keeps a zero AF pair, while old missing fields are not supplied by known-preserving code (145.992042ms)
+✔ Extra LOOK last writer: separator shift and scan count precede the gardener read (7.843291ms)
+✔ Carried-object separator derives all eight shifts; unknown contexts and legacy saves stay unknown (143.803958ms)
+✔ Original four announcements preserve low cells on every fresh wide-row counter (2.790917ms)
+✔ Ordinary door and qualified-arrival contracts preserve only the bounded low fields (239.904417ms)
+✔ Cold original trace distinguishes LOOK-space AF from WEAR-qualifier AF at the same draw (13.132875ms)
+✔ Carried separator owns scan F/A independently from shift/count in the original glyph ABI (120.103208ms)
+✔ LOOK separator AF requires a final common name with a matching raw dictionary span (52.52ms)
+✔ A requested LOOK does not borrow the ordinary LOOK separator AF frame (32.653583ms)
+✔ Ordinary WEAR preserves low scan bytes and derives argument-prefix AF, BC and video HL (86.941292ms)
+✔ 168 complete original rejections preserve the twelve marked fields and have no stack writer at20 (5982.806875ms)
+✔ Unknown old save fields are not recreated by a known-preserving error (42.4855ms)
+✔ The natural s is EXITS; 731A on the stack is saved AF, not a dialogue address (9.712666ms)
+✔ Full-arrival exit scan and direction-wrap fields match the controlled original ABI (635.948541ms)
+✔ Other scene callers do not borrow the full arrival exit roles (180.8135ms)
+✔ Exit scan ownership is per byte, bounded before MORE, and absent legacy fields remain absent (130.109792ms)
+✔ Original LOOK saves D of the next noun at21; the final noun and wrap use shallower frames (14.605833ms)
+✔ 216 original glyph setups prove descriptor high is independent from pixel column and not fixed51 (37.695ms)
+✔ 144 complete original LOOK geometries verify owned D through final noun CR and wrap (5523.2115ms)
+✔ Only ordinary raw final common carried names own the next-noun descriptor (95.785333ms)
+✔ Separator scopes exclude margin, MORE and narrow mode without filling absent fields (73.57275ms)
+✔ SAVE preserves computed D and independent missing legacy bytes (48.6885ms)
+✔ Natural pictured arrival saves E of the next train noun at22, not a scan byte (18.230833ms)
+✔ 108 original glyph setups derive only descriptor E under the narrow root-name caller (48.711459ms)
+✔ 216 complete original name-period-CR geometries validate every owned E and retain exclusions (221.255708ms)
+✔ Only the ordinary full pictured arrival with one raw root name acquires E ownership (220.517709ms)
+✔ Wide, margin, MORE and other caller depths do not borrow this root descriptor (153.991167ms)
+✔ Actual N produces E, Watson arrival preserves it and JSON LOAD retains the computed byte (302.0055ms)
+✔ Natural20 and26 have independent writers, characters and frames at the actual cook read (63.400042ms)
+✔ Original six-role ABIs and descriptor variants distinguish a parameter byte from a fixed0B (140.995875ms)
+✔ Whole passage geometry matches every owned20 and26 in720 original calls (374.906292ms)
+✔ 26 arrival preservation is restricted to fresh rows with a proved page-counter budget (6857.966875ms)
+✔ Simple lower errors preserve both inputs, while unproved error and arrival callers revoke26 (88.973583ms)
+✔ Descriptor E and the delimited-space scan require distinct scopes and preserve old-SAVE unknowns (28.081292ms)
+✔ Unmapped clears, final wraps, subsequent names and pending MORE revoke the new contracts (14.894042ms)
+✔ Ordinary JS commands reproduce the distinct n and separating-space writers and LOAD future (810.357583ms)
+✔ Natural21/27 provenance reaches the actual later gardener read and retains the prior store prefix (87.427ms)
+✔ Original six-role ABIs and variable descriptor high bytes exclude a fixed5C and fixed font0 (100.973ms)
+✔ All owned21/27 match720 original whole-passage geometries; LOOK remains unowned (982.487709ms)
+✔ Original caller controls prove high-byte preservation with the stricter fresh-row policy for27 (400.382708ms)
+✔ Errors, qualified arrivals and nonordinary callers do not borrow the new preservation contracts (109.174167ms)
+✔ High descriptor and raw font byte require independent knowledge and preserve missing old-SAVE fields (50.078917ms)
+✔ Unknown clears, subsequent names, final wraps and page boundaries revoke high-byte ownership (35.364083ms)
+✔ Normal JS commands reconstruct21/27 from a prewriter SAVE and keep the LOAD future (2080.720167ms)
+✔ The paired original read has two independent English writers: raw font A and descriptor D (137.913791ms)
+✔ 216 original glyph cases distinguish nonzero font rows and different descriptor high bytes (246.543125ms)
+✔ 162 original countryside fragments plus CR validate each owned field through wrapping (436.082083ms)
+✔ Narrow, margin, MORE, alternate identity and unrelated glyph callers stay unowned (150.91125ms)
+✔ The actual live WAIT reaches the departure, and SAVE retains zero A and independent D (509.794291ms)
+✔ The new boundary CB29 is mutable saved-rule-index data, with an observed CB37 writer (2.339125ms)
+ℹ tests 57
+ℹ suites 0
+ℹ pass 57
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9067.265
+
+updated_producer_and_map_11
+✔ Memory atlas partitions the original payload exactly once and excludes ROM/video (6.023959ms)
+✔ Data banks, actor programmes and Z80 routines retain distinct classifications (0.330792ms)
+✔ Every analysis row overlaps its zone; generated hex directives match actual payload bytes (21.916ms)
+✔ Changing map row width cannot lose or duplicate a byte, including FFFF (7.35525ms)
+✔ Hex search and address navigation use inclusive start and exclusive end (1.566084ms)
+✔ The paired original read has two independent English writers: raw font A and descriptor D (5.008625ms)
+✔ 216 original glyph cases distinguish nonzero font rows and different descriptor high bytes (23.971125ms)
+✔ 162 original countryside fragments plus CR validate each owned field through wrapping (117.627792ms)
+✔ Narrow, margin, MORE, alternate identity and unrelated glyph callers stay unowned (88.021917ms)
+✔ The actual live WAIT reaches the departure, and SAVE retains zero A and independent D (295.034541ms)
+✔ The new boundary CB29 is mutable saved-rule-index data, with an observed CB37 writer (3.703958ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 803.429792
+
+cold_extra_look
+✔ An extra LOOK before the first cab retains renderer state into Wednesday (140880.592125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 141123.028
+
+victory_seed0
+✔ Seed 0 reproduces the complete graphics-enabled victory at Victoria (195601.828584ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195897.410125
+
+victory_seed1
+✔ Seed 1 reproduces the Victoria route through the victory at Victoria (195863.185541ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 196124.664042
+
+victory_seed137
+✔ The graphics-enabled Victoria route reproduces the complete victory at Victoria (195635.104833ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195910.837625

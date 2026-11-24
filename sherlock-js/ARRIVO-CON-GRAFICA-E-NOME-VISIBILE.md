@@ -128,3 +128,9 @@ Verifica conclusiva: **56 test mirati** passati, oltre al confronto della
 variante dall’avvio e ai tre percorsi completi fino alla vittoria con
 seed 0, 1 e 137.
 [Output dei test](results/narrow-arrival-descriptor/test-output.txt).
+
+
+Aggiornamento 24 novembre 2026: superati i successivi $5D23 e $5D29
+della prosa sul treno. La variante coincide per 3.281 checkpoint fino a
+mercoledì alle 19:39; prossimo limite $CB29 alle 19:41.
+Vedi [treno, campagna e registri salvati](TRENO-CAMPAGNA-E-REGISTRI-SALVATI.md).
